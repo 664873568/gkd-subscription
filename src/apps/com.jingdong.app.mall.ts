@@ -3,29 +3,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 export default defineGkdApp({
   id: 'com.jingdong.app.mall',
   name: '京东',
-  groups: [{
-      key: 0,
-      name: '',
-      snapshotUrls: '',
-      fastQuery: true,
-      matchTime: 10000,
-      actionMaximum: 1,
-      resetMatch: 'app',
-      rules: [
-    {
-        key: 0,
-        activityIds: '',
-        matches: '',
-        snapshotUrls: '',
-       },
-      ],
-    },
-    {
-        key: 1,
-        activityIds: '',
-        matches: '',
-        snapshotUrls: '',
-       },
+  groups: [
     {
       key: 1,
       name: '浏览-已完成-点击立即返回',
