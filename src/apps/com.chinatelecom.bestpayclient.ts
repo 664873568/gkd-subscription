@@ -4,29 +4,6 @@ export default defineGkdApp({
   id: 'com.chinatelecom.bestpayclient',
   name: '翼支付',
   groups: [{
-      key: 0,
-      name: '赚金币-首页',
-      activityIds: 'com.alipay.mobile.nebulacore.ui.H5Activity',
-      snapshotUrls: 'https://i.gkd.li/i/23451354',
-      fastQuery: true,
-      matchTime: 10000,
-      actionMaximum: 1,
-      resetMatch: 'app',
-      rules: [
-       {
-        key: 0,
-        activityIds: '',
-        matches: '',
-        snapshotUrls: '',
-       },
-       {
-        key: 1,
-        activityIds: '',
-        matches: '',
-        snapshotUrls: '',
-       },
-      ],
-    },{
       key: 1,
       name: '看视频-跳过',
       activityIds: 'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
