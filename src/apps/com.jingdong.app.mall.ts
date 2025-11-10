@@ -26,8 +26,6 @@ export default defineGkdApp({
         matches: '',
         snapshotUrls: '',
        },
-      ],
-    },
     {
       key: 1,
       name: '浏览-已完成-点击立即返回',
