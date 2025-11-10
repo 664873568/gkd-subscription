@@ -12,12 +12,13 @@ export default defineGkdApp({
       actionMaximum: 1,
       resetMatch: 'app',
       rules: [
-       {
-        key: 1,
-        activityIds: '.bm.common.web.ui.tab.WebTabActivity',
-        matches: '@[left=1059][top=753][right=1092][bottom=786] <<n * +n * >n [text="返回领奖"]',
-        snapshotUrls: 'https://i.gkd.li/i/23423814',
-       },
+        {
+          key: 1,
+          activityIds: '.bm.common.web.ui.tab.WebTabActivity',
+          matches:
+            '@[left=1059][top=753][right=1092][bottom=786] <<n * +n * >n [text="返回领奖"]',
+          snapshotUrls: 'https://i.gkd.li/i/23423814',
+        },
       ],
     },
     {
@@ -28,12 +29,12 @@ export default defineGkdApp({
       actionMaximum: 1,
       resetMatch: 'app',
       rules: [
-       {
-        key: 1,
-        activityIds: '.bm.common.web.ui.WebActivity',
-        matches: '@Button < * + [text="跳转中"]',
-        snapshotUrls: 'https://i.gkd.li/i/23397450',
-       },
+        {
+          key: 1,
+          activityIds: '.bm.common.web.ui.WebActivity',
+          matches: '@Button < * + [text="跳转中"]',
+          snapshotUrls: 'https://i.gkd.li/i/23397450',
+        },
       ],
     },
     {
@@ -44,12 +45,12 @@ export default defineGkdApp({
       actionMaximum: 1,
       resetMatch: 'app',
       rules: [
-       {
-        key: 1,
-        activityIds: '.bm.common.web.ui.WebActivity',
-        matches: '@Button <2 * + [text="跳转中"]',
-        snapshotUrls: 'https://i.gkd.li/i/23424253',
-       },
+        {
+          key: 1,
+          activityIds: '.bm.common.web.ui.WebActivity',
+          matches: '@Button <2 * + [text="跳转中"]',
+          snapshotUrls: 'https://i.gkd.li/i/23424253',
+        },
       ],
     },
     {
@@ -60,12 +61,12 @@ export default defineGkdApp({
       actionMaximum: 1,
       resetMatch: 'app',
       rules: [
-       {
-        key: 1,
-        activityIds: '.bm.common.web.ui.WebActivity',
-        matches: '@[text=""] -3 [text="集齐5鹅 抽免单机会"]',
-        snapshotUrls: 'https://i.gkd.li/i/23423959',
-       },
+        {
+          key: 1,
+          activityIds: '.bm.common.web.ui.WebActivity',
+          matches: '@[text=""] -3 [text="集齐5鹅 抽免单机会"]',
+          snapshotUrls: 'https://i.gkd.li/i/23423959',
+        },
       ],
     },
   ],
