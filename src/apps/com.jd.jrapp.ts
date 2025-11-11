@@ -6,66 +6,25 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '返回领奖-白条鹅子档案',
-      fastQuery: true,
-      matchTime: 10000,
-      actionMaximum: 1,
-      resetMatch: 'app',
-      rules: [
-        {
-          key: 1,
-          activityIds: '.bm.common.web.ui.tab.WebTabActivity',
-          matches:
-            '@[left=1059][top=753][right=1092][bottom=786] <<n * +n * >n [text="返回领奖"]',
-          snapshotUrls: 'https://i.gkd.li/i/23423814',
-        },
-      ],
-    },
-    {
-      key: 2,
       name: '跳转中-跳转中-<',
-      fastQuery: true,
+      matchRoot: true,
       matchTime: 10000,
       actionMaximum: 1,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
-          key: 1,
+          key: 0,
+          name: '跳转中-<',
           activityIds: '.bm.common.web.ui.WebActivity',
           matches: '@Button < * + [text="跳转中"]',
           snapshotUrls: 'https://i.gkd.li/i/23397450',
         },
-      ],
-    },
-    {
-      key: 3,
-      name: '跳转中-跳转中-×',
-      fastQuery: true,
-      matchTime: 10000,
-      actionMaximum: 1,
-      resetMatch: 'app',
-      rules: [
         {
           key: 1,
+          name: '跳转中-×',
           activityIds: '.bm.common.web.ui.WebActivity',
           matches: '@Button <2 * + [text="跳转中"]',
           snapshotUrls: 'https://i.gkd.li/i/23424253',
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '开心收下-恭喜获得1只鹅',
-      fastQuery: true,
-      matchTime: 10000,
-      actionMaximum: 1,
-      resetMatch: 'app',
-      rules: [
-        {
-          key: 1,
-          activityIds: '.bm.common.web.ui.WebActivity',
-          matches: '@[text=""] -3 [text="集齐5鹅 抽免单机会"]',
-          snapshotUrls: 'https://i.gkd.li/i/23423959',
         },
       ],
     },
