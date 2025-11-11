@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '看视频-跳过-我要加速',
+      name: '看视频-跳过-西瓜视频',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -14,34 +14,54 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="我要加速" || text*="体验"] < * -n [text*="广告" || text="可抵20秒"] - [text*="秒"] - [text*="看" || text="去浏览"]',
+            '@[text*="我要" || text*="体验"] < * -n [text*="广告" || text*="可"] - [text*="秒"] - [text*="看" || text="去浏览"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23450800',
+            'https://i.gkd.li/i/23451395',
             'https://i.gkd.li/i/23454789',
             'https://i.gkd.li/i/23455257',
+            'https://i.gkd.li/i/23471191',
+            'https://i.gkd.li/i/23471258',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity_T',
           ],
         },
       ],
     },
     {
       key: 2,
-      name: '看视频-跳过-我要直接领奖',
+      name: '看视频-跳过-京东',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: [
-            '@[text="我要直接领奖"] < * -n [text="可直接领奖"] - [text*="秒"] - [text="再看"] - [text="恭喜加速成功"]',
+            '@[text="我要加速领奖" || text="返回继续体验"] -2 [text="get_reward_btn_bg"] <<n * -n * >n [text="get_accelerate_chance"]',
           ],
-          snapshotUrls: ['https://i.gkd.li/i/23451395'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23471460',
+            'https://i.gkd.li/i/23471469',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[text="我要免看本次广告"] < * -n * > [text="恭喜获得特权"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23471487',
+          ],
+          activityIds: [
+            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
           ],
         },
       ],
@@ -67,7 +87,7 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '看视频-跳过',
+      name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -75,7 +95,10 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="｜跳过"] - [text="奖励已领取"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23451963'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23451963',
+            'https://i.gkd.li/i/23471408',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
@@ -92,9 +115,13 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text^="看视频再得"] -2 [text^="+"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23453300'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23453300',
+            'https://i.gkd.li/i/23471446',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
           ],
         },
       ],
