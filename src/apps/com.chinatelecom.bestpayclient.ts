@@ -78,12 +78,8 @@ export default defineGkdApp({
           matches: [
             '@[text="拿奖励"] < * -n * > [text*="可"] -n [text*="秒"] - [text*="看"]',
           ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23475883',
-          ],
-          activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23475883'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
     },
@@ -97,16 +93,12 @@ export default defineGkdApp({
       rules: [
         {
           action: 'clickCenter',
-          matches: [
-            '@[text="跳过"] <<n * - * > [desc="gift_box"] > ImageView',
-          ],
+          matches: ['@[text="跳过"] <<n * - * > [desc="gift_box"] > ImageView'],
           snapshotUrls: [
             'https://i.gkd.li/i/23476056',
             'https://i.gkd.li/i/23476161',
           ],
-          activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
-          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
     },
@@ -123,12 +115,8 @@ export default defineGkdApp({
           matches: [
             '@ImageView <<n [desc="close_button"] - * < * - * > [desc="gift_box"] > ImageView',
           ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23476430',
-          ],
-          activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23476430'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
     },
