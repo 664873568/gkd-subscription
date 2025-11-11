@@ -57,12 +57,8 @@ export default defineGkdApp({
           matches: [
             '@[text="我要免看本次广告"] < * -n * > [text="恭喜获得特权"]',
           ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23471487',
-          ],
-          activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23471487'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
     },
