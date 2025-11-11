@@ -112,7 +112,7 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '看视频-跳过',
+      name: '看视频-跳过-礼盒-关闭按钮',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
