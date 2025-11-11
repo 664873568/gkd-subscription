@@ -7,13 +7,12 @@ export default defineGkdApp({
     {
       key: 1,
       name: '浏览-已完成-点击立即返回',
-      fastQuery: true,
+      matchRoot: true,
       matchTime: 10000,
       actionMaximum: 1,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
-          key: 1,
           activityIds: 'com.jd.lib.productdetail.ProductDetailActivity',
           matches:
             '@[index=parent.childCount.minus(1)] - [id$="/a75"] > [id$="/bco"]',
@@ -24,13 +23,12 @@ export default defineGkdApp({
     {
       key: 2,
       name: '显示补贴-关闭',
-      fastQuery: true,
+      matchRoot: true,
       matchTime: 10000,
       actionMaximum: 1,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
-          key: 1,
           activityIds: 'com.jd.lib.productdetail.ProductDetailActivity',
           matches:
             '@[desc="关闭"] < * - [text="立即使用"] -3 [text="仅限店铺内部分商品"]',
@@ -41,19 +39,16 @@ export default defineGkdApp({
     {
       key: 3,
       name: '服饰美妆-暂时离开',
-      fastQuery: true,
+      matchRoot: true,
       matchTime: 10000,
       actionMaximum: 1,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           position: {
             left: 'width * 0.5026',
             top: 'width * 0.2124',
           },
-        },
-        {
-          key: 1,
           activityIds: 'com.jd.lib.ttt.page.TTTMultiPageActivity',
           matches: '@*[childCount=18] < * -2 *[text*="立即领取"]',
           snapshotUrls: 'https://i.gkd.li/i/23396514',
