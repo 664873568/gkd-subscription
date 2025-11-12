@@ -13,8 +13,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
-          actionDelay: 1000,
+          action: 'clickCenter',
+          actionDelay: 2000,
           matches: [
             '@[text*="我要" || text*="体验" || text="立即前往" || text="再试一次"] <<n * -n * >n [text$="s" || text*="秒"] + [text="｜跳过"]',
           ],
@@ -48,8 +48,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
-          actionDelay: 1000,
+          action: 'clickCenter',
+          actionDelay: 2000,
           matches: [
             '@[text*="体验" || text="再试一次"] <<n * +n * >n [text$="s" || text*="秒"] + [text="｜跳过"]',
           ],
@@ -72,8 +72,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
-          actionDelay: 1000,
+          action: 'clickCenter',
+          actionDelay: 2000,
           matches: ['@[text*="我要"] <<n * +n * >n [text="跳过"]'],
           snapshotUrls: ['https://i.gkd.li/i/23471487'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
@@ -90,7 +90,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'clickCenter',
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '@[text="拿奖励" || text="再试一次"] <<n * +n * >n [text$="拿奖励"]',
           ],
@@ -108,7 +108,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: [
             '@[text="跳过"] <<n * -n * >n [desc="gift_box"] > ImageView',
@@ -130,7 +130,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: [
             '@ImageView <<n [desc="close_button"] -n * <n * -n * >n [desc="gift_box"] > ImageView',
@@ -149,7 +149,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: [
             '@ImageView + [text="应用详情"] <<n * +n *[text^="立即下载"]',
@@ -170,7 +170,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: ['@[text="｜跳过"] - [text="奖励已领取"]'],
           snapshotUrls: [
@@ -192,7 +192,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: ['@[text="去领奖"] <<n * -n * >n [text="svg%3e"]'],
           snapshotUrls: [
@@ -214,7 +214,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: [
             '@RelativeLayout <<n * + * >n [text="奖励已领取"] - [text="svg%3e"]',
@@ -235,7 +235,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: ['[text="赚金币"] >n @[text^="看视频再得"] -2 [text^="+"]'],
           snapshotUrls: [
@@ -258,7 +258,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: ['[text="赚金币"] >n @Image + [text^="+"]'],
           snapshotUrls: ['https://i.gkd.li/i/23496647'],
@@ -275,7 +275,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: ['@ImageView <<n * -n * >n [text="反馈"]'],
           snapshotUrls: ['https://i.gkd.li/i/23493264'],
@@ -317,7 +317,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: ['@ImageView[vid="cll_back"] - WebView > WebView'],
           snapshotUrls: [
@@ -337,7 +337,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'clickCenter',
           actionDelay: 1000,
           matches: ['@[text="继续观看"] <<n * +n * >n [text="跳过"]'],
           snapshotUrls: ['https://i.gkd.li/i/23497387'],
