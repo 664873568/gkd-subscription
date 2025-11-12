@@ -33,12 +33,8 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 15000,
           matches: ['[text="请用指纹解锁"] + [text^="用于打开"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23494853',
-          ],
-          activityIds: [
-            'com.miui.applicationlock.AppLockActivity',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23494853'],
+          activityIds: ['com.miui.applicationlock.AppLockActivity'],
         },
       ],
     },
