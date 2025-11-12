@@ -6,6 +6,29 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
+      name: '赚金币-开宝箱得金币',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'clickCenter',
+          actionDelay: 1000,
+          matches: [
+            '@[text="开宝箱得金币"] <<n [text="赚金币"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23451354',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '看视频-跳过↑',
       matchRoot: true,
       actionMaximum: 1,
@@ -40,7 +63,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '看视频-跳过↓',
       matchRoot: true,
       actionMaximum: 1,
@@ -64,7 +87,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '看视频-跳过-恭喜获得特权',
       matchRoot: true,
       actionMaximum: 1,
@@ -81,7 +104,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '看视频-跳过-拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -100,7 +123,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '看视频-跳过-礼包',
       matchRoot: true,
       actionMaximum: 1,
@@ -122,7 +145,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 6,
       name: '看视频-跳过-礼包-关闭按钮',
       matchRoot: true,
       actionMaximum: 1,
@@ -141,7 +164,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 7,
       name: '看视频-跳过-立即下载',
       matchRoot: true,
       actionMaximum: 1,
@@ -162,7 +185,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 8,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -184,7 +207,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 9,
       name: '看视频-去领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -206,7 +229,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 9,
+      key: 10,
       name: '看视频-去领奖-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -227,7 +250,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 10,
+      key: 11,
       name: '看视频-恭喜您获得金币',
       matchRoot: true,
       actionMaximum: 1,
@@ -250,7 +273,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 12,
       name: '看视频-恭喜您获得金币-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -267,7 +290,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 13,
       name: '看视频-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -286,7 +309,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 14,
       name: '看视频-跳转快应用-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -309,7 +332,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 15,
       name: '玩游戏-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -329,7 +352,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 16,
       name: '看视频-跳过-继续观看',
       matchRoot: true,
       actionMaximum: 1,
@@ -346,7 +369,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 16,
+      key: 17,
       name: '看视频-跳过-长按加速',
       matchRoot: true,
       actionMaximum: 1,
@@ -368,7 +391,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 17,
+      key: 18,
       name: '看视频-广告-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -387,7 +410,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 18,
+      key: 19,
       name: '看视频-广告-<+×',
       matchRoot: true,
       actionMaximum: 1,
