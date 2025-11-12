@@ -101,7 +101,7 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '看视频-跳过-礼盒',
+      name: '看视频-跳过-礼包',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -123,7 +123,7 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '看视频-跳过-礼盒-关闭按钮',
+      name: '看视频-跳过-礼包-关闭按钮',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -310,7 +310,7 @@ export default defineGkdApp({
     },
     {
       key: 14,
-      name: '玩游戏-梦幻小院-×',
+      name: '玩游戏-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -325,6 +325,44 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23497241',
           ],
           activityIds: ['com.cqyh.cqadsdk.activity.GameWebActivity'],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '看视频-跳过-继续观看',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'click',
+          actionDelay: 1000,
+          matches: ['@[text="继续观看"] <<n * +n * >n [text="跳过"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23497387',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 16,
+      name: '看视频-跳过-长按加速',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'longClick',
+          actionDelay: 1000,
+          matches: ['[text="长按加速视频 获取奖励"] <n * - @ImageView <<n * + * >n [text="跳过"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23497570',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
     },
