@@ -15,13 +15,10 @@ export default defineGkdApp({
         {
           action: 'click',
           actionDelay: 1000,
-          matches: '@[index=parent.childCount.minus(1)] - [id$="/a75"] > [id$="/bco"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/23382180',
-            ],
-          activityIds: [
-            'com.jd.lib.productdetail.ProductDetailActivity',
-            ],
+          matches:
+            '@[index=parent.childCount.minus(1)] - [id$="/a75"] > [id$="/bco"]',
+          snapshotUrls: ['https://i.gkd.li/i/23382180'],
+          activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
       ],
     },
@@ -38,12 +35,8 @@ export default defineGkdApp({
           actionDelay: 1000,
           matches:
             '@[desc="关闭"] < * - [text="立即使用"] -3 [text="仅限店铺内部分商品"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/23425057',
-            ],
-          activityIds: [
-            'com.jd.lib.productdetail.ProductDetailActivity',
-            ],
+          snapshotUrls: ['https://i.gkd.li/i/23425057'],
+          activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
       ],
     },
@@ -63,12 +56,8 @@ export default defineGkdApp({
             top: 'width * 0.2124',
           },
           matches: '@*[childCount=18] < * -2 *[text*="立即领取"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/23396514',
-            ],
-          activityIds: [
-            'com.jd.lib.ttt.page.TTTMultiPageActivity',
-            ],
+          snapshotUrls: ['https://i.gkd.li/i/23396514'],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
       ],
     },
