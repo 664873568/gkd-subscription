@@ -8,13 +8,13 @@ export default defineGkdApp({
       key: 1,
       name: '看视频-跳过',
       matchRoot: true,
-      action: 'click',
-      actionDelay: 1000,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'click',
+          actionDelay: 1000,
           matches: [
             '@[text*="我要" || text*="体验" || text="立即前往"] <<n * -n * >n [text="｜跳过"]',
           ],
@@ -41,13 +41,13 @@ export default defineGkdApp({
       key: 2,
       name: '看视频-跳过-恭喜获得特权',
       matchRoot: true,
-      action: 'click',
-      actionDelay: 1000,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'click',
+          actionDelay: 1000,
           matches: [
             '@[text*="我要"] <<n * +n * >n [text="跳过"]',
           ],
@@ -60,13 +60,13 @@ export default defineGkdApp({
       key: 3,
       name: '看视频-跳过-拿奖励',
       matchRoot: true,
-      action: 'click',
-      actionDelay: 1000,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'click',
+          actionDelay: 1000,
           matches: [
             '@[text="拿奖励"] <<n * -n * >n [text*="拿奖励"]',
           ],
@@ -79,13 +79,13 @@ export default defineGkdApp({
       key: 4,
       name: '看视频-跳过-礼盒',
       matchRoot: true,
-      action: 'click',
-      actionDelay: 1000,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'click',
+          actionDelay: 1000,
           matches: ['@[text="跳过"] <<n * -n * >n [desc="gift_box"] > ImageView'],
           snapshotUrls: [
             'https://i.gkd.li/i/23476056',
@@ -99,13 +99,13 @@ export default defineGkdApp({
       key: 5,
       name: '看视频-跳过-礼盒-关闭按钮',
       matchRoot: true,
-      action: 'click',
-      actionDelay: 1000,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'click',
+          actionDelay: 1000,
           matches: [
             '@ImageView <<n [desc="close_button"] -n * <n * -n * >n [desc="gift_box"] > ImageView',
           ],
@@ -118,13 +118,13 @@ export default defineGkdApp({
       key: 7,
       name: '看视频-跳过-立即下载',
       matchRoot: true,
-      action: 'click',
-      actionDelay: 1000,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'click',
+          actionDelay: 1000,
           matches: [
             '@ImageView + [text="应用详情"] <<n * +n *[text^="立即下载"]',
           ],
@@ -139,13 +139,13 @@ export default defineGkdApp({
       key: 8,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
-      action: 'click',
-      actionDelay: 1000,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'click',
+          actionDelay: 1000,
           matches: ['@[text="｜跳过"] - [text="奖励已领取"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23451963',
@@ -161,13 +161,13 @@ export default defineGkdApp({
       key: 9,
       name: '看视频-再得*金币',
       matchRoot: true,
-      action: 'click',
-      actionDelay: 1000,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'click',
+          actionDelay: 1000,
           matches: ['@[text^="看视频再得"] -2 [text^="+"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23453300',
