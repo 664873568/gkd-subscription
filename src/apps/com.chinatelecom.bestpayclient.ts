@@ -340,9 +340,7 @@ export default defineGkdApp({
           action: 'click',
           actionDelay: 1000,
           matches: ['@[text="继续观看"] <<n * +n * >n [text="跳过"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23497387',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23497387'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
@@ -358,10 +356,10 @@ export default defineGkdApp({
         {
           action: 'longClick',
           actionDelay: 1000,
-          matches: ['[text="长按加速视频 获取奖励"] <n * - @ImageView <<n * + * >n [text="跳过"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23497570',
+          matches: [
+            '[text="长按加速视频 获取奖励"] <n * - @ImageView <<n * + * >n [text="跳过"]',
           ],
+          snapshotUrls: ['https://i.gkd.li/i/23497570'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
