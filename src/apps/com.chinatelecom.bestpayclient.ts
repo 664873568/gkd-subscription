@@ -378,11 +378,11 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 1000,
-          matches: [
-            '@RelativeLayout <<n * +n * >n TextView[text=null]',
-          ],
+          matches: ['@RelativeLayout <<n * +n * >n TextView[text=null]'],
           snapshotUrls: ['https://i.gkd.li/i/23497953'],
-          activityIds: ['com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
         },
       ],
     },
