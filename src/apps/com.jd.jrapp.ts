@@ -8,12 +8,14 @@ export default defineGkdApp({
       key: 1,
       name: '跳转中-跳转中-<',
       matchRoot: true,
-      matchTime: 10000,
       actionMaximum: 1,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          action: 'click',
+          actionDelay: 1000,
           name: '跳转中-<',
           activityIds: '.bm.common.web.ui.WebActivity',
           matches: '@Button < * + [text="跳转中"]',
@@ -21,6 +23,8 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          action: 'click',
+          actionDelay: 1000,
           name: '跳转中-×',
           activityIds: '.bm.common.web.ui.WebActivity',
           matches: '@Button <2 * + [text="跳转中"]',
