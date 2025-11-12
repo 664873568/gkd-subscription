@@ -294,7 +294,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
+          action: 'back',
+          actionDelay: 500,
           matches: ['ImageView + @ImageView +n [text="反馈"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23496919',
@@ -303,6 +304,28 @@ export default defineGkdApp({
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity',
             'null',
+          ],
+        },
+      ],
+    },
+    {
+      key: 14,
+      name: '玩游戏-梦幻小院-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'click',
+          actionDelay: 1000,
+          matches: ['@ImageView[vid="cll_back"] - WebView > WebView'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23497142',
+            'https://i.gkd.li/i/23497241',
+          ],
+          activityIds: [
+            'com.cqyh.cqadsdk.activity.GameWebActivity',
           ],
         },
       ],
