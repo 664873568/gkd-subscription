@@ -48,9 +48,7 @@ export default defineGkdApp({
         {
           action: 'click',
           actionDelay: 1000,
-          matches: [
-            '@[text*="我要"] <<n * +n * >n [text="跳过"]',
-          ],
+          matches: ['@[text*="我要"] <<n * +n * >n [text="跳过"]'],
           snapshotUrls: ['https://i.gkd.li/i/23471487'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
@@ -67,9 +65,7 @@ export default defineGkdApp({
         {
           action: 'click',
           actionDelay: 1000,
-          matches: [
-            '@[text="拿奖励"] <<n * -n * >n [text*="拿奖励"]',
-          ],
+          matches: ['@[text="拿奖励"] <<n * -n * >n [text*="拿奖励"]'],
           snapshotUrls: ['https://i.gkd.li/i/23475883'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
@@ -86,7 +82,9 @@ export default defineGkdApp({
         {
           action: 'click',
           actionDelay: 1000,
-          matches: ['@[text="跳过"] <<n * -n * >n [desc="gift_box"] > ImageView'],
+          matches: [
+            '@[text="跳过"] <<n * -n * >n [desc="gift_box"] > ImageView',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/23476056',
             'https://i.gkd.li/i/23476161',
