@@ -108,7 +108,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
+          action: 'clickNode',
           actionDelay: 1000,
           matches: [
             '@[text="跳过"] <<n * -n * >n [desc="gift_box"] > ImageView',
@@ -126,11 +126,11 @@ export default defineGkdApp({
       name: '看视频-跳过-礼包-关闭按钮',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 35000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
+          action: 'clickNode',
           actionDelay: 1000,
           matches: [
             '@ImageView <<n [desc="close_button"] -n * <n * -n * >n [desc="gift_box"] > ImageView',
