@@ -324,9 +324,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23497142',
             'https://i.gkd.li/i/23497241',
           ],
-          activityIds: [
-            'com.cqyh.cqadsdk.activity.GameWebActivity',
-          ],
+          activityIds: ['com.cqyh.cqadsdk.activity.GameWebActivity'],
         },
       ],
     },
