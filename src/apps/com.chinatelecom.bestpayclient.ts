@@ -360,8 +360,8 @@ export default defineGkdApp({
             '[text="长按加速视频 获取奖励"] <n * - @ImageView <<n * + * >n [text="跳过"]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/23497570'
-            'https://i.gkd.li/i/23498065'
+            'https://i.gkd.li/i/23497570',
+            'https://i.gkd.li/i/23498065',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
