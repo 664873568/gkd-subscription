@@ -237,7 +237,7 @@ export default defineGkdApp({
         {
           action: 'click',
           actionDelay: 1000,
-          matches: ['@[text^="看视频再得"] -2 [text^="+"]'],
+          matches: ['[text="赚金币"] >n @[text^="看视频再得"] -2 [text^="+"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23453300',
             'https://i.gkd.li/i/23471446',
@@ -251,6 +251,27 @@ export default defineGkdApp({
     },
     {
       key: 11,
+      name: '看视频-恭喜您获得金币-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'click',
+          actionDelay: 1000,
+          matches: ['[text="赚金币"] >n @Image + [text^="+"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23496647',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 12,
       name: '看视频-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
