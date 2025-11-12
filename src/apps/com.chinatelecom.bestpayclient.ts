@@ -261,12 +261,8 @@ export default defineGkdApp({
           action: 'click',
           actionDelay: 1000,
           matches: ['[text="赚金币"] >n @Image + [text^="+"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23496647',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulacore.ui.H5Activity',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23496647'],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
     },
