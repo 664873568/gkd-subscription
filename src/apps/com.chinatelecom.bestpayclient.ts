@@ -285,5 +285,27 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 13,
+      name: '看视频-跳转快应用-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'click',
+          matches: ['ImageView + @ImageView +n [text="反馈"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23496919',
+            'https://i.gkd.li/i/23496926',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity',
+            'null',
+          ],
+        },
+      ],
+    },
   ],
 });
