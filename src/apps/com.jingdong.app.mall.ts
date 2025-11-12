@@ -15,9 +15,7 @@ export default defineGkdApp({
         {
           action: 'click',
           actionDelay: 1000,
-          matches: [
-            '@[index=parent.childCount.minus(1)] - [id$="/a75"] > [id$="/bco"]',
-            ],
+          matches: '@[index=parent.childCount.minus(1)] - [id$="/a75"] > [id$="/bco"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23382180',
             ],
