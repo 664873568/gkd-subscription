@@ -21,5 +21,26 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '请用指纹解锁',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 15000,
+          matches: ['[text="请用指纹解锁"] + [text^="用于打开"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23494853',
+          ],
+          activityIds: [
+            'com.miui.applicationlock.AppLockActivity',
+          ],
+        },
+      ],
+    },
   ],
 });
