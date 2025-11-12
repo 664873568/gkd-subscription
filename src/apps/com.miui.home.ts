@@ -5,7 +5,7 @@ export default defineGkdApp({
   name: '系统桌面',
   groups: [
     {
-      key: 1,
+      key: 0,
       name: '系统桌面-最近任务-启动应用',
       matchRoot: true,
       actionMaximum: 1,
@@ -22,7 +22,9 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23493031',
             'https://i.gkd.li/i/23494550',
           ],
-          activityIds: ['.launcher.Launcher'],
+          activityIds: [
+            '.launcher.Launcher',
+          ],
         },
       ],
     },
