@@ -22,9 +22,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23493031',
             'https://i.gkd.li/i/23494550',
           ],
-          activityIds: [
-            '.launcher.Launcher',
-          ],
+          activityIds: ['.launcher.Launcher'],
         },
       ],
     },
