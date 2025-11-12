@@ -9,7 +9,7 @@ export default defineGkdApp({
       name: '启动应用',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -26,7 +26,7 @@ export default defineGkdApp({
       name: '请用指纹解锁',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
