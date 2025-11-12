@@ -16,7 +16,7 @@ export default defineGkdApp({
           action: 'click',
           actionDelay: 1000,
           matches: [
-            '@[text*="我要" || text*="体验" || text="立即前往"] <<n * -n * >n [text$="s" || text*="秒"] + [text="｜跳过"]',
+            '@[text*="我要" || text*="体验" || text="立即前往" || text="再试一次"] <<n * -n * >n [text$="s" || text*="秒"] + [text="｜跳过"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23450800',
@@ -29,6 +29,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23471460',
             'https://i.gkd.li/i/23471469',
             'https://i.gkd.li/i/23493652',
+            'https://i.gkd.li/i/23496451',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
