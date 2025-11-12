@@ -17,7 +17,7 @@ export default defineGkdApp({
           actionDelay: 1000,
           matches: [
             '@[index=parent.childCount.minus(1)] - [id$="/a75"] > [id$="/bco"]',
-            ],
+          ],
           snapshotUrls: ['https://i.gkd.li/i/23382180'],
           activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
@@ -57,9 +57,7 @@ export default defineGkdApp({
             left: 'width * 0.5026',
             top: 'width * 0.2124',
           },
-          matches: [
-            '@*[childCount=18] < * -2 *[text*="立即领取"]',
-          ],
+          matches: ['@*[childCount=18] < * -2 *[text*="立即领取"]'],
           snapshotUrls: ['https://i.gkd.li/i/23396514'],
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
