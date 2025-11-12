@@ -14,7 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'click',
-          actionDelay: 1000,
+          actionDelay: 15000,
           matches: ['@*[text!="启动应用"] - *[desc*="未加锁"]'],
           snapshotUrls: ['https://i.gkd.li/i/23493031'],
           activityIds: ['.launcher.Launcher'],
