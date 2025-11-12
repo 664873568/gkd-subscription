@@ -104,7 +104,7 @@ export default defineGkdApp({
       name: '看视频-跳过-礼包',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -126,7 +126,7 @@ export default defineGkdApp({
       name: '看视频-跳过-礼包-关闭按钮',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -354,13 +354,62 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'longClick',
-          actionDelay: 1000,
+          action: 'longClickCenter',
+          actionDelay: 2000,
           matches: [
             '[text="长按加速视频 获取奖励"] <n * - @ImageView <<n * + * >n [text="跳过"]',
           ],
-          snapshotUrls: ['https://i.gkd.li/i/23497570'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23497570'
+            'https://i.gkd.li/i/23498065'
+          ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 17,
+      name: '看视频-广告-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 1000,
+          matches: [
+            '@RelativeLayout <<n * +n * >n TextView[text=null]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23497953'],
+          activityIds: ['com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 18,
+      name: '看视频-广告-<+×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 1000,
+          matches: [
+            '@[id$="/ksad_kwad_web_navi_back"] + [id$="/ksad_kwad_web_navi_close"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23498284'],
+        },
+        {
+          action: 'clickCenter',
+          actionDelay: 1000,
+          matches: [
+            '@[id$="/ksad_web_exit_intercept_negative_btn"] <n * -n [id$="/ksad_exit_intercept_content"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23498460'],
         },
       ],
     },
