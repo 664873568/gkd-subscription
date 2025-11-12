@@ -17,18 +17,26 @@ export default defineGkdApp({
           action: 'click',
           actionDelay: 1000,
           name: '跳转中-<',
-          activityIds: '.bm.common.web.ui.WebActivity',
           matches: '@Button < * + [text="跳转中"]',
-          snapshotUrls: 'https://i.gkd.li/i/23397450',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23397450',
+            ],
+          activityIds: [
+            '.bm.common.web.ui.WebActivity',
+            ],
         },
         {
           key: 1,
           action: 'click',
           actionDelay: 1000,
           name: '跳转中-×',
-          activityIds: '.bm.common.web.ui.WebActivity',
           matches: '@Button <2 * + [text="跳转中"]',
-          snapshotUrls: 'https://i.gkd.li/i/23424253',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23424253',
+            ],
+          activityIds: [
+            '.bm.common.web.ui.WebActivity',
+            ],
         },
       ],
     },
