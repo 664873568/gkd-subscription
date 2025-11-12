@@ -15,15 +15,9 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           actionDelay: 1000,
-          matches: [
-            '@[text="开宝箱得金币"] <<n [text="赚金币"]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23451354',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulacore.ui.H5Activity',
-          ],
+          matches: ['@[text="开宝箱得金币"] <<n [text="赚金币"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23451354'],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
     },
