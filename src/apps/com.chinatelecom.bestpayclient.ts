@@ -209,8 +209,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 1000,
           matches: [
-            '[text="赚金币"] >n [text^="+"] - Image +3 @[text^="看视频再得"]',
-            '[text="赚金币"] >n [text^="+"] - Image',
+            '([text="赚金币"] >n [text^="+"] - Image +3 @[text^="看视频再得"]) || ([text="赚金币"] >n [text^="+"] - Image)'
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23453300',
@@ -315,7 +314,7 @@ export default defineGkdApp({
           action: 'longClickCenter',
           actionDelay: 2000,
           matches: [
-            '[text="长按加速视频 获取奖励"] <n * - @ImageView <<n * + * >n [text="跳过"]',
+            '[text="长按加速视频 获取奖励"] <<n @[desc^="reward-playback-speed_playSpeed"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23497570',
