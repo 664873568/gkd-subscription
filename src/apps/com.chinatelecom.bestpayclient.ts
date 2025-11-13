@@ -102,7 +102,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23475883',
             'https://i.gkd.li/i/23494451',
             'https://i.gkd.li/i/23518467',
-            ],
+          ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],

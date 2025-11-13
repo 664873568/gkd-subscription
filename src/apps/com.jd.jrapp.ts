@@ -20,7 +20,7 @@ export default defineGkdApp({
           snapshotUrls: [
             'https://i.gkd.li/i/23397450',
             'https://i.gkd.li/i/23424253',
-            ],
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
