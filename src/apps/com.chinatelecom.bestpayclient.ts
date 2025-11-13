@@ -222,7 +222,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
+          action: 'back',
           actionDelay: 1000,
           matches: [
             '@RelativeLayout <<n * + * >n [text="奖励已领取"] - [text="svg%3e"]',
