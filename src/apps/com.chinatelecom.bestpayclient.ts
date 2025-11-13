@@ -209,7 +209,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 1000,
           matches: [
-            '([text="赚金币"] >n [text^="+"] - Image +3 @[text^="看视频再得"]) || ([text="赚金币"] >n [text^="+"] - Image)'
+            '([text="赚金币"] >n [text^="+"] - Image +3 @[text^="看视频再得"]) || ([text="赚金币"] >n [text^="+"] - Image)',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23453300',
