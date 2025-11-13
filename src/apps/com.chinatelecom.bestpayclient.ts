@@ -306,7 +306,7 @@ export default defineGkdApp({
       key: 13,
       name: '看视频-跳过-长按加速',
       matchRoot: true,
-      actionMaximum: 1,
+      actionMaximum: 30,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
