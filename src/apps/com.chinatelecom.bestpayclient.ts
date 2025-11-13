@@ -1,4 +1,4 @@
-import { defineGkdApp } from '@gkd-kit/define';
+qimport { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
   id: 'com.chinatelecom.bestpayclient',
@@ -71,14 +71,14 @@ export default defineGkdApp({
             '@[text^="我要" || text$="体验" || text="立即前往" || text="再试一次"][width=819&& height=177 || width=711 && height=183] <<n * +n * >n [text$="跳过"]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/23471487'
+            'https://i.gkd.li/i/23471487',
             'https://i.gkd.li/i/23493737',
             'https://i.gkd.li/i/23493789',
             'https://i.gkd.li/i/23518146',
             'https://i.gkd.li/i/23518156',
           ],
           activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'
+            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
         },
