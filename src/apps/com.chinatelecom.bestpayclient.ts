@@ -361,7 +361,7 @@ export default defineGkdApp({
     },
     {
       key: 16,
-      name: '看视频-广告-<+×',
+      name: '看视频-广告-<+×1',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -383,9 +383,39 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 1000,
           matches: [
-            '@[id$="/ksad_web_exit_intercept_negative_btn"] <n * -n [id$="/ksad_exit_intercept_content"]',
+            '@[text="残忍离开"] +n [text="留下看看"]',
           ],
           snapshotUrls: ['https://i.gkd.li/i/23498460'],
+        },
+      ],
+    },
+    {
+      key: 17,
+      name: '看视频-广告-<+×2',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          actionDelay: 1000,
+          matches: [
+            '@ImageView[width=42 && height=42] <<n [id$="/ksad_js_reward_card"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23544564'],
+        },
+        {
+          preKeys: 0,
+          key: 1,
+          action: 'clickCenter',
+          actionDelay: 1000,
+          matches: [
+            '@[text="残忍离开"] <n * +n [text="留下看看"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23544750'],
         },
       ],
     },
