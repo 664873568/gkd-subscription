@@ -250,7 +250,7 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           actionDelay: 1000,
-          matches: ['@LinearLayout <<n * -n * >n [text="反馈"]'],
+          matches: ['@ImageView <<n * -n * >n [text="反馈"]'],
           snapshotUrls: ['https://i.gkd.li/i/23493264'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
@@ -269,7 +269,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 500,
-          matches: ['ImageView + @ImageView +n [text="反馈"]'],
+          matches: ['@ImageView + ImageView +n [text="反馈"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23496919',
             'https://i.gkd.li/i/23496926',
