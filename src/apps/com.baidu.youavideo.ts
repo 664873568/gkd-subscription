@@ -196,7 +196,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 11,
       name: '看视频-退出提示',
       matchRoot: true,
       actionMaximum: 1,
