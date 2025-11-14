@@ -399,7 +399,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 10000,
           matches: [
             '@ImageView[width=42 && height=42] <<n [id$="/ksad_js_reward_card"]',
           ],
