@@ -320,7 +320,8 @@ export default defineGkdApp({
     },
     {
       key: 14,
-      name: '看视频-跳过-×',//'看视频-跳过-长按加速',长按无法实现
+      name: '看视频-跳过-×',
+      //'看视频-跳过-长按加速',长按无法实现
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
