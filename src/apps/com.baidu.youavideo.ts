@@ -222,9 +222,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 500,
           matches: ['@ImageView + ImageView +n [text="反馈"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23547990',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23547990'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
             'null',
