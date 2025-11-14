@@ -199,7 +199,7 @@ export default defineGkdApp({
     },
     {
       key: 8,
-      name: '看视频-恭喜您获得金币',
+      name: '看视频-再得',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -209,12 +209,11 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 1000,
           matches: [
-            '([text="赚金币"] >n [text^="+"] - Image) || ([text="赚金币"] >n [text^="+"] - Image +3 @[text^="看视频再得"])',
+            '[text="赚金币"] >n [text^="+"] - Image +3 @[text^="看视频再得"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23453300',
             'https://i.gkd.li/i/23471446',
-            'https://i.gkd.li/i/23496647',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
@@ -225,6 +224,29 @@ export default defineGkdApp({
     },
     {
       key: 9,
+      name: '看视频-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'clickCenter',
+          actionDelay: 2000,
+          matches: [
+            '[text="赚金币"] >n [text^="+"] - Image',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23496647',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 10,
       name: '看视频-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -243,7 +265,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 10,
+      key: 11,
       name: '看视频-跳转快应用-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -266,7 +288,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 12,
       name: '玩游戏-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -286,7 +308,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 13,
       name: '看视频-跳过-继续观看',
       matchRoot: true,
       actionMaximum: 1,
@@ -303,7 +325,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 14,
       name: '看视频-跳过-长按加速',
       matchRoot: true,
       resetMatch: 'activity',
@@ -322,7 +344,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 15,
       name: '看视频-广告-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -341,7 +363,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 16,
       name: '看视频-广告-<+×',
       matchRoot: true,
       actionMaximum: 1,
