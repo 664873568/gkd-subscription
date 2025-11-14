@@ -20,10 +20,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23494155',
             'https://i.gkd.li/i/23542354',
           ],
-          activityIds: [
-            'com.miui.wakepath.ui.ConfirmStartActivity',
-            'null',
-          ],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
