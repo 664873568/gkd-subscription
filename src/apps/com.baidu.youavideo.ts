@@ -101,9 +101,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 1000,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23546556',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23546556'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -170,9 +168,7 @@ export default defineGkdApp({
           actionDelay: 1000,
           matches: ['@[text="继续观看"] <<n [text="任务中心"]'],
           snapshotUrls: ['https://i.gkd.li/i/23545964'],
-          activityIds: [
-            '.operate.ui.view.activity.TaskCenterActivity',
-          ],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],
     },
