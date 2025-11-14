@@ -173,6 +173,25 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 9,
+      name: '看视频-退出提示',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'clickCenter',
+          actionDelay: 1000,
+          matches: ['@[text="去领取奖励"] -n * >n [text="温馨提示"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23547170'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
       key: 10,
       name: '看视频-跳过-×',
       matchRoot: true,
@@ -193,19 +212,22 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '看视频-退出提示',
+      name: '看视频-跳转快应用-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 1000,
-          matches: ['@[text="去领取奖励"] -n * >n [text="温馨提示"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23547170'],
+          action: 'back',
+          actionDelay: 500,
+          matches: ['@ImageView + ImageView +n [text="反馈"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23547990',
+          ],
           activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+            'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
+            'null',
           ],
         },
       ],
