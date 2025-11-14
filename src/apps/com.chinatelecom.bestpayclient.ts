@@ -103,9 +103,9 @@ export default defineGkdApp({
             '@[text="跳过" || desc="close_button"] <<n * -n * >n [desc="gift_box"]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/23476056', //跳过-
-            'https://i.gkd.li/i/23476161', //跳过-继续体验
-            'https://i.gkd.li/i/23476430', //×
+            'https://i.gkd.li/i/23476056', //跳过-继续体验
+            'https://i.gkd.li/i/23476161', //跳过
+            'https://i.gkd.li/i/23476430', //免费获取>×
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
