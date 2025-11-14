@@ -322,10 +322,13 @@ export default defineGkdApp({
       key: 14,
       name: '看视频-跳过-×',//'看视频-跳过-长按加速',长按无法实现
       matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'longClickCenter',
+          actionDelay: 1000,
           matches: [
             '@ImageView <<n * -n * >n [text="长按加速视频 获取奖励"]',//'@[desc^="reward-playback-speed_playSpeed"] >n [text="长按加速视频 获取奖励"]',
           ],
