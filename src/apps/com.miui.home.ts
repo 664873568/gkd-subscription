@@ -15,7 +15,7 @@ export default defineGkdApp({
         {
           action: 'click',
           actionDelay: 15000,
-          matches: [
+          anyMatches: [
             '@[desc^="翼支付"] <<n * + * >n [desc="清理全部任务"]',
             '@[desc^="一刻相册"] <<n * + * >n [desc="清理全部任务"]',
           ],
