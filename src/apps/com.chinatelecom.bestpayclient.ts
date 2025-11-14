@@ -382,9 +382,7 @@ export default defineGkdApp({
           key: 1,
           action: 'clickCenter',
           actionDelay: 1000,
-          matches: [
-            '@[text="残忍离开"] +n [text="留下看看"]',
-          ],
+          matches: ['@[text="残忍离开"] +n [text="留下看看"]'],
           snapshotUrls: ['https://i.gkd.li/i/23498460'],
         },
       ],
@@ -412,9 +410,7 @@ export default defineGkdApp({
           key: 1,
           action: 'clickCenter',
           actionDelay: 1000,
-          matches: [
-            '@[text="残忍离开"] <n * +n [text="留下看看"]',
-          ],
+          matches: ['@[text="残忍离开"] <n * +n [text="留下看看"]'],
           snapshotUrls: ['https://i.gkd.li/i/23544750'],
         },
       ],
