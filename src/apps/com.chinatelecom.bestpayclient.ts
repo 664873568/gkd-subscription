@@ -330,11 +330,11 @@ export default defineGkdApp({
           action: 'longClickCenter',
           actionDelay: 1000,
           matches: [
-            '@ImageView <<n * -n * >n [text="长按加速视频 获取奖励"]', //看视频-跳过-长按加速//长按无法实现 //@[desc^="reward-playback-speed_playSpeed"] >n [text="长按加速视频 获取奖励"]
+            '@ImageView <<n * -n * >n [text="长按加速视频 获取奖励"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23497570',
-            'https://i.gkd.li/i/23498065',
+            'https://i.gkd.li/i/23498065', //长按无法实现 //@[desc^="reward-playback-speed_playSpeed"] >n [text="长按加速视频 获取奖励"]
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
