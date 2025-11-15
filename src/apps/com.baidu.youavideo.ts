@@ -20,7 +20,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 1,
       name: '赚金币-×',
       matchRoot: true,
@@ -96,7 +97,7 @@ export default defineGkdApp({
             '@[text*="领"][width>100 && height=66] <<n * +n * >n [text$="跳过"]',
             '@[text^="我要"][width>300 && height=72] <<n * +n * >n [text$="跳过"]',
             '@[text$="体验"][width>300 && height=72] <<n * +n * >n [text$="跳过"]',
-            ],
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/23546133', //我要直接拿奖励[width>300 && height=72]
             'https://i.gkd.li/i/23546519', //返回继续体验[width>300 && height=72]
@@ -127,7 +128,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 13,
       name: '看视频-跳过-继续观看',
       matchRoot: true,
@@ -142,7 +144,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 14,
       name: '看视频-长按-×', //长按无法实现
       matchRoot: true,
@@ -224,7 +227,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 18,
       name: '看视频-礼包-领取奖励',
       matchRoot: true,
