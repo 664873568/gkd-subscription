@@ -92,6 +92,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 5,
+      name: '任务中心-天天看激励视频-去完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 2000,
+          matches: ['@[text="去完成"] -n [text="天天看激励视频"] <n * +n * >n [text="明日再来"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23559557', //取消
+          ],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
     //看视频
     {
       key: 10,
