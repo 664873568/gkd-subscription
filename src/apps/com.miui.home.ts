@@ -16,9 +16,9 @@ export default defineGkdApp({
           action: 'click',
           actionDelay: 15000,
           anyMatches: [
-            '@[desc^="飞猪旅行"] <<n * + * >n [desc="清理全部任务"]',
-            '@[desc^="一刻相册"] <<n * + * >n [desc="清理全部任务"]',
-            '@[desc^="翼支付"] <<n * + * >n [desc="清理全部任务"]',
+            '@[desc^="飞猪旅行,未加锁"] <<n * + * >n [desc="清理全部任务"]',
+            '@[desc^="一刻相册,未加锁"] <<n * + * >n [desc="清理全部任务"]',
+            '@[desc^="翼支付,未加锁"] <<n * + * >n [desc="清理全部任务"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23493031',
