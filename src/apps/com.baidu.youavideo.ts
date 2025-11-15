@@ -153,18 +153,20 @@ export default defineGkdApp({
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23546133', //我要直接拿奖励
+            'https://i.gkd.li/i/23559841', //我要直接拿奖励
             'https://i.gkd.li/i/23546519', //返回继续体验
             'https://i.gkd.li/i/23559366', //立即领取
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+            '.splash.ui.CoveredSplashAdvertiseActivity',
           ],
         },
       ],
     },
     {//*暂未适配*//
       key: 111,
-      name: '看视频-跳过↓',
+      name: '看视频-跳过↓-体验',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
