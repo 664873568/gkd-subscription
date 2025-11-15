@@ -102,7 +102,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          matches: ['@[text="去完成"] -n [text="天天看激励视频"] <n * +n * >n [text="明日再来"]'],
+          matches: [
+            '@[text="去完成"] -n [text="天天看激励视频"] <n * +n * >n [text="明日再来"]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/23559557', //取消
           ],
