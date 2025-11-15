@@ -16,11 +16,13 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 1000,
-          matches: ['@View -n * <<3 [id="ant-render-id-CPT_67f7a08a088a0168e4b61c05"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23561800',
+          matches: [
+            '@View -n * <<3 [id="ant-render-id-CPT_67f7a08a088a0168e4b61c05"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          snapshotUrls: ['https://i.gkd.li/i/23561800'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
         {
           preKeys: 0,
@@ -28,7 +30,7 @@ export default defineGkdApp({
           anyMatches: [
             '@TextView -n * < * -n * <<n [id="ant-render-id-CPT_67f7a08a088a0168e4b61c05"]',
             '@TextView -n * < * -n * < * < * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]',
-            ],
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/23561801',
             'https://i.gkd.li/i/23561802',
