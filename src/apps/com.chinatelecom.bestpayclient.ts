@@ -126,7 +126,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          anyMmatches: [
+          anyMatches: [
             '@[text^="我要"][width=819 && height=177] <<n * +n * >n [text$="跳过"]',
             '@[text$="体验"][width=711 && height=183] <<n * +n * >n [text$="跳过"]',
             '@[text="再试一次"][width=711 && height=183] <<n * +n * >n [text$="跳过"]',
