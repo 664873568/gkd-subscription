@@ -5,6 +5,26 @@ export default defineGkdApp({
   name: '京东',
   groups: [
     {
+      key: 0,
+      name: '黑色星期五-领券抢',
+      matchRoot: true,
+      forcedTime: 1000,
+      actionMaximum: 100,
+      actionCd: 100,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'clickCenter',
+          matches: [
+            '@[text="领券抢"] <<n [text="黑色星期五"] >n [text="15枚无抗鲜蛋"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23548893'],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+      ],
+    },
+    {
       key: 1,
       name: '浏览-已完成-点击立即返回',
       matchRoot: true,
