@@ -132,7 +132,9 @@ export default defineGkdApp({
             '@[text="再试一次"][width=711 && height=183] <<n * +n * >n [text$="跳过"]',
             '@[text="拿奖励"][width=732 && height=162] <<n * +n * >n [text$="拿奖励"]',
             '@[text="再试一次"][width=732 && height=162] <<n * +n * >n [text$="跳过"]',
-            '@[text="去领奖励"][width>100 && height=66] <<n * +n * >n [text$="跳过"]',
+            '@[text*="领"][width>100 && height=66] <<n * +n * >n [text$="跳过"]',
+            '@[text^="我要"][width>300 && height=72] <<n * +n * >n [text$="跳过"]',
+            '@[text$="体验"][width>300 && height=72] <<n * +n * >n [text$="跳过"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23471487', //我要免看本次广告[width=819&& height=177]
