@@ -1,0 +1,120 @@
+import { defineGkdApp } from '@gkd-kit/define';
+
+export default defineGkdApp({
+  id: 'com.taobao.taobao',
+  name: '淘宝',
+  groups: [
+    //天猫超市
+    {
+      key: 0,
+      name: '天猫超市-好运签-摇一摇',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[id="YVHLmvad9Z56"] <<n [text="天猫超市"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23561893'],
+          activityIds: [
+            'com.taobao.themis.container.app.TMSActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '天猫超市-好运签-兑赠金',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.taobao.themis.container.app.TMSActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 1000,
+          matches: [
+            '@[text="兑赠金立即兑换"] <<n [text="天猫超市"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23561893'],
+        },
+        {
+          preKeys: 0,
+          key: 1,
+          anyMatches: [
+            '@[text="知道了"] <<n [text="天猫超市"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23561924',
+          ],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '天猫超市-好运签-',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.taobao.themis.container.app.TMSActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 1000,
+          matches: [
+            '@[text="做任务赚好运值"] <<n [text="天猫超市"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23561950'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+        {
+          preKeys: 0,
+          key: 1,
+          matches: [
+            '@[text="领任务"] <3 * < [id="panel-content"] <<n [text="天猫超市"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23561997',
+          ],
+        },
+        {
+          preKeys: 1,
+          key: 2,
+          action: 'back',
+          matches: [
+            '@[desc="任务已完成 快去领奖励"] <<n [text="天猫超市"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23562013',
+          ],
+        },
+        {
+          preKeys: 2,
+          key: 3,
+          matches: [
+            '@[text="领奖励"] <<n [text="天猫超市"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23562109',
+          ],
+        },
+        {
+          preKeys: 3,
+          key: 4,
+          matches: [
+            '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领任务" && text="已领奖" && text!="领奖励"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23562109',
+          ],
+        },
+      ],
+    },
+  ],
+});
