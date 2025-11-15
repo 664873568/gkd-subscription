@@ -18,13 +18,14 @@ export default defineGkdApp({
           snapshotUrls: [
             'https://i.gkd.li/i/23561327',
             'https://i.gkd.li/i/23561328',
-            ],
+          ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
     },
     //看视频
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 10,
       name: '看视频-跳过↑',
       matchRoot: true,
@@ -97,7 +98,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 12,
       name: '看视频-跳过-×-应用详情+立即下载',
       matchRoot: true,
@@ -154,7 +156,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 15,
       name: '看视频-去领奖',
       matchRoot: true,
@@ -177,7 +180,8 @@ export default defineGkdApp({
       ],
     },
     //看视频-返回|跳过|关闭
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 16,
       name: '看视频-去领奖-奖励已领取',
       matchRoot: true,
@@ -241,7 +245,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 19,
       name: '看视频-跳过-×',
       matchRoot: true,
@@ -258,7 +263,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 20,
       name: '看视频-温馨提示-去领取奖励',
       matchRoot: true,
@@ -284,15 +290,14 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="anythink_myoffer_inctask_cta"] <<n * +n * > [vid="anythink_myoffer_btn_close_id"]'],
+          matches: [
+            '@[vid="anythink_myoffer_inctask_cta"] <<n * +n * > [vid="anythink_myoffer_btn_close_id"]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/23561418',
             'https://i.gkd.li/i/23561474',
-            ],
-          activityIds: [
-            'com.anythink.basead.ui.ATPortraitActivity',
-            'null',
           ],
+          activityIds: ['com.anythink.basead.ui.ATPortraitActivity', 'null'],
         },
       ],
     },
@@ -307,9 +312,7 @@ export default defineGkdApp({
         {
           matches: ['ImageView +2 * > [vid="anythink_myoffer_btn_close_id"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561459'],
-          activityIds: [
-            'com.anythink.basead.ui.ATPortraitActivity',
-          ],
+          activityIds: ['com.anythink.basead.ui.ATPortraitActivity'],
         },
       ],
     },
@@ -325,13 +328,17 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 1000,
-          matches: ['@ImageView - RelativeLayout > View <<n [vid="action_bar_root"] >n [text="  广告"] + [text*="点众快看"]'],
+          matches: [
+            '@ImageView - RelativeLayout > View <<n [vid="action_bar_root"] >n [text="  广告"] + [text*="点众快看"]',
+          ],
           snapshotUrls: ['https://i.gkd.li/i/23561396'],
         },
         {
           preKeys: 0,
           key: 1,
-          matches: ['@[text="关闭广告"] - [text="去下载拿奖励"] - [text="只要完成APP下载，即可领取奖励"]'],
+          matches: [
+            '@[text="关闭广告"] - [text="去下载拿奖励"] - [text="只要完成APP下载，即可领取奖励"]',
+          ],
           snapshotUrls: ['https://i.gkd.li/i/23561405'],
         },
       ],
@@ -346,12 +353,8 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@ImageView - [text="反馈"] +n * > [text="精选推荐"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23561480',
-            ],
-          activityIds: [
-            'com.baidu.mobads.sdk.api.MobRewardVideoActivity',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23561480'],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
       ],
     },
