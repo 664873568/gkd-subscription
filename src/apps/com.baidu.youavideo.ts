@@ -4,9 +4,10 @@ export default defineGkdApp({
   id: 'com.baidu.youavideo',
   name: '一刻相册',
   groups: [
+    //任务中心
     {
       key: 0,
-      name: '福利中心-开宝箱得积分',
+      name: '任务中心-点击赚积分',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,7 +16,7 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           actionDelay: 1000,
-          matches: ['@[text="开宝箱得积分"] <<n [text="福利中心"]'],
+          matches: ['@[text="点击赚积分"] <<n [text="任务中心"]'],
           snapshotUrls: ['https://i.gkd.li/i/23451354'],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
@@ -227,6 +228,94 @@ export default defineGkdApp({
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
             'null',
           ],
+        },
+      ],
+    },
+    //首页功能类
+    {
+      key: 110,
+      name: '开始安全备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          action: 'back',
+          anyMatches: ['@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23558701'],
+          activityIds: ['.home.view.HomeActivity'],
+        },
+      ],
+    },
+    {
+      key: 111,
+      name: '开启自定义备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          anyMatches: ['@[vid="iv_close"] +n [text="开启自定义备份"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23558728'],
+          activityIds: ['.home.view.HomeActivity'],
+        },
+      ],
+    },
+    {
+      key: 112,
+      name: '立即升级',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          anyMatches: ['@[vid="img_close"] -n * >n [text="立即升级"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23558731'],
+          activityIds: ['.home.view.HomeActivity'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 120,
+      name: '首页广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23558690',
+            'https://i.gkd.li/i/23558692',
+          ],
+          activityIds: ['.home.view.HomeActivity'],
+        },
+      ],
+    },
+    //会员支付类
+    {
+      key: 130,
+      name: '随心卡会员,',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@TextView -n * >n [text="立即使用"] <<n [text="随心卡会员"]',
+            '@Image -n * >n [text="立即开通"] <<n [text="随心卡会员"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23558756', //立即使用
+            'https://i.gkd.li/i/23558692', //立即开通
+          ],
+          activityIds: ['.home.view.HomeActivity'],
         },
       ],
     },
