@@ -122,6 +122,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 100,
           anyMatches: [
             '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
@@ -146,6 +147,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 100,
           anyMatches: [
             '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
