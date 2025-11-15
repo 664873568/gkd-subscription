@@ -122,7 +122,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 500,
           anyMatches: [
             '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
@@ -147,7 +146,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 500,
           anyMatches: [
             '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
@@ -303,6 +301,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 100,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           snapshotUrls: ['https://i.gkd.li/i/23546556'],
           activityIds: [
@@ -321,6 +320,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 100,
           matches: [
             '@[text="跳过" || desc="close_button"] <<n * -n * >n [desc="gift_box"]',
           ],
