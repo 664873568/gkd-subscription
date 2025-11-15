@@ -82,17 +82,13 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           matches: ['@[text="赚积分"] <<n [text="任务中心"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23558929',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23558929'],
         },
         {
           preKeys: 0,
           key: 1,
           matches: ['@[text="进入观看"] <<n [text="任务中心"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23559557',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23559557'],
         },
       ],
     },
