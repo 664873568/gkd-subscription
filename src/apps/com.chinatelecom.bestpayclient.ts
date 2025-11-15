@@ -361,10 +361,14 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
+          actionDelay: 10000,
           matches: [
             '@[id$="/ksad_kwad_web_navi_back"] + [id$="/ksad_kwad_web_navi_close"]',
           ],
-          snapshotUrls: ['https://i.gkd.li/i/23498284'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23498284',
+            'https://i.gkd.li/i/23563374',
+          ],
         },
         {
           preKeys: 0,
