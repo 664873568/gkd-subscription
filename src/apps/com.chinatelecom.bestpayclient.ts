@@ -187,6 +187,7 @@ export default defineGkdApp({
           ],
           snapshotUrls: ['https://i.gkd.li/i/23455109'],
           activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity_T',
           ],
         },
