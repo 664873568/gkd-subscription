@@ -37,10 +37,10 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'clickCenter',
-          matches: ['@[text="领券抢"] <<n [text="黑色星期五"] >n [text="15枚无抗鲜蛋"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23548893',
+          matches: [
+            '@[text="领券抢"] <<n [text="黑色星期五"] >n [text="15枚无抗鲜蛋"]',
           ],
+          snapshotUrls: ['https://i.gkd.li/i/23548893'],
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
       ],
