@@ -14,16 +14,46 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 1000,
           matches: ['@[text="点击赚积分"] <<n [text="任务中心"]'],
           snapshotUrls: ['https://i.gkd.li/i/23558929'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],
     },
-    {
+    {//*暂未适配*//
       key: 1,
+      name: '赚金币-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 1000,
+          matches: ['[text="赚金币"] >n [text^="+"] - Image'],
+          snapshotUrls: ['https://i.gkd.li/i/23496647'],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '任务中心-继续观看',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="继续观看"] <<n [text="任务中心"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23545964'],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
+    //看视频
+    {
+      key: 10,
       name: '看视频-跳过↑',
       matchRoot: true,
       actionMaximum: 1,
@@ -31,10 +61,13 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 1000,
-          matches: [
-            '@[text^="我要" || text$="体验" || text="立即前往" || text="再试一次"][width=711 && height=183 || width>300 && height=72 || width=339 && height=114] <<n * -n * >n [text$="跳过"]',
+          anyMatches: [
+            '@[text^="我要"][width=711 && height=183] <<n * -n * >n [text$="跳过"]',
+            '@[text$="体验"][width=711 && height=183] <<n * -n * >n [text$="跳过"]',
+            '@[text^="我要"][width=327 && height=72] <<n * -n * >n [text$="跳过"]',
+            '@[text$="体验"][width=327 && height=72] <<n * -n * >n [text$="跳过"]',
+            '@[text="立即前往"][width=339 && height=114] <<n * -n * >n [text$="跳过"]',
+            '@[text="再试一次"][width=711 && height=183] <<n * -n * >n [text$="跳过"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23545855', //去体验-左下[width=711 && height=183]
@@ -46,7 +79,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 11,
       name: '看视频-跳过↓',
       matchRoot: true,
       actionMaximum: 1,
@@ -54,14 +87,20 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 1000,
-          matches: [
-            '@[text^="我要" || text$="体验" || text="拿奖励" || text="再试一次" || text="去领奖励"][width=819 && height=177 || width=711 && height=183 || width=732 && height=162 || width=180 && height=66 || width>300 && height=72] <<n * +n * >n [text$="跳过" || text$="拿奖励"]',
-          ],
+          anyMatches: [
+            '@[text^="我要"][width=819 && height=177] <<n * +n * >n [text$="跳过"]',
+            '@[text$="体验"][width=711 && height=183] <<n * +n * >n [text$="跳过"]',
+            '@[text="再试一次"][width=711 && height=183] <<n * +n * >n [text$="跳过"]',
+            '@[text="拿奖励"][width=732 && height=162] <<n * +n * >n [text$="拿奖励"]',
+            '@[text="再试一次"][width=732 && height=162] <<n * +n * >n [text$="跳过"]',
+            '@[text*="领"][width>100 && height=66] <<n * +n * >n [text$="跳过"]',
+            '@[text^="我要"][width>300 && height=72] <<n * +n * >n [text$="跳过"]',
+            '@[text$="体验"][width>300 && height=72] <<n * +n * >n [text$="跳过"]',
+            ],
           snapshotUrls: [
             'https://i.gkd.li/i/23546133', //我要直接拿奖励[width>300 && height=72]
             'https://i.gkd.li/i/23546519', //返回继续体验[width>300 && height=72]
+            'https://i.gkd.li/i/23559366', //立即领取[width>100 && height=66]
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -70,47 +109,61 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
-      name: '看视频-跳过-立即下载',
+      key: 12,
+      name: '看视频-跳过-×-应用详情+立即下载',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 1000,
           matches: [
             '@ImageView + [text="应用详情"] <<n * +n *[text="立即下载"]',
           ],
-          snapshotUrls: ['https://i.gkd.li/i/23455109'],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity_T',
-          ],
-        },
-      ],
-    },
-    {
-      key: 5,
-      name: '看视频-跳过-奖励已领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          actionDelay: 1000,
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23546556'],
+          snapshotUrls: ['https://i.gkd.li/i/23559186'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
         },
       ],
     },
+    {//*暂未适配*//
+      key: 13,
+      name: '看视频-跳过-继续观看',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="继续观看"] <<n * +n * >n [text="跳过"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23497387'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {//*暂未适配*//
+      key: 14,
+      name: '看视频-长按-×', //长按无法实现
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView <<n * -n * >n [text="长按加速视频 获取奖励"]', //@[desc^="reward-playback-speed_playSpeed"] >n [text="长按加速视频 获取奖励"]
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23497570',
+            'https://i.gkd.li/i/23498065',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
     {
-      key: 6,
+      key: 15,
       name: '看视频-去领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -118,8 +171,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 1000,
           matches: ['@[text="去领奖"] <<n * -n * >n [text="svg%3e"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23547463',
@@ -132,8 +183,9 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-返回|跳过|关闭
     {
-      key: 7,
+      key: 16,
       name: '看视频-去领奖-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -142,7 +194,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
           matches: [
             '@RelativeLayout <<n * + * >n [text="奖励已领取"] - [text="svg%3e"]',
           ],
@@ -157,43 +208,45 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
-      name: '看视频-继续',
+      key: 17,
+      name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 1000,
-          matches: ['@[text="继续观看"] <<n [text="任务中心"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23545964'],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '看视频-退出提示',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          actionDelay: 1000,
-          matches: ['@[text="去领取奖励"] -n * >n [text="温馨提示"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23547170'],
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23546556'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
         },
       ],
     },
+    {//*暂未适配*//
+      key: 18,
+      name: '看视频-礼包-领取奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="跳过" || desc="close_button"] <<n * -n * >n [desc="gift_box"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23476056', //跳过-继续体验
+            'https://i.gkd.li/i/23476161', //跳过
+            'https://i.gkd.li/i/23476430', //免费获取>×
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
     {
-      key: 10,
+      key: 19,
       name: '看视频-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -201,8 +254,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 1000,
           matches: ['@ImageView <<n * -n * >n [text="反馈"]'],
           snapshotUrls: ['https://i.gkd.li/i/23545935'],
           activityIds: [
@@ -212,7 +263,25 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 20,
+      name: '看视频-退出提示',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="去领取奖励"] -n * >n [text="温馨提示"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23547170'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    //看视频-二级
+    {
+      key: 31,
       name: '看视频-跳转快应用-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -221,7 +290,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 500,
           matches: ['@ImageView + ImageView +n [text="反馈"]'],
           snapshotUrls: ['https://i.gkd.li/i/23547990'],
           activityIds: [
