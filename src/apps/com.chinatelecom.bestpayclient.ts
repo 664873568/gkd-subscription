@@ -88,6 +88,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 100,
           anyMatches: [
             '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
@@ -126,6 +127,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 100,
           anyMatches: [
             '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
@@ -143,8 +145,8 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23520300', //去领奖励
           ],
           activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
           ],
         },
       ],
@@ -166,8 +168,8 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23518156', //返回继续体验
           ],
           activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
           ],
         },
       ],
