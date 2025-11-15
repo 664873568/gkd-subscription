@@ -164,7 +164,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 111,
       name: '看视频-跳过↓-体验',
       matchRoot: true,
@@ -206,7 +207,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 13,
       name: '看视频-跳过-继续观看',
       matchRoot: true,
@@ -221,7 +223,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 14,
       name: '看视频-长按-×', //长按无法实现
       matchRoot: true,
@@ -304,7 +307,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//*暂未适配*//
+    {
+      //*暂未适配*//
       key: 18,
       name: '看视频-礼包-领取奖励',
       matchRoot: true,
