@@ -151,7 +151,7 @@ export default defineGkdApp({
     },
     {
       key: 111,
-      name: '看视频-跳过↓',
+      name: '看视频-跳过↓-体验',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
