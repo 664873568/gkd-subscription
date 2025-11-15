@@ -21,9 +21,8 @@ export default defineGkdApp({
       ],
     },
     {
-      //*暂未适配*//
       key: 1,
-      name: '赚金币-×',
+      name: '任务中心-下次再来',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -31,9 +30,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 1000,
-          matches: ['[text="赚金币"] >n [text^="+"] - Image'],
-          snapshotUrls: ['https://i.gkd.li/i/23496647'],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+          matches: ['@[text="下次再来"] <<n [text="任务中心"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23545964'],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],
     },
@@ -49,6 +48,51 @@ export default defineGkdApp({
           matches: ['@[text="继续观看"] <<n [text="任务中心"]'],
           snapshotUrls: ['https://i.gkd.li/i/23545964'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '任务中心-关闭签到提醒',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="cancel"] <<n [vid="bottom_two_button_layout"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23559445', //取消
+            'https://i.gkd.li/i/23559446', //狠心关闭
+          ],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '任务中心-赚积分-进入观看',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 1000,
+          matches: ['@[text="赚积分"] <<n [text="任务中心"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23558929',
+          ],
+        },
+        {
+          preKeys: 0,
+          key: 1,
+          matches: ['@[text="进入观看"] <<n [text="任务中心"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23559557',
+          ],
         },
       ],
     },
@@ -179,6 +223,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23547463',
             'https://i.gkd.li/i/23547568',
             'https://i.gkd.li/i/23547641',
+            'https://i.gkd.li/i/23559530',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -268,7 +313,7 @@ export default defineGkdApp({
     },
     {
       key: 20,
-      name: '看视频-退出提示',
+      name: '看视频-温馨提示-去领取奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
