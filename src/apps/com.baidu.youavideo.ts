@@ -381,7 +381,7 @@ export default defineGkdApp({
     },
     //首页功能类
     {
-      key: 110,
+      key: 40,
       name: '开始安全备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -399,7 +399,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 111,
+      key: 41,
       name: '开启自定义备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -414,7 +414,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 112,
+      key: 42,
       name: '立即升级',
       matchRoot: true,
       actionMaximum: 1,
@@ -430,7 +430,7 @@ export default defineGkdApp({
     },
     //首页广告类
     {
-      key: 120,
+      key: 50,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -451,7 +451,7 @@ export default defineGkdApp({
     },
     //会员支付类
     {
-      key: 130,
+      key: 60,
       name: '随心卡会员,',
       matchRoot: true,
       actionMaximum: 1,
