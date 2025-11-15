@@ -314,7 +314,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23
+      key: 23,
       name: '看视频-完成APP下载-即可领取奖励',
       matchRoot: true,
       actionMaximum: 1,
