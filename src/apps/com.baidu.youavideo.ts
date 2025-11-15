@@ -149,13 +149,14 @@ export default defineGkdApp({
           anyMatches: [
             '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
-            '@[text="立即领取"] <<n * +n * >n [text$="跳过"]',
+            '@[text^="立即"] <<n * +n * >n [text$="跳过"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23546133', //我要直接拿奖励
             'https://i.gkd.li/i/23559841', //我要直接拿奖励
             'https://i.gkd.li/i/23546519', //返回继续体验
             'https://i.gkd.li/i/23559366', //立即领取
+            'https://i.gkd.li/i/23560959', //立即前往加速
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
