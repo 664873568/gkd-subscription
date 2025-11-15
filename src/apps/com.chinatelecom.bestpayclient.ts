@@ -89,25 +89,25 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text^="我要"][width=711 && height=183] <<n * -n * >n [text$="跳过"]',
-            '@[text$="体验"][width=711 && height=183] <<n * -n * >n [text$="跳过"]',
-            '@[text^="我要"][width=327 && height=72] <<n * -n * >n [text$="跳过"]',
-            '@[text$="体验"][width=327 && height=72] <<n * -n * >n [text$="跳过"]',
-            '@[text="立即前往"][width=339 && height=114] <<n * -n * >n [text$="跳过"]',
-            '@[text="再试一次"][width=711 && height=183] <<n * -n * >n [text$="跳过"]',
+            '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
+            '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
+            '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
+            '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
+            '@[text="立即前往"] <<n * -n * >n [text$="跳过"]',
+            '@[text="再试一次"] <<n * -n * >n [text$="跳过"]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/23450800', //我要加速-右上[width=711 && height=183]
-            'https://i.gkd.li/i/23454789', //我要加速-左上[width=711 && height=183]
-            'https://i.gkd.li/i/23471258', //我要直接领奖-右上[width=711 && height=183]
-            'https://i.gkd.li/i/23451395', //我要直接领奖-右上[width=711 && height=183]
-            'https://i.gkd.li/i/23455257', //返回继续体验-左上[width=711 && height=183]
-            'https://i.gkd.li/i/23471191', //返回继续体验-右上[width=711 && height=183]
-            'https://i.gkd.li/i/23471460', //我要加速领奖-右上[width=327 && height=72]
-            'https://i.gkd.li/i/23471469', //返回继续体验-右上[width=327 && height=72]
-            'https://i.gkd.li/i/23492681', //立即前往-右上[width=339 && height=114]
-            'https://i.gkd.li/i/23493652', //我要加速-左下[width=711 && height=183]
-            'https://i.gkd.li/i/23496451', //再试一次-右上[width=711 && height=183]
+            'https://i.gkd.li/i/23450800', //我要加速-右上
+            'https://i.gkd.li/i/23454789', //我要加速-左上
+            'https://i.gkd.li/i/23471258', //我要直接领奖-右上
+            'https://i.gkd.li/i/23451395', //我要直接领奖-右上
+            'https://i.gkd.li/i/23455257', //返回继续体验-左上
+            'https://i.gkd.li/i/23471191', //返回继续体验-右上
+            'https://i.gkd.li/i/23471460', //我要加速领奖-右上
+            'https://i.gkd.li/i/23471469', //返回继续体验-右上
+            'https://i.gkd.li/i/23492681', //立即前往-右上
+            'https://i.gkd.li/i/23493652', //我要加速-左下
+            'https://i.gkd.li/i/23496451', //再试一次-右上
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
@@ -127,25 +127,43 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text^="我要"][width=819 && height=177] <<n * +n * >n [text$="跳过"]',
-            '@[text$="体验"][width=711 && height=183] <<n * +n * >n [text$="跳过"]',
-            '@[text="再试一次"][width=711 && height=183] <<n * +n * >n [text$="跳过"]',
-            '@[text="拿奖励"][width=732 && height=162] <<n * +n * >n [text$="拿奖励"]',
-            '@[text="再试一次"][width=732 && height=162] <<n * +n * >n [text$="跳过"]',
-            '@[text*="领"][width>100 && height=66] <<n * +n * >n [text$="跳过"]',
-            '@[text^="我要"][width>300 && height=72] <<n * +n * >n [text$="跳过"]',
-            '@[text$="体验"][width>300 && height=72] <<n * +n * >n [text$="跳过"]',
+            '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
+            '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
+            '@[text="再试一次"] <<n * +n * >n [text$="跳过"]',
+            '@[text="去领奖励"] <<n * +n * >n [text$="跳过"]',
+            '@[text="拿奖励"] <<n * +n * >n [text$="拿奖励"]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/23471487', //我要免看本次广告[width=819&& height=177]
-            'https://i.gkd.li/i/23493737', //去体验[width=711 && height=183]
-            'https://i.gkd.li/i/23493789', //再试一次[width=711 && height=183]
-            'https://i.gkd.li/i/23518146', //去体验[width=711 && height=183]
-            'https://i.gkd.li/i/23518156', //返回继续体验[width=711 && height=183]
-            'https://i.gkd.li/i/23475883', //拿奖励-拿奖励[width=732 && height=162]
-            'https://i.gkd.li/i/23494451', //拿奖励[width=732 && height=162]
-            'https://i.gkd.li/i/23518467', //再试一次[width=732 && height=162]
-            'https://i.gkd.li/i/23520300', //去领奖励[width=180 && height=66]
+            'https://i.gkd.li/i/23471487', //我要免看本次广告
+            'https://i.gkd.li/i/23493737', //去体验
+            'https://i.gkd.li/i/23493789', //再试一次
+            'https://i.gkd.li/i/23475883', //拿奖励-拿奖励
+            'https://i.gkd.li/i/23494451', //拿奖励
+            'https://i.gkd.li/i/23518467', //再试一次
+            'https://i.gkd.li/i/23520300', //去领奖励
+          ],
+          activityIds: [
+            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 111,
+      name: '看视频-跳过↓',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '[text="可提前20秒领奖"] -n @[text$="体验"] <<n * +n * >n [text$="跳过"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23518146', //去体验
+            'https://i.gkd.li/i/23518156', //返回继续体验
           ],
           activityIds: [
             'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
