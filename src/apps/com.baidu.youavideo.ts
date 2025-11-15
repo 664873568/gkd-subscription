@@ -242,7 +242,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          anyMatches: ['@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]'],
+          anyMatches: [
+            '@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]',
+          ],
           snapshotUrls: ['https://i.gkd.li/i/23558701'],
           activityIds: ['.home.view.HomeActivity'],
         },
@@ -288,7 +290,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]'],
+          matches: [
+            '@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/23558690',
             'https://i.gkd.li/i/23558692',
