@@ -15,7 +15,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'clickCenter',
           matches: [
             '@[text="领券抢"] <<n [text="黑色星期五"] >n [text="15枚无抗鲜蛋"]',
           ],
@@ -33,8 +32,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
-          actionDelay: 1000,
+          action: 'back',
           matches: [
             '@[index=parent.childCount.minus(1)] - [id$="/a75"] > [id$="/bco"]',
           ],
@@ -52,8 +50,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
-          actionDelay: 1000,
           matches: [
             '@[desc="关闭"] < * - [text="立即使用"] -3 [text="仅限店铺内部分商品"]',
           ],
@@ -71,13 +67,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'click',
-          actionDelay: 1000,
-          position: {
-            left: 'width * 0.5026',
-            top: 'width * 0.2124',
-          },
-          matches: ['@*[childCount=18] < * -2 *[text*="立即领取"]'],
+          action: 'back',
+          matches: ['@[text*="立即领取"] <<n [text="服饰美妆"]'],
           snapshotUrls: ['https://i.gkd.li/i/23396514'],
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
