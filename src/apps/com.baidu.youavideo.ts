@@ -399,9 +399,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: [
-            '@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]',
-          ],
+          matches: ['@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]'],
           snapshotUrls: ['https://i.gkd.li/i/23558701'],
           activityIds: ['.home.view.HomeActivity'],
         },
