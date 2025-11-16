@@ -76,21 +76,21 @@ export default defineGkdApp({
           snapshotUrls: ['https://i.gkd.li/i/23561997'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           action: 'back',
           matches: ['@[desc="任务已完成 快去领奖励"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23562013'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           action: 'clickCenter',
           matches: ['@[text="领奖励"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23562109'],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           action: 'clickCenter',
           excludeMatches: [
