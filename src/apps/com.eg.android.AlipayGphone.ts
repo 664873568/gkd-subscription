@@ -156,12 +156,8 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="去领取"] <<n [id^="scroll_to"] <<n [text="红包"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23566793',
-          ],
-          activityIds: [
-            '.AlipayLogin',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23566793'],
+          activityIds: ['.AlipayLogin'],
         },
       ],
     },
@@ -175,9 +171,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@View >n [text="任务完成"] + [text="返回领奖"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23566792',
-          ],
+          snapshotUrls: ['https://i.gkd.li/i/23566792'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
