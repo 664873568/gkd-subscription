@@ -270,6 +270,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'none',
           matches: ['@[text="单选题"] <<n [id$="/h5_trans_progress_rl"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567048'],
           activityIds: [
