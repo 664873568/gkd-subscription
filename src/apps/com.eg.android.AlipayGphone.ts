@@ -4,6 +4,7 @@ export default defineGkdApp({
   id: 'com.eg.android.AlipayGphone',
   name: '支付宝',
   groups: [
+    //网商财神
     {
       key: 0,
       name: '网商财神-开红包',
@@ -54,7 +55,6 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
       rules: [
         {
           matches: ['@[text="Smallfish App"] >n [text="任务完成"]'],
@@ -76,7 +76,6 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
       rules: [
         {
           matches: [
@@ -86,6 +85,59 @@ export default defineGkdApp({
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
+        },
+      ],
+    },
+    //木兰日
+    {
+      key: 3,
+      name: '木兰日-加机会',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@Image -n * <n * <<n [id="ant-render-id-CPT_66014f3a846db8bae059d7b9"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23566713'],
+        },
+        {
+          preKey: [0],
+          key: 1,
+          matches: [
+            '@Image -n * <n * <<n [id="ant-render-id-CPT_66014f3a846db8bae059d7b9"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23566732'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '木兰日-拳击抽奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@View -n Image <<n [id="ant-render-id-CPT_66014f3a846db8bae059d7b9"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23566736'],
+        },
+        {
+          preKey: [0],
+          key: 1,
+          matches: [
+            '@[text="A*owxzR4JLWG8AAAAAAAAAAABkARQnAQ"] -n [text="恭喜获得网商福利金"] <<n [id="ant-render-id-CPT_66014f3a846db8bae059d7b9"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23566732'],
         },
       ],
     },
