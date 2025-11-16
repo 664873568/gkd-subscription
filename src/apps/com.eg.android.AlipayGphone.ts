@@ -319,7 +319,7 @@ export default defineGkdApp({
     },
     {
       key: 16,
-      name: '赚工分-去完成',
+      name: '赚工分-任务完成',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
