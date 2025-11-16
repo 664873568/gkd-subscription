@@ -301,6 +301,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'clickCenter',
           matches: [
             '@[text="跳过" || desc="close_button"] <<n * -n * >n [desc="gift_box"]',
           ],
@@ -324,6 +325,23 @@ export default defineGkdApp({
         {
           matches: ['@ImageView <<n * -n * >n [text="反馈"]'],
           snapshotUrls: ['https://i.gkd.li/i/23493264'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 20,
+      name: '看视频-继续观看',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="继续观看"] + [text="坚持退出"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23566248'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
@@ -425,6 +443,30 @@ export default defineGkdApp({
           key: 1,
           matches: ['@[text="残忍离开"] <n * +n [text="留下看看"]'],
           snapshotUrls: ['https://i.gkd.li/i/23544750'],
+        },
+      ],
+    },
+    {
+      key: 34,
+      name: '看视频-广告-<+×2',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 10000,
+          matches: [
+            '@[text="网页无法打开"] - [text="x+AAAAAElFTkSuQmCC"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23563374',
+            'https://i.gkd.li/i/23566213',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
         },
       ],
     },
