@@ -51,7 +51,7 @@ export default defineGkdApp({
       name: '天猫超市-好运签-做任务赚好运值',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       activityIds: ['com.taobao.themis.container.app.TMSActivity'],
       rules: [
@@ -73,7 +73,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          action: 'back',
+          action: 'clickCenter',
           matches: ['@[desc="任务已完成 快去领奖励"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23562013'],
         },
