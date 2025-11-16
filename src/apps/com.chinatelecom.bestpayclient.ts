@@ -125,6 +125,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'clickCenter',
           actionDelay: 2000,
           anyMatches: [
             '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
