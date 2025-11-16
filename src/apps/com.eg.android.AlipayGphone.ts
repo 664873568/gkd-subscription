@@ -106,7 +106,7 @@ export default defineGkdApp({
           snapshotUrls: ['https://i.gkd.li/i/23566713'],
         },
         {
-          preKey: [0],
+          preKeys: [0],
           key: 1,
           matches: [
             '@Image -n * <n * <<n [id="ant-render-id-CPT_66014f3a846db8bae059d7b9"]',
@@ -132,7 +132,7 @@ export default defineGkdApp({
           snapshotUrls: ['https://i.gkd.li/i/23566736'],
         },
         {
-          preKey: [0],
+          preKeys: [0],
           key: 1,
           matches: [
             '@[text="A*owxzR4JLWG8AAAAAAAAAAABkARQnAQ"] -n [text="恭喜获得网商福利金"] <<n [id="ant-render-id-CPT_66014f3a846db8bae059d7b9"]',
