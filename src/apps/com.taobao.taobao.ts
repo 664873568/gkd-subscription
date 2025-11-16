@@ -16,7 +16,7 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           matches: [
-            '@[id="YVHLmvad9Z56"] > [text="摇一摇"] + [text="抽今日好运签"] <<n [text="天猫超市"]',
+            '@[id="YVHLmvad9Z56"] <<n [text="天猫超市"]',
           ],
           snapshotUrls: ['https://i.gkd.li/i/23561893'],
           activityIds: ['com.taobao.themis.container.app.TMSActivity'],
@@ -50,7 +50,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '天猫超市-好运签-',
+      name: '天猫超市-好运签-做任务赚好运值',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -89,6 +89,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2, 3],
           key: 4,
+          actionDelay: 2000,
           action: 'clickCenter',
           excludeMatches: [
             '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领奖励"]',
