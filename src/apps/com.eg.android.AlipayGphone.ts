@@ -77,7 +77,9 @@ export default defineGkdApp({
       activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
       rules: [
         {
-          matches: ['@TextView <n * <n * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]'],
+          matches: [
+            '@TextView <n * <n * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]',
+          ],
           snapshotUrls: ['https://i.gkd.li/i/23566626'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
