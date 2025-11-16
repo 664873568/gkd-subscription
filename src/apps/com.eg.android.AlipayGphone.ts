@@ -145,5 +145,44 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频
+    {
+      key: 6,
+      name: '看视频-做任务领红包',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="去领取"] <<n [id^="scroll_to"] <<n [text="红包"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23566793',
+          ],
+          activityIds: [
+            '.AlipayLogin',
+          ],
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '看视频-任务完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@View >n [text="任务完成"] + [text="返回领奖"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23566792',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
   ],
 });
