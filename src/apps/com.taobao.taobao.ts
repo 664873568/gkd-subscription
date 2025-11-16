@@ -93,10 +93,14 @@ export default defineGkdApp({
           preKeys: 3,
           key: 4,
           action: 'clickCenter',
-          matches: [
-            '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领任务" && text="已领奖" && text!="领奖励"]',
+          excludeMatches: [
+            '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领奖励"]',
           ],
-          snapshotUrls: ['https://i.gkd.li/i/23562109'],
+          matches: [
+            '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领任务""]',
+            '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="已领奖"]',
+          ],
+          snapshotUrls: ['https://i.gkd.li/i/23566423'],
         },
       ],
     },
