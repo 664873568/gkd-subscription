@@ -90,7 +90,7 @@ export default defineGkdApp({
     },
     //木兰日
     {
-      key: 3,
+      key: 4,
       name: '木兰日-加机会',
       matchRoot: true,
       actionMaximum: 1,
@@ -116,7 +116,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '木兰日-拳击抽奖',
       matchRoot: true,
       actionMaximum: 1,
