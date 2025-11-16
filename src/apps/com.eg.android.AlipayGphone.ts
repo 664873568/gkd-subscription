@@ -67,5 +67,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '网商财神-开红包-继续迎财神',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          matches: ['@TextView <n * <n * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23566626'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
   ],
 });
