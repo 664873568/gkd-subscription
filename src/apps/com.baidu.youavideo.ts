@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="点击赚积分"] <<n * -n * > [text="体验清理截图"] +n [text="已完成"] <<n [text="任务中心"]'],
+          matches: [
+            '@[text="点击赚积分"] <<n * -n * > [text="体验清理截图"] +n [text="已完成"] <<n [text="任务中心"]',
+          ],
           snapshotUrls: ['https://i.gkd.li/i/23558929'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
