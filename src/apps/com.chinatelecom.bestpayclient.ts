@@ -29,7 +29,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['[text="赚金币"] >n [text^="+"] - Image'],
           snapshotUrls: ['https://i.gkd.li/i/23496647'],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
@@ -88,9 +88,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           anyMatches: [
-            '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
-            '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
             '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
             '@[text="立即前往"] <<n * -n * >n [text$="跳过"]',
@@ -126,6 +125,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           anyMatches: [
             '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
@@ -158,6 +158,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '[text="可提前20秒领奖"] -n @[text$="体验"] <<n * +n * >n [text$="跳过"]',
           ],
@@ -237,6 +238,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: ['@[text="去领奖"] <<n * -n * >n [text="svg%3e"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23494021',
@@ -278,7 +280,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 100,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23451963',
@@ -299,7 +300,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 100,
           matches: [
             '@[text="跳过" || desc="close_button"] <<n * -n * >n [desc="gift_box"]',
           ],
@@ -331,7 +331,30 @@ export default defineGkdApp({
     },
     //看视频-二级
     {
-      key: 20,
+      key: 30,
+      name: '看视频-跳转快应用-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 10000,
+          matches: ['@ImageView + ImageView +n [text="反馈"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23496919',
+            'https://i.gkd.li/i/23496926',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity',
+            'null',
+          ],
+        },
+      ],
+    },
+    {
+      key: 31,
       name: '看视频-广告-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -350,7 +373,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 32,
       name: '看视频-广告-<+×1',
       matchRoot: true,
       actionMaximum: 1,
@@ -379,7 +402,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 33,
       name: '看视频-广告-<+×2',
       matchRoot: true,
       actionMaximum: 1,
@@ -401,29 +424,6 @@ export default defineGkdApp({
           key: 1,
           matches: ['@[text="残忍离开"] <n * +n [text="留下看看"]'],
           snapshotUrls: ['https://i.gkd.li/i/23544750'],
-        },
-      ],
-    },
-    {
-      key: 23,
-      name: '看视频-跳转快应用-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 10000,
-          matches: ['@ImageView + ImageView +n [text="反馈"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23496919',
-            'https://i.gkd.li/i/23496926',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity',
-            'null',
-          ],
         },
       ],
     },
