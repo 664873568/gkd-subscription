@@ -19,9 +19,6 @@ export default defineGkdApp({
             '@View -n * <<3 [id="ant-render-id-CPT_67f7a08a088a0168e4b61c05"]',
           ],
           snapshotUrls: ['https://i.gkd.li/i/23561800'],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
         },
         {
           preKeys: 0,
