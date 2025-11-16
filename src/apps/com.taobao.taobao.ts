@@ -40,7 +40,7 @@ export default defineGkdApp({
           snapshotUrls: ['https://i.gkd.li/i/23561893'],
         },
         {
-          preKeys: 0,
+          preKeys: [0],
           key: 1,
           action: 'clickCenter',
           matches: ['@[text="知道了"] <<n [text="天猫超市"]'],
@@ -67,7 +67,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: 0,
+          preKeys: [0],
           key: 1,
           action: 'clickCenter',
           matches: [
@@ -76,28 +76,28 @@ export default defineGkdApp({
           snapshotUrls: ['https://i.gkd.li/i/23561997'],
         },
         {
-          preKeys: 1,
+          preKeys: [0,1],
           key: 2,
           action: 'back',
           matches: ['@[desc="任务已完成 快去领奖励"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23562013'],
         },
         {
-          preKeys: 2,
+          preKeys: [0,1,2],
           key: 3,
           action: 'clickCenter',
           matches: ['@[text="领奖励"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23562109'],
         },
         {
-          preKeys: 3,
+          preKeys: [0,1,2,3],
           key: 4,
           action: 'clickCenter',
           excludeMatches: [
             '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领奖励"]',
           ],
           matches: [
-            '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领任务""]',
+            '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领任务"]',
             '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="已领奖"]',
           ],
           snapshotUrls: ['https://i.gkd.li/i/23566423'],
