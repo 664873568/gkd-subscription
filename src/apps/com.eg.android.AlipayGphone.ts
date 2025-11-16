@@ -96,7 +96,9 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
-      activityIds: ['com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity'],
+      activityIds: [
+        'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -122,7 +124,9 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
-      activityIds: ['com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity'],
+      activityIds: [
+        'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
+      ],
       rules: [
         {
           key: 0,
