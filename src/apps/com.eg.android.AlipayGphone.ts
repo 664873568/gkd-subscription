@@ -9,13 +9,12 @@ export default defineGkdApp({
       name: '网商财神-开红包',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 3000,
       resetMatch: 'activity',
       activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           matches: [
             '@View -n * <<3 [id="ant-render-id-CPT_67f7a08a088a0168e4b61c05"]',
           ],
