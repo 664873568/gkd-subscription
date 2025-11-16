@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[id="YVHLmvad9Z56"] > [text="摇一摇"] + [text="抽今日好运签"] <<n [text="天猫超市"]'],
+          matches: [
+            '@[id="YVHLmvad9Z56"] > [text="摇一摇"] + [text="抽今日好运签"] <<n [text="天猫超市"]',
+          ],
           snapshotUrls: ['https://i.gkd.li/i/23561893'],
           activityIds: ['com.taobao.themis.container.app.TMSActivity'],
         },
