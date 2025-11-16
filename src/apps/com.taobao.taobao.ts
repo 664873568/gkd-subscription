@@ -62,9 +62,6 @@ export default defineGkdApp({
           action: 'clickCenter',
           matches: ['@[text="做任务赚好运值"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561950'],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
         },
         {
           preKeys: [0],
