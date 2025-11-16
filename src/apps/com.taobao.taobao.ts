@@ -15,9 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'clickCenter',
-          matches: [
-            '@[id="YVHLmvad9Z56"] <<n [text="天猫超市"]',
-          ],
+          matches: ['@[id="YVHLmvad9Z56"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561893'],
           activityIds: ['com.taobao.themis.container.app.TMSActivity'],
         },
