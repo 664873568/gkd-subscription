@@ -178,5 +178,161 @@ export default defineGkdApp({
         },
       ],
     },
+    //蚂蚁投资者教育基地
+    {
+      key: 8,
+      name: '蚂蚁投资者教育基地-出发寻宝',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 1000,
+          matches: ['@[text="出发寻宝"] <<n [id="ppage-index-index"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23567002'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+        },
+      ],
+    },
+    {
+      key: 9,
+      name: '蚂蚁投资者教育基地-立即打开',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="立即打开"] <<n [id="ppage-index-index"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23567003'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+        },
+      ],
+    },
+    {
+      key: 10,
+      name: '蚂蚁投资者教育基地-收下并继续探险',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="收下并继续探险"] <<n [id="ppage-index-index"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23567005'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '蚂蚁投资者教育基地-去完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="去完成"] <<n [id="ppage-index-index"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23567047',
+            'https://i.gkd.li/i/23567052',
+          ],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text=""] <<n [desc="返回"]'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/23567088',
+          ],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '蚂蚁投资者教育基地-选择题',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'none',
+          matches: ['@[text="单选题"] <<n [id$="/h5_trans_progress_rl"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23567048'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main'],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '蚂蚁投资者教育基地-选择题',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'none',
+          matches: ['@[text="收下了"] <<n [id="ppage-index-index"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23567094'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+        },
+      ],
+    },
+    //赚工分
+    {
+      key: 14,
+      name: '赚工分-我知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          position: {
+            left: 'width * 0.5009',
+            top: 'width * 1.5934',
+            },
+          snapshotUrls: ['https://i.gkd.li/i/23567103'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '赚工分-去完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="去完成"] -n [text="80q"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23567104'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+        },
+      ],
+    },
+    {
+      key: 16,
+      name: '赚工分-去完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="Smallfish App"] >3 View'],
+          snapshotUrls: ['https://i.gkd.li/i/23567105'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+        },
+      ],
+    },
   ],
 });
