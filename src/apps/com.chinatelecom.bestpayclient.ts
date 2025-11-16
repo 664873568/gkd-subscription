@@ -457,9 +457,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 10000,
-          matches: [
-            '@[text="网页无法打开"] - [text="x+AAAAAElFTkSuQmCC"]',
-          ],
+          matches: ['@[text="网页无法打开"] - [text="x+AAAAAElFTkSuQmCC"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23563374',
             'https://i.gkd.li/i/23566213',
