@@ -29,7 +29,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['@[text="下次再来"] <<n [text="任务中心"]'],
           snapshotUrls: ['https://i.gkd.li/i/23545964'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
@@ -80,7 +80,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           matches: ['@[text="赚积分"] <<n [text="任务中心"]'],
           snapshotUrls: ['https://i.gkd.li/i/23558929'],
         },
@@ -122,6 +121,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           anyMatches: [
             '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
@@ -146,6 +146,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           anyMatches: [
             '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
             '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
@@ -175,6 +176,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '[text="可提前20秒领奖"] -n @[text$="体验"] <<n * +n * >n [text$="跳过"]',
           ],
@@ -255,6 +257,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: ['@[text="去领奖"] <<n * -n * >n [text="svg%3e"]'],
           snapshotUrls: [
             'https://i.gkd.li/i/23547463',
@@ -301,7 +304,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 100,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           snapshotUrls: ['https://i.gkd.li/i/23546556'],
           activityIds: [
@@ -320,7 +322,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 100,
           matches: [
             '@[text="跳过" || desc="close_button"] <<n * -n * >n [desc="gift_box"]',
           ],
@@ -369,7 +370,7 @@ export default defineGkdApp({
     },
     //看视频-二级
     {
-      key: 31,
+      key: 30,
       name: '看视频-跳转快应用-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -398,7 +399,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          anyMatches: [
+          matches: [
             '@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]',
           ],
           snapshotUrls: ['https://i.gkd.li/i/23558701'],
@@ -415,7 +416,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: ['@[vid="iv_close"] +n [text="开启自定义备份"]'],
+          matches: ['@[vid="iv_close"] +n [text="开启自定义备份"]'],
           snapshotUrls: ['https://i.gkd.li/i/23558728'],
           activityIds: ['.home.view.HomeActivity'],
         },
@@ -430,7 +431,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: ['@[vid="img_close"] -n * >n [text="立即升级"]'],
+          matches: ['@[vid="img_close"] -n * >n [text="立即升级"]'],
           snapshotUrls: ['https://i.gkd.li/i/23558731'],
           activityIds: ['.home.view.HomeActivity'],
         },
@@ -467,7 +468,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@TextView -n * >n [text="立即使用"] <<n [text="随心卡会员"]',
             '@Image -n * >n [text="立即开通"] <<n [text="随心卡会员"]',
           ],
