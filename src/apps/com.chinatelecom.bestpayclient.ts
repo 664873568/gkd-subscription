@@ -448,7 +448,7 @@ export default defineGkdApp({
     },
     {
       key: 34,
-      name: '看视频-广告-<+×2',
+      name: '看视频-网页无法打开',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
