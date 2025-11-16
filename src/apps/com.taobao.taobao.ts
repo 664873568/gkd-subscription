@@ -14,6 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'clickCenter',
           matches: [
             '@[id="YVHLmvad9Z56"] > [text="摇一摇"] + [text="抽今日好运签"] <<n [text="天猫超市"]',
           ],
@@ -33,6 +34,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          action: 'clickCenter',
           actionDelay: 2000,
           matches: ['@[text="兑赠金立即兑换"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561893'],
@@ -40,6 +42,7 @@ export default defineGkdApp({
         {
           preKeys: 0,
           key: 1,
+          action: 'clickCenter',
           matches: ['@[text="知道了"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561924'],
         },
@@ -56,6 +59,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          action: 'clickCenter',
           matches: ['@[text="做任务赚好运值"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561950'],
           activityIds: [
@@ -65,6 +69,7 @@ export default defineGkdApp({
         {
           preKeys: 0,
           key: 1,
+          action: 'clickCenter',
           matches: [
             '@[text="领任务"] <3 * < [id="panel-content"] <<n [text="天猫超市"]',
           ],
@@ -80,12 +85,14 @@ export default defineGkdApp({
         {
           preKeys: 2,
           key: 3,
+          action: 'clickCenter',
           matches: ['@[text="领奖励"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23562109'],
         },
         {
           preKeys: 3,
           key: 4,
+          action: 'clickCenter',
           matches: [
             '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领任务" && text="已领奖" && text!="领奖励"]',
           ],
