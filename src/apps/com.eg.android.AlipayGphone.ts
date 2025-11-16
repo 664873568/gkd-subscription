@@ -59,12 +59,8 @@ export default defineGkdApp({
       activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
       rules: [
         {
-          matches: [
-            '@[text="Smallfish App"] >n [text="任务完成"]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23566578',
-          ],
+          matches: ['@[text="Smallfish App"] >n [text="任务完成"]'],
+          snapshotUrls: ['https://i.gkd.li/i/23566578'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
