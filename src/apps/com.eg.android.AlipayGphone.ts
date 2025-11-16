@@ -10,7 +10,7 @@ export default defineGkdApp({
       name: '网商财神-开红包',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 5000,
+      forcedTime: 5000,
       resetMatch: 'activity',
       rules: [
         {
@@ -29,7 +29,7 @@ export default defineGkdApp({
       name: '网商财神-开红包-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 5000,
+      forcedTime: 5000,
       resetMatch: 'activity',
       rules: [
         {
@@ -122,7 +122,7 @@ export default defineGkdApp({
       name: '木兰日-拳击抽奖',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: [
         'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
@@ -262,7 +262,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'none',
           matches: ['@[text="单选题"] <<n [id$="/h5_trans_progress_rl"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567048'],
           activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main'],
@@ -271,14 +270,13 @@ export default defineGkdApp({
     },
     {
       key: 13,
-      name: '蚂蚁投资者教育基地-选择题',
+      name: '蚂蚁投资者教育基地-收下了',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'none',
           matches: ['@[text="收下了"] <<n [id="ppage-index-index"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567094'],
           activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
