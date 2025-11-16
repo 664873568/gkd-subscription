@@ -191,7 +191,9 @@ export default defineGkdApp({
           actionDelay: 1000,
           matches: ['@[text="出发寻宝"] <<n [id="ppage-index-index"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567002'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -206,7 +208,9 @@ export default defineGkdApp({
         {
           matches: ['@[text="立即打开"] <<n [id="ppage-index-index"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567003'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -221,7 +225,9 @@ export default defineGkdApp({
         {
           matches: ['@[text="收下并继续探险"] <<n [id="ppage-index-index"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567005'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -240,16 +246,18 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23567047',
             'https://i.gkd.li/i/23567052',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: ['@[text=""] <<n [desc="返回"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23567088',
+          snapshotUrls: ['https://i.gkd.li/i/23567088'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
         },
       ],
     },
@@ -264,7 +272,9 @@ export default defineGkdApp({
         {
           matches: ['@[text="单选题"] <<n [id$="/h5_trans_progress_rl"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567048'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+          ],
         },
       ],
     },
@@ -279,7 +289,9 @@ export default defineGkdApp({
         {
           matches: ['@[text="收下了"] <<n [id="ppage-index-index"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567094'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -296,9 +308,11 @@ export default defineGkdApp({
           position: {
             left: 'width * 0.5009',
             top: 'width * 1.5934',
-            },
+          },
           snapshotUrls: ['https://i.gkd.li/i/23567103'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -313,7 +327,9 @@ export default defineGkdApp({
         {
           matches: ['@[text="去完成"] -n [text="80q"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567104'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -328,7 +344,9 @@ export default defineGkdApp({
         {
           matches: ['@[text="Smallfish App"] >3 View'],
           snapshotUrls: ['https://i.gkd.li/i/23567105'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
