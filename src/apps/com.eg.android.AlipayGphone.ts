@@ -26,7 +26,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '网商财神-开红包',
+      name: '网商财神-开红包-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 3000,
