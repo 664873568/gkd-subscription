@@ -15,7 +15,7 @@ export default defineGkdGlobalGroups([
     rules: [
       {
         key: 0,
-        desc: '查看-反馈-×',
+        name: '查看-反馈-×',
         anyMatches: [
           '@ImageView +n * >n [text="反馈"] +n * >n View',
           '@ImageView -n [text="反馈"] +n View',
@@ -24,7 +24,7 @@ export default defineGkdGlobalGroups([
       },
       {
         key: 1,
-        desc: '反馈-×',
+        name: '反馈-×',
         matches: [
           '@Image <n * <n * -n * >n [text="反馈"] <<n [text="穿山甲"]',
         ],
@@ -32,7 +32,7 @@ export default defineGkdGlobalGroups([
       },
       {
         key: 2,
-        desc: '摇一摇或点击查看详情-×',
+        name: '摇一摇或点击查看详情-×',
         matches: [
           '@[id$="/ms_activity_sdk_interstitial_cacel"] +n * >n [text="摇一摇或点击查看详情"]',
         ],
