@@ -151,7 +151,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 111,
+      key: 12,
       name: '看视频-跳过↓-体验',
       matchRoot: true,
       actionMaximum: 1,
@@ -175,7 +175,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 13,
       name: '看视频-跳过-×-应用详情+立即下载',
       matchRoot: true,
       actionMaximum: 1,
@@ -196,7 +196,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 14,
       name: '看视频-跳过-继续观看',
       matchRoot: true,
       actionMaximum: 1,
@@ -211,7 +211,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 15,
       name: '看视频-长按-×', //长按无法实现
       matchRoot: true,
       actionMaximum: 1,
@@ -231,7 +231,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 16,
       name: '看视频-去领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -253,7 +253,7 @@ export default defineGkdApp({
     },
     //看视频-返回|跳过|关闭
     {
-      key: 16,
+      key: 17,
       name: '看视频-去领奖-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -273,7 +273,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 17,
+      key: 18,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -293,7 +293,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 18,
+      key: 19,
       name: '看视频-礼包-领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -315,7 +315,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 19,
+      key: 20,
       name: '看视频-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -332,7 +332,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 20,
+      key: 21,
       name: '看视频-继续观看',
       matchRoot: true,
       actionMaximum: 1,
@@ -342,6 +342,61 @@ export default defineGkdApp({
         {
           matches: ['@[text="继续观看"] + [text="坚持退出"]'],
           snapshotUrls: ['https://i.gkd.li/i/23566248'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 22,
+      name: '查看-反馈-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@ImageView +n * >n [text="反馈"] +n * >n View',
+            '@ImageView -n [text="反馈"] +n View',
+            ],
+          activityIds: [
+            'com.baidu.mobads.sdk.api.MobRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 23,
+      name: '反馈-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@Image <n * <n * -n * >n [text="反馈"] <<n [text="穿山甲"]',
+            ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 24,
+      name: '摇一摇或点击查看详情-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[id$="/ms_activity_sdk_interstitial_cacel"] +n * >n [text="摇一摇或点击查看详情"]',
+            ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
