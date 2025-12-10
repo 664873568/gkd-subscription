@@ -360,10 +360,8 @@ export default defineGkdApp({
           anyMatches: [
             '@ImageView +n * >n [text="反馈"] +n * >n View',
             '@ImageView -n [text="反馈"] +n View',
-            ],
-          activityIds: [
-            'com.baidu.mobads.sdk.api.MobRewardVideoActivity',
           ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
       ],
     },
@@ -378,7 +376,7 @@ export default defineGkdApp({
         {
           matches: [
             '@Image <n * <n * -n * >n [text="反馈"] <<n [text="穿山甲"]',
-            ],
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
@@ -396,7 +394,7 @@ export default defineGkdApp({
         {
           matches: [
             '@[id$="/ms_activity_sdk_interstitial_cacel"] +n * >n [text="摇一摇或点击查看详情"]',
-            ],
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
