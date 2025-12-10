@@ -13,16 +13,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 15000,
+          actionDelay: 16000,
           anyMatches: [
             '@[desc^="飞猪旅行,未加锁"] <<n * + * >n [desc$="清理全部任务"]',
+            '@[desc^="喜马拉雅,未加锁"] <<n * + * >n [desc$="清理全部任务"]',
             '@[desc^="一刻相册,未加锁"] <<n * + * >n [desc$="清理全部任务"]',
             '@[desc^="翼支付,未加锁"] <<n * + * >n [desc$="清理全部任务"]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23493031',
-            'https://i.gkd.li/i/23494550',
-            'https://i.gkd.li/i/23496279',
           ],
           activityIds: ['.launcher.Launcher'],
         },
