@@ -928,7 +928,7 @@ export default defineGkdApp({
     },
     {
       key: 200,
-      name: '喜马拉雅申请授权使用',
+      name: '喜马拉雅申请授权使用-拒绝',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -944,7 +944,7 @@ export default defineGkdApp({
     },
     {
       key: 201,
-      name: '喜马拉雅申请授权使用',
+      name: '喜马拉雅申请授权使用-返回',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
