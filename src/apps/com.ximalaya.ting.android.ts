@@ -231,7 +231,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13
+      key: 13,
       name: '赚金币-幸运大转盘-首次免费',
       matchRoot: true,
       actionMaximum: 1,
