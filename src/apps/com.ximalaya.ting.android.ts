@@ -1,8 +1,8 @@
 import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
-  id: 'com.chinatelecom.bestpayclient',
-  name: '翼支付',
+  id: 'com.ximalaya.ting.android',
+  name: '喜马拉雅',
   groups: [
     //赚金币
     {
