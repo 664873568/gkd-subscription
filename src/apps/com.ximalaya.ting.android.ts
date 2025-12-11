@@ -610,7 +610,7 @@ export default defineGkdApp({
     },
     {
       key: 34,
-      name: '免费领时长-做任务领更多时长-去完成',
+      name: '免费领时长-做任务领更多时长-去分享',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
