@@ -628,7 +628,7 @@ export default defineGkdApp({
     },
     {
       key: 35,
-      name: '免费领时长-做任务领更多时长-去分享',
+      name: '免费领时长-做任务领更多时长-去领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -636,7 +636,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="去分享"] <<n * [text="做任务领更多时长"]',
+            '@[text="去领取"] <<n * [text="做任务领更多时长"]',
           ],
           activityIds: [
             '.host.activity.MainActivity',
