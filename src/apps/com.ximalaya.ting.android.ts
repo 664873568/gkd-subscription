@@ -64,9 +64,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          matches: [
-            '@[text="限时领金币"] <<n * [text="赚金币"]',
-          ],
+          matches: ['@[text="限时领金币"] <<n * [text="赚金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -81,9 +79,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          matches: [
-            '@[text="去领取"] <<n * [text="听书赚金币"]',
-          ],
+          matches: ['@[text="去领取"] <<n * [text="听书赚金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -97,9 +93,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="看广告额外获得"] <<n * [text="听书赚金币"]',
-          ],
+          matches: ['@[text="看广告额外获得"] <<n * [text="听书赚金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -114,9 +108,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          matches: [
-            '@[text="看广告"] <<n * [text="看广告得金币"]',
-          ],
+          matches: ['@[text="看广告"] <<n * [text="看广告得金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -148,9 +140,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          matches: [
-            '@[text="我知道了"] <<n * [text="看广告得金币"]',
-          ],
+          matches: ['@[text="我知道了"] <<n * [text="看广告得金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -165,9 +155,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          matches: [
-            '@[text="去翻卡"] <<n * [text="翻卡赢9999金币"]',
-          ],
+          matches: ['@[text="去翻卡"] <<n * [text="翻卡赢9999金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -181,12 +169,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="翻下一位"] <n * - * >n [text="再翻一次"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="翻下一位"] <n * - * >n [text="再翻一次"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -206,9 +190,7 @@ export default defineGkdApp({
           matches: [
             '@ViewGroup - ViewGroup < ViewGroup + ViewGroup >n [text="再翻一次"]',
           ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -221,12 +203,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="直接领取"] <<n * [text="翻卡赢9999金币"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="直接领取"] <<n * [text="翻卡赢9999金币"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -239,12 +217,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="首次免费"] <<n * [text="幸运大转盘"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="首次免费"] <<n * [text="幸运大转盘"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -257,12 +231,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text^="个广告免费抽"] <<n * [text="幸运大转盘"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text^="个广告免费抽"] <<n * [text="幸运大转盘"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -275,12 +245,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="免费\\n抽大奖"] <<n * [text="幸运大转盘"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="免费\\n抽大奖"] <<n * [text="幸运大转盘"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -293,9 +259,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="看广告额外领"] <<n * [text="幸运大转盘"]',
-          ],
+          matches: ['@[text="看广告额外领"] <<n * [text="幸运大转盘"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -309,9 +273,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="开心收下"] <<n * [text="幸运大转盘"]',
-          ],
+          matches: ['@[text="开心收下"] <<n * [text="幸运大转盘"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -327,12 +289,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="领金币"] <<n * [text="点一下开机广告"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="领金币"] <<n * [text="点一下开机广告"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -345,9 +303,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="看广告额外领"] <<n * [text="点一下开机广告"]',
-          ],
+          matches: ['@[text="看广告额外领"] <<n * [text="点一下开机广告"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -361,12 +317,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="去领取"] <<n * [text="领取喝水补贴"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="去领取"] <<n * [text="领取喝水补贴"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -379,12 +331,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="第1杯水"] <<n * [text="健康喝水打卡"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="第1杯水"] <<n * [text="健康喝水打卡"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -397,12 +345,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="看广告翻倍领取"] <<n * [text="健康喝水打卡"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="看广告翻倍领取"] <<n * [text="健康喝水打卡"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -415,12 +359,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="去领取"] <<n * [text="拆红包领金币"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="去领取"] <<n * [text="拆红包领金币"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -436,9 +376,7 @@ export default defineGkdApp({
           matches: [
             '@ImageView <<n * -n * <<n * -n * <<n * -n * >n [text="红包雨"]',
           ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -451,12 +389,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="看广告翻倍领取"] <<n * [text="红包雨"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="看广告翻倍领取"] <<n * [text="红包雨"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -469,12 +403,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="开心收下"] <<n * [text="红包雨"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="开心收下"] <<n * [text="红包雨"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -487,12 +417,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="领取"] <<n * [text="每日任务"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="领取"] <<n * [text="每日任务"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -505,12 +431,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="我知道了"] <<n * [text="每日任务"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="我知道了"] <<n * [text="每日任务"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -526,9 +448,7 @@ export default defineGkdApp({
           matches: [
             '@WebView[text="下载百度极速版"] <<n * TextView[text="下载百度极速版"]',
           ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -543,12 +463,8 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 1000,
-          matches: [
-            '@[desc="返回"] <<n * TextView[text="下载百度极速版"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[desc="返回"] <<n * TextView[text="下载百度极速版"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -563,12 +479,8 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 1000,
-          matches: [
-            '@[desc="返回"] <<n * TextView[text$="果园"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[desc="返回"] <<n * TextView[text$="果园"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -581,12 +493,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="看广告+500金币"] <<n * [text="兑好礼"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="看广告+500金币"] <<n * [text="兑好礼"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -599,12 +507,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="去完成"] <<n * [text="做任务领更多时长"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="去完成"] <<n * [text="做任务领更多时长"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -617,12 +521,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="去分享"] <<n * [text="做任务领更多时长"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="去分享"] <<n * [text="做任务领更多时长"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -635,12 +535,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="去领取"] <<n * [text="做任务领更多时长"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="去领取"] <<n * [text="做任务领更多时长"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -653,12 +549,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="去加倍"] <<n * [text="听书领现金"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text="去加倍"] <<n * [text="听书领现金"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -672,15 +564,11 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 1000,
-          excludeMatches: [
-            '@[text="去加倍"] <<n * [text="听书领现金"]',
-          ],
+          excludeMatches: ['@[text="去加倍"] <<n * [text="听书领现金"]'],
           matches: [
             '@[text="领取" || text="看广告领"] <<n * [text="听书领现金"]',
           ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -693,12 +581,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text^="看视频再得"] <<n * [text="听书领现金"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[text^="看视频再得"] <<n * [text="听书领现金"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -711,12 +595,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[vid="host_reward_close_button"] - [text="已获得奖励"]',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          matches: ['@[vid="host_reward_close_button"] - [text="已获得奖励"]'],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -732,9 +612,7 @@ export default defineGkdApp({
           matches: [
             '@[vid="host_reward_close_button"] - [text="已获得免费收听时长"]',
           ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -752,9 +630,7 @@ export default defineGkdApp({
           matches: [
             '@[text="点击并浏览页面5s领取奖励"] <<n * [text="点击并浏览页面领取奖励"]',
           ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          activityIds: ['.host.activity.MainActivity'],
         },
         {
           preKeys: [0],
@@ -762,9 +638,7 @@ export default defineGkdApp({
           matches: [
             '@[text="已获得奖励"] + [vid="host_reward_close_button"] <<n * [text="查看详情"]',
           ],
-          activityIds: [
-            '.host.activity.MainActivity',
-          ],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -780,7 +654,7 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           anyMatches: [
-            '@[text^="我要"] <<n * -n * >n [text$="跳过"]',//我要加速
+            '@[text^="我要"] <<n * -n * >n [text$="跳过"]', //我要加速
             '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
             '@[text="立即前往"] <<n * -n * >n [text$="跳过"]',
             '@[text="再试一次"] <<n * -n * >n [text$="跳过"]',
@@ -803,7 +677,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 2000,
           anyMatches: [
-            '@[text^="我要"] <<n * +n * >n [text$="跳过"]',//我要直接拿奖励
+            '@[text^="我要"] <<n * +n * >n [text$="跳过"]', //我要直接拿奖励
             '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
             '@[text="再试一次"] <<n * +n * >n [text$="跳过"]',
             '@[text="去领奖励"] <<n * +n * >n [text$="跳过"]',
@@ -815,7 +689,8 @@ export default defineGkdApp({
         },
       ],
     },
-    {//未适配
+    {
+      //未适配
       key: 102,
       name: '看视频-跳过↓-体验',
       matchRoot: true,
@@ -864,9 +739,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="继续观看"] + [text="坚持退出"]',
-          ],
+          matches: ['@[text="继续观看"] + [text="坚持退出"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTDelegateActivity',
           ],
@@ -919,7 +792,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['ImageView < LinearLayout < LinearLayout - FrameLayout > [text="反馈"]'],
+          matches: [
+            'ImageView < LinearLayout < LinearLayout - FrameLayout > [text="反馈"]',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -935,10 +810,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="拒绝"] <n * -n * >n [text="喜马拉雅申请授权使用"]'],
-          activityIds: [
-            '.host.activity.MainActivity',
+          matches: [
+            '@[text="拒绝"] <n * -n * >n [text="喜马拉雅申请授权使用"]',
           ],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -951,10 +826,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[desc="返回"] <<n [vid="comp_actionbar_home"] +n LinearLayout'],
-          activityIds: [
-            '.host.activity.MainActivity',
+          matches: [
+            '@[desc="返回"] <<n [vid="comp_actionbar_home"] +n LinearLayout',
           ],
+          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
