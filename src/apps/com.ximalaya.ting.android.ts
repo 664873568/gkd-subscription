@@ -627,7 +627,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 34,
+      key: 35,
       name: '免费领时长-做任务领更多时长-去分享',
       matchRoot: true,
       actionMaximum: 1,
@@ -645,7 +645,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 35,
+      key: 36,
       name: '免费领时长-听书领现金-去加倍',
       matchRoot: true,
       actionMaximum: 1,
@@ -663,7 +663,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 36,
+      key: 37,
       name: '免费领时长-听书领现金-领取|看广告领',
       matchRoot: true,
       actionMaximum: 1,
@@ -685,7 +685,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 37,
+      key: 38,
       name: '免费领时长-听书领现金-看视频再得',
       matchRoot: true,
       actionMaximum: 1,
@@ -703,7 +703,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
+      key: 39,
       name: '看视频-已获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -721,7 +721,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 39,
+      key: 40,
       name: '看视频-已获得免费收听时长-×',
       matchRoot: true,
       actionMaximum: 1,
