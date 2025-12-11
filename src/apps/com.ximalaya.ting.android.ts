@@ -258,7 +258,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^=个广告免费抽"] <<n * [text="幸运大转盘"]',
+            '@[text^="个广告免费抽"] <<n * [text="幸运大转盘"]',
           ],
           activityIds: [
             '.host.activity.MainActivity',
