@@ -14,9 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          anyMatches: [
-            '@[desc="关闭"] -n * >n [text="小米应用商店"]',
-          ],
+          anyMatches: ['@[desc="关闭"] -n * >n [text="小米应用商店"]'],
           activityIds: ['null'],
         },
       ],
