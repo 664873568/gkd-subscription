@@ -13,9 +13,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="领现金"] - * > [vid="item_img"]',
-          ],
+          matches: ['@[text="领现金"] - * > [vid="item_img"]'],
           activityIds: ['.launcher.LauncherActivity'],
         },
       ],
