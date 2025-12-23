@@ -323,7 +323,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView <<n * -n * >n [text="反馈"]'],
+          matches: ['@LinearLayout -n * >n [text="反馈"]'],
           snapshotUrls: ['https://i.gkd.li/i/23545935'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
