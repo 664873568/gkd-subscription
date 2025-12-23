@@ -7,7 +7,7 @@ export default defineGkdApp({
     //赚金币
     {
       key: 0,
-      name: '赚金币-连续签到满7天,抽30000金币-看广告签到再领',
+      name: '赚金币-连续签到满7天,抽30000金币-看广告签到',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^="看广告签到再领"] <<n * [text="连续签到满7天,抽30000金币"]',
+            '@[text^="看广告签到"] <<n * [text="赚金币"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -31,7 +31,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="立即抽奖"] <<n * [text="连续签到满7天,抽30000金币"]',
+            '@[text="立即抽奖"] <<n * [text="赚金币"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -48,7 +48,7 @@ export default defineGkdApp({
         {
           actionDelay: 1000,
           matches: [
-            '@[text^="看广告领金币"] <<n * [text="本周连续7天百亿金币等你来瓜分"]',
+            '@[text^="看广告领金币"] <<n * [text="赚金币"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -56,15 +56,17 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '赚金币-限时领金币',
+      name: '赚金币-本周连续7天百亿金币等你来瓜分-超幸运！可抽随机金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
-          matches: ['@[text="限时领金币"] <<n * [text="赚金币"]'],
+          actionDelay: 1000,
+          matches: [
+            '@[text="超幸运！可抽随机金币"] <<n * [text="赚金币"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -86,14 +88,15 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '赚金币-听书赚金币-看广告额外获得',
+      name: '赚金币-看广告额外获得',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="看广告额外获得"] <<n * [text="听书赚金币"]'],
+          actionDelay: 1000,
+          matches: ['@[text="看广告额外获得"] <<n * [text="赚金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -107,7 +110,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 4000,
+          excludeMatches: ['@[text="100"] <<n * [text="看广告得金币"]'],
           matches: ['@[text="看广告"] <<n * [text="看广告得金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -122,7 +126,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 4000,
           matches: [
             '@[vid="main_watch_ad_button"] <<n * [text="看广告得金币"]',
           ],
@@ -139,7 +143,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: ['@[text="我知道了"] <<n * [text="看广告得金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -183,7 +186,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           excludeMatches: [
             '@ViewGroup - ViewGroup < ViewGroup + ViewGroup >n [text="翻下一位"]',
           ],
@@ -224,20 +226,6 @@ export default defineGkdApp({
     },
     {
       key: 14,
-      name: '赚金币-幸运大转盘-看*个广告免费抽',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text^="个广告免费抽"] <<n * [text="幸运大转盘"]'],
-          activityIds: ['.host.activity.MainActivity'],
-        },
-      ],
-    },
-    {
-      key: 15,
       name: '赚金币-幸运大转盘-免费抽大奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -246,6 +234,20 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="免费\\n抽大奖"] <<n * [text="幸运大转盘"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '赚金币-幸运大转盘-看*个广告免费抽',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text^="个广告免费抽"] <<n * [text="幸运大转盘"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -282,6 +284,21 @@ export default defineGkdApp({
     },
     {
       key: 18,
+      name: '赚金币-限时领金币',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: ['@[text="限时领金币"] <<n * [text="赚金币"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 19,
       name: '赚金币-每日任务-点一下开机广告-领金币',
       matchRoot: true,
       actionMaximum: 1,
@@ -295,7 +312,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 19,
+      key: 20,
       name: '赚金币-每日任务-点一下开机广告-看广告额外领',
       matchRoot: true,
       actionMaximum: 1,
@@ -309,49 +326,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 20,
-      name: '赚金币-每日任务-领取喝水补贴-去领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="去领取"] <<n * [text="领取喝水补贴"]'],
-          activityIds: ['.host.activity.MainActivity'],
-        },
-      ],
-    },
-    {
       key: 21,
-      name: '赚金币-每日任务-领取喝水补贴-健康喝水打卡',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="第1杯水"] <<n * [text="健康喝水打卡"]'],
-          activityIds: ['.host.activity.MainActivity'],
-        },
-      ],
-    },
-    {
-      key: 22,
-      name: '赚金币-每日任务-领取喝水补贴-健康喝水打卡-看广告翻倍领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="看广告翻倍领取"] <<n * [text="健康喝水打卡"]'],
-          activityIds: ['.host.activity.MainActivity'],
-        },
-      ],
-    },
-    {
-      key: 23,
       name: '赚金币-每日任务-拆红包领金币-去领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -359,13 +334,14 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           matches: ['@[text="去领取"] <<n * [text="拆红包领金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
     {
-      key: 24,
+      key: 22,
       name: '赚金币-每日任务-拆红包领金币-红包雨-开',
       matchRoot: true,
       actionMaximum: 1,
@@ -381,7 +357,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 25,
+      key: 23,
       name: '赚金币-每日任务-拆红包领金币-红包雨-看广告翻倍领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -395,7 +371,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 26,
+      key: 24,
       name: '赚金币-每日任务-拆红包领金币-红包雨-开心收下',
       matchRoot: true,
       actionMaximum: 1,
@@ -409,7 +385,50 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 25,
+      name: '赚金币-每日任务-领取喝水补贴-去领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 2000,
+          matches: ['@[text="去领取"] <<n * [text="领取喝水补贴"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 26,
+      name: '赚金币-每日任务-领取喝水补贴-健康喝水打卡',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="第1杯水"] <<n * [text="健康喝水打卡"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
       key: 27,
+      name: '赚金币-每日任务-领取喝水补贴-健康喝水打卡-看广告翻倍领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="看广告翻倍领取"] <<n * [text="健康喝水打卡"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 28,
       name: '赚金币-每日任务-换量任务-领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -423,7 +442,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 28,
+      key: 29,
       name: '赚金币-每日任务-换量任务-领取-我知道了',
       matchRoot: true,
       actionMaximum: 1,
@@ -437,7 +456,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 29,
+      key: 30,
       name: '赚金币-每日任务-换量任务-下载百度极速版',
       matchRoot: true,
       actionMaximum: 1,
@@ -453,7 +472,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 30,
+      key: 31,
       name: '赚金币-每日任务-换量任务-下载百度极速版-<返回',
       matchRoot: true,
       actionMaximum: 1,
@@ -462,14 +481,14 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['@[desc="返回"] <<n * TextView[text="下载百度极速版"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
     {
-      key: 31,
+      key: 32,
       name: '赚金币-每日任务-换量任务-饿了么果园-<返回',
       matchRoot: true,
       actionMaximum: 1,
@@ -478,14 +497,15 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['@[desc="返回"] <<n * TextView[text$="果园"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
+    //兑好礼
     {
-      key: 32,
+      key: 40,
       name: '兑好礼-看广告+500金币',
       matchRoot: true,
       actionMaximum: 1,
@@ -498,8 +518,9 @@ export default defineGkdApp({
         },
       ],
     },
+    //免费领时长
     {
-      key: 33,
+      key: 50,
       name: '免费领时长-做任务领更多时长-去完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -513,7 +534,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 34,
+      key: 51,
       name: '免费领时长-做任务领更多时长-去分享',
       matchRoot: true,
       actionMaximum: 1,
@@ -527,7 +548,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 35,
+      key: 52,
       name: '免费领时长-做任务领更多时长-去领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -541,7 +562,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 36,
+      key: 53,
       name: '免费领时长-听书领现金-去加倍',
       matchRoot: true,
       actionMaximum: 1,
@@ -555,7 +576,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 37,
+      key: 54,
       name: '免费领时长-听书领现金-领取|看广告领',
       matchRoot: true,
       actionMaximum: 1,
@@ -573,7 +594,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
+      key: 55,
       name: '免费领时长-听书领现金-看视频再得',
       matchRoot: true,
       actionMaximum: 1,
@@ -587,8 +608,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 39,
-      name: '看视频-已获得奖励-×',
+      key: 56,
+      name: '免费领时长-看视频-已获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -601,8 +622,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 40,
-      name: '看视频-已获得免费收听时长-×',
+      key: 57,
+      name: '免费领时长-看视频-已获得免费收听时长-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -618,7 +639,7 @@ export default defineGkdApp({
     },
     //点击并浏览页面
     {
-      key: 99,
+      key: 90,
       name: '点击并浏览页面-领取奖励-已获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -636,7 +657,37 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="已获得奖励"] + [vid="host_reward_close_button"] <<n * [text="查看详情"]',
+            '@[vid="host_reward_close_button"] - [text="已获得奖励"] <<n * [text="查看详情"]',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    //点击广告领取奖励
+    {
+      key: 91,
+      name: '点击广告领取奖励-领取奖励-已获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '@[text="点击广告领取奖励"] <<n * [text="点击广告获得奖励"]',
+            '@[vid="host_bubble_ad_action_btn"] <<n * [vid="host_reward_tip"]',
+            '@[vid="host_action_view_layout"] <<n * [vid="host_reward_tip"]',
+            '@[vid="host_rl_download_layout"] <<n * [vid="host_reward_tip"]',
+            '@[vid="host_video_ad_h5_layout_start_btn"] <<n * [vid="host_reward_tip"]',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[vid="host_reward_close_button"] - [text="已获得奖励"] <<n * [text="查看详情"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -797,6 +848,42 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 110,
+      name: '看视频-我要更快拿奖-奖励将于*秒后发放-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="我要更快拿奖"] <<n * [text="奖励将于"]',
+          ],
+          activityIds: [
+            'com.qq.e.ads.PortraitADActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 111,
+      name: '看视频-已完成浏览*秒，提前获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView <<n * -n * <n * -n * >n [text^="已完成浏览"]',
+          ],
+          activityIds: [
+            'com.qq.e.ads.PortraitADActivity',
           ],
         },
       ],
