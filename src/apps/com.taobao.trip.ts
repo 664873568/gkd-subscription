@@ -35,10 +35,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text^="我要"] <<n * -n * >n [text$="跳过"]',
+            '@[text="我要加速"] <<n * [text$="跳过"]',
             '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
             '@[text="立即前往"] <<n * -n * >n [text$="跳过"]',
-            '@[text="再试一次"] <<n * -n * >n [text$="跳过"]',
+            '@[text="再试一次"] <<n * [text$="跳过"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23545855', //去体验-左下[width=711 && height=183]
