@@ -72,28 +72,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
-      name: '任务中心-赚积分-进入观看',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="赚积分"] <<n [text="任务中心"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23558929'],
-        },
-        {
-          preKeys: 0,
-          key: 1,
-          matches: ['@[text="进入观看"] <<n [text="任务中心"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23559557'],
-        },
-      ],
-    },
-    {
       key: 5,
       name: '任务中心-天天看激励视频-去完成',
       matchRoot: true,
@@ -364,6 +342,22 @@ export default defineGkdApp({
         {
           matches: ['@[text="去领取奖励"] -n * >n [text="温馨提示"]'],
           snapshotUrls: ['https://i.gkd.li/i/23547170'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 21,
+      name: '看视频-已发放-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@RelativeLayout <<n * [text="已发放"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
