@@ -13,9 +13,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="领奖励"] <<n * [text="每日任务"]',
-          ],
+          matches: ['@[text="领奖励"] <<n * [text="每日任务"]'],
           activityIds: ['.MainActivity'],
         },
       ],
@@ -30,9 +28,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 1000,
-          matches: [
-            '@[text="去完成"] <<n * [text^="看视频有惊喜"]',
-          ],
+          matches: ['@[text="去完成"] <<n * [text^="看视频有惊喜"]'],
           activityIds: ['.MainActivity'],
         },
       ],
