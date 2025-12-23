@@ -14,9 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text^="看广告签到"] <<n * [text="赚金币"]',
-          ],
+          matches: ['@[text^="看广告签到"] <<n * [text="赚金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -30,9 +28,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="立即抽奖"] <<n * [text="赚金币"]',
-          ],
+          matches: ['@[text="立即抽奖"] <<n * [text="赚金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -47,9 +43,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 1000,
-          matches: [
-            '@[text^="看广告领金币"] <<n * [text="赚金币"]',
-          ],
+          matches: ['@[text^="看广告领金币"] <<n * [text="赚金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -64,9 +58,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 1000,
-          matches: [
-            '@[text="超幸运！可抽随机金币"] <<n * [text="赚金币"]',
-          ],
+          matches: ['@[text="超幸运！可抽随机金币"] <<n * [text="赚金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -861,12 +853,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="我要更快拿奖"] <<n * [text="奖励将于"]',
-          ],
-          activityIds: [
-            'com.qq.e.ads.PortraitADActivity',
-          ],
+          matches: ['@[text="我要更快拿奖"] <<n * [text="奖励将于"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -879,12 +867,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageView <<n * -n * <n * -n * >n [text^="已完成浏览"]',
-          ],
-          activityIds: [
-            'com.qq.e.ads.PortraitADActivity',
-          ],
+          matches: ['@ImageView <<n * -n * <n * -n * >n [text^="已完成浏览"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
