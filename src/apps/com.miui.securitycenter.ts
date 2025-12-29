@@ -31,13 +31,29 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 16000,
-          matches: ['@[text="请用指纹解锁"] + [text^="用于打开"]'],
+          matches: ['@[text="请用指纹解锁"] - [vid="app_icon"]'],
           activityIds: ['com.miui.applicationlock.AppLockActivity'],
         },
       ],
     },
     {
       key: 2,
+      name: '请用密码或指纹解锁',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 16000,
+          matches: ['@[text="请用密码或指纹解锁"] - [vid="app_icon"]'],
+          activityIds: ['com.miui.applicationlock.ConfirmAccessControl'],
+        },
+      ],
+    },
+    {
+      key: 3,
       name: '使用密码验证',
       matchRoot: true,
       actionMaximum: 1,
