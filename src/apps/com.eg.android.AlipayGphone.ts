@@ -233,7 +233,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="签到"] <<n * [text="充鸭攒话费"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -246,8 +248,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView[text="正在跳转"] <<n * WebView[text="正在跳转"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          matches: [
+            '@TextView[text="正在跳转"] <<n * WebView[text="正在跳转"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
