@@ -130,7 +130,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="我要减广告时长"] <<n * [text="不感兴趣"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
@@ -428,9 +430,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '@[text^="跳过"] <<n * [text="免广告"]',
-          ],
+          matches: ['@[text^="跳过"] <<n * [text="免广告"]'],
           activityIds: ['.app.ui.SplashActivity'],
         },
       ],
@@ -444,7 +444,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',],
+          matches: [
+            '@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',
+          ],
           activityIds: ['.home.view.HomeActivity'],
         },
       ],
