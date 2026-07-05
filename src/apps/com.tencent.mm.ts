@@ -16,7 +16,7 @@ export default defineGkdApp({
           key: 0,
           matches: ['@[text="领取"] <<n * [text="看广告免费领取迅雷云添加次数"]'],
           activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
-          snapshot: 'before'
+          snapshot: ['before'],
         },
         {
           preKeys: 0,
@@ -24,7 +24,7 @@ export default defineGkdApp({
           actionDelay: 30000,
           matches: ['@[text="关闭"] <<n * [text="已获得奖励"]'],
           activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
-          snapshot: 'after'
+          snapshot: ['after'],
         },
       ],
     },
