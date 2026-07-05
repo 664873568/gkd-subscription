@@ -14,9 +14,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="允许"] <<n * [text="当前网站请求打开QQ阅读"]',
-            '@[text="允许"] <<n * [text="当前网站请求打开阿里巴巴"]',
-            '@[text="允许"] <<n * [text="当前网站请求打开一淘"]',
+            '@[text="允许"] <<n * [text$="QQ阅读"]',
+            '@[text="允许"] <<n * [text="阿里巴巴"]',
+            '@[text="允许"] <<n * [text$="携程旅行"]',
+            '@[text="允许"] <<n * [text="一淘"]',
           ],
           activityIds: ['.BrowserActivity'],
         },
