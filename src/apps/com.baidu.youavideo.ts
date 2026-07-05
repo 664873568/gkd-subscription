@@ -121,27 +121,16 @@ export default defineGkdApp({
       ],
     },
     {
-      //*暂未适配*//
-      key: 111,
-      name: '看视频-跳过↓-体验',
+      key: 11,
+      name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 15000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
-          matches: [
-            '@[text$="体验"] +n [text="可提前20秒领奖"] <<n * [text$="跳过"]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23518146', //去体验
-            'https://i.gkd.li/i/23518156', //返回继续体验
-          ],
-          activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
-            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
-          ],
+          matches: ['@[text="我要减广告时长"] <<n * [text="不感兴趣"]'],
+          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
         },
       ],
     },
@@ -248,10 +237,26 @@ export default defineGkdApp({
     },
     {
       key: 17,
-      name: '看视频-跳过-奖励已领取',
+      name: '看视频-跳过-继续播放视频内容',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="继续播放视频内容"] <<n * [id="touchGuide"]'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 18,
+      name: '看视频-跳过-奖励已领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -264,7 +269,7 @@ export default defineGkdApp({
     },
     {
       //*暂未适配*//
-      key: 18,
+      key: 19,
       name: '看视频-礼包-领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -281,7 +286,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 19,
+      key: 20,
       name: '看视频-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -298,7 +303,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 20,
+      key: 21,
       name: '看视频-温馨提示-去领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -315,7 +320,23 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 22,
+      name: '看视频-已发放-限时领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="icon-close.e3e3211b"] <<n * [text="限时领取"]'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 23,
       name: '看视频-已发放-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -400,7 +421,7 @@ export default defineGkdApp({
     //首页广告类
     {
       key: 50,
-      name: '首页广告-×',
+      name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -408,12 +429,22 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',
+            '@[text^="跳过"] <<n * [text="免广告"]',
           ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23558690',
-            'https://i.gkd.li/i/23558692',
-          ],
+          activityIds: ['.app.ui.SplashActivity'],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '首页广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',],
           activityIds: ['.home.view.HomeActivity'],
         },
       ],
@@ -425,7 +456,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
