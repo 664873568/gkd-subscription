@@ -29,7 +29,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]'],
+          matches: [
+            '[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]',
+          ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -43,7 +45,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]'],
+          matches: [
+            '@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]',
+          ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -57,7 +61,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]'],
+          matches: [
+            '@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]',
+          ],
           activityIds: ['com.kwad.sdk.api.proxy.app.FeedDownloadActivity'],
         },
       ],
@@ -396,8 +402,12 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text$="| 跳过"] < [vid="anythink_myoffer_splash_skip_area"]'],
-          activityIds: ['com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity'],
+          matches: [
+            '@[text$="| 跳过"] < [vid="anythink_myoffer_splash_skip_area"]',
+          ],
+          activityIds: [
+            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
+          ],
         },
       ],
     },
