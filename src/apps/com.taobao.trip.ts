@@ -14,7 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'null',
+          action: 'none',
           matches: ['@[text="看视频赚钱"] <<n [text="天天集能量"]'],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
