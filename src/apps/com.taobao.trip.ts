@@ -48,6 +48,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '看视频-跳过-立即领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.FeedDownloadActivity'],
+        },
+      ],
+    },
     //看视频
     {
       //*暂未适配*//
@@ -96,20 +110,6 @@ export default defineGkdApp({
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
-        },
-      ],
-    },
-    {
-      key: 11,
-      name: '看视频-跳过-立即领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.FeedDownloadActivity'],
         },
       ],
     },
