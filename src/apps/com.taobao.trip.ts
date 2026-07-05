@@ -7,18 +7,43 @@ export default defineGkdApp({
     //天天集能量
     {
       key: 0,
-      name: '任务中心-点击赚积分',
+      name: '天天集能量-看视频赚钱',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'null',
           matches: ['@[text="看视频赚钱"] <<n [text="天天集能量"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23561327',
-            'https://i.gkd.li/i/23561328',
-          ],
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '天天集能量-天降惊喜-x',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]'],
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '天天集能量-任意点击一个酒店',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]'],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -75,26 +100,16 @@ export default defineGkdApp({
       ],
     },
     {
-      //*暂未适配*//
-      key: 111,
-      name: '看视频-跳过↓-体验',
+      key: 11,
+      name: '看视频-跳过-立即领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '[text="可提前20秒领奖"] -n @[text$="体验"] <<n * +n * >n [text$="跳过"]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23518146', //去体验
-            'https://i.gkd.li/i/23518156', //返回继续体验
-          ],
-          activityIds: [
-            'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
-            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
-          ],
+          matches: ['@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.FeedDownloadActivity'],
         },
       ],
     },
@@ -136,22 +151,15 @@ export default defineGkdApp({
       ],
     },
     {
-      //*暂未适配*//
       key: 14,
-      name: '看视频-长按-×', //长按无法实现
+      name: '看视频-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageView <<n * -n * >n [text="长按加速视频 获取奖励"]', //@[desc^="reward-playback-speed_playSpeed"] >n [text="长按加速视频 获取奖励"]
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23497570',
-            'https://i.gkd.li/i/23498065',
-          ],
+          matches: ['@[desc="18d5b4"] <<n * [desc="virtualNode"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
@@ -375,6 +383,21 @@ export default defineGkdApp({
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
             'null',
           ],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 50,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text$="| 跳过"] < [vid="anythink_myoffer_splash_skip_area"]'],
+          activityIds: ['com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity'],
         },
       ],
     },
