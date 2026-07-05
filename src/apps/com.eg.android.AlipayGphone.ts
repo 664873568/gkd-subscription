@@ -172,7 +172,7 @@ export default defineGkdApp({
     },
     //赚工分
     {
-      key: 15,
+      key: 9,
       name: '赚工分-去完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -189,7 +189,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 16,
+      key: 10,
       name: '赚工分-任务完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -206,7 +206,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 17,
+      key: 11,
       name: '赚工分-已完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -219,6 +219,35 @@ export default defineGkdApp({
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
+        },
+      ],
+    },
+    //充鸭攒话费
+    {
+      key: 12,
+      name: '充鸭攒话费-签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="签到"] <<n * [text="充鸭攒话费"]'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '充鸭攒话费-正在跳转-返回',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@TextView[text="正在跳转"] <<n * WebView[text="正在跳转"]'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
         },
       ],
     },
