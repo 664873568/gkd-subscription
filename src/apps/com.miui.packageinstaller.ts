@@ -33,7 +33,9 @@ export default defineGkdApp({
             '@[text="禁止安装"] <<n * [text^="是否允许"]',
             '@[text="安装包扫描中，请稍候"] <<n * [vid="main_content"]',
           ],
-          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity',],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
         },
       ],
     },
