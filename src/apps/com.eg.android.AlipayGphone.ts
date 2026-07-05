@@ -18,7 +18,9 @@ export default defineGkdApp({
             '@TextView -n * < * -n * <<n [id="ant-render-id-CPT_67f7a08a088a0168e4b61c05"]',
             '@TextView -n * < * -n * < * < * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -48,8 +50,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView <n * <n * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          matches: [
+            '@TextView <n * <n * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -65,7 +71,9 @@ export default defineGkdApp({
         {
           actionDelay: 1000,
           matches: ['@[text="出发寻宝"] <<n [id="ppage-index-index"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -79,7 +87,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="立即打开"] <<n [id="ppage-index-index"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -93,7 +103,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="收下并继续探险"] <<n [id="ppage-index-index"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -108,7 +120,9 @@ export default defineGkdApp({
         {
           key: 0,
           matches: ['@[text="去完成"] <<n [id="ppage-index-index"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
         {
           preKeys: [0],
@@ -116,7 +130,9 @@ export default defineGkdApp({
           action: 'back',
           matches: ['[id$="backButton"] <<n *[desc="返回"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567088'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -132,7 +148,9 @@ export default defineGkdApp({
           action: 'none',
           matches: ['@[text="单选题"] <<n [id$="/h5_trans_progress_rl"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567048'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+          ],
         },
       ],
     },
@@ -146,7 +164,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="收下了"] <<n [id="ppage-index-index"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
         },
       ],
     },
@@ -162,7 +182,9 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: ['@[text="去完成"] -n [text="80q"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -177,7 +199,9 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: ['@[desc="返回"] <<n * [text="Smallfish App"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -192,7 +216,9 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: ['@[desc="返回"] <<n * [desc$="bridge.html"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
