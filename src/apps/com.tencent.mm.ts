@@ -1,0 +1,47 @@
+import { defineGkdApp } from '@gkd-kit/define';
+
+export default defineGkdApp({
+  id: 'com.tencent.mm',
+  name: '微信',
+  groups: [
+    {
+      key: 0,
+      name: '领取云添加次数',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 35000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="领取"] <<n * [text="看广告免费领取迅雷云添加次数"]'],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+          snapshot: 'before'
+        },
+        {
+          preKeys: 0,
+          key: 1,
+          actionDelay: 30000,
+          matches: ['@[text="关闭"] <<n * [text="已获得奖励"]'],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+          snapshot: 'after'
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '关闭-已获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 35000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 30000,
+          matches: ['@[text="关闭"] <<n * [text="已获得奖励"]',],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+        },
+      ],
+    },
+  ],
+});
