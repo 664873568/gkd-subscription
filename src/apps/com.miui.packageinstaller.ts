@@ -39,7 +39,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '安装应用',
+      name: '频繁安装应用',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
