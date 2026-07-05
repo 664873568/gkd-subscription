@@ -14,7 +14,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[vid="checkbox"][checked=false] - [vid="image"] < [desc="照片，2025年12月27日 13:34:9"]'],
+          matches: [
+            '@[vid="checkbox"][checked=false] - [vid="image"] < [desc="照片，2025年12月27日 13:34:9"]',
+          ],
           activityIds: ['.hyper.HyperMainActivity'],
         },
         {
