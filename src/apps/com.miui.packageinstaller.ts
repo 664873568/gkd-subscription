@@ -18,5 +18,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '安装应用',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 5000,
+          anyMatches: [
+            '@[text="禁止安装"] <<n * [text^="是否允许"]',
+            '@[text="安装包扫描中，请稍候"] <<n * [vid="main_content"]',
+          ],
+          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity'],
+        },
+      ],
+    },
   ],
 });
