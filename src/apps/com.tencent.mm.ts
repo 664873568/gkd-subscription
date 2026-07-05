@@ -14,7 +14,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="领取"] <<n * [text="看广告免费领取迅雷云添加次数"]'],
+          matches: [
+            '@[text="领取"] <<n * [text="看广告免费领取迅雷云添加次数"]',
+          ],
           activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
         },
         {
@@ -36,7 +38,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 30000,
-          matches: ['@[text="关闭"] <<n * [text="已获得奖励"]',],
+          matches: ['@[text="关闭"] <<n * [text="已获得奖励"]'],
           activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
         },
       ],
