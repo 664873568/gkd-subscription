@@ -31,7 +31,9 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 30000,
           matches: ['@ViewGroup <<n [vid="bzx"] <<n [vid="gdz"]'],
-          activityIds: ['com.ss.android.ugc.aweme.search.common.activity.ECSearchActivity'],
+          activityIds: [
+            'com.ss.android.ugc.aweme.search.common.activity.ECSearchActivity',
+          ],
         },
       ],
     },
