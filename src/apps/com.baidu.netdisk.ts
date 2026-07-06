@@ -14,7 +14,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[text="文档扫描"] <<n * [text="拍摄纸质资料，生成高清电子版"]'],
+          matches: [
+            '@[text="文档扫描"] <<n * [text="拍摄纸质资料，生成高清电子版"]',
+          ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
       ],
@@ -29,7 +31,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView < FrameLayout + * > * [text="进入微信小游戏自由畅玩"]'],
+          matches: [
+            '@ImageView < FrameLayout + * > * [text="进入微信小游戏自由畅玩"]',
+          ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
