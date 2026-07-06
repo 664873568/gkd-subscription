@@ -21,6 +21,22 @@ export default defineGkdApp({
     },
     {
       key: 1,
+      name: '领现金-任务完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 30000,
+          matches: ['@ViewGroup <<n [vid="bzx"] <<n [vid="gdz"]'],
+          activityIds: ['com.ss.android.ugc.aweme.search.common.activity.ECSearchActivity'],
+        },
+      ],
+    },
+    {
+      key: 20,
       name: '看视频-返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -35,7 +51,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 21,
       name: '看视频-直播-返回',
       matchRoot: true,
       actionMaximum: 1,
