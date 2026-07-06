@@ -17,7 +17,9 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 20000,
           matches: ['@[text="返回按钮"] <<n * [vid="ao7"]'],
-          activityIds: ['com.ss.android.ugc.aweme.bullet.ui.BulletContainerActivity'],
+          activityIds: [
+            'com.ss.android.ugc.aweme.bullet.ui.BulletContainerActivity',
+          ],
         },
       ],
     },
@@ -32,8 +34,12 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 16000,
-          matches: ['@[text="a03431aadab482a12d9056e814f367cb.png~tplv-49obo7mizy-png75"] <<n * [vid="ao7"]'],
-          activityIds: ['com.ss.android.ugc.aweme.bullet.ui.BulletContainerActivity'],
+          matches: [
+            '@[text="a03431aadab482a12d9056e814f367cb.png~tplv-49obo7mizy-png75"] <<n * [vid="ao7"]',
+          ],
+          activityIds: [
+            'com.ss.android.ugc.aweme.bullet.ui.BulletContainerActivity',
+          ],
         },
       ],
     },
