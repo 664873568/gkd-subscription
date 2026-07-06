@@ -14,14 +14,20 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[vid="icon_check"] - CardView < [desc="拍摄于 2025年12月27日 下午1:34:09的照片"]'],
-          activityIds: ['com.android.providers.media.photopicker.PhotoPickerActivity'],
+          matches: [
+            '@[vid="icon_check"] - CardView < [desc="拍摄于 2025年12月27日 下午1:34:09的照片"]',
+          ],
+          activityIds: [
+            'com.android.providers.media.photopicker.PhotoPickerActivity',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: ['@[text^="添加"] <n [vid="picker_bottom_bar"]'],
-          activityIds: ['com.android.providers.media.photopicker.PhotoPickerActivity'],
+          activityIds: [
+            'com.android.providers.media.photopicker.PhotoPickerActivity',
+          ],
         },
       ],
     },
