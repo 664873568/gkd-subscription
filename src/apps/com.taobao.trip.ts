@@ -7,6 +7,20 @@ export default defineGkdApp({
     //天天集能量
     {
       key: 0,
+      name: '天天集能量-天降惊喜-x',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="能量红包"] <<n * [text="首页"]'],
+          activityIds: ['.home.HomeActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '天天集能量-看视频赚钱',
       matchRoot: true,
       actionMaximum: 1,
@@ -21,7 +35,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '天天集能量-天降惊喜-x',
       matchRoot: true,
       actionMaximum: 1,
@@ -30,14 +44,14 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]',
+            '@[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]',
           ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '天天集能量-任意点击一个酒店',
       matchRoot: true,
       actionMaximum: 1,
@@ -53,7 +67,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '看视频-跳过-立即领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -332,7 +346,7 @@ export default defineGkdApp({
           snapshotUrls: ['https://i.gkd.li/i/23561396'],
         },
         {
-          preKeys: 0,
+          preKeys: [0],
           key: 1,
           matches: [
             '@[text="关闭广告"] - [text="去下载拿奖励"] - [text="只要完成APP下载，即可领取奖励"]',
