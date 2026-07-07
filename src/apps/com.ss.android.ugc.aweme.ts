@@ -39,7 +39,7 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '首页广告-发财金已到账-×',
+      name: '理财-首页广告-发财金已到账-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -66,7 +66,7 @@ export default defineGkdApp({
     },
     {
       key: 12,
-      name: '发财金已到账-×',
+      name: '理财-发财金已到账-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -87,7 +87,7 @@ export default defineGkdApp({
     },
     {
       key: 13,
-      name: '发财金已到账-<',
+      name: '券红包-发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -100,6 +100,22 @@ export default defineGkdApp({
             '@[desc="券红包"] <<n * [vid="buu"]',
             '@[desc="券红包"] <<n * [vid="bux"]',
           ],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 14,
+      name: '稳健理财-发财金已到账-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 21000,
+          anyMatches: ['[text="基金落地页"] >n @Button <<n * [vid="bux"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
