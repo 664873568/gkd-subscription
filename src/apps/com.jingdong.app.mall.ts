@@ -14,7 +14,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@RelativeLayout - RelativeLayout[id$="/a75"] > DrawerLayout[id$="/o7"]'],
+          matches: [
+            '@RelativeLayout - RelativeLayout[id$="/a75"] > DrawerLayout[id$="/o7"]',
+          ],
           activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
       ],
@@ -28,7 +30,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[desc="关闭"] < * - [text="立即使用"] -3 [text="仅限店铺内部分商品"]'],
+          matches: [
+            '@[desc="关闭"] < * - [text="立即使用"] -3 [text="仅限店铺内部分商品"]',
+          ],
           activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
       ],
