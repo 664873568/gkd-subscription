@@ -61,7 +61,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[vid="actionDialogClose"] <<n * [vid="hbDialogLayout"]'],
+          anyMatches: [
+            '@[vid="actionDialogClose"] <<n * [vid="hbDialogLayout"]',
+            '@[vid="actionDialogClose"] <<n * [vid="creativeContainer"]',
+          ],
           activityIds: ['com.hellobike.atlas.business.portal.PortalActivity'],
         },
       ],
