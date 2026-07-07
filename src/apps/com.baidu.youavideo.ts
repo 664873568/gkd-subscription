@@ -490,7 +490,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text^="跳过"] <<n * [text="免广告"]'],
+          matches: [
+            '@[text^="跳过"] <<n * [text="免广告"]',
+            '@[text$="跳过"] <<n * [text="免广告"]',
+          ],
           activityIds: ['.app.ui.SplashActivity'],
         },
       ],
