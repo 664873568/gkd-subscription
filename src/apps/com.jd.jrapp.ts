@@ -15,7 +15,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 5000,
-          matches: ['@[vid="common_webview_navbar_left"] <<n * [text="跳转中..."]'],
+          matches: [
+            '@[vid="common_webview_navbar_left"] <<n * [text="跳转中..."]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -31,7 +33,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 1000,
-          matches: ['@[vid="common_webview_navbar_left"] + [text="去玩游戏领大奖"]'],
+          matches: [
+            '@[vid="common_webview_navbar_left"] + [text="去玩游戏领大奖"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
