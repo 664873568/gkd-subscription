@@ -31,7 +31,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
-          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
         },
       ],
     },
