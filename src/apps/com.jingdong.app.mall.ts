@@ -66,5 +66,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 5,
+      name: '浏览游戏-⊙',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 30000,
+          matches: ['@[vid="aqw"] <<n * TextureView'],
+          activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
+        },
+      ],
+    },
   ],
 });
