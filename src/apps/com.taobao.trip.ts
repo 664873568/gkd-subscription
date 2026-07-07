@@ -29,7 +29,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]'],
+          matches: [
+            '[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]',
+          ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -43,7 +45,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]'],
+          matches: [
+            '@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]',
+          ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -57,7 +61,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]'],
+          matches: [
+            '@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]',
+          ],
           activityIds: ['com.kwad.sdk.api.proxy.app.FeedDownloadActivity'],
         },
       ],
@@ -79,7 +85,9 @@ export default defineGkdApp({
             '@[text="立即前往"] <<n * -n * >n [text$="跳过"]',
             '@[text="再试一次"] <<n * [text$="跳过"]',
           ],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
@@ -98,7 +106,9 @@ export default defineGkdApp({
             '@[text^="立即"] <<n * +n * >n [text$="跳过"]',
             '@[text="再试一次"] <<n * +n * >n [text$="跳过"]',
           ],
-          activityIds: ['com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
         },
       ],
     },
@@ -113,8 +123,12 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 15000,
-          matches: ['@ImageView + [text="应用详情"] <<n * +n *[text="立即下载"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          matches: [
+            '@ImageView + [text="应用详情"] <<n * +n *[text="立即下载"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
@@ -159,7 +173,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="去领奖"] <<n * -n * >n [text="svg%3e"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
@@ -195,8 +211,12 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 100,
-          matches: ['@[text="跳过"] -n [text="奖励已领取"] <<n * [text="反馈"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity'],
+          matches: [
+            '@[text="跳过"] -n [text="奖励已领取"] <<n * [text="反馈"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
         },
       ],
     },
