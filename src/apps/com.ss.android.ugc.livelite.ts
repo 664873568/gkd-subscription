@@ -14,6 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 30000,
           matches: ['@[text="返回领取"] <<n * [id="recharge-pendant"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -46,6 +47,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 30000,
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
