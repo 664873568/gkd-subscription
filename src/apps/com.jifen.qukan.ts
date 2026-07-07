@@ -19,7 +19,7 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.jifen.qkbase.main.MainActivity',
-            'null''
+            'null',
           ],
         },
       ],
