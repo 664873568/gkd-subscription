@@ -14,11 +14,27 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 6000,
           matches: [
             '@ImageView[clickable=false] - ImageView[clickable=false] < FrameLayout[clickable=false] < FrameLayout[clickable=true]',
           ],
           activityIds: ['com.dianping.shopshell.PexusPoiActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '继续开宝箱集卡',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout >3 ImageView',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
     },
