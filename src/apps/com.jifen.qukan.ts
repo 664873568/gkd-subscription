@@ -6,23 +6,6 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '首页-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[vid="tv_splash_ad_skip"] + [vid="ll_logo_ad_bottom"]',
-            '@[text^="跳过"] <<n * [vid="ll_logo_ad_bottom"]',
-          ],
-          activityIds: ['com.jifen.qkbase.main.MainActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 1,
       name: '限时福利-自动看视频',
       matchRoot: true,
       actionMaximum: 1,
@@ -32,6 +15,25 @@ export default defineGkdApp({
         {
           matches: ['@[vid="tv_countdown"] -n [vid="xad_dialog_image"]'],
           activityIds: ['null'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 50,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[vid="tv_splash_ad_skip"] + [vid="ll_logo_ad_bottom"]',
+            '@[vid="fanti_ad_txt_skip"] <<n * [vid="fanti_ad_txt_dsp_name"]',
+            '@[text^="跳过"] <<n * [text="广告"]',
+          ],
+          activityIds: ['com.jifen.qkbase.main.MainActivity','null'],
         },
       ],
     },
