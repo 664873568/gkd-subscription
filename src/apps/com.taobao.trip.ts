@@ -29,9 +29,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]',
-          ],
+          matches: ['[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]'],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -45,9 +43,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]',
-          ],
+          matches: ['@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]'],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -61,9 +57,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]',
-          ],
+          matches: ['@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.FeedDownloadActivity'],
         },
       ],
@@ -85,12 +79,7 @@ export default defineGkdApp({
             '@[text="立即前往"] <<n * -n * >n [text$="跳过"]',
             '@[text="再试一次"] <<n * [text$="跳过"]',
           ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23545855', //去体验-左下[width=711 && height=183]
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
+          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
         },
       ],
     },
@@ -109,13 +98,7 @@ export default defineGkdApp({
             '@[text^="立即"] <<n * +n * >n [text$="跳过"]',
             '@[text="再试一次"] <<n * +n * >n [text$="跳过"]',
           ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23561339', //我要加速
-            'https://i.gkd.li/i/23561353', //再试一次
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
-          ],
+          activityIds: ['com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
@@ -130,13 +113,8 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 15000,
-          matches: [
-            '@ImageView + [text="应用详情"] <<n * +n *[text="立即下载"]',
-          ],
-          snapshotUrls: ['https://i.gkd.li/i/23559186'],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
+          matches: ['@ImageView + [text="应用详情"] <<n * +n *[text="立即下载"]'],
+          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
         },
       ],
     },
@@ -181,40 +159,29 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="去领奖"] <<n * -n * >n [text="svg%3e"]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23547463',
-            'https://i.gkd.li/i/23547568',
-            'https://i.gkd.li/i/23547641',
-            'https://i.gkd.li/i/23559530',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
+          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
         },
       ],
     },
     //看视频-返回|跳过|关闭
     {
-      //*暂未适配*//
       key: 16,
-      name: '看视频-去领奖-奖励已领取',
+      name: '看视频-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: [
-            '@RelativeLayout <<n * + * >n [text="奖励已领取"] - [text="svg%3e"]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23547705',
-            'https://i.gkd.li/i/23547759',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
+          key: 0,
+          matches: ['@ImageView - [text="恭喜获得奖励"]'],
+          activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@ImageView - ImageView +5 TextView'],
+          activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
       ],
     },
@@ -228,11 +195,8 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 100,
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23561361'],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
-          ],
+          matches: ['@[text="跳过"] -n [text="奖励已领取"] <<n * [text="反馈"]'],
+          activityIds: ['com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
