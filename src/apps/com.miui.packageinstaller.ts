@@ -44,11 +44,10 @@ export default defineGkdApp({
       name: '频繁安装应用',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 15000,
           matches: ['@[text="取消"] <<n * [text$="频繁安装应用"]'],
           activityIds: ['null'],
         },
