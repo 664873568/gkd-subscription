@@ -33,7 +33,7 @@ export default defineGkdApp({
             '@[vid="fanti_ad_txt_skip"] <<n * [vid="fanti_ad_txt_dsp_name"]',
             '@[text^="跳过"] <<n * [text="广告"]',
           ],
-          activityIds: ['com.jifen.qkbase.main.MainActivity','null'],
+          activityIds: ['com.jifen.qkbase.main.MainActivity', 'null'],
         },
       ],
     },
