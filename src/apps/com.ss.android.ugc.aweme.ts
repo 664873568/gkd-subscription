@@ -120,6 +120,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 15,
+      name: '每周投-发财金已到账-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 21000,
+          anyMatches: ['[text^="每周投"] >n @Button <<n * [vid="bux"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
     //看视频
     {
       key: 20,
