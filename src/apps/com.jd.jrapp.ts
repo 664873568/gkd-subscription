@@ -25,5 +25,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '跳转中-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          actionDelay: 1000,
+          matches: ['@[vid="common_webview_navbar_left"] + [text="去玩游戏领大奖"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
   ],
 });
