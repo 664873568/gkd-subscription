@@ -15,7 +15,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="去观看"] <<n [text="现金长签到"]'],
-          activityIds: ['com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity'],
+          activityIds: [
+            'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
+          ],
         },
       ],
     },
@@ -31,7 +33,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 3000,
-          matches: ['@[vid="obfuscated"] - [text="广告"] <<n * [text="已获得奖励"]'],
+          matches: [
+            '@[vid="obfuscated"] - [text="广告"] <<n * [text="已获得奖励"]',
+          ],
           activityIds: ['com.baidu.nadcore.lp.reward.NadRewardVideoActivity'],
         },
         {
