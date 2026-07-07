@@ -39,6 +39,50 @@ export default defineGkdApp({
     },
     {
       key: 11,
+      name: '首页广告-发财金已到账-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 21000,
+          matches: ['@[desc="关闭"] <<n * [vid="bux"]'],
+          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '发财金已到账-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 21000,
+          anyMatches: [
+            '@[desc="关闭"] <<n * [vid="bux"]',
+            '@[vid="axq"] <<n * [vid="bux"]',
+          ],
+          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+        },
+      ],
+    },
+    {
+      key: 13,
       name: '发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -48,7 +92,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 21000,
-          matches: [
+          anyMatches: [
             '@[desc="券红包"] <<n * [vid="buu"]',
             '@[desc="券红包"] <<n * [vid="bux"]',
           ],
