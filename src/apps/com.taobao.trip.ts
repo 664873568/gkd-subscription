@@ -7,7 +7,7 @@ export default defineGkdApp({
     //天天集能量
     {
       key: 0,
-      name: '天天集能量-天降惊喜-x',
+      name: '首页-能量红包',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
