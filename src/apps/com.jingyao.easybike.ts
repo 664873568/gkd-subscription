@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="NeuBVlqVn9Ix3bCeUqHdW"] - [text="1331192856345702400"] <<n [text="游戏中心"]'],
+          matches: [
+            '@[text="NeuBVlqVn9Ix3bCeUqHdW"] - [text="1331192856345702400"] <<n [text="游戏中心"]',
+          ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
