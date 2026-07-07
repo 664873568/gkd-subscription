@@ -29,7 +29,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="领现金"] - [vid="item_img_container"] > [vid="item_img"]'],
+          matches: [
+            '@[text="领现金"] - [vid="item_img_container"] > [vid="item_img"]',
+          ],
           activityIds: ['.launcher.LauncherActivity'],
         },
       ],
@@ -43,7 +45,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[vid="bottom_sale_info_close"] + [vid="bottom_sale_info_img"]'],
+          matches: [
+            '@[vid="bottom_sale_info_close"] + [vid="bottom_sale_info_img"]',
+          ],
           activityIds: ['.launcher.LauncherActivity'],
         },
       ],
@@ -58,13 +62,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[vid="bottom_sale_info_close"] + [vid="bottom_sale_info_img"]'],
+          matches: [
+            '@[vid="bottom_sale_info_close"] + [vid="bottom_sale_info_img"]',
+          ],
           activityIds: ['.launcher.LauncherActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="领现金"] - [vid="item_img_container"] > [vid="item_img"]'],
+          matches: [
+            '@[text="领现金"] - [vid="item_img_container"] > [vid="item_img"]',
+          ],
           activityIds: ['.launcher.LauncherActivity'],
         },
       ],
