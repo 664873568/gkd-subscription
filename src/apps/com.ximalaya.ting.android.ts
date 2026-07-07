@@ -977,7 +977,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="暂不开启"] <<n * [text="防止后台播放异常，建议开启通知权限"]'],
+          matches: [
+            '@[text="暂不开启"] <<n * [text="防止后台播放异常，建议开启通知权限"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -992,7 +994,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] <<n * [vid="host_splash_fragment_root_lay"]'],
+          matches: [
+            '@[text="跳过"] <<n * [vid="host_splash_fragment_root_lay"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],

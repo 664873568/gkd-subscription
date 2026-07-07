@@ -13,7 +13,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[id$="noah_interstitial_close_button"] <<n [id$="noah_interstitial_media_view"]'],
+          matches: [
+            '@[id$="noah_interstitial_close_button"] <<n [id$="noah_interstitial_media_view"]',
+          ],
           activityIds: ['com.noah.adn.huichuan.view.HCCommonActivity'],
         },
       ],
