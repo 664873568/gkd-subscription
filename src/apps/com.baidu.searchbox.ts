@@ -18,5 +18,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '明星列表-完成并进入',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="完成并进入送花页面"] <<n [text="明星列表"]'],
+          activityIds: ['com.baidu.browser.search.LightSearchActivity'],
+        },
+      ],
+    },
   ],
 });
