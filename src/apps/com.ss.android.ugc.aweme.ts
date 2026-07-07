@@ -58,7 +58,9 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 21000,
           matches: ['@[desc="关闭"] <<n * [vid="bux"]'],
-          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
         },
       ],
     },
@@ -77,7 +79,9 @@ export default defineGkdApp({
             '@[desc="关闭"] <<n * [vid="bux"]',
             '@[vid="axq"] <<n * [vid="bux"]',
           ],
-          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
         },
       ],
     },
