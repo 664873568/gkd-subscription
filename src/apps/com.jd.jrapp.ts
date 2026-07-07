@@ -6,40 +6,32 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '跳转中-跳转中...',
+      name: '跳转中...-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
           action: 'back',
-          actionDelay: 1000,
-          matches: ['@[text="跳转中"] <<n * +n * >n [text="跳转中..."]'],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23397450',
-            'https://i.gkd.li/i/23424253',
-          ],
+          actionDelay: 5000,
+          matches: ['@[vid="common_webview_navbar_left"] <<n * [text="跳转中..."]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
     {
       key: 1,
-      name: '跳转中-<',
+      name: '去玩游戏领大奖-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
           action: 'back',
           actionDelay: 1000,
-          matches: [
-            '@[vid="common_webview_navbar_left"] + [text="去玩游戏领大奖"]',
-          ],
+          matches: ['@[vid="common_webview_navbar_left"] + [text="去玩游戏领大奖"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
