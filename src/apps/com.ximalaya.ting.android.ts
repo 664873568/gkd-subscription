@@ -495,6 +495,55 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 33,
+      name: '赚金币-点击并浏览5秒即可额外获得980金币',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="main_watch_ad_button"] <<n * [text^="签到成功"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 34,
+      name: '赚金币-恭喜获得-我知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="我知道了"] <<n * [text="恭喜获得"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 35,
+      name: '赚金币-点击并浏览5秒即可额外获得980金币',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[vid="main_watch_ad_button"] <<n * [text^="签到成功"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="我知道了"] <<n * [text="恭喜获得"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
     //兑好礼
     {
       key: 40,
@@ -900,6 +949,50 @@ export default defineGkdApp({
           matches: [
             '@[desc="返回"] <<n [vid="comp_actionbar_home"] +n LinearLayout',
           ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    //首页功能类
+    {
+      key: 400,
+      name: '发现新版本-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[desc="取消"] <<n * [text="发现新版本"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 401,
+      name: '开启通知权限-暂不开启',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text="暂不开启"] <<n * [text="防止后台播放异常，建议开启通知权限"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 500,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text="跳过"] <<n * [vid="host_splash_fragment_root_lay"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
