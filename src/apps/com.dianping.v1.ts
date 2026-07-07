@@ -15,7 +15,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 5000,
-          matches: ['@ImageView[clickable=false] - ImageView[clickable=false] < FrameLayout[clickable=false] < FrameLayout[clickable=true]'],
+          matches: [
+            '@ImageView[clickable=false] - ImageView[clickable=false] < FrameLayout[clickable=false] < FrameLayout[clickable=true]',
+          ],
           activityIds: ['com.dianping.shopshell.PexusPoiActivity'],
         },
       ],
