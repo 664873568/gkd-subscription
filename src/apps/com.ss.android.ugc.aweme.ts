@@ -20,9 +20,23 @@ export default defineGkdApp({
         },
       ],
     },
-    //发财金
+    //理财-发财金
     {
-      key: 1,
+      key: 10,
+      name: '理财-首页广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
+          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+        },
+      ],
+    },
+    {
+      key: 11,
       name: '发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -37,6 +51,7 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频
     {
       key: 20,
       name: '看视频-返回领取',
