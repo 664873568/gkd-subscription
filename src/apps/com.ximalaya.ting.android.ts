@@ -525,7 +525,7 @@ export default defineGkdApp({
     },
     {
       key: 35,
-      name: '赚金币-点击并浏览5秒即可额外获得980金币',
+      name: '赚金币-点击并浏览-我知道了',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
