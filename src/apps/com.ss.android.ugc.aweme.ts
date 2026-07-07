@@ -14,7 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 30000,
+          actionDelay: 31000,
           matches: ['@[text="返回领取"] <<n * [id="recharge-pendant"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -26,12 +26,12 @@ export default defineGkdApp({
       name: '发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
-          actionDelay: 20000,
+          actionDelay: 31000,
           matches: ['@[desc="券红包"] <<n * [vid="buu"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -46,7 +46,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 30000,
+          actionDelay: 31000,
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
@@ -62,7 +62,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 30000,
+          actionDelay: 31000,
           matches: ['@ImageView < [desc^="任务完成 返回领取"]'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
