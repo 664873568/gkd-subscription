@@ -386,8 +386,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '@[text$="| 跳过"] < [vid="anythink_myoffer_splash_skip_area"]',
+          anyMatches: [
+            '@[text$="跳过"] < [vid="anythink_myoffer_splash_skip_area"]',
+            '@[vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
+            '@[text^="跳过"] <<n * [vid="splash_biz_bottom_image"]',
           ],
           activityIds: [
             'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
