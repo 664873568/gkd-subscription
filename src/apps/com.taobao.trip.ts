@@ -405,6 +405,7 @@ export default defineGkdApp({
             '@[text$="跳过"] < [vid="anythink_myoffer_splash_skip_area"]',
             '@[vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
             '@[text^="跳过"] <<n * [vid="splash_biz_bottom_image"]',
+            '@[text="跳过"] + [text="5814"]',
           ],
           activityIds: [
             'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
