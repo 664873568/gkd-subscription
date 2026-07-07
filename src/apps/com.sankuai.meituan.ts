@@ -29,7 +29,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="去看看"] <<n * [text="广告"]'],
-          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
         },
       ],
     },
