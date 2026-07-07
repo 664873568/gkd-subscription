@@ -115,7 +115,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 21000,
-          anyMatches: ['[text="基金落地页"] >n @Button <<n * [vid="bux"]'],
+          matches: ['[text="基金落地页"] >n @Button <<n * [vid="bux"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -131,7 +131,62 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 21000,
-          anyMatches: ['[text^="每周投"] >n @Button <<n * [vid="bux"]'],
+          matches: ['[text^="每周投"] >n @Button <<n * [vid="bux"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 16,
+      name: '我的保障-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@ImageButton <<n * [text$="tplv-49obo7mizy-75compress"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 17,
+      name: '我的保障-完善健康档案',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 5000,
+          matches: ['@Image <<n * [desc="完善健康档案"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 18,
+      name: '我的保障-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          matches: ['@ImageButton <<n * [text$="tplv-49obo7mizy-75compress"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 5000,
+          matches: ['@Image <<n * [desc="完善健康档案"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
