@@ -38,6 +38,35 @@ export default defineGkdApp({
         },
       ],
     },
+    //首页功能类
+    {
+      key: 40,
+      name: '开启安全备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text="暂不开启"] - [text="开启安全备份"]'],
+          activityIds: ['.ui.NewQuickSettingsActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '开启照片自动备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text="暂不开启"] -n [text="是否开启照片自动备份？"]'],
+          activityIds: ['.ui.NewQuickSettingsActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
