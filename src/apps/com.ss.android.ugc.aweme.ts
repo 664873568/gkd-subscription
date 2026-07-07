@@ -106,7 +106,7 @@ export default defineGkdApp({
     },
     {
       key: 14,
-      name: '稳健理财-发财金已到账-<',
+      name: '基金落地页-发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -116,7 +116,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 21000,
           anyMatches: ['[text="基金落地页"] >n @Button <<n * [vid="bux"]'],
-          activityIds: ['.live.LiveDummyActivity'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
     },
