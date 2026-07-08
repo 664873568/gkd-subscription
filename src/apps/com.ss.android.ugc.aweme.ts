@@ -180,7 +180,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]'],
+          matches: [
+            '@ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]',
+          ],
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
       ],
