@@ -4,9 +4,24 @@ export default defineGkdApp({
   id: 'com.baidu.netdisk',
   name: '百度网盘',
   groups: [
+    //任务中心
     {
       key: 0,
-      name: '浏览好物-返回',
+      name: '任务中心',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[vid="home25ai_activity_signin"] <<n [vid="home25ai_v1"]'],
+          activityIds: ['.ui.MainActivity','null'],
+        },
+      ],
+    },
+    {
+      key: 10,
+      name: '文档扫描-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -18,6 +33,44 @@ export default defineGkdApp({
             '@[text="文档扫描"] <<n * [text="拍摄纸质资料，生成高清电子版"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '加载中…-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[vid="left_button"] +2 [text="加载中…"][vid="middle_title_text"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 19,
+      name: '游戏中心-好礼通行证-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="关闭"] -2 [text="point"] <<n [text="游戏中心"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@TextView -2 [text="好礼通行证"] <<n [text="游戏中心"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
     },
@@ -88,22 +141,15 @@ export default defineGkdApp({
     //首页广告类
     {
       key: 50,
-      name: '游戏中心-好礼通行证-×',
+      name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: ['@[text="关闭"] -2 [text="point"] <<n [text="游戏中心"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@TextView -2 [text="好礼通行证"] <<n [text="游戏中心"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+          matches: ['@[text^="跳过"][vid="tv_skip"] +2 [text="广告"][vid="full_mark"]'],
+          activityIds: ['.advertise.ui.SplashAdActivity'],
         },
       ],
     },
