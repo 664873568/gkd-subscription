@@ -171,6 +171,21 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 38,
+      name: '车主服务-点击查看',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]'],
+          activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
+        },
+      ],
+    },
+    {
       key: 39,
       name: '车主服务-车主卡券',
       matchRoot: true,
