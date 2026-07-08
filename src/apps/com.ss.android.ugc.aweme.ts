@@ -4,6 +4,21 @@ export default defineGkdApp({
   id: 'com.ss.android.ugc.aweme',
   name: '抖音',
   groups: [
+    //抖音月付
+    {
+      key: 0,
+      name: '关注订阅-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@View - [text="关注订阅"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
     //理财-发财金
     {
       key: 10,
