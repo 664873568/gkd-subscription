@@ -254,7 +254,23 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 47,
+      key: 43,
+      name: '娱乐影音-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[desc="bilibili"] - ImageView'],
+          activityIds: [
+            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 44,
       name: '天天用好券-浏览好物-返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -270,7 +286,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 48,
+      key: 45,
       name: '天天用好券-放弃优惠-返回',
       matchRoot: true,
       actionMaximum: 1,
@@ -284,7 +300,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 49,
+      key: 46,
       name: '天天用好券-返回',
       matchRoot: true,
       actionMaximum: 1,
