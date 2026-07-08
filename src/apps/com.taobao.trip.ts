@@ -74,7 +74,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@ImageView + ImageView + [text="网页无法打开"]'],
-          activityIds: ['com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity'],
+          activityIds: [
+            'com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity',
+          ],
         },
       ],
     },
