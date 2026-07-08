@@ -922,6 +922,35 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 112,
+      name: '看视频-观看完视频，可获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ViewGroup[index=3][childCount=1] <<n * [vid="tme_ad_tv_top_tips"]'],
+          activityIds: ['com.tencentmusic.ad.tmead.core.activity.TMECoreActivity'],
+        },
+      ],
+    },
+    {
+      key: 113,
+      name: '看视频-观看完视频，可获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="点击退出关闭视频"] <<n * [vid="tme_ad_tv_top_tips"]'],
+          activityIds: ['com.tencentmusic.ad.tmead.core.activity.TMECoreActivity'],
+        },
+      ],
+    },
+    //申请授权
+    {
       key: 200,
       name: '喜马拉雅申请授权使用-拒绝',
       matchRoot: true,
