@@ -7,6 +7,22 @@ export default defineGkdApp({
     //抖音月付
     {
       key: 0,
+      name: '我的月付金-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 5000,
+          matches: ['@Button <<n * [text="我的月付金"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '关注订阅-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -16,6 +32,43 @@ export default defineGkdApp({
         {
           matches: ['@View - [text="关注订阅"]'],
           activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '限时任务-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@Image < View < View <<n * [text="42ac405e908cfee5ececcd2c91c42714.png~tplv-49obo7mizy-75compress"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '限时任务-我的月付金-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 1,
+          matches: ['@Image < View < View <<n * [text="42ac405e908cfee5ececcd2c91c42714.png~tplv-49obo7mizy-75compress"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 5000,
+          matches: ['@Button <<n * [text="我的月付金"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
     },
