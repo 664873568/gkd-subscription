@@ -423,7 +423,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [text="CRM Poplayer Page"]'],
+          matches: [
+            '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [text="CRM Poplayer Page"]',
+          ],
           activityIds: ['.home.HomeActivity'],
         },
       ],
