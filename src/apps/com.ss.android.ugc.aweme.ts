@@ -58,7 +58,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 1,
+          key: 0,
           matches: ['@Image < View < View <<n * [text="42ac405e908cfee5ececcd2c91c42714.png~tplv-49obo7mizy-75compress"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
