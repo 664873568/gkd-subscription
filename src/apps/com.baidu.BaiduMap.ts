@@ -28,7 +28,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView[index=4][childCount=0][clickable=true] <<n AlertDialog'],
+          matches: [
+            '@TextView[index=4][childCount=0][clickable=true] <<n AlertDialog',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -42,7 +44,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView[clickable=true] <<n * [text="继续看视频领金币"]'],
+          matches: [
+            '@TextView[clickable=true] <<n * [text="继续看视频领金币"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -71,7 +75,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[desc="返回"][vid="title_btn_left"] <<n * [text="此功能需访问飞猪旅行APP"]'],
+          matches: [
+            '@[desc="返回"][vid="title_btn_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -114,7 +120,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text$="跳过"] - [text="已获得奖励"] <n [id="close_btn"] - [text="反馈"]'],
+          matches: [
+            '@[text$="跳过"] - [text="已获得奖励"] <n [id="close_btn"] - [text="反馈"]',
+          ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
       ],
@@ -143,7 +151,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text$="跳过"] - [text="已获得奖励"] <n [id="close_btn"] - [text="反馈"]'],
+          matches: [
+            '@[text$="跳过"] - [text="已获得奖励"] <n [id="close_btn"] - [text="反馈"]',
+          ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
@@ -177,7 +187,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@Image < [id="7b5368"] < [id="01dce7"] - [id="aa39b4"] > [text="反馈"][id="665045"]'],
+          matches: [
+            '@Image < [id="7b5368"] < [id="01dce7"] - [id="aa39b4"] > [text="反馈"][id="665045"]',
+          ],
           activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
         },
       ],
