@@ -171,7 +171,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
+      key: 39,
       name: '车主服务-车主卡券',
       matchRoot: true,
       actionMaximum: 1,
@@ -187,8 +187,8 @@ export default defineGkdApp({
     },
     //手机充值
     {
-      key: 39,
-      name: '浏览好物-返回领取',
+      key: 40,
+      name: '天天用好券-浏览好物-返回领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -197,14 +197,51 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 31000,
-          matches: ['@[text="返回领取"] <<n * [id="recharge-pendant"]'],
+          matches: ['@[text="返回领取"] <<n * [desc="返回"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '天天用好券-放弃优惠-返回',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="放弃优惠"] <<n * [desc="返回"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 42,
+      name: '天天用好券-返回',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          actionDelay: 31000,
+          matches: ['@[text="返回领取"] <<n * [desc="返回"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="放弃优惠"] <<n * [desc="返回"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
     },
     //看视频
     {
-      key: 40,
+      key: 50,
       name: '看视频-返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -220,7 +257,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 51,
       name: '看视频-任务完成 返回领取',
       matchRoot: true,
       actionMaximum: 1,
