@@ -38,6 +38,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 21,
+      name: '红果免费短剧',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 15000,
+          matches: [
+            '@[text="打开红果免费短剧 免费短剧尽在此处"] <<n [text="红果免费短剧"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
     //首页功能类
     {
       key: 40,
