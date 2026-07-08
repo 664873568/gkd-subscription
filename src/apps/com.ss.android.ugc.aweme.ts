@@ -170,6 +170,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 38,
+      name: '车主服务-车主卡券',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['[id="nav-bar"] <<n [text="车主卡券"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
     //手机充值
     {
       key: 39,
