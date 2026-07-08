@@ -930,8 +930,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ViewGroup[index=3][childCount=1] <<n * [vid="tme_ad_tv_top_tips"]'],
-          activityIds: ['com.tencentmusic.ad.tmead.core.activity.TMECoreActivity'],
+          matches: [
+            '@ViewGroup[index=3][childCount=1] <<n * [vid="tme_ad_tv_top_tips"]',
+          ],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
         },
       ],
     },
@@ -944,8 +948,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[desc="点击退出关闭视频"] <<n * [vid="tme_ad_tv_top_tips"]'],
-          activityIds: ['com.tencentmusic.ad.tmead.core.activity.TMECoreActivity'],
+          matches: [
+            '@[desc="点击退出关闭视频"] <<n * [vid="tme_ad_tv_top_tips"]',
+          ],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
         },
       ],
     },

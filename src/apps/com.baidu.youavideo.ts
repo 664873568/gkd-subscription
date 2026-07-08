@@ -329,7 +329,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="svg%3e"] <<n * [text="广告"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
@@ -344,13 +346,17 @@ export default defineGkdApp({
         {
           key: 0,
           matches: ['@[text="svg%3e"] <<n * [text="广告"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
@@ -470,7 +476,9 @@ export default defineGkdApp({
         {
           actionDelay: 15000,
           matches: ['@[text^="svg+xml;base64"] <<n * [text="已领取"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
+          ],
         },
       ],
     },
