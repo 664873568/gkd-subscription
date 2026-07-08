@@ -176,11 +176,11 @@ export default defineGkdApp({
       name: '赚工分-去完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 15000,
           matches: ['@[text="去完成"] -n [text="80q"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -193,14 +193,18 @@ export default defineGkdApp({
       name: '赚工分-任务完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
-          matches: ['@[desc="返回"] <<n * [text="Smallfish App"]'],
+          actionDelay: 15000,
+          matches: [
+            '@[desc="返回"] <<n * [text="Smallfish App"]',
+            '@[desc="关闭"] <<n * [text="Smallfish App"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
           ],
         },
       ],
@@ -210,11 +214,11 @@ export default defineGkdApp({
       name: '赚工分-已完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 15000,
           matches: ['@[desc="返回"] <<n * [desc$="bridge.html"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
