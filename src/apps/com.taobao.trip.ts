@@ -11,7 +11,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           matches: ['@[text="能量红包"] <<n * [text="首页"]'],
@@ -21,21 +21,6 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '天天集能量-看视频赚钱',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'none',
-          matches: ['@[text="看视频赚钱"] <<n [text="天天集能量"]'],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
-        },
-      ],
-    },
-    {
-      key: 2,
       name: '天天集能量-天降惊喜-x',
       matchRoot: true,
       actionMaximum: 1,
@@ -51,7 +36,50 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 2,
+      name: '天天集能量-看视频赚钱',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'none',
+          matches: ['@[text="看视频赚钱"] <<n [text="天天集能量"]'],
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
       key: 3,
+      name: '天天集能量-领取奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="领取奖励"] <<n [text="天天集能量"]'],
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '天天集能量-网页无法打开',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView + ImageView + [text="网页无法打开"]'],
+          activityIds: ['com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
       name: '天天集能量-任意点击一个酒店',
       matchRoot: true,
       actionMaximum: 1,
@@ -67,9 +95,10 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频
     {
-      key: 4,
-      name: '看视频-跳过-立即领取',
+      key: 10,
+      name: '看视频-立即领取-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -80,29 +109,6 @@ export default defineGkdApp({
             '@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.FeedDownloadActivity'],
-        },
-      ],
-    },
-    //看视频
-    {
-      //*暂未适配*//
-      key: 10,
-      name: '看视频-跳过↑',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text="我要加速"] <<n * [text$="跳过"]',
-            '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
-            '@[text="立即前往"] <<n * -n * >n [text$="跳过"]',
-            '@[text="再试一次"] <<n * [text$="跳过"]',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
         },
       ],
     },
@@ -402,13 +408,13 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text$="跳过"] < [vid="anythink_myoffer_splash_skip_area"]',
-            '@[vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
-            '@[text^="跳过"] <<n * [vid="splash_biz_bottom_image"]',
             '@[text="跳过"] + [text="5814"]',
             '@[id$="ms_skipView"] <<n * [id$="ms_img_meishu_ad_tag"]',
+            '@[text$="跳过"] < [vid="anythink_myoffer_splash_skip_area"]',
+            '@[text^="跳过"][vid="splash_skip_hint_tv"] <<n * [vid="splash_biz_bottom_image"]',
           ],
           activityIds: [
+            'com.alipay.mobile.quinox.LauncherActivity',
             'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
           ],
         },
