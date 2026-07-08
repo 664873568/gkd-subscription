@@ -29,9 +29,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[vid="tv_splash_ad_skip"] + [vid="ll_logo_ad_bottom"]',
-            '@[vid="fanti_ad_txt_skip"] <<n * [vid="fanti_ad_txt_dsp_name"]',
             '@[text^="跳过"] <<n * [text="广告"]',
+            '@[text^="跳过"] <<n * [vid="ll_logo_ad_bottom"]',
+            '@[vid="tv_splash_ad_skip"] <<n * [vid="ll_logo_ad_bottom"]',
+            '@[vid="fanti_ad_txt_skip"] <<n * [vid="fanti_ad_txt_dsp_name"]',
           ],
           activityIds: ['com.jifen.qkbase.main.MainActivity', 'null'],
         },
