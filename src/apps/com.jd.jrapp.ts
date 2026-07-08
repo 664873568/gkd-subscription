@@ -102,7 +102,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 5000,
-          matches: ['@[text="任务完成，奖励已到账"] <<n * [text="bottom.21109d9b"]'],
+          matches: [
+            '@[text="任务完成，奖励已到账"] <<n * [text="bottom.21109d9b"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -117,7 +119,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[vid="common_webview_navbar_left"] <<n * [text="此功能需访问飞猪旅行APP"]'],
+          matches: [
+            '@[vid="common_webview_navbar_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -132,7 +136,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          excludeMatches: ['@[vid="common_webview_navbar_left"] <<n * [text="此功能需访问飞猪旅行APP"]'],
+          excludeMatches: [
+            '@[vid="common_webview_navbar_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
+          ],
           matches: ['@[text="打开飞猪"] <3 [id="__endCallTop__"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
