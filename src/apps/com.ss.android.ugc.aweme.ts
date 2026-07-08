@@ -4,22 +4,6 @@ export default defineGkdApp({
   id: 'com.ss.android.ugc.aweme',
   name: '抖音',
   groups: [
-    {
-      key: 0,
-      name: '浏览好物-返回领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 31000,
-          matches: ['@[text="返回领取"] <<n * [id="recharge-pendant"]'],
-          activityIds: ['.live.LiveDummyActivity'],
-        },
-      ],
-    },
     //理财-发财金
     {
       key: 10,
@@ -57,7 +41,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 21000,
-          matches: ['@[desc="关闭"] <<n * [vid="bux"]'],
+          matches: ['@[desc="关闭"] <<n * [vid^="bu"]'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
@@ -75,10 +59,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 21000,
-          anyMatches: [
-            '@[desc="关闭"] <<n * [vid="bux"]',
-            '@[vid="axq"] <<n * [vid="bux"]',
-          ],
+          matches: ['@[desc="关闭"][vid="axq"] <<n * [vid^="bu"]'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
@@ -96,10 +77,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 21000,
-          anyMatches: [
-            '@[desc="券红包"] <<n * [vid="buu"]',
-            '@[desc="券红包"] <<n * [vid="bux"]',
-          ],
+          matches: ['@[desc="券红包"] <<n * [vid^="bu"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
@@ -136,8 +114,9 @@ export default defineGkdApp({
         },
       ],
     },
+    //车主服务
     {
-      key: 16,
+      key: 20,
       name: '我的保障-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -152,7 +131,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 17,
+      key: 21,
       name: '我的保障-完善健康档案',
       matchRoot: true,
       actionMaximum: 1,
@@ -168,8 +147,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 18,
-      name: '我的保障-广告-×',
+      key: 22,
+      name: '我的保障-完善健康档案-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -191,9 +170,26 @@ export default defineGkdApp({
         },
       ],
     },
+    //手机充值
+    {
+      key: 39,
+      name: '浏览好物-返回领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 31000,
+          matches: ['@[text="返回领取"] <<n * [id="recharge-pendant"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
     //看视频
     {
-      key: 20,
+      key: 40,
       name: '看视频-返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -209,7 +205,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 41,
       name: '看视频-任务完成 返回领取',
       matchRoot: true,
       actionMaximum: 1,
