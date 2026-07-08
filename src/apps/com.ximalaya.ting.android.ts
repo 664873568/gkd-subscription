@@ -937,7 +937,7 @@ export default defineGkdApp({
     },
     {
       key: 113,
-      name: '看视频-观看完视频，可获得奖励',
+      name: '看视频-点击退出关闭视频',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
