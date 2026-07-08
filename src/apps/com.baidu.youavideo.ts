@@ -547,7 +547,10 @@ export default defineGkdApp({
             '@[text$="跳过"] <<n * [text="免广告"]',
             '@[vid="ms_skipView"] <<n * [text="免广告"]',
           ],
-          activityIds: ['.app.ui.SplashActivity'],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
