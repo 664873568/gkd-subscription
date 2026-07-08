@@ -14,8 +14,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[vid="home25ai_activity_signin"] <<n [vid="home25ai_v1"]'],
-          activityIds: ['.ui.MainActivity','null'],
+          matches: [
+            '@[vid="home25ai_activity_signin"] <<n [vid="home25ai_v1"]',
+          ],
+          activityIds: ['.ui.MainActivity', 'null'],
         },
       ],
     },
@@ -148,7 +150,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="跳过"][vid="tv_skip"] +2 [text="广告"][vid="full_mark"]'],
+          matches: [
+            '@[text^="跳过"][vid="tv_skip"] +2 [text="广告"][vid="full_mark"]',
+          ],
           activityIds: ['.advertise.ui.SplashAdActivity'],
         },
       ],
