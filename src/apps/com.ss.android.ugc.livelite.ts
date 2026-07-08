@@ -41,7 +41,7 @@ export default defineGkdApp({
     //充值中心-充值金
     {
       key: 20,
-      name: '天天赚话费-更多任务',
+      name: '天天赚话费-每日签到',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
