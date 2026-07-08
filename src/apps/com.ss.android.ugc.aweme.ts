@@ -226,8 +226,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ViewGroup[index=0][childCount=0] < ViewGroup[index=6][childCount=1]'],
-          activityIds: ['com.bytedance.android.shopping.store.tabkit.container.TabKitActivity'],
+          matches: [
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=6][childCount=1]',
+          ],
+          activityIds: [
+            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+          ],
         },
       ],
     },
@@ -240,8 +244,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]'],
-          activityIds: ['com.bytedance.android.shopping.store.tabkit.container.TabKitActivity'],
+          matches: [
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]',
+          ],
+          activityIds: [
+            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+          ],
         },
       ],
     },
