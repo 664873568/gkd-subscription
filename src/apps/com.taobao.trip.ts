@@ -406,10 +406,25 @@ export default defineGkdApp({
             '@[vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
             '@[text^="跳过"] <<n * [vid="splash_biz_bottom_image"]',
             '@[text="跳过"] + [text="5814"]',
+            '@[id$="ms_skipView"] <<n * [id$="ms_img_meishu_ad_tag"]',
           ],
           activityIds: [
             'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '首页广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [text="CRM Poplayer Page"]'],
+          activityIds: ['.home.HomeActivity'],
         },
       ],
     },
