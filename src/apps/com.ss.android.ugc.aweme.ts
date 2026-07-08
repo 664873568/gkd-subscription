@@ -202,9 +202,51 @@ export default defineGkdApp({
         },
       ],
     },
-    //手机充值
+    //充值中心
     {
       key: 40,
+      name: '充值中心',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView < ViewGroup[index=3]'],
+          activityIds: ['.main.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '赚签到金-签到得',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ViewGroup[index=0][childCount=0] < ViewGroup[index=6][childCount=1]'],
+          activityIds: ['com.bytedance.android.shopping.store.tabkit.container.TabKitActivity'],
+        },
+      ],
+    },
+    {
+      key: 42,
+      name: '赚签到金-更多任务',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]'],
+          activityIds: ['com.bytedance.android.shopping.store.tabkit.container.TabKitActivity'],
+        },
+      ],
+    },
+    {
+      key: 47,
       name: '天天用好券-浏览好物-返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -220,7 +262,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 48,
       name: '天天用好券-放弃优惠-返回',
       matchRoot: true,
       actionMaximum: 1,
@@ -234,7 +276,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 49,
       name: '天天用好券-返回',
       matchRoot: true,
       actionMaximum: 1,
