@@ -79,7 +79,7 @@ export default defineGkdApp({
     //看视频-返回|跳过|关闭
     {
       key: 20,
-      name: '看视频-跳过',
+      name: '看视频-我要免看本次广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -93,7 +93,7 @@ export default defineGkdApp({
     },
     {
       key: 21,
-      name: '看视频-跳过',
+      name: '看视频-立即试玩-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
