@@ -305,7 +305,7 @@ export default defineGkdApp({
     },
     {
       key: 18,
-      name: '看视频-跳过-奖励已领取',
+      name: '看视频-奖励已领取-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -335,7 +335,7 @@ export default defineGkdApp({
     },
     {
       key: 20,
-      name: '看视频-跳过-奖励已领取',
+      name: '看视频-奖励已领取-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -343,13 +343,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          matches: ['@[text="svg%3e"] <<n * [text="广告"]'],
           activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="svg%3e"] <<n * [text="广告"]'],
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
         },
       ],
