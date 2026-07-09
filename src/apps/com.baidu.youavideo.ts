@@ -430,7 +430,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 10000,
+          actionDelay: 15000,
           matches: ['@ImageView + ImageView +2 [text="反馈"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
