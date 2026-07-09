@@ -13,7 +13,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="任务完成\n返回YY"] <<n [text="用户任务中心"]'],
+          matches: ['@[text="任务完成\\n返回YY"] <<n [text="用户任务中心"]'],
           activityIds: ['.browser.WeiboBrowser'],
         },
       ],
