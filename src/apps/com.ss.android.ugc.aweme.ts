@@ -23,20 +23,6 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '关注订阅-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@View - [text="关注订阅"]'],
-          activityIds: ['.live.LiveDummyActivity'],
-        },
-      ],
-    },
-    {
-      key: 2,
       name: '限时任务-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -52,7 +38,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 2,
       name: '限时任务-我的月付金-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -73,6 +59,34 @@ export default defineGkdApp({
           actionDelay: 5000,
           matches: ['@Button <<n * [text="我的月付金"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '关注订阅-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@View - [text="关注订阅"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '游戏中心-⊙',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="关闭"][vid="axq"] <<n * [desc="游戏中心"][vid="b8+"]'],
+          activityIds: ['com.minigame.merge.miniapphost.placeholder.MiniGameActivity0'],
         },
       ],
     },
@@ -196,9 +210,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]',
-          ],
+          matches: ['@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -214,23 +226,19 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          matches: [
-            '@[text="立即领取"] <<n * [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
-          ],
+          matches: ['@[text="立即领取"] <<n * [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
-          ],
+          matches: ['@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
     },
     {
-      key: 27,
+      key: 22,
       name: '我的保障-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -245,7 +253,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 28,
+      key: 23,
       name: '我的保障-完善健康档案',
       matchRoot: true,
       actionMaximum: 1,
@@ -261,7 +269,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 29,
+      key: 24,
       name: '我的保障-完善健康档案-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -281,6 +289,71 @@ export default defineGkdApp({
           actionDelay: 5000,
           matches: ['@Image <<n * [desc="完善健康档案"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 25,
+      name: '信用卡还款-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="关闭"] <<n * [text="7711e33a3ceb4b608189a89f05469b9f~tplv-20ashz96qn-1"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 26,
+      name: '信用卡还款-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="返回 按钮"] <<n * [desc="信用卡还款"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 27,
+      name: '信用卡还款-<-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[desc="关闭"] <<n * [text="7711e33a3ceb4b608189a89f05469b9f~tplv-20ashz96qn-1"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 5000,
+          matches: ['@[desc="返回 按钮"] <<n * [desc="信用卡还款"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 28,
+      name: '信用卡还款-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="返回"] + [text="生活缴费"]'],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
       ],
     },
