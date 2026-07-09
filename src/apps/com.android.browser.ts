@@ -34,7 +34,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="立即下载App"] <<n [text="快影APP下载-快手官方视频剪辑神器"]'],
+          matches: [
+            '@[text="立即下载App"] <<n [text="快影APP下载-快手官方视频剪辑神器"]',
+          ],
           activityIds: ['.BrowserActivity'],
         },
       ],
