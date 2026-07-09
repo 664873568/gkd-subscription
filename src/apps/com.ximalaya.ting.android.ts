@@ -500,14 +500,14 @@ export default defineGkdApp({
     },
     {
       key: 33,
-      name: '赚金币-点击并浏览5秒即可额外获得980金币',
+      name: '赚金币-点击并浏览5秒即可额外获得金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="main_watch_ad_button"] <<n * [text^="签到成功"]'],
+          matches: ['@[text^="点击并浏览"][vid="main_watch_ad_button"] <<n * [text^="签到成功"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
