@@ -496,7 +496,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[text="确认开启备份"][vid="tv_open_auto_backup_btn_up"] <<n [vid="cl_open_auto_backup"]'],
+          matches: [
+            '@[text="确认开启备份"][vid="tv_open_auto_backup_btn_up"] <<n [vid="cl_open_auto_backup"]',
+          ],
           activityIds: ['.home.view.HomeActivity'],
         },
       ],
