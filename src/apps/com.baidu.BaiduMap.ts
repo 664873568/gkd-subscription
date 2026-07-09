@@ -53,7 +53,7 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '地图图区-<',
+      name: '地图图区-签到送好礼-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -61,13 +61,28 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[desc="返回"][vid="title_btn_left"] <<n * [vid="title"]'],
+          matches: ['@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
     },
     {
       key: 5,
+      name: '地图图区-签到送好礼-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]'],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
+        },
+      ],
+    },
+    {
+      key: 6,
       name: '访问飞猪旅行APP-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -191,6 +206,64 @@ export default defineGkdApp({
             '@Image < [id="7b5368"] < [id="01dce7"] - [id="aa39b4"] > [text="反馈"][id="665045"]',
           ],
           activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 27,
+      name: '淘宝热卖广告-滑动/点击了解更多内容-×',
+      matchRoot: true,
+      actionMaximum: 2,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '@ImageView < FrameLayout < LinearLayout <2 FrameLayout + ImageView',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 28,
+      name: '淘宝热卖广告-立即秒杀-×',
+      matchRoot: true,
+      actionMaximum: 2,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView < FrameLayout + LinearLayout + ImageView',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 29,
+      name: '淘宝热卖广告-×',
+      matchRoot: true,
+      actionMaximum: 2,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@ImageView < FrameLayout < LinearLayout <2 FrameLayout + ImageView',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@ImageView < FrameLayout + LinearLayout + ImageView',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
