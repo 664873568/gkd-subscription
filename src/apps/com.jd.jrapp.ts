@@ -69,7 +69,7 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '@[text="返回领奖"]',//@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup//@[text="返回领奖"] <<n * [text="readMissionDown"]
+            '@[text="返回领奖"]', //@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup//@[text="返回领奖"] <<n * [text="readMissionDown"]
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
