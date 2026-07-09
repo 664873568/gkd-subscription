@@ -56,7 +56,7 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '每日任务-我知道了',
+      name: '每日任务-搜索',
       matchRoot: true,
       actionMaximum: 5,
       matchTime: 10000,
