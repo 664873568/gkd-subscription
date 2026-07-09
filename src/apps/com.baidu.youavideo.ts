@@ -544,7 +544,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text^="跳过"] <<n * [text="免广告"]',
             '@[text$="跳过"] <<n * [text="免广告"]',
-            '@[vid="ms_skipView"] <<n * [text="免广告"]',
+            '@[vid="ms_skipView"] <<n * [text="免广告"][vid="text"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
