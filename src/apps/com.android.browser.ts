@@ -23,5 +23,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '当前网站请求打开',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="快影APP下载-快手官方视频剪辑神器"]'],
+          activityIds: ['.BrowserActivity'],
+        },
+      ],
+    },
   ],
 });
