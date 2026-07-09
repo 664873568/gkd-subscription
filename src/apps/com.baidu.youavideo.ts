@@ -572,7 +572,7 @@ export default defineGkdApp({
     //会员支付类
     {
       key: 60,
-      name: '随心卡会员,',
+      name: '随心卡会员',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -582,6 +582,7 @@ export default defineGkdApp({
           anyMatches: [
             '@TextView -n * >n [text="立即使用"] <<n [text="随心卡会员"]',
             '@Image -n * >n [text="立即开通"] <<n [text="随心卡会员"]',
+            '@[vid="iv_close"] <<n * [vid="jump_btn"]',
           ],
           activityIds: ['.home.view.HomeActivity'],
         },
