@@ -557,7 +557,7 @@ export default defineGkdApp({
       key: 51,
       name: '首页广告-×',
       matchRoot: true,
-      actionMaximum: 1,
+      actionMaximum: 2,
       matchTime: 10000,
       resetMatch: 'app',
       rules: [
