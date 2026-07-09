@@ -35,7 +35,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '赚金币-本周连续7天百亿金币等你来瓜分-看广告领金币',
+      name: '赚金币-瓜分百亿金币-看广告领金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -43,14 +43,17 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 1000,
-          matches: ['@[text^="看广告领金币"] <<n * [text="赚金币"]'],
+          matches: [
+            '@[text^="看广告领金币"] <<n * [text="赚金币"]',
+            '@[text^="看广告领金币"] <<n * [text="瓜分百亿金币"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
     {
       key: 3,
-      name: '赚金币-本周连续7天百亿金币等你来瓜分-超幸运！可抽随机金币',
+      name: '赚金币-瓜分百亿金币-超幸运！可抽随机金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -985,6 +988,23 @@ export default defineGkdApp({
         {
           matches: [
             '@[desc="返回"] <<n [vid="comp_actionbar_home"] +n LinearLayout',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    //申请授权
+    {
+      key: 300,
+      name: '恭喜获得VIP免费听权益-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="main_free_listen_time_close_iv"] +n [text="恭喜获得VIP免费听权益"][vid="main_free_listen_time_title_tv"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
