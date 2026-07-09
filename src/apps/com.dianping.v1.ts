@@ -38,5 +38,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 2,
+      name: '查看附近的店',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
   ],
 });
