@@ -95,6 +95,38 @@ export default defineGkdApp({
     },
     {
       key: 21,
+      name: '看视频-点击广告拿奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="点击广告拿奖励"] <<n * [text="点击广告，即可获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 22,
+      name: '看视频-恭喜获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView < FrameLayout -2 FrameLayout > [text="恭喜获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 39,
       name: '红果免费短剧',
       matchRoot: true,
       actionMaximum: 1,
