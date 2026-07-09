@@ -78,6 +78,20 @@ export default defineGkdApp({
     },
     {
       key: 4,
+      name: '关注订阅-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="返回"] <<n * [text="抖音月付"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 5,
       name: '游戏中心-⊙',
       matchRoot: true,
       actionMaximum: 1,
@@ -345,7 +359,7 @@ export default defineGkdApp({
     },
     {
       key: 28,
-      name: '信用卡还款-<',
+      name: '生活缴费-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -358,7 +372,21 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
+      key: 29,
+      name: '抖音支付-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@Image < View + [desc="doupay"] <<n [text="抖音支付优惠阵地"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 30,
       name: '车主服务-点击查看',
       matchRoot: true,
       actionMaximum: 1,
@@ -375,7 +403,21 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 39,
+      key: 31,
+      name: '车主服务-车险',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ViewGroup[index=1][childCount=0] <<n * [desc="返回"][vid="by+"]'],
+          activityIds: ['.search.activity.SearchResultActivity'],
+        },
+      ],
+    },
+    {
+      key: 32,
       name: '车主服务-车主卡券',
       matchRoot: true,
       actionMaximum: 1,
