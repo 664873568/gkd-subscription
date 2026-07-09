@@ -196,7 +196,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]'],
+          matches: [
+            '@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -212,13 +214,17 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          matches: ['@[text="立即领取"] <<n * [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]'],
+          matches: [
+            '@[text="立即领取"] <<n * [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]'],
+          matches: [
+            '@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
