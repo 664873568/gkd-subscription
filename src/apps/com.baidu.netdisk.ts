@@ -79,7 +79,7 @@ export default defineGkdApp({
     //看视频-返回|跳过|关闭
     {
       key: 20,
-      name: '看视频-恭喜获得奖励-×',
+      name: '看视频-微信-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
