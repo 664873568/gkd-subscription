@@ -507,7 +507,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="点击并浏览"][vid="main_watch_ad_button"] <<n * [text^="签到成功"]'],
+          matches: [
+            '@[text^="点击并浏览"][vid="main_watch_ad_button"] <<n * [text^="签到成功"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
