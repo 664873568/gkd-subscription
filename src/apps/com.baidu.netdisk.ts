@@ -182,8 +182,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text^="跳过"][vid="tv_skip"] +2 [text="广告"][vid="full_mark"]',
+          anyMatches: [
+            '@[text^="跳过"][vid="tv_skip"]',
+            '@[text^="跳过"][vid="countdown"]',
           ],
           activityIds: ['.advertise.ui.SplashAdActivity'],
         },
