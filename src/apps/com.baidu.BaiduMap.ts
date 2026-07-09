@@ -151,7 +151,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text$="跳过"] - [text="已获得奖励"] <n [id="close_btn"] - [text="反馈"]',
+            '@[text$="跳过"] - [text="已获得奖励"] <2 [id="close_btn"] - [text="反馈"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
@@ -182,7 +182,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text$="跳过"] - [text="已获得奖励"] <n [id="close_btn"] - [text="反馈"]',
+            '@[text$="跳过"] - [text="已获得奖励"] <2 [id="close_btn"] - [text="反馈"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
@@ -326,50 +326,6 @@ export default defineGkdApp({
     },
     {
       key: 32,
-      name: '看视频-已获得奖励-跳过-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          actionDelay: 30000,
-          matches: ['@[text="跳过"] <<n * [text="已获得奖励"] - [text="反馈"]'],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[id="close_btn"] - [text="反馈"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
-        },
-      ],
-    },
-    {
-      key: 33,
-      name: '看视频-已获得奖励-跳过-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          actionDelay: 30000,
-          matches: ['@[text$="跳过"] - [text="已获得奖励"] <2 [id="close_btn"] - [text="反馈"]'],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[id="close_btn"] - [text="反馈"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
-        },
-      ],
-    },
-    {
-      key: 34,
       name: '看视频-礼包-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -387,7 +343,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 35,
+      key: 33,
       name: '看视频-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -401,7 +357,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 36,
+      key: 34,
       name: '看视频-恭喜获得羊毛福利',
       matchRoot: true,
       actionMaximum: 1,
