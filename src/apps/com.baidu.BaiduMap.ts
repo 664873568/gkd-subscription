@@ -61,7 +61,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]'],
+          matches: [
+            '@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -76,7 +78,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]'],
+          matches: [
+            '@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -250,9 +254,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageView < FrameLayout + LinearLayout + ImageView',
-          ],
+          matches: ['@ImageView < FrameLayout + LinearLayout + ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -275,9 +277,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@ImageView < FrameLayout + LinearLayout + ImageView',
-          ],
+          matches: ['@ImageView < FrameLayout + LinearLayout + ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -319,9 +319,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="残忍离开"] <<n * [text="真的不再看看了吗？"]',
-          ],
+          matches: ['@[text="残忍离开"] <<n * [text="真的不再看看了吗？"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
         },
       ],
