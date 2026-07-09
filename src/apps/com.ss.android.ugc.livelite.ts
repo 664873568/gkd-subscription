@@ -84,8 +84,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 ViewGroup[desc$="00"]'],
-          activityIds: ['com.bytedance.android.shopping.store.tabkit.container.TabKitActivity'],
+          matches: [
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 ViewGroup[desc$="00"]',
+          ],
+          activityIds: [
+            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+          ],
         },
       ],
     },
@@ -169,7 +173,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 32000,
-          matches: ['@[desc="关闭"][vid="crt"] <<n LiveMeasureOnceRelativeLayout'],
+          matches: [
+            '@[desc="关闭"][vid="crt"] <<n LiveMeasureOnceRelativeLayout',
+          ],
           activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
         },
       ],
@@ -185,7 +191,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 32000,
-          matches: ['@[desc="关闭"][vid="crt"] <<n LiveMeasureOnceRelativeLayout'],
+          matches: [
+            '@[desc="关闭"][vid="crt"] <<n LiveMeasureOnceRelativeLayout',
+          ],
           activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
         },
         {
