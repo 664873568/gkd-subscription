@@ -68,7 +68,7 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '地图图区-签到送好礼-<',
+      name: '地图图区-千问-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -93,6 +93,21 @@ export default defineGkdApp({
           matches: [
             '@[desc="返回"][vid="title_btn_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
           ],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '访问飞猪旅行APP-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[text="正在载入"][vid="bm_progress_message"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -213,7 +228,7 @@ export default defineGkdApp({
       key: 27,
       name: '淘宝热卖广告-滑动/点击了解更多内容-×',
       matchRoot: true,
-      actionMaximum: 2,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -230,7 +245,7 @@ export default defineGkdApp({
       key: 28,
       name: '淘宝热卖广告-立即秒杀-×',
       matchRoot: true,
-      actionMaximum: 2,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -246,7 +261,7 @@ export default defineGkdApp({
       key: 29,
       name: '淘宝热卖广告-×',
       matchRoot: true,
-      actionMaximum: 2,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -262,6 +277,154 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '@ImageView < FrameLayout + LinearLayout + ImageView',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 30,
+      name: '淘宝热卖广告-立即秒杀-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 30000,
+          matches: [
+            '@[text$="跳过"][id="f6243b"] <<n * [text="反馈"][id="b9e33b"]',
+          ],
+          activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 31,
+      name: '淘宝-< ×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [text="淘宝"][id$="ksad_kwad_titlebar_title"]',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="残忍离开"] <<n * [text="真的不再看看了吗？"]',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 32,
+      name: '看视频-已获得奖励-跳过-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 30000,
+          matches: ['@[text="跳过"] <<n * [text="已获得奖励"] - [text="反馈"]'],
+          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[id="close_btn"] - [text="反馈"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 33,
+      name: '看视频-已获得奖励-跳过-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 30000,
+          matches: ['@[text$="跳过"] - [text="已获得奖励"] <2 [id="close_btn"] - [text="反馈"]'],
+          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[id="close_btn"] - [text="反馈"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 34,
+      name: '看视频-礼包-跳过-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 30000,
+          matches: [
+            '@ViewGroup < [desc="close_button"] <<n * [desc="gift_box"]',
+            '@[text="跳过"] <<n [desc="skip_button"] <<n * [desc="gift_box"]',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 35,
+      name: '看视频-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@Image < [id="694d63"] <<n * [text="反馈"]'],
+          activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 36,
+      name: '看视频-恭喜获得羊毛福利',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text^="点击跳转免看广告"] < ViewGroup -2 [text="恭喜获得羊毛福利"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 39,
+      name: '打开App',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="点击下载或打开第三方应用"] <<n * [text="打开App体验15秒，即可获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
