@@ -523,7 +523,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc="500"]',
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc^="00"]',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
