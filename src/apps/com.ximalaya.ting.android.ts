@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="看广告签到"] < ViewGroup -3 HorizontalScrollView'],
+          matches: [
+            '@[text^="看广告签到"] < ViewGroup -3 HorizontalScrollView',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
