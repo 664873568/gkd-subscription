@@ -7,21 +7,21 @@ export default defineGkdApp({
     //赚金币
     {
       key: 0,
-      name: '赚金币-连续签到满7天,抽30000金币-看广告签到',
+      name: '赚金币-看广告签到',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="看广告签到"] <<n * [text="赚金币"]'],
+          matches: ['@[text^="看广告签到"] < ViewGroup -3 HorizontalScrollView'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
     {
       key: 1,
-      name: '赚金币-连续签到满7天,抽30000金币-立即抽奖',
+      name: '赚金币-立即抽奖',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
