@@ -284,7 +284,7 @@ export default defineGkdApp({
     },
     {
       key: 30,
-      name: '淘宝热卖广告-立即秒杀-×',
+      name: '看视频-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
