@@ -301,7 +301,7 @@ export default defineGkdApp({
     },
     {
       key: 31,
-      name: '淘宝-< ×',
+      name: '浏览APP-< ×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -309,8 +309,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          action: 'back',
+          actionDelay: 10000,
           matches: [
-            '[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [text="淘宝"][id$="ksad_kwad_titlebar_title"]',
+            '@[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [id$="ksad_kwad_titlebar_title"]',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
         },
@@ -318,7 +320,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="残忍离开"] <<n * [text="真的不再看看了吗？"]',
+            '@[text="残忍离开"] <<n * [text="真的不再看看了吗？"]',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
         },
@@ -358,14 +360,14 @@ export default defineGkdApp({
     },
     {
       key: 34,
-      name: '看视频-恭喜获得羊毛福利',
+      name: '看视频-恭喜获得福利',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="点击跳转免看广告"] < ViewGroup -2 [text="恭喜获得羊毛福利"]'],
+          matches: ['@[text^="点击跳转免看广告"] <<n * [text^="恭喜获得"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
