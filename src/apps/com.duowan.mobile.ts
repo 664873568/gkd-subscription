@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="打开"][vid="btn_ok"] <<n * [text="提醒"][vid="message"]'],
+          matches: [
+            '@[text="打开"][vid="btn_ok"] <<n * [text="提醒"][vid="message"]',
+          ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
