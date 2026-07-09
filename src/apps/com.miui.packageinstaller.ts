@@ -13,6 +13,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
+          actionDelay: 5000,
           matches: ['@[text="取消"] <<n * [text$="正尝试安装应用"]'],
           activityIds: ['com.miui.packageInstaller.InstallStart'],
         },
@@ -31,7 +33,7 @@ export default defineGkdApp({
           actionDelay: 5000,
           anyMatches: [
             '@[text="禁止安装"] <<n * [text^="是否允许"]',
-            '@[text="安装包扫描中，请稍候"] <<n * [vid="main_content"]',
+            '@[desc="返回"][vid="up"] <<n * [text="安装包扫描中，请稍候"][vid="loadingText"]',
           ],
           activityIds: [
             'com.miui.packageInstaller.NewInstallerPrepareActivity',
@@ -48,6 +50,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
+          actionDelay: 5000,
           matches: ['@[text="取消"] <<n * [text$="频繁安装应用"]'],
           activityIds: ['null'],
         },
