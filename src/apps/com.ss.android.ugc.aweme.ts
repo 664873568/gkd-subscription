@@ -605,23 +605,7 @@ export default defineGkdApp({
     //看视频
     {
       key: 50,
-      name: '看视频-返回领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 32000,
-          excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
-          matches: ['@ImageView < ViewGroup -3 ScrollView'],
-          activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 51,
-      name: '看视频-任务完成 返回领取',
+      name: '看视频-任务完成 返回领取-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
