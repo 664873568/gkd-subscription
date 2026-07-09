@@ -99,7 +99,7 @@ export default defineGkdApp({
     },
     {
       key: 7,
-      name: '访问飞猪旅行APP-<',
+      name: '正在载入',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
