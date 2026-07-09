@@ -479,24 +479,6 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '赚签到金-签到得',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=6][childCount=1]',
-          ],
-          activityIds: [
-            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 42,
       name: '赚签到金-更多任务',
       matchRoot: true,
       actionMaximum: 1,
@@ -514,15 +496,35 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 43,
-      name: '娱乐影音-<',
+      key: 42,
+      name: '赚签到金-签到得',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[desc="bilibili"] - ImageView'],
+          matches: [
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=5][childCount=1] - ViewGroup[index=4][childCount=2]',
+          ],
+          activityIds: [
+            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 43,
+      name: '赚签到金-再赚充值金',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc="500"]',
+          ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
           ],
@@ -531,6 +533,24 @@ export default defineGkdApp({
     },
     {
       key: 44,
+      name: '娱乐影音-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 5000,
+          matches: ['[desc="bilibili"] - ImageView'],
+          activityIds: [
+            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 45,
       name: '天天用好券-浏览好物-返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -539,14 +559,14 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 31000,
+          actionDelay: 32000,
           matches: ['@[text="返回领取"] <<n * [desc="返回"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
     },
     {
-      key: 45,
+      key: 46,
       name: '天天用好券-放弃优惠-返回',
       matchRoot: true,
       actionMaximum: 1,
@@ -560,7 +580,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 46,
+      key: 47,
       name: '天天用好券-返回',
       matchRoot: true,
       actionMaximum: 1,
@@ -570,7 +590,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 31000,
+          actionDelay: 32000,
           matches: ['@[text="返回领取"] <<n * [desc="返回"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -592,7 +612,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 31000,
+          actionDelay: 32000,
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
@@ -608,7 +628,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 31000,
+          actionDelay: 32000,
           matches: ['@ImageView < [desc^="任务完成 返回领取"]'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
