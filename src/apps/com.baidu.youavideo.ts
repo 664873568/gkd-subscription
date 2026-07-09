@@ -169,7 +169,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="我要减广告时长"] <<n * [text="不感兴趣"]'],
+          anyMatches: [
+            '@[text="我要减广告时长"] <<n * [text="不感兴趣"]',
+            '@[text="我要减广告时长"] <<n * [text^="再逛"]',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -365,22 +368,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
-      name: '看视频-反馈-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView <<n * [text="反馈"]'],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
       key: 22,
       name: '看视频-温馨提示-去领取奖励',
       matchRoot: true,
@@ -436,14 +423,13 @@ export default defineGkdApp({
     //看视频-二级
     {
       key: 30,
-      name: '看视频-跳转快应用-<+×',
+      name: '看视频-跳转快应用-< ×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 10000,
           matches: ['@ImageView + ImageView +2 [text="反馈"]'],
           activityIds: [
@@ -502,6 +488,21 @@ export default defineGkdApp({
     },
     {
       key: 42,
+      name: '确认开启备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[text="确认开启备份"][vid="tv_open_auto_backup_btn_up"] <<n [vid="cl_open_auto_backup"]'],
+          activityIds: ['.home.view.HomeActivity'],
+        },
+      ],
+    },
+    {
+      key: 43,
       name: '开启自定义备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -515,7 +516,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 43,
+      key: 44,
       name: '立即升级',
       matchRoot: true,
       actionMaximum: 1,
