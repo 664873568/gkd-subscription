@@ -165,7 +165,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 21000,
-          matches: ['[text="基金落地页"] >n @Button <<n * [vid="bux"]'],
+          matches: ['[text="基金落地页"] >n @Button <<n * [vid^="bu"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -181,7 +181,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 21000,
-          matches: ['[text^="每周投"] >n @Button <<n * [vid="bux"]'],
+          matches: ['[text^="每周投"] >n @Button <<n * [vid^="bu"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -189,6 +189,42 @@ export default defineGkdApp({
     //车主服务
     {
       key: 20,
+      name: '车主服务-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 21,
+      name: '车主服务-立即领取-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          matches: ['@[text="立即领取"] <<n * [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 27,
       name: '我的保障-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -203,7 +239,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 28,
       name: '我的保障-完善健康档案',
       matchRoot: true,
       actionMaximum: 1,
@@ -219,7 +255,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 29,
       name: '我的保障-完善健康档案-×',
       matchRoot: true,
       actionMaximum: 1,
