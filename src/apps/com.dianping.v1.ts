@@ -16,7 +16,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 6000,
           matches: [
-            '@ImageView[clickable=false] - ImageView[clickable=false] < FrameLayout[clickable=false] < FrameLayout[clickable=true]',
+            '@ImageView[index=1][childCount=0] +n [desc="food_poi_favor"] <<n * [text="恭喜获得"] + [text="100点金币"]',
           ],
           activityIds: ['com.dianping.shopshell.PexusPoiActivity'],
         },
