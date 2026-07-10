@@ -70,6 +70,7 @@ export default defineGkdApp({
           action: 'back',
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
+            '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] <<n * [vid="fragment_container"]',
           ],
@@ -115,6 +116,7 @@ export default defineGkdApp({
           action: 'back',
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
+            '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] <<n * [vid="fragment_container"]',
           ],
