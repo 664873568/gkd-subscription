@@ -31,7 +31,6 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          key: 0,
           matches: ['@[text="取消"] <<n * [text="开启消息通知"]'],
           activityIds: ['com.hellobike.atlas.business.portal.PortalActivity'],
         },
