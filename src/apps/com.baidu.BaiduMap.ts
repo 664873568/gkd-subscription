@@ -349,7 +349,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 32,
       name: '广告-跳过-关闭',
       matchRoot: true,
       actionMaximum: 1,
@@ -365,7 +365,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
+      key: 33,
       name: '看视频-拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -379,7 +379,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 33,
+      key: 34,
       name: '看视频-礼包-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -396,7 +396,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 34,
+      key: 35,
       name: '看视频-拿奖励-礼包-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -420,7 +420,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 35,
+      key: 36,
       name: '浏览APP-< ×',
       matchRoot: true,
       actionMaximum: 1,
