@@ -108,7 +108,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="知道了"][vid="ok_btn"] <<n * [text="未成年模式"][vid="title"]'],
+          matches: [
+            '@[text="知道了"][vid="ok_btn"] <<n * [text="未成年模式"][vid="title"]',
+          ],
           activityIds: ['com.yy.mobile.ui.splash.SplashActivity'],
         },
       ],

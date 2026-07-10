@@ -153,7 +153,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[text="暂不开启"][vid="dialog_button_cancel"] -n [text="是否开启照片自动备份？"][vid="content_info"]'],
+          matches: [
+            '@[text="暂不开启"][vid="dialog_button_cancel"] -n [text="是否开启照片自动备份？"][vid="content_info"]',
+          ],
           activityIds: ['.ui.NewQuickSettingsActivity'],
         },
       ],

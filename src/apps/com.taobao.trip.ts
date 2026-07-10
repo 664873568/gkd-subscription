@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]'],
+          matches: [
+            '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]',
+          ],
           activityIds: ['.splash.ui.ImageSplashActivity'],
         },
       ],
@@ -43,7 +45,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]'],
+          matches: [
+            '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]',
+          ],
           activityIds: ['.splash.ui.ImageSplashActivity'],
         },
         {
