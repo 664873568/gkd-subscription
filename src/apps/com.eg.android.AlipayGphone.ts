@@ -61,7 +61,7 @@ export default defineGkdApp({
     },
     //蚂蚁投资者教育基地
     {
-      key: 3,
+      key: 10,
       name: '蚂蚁投资者教育基地-出发寻宝',
       matchRoot: true,
       actionMaximum: 1,
@@ -78,7 +78,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 11,
       name: '蚂蚁投资者教育基地-立即打开',
       matchRoot: true,
       actionMaximum: 1,
@@ -94,7 +94,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 12,
       name: '蚂蚁投资者教育基地-收下并继续探险',
       matchRoot: true,
       actionMaximum: 1,
@@ -110,7 +110,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 13,
       name: '蚂蚁投资者教育基地-去完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -137,7 +137,40 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 14,
+      name: '蚂蚁投资者教育基地-收下了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="收下了"] <<n [id="ppage-index-index"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '蚂蚁投资者教育基地-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[id$="ic_back_btn"] <<n * [text="蚂蚁投资者教育基地"][id$="left_author_name"]'],
+          activityIds: [
+            'com.alipay.android.living.activity.LivingDetailActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 16,
       name: '蚂蚁投资者教育基地-选择题',
       matchRoot: true,
       actionMaximum: 1,
@@ -154,33 +187,17 @@ export default defineGkdApp({
         },
       ],
     },
+    //赚工分
     {
-      key: 8,
-      name: '蚂蚁投资者教育基地-收下了',
+      key: 20,
+      name: '赚工分-去完成',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="收下了"] <<n [id="ppage-index-index"]'],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
-          ],
-        },
-      ],
-    },
-    //赚工分
-    {
-      key: 9,
-      name: '赚工分-去完成',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 15000,
+          actionDelay: 3000,
           matches: ['@[text="去完成"] -n [text="80q"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -189,28 +206,39 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 10,
-      name: '赚工分-任务完成',
+      key: 21,
+      name: '赚工分-任务完成-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           actionDelay: 15000,
-          matches: [
-            '@[desc="返回"] <<n * [text="Smallfish App"]',
-            '@[desc="关闭"] <<n * [text="Smallfish App"]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
-          ],
+          matches: ['@[desc="返回"] <<n * [text="Smallfish App"]'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
         },
       ],
     },
     {
-      key: 11,
+      key: 22,
+      name: '赚工分-任务完成-⊙',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 15000,
+          matches: ['@[desc="关闭"] <<n * [text="Smallfish App"]'],
+          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02'],
+        },
+      ],
+    },
+    {
+      key: 23,
       name: '赚工分-已完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -228,7 +256,7 @@ export default defineGkdApp({
     },
     //充鸭攒话费
     {
-      key: 12,
+      key: 31,
       name: '充鸭攒话费-签到',
       matchRoot: true,
       actionMaximum: 1,
@@ -244,7 +272,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 32,
       name: '充鸭攒话费-正在跳转-返回',
       matchRoot: true,
       actionMaximum: 1,
