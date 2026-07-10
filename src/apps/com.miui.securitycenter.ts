@@ -15,13 +15,28 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 16000,
-          matches: ['@[text="启动应用"] + [text$="是否允许？"]'],
+          matches: ['@[text="启动应用"][vid="permission_group_title"] + [text$="是否允许？"][vid="event_title"]'],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
     {
-      key: 1,
+      key: 0,
+      name: '启动应用',
+      matchRoot: true,
+      actionMaximum: 2,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[text="启动应用"][vid="permission_group_title"] + [text="京东金融 想要打开 京东，是否允许？"][vid="event_title"]'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '请用指纹解锁',
       matchRoot: true,
       actionMaximum: 1,
@@ -37,7 +52,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '请用密码或指纹解锁',
       matchRoot: true,
       actionMaximum: 1,
@@ -53,7 +68,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '使用密码验证',
       matchRoot: true,
       actionMaximum: 1,
