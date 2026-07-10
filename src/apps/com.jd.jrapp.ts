@@ -69,7 +69,8 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '@[text="返回领奖"]', //@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup//@[text="返回领奖"] <<n * [text="readMissionDown"]
+            '@[text="返回领奖"] <<n * [text="readMissionDown"]',
+            //@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -96,6 +97,57 @@ export default defineGkdApp({
     },
     {
       key: 5,
+      name: '继续浏览-返回领奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="继续浏览"] -2 [text="恭喜获得浏览奖励"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: [
+            '@[text="返回领奖"] <<n * [text="readMissionDown"]',
+            //@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup
+          ],
+          activityIds: [
+            '.bm.common.web.ui.WebActivity',
+            '.bm.jrv8.JRCustomDyPageActivity',
+            '.bm.sh.jm.video.ui.VibratoActivity',
+            '.bm.common.container.ui.BaseContainerActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '养大鹅-天天来提额',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@TextView -2 [text="从京东信誉分频道 进游戏"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="551d38b59d892f29"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
       name: '养猪猪-产粮机',
       matchRoot: true,
       actionMaximum: 1,
