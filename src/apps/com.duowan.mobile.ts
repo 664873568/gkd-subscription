@@ -99,5 +99,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 52,
+      name: '未成年模式-知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="知道了"][vid="ok_btn"] <<n * [text="未成年模式"][vid="title"]'],
+          activityIds: ['com.yy.mobile.ui.splash.SplashActivity'],
+        },
+      ],
+    },
   ],
 });
