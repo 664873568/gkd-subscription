@@ -33,7 +33,7 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '@[text="启动应用"][vid="permission_group_title"] + [text="京东金融 想要打开 京东，是否允许？"][vid="event_title"]',
+            '@[text="启动应用"][vid="permission_group_title"] + [text=^"京东金融"][vid="event_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
