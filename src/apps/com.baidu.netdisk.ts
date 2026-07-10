@@ -137,6 +137,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           matches: ['@[text="暂不开启"] - [text="开启安全备份"]'],
           activityIds: ['.ui.NewQuickSettingsActivity'],
         },
@@ -151,7 +152,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="暂不开启"] -n [text="是否开启照片自动备份？"]'],
+          action: 'back',
+          matches: ['@[text="暂不开启"][vid="dialog_button_cancel"] -n [text="是否开启照片自动备份？"][vid="content_info"]'],
           activityIds: ['.ui.NewQuickSettingsActivity'],
         },
       ],
@@ -169,6 +171,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text^="跳过"][vid="tv_skip"]',
             '@[text^="跳过"][vid="countdown"]',
+            '@[text="跳过"] <<n * [text="上滑或点击"]',
           ],
           activityIds: ['.advertise.ui.SplashAdActivity'],
         },
