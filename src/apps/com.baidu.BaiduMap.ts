@@ -61,6 +61,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 5000,
           matches: [
             '@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]',
           ],
@@ -78,8 +79,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 5000,
           matches: [
-            '@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]',
+            '@[desc="返回"][vid="title_btn_left"] <<n * [text="千问-阿里 AI 助手"][vid="title"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -304,13 +306,13 @@ export default defineGkdApp({
       name: '浏览APP-< ×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'back',
-          actionDelay: 10000,
+          actionDelay: 15000,
           matches: [
             '@[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [id$="ksad_kwad_titlebar_title"]',
           ],
