@@ -13,7 +13,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView -2 [text="会员等级体系新升级"] <<n [text="会员频道"]'],
+          matches: [
+            '@TextView -2 [text="会员等级体系新升级"] <<n [text="会员频道"]',
+          ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
@@ -28,7 +30,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[text="done"] +2 [text="2bd7c5199a3f9703e3ae80849"] <<n [text="百度网盘超级会员日"]'],
+          matches: [
+            '@[text="done"] +2 [text="2bd7c5199a3f9703e3ae80849"] <<n [text="百度网盘超级会员日"]',
+          ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
