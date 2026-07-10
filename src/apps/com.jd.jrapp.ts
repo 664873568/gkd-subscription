@@ -68,13 +68,15 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
           matches: [
             '@[text="返回领奖"]', //@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup//@[text="返回领奖"] <<n * [text="readMissionDown"]
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
+            '.bm.jrv8.JRCustomDyPageActivity',
+            '.bm.sh.jm.video.ui.VibratoActivity',
             '.bm.common.container.ui.BaseContainerActivity',
+            
           ],
         },
       ],
