@@ -115,27 +115,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 25,
-      name: '看视频-完成App安装',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
           matches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
