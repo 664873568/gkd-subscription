@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^="跳过"][vid="view_skip_button"] <<n * [vid="view_slogan"]',
+            '@[text^="跳过"][vid="view_skip_button"] < [vid="view_skip_button_nearby_top_right"] +2 [vid="view_slogan"]',
           ],
           activityIds: ['null'],
         },
