@@ -21,8 +21,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 0,
-      name: '启动应用',
+      key: 1,
+      name: '启动应用-京东金融',
       matchRoot: true,
       actionMaximum: 2,
       matchTime: 10000,
