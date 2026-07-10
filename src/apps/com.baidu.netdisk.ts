@@ -41,6 +41,87 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 12,
+      name: '看视频-百度云升级/福利来袭-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          anyMatches: [
+            '@[vid="left_button"] +2 [text="百度云升级"][vid="middle_title_text"]',
+            '@[vid="left_button"] +2 [text^="福利来袭"][vid="middle_title_text"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 16,
+      name: '任务中心-选择照片',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[vid="imageview_checkbox"] <<n * [text="已选：0/99"][vid="select_count_text"]'],
+          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="完成"][vid="done_button"] <<n * [text="已选：1/99"][vid="select_count_text"]'],
+          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+        },
+      ],
+    },
+    {
+      key: 17,
+      name: '任务中心-题目框选',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['View + ImageView + @ImageView + ImageView'],
+          activityIds: ['com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[desc="录入错题"] -n [desc="已选择 1 道题目"]'],
+          activityIds: ['com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity'],
+        },
+      ],
+    },
+    {
+      key: 18,
+      name: '任务中心-录入错题本',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="全部保存"] <<n [text="学习服务页"]'],
+          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="任务完成"][vid="tv_title"] -2 [vid="iv_close"]'],
+          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
+        },
+      ],
+    },
+    {
       key: 19,
       name: '游戏中心-领取奖励',
       matchRoot: true,
@@ -123,7 +204,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 25,
+      key: 24,
       name: '看视频-完成App安装',
       matchRoot: true,
       actionMaximum: 1,
