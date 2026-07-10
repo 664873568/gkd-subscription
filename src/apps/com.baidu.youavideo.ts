@@ -136,8 +136,8 @@ export default defineGkdApp({
       key: 10,
       name: '看视频-跳过',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
+      actionMaximum: 2,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -187,7 +187,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text="我要减广告时长"] <<n * [text="不感兴趣"]',
-            '@[text="我要减广告时长"] <<n * [text^="再逛"]',
+            '@[text^="我要"] <<n * [text^="再逛"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -385,7 +385,39 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 22,
+      name: '看视频-恭喜获得限时奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[id="c35d2d"] - [text="恭喜获得限时奖励"] <<n * [text$="跳过"]'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
       key: 23,
+      name: '看视频-限时砍一刀领奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="d93aea9c27398a77"] -n [text="点击宝刀,有机会获得奖励"] <<n * [text$="跳过"]'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 24,
       name: '看视频-已发放-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -401,7 +433,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 25,
       name: '看视频-限时领取',
       matchRoot: true,
       actionMaximum: 5,
@@ -413,6 +445,7 @@ export default defineGkdApp({
             '@[text="icon-close.e3e3211b"] -2 [text="立即暴涨"]',
             '@[text="icon-close.e3e3211b"] -3 [text="立即领取"]',
             '@[text="7b144c81c2cb181f"] <<n * [text="限时领取"]',
+            '@[text="3ca6ab446dec1c57"] <<n * [text="限时领取"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
