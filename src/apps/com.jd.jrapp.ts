@@ -154,7 +154,7 @@ export default defineGkdApp({
     },
     {
       key: 8,
-      name: '养猪猪-产粮机',
+      name: '签到领现金-京民通',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
