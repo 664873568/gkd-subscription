@@ -68,13 +68,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[vid="imageview_checkbox"] <<n * [text="已选：0/99"][vid="select_count_text"]'],
+          matches: [
+            '@[vid="imageview_checkbox"] <<n * [text="已选：0/99"][vid="select_count_text"]',
+          ],
           activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="完成"][vid="done_button"] <<n * [text="已选：1/99"][vid="select_count_text"]'],
+          matches: [
+            '@[text="完成"][vid="done_button"] <<n * [text="已选：1/99"][vid="select_count_text"]',
+          ],
           activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
         },
       ],
@@ -90,13 +94,17 @@ export default defineGkdApp({
         {
           key: 0,
           matches: ['View + ImageView + @ImageView + ImageView'],
-          activityIds: ['com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity'],
+          activityIds: [
+            'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: ['@[desc="录入错题"] -n [desc="已选择 1 道题目"]'],
-          activityIds: ['com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity'],
+          activityIds: [
+            'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
+          ],
         },
       ],
     },
