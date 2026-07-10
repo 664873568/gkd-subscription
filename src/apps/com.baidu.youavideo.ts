@@ -368,7 +368,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 21,
       name: '看视频-温馨提示-去领取奖励',
       matchRoot: true,
       actionMaximum: 1,
