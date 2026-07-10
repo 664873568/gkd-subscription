@@ -14,7 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageButton <<n View[id^="48CD255F"] <<n [text="U惠湖北"]',
+            '@ImageButton <<2 View[index=1][childCount=1] <<n [text="U惠湖北"]',
           ],
           activityIds: ['.liteapp.app.UPLiteAppActivity1'],
         },
