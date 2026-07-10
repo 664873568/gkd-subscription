@@ -89,7 +89,7 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '使用密码验证',
+      name: '请用指纹解锁-用于打开微信',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
