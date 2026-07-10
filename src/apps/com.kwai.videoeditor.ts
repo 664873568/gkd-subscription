@@ -14,7 +14,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] < FrameLayout +2 ImageView'],
+          anyMatches: [
+            '@[text^="跳过"][vid="es"] +n [vid="td"]',
+            '@[text="跳过"] < FrameLayout +2 ImageView',
+          ],
           activityIds: ['.commercialization.splash.GeneralAdSplashActivity'],
         },
       ],
