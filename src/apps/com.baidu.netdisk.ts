@@ -55,7 +55,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 19,
+      key: 20,
       name: '游戏中心-好礼通行证-×',
       matchRoot: true,
       actionMaximum: 1,
