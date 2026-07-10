@@ -4,10 +4,23 @@ export default defineGkdApp({
   id: 'com.baidu.netdisk',
   name: '百度网盘',
   groups: [
-    //任务中心
     {
-      key: 10,
-      name: '文档扫描-<',
+      key: 0,
+      name: '会员频道-会员等级体系新升级-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@TextView -2 [text="会员等级体系新升级"] <<n [text="会员频道"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 0,
+      name: '会员频道-会员等级体系新升级-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,16 +28,29 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: [
-            '@[text="文档扫描"] <<n * [text="拍摄纸质资料，生成高清电子版"]',
-          ],
-          activityIds: ['.ocr.OCRTakePhotoActivity'],
+          matches: ['@[text="done"] +2 [text="2bd7c5199a3f9703e3ae80849"] <<n [text="百度网盘超级会员日"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    //任务中心
+    {
+      key: 0,
+      name: '任务中心-领取奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="task_float_image"] + [vid="task_float_close"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
     },
     {
       key: 11,
-      name: '加载中…-<',
+      name: '任务中心-加载中…-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -42,7 +68,7 @@ export default defineGkdApp({
     },
     {
       key: 12,
-      name: '看视频-百度云升级/福利来袭-<',
+      name: '任务中心-百度云升级/福利来袭-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -59,7 +85,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 16,
+      key: 17,
       name: '任务中心-选择照片',
       matchRoot: true,
       actionMaximum: 1,
@@ -84,7 +110,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 17,
+      key: 18,
       name: '任务中心-题目框选',
       matchRoot: true,
       actionMaximum: 1,
@@ -109,7 +135,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 18,
+      key: 19,
       name: '任务中心-录入错题本',
       matchRoot: true,
       actionMaximum: 1,
@@ -129,8 +155,9 @@ export default defineGkdApp({
         },
       ],
     },
+    //游戏中心
     {
-      key: 19,
+      key: 20,
       name: '游戏中心-领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -144,7 +171,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 20,
+      key: 21,
       name: '游戏中心-好礼通行证-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -153,7 +180,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="关闭"] -2 [text="point"] <<n [text="游戏中心"]'],
+          matches: ['@[desc="关闭"] -2 [text="point"] <<n [text="游戏中心"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
@@ -166,7 +193,7 @@ export default defineGkdApp({
     },
     //看视频-返回|跳过|关闭
     {
-      key: 21,
+      key: 30,
       name: '看视频-点击广告拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -182,7 +209,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 31,
       name: '看视频-新人专享福利-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -196,7 +223,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23,
+      key: 32,
       name: '看视频-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -212,7 +239,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 33,
       name: '看视频-完成App安装',
       matchRoot: true,
       actionMaximum: 1,
