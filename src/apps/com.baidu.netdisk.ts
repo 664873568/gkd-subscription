@@ -42,6 +42,20 @@ export default defineGkdApp({
     },
     {
       key: 19,
+      name: '游戏中心-领取奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="lingqujiangli"] <<n [text="游戏中心"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 19,
       name: '游戏中心-好礼通行证-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -185,7 +199,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: ['@[text="暂不开启"] - [text="开启安全备份"]'],
           activityIds: ['.ui.NewQuickSettingsActivity'],
         },
@@ -200,11 +213,43 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
             '@[text="暂不开启"][vid="dialog_button_cancel"] -n [text="是否开启照片自动备份？"][vid="content_info"]',
           ],
           activityIds: ['.ui.NewQuickSettingsActivity'],
+        },
+      ],
+    },
+    {
+      key: 42,
+      name: '百度网盘更新啦',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="下次再说"][vid="left_btn"] < [vid="bottom_layout"] -n [text="百度网盘更新啦"][vid="title_tv"]',
+          ],
+          activityIds: ['.ui.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 43,
+      name: '喜欢“百度网盘”吗？',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[text="以后再说"][vid="tv_left_btn"] -n [text="喜欢“百度网盘”吗？"][vid="tv_title"] < [vid="view_score_style"]',
+          ],
+          activityIds: ['.ui.MainActivity'],
         },
       ],
     },
@@ -235,6 +280,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text^="跳过"][vid="tv_skip"]',
             '@[text^="跳过"][vid="countdown"]',
+            '@[text^="跳过"][vid="vilon_close_text"]',
             '@[text="跳过"] <<n * [text="上滑或点击"]',
           ],
           activityIds: ['.advertise.ui.SplashAdActivity'],
