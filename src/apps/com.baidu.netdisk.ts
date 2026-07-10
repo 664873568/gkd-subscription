@@ -101,7 +101,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]'],
+          matches: [
+            '@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]',
+          ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -115,7 +117,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
+          matches: [
+            '@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]',
+          ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -150,9 +154,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@ImageView < FrameLayout + * > * [text^="进入微信小游戏"]',
           ],
-          matches: [
-            '@[text^="进入微信小游戏"] <<n * [text="提前拿奖励"]',
-          ],
+          matches: ['@[text^="进入微信小游戏"] <<n * [text="提前拿奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],

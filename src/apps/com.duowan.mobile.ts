@@ -79,7 +79,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView - View > [text="继续参与活动"] <<n [text="导流结果弹窗"]'],
+          matches: [
+            '@TextView - View > [text="继续参与活动"] <<n [text="导流结果弹窗"]',
+          ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
