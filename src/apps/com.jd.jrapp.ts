@@ -153,6 +153,21 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 8,
+      name: '养猪猪-产粮机',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[vid="manto_actionbar_home"] <<n * [text="京民通"]'],
+          activityIds: ['com.jingdong.manto.ui.MantoActivitySingleProcess'],
+        },
+      ],
+    },
+    {
       key: 9,
       name: '养猪猪-产粮机',
       matchRoot: true,
