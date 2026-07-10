@@ -7,7 +7,7 @@ export default defineGkdApp({
     //天天集能量
     {
       key: 0,
-      name: '首页-广告',
+      name: '首页-广告-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -35,7 +35,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '首页-能量红包',
+      name: '首页-能量红包-广告-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
