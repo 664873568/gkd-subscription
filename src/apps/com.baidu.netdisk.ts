@@ -87,7 +87,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          mtches: ['@ImageView - [text="新人专享福利"]'],
+          matches: ['@ImageView - [text="新人专享福利"]'],
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
       ],
@@ -101,7 +101,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          mtches: ['@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]'],
+          matches: ['@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -116,13 +116,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          mtches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
+          matches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          mtches: ['@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]'],
+          matches: ['@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -136,7 +136,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          mtches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
+          matches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
