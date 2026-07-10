@@ -19,8 +19,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 0,
-      name: '会员频道-会员等级体系新升级-×',
+      key: 1,
+      name: '百度网盘超级会员日-已完成任务',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -35,7 +35,7 @@ export default defineGkdApp({
     },
     //任务中心
     {
-      key: 0,
+      key: 10,
       name: '任务中心-领取奖励',
       matchRoot: true,
       actionMaximum: 1,
