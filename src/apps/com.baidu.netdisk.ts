@@ -63,22 +63,6 @@ export default defineGkdApp({
     },
     //看视频-返回|跳过|关闭
     {
-      key: 20,
-      name: '看视频-微信-恭喜获得奖励-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@ImageView < FrameLayout + * > * [text="进入微信小游戏自由畅玩"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
       key: 21,
       name: '看视频-点击广告拿奖励',
       matchRoot: true,
@@ -88,7 +72,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="点击广告拿奖励"] <<n * [text="点击广告，即可获得奖励"]',
+            '@[text="点击广告拿奖励"] <<n * [text="点击广告，即可获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -96,22 +80,69 @@ export default defineGkdApp({
     },
     {
       key: 22,
-      name: '看视频-恭喜获得奖励-×',
+      name: '看视频-新人专享福利-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageView < FrameLayout -2 FrameLayout > [text="恭喜获得奖励"]',
-          ],
+          mtches: ['@ImageView - [text="新人专享福利"]'],
+          activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+      ],
+    },
+    {
+      key: 23,
+      name: '看视频-恭喜获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          mtches: ['@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 39,
+      key: 25,
+      name: '看视频-完成App安装',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          mtches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          mtches: ['@ImageView[width=48&&height=48] <<n * [text="恭喜获得奖励"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 25,
+      name: '看视频-完成App安装',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          mtches: ['@[text="点击下载或打开第三方应用"] <<n * [text="完成App安装，即可获得奖励"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 37,
       name: '红果免费短剧',
       matchRoot: true,
       actionMaximum: 1,
@@ -123,6 +154,41 @@ export default defineGkdApp({
           actionDelay: 15000,
           matches: [
             '@[text="打开红果免费短剧 免费短剧尽在此处"] <<n [text="红果免费短剧"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 38,
+      name: '看视频-微信-进入微信小游戏',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          excludeMatches: [
+            '@ImageView < FrameLayout + * > * [text^="进入微信小游戏"]',
+          ],
+          matches: [
+            '@[text^="进入微信小游戏"] <<n * [text="提前拿奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 39,
+      name: '看视频-微信-恭喜获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView < FrameLayout + * > * [text^="进入微信小游戏"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -158,6 +224,20 @@ export default defineGkdApp({
             '@[text="暂不开启"][vid="dialog_button_cancel"] -n [text="是否开启照片自动备份？"][vid="content_info"]',
           ],
           activityIds: ['.ui.NewQuickSettingsActivity'],
+        },
+      ],
+    },
+    {
+      key: 49,
+      name: '广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text^="跳过"]'],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
