@@ -6,22 +6,6 @@ export default defineGkdApp({
   groups: [
     //任务中心
     {
-      key: 0,
-      name: '任务中心',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: [
-            '@[vid="home25ai_activity_signin"] <<n [vid="home25ai_v1"]',
-          ],
-          activityIds: ['.ui.MainActivity', 'null'],
-        },
-      ],
-    },
-    {
       key: 10,
       name: '文档扫描-<',
       matchRoot: true,
@@ -150,7 +134,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[text="暂不开启"] - [text="开启安全备份"]'],
@@ -164,7 +148,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[text="暂不开启"] -n [text="是否开启照片自动备份？"]'],
@@ -175,7 +159,7 @@ export default defineGkdApp({
     //首页广告类
     {
       key: 50,
-      name: '首页广告-×',
+      name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -187,6 +171,20 @@ export default defineGkdApp({
             '@[text^="跳过"][vid="countdown"]',
           ],
           activityIds: ['.advertise.ui.SplashAdActivity'],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '首页广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[vid="iv_close"] + [vid="cl_content"]'],
+          activityIds: ['.ui.MainActivity'],
         },
       ],
     },
