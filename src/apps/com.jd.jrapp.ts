@@ -76,7 +76,6 @@ export default defineGkdApp({
             '.bm.jrv8.JRCustomDyPageActivity',
             '.bm.sh.jm.video.ui.VibratoActivity',
             '.bm.common.container.ui.BaseContainerActivity',
-            
           ],
         },
       ],
