@@ -188,9 +188,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="跳过"] - [text="奖励已下发"] - [text="反馈"]',
-          ],
+          matches: ['@[text="跳过"] - [text="奖励已下发"] - [text="反馈"]'],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
       ],
@@ -357,9 +355,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="关闭"][vid="tobid_interstitial_skip_text"]',
-          ],
+          matches: ['@[text="关闭"][vid="tobid_interstitial_skip_text"]'],
           activityIds: ['com.windmill.sdk.widget.InterstitialView_4012003'],
         },
       ],
