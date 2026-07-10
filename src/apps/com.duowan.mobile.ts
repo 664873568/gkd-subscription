@@ -70,9 +70,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 4,
+      name: '做任务赢金币-恭喜获得-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@TextView - View > [text="继续参与活动"] <<n [text="导流结果弹窗"]'],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
     //功能类
     {
-      key: 50,
+      key: 40,
       name: '打开通知权限-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -86,7 +100,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 41,
       name: '发现新版本-立即下载-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -94,13 +108,13 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="btn_cancel"] <<n [vid="btn_ok"]'],
+          matches: ['@[vid="btn_cancel"] + [vid="btn_ok"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
     {
-      key: 52,
+      key: 42,
       name: '未成年模式-知道了',
       matchRoot: true,
       actionMaximum: 1,
@@ -112,6 +126,22 @@ export default defineGkdApp({
             '@[text="知道了"][vid="ok_btn"] <<n * [text="未成年模式"][vid="title"]',
           ],
           activityIds: ['com.yy.mobile.ui.splash.SplashActivity'],
+        },
+      ],
+    },
+    {
+      key: 43,
+      name: '剪切板-不允许',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="不允许"][vid="btn_cancel"] <<n * [text="“YY”想访问您的剪切板"][vid="message"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
