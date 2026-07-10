@@ -162,7 +162,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[id$="ic_back_btn"] <<n * [text="蚂蚁投资者教育基地"][id$="left_author_name"]'],
+          matches: [
+            '@[id$="ic_back_btn"] <<n * [text="蚂蚁投资者教育基地"][id$="left_author_name"]',
+          ],
           activityIds: [
             'com.alipay.android.living.activity.LivingDetailActivity',
           ],
@@ -217,7 +219,9 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 15000,
           matches: ['@[desc="返回"] <<n * [text="Smallfish App"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -233,7 +237,9 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 15000,
           matches: ['@[desc="关闭"] <<n * [text="Smallfish App"]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
+          ],
         },
       ],
     },
