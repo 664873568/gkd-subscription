@@ -87,5 +87,36 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 5,
+      name: '使用密码验证',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          actionDelay: 16000,
+          matches: ['[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]'],
+          activityIds: ['com.miui.applicationlock.AppLockActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: ['[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]'],
+          activityIds: ['com.miui.applicationlock.AppLockActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          action: 'back',
+          matches: ['[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]'],
+          activityIds: ['com.miui.applicationlock.AppLockActivity'],
+        },
+      ],
+    },
   ],
 });
