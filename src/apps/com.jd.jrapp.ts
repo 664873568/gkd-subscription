@@ -68,6 +68,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 1000,
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
@@ -114,6 +115,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
