@@ -71,7 +71,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
-            //@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup
+            '@[text="返回领奖"] <<n * [vid="fragment_container"]',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -116,7 +116,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
-            //@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup
+            '@[text="返回领奖"] <<n * [vid="fragment_container"]',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
