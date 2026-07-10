@@ -7,6 +7,20 @@ export default defineGkdApp({
     //天天集能量
     {
       key: 0,
+      name: '首页-广告',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]'],
+          activityIds: ['.splash.ui.ImageSplashActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '首页-能量红包',
       matchRoot: true,
       actionMaximum: 1,
@@ -20,7 +34,28 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
+      name: '首页-能量红包',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]'],
+          activityIds: ['.splash.ui.ImageSplashActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="能量红包"] <<n * [text="首页"]'],
+          activityIds: ['.home.HomeActivity'],
+        },
+      ],
+    },
+    {
+      key: 3,
       name: '天天集能量-天降惊喜-x',
       matchRoot: true,
       actionMaximum: 1,
@@ -36,7 +71,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 4,
       name: '天天集能量-看视频赚钱',
       matchRoot: true,
       actionMaximum: 1,
@@ -51,7 +86,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 5,
       name: '天天集能量-领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -65,7 +100,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 6,
       name: '天天集能量-网页无法打开',
       matchRoot: true,
       actionMaximum: 1,
@@ -77,6 +112,21 @@ export default defineGkdApp({
           activityIds: [
             'com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '河马畅听-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@ImageView - [text="河马畅听"]'],
+          activityIds: ['com.qq.e.ads.ADActivity'],
         },
       ],
     },
