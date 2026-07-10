@@ -32,6 +32,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 3000,
           matches: [
             '@[vid="left_button"] +2 [text="加载中…"][vid="middle_title_text"]',
           ],
