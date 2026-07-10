@@ -72,7 +72,7 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '做任务赢金币-恭喜获得-×',
+      name: '导流结果弹窗',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
