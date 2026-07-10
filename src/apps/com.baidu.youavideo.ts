@@ -253,7 +253,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 16000,
-          matches: [' + [text="应用详情"] <<n * [text="立即下载"]'],
+          matches: ['@ImageView + [text="应用详情"] <<n * [text="立即下载"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
