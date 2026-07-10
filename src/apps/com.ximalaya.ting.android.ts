@@ -44,11 +44,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
-          matches: [
-            '@[text^="看广告领金币"] <<n * [text="赚金币"]',
-            '@[text^="看广告领金币"] <<n * [text="瓜分百亿金币"]',
-          ],
+          matches: ['@[text^="看广告领金币"] <<n * [text="瓜分百亿金币"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
