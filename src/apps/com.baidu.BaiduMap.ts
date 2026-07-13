@@ -309,7 +309,7 @@ export default defineGkdApp({
     },
     {
       key: 32,
-      name: '看视频-广告-×',
+      name: '看视频-反馈-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
