@@ -30,7 +30,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '打开APP',
+      name: '做任务赢金币-打开',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -133,7 +133,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="btn_cancel"] + [vid="btn_ok"]'],
+          matches: ['@[vid="btn_cancel"] +n [vid="button_container"] > [text="立即下载"][vid="btn_ok"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
