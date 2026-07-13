@@ -123,9 +123,7 @@ export default defineGkdApp({
           matches: [
             '@[text="我知道了"] - [text="AaIe25teg7ljAAAAAElFTkSuQmCC"]',
           ],
-          activityIds: [
-            '.cjpay.hostimpl.container.CJLiveDummyActivity',
-          ],
+          activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
       ],
     },
