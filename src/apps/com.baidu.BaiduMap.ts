@@ -31,7 +31,7 @@ export default defineGkdApp({
           matches: [
             '@TextView[index=0][childCount=0][clickable=true] <<n AlertDialog',
           ],
-          activityIds: ['null','com.baidu.baidumaps.MapsActivity'],
+          activityIds: ['null', 'com.baidu.baidumaps.MapsActivity'],
         },
       ],
     },
@@ -54,7 +54,7 @@ export default defineGkdApp({
           matches: [
             '@TextView[index=0][childCount=0][clickable=true] <<n AlertDialog',
           ],
-          activityIds: ['null','com.baidu.baidumaps.MapsActivity'],
+          activityIds: ['null', 'com.baidu.baidumaps.MapsActivity'],
         },
       ],
     },
@@ -83,9 +83,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="我知道了"] <<n * [text="连做7天任务,最高领7200"]',
-          ],
+          matches: ['@[text="我知道了"] <<n * [text="连做7天任务,最高领7200"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -566,7 +564,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="继续播放视频内容"] -n * >n [text="9395b4e3ffe08bfb"]'],
+          matches: [
+            '@[text="继续播放视频内容"] -n * >n [text="9395b4e3ffe08bfb"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
         {
@@ -576,7 +576,7 @@ export default defineGkdApp({
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@Image < View +n [text="上滑或点击领取"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
@@ -606,7 +606,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="我要立即领奖"] <<n * [text="svg%3e"] + [text^="再逛"]'],
+          matches: [
+            '@[text="我要立即领奖"] <<n * [text="svg%3e"] + [text^="再逛"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -621,7 +623,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@ImageView <<n [desc="close_button"] <<n * [desc="gift_box"]'],
+          matches: [
+            '@ImageView <<n [desc="close_button"] <<n * [desc="gift_box"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
