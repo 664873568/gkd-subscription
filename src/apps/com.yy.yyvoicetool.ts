@@ -56,9 +56,37 @@ export default defineGkdApp({
     },
     {
       key: 3,
+      name: '每日任务-限时任务',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="YY游仓"] <<n [text^="YY游仓"]'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '每日任务-打开',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="打开"] <<n * [text="提示"]'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 5,
       name: '每日任务-搜索',
       matchRoot: true,
-      actionMaximum: 5,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -127,21 +155,6 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="立即签到"] <<n * [text="连续签到"]'],
-          activityIds: ['.MainActivity'],
-        },
-      ],
-    },
-    //限时任务
-    {
-      key: 30,
-      name: '限时任务-YY游仓',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[desc="YY游仓"] <<n [text^="YY游仓"]'],
           activityIds: ['.MainActivity'],
         },
       ],
