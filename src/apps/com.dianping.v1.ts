@@ -14,7 +14,23 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 6000,
+          matches: [
+            '@ImageView[index=1][childCount=0] - ImageView[index=0][childCount=0] <<n * [text="恭喜获得"]',
+          ],
+          activityIds: ['com.dianping.shopshell.PexusPoiActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '恭喜获得',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
           matches: [
             '@ImageView[index=1][childCount=0] +n [desc="food_poi_favor"] <<n * [text="恭喜获得"] + [text="100点金币"]',
           ],
@@ -23,7 +39,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '继续开宝箱集卡',
       matchRoot: true,
       actionMaximum: 1,
@@ -39,7 +55,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '查看附近的店',
       matchRoot: true,
       actionMaximum: 1,
