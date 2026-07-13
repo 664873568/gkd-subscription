@@ -444,7 +444,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="恭喜获得奖励"] < [id="24754d"] <<n * [text$="跳过"]'],
+          matches: [
+            '@[text="恭喜获得奖励"] < [id="24754d"] <<n * [text$="跳过"]',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -452,13 +454,15 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[id="c35d2d"] - [text="恭喜获得限时奖励"] <<n * [text$="跳过"]'],
+          matches: [
+            '@[id="c35d2d"] - [text="恭喜获得限时奖励"] <<n * [text$="跳过"]',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[text="去体验"] <<n * [text$="跳过"]'],
           activityIds: [
@@ -477,7 +481,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="跳过"] -2 [text$="安装应用立即领奖"][id="26fdb3"]'],
+          matches: [
+            '@[text="跳过"] -2 [text$="安装应用立即领奖"][id="26fdb3"]',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
