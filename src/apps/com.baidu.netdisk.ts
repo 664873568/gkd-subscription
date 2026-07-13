@@ -99,7 +99,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="imageview_checkbox"] <<n * [text="已选：0/99"][vid="select_count_text"]',
+            '@[vid="imageview_checkbox"] <<n [vid="grid_item_layout"][index=1] <<n * [text="已选：0/99"][vid="select_count_text"]',
           ],
           activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
         },
@@ -259,7 +259,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 37,
+      key: 34,
       name: '红果免费短剧',
       matchRoot: true,
       actionMaximum: 1,
@@ -277,24 +277,24 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
-      name: '看视频-微信-进入微信小游戏',
+      key: 35,
+      name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           excludeMatches: [
-            '@ImageView < FrameLayout + * > * [text^="进入微信小游戏"]',
+            '@ImageView < FrameLayout + FrameLayout > * [text*="微信"]',
           ],
-          matches: ['@[text^="进入微信小游戏"] <<n * [text="提前拿奖励"]'],
+          matches: ['@[text*="微信"] <<n * [text="提前拿奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 39,
+      key: 36,
       name: '看视频-微信-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -303,9 +303,23 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView < FrameLayout + * > * [text^="进入微信小游戏"]',
+            '@ImageView < FrameLayout + FrameLayout > * [text*="微信"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 39,
+      name: '看视频-关闭广告',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="关闭广告"][vid="btn_close"]'],
+          activityIds: ['.platform.business.incentive.advertise.ui.AdvertiseActivity'],
         },
       ],
     },
