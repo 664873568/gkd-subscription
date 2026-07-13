@@ -13,7 +13,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
             '@ImageView < FrameLayout <n FrameLayout + ImageView[clickable=true]',
           ],
@@ -66,6 +65,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           matches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true]',
           ],
