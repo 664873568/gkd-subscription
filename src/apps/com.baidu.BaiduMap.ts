@@ -4,7 +4,7 @@ export default defineGkdApp({
   id: 'com.baidu.BaiduMap',
   name: '百度地图',
   groups: [
-    //金币任务中心
+    //金币任务中心-com.baidu.baidumaps.MapsActivity
     {
       key: 0,
       name: '金币任务中心-签到日历-×',
@@ -203,359 +203,9 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-返回|跳过|关闭
+    //看视频-com.byazt.ff.Stub_Standard_Portrait_Activity
     {
       key: 20,
-      name: '看视频-我要免看本次广告-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="我要免看本次广告"] <<n * [text="跳过"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 21,
-      name: '看视频-浏览领取奖励-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text="立即前往"] <<n * [text$="跳过"]',
-            '@[text="立即试玩"] <<n * [text$="跳过"]',
-          ],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-      ],
-    },
-    {
-      key: 22,
-      name: '看视频-奖励已下发-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="跳过"] - [text="奖励已下发"] - [text="反馈"]'],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-      ],
-    },
-    {
-      key: 23,
-      name: '看视频-已获得奖励-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text$="跳过"] - [text="已获得奖励"] <2 [id="close_btn"] - [text="反馈"]',
-          ],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-      ],
-    },
-    {
-      key: 24,
-      name: '看视频-已获得奖励-跳过-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[id="close_btn"] - [text="反馈"]'],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-      ],
-    },
-    {
-      key: 25,
-      name: '看视频-已获得奖励-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text$="跳过"] - [text="已获得奖励"] <2 [id="close_btn"] - [text="反馈"]',
-          ],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[id="close_btn"] - [text="反馈"]'],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-      ],
-    },
-    {
-      key: 26,
-      name: '看视频-点击下载免看广告-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text^="点击下载免看广告"] <<n * [text="跳过"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 27,
-      name: '看视频-点击打开-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@Image < [id="7b5368"] < [id="01dce7"] - [id="aa39b4"] > [text="反馈"][id="665045"]',
-          ],
-          activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 28,
-      name: '广告-滑动/点击了解更多内容-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@ImageView < FrameLayout < LinearLayout <2 FrameLayout + ImageView',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 29,
-      name: '广告-立即秒杀/了解更多-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView < FrameLayout + LinearLayout + ImageView'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 30,
-      name: '广告-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@ImageView < FrameLayout < LinearLayout <2 FrameLayout + ImageView',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@ImageView < FrameLayout + LinearLayout + ImageView'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 31,
-      name: '看视频-跳过-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 30000,
-          matches: [
-            '@[text$="跳过"][id="f6243b"] <<n * [text="反馈"][id="b9e33b"]',
-          ],
-          activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 32,
-      name: '广告-跳过-关闭',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="关闭"][vid="tobid_interstitial_skip_text"]'],
-          activityIds: ['com.windmill.sdk.widget.InterstitialView_4012003'],
-        },
-      ],
-    },
-    {
-      key: 33,
-      name: '看视频-拿奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="点击跳转拿奖励"] <<n * [text$="可直接拿奖励"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 34,
-      name: '看视频-礼包-跳过-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@ViewGroup < [desc="close_button"] <<n * [desc="gift_box"]',
-            '@[text="跳过"] <<n [desc="skip_button"] <<n * [desc="gift_box"]',
-          ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 35,
-      name: '看视频-拿奖励-礼包-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="点击跳转拿奖励"] <<n * [text$="可直接拿奖励"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          anyMatches: [
-            '@ViewGroup < [desc="close_button"] <<n * [desc="gift_box"]',
-            '@[text="跳过"] <<n [desc="skip_button"] <<n * [desc="gift_box"]',
-          ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 36,
-      name: '浏览APP-< ×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          action: 'back',
-          actionDelay: 11000,
-          matches: [
-            '@[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [id$="ksad_kwad_titlebar_title"]',
-          ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[text="残忍离开"] <<n * [text="真的不再看看了吗？"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
-        },
-      ],
-    },
-    {
-      key: 37,
-      name: '看视频-广告-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@Image < [id="694d63"] <<n * [text="反馈"][id="136354"]'],
-          activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 38,
-      name: '看视频-恭喜获得福利',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text^="点击跳转免看广告"] <<n * [text^="恭喜获得"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 39,
-      name: '打开App',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="点击下载或打开第三方应用"] <<n * [text="打开App体验15秒，即可获得奖励"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 40,
-      name: '看视频-立即领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[desc="sky_lantern_main"] <<n * [text="跳过"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 41,
       name: '看视频-限时跳一跳-继续播放视频内容',
       matchRoot: true,
       actionMaximum: 1,
@@ -584,11 +234,37 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 21,
+      name: '看视频-礼包-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="我要立即领奖"] <<n * [text="svg%3e"] + [text^="再逛"]',
+          ],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: [
+            '@ImageView <<n [desc="close_button"] <<n * [desc="gift_box"]',
+          ],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 22,
       name: '看视频-限时领取',
       matchRoot: true,
       actionMaximum: 5,
-      matchTime: 40000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -597,36 +273,286 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.byazt.xs.Stub_Standard_Portrait_Activity
     {
-      key: 43,
-      name: '看视频-礼包',
+      key: 30,
+      name: '看视频-点击打开-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@Image < [id="7b5368"] < [id="01dce7"] - [id="aa39b4"] > [text="反馈"][id="665045"]',
+          ],
+          activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 31,
+      name: '看视频-跳过-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 30000,
+          matches: [
+            '@[text$="跳过"][id="f6243b"] <<n * [text="反馈"][id="b9e33b"]',
+          ],
+          activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 32,
+      name: '看视频-广告-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="我要立即领奖"] <<n * [text="svg%3e"] + [text^="再逛"]',
+          matches: ['@Image < [id="694d63"] <<n * [text="反馈"][id="136354"]'],
+          activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
+    {
+      key: 40,
+      name: '看视频-我要免看本次广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="我要免看本次广告"] <<n * [text="跳过"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '看视频-点击下载免看广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text^="点击下载免看广告"] <<n * [text="跳过"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 42,
+      name: '看视频-拿奖励-礼包-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="点击跳转拿奖励"] <<n * [text$="可直接拿奖励"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          anyMatches: [
+            '@ViewGroup < [desc="close_button"] <<n * [desc="gift_box"]',
+            '@[text="跳过"] <<n [desc="skip_button"] <<n * [desc="gift_box"]',
           ],
-          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 43,
+      name: '看视频-恭喜获得福利',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text^="点击跳转免看广告"] <<n * [text^="恭喜获得"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
     },
     {
       key: 44,
-      name: '看视频-礼包-×',
+      name: '看视频-立即领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          matches: ['@[desc="sky_lantern_main"] <<n * [text="跳过"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
+    {
+      key: 50,
+      name: '浏览APP-< ×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
           action: 'back',
+          actionDelay: 11000,
           matches: [
-            '@ImageView <<n [desc="close_button"] <<n * [desc="gift_box"]',
+            '@[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [id$="ksad_kwad_titlebar_title"]',
           ],
-          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="残忍离开"] <<n * [text="真的不再看看了吗？"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+        },
+      ],
+    },
+    //看视频-com.qq.e.ads.PortraitADActivity
+    {
+      key: 60,
+      name: '看视频-点击广告拿奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="点击广告拿奖励"] <<n * [text="点击广告，即可获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@ImageView < FrameLayout -2 FrameLayout > [text="恭喜获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 61,
+      name: '看视频-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@ImageView < FrameLayout < LinearLayout <2 FrameLayout + ImageView',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@ImageView < FrameLayout + LinearLayout + ImageView'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 62,
+      name: '看视频-打开App',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="点击下载或打开第三方应用"] <<n * [text="打开App体验15秒，即可获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    //看视频-com.sigmob.sdk.base.common.PortraitAdActivity
+    {
+      key: 70,
+      name: '看视频-浏览领取奖励-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '@[text="立即前往"] <<n * [text$="跳过"]',
+            '@[text="立即试玩"] <<n * [text$="跳过"]',
+          ],
+          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="跳过"] - [text="奖励已下发"] - [text="反馈"]'],
+          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+      ],
+    },
+    {
+      key: 71,
+      name: '看视频-已获得奖励-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text$="跳过"] - [text="已获得奖励"] <2 [id="close_btn"] - [text="反馈"]',
+          ],
+          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[id="close_btn"] - [text="反馈"]'],
+          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+      ],
+    },
+    //看视频-com.windmill.sdk.widget.InterstitialView_4012003
+    {
+      key: 80,
+      name: '看视频-广告-跳过-关闭',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="关闭"][vid="tobid_interstitial_skip_text"]'],
+          activityIds: ['com.windmill.sdk.widget.InterstitialView_4012003'],
         },
       ],
     },
