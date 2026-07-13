@@ -50,9 +50,8 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 5000,
           matches: [
-            '@[vid="common_webview_navbar_left"] <<n * [text="商品详情"]',
+            '@Button < [vid="common_webview_navbar_left"] + [text="商品详情"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -68,7 +67,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
@@ -115,7 +113,6 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          actionDelay: 1000,
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
@@ -128,6 +125,38 @@ export default defineGkdApp({
             '.bm.sh.jm.video.ui.VibratoActivity',
             '.bm.common.container.ui.BaseContainerActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 6,
+      name: '返回领奖-继续浏览',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          anyMatches: [
+            '@[text="返回领奖"] <<n * [text="readMissionDown"]',
+            '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
+            '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
+            '@[text="返回领奖"] <<n * [vid="fragment_container"]',
+          ],
+          activityIds: [
+            '.bm.common.web.ui.WebActivity',
+            '.bm.jrv8.JRCustomDyPageActivity',
+            '.bm.sh.jm.video.ui.VibratoActivity',
+            '.bm.common.container.ui.BaseContainerActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="继续浏览"] -2 [text="恭喜获得浏览奖励"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
