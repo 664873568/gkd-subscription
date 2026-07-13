@@ -21,7 +21,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@TextView - [text="关注主播赚金币"] -n [text="成功领取今日金币"]'],
+          matches: [
+            '@TextView - [text="关注主播赚金币"] -n [text="成功领取今日金币"]',
+          ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
