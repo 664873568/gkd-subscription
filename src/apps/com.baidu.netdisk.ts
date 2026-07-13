@@ -319,7 +319,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="关闭广告"][vid="btn_close"]'],
-          activityIds: ['.platform.business.incentive.advertise.ui.AdvertiseActivity'],
+          activityIds: [
+            '.platform.business.incentive.advertise.ui.AdvertiseActivity',
+          ],
         },
       ],
     },
