@@ -4,40 +4,6 @@ export default defineGkdApp({
   id: 'com.ss.android.ugc.livelite',
   name: '抖音商城',
   groups: [
-    {
-      key: 0,
-      name: '浏览好物-返回领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 31000,
-          matches: ['@[text="返回领取"] <<n * [id="recharge-pendant"]'],
-          activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
-        },
-      ],
-    },
-    {
-      key: 1,
-      name: '领现金-任务完成',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 31000,
-          matches: ['@ViewGroup <<n [vid="bzx"] <<n [vid="gdz"]'],
-          activityIds: [
-            'com.ss.android.ugc.aweme.search.common.activity.ECSearchActivity',
-          ],
-        },
-      ],
-    },
     //充值中心-充值金
     {
       key: 20,
@@ -48,6 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]',
           ],
@@ -66,6 +33,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=1] - ViewGroup[index=1][childCount=2]',
           ],
@@ -103,7 +71,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 32000,
           matches: ['@[desc="返回"] <<n * [text="返回领取"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -134,7 +101,6 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 32000,
           matches: ['@[desc="返回"] <<n * [text="返回领取"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -156,7 +122,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 32000,
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
@@ -172,7 +137,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 32000,
           matches: [
             '@[desc="关闭"][vid="crt"] <<n LiveMeasureOnceRelativeLayout',
           ],
@@ -190,7 +154,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 32000,
           matches: [
             '@[desc="关闭"][vid="crt"] <<n LiveMeasureOnceRelativeLayout',
           ],
