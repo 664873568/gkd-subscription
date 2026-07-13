@@ -636,7 +636,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: 
-            '[@[vid="arrow"] - [text="免广告"][vid="text"]',
+            '@[vid="arrow"] - [text="免广告"][vid="text"]',
             '@[text*="跳过"] <<n * [text="免广告"][vid="text"]',
             '@[vid="ms_skipView"] <<n * [text="免广告"][vid="text"]',
           ],
