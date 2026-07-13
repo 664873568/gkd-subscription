@@ -133,7 +133,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="btn_cancel"] +n [vid="button_container"] > [text="立即下载"][vid="btn_ok"]'],
+          matches: [
+            '@[vid="btn_cancel"] +n [vid="button_container"] > [text="立即下载"][vid="btn_ok"]',
+          ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
