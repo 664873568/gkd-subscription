@@ -341,9 +341,11 @@ export default defineGkdApp({
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: ['@[text="HPmi0zAOZAAAAAElFTkSuQmCC"] + [text="已添加到自选"]'],
+          matches: [
+            '@[text="HPmi0zAOZAAAAAElFTkSuQmCC"] + [text="已添加到自选"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
