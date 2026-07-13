@@ -36,7 +36,7 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',
-            'com.sankuai.waimai.business.restaurant.poicontainer.WMRestaurantActivity,
+            'com.sankuai.waimai.business.restaurant.poicontainer.WMRestaurantActivity',
           ],
         },
       ],
