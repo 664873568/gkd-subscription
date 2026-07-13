@@ -170,7 +170,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[vid="anythink_myoffer_btn_close_id"] <<n * [text="点击查看详情"][vid="anythink_myoffer_cta_button_major"]'],
+          matches: [
+            '@[vid="anythink_myoffer_btn_close_id"] <<n * [text="点击查看详情"][vid="anythink_myoffer_cta_button_major"]',
+          ],
           activityIds: ['com.anythink.basead.ui.ATPortraitActivity'],
         },
       ],
@@ -184,7 +186,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="anythink_myoffer_btn_close_id"] <<n * [text="浏览"][vid="anythink_myoffer_panel_cta_layout"]'],
+          matches: [
+            '@[vid="anythink_myoffer_btn_close_id"] <<n * [text="浏览"][vid="anythink_myoffer_panel_cta_layout"]',
+          ],
           activityIds: ['com.anythink.core.common.inner.ui.ATPortraitActivity'],
         },
       ],
@@ -322,7 +326,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@ImageView[width=48&&height=48] <<n * [text="滑动/点击了解更多"]'],
+          matches: [
+            '@ImageView[width=48&&height=48] <<n * [text="滑动/点击了解更多"]',
+          ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
         {
