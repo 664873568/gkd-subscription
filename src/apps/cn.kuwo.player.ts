@@ -22,5 +22,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 51,
+      name: '召回弹窗',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@TextView <<n [text="召回弹窗"]'],
+          activityIds: ['.activities.MainActivity'],
+        },
+      ],
+    },
   ],
 });
