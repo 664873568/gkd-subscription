@@ -18,6 +18,7 @@ export default defineGkdApp({
             '@[text="允许"] <<n * [text$="阿里巴巴"]',
             '@[text="允许"] <<n * [text$="飞猪旅行"]',
             '@[text="允许"] <<n * [text$="快影"]',
+            '@[text="允许"] <<n * [text$="闲鱼"]',
             '@[text="允许"] <<n * [text$="携程旅行"]',
             '@[text="允许"] <<n * [text$="一淘"]',
           ],
