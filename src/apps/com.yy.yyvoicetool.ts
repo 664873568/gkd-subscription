@@ -105,6 +105,20 @@ export default defineGkdApp({
     //连续签到
     {
       key: 20,
+      name: '每天领钱-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@View - [text$="自动关闭"] - ViewFactoryHolder'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 21,
       name: '连续签到-立即签到',
       matchRoot: true,
       actionMaximum: 1,
