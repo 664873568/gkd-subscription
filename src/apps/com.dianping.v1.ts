@@ -6,6 +6,23 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
+      name: '立即签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@ImageView < FrameLayout <n FrameLayout + ImageView[clickable=true]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '返回寻宝',
       matchRoot: true,
       actionMaximum: 1,
@@ -22,7 +39,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '恭喜获得',
       matchRoot: true,
       actionMaximum: 1,
@@ -39,7 +56,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '继续开宝箱集卡',
       matchRoot: true,
       actionMaximum: 1,
@@ -55,7 +72,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '查看附近的店',
       matchRoot: true,
       actionMaximum: 1,
