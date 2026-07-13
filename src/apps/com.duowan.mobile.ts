@@ -7,6 +7,27 @@ export default defineGkdApp({
     //做任务赢金币
     {
       key: 0,
+      name: '做任务赢金币-立即签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="立即签到"] <<n [text="做任务赢金币"]'],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@TextView - [text="关注主播赚金币"] -n [text="成功领取今日金币"]'],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '打开APP',
       matchRoot: true,
       actionMaximum: 1,
@@ -22,7 +43,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 3,
       name: '做任务赢金币-领奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -36,7 +57,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 4,
       name: '做任务赢金币-恭喜获得-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -50,7 +71,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 5,
       name: '做任务赢金币-领奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -71,7 +92,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 6,
       name: '导流结果弹窗',
       matchRoot: true,
       actionMaximum: 1,
