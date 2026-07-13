@@ -76,11 +76,12 @@ export default defineGkdApp({
       name: '返回领奖',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 25000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
+          actionDelay: 1000,
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
@@ -103,7 +104,7 @@ export default defineGkdApp({
       name: '继续浏览-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 25000,
       resetMatch: 'activity',
       rules: [
         {
@@ -115,6 +116,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
@@ -137,12 +139,13 @@ export default defineGkdApp({
       name: '返回领奖-继续浏览',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 25000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'back',
+          actionDelay: 1000,
           anyMatches: [
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
@@ -299,6 +302,48 @@ export default defineGkdApp({
             '@[vid="common_webview_navbar_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
           ],
           matches: ['@[text="打开飞猪"] <3 [id="__endCallTop__"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '任务已完成-恭喜获得',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@TextView -2 [text="再领1京豆"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    //机构福利
+    {
+      key: 20,
+      name: '做任务赚财宝分',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@Image[height=99&&width=258] -2 [text$="财宝分"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="ce6aa1713606b4c1"] + [text="加自选"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: ['@[text="HPmi0zAOZAAAAAElFTkSuQmCC"] + [text="已添加到自选"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
