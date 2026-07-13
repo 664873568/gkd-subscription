@@ -125,7 +125,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 2000,
           matches: ['@[vid="title_bar_left_img"] + [vid="title_bar_tv"]'],
           activityIds: ['.web.WebActivity'],
         },
