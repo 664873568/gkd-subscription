@@ -87,7 +87,7 @@ export default defineGkdApp({
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] <<n * [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-            '@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup', //@[text="返回领奖"] <<n * [vid="back_button"]
+            '@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup',//@[text="返回领奖"] <<n * [vid="back_button"]
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -121,12 +121,13 @@ export default defineGkdApp({
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] <<n * [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
+            '@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup',//@[text="返回领奖"] <<n * [vid="back_button"]
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
-            '.bm.sh.jm.video.ui.VibratoActivity',
             '.bm.common.container.ui.BaseContainerActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
+            '.bm.sh.jm.video.ui.VibratoActivity',
           ],
         },
       ],
@@ -148,12 +149,13 @@ export default defineGkdApp({
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] <<n * [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
+            '@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup',//@[text="返回领奖"] <<n * [vid="back_button"]
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
-            '.bm.sh.jm.video.ui.VibratoActivity',
             '.bm.common.container.ui.BaseContainerActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
+            '.bm.sh.jm.video.ui.VibratoActivity',
           ],
         },
         {
