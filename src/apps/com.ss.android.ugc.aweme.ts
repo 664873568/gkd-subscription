@@ -470,7 +470,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@ImageView[index=0][childCount=0] < ViewGroup[index=2][childCount=6]',
             '@ImageView[index=0][childCount=0] < ViewGroup[index=3][childCount=6]',
           ],
           activityIds: ['.main.MainActivity'],
