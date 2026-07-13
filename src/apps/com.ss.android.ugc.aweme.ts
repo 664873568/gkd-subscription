@@ -111,6 +111,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 6,
+      name: '我的钱包-我知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="我知道了"] - [text="AaIe25teg7ljAAAAAElFTkSuQmCC"]',
+          ],
+          activityIds: [
+            '.cjpay.hostimpl.container.CJLiveDummyActivity',
+          ],
+        },
+      ],
+    },
     //理财-发财金
     {
       key: 10,
@@ -249,6 +267,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
+          actionDelay: 5000,
           matches: [
             '@[text="立即领取"] <<n * [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
           ],
@@ -350,6 +369,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: ['@[desc="返回 按钮"] <<n * [desc="信用卡还款"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -389,6 +409,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -405,6 +426,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
             '@Image < View + [desc="doupay"] <<n [text="抖音支付优惠阵地"]',
           ],
@@ -414,6 +436,22 @@ export default defineGkdApp({
     },
     {
       key: 30,
+      name: '恭喜完成任务-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text^="svg+xml;base64"] + View >n [text="cloud-background.cbba3c7a"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 31,
       name: '车主服务-点击查看',
       matchRoot: true,
       actionMaximum: 1,
@@ -430,7 +468,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 32,
       name: '车主服务-车险',
       matchRoot: true,
       actionMaximum: 1,
@@ -446,7 +484,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
+      key: 33,
       name: '车主服务-车主卡券',
       matchRoot: true,
       actionMaximum: 1,
@@ -487,6 +525,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]',
           ],
@@ -505,6 +544,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=5][childCount=1] - ViewGroup[index=4][childCount=2]',
           ],
@@ -524,7 +564,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc^="00"]',
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc$="00"]',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
@@ -560,7 +600,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 32000,
           matches: ['@[text="返回领取"] <<n * [desc="返回"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -591,7 +630,6 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 32000,
           matches: ['@[text="返回领取"] <<n * [desc="返回"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -613,7 +651,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 32000,
           matches: ['@ImageView < [desc^="任务完成 返回领取"]'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
