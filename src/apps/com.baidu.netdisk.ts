@@ -435,7 +435,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[vid="iv_close"] + [vid="cl_content"]'],
+          anyMatches: [
+            '@[vid="iv_close"] + [vid="cl_content"]',
+            '@[text^="跳过"] - FrameLayout > [text="反馈"]',
+          ],
           activityIds: ['.ui.MainActivity'],
         },
       ],
