@@ -102,5 +102,50 @@ export default defineGkdApp({
         },
       ],
     },
+    //连续签到
+    {
+      key: 20,
+      name: '连续签到-立即签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="立即签到"] <<n * [text="连续签到"]'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    //限时任务
+    {
+      key: 30,
+      name: '限时任务-YY游仓',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="YY游仓"] <<n [text^="YY游仓"]'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 40,
+      name: '未成年模式-我知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text="我知道了"] <<n * [text="未成年模式"]'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
   ],
 });
