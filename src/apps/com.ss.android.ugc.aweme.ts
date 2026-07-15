@@ -116,7 +116,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: ['@ImageView - ViewGroup < ViewGroup - ScrollView'],
-          activityIds: ['com.minigame.merge.miniapphost.placeholder.MiniGameActivity0'],
+          activityIds: [
+            'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
+          ],
         },
       ],
     },

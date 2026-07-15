@@ -67,9 +67,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: [
-            '@[id="signView_main_portal"] <<n [text="京东秒杀"]',
-          ],
+          matches: ['@[id="signView_main_portal"] <<n [text="京东秒杀"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],

@@ -556,7 +556,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="开心收下"] - ImageView < ViewGroup - [text="金币"]'],
+          matches: [
+            '@[text="开心收下"] - ImageView < ViewGroup - [text="金币"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],

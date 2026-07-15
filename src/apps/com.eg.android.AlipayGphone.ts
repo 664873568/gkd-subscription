@@ -270,7 +270,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="签到"] -2 [text="今天"] <<n [id="__react-content"]'],
+          matches: [
+            '@[text="签到"] -2 [text="今天"] <<n [id="__react-content"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
           ],
