@@ -101,7 +101,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 1000,
           anyMatches: [
-            '@View + [id="fundCompSuite"] <<n [text="15理财日"]'
+            '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
@@ -137,7 +137,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 2000,
           anyMatches: [
-            '@View + [id="fundCompSuite"] <<n [text="15理财日"]'
+            '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
@@ -167,7 +167,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 2000,
           anyMatches: [
-            '@View + [id="fundCompSuite"] <<n [text="15理财日"]'
+            '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
