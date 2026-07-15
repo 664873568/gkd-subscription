@@ -10,7 +10,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           actionDelay: 16000,
