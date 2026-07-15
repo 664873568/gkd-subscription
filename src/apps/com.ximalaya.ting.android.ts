@@ -576,6 +576,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 41,
+      name: '兑好礼-看广告+500金币',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView < [desc="关闭"] + [text="看视频即可到账"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
     //免费领时长
     {
       key: 50,
@@ -812,7 +826,7 @@ export default defineGkdApp({
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity
     {
       key: 120,
-      name: '看视频-跳过↑',
+      name: '看视频-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -821,10 +835,11 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           anyMatches: [
-            '@[text^="我要"] <<n * -n * >n [text$="跳过"]', //我要加速
-            '@[text$="体验"] <<n * -n * >n [text$="跳过"]',
-            '@[text="立即前往"] <<n * -n * >n [text$="跳过"]',
-            '@[text="再试一次"] <<n * -n * >n [text$="跳过"]',
+            '@[text^="我要"] <<n *[text$="跳过"]',
+            '@[text$="体验"] <<n *[text$="跳过"]',
+            '@[text="立即前往"] <<n *[text$="跳过"]',
+            '@[text="再试一次"] <<n *[text$="跳过"]',
+            '@[text="去领奖励"] <<n *[text$="跳过"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -834,30 +849,6 @@ export default defineGkdApp({
     },
     {
       key: 121,
-      name: '看视频-跳过↓',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          actionDelay: 2000,
-          anyMatches: [
-            '@[text^="我要"] <<n * +n * >n [text$="跳过"]', //我要直接拿奖励
-            '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
-            '@[text="再试一次"] <<n * +n * >n [text$="跳过"]',
-            '@[text="去领奖励"] <<n * +n * >n [text$="跳过"]',
-            '@[text="拿奖励"] <<n * +n * >n [text$="拿奖励"]',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 122,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -873,7 +864,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 123,
+      key: 122,
       name: '反馈-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -883,6 +874,42 @@ export default defineGkdApp({
         {
           matches: [
             'ImageView < LinearLayout < LinearLayout - FrameLayout > [text="反馈"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 123,
+      name: '看视频-限时领取',
+      matchRoot: true,
+      actionMaximum: 5,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="icon-close.e3e3211b"] -n View > [text="限时领取"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 124,
+      name: '看视频-已发放-×',
+      matchRoot: true,
+      actionMaximum: 5,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="svg%3e"] <<n * [text="已发放"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -949,6 +976,83 @@ export default defineGkdApp({
         {
           matches: [
             '@[desc="点击退出关闭视频"] <<n * [vid="tme_ad_tv_top_tips"]',
+          ],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 142,
+      name: '看视频-立即抢购',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          excludeMatches: [
+            '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
+          ],
+          matches: [
+            '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
+          ],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 143,
+      name: '看视频-点击商品再得额外奖励500金币-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 15000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@TextView - Image <<n * [text="点击商品再得额外奖励500金币"]',
+          ],
+          activityIds: ['com.tencent.ams.tg.ADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 11000,
+          matches: [
+            '@View + ImageView <<n * [text="恭喜已获得额外奖励500金币"]',
+          ],
+          activityIds: ['com.tencent.ams.tg.ADActivity'],
+        },
+        {
+          preKeys: [0，1],
+          key: 2,
+          matches: [
+            '@ViewGroup <<2 ViewGroup - ViewGroup <<n ViewGroup - ViewGroup >3 View',
+          ],
+          activityIds: ['com.tencentmusic.ad.tmead.core.activity.TMECoreActivity'],
+        },
+      ],
+    },
+    {
+      key: 144,
+      name: '看视频-可获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          excludeMatches: [
+            '@[desc="关闭广告"][vid="tme_ad_iv_close"] + [vid="tme_ad_top_tips_container"]',
+          ],
+          matches: [
+            '@[desc="关闭广告"][vid="tme_ad_endcard_close"] + [vid="tme_ad_endcard_window"]',
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
