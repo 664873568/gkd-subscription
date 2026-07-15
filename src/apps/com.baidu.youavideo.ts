@@ -4,7 +4,7 @@ export default defineGkdApp({
   id: 'com.baidu.youavideo',
   name: '一刻相册',
   groups: [
-    //任务中心
+    //任务中心-.operate.ui.view.activity.TaskCenterActivity
     {
       key: 0,
       name: '任务中心',
@@ -156,7 +156,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频
+    //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity
     {
       key: 10,
       name: '看视频-跳过',
@@ -319,7 +319,6 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-返回|跳过|关闭
     {
       key: 17,
       name: '看视频-奖励已领取-去领奖',
@@ -615,7 +614,6 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-二级
     {
       key: 30,
       name: '看视频-跳转快应用-< × 反馈',
@@ -635,8 +633,9 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity
     {
-      key: 31,
+      key: 39,
       name: '看视频-已领取-×',
       matchRoot: true,
       actionMaximum: 1,
