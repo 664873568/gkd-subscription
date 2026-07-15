@@ -63,7 +63,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 16000,
+          actionDelay: 15000,
           matches: [
             '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -100,7 +100,6 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 16000,
           matches: [
             '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -128,6 +127,33 @@ export default defineGkdApp({
     },
     {
       key: 5,
+      name: '请用指纹解锁-用于打开快应用服务框架-用于打开浏览器',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          matches: [
+            '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
+          ],
+          activityIds: ['com.miui.applicationlock.AppLockActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: [
+            '[text="用于打开浏览器"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
+          ],
+          activityIds: ['com.miui.applicationlock.AppLockActivity'],
+        },
+      ],
+    },
+    {
+      key: 6,
       name: '启动应用',
       matchRoot: true,
       actionMaximum: 1,
@@ -145,16 +171,15 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 7,
       name: '启动应用-京东金融',
       matchRoot: true,
-      actionMaximum: 2,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
           matches: [
             '@[text="启动应用"][vid="permission_group_title"] + [text^="京东金融"][vid="event_title"]',
           ],
@@ -163,10 +188,10 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 8,
       name: '京东金融 想要打开-本次允许',
       matchRoot: true,
-      actionMaximum: 2,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
