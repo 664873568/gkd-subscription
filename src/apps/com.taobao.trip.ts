@@ -392,7 +392,7 @@ export default defineGkdApp({
     },
     //首页功能类
     {
-      key: 40,
+      key: 400,
       name: '下载并安装-×',
       matchRoot: true,
       actionMaximum: 1,
