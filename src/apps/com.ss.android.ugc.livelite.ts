@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     //充值中心-充值金
     {
-      key: 20,
+      key: 40,
       name: '天天赚话费-更多任务',
       matchRoot: true,
       actionMaximum: 1,
@@ -25,7 +25,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 41,
       name: '天天赚话费-赚充值金',
       matchRoot: true,
       actionMaximum: 1,
@@ -44,7 +44,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 42,
       name: '天天赚话费-再赚充值金',
       matchRoot: true,
       actionMaximum: 1,
@@ -62,7 +62,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23,
+      key: 43,
       name: '天天用好券-返回领取-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -77,7 +77,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 44,
       name: '天天用好券-放弃优惠-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -91,7 +91,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 25,
+      key: 45,
       name: '天天用好券-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -114,7 +114,7 @@ export default defineGkdApp({
     },
     //看视频
     {
-      key: 30,
+      key: 50,
       name: '看视频-任务完成 返回领取-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -129,7 +129,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 51,
       name: '看视频-直播-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -145,7 +145,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
+      key: 52,
       name: '看视频-任务完成 返回领取-直播-×',
       matchRoot: true,
       actionMaximum: 1,
