@@ -547,6 +547,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 36,
+      name: '赚金币-恭喜获得-开心收下',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="开心收下"] - ImageView < ViewGroup - [text="金币"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
     //兑好礼
     {
       key: 40,
