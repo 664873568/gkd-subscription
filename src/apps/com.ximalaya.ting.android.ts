@@ -908,9 +908,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="svg%3e"] <<n * [text="已发放"]',
-          ],
+          matches: ['@[text="svg%3e"] <<n * [text="已发放"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -1030,12 +1028,14 @@ export default defineGkdApp({
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@ViewGroup <<2 ViewGroup - ViewGroup <<n ViewGroup - ViewGroup >3 View',
           ],
-          activityIds: ['com.tencentmusic.ad.tmead.core.activity.TMECoreActivity'],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
         },
       ],
     },
