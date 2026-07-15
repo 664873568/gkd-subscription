@@ -28,9 +28,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@TextView < View +n [text="去逛逛"] <n AlertDialog',
-          ],
+          matches: ['@TextView < View +n [text="去逛逛"] <n AlertDialog'],
           activityIds: ['null', 'com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -51,9 +49,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@TextView < View +n [text="去逛逛"] <n AlertDialog',
-          ],
+          matches: ['@TextView < View +n [text="去逛逛"] <n AlertDialog'],
           activityIds: ['null', 'com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -411,13 +407,13 @@ export default defineGkdApp({
           activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[text="残忍离开"] <<n * [text="真的不再看看了吗？"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           anyMatches: [
             '@ViewGroup < [desc="close_button"] <<n * [desc="gift_box"]',
@@ -521,9 +517,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@ImageView < FrameLayout + FrameLayout >2 ImageView',
-          ],
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
