@@ -400,7 +400,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="fliggy_update_cancel_btn"] <<n * [text="下载并安装"][vid="fliggy_update_ok_tv"]'],
+          matches: [
+            '@[vid="fliggy_update_cancel_btn"] <<n * [text="下载并安装"][vid="fliggy_update_ok_tv"]',
+          ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
