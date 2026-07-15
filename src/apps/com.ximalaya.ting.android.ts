@@ -578,7 +578,7 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '兑好礼-看广告+500金币',
+      name: '兑好礼-看视频即可到账',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
