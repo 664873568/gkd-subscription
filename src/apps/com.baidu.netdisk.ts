@@ -294,9 +294,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@ImageView < FrameLayout + FrameLayout >2 ImageView',
-          ],
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
