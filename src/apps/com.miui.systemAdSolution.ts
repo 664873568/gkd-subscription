@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="跳过"][vid="view_skip_button"] <<n * [text="小米浏览器"][vid="view_app_name"]'],
+          matches: [
+            '@[text^="跳过"][vid="view_skip_button"] <<n * [text="小米浏览器"][vid="view_app_name"]',
+          ],
           activityIds: ['null'],
         },
       ],
