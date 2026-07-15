@@ -29,7 +29,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[index=0][childCount=0][clickable=true] <<n AlertDialog',
+            '@TextView < View +n [text="去逛逛"] <n AlertDialog',
           ],
           activityIds: ['null', 'com.baidu.baidumaps.MapsActivity'],
         },
@@ -52,7 +52,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@TextView[index=0][childCount=0][clickable=true] <<n AlertDialog',
+            '@TextView < View +n [text="去逛逛"] <n AlertDialog',
           ],
           activityIds: ['null', 'com.baidu.baidumaps.MapsActivity'],
         },
@@ -116,7 +116,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 1000,
           matches: [
-            '@[desc="返回"][vid="title_btn_left"] <<n * [text="签到送好礼"][vid="title"]',
+            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="签到送好礼"][vid="title"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -134,7 +134,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 1000,
           matches: [
-            '@[desc="返回"][vid="title_btn_left"] <<n * [text="千问-阿里 AI 助手"][vid="title"]',
+            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="千问-阿里 AI 助手"][vid="title"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -152,7 +152,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 1000,
           matches: [
-            '@[desc="返回"][vid="title_btn_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
+            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="此功能需访问飞猪旅行APP"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -296,6 +296,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 24,
+      name: '看视频-反馈-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="4cc53f"] <<n * [text="反馈"]'],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
     //看视频-com.byazt.xs.Stub_Standard_Portrait_Activity
     {
       key: 30,
@@ -383,12 +397,28 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="点击跳转拿奖励"] <<n * [text$="可直接拿奖励"]'],
+          matches: ['@[text^="点击"][text*="拿奖励"] <<n * [text="跳过"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          action: 'back',
+          actionDelay: 11000,
+          matches: [
+            '@[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [id$="ksad_kwad_titlebar_title"]',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: ['@[text="残忍离开"] <<n * [text="真的不再看看了吗？"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
           anyMatches: [
             '@ViewGroup < [desc="close_button"] <<n * [desc="gift_box"]',
             '@[text="跳过"] <<n [desc="skip_button"] <<n * [desc="gift_box"]',
@@ -423,32 +453,6 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: ['@[desc="sky_lantern_main"] <<n * [text="跳过"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
-    {
-      key: 50,
-      name: '浏览APP-< ×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          action: 'back',
-          actionDelay: 11000,
-          matches: [
-            '@[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [id$="ksad_kwad_titlebar_title"]',
-          ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[text="残忍离开"] <<n * [text="真的不再看看了吗？"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.AdWebViewActivity'],
         },
       ],
     },
@@ -503,6 +507,45 @@ export default defineGkdApp({
     },
     {
       key: 62,
+      name: '看视频-微信-提前拿奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text*="微信"] <<n * [text="提前拿奖励"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@ImageView < FrameLayout + FrameLayout >2 ImageView',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 63,
+      name: '看视频-我要更快拿奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="我要更快拿奖"] < FrameLayout + LinearLayout > [text="继续看视频"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 64,
       name: '看视频-打开App',
       matchRoot: true,
       actionMaximum: 1,
