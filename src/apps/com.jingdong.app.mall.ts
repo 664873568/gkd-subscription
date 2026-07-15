@@ -91,7 +91,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] < [desc="跳过"][vid="splash_skip_container"] -2 [desc="启动图广告"]'],
+          matches: [
+            '@[text="跳过"] < [desc="跳过"][vid="splash_skip_container"] -2 [desc="启动图广告"]',
+          ],
           activityIds: ['.MainFrameActivity'],
         },
       ],
