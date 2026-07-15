@@ -31,7 +31,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@TextView <<n [text="召回弹窗"]'],
+          matches: ['@TextView <<5 [text="召回弹窗"]'],
           activityIds: ['.activities.MainActivity'],
         },
       ],
