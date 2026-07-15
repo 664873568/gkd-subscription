@@ -390,6 +390,21 @@ export default defineGkdApp({
         },
       ],
     },
+    //首页功能类
+    {
+      key: 40,
+      name: '下载并安装-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="fliggy_update_cancel_btn"] <<n * [text="下载并安装"][vid="fliggy_update_ok_tv"]'],
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 499,
@@ -404,11 +419,12 @@ export default defineGkdApp({
             '@[text="跳过"] + [text="5814"]',
             '@[id$="ms_skipView"] <<n * [id$="ms_img_meishu_ad_tag"]',
             '@[text$="跳过"] < [vid="anythink_myoffer_splash_skip_area"]',
-            '@[text^="跳过"][vid="splash_skip_hint_tv"] <<n * [vid="splash_biz_bottom_image"]',
+            '@[text="跳过广告"][vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
           ],
           activityIds: [
             'com.alipay.mobile.quinox.LauncherActivity',
             'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
+            '.splash.ui.VideoSplashActivity',
           ],
         },
       ],
@@ -423,7 +439,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [text="CRM Poplayer Page"]',
+            '@[text="O1CN01TD5wn71Ptmtb9GAxE_!!6000000001899-2-tps-60-60"]',
           ],
           activityIds: ['.home.HomeActivity'],
         },
