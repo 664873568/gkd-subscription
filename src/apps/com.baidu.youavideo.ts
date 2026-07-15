@@ -757,7 +757,8 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@[vid="dialog_home_pop_close_button"] + [vid="img_lottie"]',
             '@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',
           ],
           activityIds: [
