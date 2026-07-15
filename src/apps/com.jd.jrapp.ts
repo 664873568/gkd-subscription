@@ -59,6 +59,24 @@ export default defineGkdApp({
     },
     {
       key: 3,
+      name: '京东秒杀-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[id="signView_main_portal"] <<n [text="京东秒杀"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    //
+    {
+      key: 6,
       name: '继续浏览',
       matchRoot: true,
       actionMaximum: 1,
@@ -72,7 +90,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 7,
       name: '返回领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -83,6 +101,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 1000,
           anyMatches: [
+            '@View + [id="fundCompSuite"] <<n [text="15理财日"]'
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
@@ -100,7 +119,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 8,
       name: '继续浏览-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -116,8 +135,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 2000,
           anyMatches: [
+            '@View + [id="fundCompSuite"] <<n [text="15理财日"]'
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
@@ -135,7 +155,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 9,
       name: '返回领奖-继续浏览',
       matchRoot: true,
       actionMaximum: 1,
@@ -145,8 +165,9 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 2000,
           anyMatches: [
+            '@View + [id="fundCompSuite"] <<n [text="15理财日"]'
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
             '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
@@ -169,8 +190,9 @@ export default defineGkdApp({
         },
       ],
     },
+    //
     {
-      key: 7,
+      key: 10,
       name: '养大鹅-天天来提额',
       matchRoot: true,
       actionMaximum: 1,
@@ -191,7 +213,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 11,
       name: '签到领现金-京民通',
       matchRoot: true,
       actionMaximum: 1,
@@ -206,7 +228,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 9,
+      key: 12,
       name: '养猪猪-产粮机',
       matchRoot: true,
       actionMaximum: 1,
@@ -221,7 +243,7 @@ export default defineGkdApp({
     },
     //浏览APP任务
     {
-      key: 10,
+      key: 20,
       name: '去玩游戏领大奖-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -239,7 +261,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 21,
       name: '去APP完成任务-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -254,7 +276,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 22,
       name: '任务完成-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -272,7 +294,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 23,
       name: '此功能需访问飞猪旅行APP-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -290,7 +312,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 24,
       name: '打开飞猪',
       matchRoot: true,
       actionMaximum: 1,
@@ -307,7 +329,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 25,
       name: '任务已完成-恭喜获得',
       matchRoot: true,
       actionMaximum: 1,
@@ -322,7 +344,7 @@ export default defineGkdApp({
     },
     //机构福利
     {
-      key: 20,
+      key: 30,
       name: '做任务赚财宝分',
       matchRoot: true,
       actionMaximum: 1,
