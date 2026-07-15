@@ -420,6 +420,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: ['@[desc="sky_lantern_main"] <<n * [text="跳过"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
