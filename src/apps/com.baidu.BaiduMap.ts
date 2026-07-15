@@ -185,13 +185,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjjinbi"]'],
+          matches: [
+            '@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjjinbi"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]'],
+          matches: [
+            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -287,9 +291,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          matches: [
-            '@[text$="跳过"][id="f6243b"] - [text="0s"][id="e8f0d0"]',
-          ],
+          matches: ['@[text$="跳过"][id="f6243b"] - [text="0s"][id="e8f0d0"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
