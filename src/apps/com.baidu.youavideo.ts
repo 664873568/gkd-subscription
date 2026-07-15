@@ -603,10 +603,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="icon-close.e3e3211b"] -2 [text="立即暴涨"]',
-            '@[text="icon-close.e3e3211b"] -3 [text="立即领取"]',
-            '@[text="7b144c81c2cb181f"] <<n * [text="限时领取"]',
-            '@[text="3ca6ab446dec1c57"] <<n * [text="限时领取"]',
+            '@[text="icon-close.e3e3211b"] -n View > [text="限时领取"]',
+            '@[text="icon-close.e3e3211b"] -n View > [text="限时领取"]',
+            '@[text="7b144c81c2cb181f"] -n View > [text="限时领取"]',
+            '@[text="3ca6ab446dec1c57"] -n View > [text="限时领取"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
