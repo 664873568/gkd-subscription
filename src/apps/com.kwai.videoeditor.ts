@@ -16,6 +16,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text^="跳过"][vid="es"] +n [vid="td"]',
+            '@[text^="跳过"][vid="dvo"] + [vid="bwe"]',
             '@[text="跳过"] < FrameLayout +2 ImageView',
           ],
           activityIds: ['.commercialization.splash.GeneralAdSplashActivity'],
