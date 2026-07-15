@@ -13,7 +13,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text$="自动看视频"][vid="tv_countdown"] -n [vid="xad_dialog_image"]'],
+          matches: [
+            '@[text$="自动看视频"][vid="tv_countdown"] -n [vid="xad_dialog_image"]',
+          ],
           activityIds: ['null'],
         },
       ],
