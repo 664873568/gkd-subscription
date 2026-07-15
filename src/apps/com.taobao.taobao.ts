@@ -14,7 +14,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'clickCenter',
           matches: ['@[id="YVHLmvad9Z56"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561893'],
           activityIds: ['com.taobao.themis.container.app.TMSActivity'],
@@ -32,7 +31,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'clickCenter',
           actionDelay: 2000,
           matches: ['@[text="兑赠金立即兑换"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561893'],
@@ -40,7 +38,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'clickCenter',
           matches: ['@[text="知道了"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561924'],
         },
@@ -56,39 +53,43 @@ export default defineGkdApp({
       activityIds: ['com.taobao.themis.container.app.TMSActivity'],
       rules: [
         {
-          key: 0,
-          action: 'clickCenter',
           matches: ['@[text="做任务赚好运值"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23561950'],
         },
+      ],
+    },
+    {
+      key: 3,
+      name: '天猫超市-好运签-做任务',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      activityIds: ['com.taobao.themis.container.app.TMSActivity'],
+      rules: [
         {
-          preKeys: [0],
-          key: 1,
-          action: 'clickCenter',
+          key: 0,
           matches: [
             '@[text="领任务"] <3 * < [id="panel-content"] <<n [text="天猫超市"]',
           ],
           snapshotUrls: ['https://i.gkd.li/i/23561997'],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
-          action: 'clickCenter',
+          preKeys: [0],
+          key: 1,
+          action: 'back',
           matches: ['@[desc="任务已完成 快去领奖励"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23562013'],
         },
         {
-          preKeys: [0, 1, 2],
-          key: 3,
-          action: 'clickCenter',
+          preKeys: [0, 1],
+          key: 2,
           matches: ['@[text="领奖励"] <<n [text="天猫超市"]'],
           snapshotUrls: ['https://i.gkd.li/i/23562109'],
         },
         {
-          preKeys: [0, 1, 2, 3],
-          key: 4,
-          actionDelay: 2000,
-          action: 'clickCenter',
+          preKeys: [0, 1, 2],
+          key: 3,
           excludeMatches: [
             '@[text^="O1CN01UKt34q1bWga0WWl5L"] <2 * +n * >n [text="领奖励"]',
           ],
