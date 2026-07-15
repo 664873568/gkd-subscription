@@ -13,7 +13,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="tv_countdown"] -n [vid="xad_dialog_image"]'],
+          matches: ['@[text$="自动看视频"][vid="tv_countdown"] -n [vid="xad_dialog_image"]'],
           activityIds: ['null'],
         },
       ],
@@ -29,10 +29,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text^="跳过"] <<n * [vid="ll_logo_ad_bottom"]',
-            '@[vid="tv_splash_ad_skip"] <<n * [vid="ll_logo_ad_bottom"]',
-            '@[vid="tv_splash_ad_skip"] <<n * [vid="ll_logo_ad_bottom"]',
-            '@[text^="跳过"][vid="fanti_ad_txt_skip"] <<n * [text="广告"][vid="fanti_ad_txt_dsp_name"]',
+            '@[text^="跳过"] <<n [vid="img_splash_ad"]',
+            '@[vid="tv_splash_ad_skip"] <<n [vid="img_splash_ad"]',
+            '@[vid="tv_splash_ad_skip"] <<n [vid="img_splash_ad"]',
+            '@[text^="跳过"][vid="fanti_ad_txt_skip"] <<n [vid="img_splash_ad"]',
           ],
           activityIds: ['com.jifen.qkbase.main.MainActivity', 'null'],
         },
