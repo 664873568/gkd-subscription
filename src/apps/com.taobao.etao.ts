@@ -13,7 +13,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="下载//打开APP"] <<n [text="去点淘领红包"]'],
+          matches: ['@[text="下载/打开APP"] <<n [text="去点淘领红包"]'],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
       ],
