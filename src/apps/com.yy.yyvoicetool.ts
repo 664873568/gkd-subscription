@@ -63,6 +63,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           matches: ['@[desc="YY游仓"] <<n [text^="YY游仓"]'],
           activityIds: ['.MainActivity'],
         },
@@ -92,7 +93,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 2000,
           matches: ['@[text="取消"] - [desc="删除"]'],
           activityIds: ['.MainActivity'],
         },
