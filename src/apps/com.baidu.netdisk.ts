@@ -197,9 +197,33 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.qq.e.ads.PortraitADActivity
+    //看视频-com.byazt.gd.Stub_Standard_Portrait_Activity
     {
       key: 20,
+      name: '看视频-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="我要加速领奖"] <<n * [text$="跳过"]'],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 11000,
+          matches: ['@[id="floatingBuyBar"] - [id="web"]'],
+          activityIds: ['com.byazt.gd.Stub_Standard_Activity'],
+        },
+      ],
+    },
+    //看视频-com.qq.e.ads.PortraitADActivity
+    {
+      key: 40,
       name: '看视频-点击广告拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -215,7 +239,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 41,
       name: '看视频-新人专享福利-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -229,7 +253,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 42,
       name: '看视频-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -245,7 +269,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23,
+      key: 43,
       name: '看视频-完成App安装',
       matchRoot: true,
       actionMaximum: 1,
@@ -261,7 +285,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 44,
       name: '红果免费短剧',
       matchRoot: true,
       actionMaximum: 1,
@@ -270,7 +294,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 15000,
+          actionDelay: 11000,
           matches: [
             '@[text="打开红果免费短剧 免费短剧尽在此处"] <<n [text="红果免费短剧"]',
           ],
@@ -279,7 +303,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 25,
+      key: 45,
       name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -299,24 +323,9 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.byazt.gd.Stub_Standard_Portrait_Activity
-    {
-      key: 38,
-      name: '广告-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text^="跳过"]'],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
     //看视频-.platform.business.incentive.advertise.ui.AdvertiseActivity
     {
-      key: 39,
+      key: 50,
       name: '看视频-关闭广告',
       matchRoot: true,
       actionMaximum: 1,
@@ -333,7 +342,7 @@ export default defineGkdApp({
     },
     //首页功能类
     {
-      key: 40,
+      key: 400,
       name: '开启安全备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -347,7 +356,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 401,
       name: '开启照片自动备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -363,7 +372,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 402,
       name: '百度网盘更新啦',
       matchRoot: true,
       actionMaximum: 1,
@@ -379,7 +388,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 43,
+      key: 403,
       name: '喜欢“百度网盘”吗？',
       matchRoot: true,
       actionMaximum: 1,
@@ -397,7 +406,7 @@ export default defineGkdApp({
     },
     //首页广告类
     {
-      key: 50,
+      key: 500,
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -416,7 +425,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 501,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
