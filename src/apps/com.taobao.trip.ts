@@ -329,7 +329,7 @@ export default defineGkdApp({
           matches: [
             '@ImageView[width=48&&height=48] <<n * [text="滑动/点击了解更多"]',
           ],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
           preKeys: [0],
