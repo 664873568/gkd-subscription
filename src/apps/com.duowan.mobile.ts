@@ -95,6 +95,21 @@ export default defineGkdApp({
     },
     {
       key: 6,
+      name: '做任务赢金币-限时任务',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[desc="YY游仓"] <<n [text^="YY游仓"]'],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
+    {
+      key: 7,
       name: '导流结果弹窗',
       matchRoot: true,
       actionMaximum: 1,
