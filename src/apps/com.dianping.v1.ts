@@ -48,9 +48,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="浏览完成"] - ImageView - ImageView',
-          ],
+          matches: ['@[text="浏览完成"] - ImageView - ImageView'],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
