@@ -184,21 +184,14 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="立即领取"] < View -2 [text="cjjinbi"]'],
+          key: 0,
+          matches: ['@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjjinbi"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
-      ],
-    },
-    {
-      key: 11,
-      name: '免费抽大奖-再试一次',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
-          matches: ['@[text="再试一次"] < View -2 [text="cjduojinbi"]'],
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -243,8 +236,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="我要立即领奖"] <<n * [text="svg%3e"] + [text^="再逛"]',
+          anyMatches: [
+            '@[text="我要立即领奖"] <<n * [text="svg%3e"] + [text^="再逛"][text$="可领奖"]',
+            '@[text="我要减广告时长"] <<n * [text="svg%3e"] + [text^="再逛"][text$="可领奖"]',
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -269,6 +263,33 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="7b144c81c2cb181f"] <<n * [text="限时领取"]'],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 23,
+      name: '看视频-广告-跳过',
+      matchRoot: true,
+      actionMaximum: 5,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '@[text$="跳过"][id="f6243b"] - [text="0s"][id="e8f0d0"]',
+          ],
+          matches: ['@[text$="跳过"][id="f6243b"]'],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: [
+            '@[text$="跳过"][id="f6243b"] - [text="0s"][id="e8f0d0"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
