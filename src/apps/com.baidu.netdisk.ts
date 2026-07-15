@@ -283,29 +283,19 @@ export default defineGkdApp({
       name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          excludeMatches: [
-            '@ImageView < FrameLayout + FrameLayout > * [text*="微信"]',
-          ],
+          key: 0,
           matches: ['@[text*="微信"] <<n * [text="提前拿奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
-      ],
-    },
-    {
-      key: 26,
-      name: '看视频-微信-恭喜获得奖励-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
+          preKeys: [0],
+          key: 1,
           matches: [
-            '@ImageView < FrameLayout + FrameLayout > * [text*="微信"]',
+            '@ImageView < FrameLayout + FrameLayout >2 ImageView',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
