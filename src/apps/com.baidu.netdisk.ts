@@ -311,7 +311,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //
+    //看视频-com.byazt.gd.Stub_Standard_Portrait_Activity
     {
       key: 38,
       name: '广告-跳过',
@@ -326,6 +326,7 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-.platform.business.incentive.advertise.ui.AdvertiseActivity
     {
       key: 39,
       name: '看视频-关闭广告',
