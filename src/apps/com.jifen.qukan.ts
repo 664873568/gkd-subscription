@@ -18,24 +18,6 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 49,
-      name: '广告跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text^="跳过"][vid="fanti_ad_txt_skip"] <<n * [text="广告"][vid="fanti_ad_txt_dsp_name"]',
-            '@[text^="跳过"][vid="fanti_ad_txt_skip"] <<n * [vid="ll_logo_ad_bottom"]',
-            '@[vid="tv_splash_ad_skip"] <<n * [vid="ll_logo_ad_bottom"]',
-          ],
-          activityIds: ['com.jifen.qkbase.main.MainActivity'],
-        },
-      ],
-    },
     //首页广告类
     {
       key: 50,
@@ -43,11 +25,16 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="跳过"] <<n * [vid="ll_logo_ad_bottom"]'],
-          activityIds: ['null'],
+          anyMatches: [
+            '@[text^="跳过"] <<n * [vid="ll_logo_ad_bottom"]',
+            '@[vid="tv_splash_ad_skip"] <<n * [vid="ll_logo_ad_bottom"]',
+            '@[vid="tv_splash_ad_skip"] <<n * [vid="ll_logo_ad_bottom"]',
+            '@[text^="跳过"][vid="fanti_ad_txt_skip"] <<n * [text="广告"][vid="fanti_ad_txt_dsp_name"]',
+            ],
+          activityIds: ['com.jifen.qkbase.main.MainActivity','null'],
         },
       ],
     },
