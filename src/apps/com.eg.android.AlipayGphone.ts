@@ -262,7 +262,7 @@ export default defineGkdApp({
     },
     //充鸭攒话费
     {
-      key: 31,
+      key: 30,
       name: '充鸭攒话费-签到',
       matchRoot: true,
       actionMaximum: 1,
@@ -270,9 +270,27 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="签到"] <<n * [text="充鸭攒话费"]'],
+          matches: ['@[text="签到"] -2 [text="今天"] <<n [id="__react-content"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
+        },
+      ],
+    },
+    {
+      key: 31,
+      name: '充鸭攒话费-正在跳转-返回',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@TextView[text="正在跳转"] <<n * WebView[text="正在跳转"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
         },
       ],
