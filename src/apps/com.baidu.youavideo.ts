@@ -795,28 +795,15 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           anyMatches: [
-            '@ImageButton + [text="v2_vip_icon.0cf7e01a"] <<n [text="随心卡会员"]',
             '@ImageButton[text^="png;base64"] <<n [text="随心卡会员"]',
+            '@ImageButton + [text="v2_vip_icon.0cf7e01a"] <<n [text="随心卡会员"]',
+            '@[text="MYOtKBLsCY8AAAAASUVORK5CYII="] + [text="v2_vip_icon.0cf7e01a"] <<n [text="随心卡会员"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.vip.ui.VipWebActivity',
             '.vip.ui.VipPayWebDialogActivity',
           ],
-        },
-      ],
-    },
-    {
-      key: 61,
-      name: '随心卡会员-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [],
-          activityIds: [],
         },
       ],
     },
