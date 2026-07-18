@@ -120,7 +120,10 @@ export default defineGkdApp({
           matches: [
             '@TextView - View > [text="继续参与活动"] <<n [text="导流结果弹窗"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+          activityIds: [
+            'com.yy.mobile.ui.common.JsSupportWebAcitivity',
+            'com.yy.mobile.ui.splash.SplashActivity',
+          ],
         },
       ],
     },
