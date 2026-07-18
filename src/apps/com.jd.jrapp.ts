@@ -105,7 +105,7 @@ export default defineGkdApp({
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] <<n * [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-            '@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup', //@[text="返回领奖"] <<n * [vid="back_button"]
+            '@[text="返回领奖"] <<n [vid="fl_operating_group"] +n [vid="back_button"]',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -134,7 +134,6 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          actionDelay: 2000,
           anyMatches: [
             '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
@@ -142,7 +141,7 @@ export default defineGkdApp({
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] <<n * [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-            '@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup', //@[text="返回领奖"] <<n * [vid="back_button"]
+            '@[text="返回领奖"] <<n [vid="fl_operating_group"] +n [vid="back_button"]',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -165,7 +164,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 2000,
+          actionDelay: 1000,
           anyMatches: [
             '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
@@ -173,7 +172,7 @@ export default defineGkdApp({
             '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] <<n * [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-            '@[text="返回领奖"] < ViewGroup + ViewGroup + ImageView + ViewGroup', //@[text="返回领奖"] <<n * [vid="back_button"]
+            '@[text="返回领奖"] <<n [vid="fl_operating_group"] +n [vid="back_button"]',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -343,6 +342,34 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 26,
+      name: '任务未完成-继续赚奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@TextView -3 [text$="京豆"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 27,
+      name: '健康好礼限时领-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="back"] + [text="健康好礼限时领"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
     //机构福利
     {
       key: 30,
@@ -354,22 +381,38 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@Image[height=99&&width=258] -2 [text$="财宝分"]'],
+          matches: ['@Image -2 [text$="财宝分"] <<n [text="机构福利"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="ce6aa1713606b4c1"] + [text="加自选"]'],
+          matches: ['@View > [text="ce6aa1713606b4c1"] + [text="加自选"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
           preKeys: [0, 1],
           key: 2,
+          action: 'back',
           matches: [
             '@[text="HPmi0zAOZAAAAAElFTkSuQmCC"] + [text="已添加到自选"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 40,
+      name: '版本更新-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[vid="ib_close"] + [vid="cd_content_root"]'],
+          activityIds: ['.bm.mainbox.main.MainActivity'],
         },
       ],
     },
