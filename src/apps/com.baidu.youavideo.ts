@@ -570,14 +570,13 @@ export default defineGkdApp({
     },
     {
       key: 30,
-      name: '看视频-跳转快应用-< × 反馈',
+      name: '看视频-广告二级页-< × 反馈',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 11000,
           matches: ['@ImageView + ImageView +2 [text="反馈"]'],
           activityIds: [
