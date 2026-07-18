@@ -106,7 +106,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 10000,
           matches: [
-            '@[desc="关闭"][vid="axq"] <n ViewGroup - FrameLayout > [desc="游戏中心"][vid~="[a-z]\\\d[a-z]"]',
+            '@[desc="关闭"][vid="axq"] <n ViewGroup - FrameLayout > [desc="游戏中心"][vid~="[a-z]\\\\d[a-z]"]',
           ],
           activityIds: [
             'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
@@ -681,7 +681,7 @@ export default defineGkdApp({
         {
           actionDelay: 1000,
           matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc~="\\\d+00"]',
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc~="\\\\d+00"]',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
