@@ -110,6 +110,7 @@ export default defineGkdApp({
           activityIds: [
             '.bm.common.web.ui.WebActivity',
             '.bm.common.container.ui.BaseContainerActivity',
+            '.bm.common.web.ui.landscape.WebLandscapeActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
             '.bm.sh.jm.video.ui.VibratoActivity',
           ],
@@ -146,6 +147,7 @@ export default defineGkdApp({
           activityIds: [
             '.bm.common.web.ui.WebActivity',
             '.bm.common.container.ui.BaseContainerActivity',
+            '.bm.common.web.ui.landscape.WebLandscapeActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
             '.bm.sh.jm.video.ui.VibratoActivity',
           ],
@@ -176,6 +178,7 @@ export default defineGkdApp({
           activityIds: [
             '.bm.common.web.ui.WebActivity',
             '.bm.common.container.ui.BaseContainerActivity',
+            '.bm.common.web.ui.landscape.WebLandscapeActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
             '.bm.sh.jm.video.ui.VibratoActivity',
           ],
