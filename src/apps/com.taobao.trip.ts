@@ -128,7 +128,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: ['@ImageView - [text="河马畅听"]'],
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
@@ -218,8 +217,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: ['@View + View + [text^="阿里巴巴"]'],
+          matches: ['@View + View +2 View'],
           activityIds: ['com.baidu.mobads.sdk.api.AppActivity'],
         },
       ],
@@ -274,7 +272,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: ['@ImageView + ImageView +n [text="反馈"]'],
           snapshotUrls: ['https://i.gkd.li/i/23547990'],
           activityIds: [
@@ -315,9 +312,23 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.qq.e.ads.PortraitADActivity
+    //看视频-com.qq.e.ads.*
     {
       key: 60,
+      name: '看视频-二级广告页-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],
+          activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+      ],
+    },
+    {
+      key: 61,
       name: '看视频-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -414,7 +425,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
@@ -441,7 +452,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="O1CN01TD5wn71Ptmtb9GAxE_!!6000000001899-2-tps-60-60"]',
+            '@[text^="O1CN01TD5wn71Ptmtb9GAxE_"]',
           ],
           activityIds: ['.home.HomeActivity'],
         },
