@@ -611,7 +611,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[vid="iv_close"] - [text="选择备份模式"]'],
@@ -625,7 +625,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           action: 'back',
@@ -640,7 +640,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           action: 'back',
@@ -657,7 +657,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[vid="iv_close"] +n [text="一键备份"][vid="tv_backup"]'],
@@ -671,7 +671,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[vid="img_close"] -n LinearLayout > [text="立即升级"]'],
@@ -686,7 +686,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 2,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
@@ -706,7 +706,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 2,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
