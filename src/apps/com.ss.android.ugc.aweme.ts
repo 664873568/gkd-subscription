@@ -765,7 +765,7 @@ export default defineGkdApp({
     //看视频
     {
       key: 60,
-      name: '看视频-任务完成 返回领取-×',
+      name: '看视频-任务完成 返回领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
