@@ -582,12 +582,33 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@Image < View + [text="b2353ab71ceb1a18d61081ee5554d385.png~tplv-49obo7mizy-75compress"]'],
+          matches: ['@Image < View +2 View > [text="74d6f58b0fa1e485326f55622391637e.png~tplv-49obo7mizy-75compress"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0,1],
           key: 2,
+          matches: ['@[text="仍要退出"] + [text="立即收下"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 37,
+      name: '车主服务-保险会员礼包',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@Image < View + View > [text="5d5e1ba17a3090fb80016b75d2fc8758.png~tplv-49obo7mizy-75compress"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           matches: ['@[text="仍要退出"] + [text="立即收下"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
