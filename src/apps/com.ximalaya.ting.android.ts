@@ -31,7 +31,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text~="看广告领\\\d+金币"] < @ViewGroup <n ViewGroup -n ViewGroup',
+            '[text~="看广告领\\\\d+金币"] < @ViewGroup <n ViewGroup -n ViewGroup',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
