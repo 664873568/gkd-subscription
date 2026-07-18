@@ -76,20 +76,6 @@ export default defineGkdApp({
     },
     //任务中心
     {
-      key: 5,
-      name: '任务中心-领取奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[vid="task_float_image"] + [vid="task_float_close"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
       key: 6,
       name: '任务中心-加载中…-<',
       matchRoot: true,
