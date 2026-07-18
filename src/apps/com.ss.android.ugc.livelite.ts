@@ -4,7 +4,7 @@ export default defineGkdApp({
   id: 'com.ss.android.ugc.livelite',
   name: '抖音商城',
   groups: [
-    //充值中心-充值金
+    //充值中心-天天赚话费
     {
       key: 40,
       name: '天天赚话费-更多任务',
@@ -14,7 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 8000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]',
           ],
@@ -64,7 +64,7 @@ export default defineGkdApp({
     },
     {
       key: 43,
-      name: '天天用好券-返回领取-<',
+      name: '天天赚话费-天天用好券-返回领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -72,15 +72,14 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 32000,
-          matches: ['@[desc="返回"] <<n * [text="返回领取"]'],
+          matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
       ],
     },
     {
       key: 44,
-      name: '天天用好券-放弃优惠-<',
+      name: '天天赚话费-天天用好券-放弃优惠',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -94,7 +93,7 @@ export default defineGkdApp({
     },
     {
       key: 45,
-      name: '天天用好券-<',
+      name: '天天赚话费-天天用好券',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -104,7 +103,7 @@ export default defineGkdApp({
           key: 0,
           action: 'back',
           actionDelay: 32000,
-          matches: ['@[desc="返回"] <<n * [text="返回领取"]'],
+          matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
         {
@@ -117,8 +116,8 @@ export default defineGkdApp({
     },
     //看视频
     {
-      key: 50,
-      name: '看视频-任务完成 返回领取-×',
+      key: 60,
+      name: '看视频-任务完成 返回领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -129,6 +128,58 @@ export default defineGkdApp({
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 61,
+      name: '看视频-直播',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 30000,
+          matches: ['@[desc="关闭"][vid="crt"] <n LiveMeasureOnceRelativeLayout'],
+          activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
+        },
+      ],
+    },
+    {
+      key: 62,
+      name: '看视频--任务完成 返回领取-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 30000,
+          matches: ['@[desc="关闭"][vid="crt"] <n LiveMeasureOnceRelativeLayout'],
+          activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
+          matches: ['@ImageView < ViewGroup -3 ScrollView'],
+          activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 400,
+      name: '检测到更新',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="以后再说"] < LinearLayout -n [text="检测到更新"]'],
+          activityIds: ['com.ss.android.ugc.aweme.main.MainActivity'],
         },
       ],
     },
