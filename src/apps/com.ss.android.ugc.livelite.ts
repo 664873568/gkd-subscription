@@ -33,7 +33,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=1] - ViewGroup[index=1][childCount=2]',
           ],
@@ -52,8 +52,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 ViewGroup[desc$="00"]',
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 ViewGroup[desc~="\\d+00"]',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
@@ -71,6 +72,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 32000,
           matches: ['@[desc="返回"] <<n * [text="返回领取"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -101,6 +103,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
+          actionDelay: 32000,
           matches: ['@[desc="返回"] <<n * [text="返回领取"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -122,46 +125,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
-          matches: ['@ImageView < ViewGroup -3 ScrollView'],
-          activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 51,
-      name: '看视频-直播-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[desc="关闭"][vid="crt"] <<n LiveMeasureOnceRelativeLayout',
-          ],
-          activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
-        },
-      ],
-    },
-    {
-      key: 52,
-      name: '看视频-任务完成 返回领取-直播-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[desc="关闭"][vid="crt"] <<n LiveMeasureOnceRelativeLayout',
-          ],
-          activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
+          actionDelay: 32000,
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
