@@ -180,9 +180,66 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          matches: [
+            '@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjjinbi"]',
+          ],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '免费抽大奖-再试一次',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
+          ],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '免费抽大奖-立即领取-再试一次',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
           key: 0,
           matches: [
             '@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjjinbi"]',
+          ],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
+          ],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '免费抽大奖-再试一次-立即领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
