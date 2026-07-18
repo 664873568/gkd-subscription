@@ -208,7 +208,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="我要加速领奖"] <<n * [text$="跳过"]'],
+          anyMatches: [
+            '@[text="我要加速领奖"] <<n * [text$="跳过"]',
+            '@[text="我要直接拿奖励"] <<n * [text$="跳过"]',
+          ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
         {
@@ -221,9 +224,76 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.qq.e.ads.PortraitADActivity
+    {
+      key: 21,
+      name: '看视频-我要直接领奖-奖励已领取-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="我要直接领奖"] <<n * [text="跳过"]'],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          matches: [
+            '@[text="跳过"] -n [text="奖励已领取"]',
+          ],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 22,
+      name: '看视频-二级广告页-红果免费短剧',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 11000,
+          matches: ['@WebView[text="红果免费短剧"]'],
+          activityIds: ['com.byazt.gd.Stub_Standard_Activity'],
+        },
+      ],
+    },
+    //看视频-com.byazt.ff.Stub_Standard_Portrait_Activity
+    {
+      key: 30,
+      name: '看视频-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@Image < [id="694d63"] < [id="ef6da1"]'],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
     {
       key: 40,
+      name: '看视频-礼包-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="跳过"] <<n [desc="skip_button"] <n ViewGroup - ViewGroup > [desc="gift_box"]'],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    //看视频-com.qq.e.ads.PortraitADActivity
+    {
+      key: 50,
       name: '看视频-点击广告拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -239,7 +309,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 51,
       name: '看视频-新人专享福利-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -253,7 +323,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 52,
       name: '看视频-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -269,7 +339,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 43,
+      key: 53,
       name: '看视频-完成App安装',
       matchRoot: true,
       actionMaximum: 1,
@@ -285,25 +355,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 44,
-      name: '红果免费短剧',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 11000,
-          matches: [
-            '@[text="打开红果免费短剧 免费短剧尽在此处"] <<n [text="红果免费短剧"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 45,
+      key: 54,
       name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -325,7 +377,7 @@ export default defineGkdApp({
     },
     //看视频-.platform.business.incentive.advertise.ui.AdvertiseActivity
     {
-      key: 50,
+      key: 100,
       name: '看视频-关闭广告',
       matchRoot: true,
       actionMaximum: 1,
