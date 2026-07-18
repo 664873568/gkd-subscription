@@ -238,9 +238,7 @@ export default defineGkdApp({
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
         {
-          matches: [
-            '@[text="跳过"] -n [text="奖励已领取"]',
-          ],
+          matches: ['@[text="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -286,7 +284,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="跳过"] <<n [desc="skip_button"] <n ViewGroup - ViewGroup > [desc="gift_box"]'],
+          matches: [
+            '@[text="跳过"] <<n [desc="skip_button"] <n ViewGroup - ViewGroup > [desc="gift_box"]',
+          ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
