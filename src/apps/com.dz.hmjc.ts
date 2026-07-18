@@ -14,7 +14,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] + [text~="\\d"]'],
+          matches: ['@[text="跳过"] + [text~="\\\\d"]'],
           activityIds: ['com.dz.business.main.ui.MainActivity'],
         },
       ],
