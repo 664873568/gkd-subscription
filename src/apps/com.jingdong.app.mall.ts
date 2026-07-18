@@ -84,7 +84,7 @@ export default defineGkdApp({
     //首页广告类
     {
       key: 50,
-      name: '未成年模式-我知道了',
+      name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -92,7 +92,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="跳过"] < [desc="跳过"][vid="splash_skip_container"] -2 [desc="启动图广告"]',
+            '@[text="跳过"] < [desc="跳过"] -2 [desc="启动图广告"]',
           ],
           activityIds: ['.MainFrameActivity'],
         },
