@@ -640,7 +640,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 8000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]',
           ],
@@ -688,9 +688,10 @@ export default defineGkdApp({
         },
       ],
     },
+    //预约影音娱乐1元秒杀
     {
       key: 54,
-      name: '娱乐影音-<',
+      name: '赚充值金-娱乐影音',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -709,9 +710,10 @@ export default defineGkdApp({
         },
       ],
     },
+    //浏览精选好物
     {
       key: 55,
-      name: '天天用好券-浏览好物-返回领取',
+      name: '赚充值金-天天用好券-浏览好物-返回领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -719,15 +721,14 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 32000,
-          matches: ['@[text="返回领取"] <<n * [desc="返回"]'],
+          matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
     },
     {
       key: 56,
-      name: '天天用好券-放弃优惠-返回',
+      name: '赚充值金-天天用好券-放弃优惠',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -741,7 +742,7 @@ export default defineGkdApp({
     },
     {
       key: 57,
-      name: '天天用好券-返回',
+      name: '赚充值金-天天用好券',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -750,8 +751,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 32000,
-          matches: ['@[text="返回领取"] <<n * [desc="返回"]'],
+          matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
         {
@@ -772,8 +772,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 32000,
-          matches: ['@ImageView < [desc^="任务完成 返回领取"]'],
+          matches: ['@ImageView < [desc="任务完成 返回领取，关闭，按钮"]'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
       ],
