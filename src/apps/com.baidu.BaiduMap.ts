@@ -29,7 +29,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@TextView < View +n [text="去逛逛"] <n AlertDialog'],
-          activityIds: ['null', 'com.baidu.baidumaps.MapsActivity'],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
     },
@@ -50,7 +50,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: ['@TextView < View +n [text="去逛逛"] <n AlertDialog'],
-          activityIds: ['null', 'com.baidu.baidumaps.MapsActivity'],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
     },
@@ -294,6 +294,20 @@ export default defineGkdApp({
     },
     {
       key: 24,
+      name: '看视频-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@Image <<n View - View > [text="反馈"]'],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 25,
       name: '看视频-反馈-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -301,8 +315,22 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[desc="4cc53f"] <<n * [text="反馈"]'],
+          matches: ['@[desc="4cc53*"] <<n * [text="反馈"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 26,
+      name: '看视频-广告二级页-< ×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView + ImageView +2 [text="反馈"]'],
+          activityIds: ['com.byazt.ff.Stub_Standard_Activity'],
         },
       ],
     },
@@ -480,7 +508,7 @@ export default defineGkdApp({
     },
     {
       key: 61,
-      name: '看视频-广告-×',
+      name: '看视频-广告-××',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
