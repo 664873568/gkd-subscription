@@ -47,7 +47,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '任务中心-下载中间页-<',
       matchRoot: true,
       actionMaximum: 1,
