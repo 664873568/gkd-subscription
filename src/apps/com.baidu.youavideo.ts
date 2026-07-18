@@ -103,7 +103,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="继续观看"] - [text="下次再来"] <<n [text="任务中心"]'],
+          matches: [
+            '@[text="继续观看"] - [text="下次再来"] <<n [text="任务中心"]',
+          ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],

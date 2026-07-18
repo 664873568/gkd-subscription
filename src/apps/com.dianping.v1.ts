@@ -23,9 +23,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@ImageView[clickable=true] - FrameLayout >2 ImageView',
-          ],
+          matches: ['@ImageView[clickable=true] - FrameLayout >2 ImageView'],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],

@@ -437,16 +437,14 @@ export default defineGkdApp({
           anyMatches: [
             '@Button[desc="关闭"] - View',
             '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
-                   ],
+          ],
           activityIds: ['.live.LiveDummyActivity'],
         },
         {
           preKeys: [0],
           key: 1,
           action: 'back',
-          matches: [
-            '@[desc="返回 按钮"] <<n * [desc="信用卡还款"]',
-          ],
+          matches: ['@[desc="返回 按钮"] <<n * [desc="信用卡还款"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
@@ -582,11 +580,13 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@Image < View +2 View > [text="74d6f58b0fa1e485326f55622391637e.png~tplv-49obo7mizy-75compress"]'],
+          matches: [
+            '@Image < View +2 View > [text="74d6f58b0fa1e485326f55622391637e.png~tplv-49obo7mizy-75compress"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[text="仍要退出"] + [text="立即收下"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
@@ -603,7 +603,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@Image < View + View > [text="5d5e1ba17a3090fb80016b75d2fc8758.png~tplv-49obo7mizy-75compress"]'],
+          matches: [
+            '@Image < View + View > [text="5d5e1ba17a3090fb80016b75d2fc8758.png~tplv-49obo7mizy-75compress"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
