@@ -36,7 +36,10 @@ export default defineGkdApp({
             '@[vid="tv_splash_ad_skip"] <<n [vid="img_splash_ad"]',
             '@[text^="跳过"][vid="fanti_ad_txt_skip"] <<n [vid="img_splash_ad"]',
           ],
-          activityIds: ['com.jifen.qkbase.main.MainActivity', 'null'],
+          activityIds: [
+            'null',
+            'com.jifen.qkbase.main.MainActivity',
+          ],
         },
       ],
     },
