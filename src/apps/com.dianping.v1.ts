@@ -25,7 +25,7 @@ export default defineGkdApp({
       name: '返回寻宝',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 15000,
       resetMatch: 'activity',
       rules: [
         {
@@ -44,7 +44,7 @@ export default defineGkdApp({
       name: '浏览完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 15000,
       resetMatch: 'activity',
       rules: [
         {
@@ -55,6 +55,22 @@ export default defineGkdApp({
     },
     {
       key: 3,
+      name: '查看附近的店',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
       name: '继续开宝箱集卡',
       matchRoot: true,
       actionMaximum: 1,
@@ -70,16 +86,25 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
-      name: '查看附近的店',
+      key: 5,
+      name: '继续开宝箱集卡-开宝箱得金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true]',
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout >3 ImageView',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@FrameLayout > ImageView + ImageView + FrameLayout > [text="x"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
