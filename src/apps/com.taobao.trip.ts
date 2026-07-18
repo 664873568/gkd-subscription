@@ -451,9 +451,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '@[text^="O1CN01TD5wn71Ptmtb9GAxE_"]',
-          ],
+          matches: ['@[text^="O1CN01TD5wn71Ptmtb9GAxE_"]'],
           activityIds: ['.home.HomeActivity'],
         },
       ],
