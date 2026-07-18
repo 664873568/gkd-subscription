@@ -47,85 +47,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
-      name: '任务中心-下次再来',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 2000,
-          matches: ['@[text="下次再来"] <<n [text="任务中心"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23545964'],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '任务中心-继续观看',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="继续观看"] <<n [text="任务中心"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23545964'],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
-        },
-      ],
-    },
-    {
-      key: 5,
-      name: '任务中心-关闭签到提醒',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[vid="cancel"] <<n [vid="bottom_two_button_layout"]'],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
-        },
-      ],
-    },
-    {
-      key: 6,
-      name: '任务中心-天天看激励视频-取消',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="取消"] + [text="进入观看"] <<n * [text="明日再来"]',
-          ],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
-        },
-      ],
-    },
-    {
-      key: 7,
-      name: '任务中心-天天看激励视频-去完成',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 2000,
-          matches: [
-            '@[text="去完成"] -n [text="天天看激励视频"] <n * +n * >n [text="明日再来"]',
-          ],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
-        },
-      ],
-    },
-    {
-      key: 8,
+      key: 1,
       name: '任务中心-下载中间页-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -140,7 +62,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 9,
+      key: 7,
       name: '任务中心-点击赚积分',
       matchRoot: true,
       actionMaximum: 1,
@@ -149,9 +71,39 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="点击赚积分"] <<n * -n * > [text="体验清理截图"] +n [text="已完成"] <<n [text="任务中心"]',
+            '@[text="点击赚积分"] <<n * -n * > [text="照片后台备份"] +n [text="已完成"] <<n [text="任务中心"]',
           ],
-          snapshotUrls: ['https://i.gkd.li/i/23558929'],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
+    {
+      key: 8,
+      name: '任务中心-天天看激励视频-去完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 1000,
+          matches: [
+            '@[text="去完成"] -n [text="天天看激励视频"] <n * +n * >n [text="明日再来"]',
+          ],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
+      name: '任务中心-继续观看',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="继续观看"] - [text="下次再来"] <<n [text="任务中心"]'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],
@@ -598,7 +550,7 @@ export default defineGkdApp({
       name: '看视频-限时领取',
       matchRoot: true,
       actionMaximum: 5,
-      matchTime: 30000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
