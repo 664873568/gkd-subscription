@@ -710,6 +710,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '@[vid="iv_close"] - ViewGroup >n [vid="jump_btn"]',
             '@[vid="dialog_home_pop_close_button"] + [vid="img_lottie"]',
             '@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',
           ],
