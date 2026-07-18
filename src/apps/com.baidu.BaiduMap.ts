@@ -382,10 +382,11 @@ export default defineGkdApp({
       name: '看视频-广告二级页-< ×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 11000,
           matches: ['@ImageView + ImageView +2 [text="反馈"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Activity'],
         },
