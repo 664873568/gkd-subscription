@@ -186,7 +186,10 @@ export default defineGkdApp({
           matches: [
             '@[text="不允许"][vid="btn_cancel"] <<n * [text="“YY”想访问您的剪切板"][vid="message"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+          activityIds: [
+            'com.yy.mobile.ui.common.JsSupportWebAcitivity',
+            'com.yy.mobile.ui.splash.SplashActivity',
+          ],
         },
       ],
     },
