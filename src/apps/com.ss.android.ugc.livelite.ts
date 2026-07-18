@@ -54,7 +54,7 @@ export default defineGkdApp({
         {
           actionDelay: 1000,
           matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 ViewGroup[desc~="\\\d+00"]',
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 ViewGroup[desc~="\\\\d+00"]',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
