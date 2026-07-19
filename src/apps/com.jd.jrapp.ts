@@ -13,8 +13,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          actionDelay: 3000,
+          actionDelay: 5000,
           matches: [
             '@[vid="common_webview_navbar_left"] <<n * [text^="正在跳转"]',
           ],
@@ -31,8 +30,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          actionDelay: 3000,
+          actionDelay: 5000,
           matches: [
             '@[vid="common_webview_navbar_left"] <<n * [text^="跳转中"]',
           ],
@@ -49,7 +47,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
             '@Button < [vid="common_webview_navbar_left"] + [text="商品详情"]',
           ],
@@ -97,7 +94,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 2000,
           anyMatches: [
             '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
@@ -134,6 +131,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           anyMatches: [
             '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
@@ -164,7 +162,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 2000,
           anyMatches: [
             '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
             '@[text="返回领奖"] <<n * [text="readMissionDown"]',
@@ -351,7 +349,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView -3 [text$="京豆"]'],
+          matches: ['@TextView - [text="立即领取"] -2 [text~="\\\\d京豆"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -365,6 +363,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 3000,
           matches: ['@[text="back"] + [text="健康好礼限时领"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
