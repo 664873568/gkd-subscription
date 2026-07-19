@@ -527,7 +527,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text^="svg+xml;base64"] + View >n [text="cloud-background.cbba3c7a"]',
@@ -620,7 +620,7 @@ export default defineGkdApp({
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
-    }, 
+    },
     //充值中心-充值金
     {
       key: 50,

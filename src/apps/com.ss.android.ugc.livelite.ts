@@ -141,7 +141,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 30000,
-          matches: ['@[desc="关闭"][vid="crt"] <n LiveMeasureOnceRelativeLayout'],
+          matches: [
+            '@[desc="关闭"][vid="crt"] <n LiveMeasureOnceRelativeLayout',
+          ],
           activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
         },
       ],
@@ -156,7 +158,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 30000,
-          matches: ['@[desc="关闭"][vid="crt"] <n LiveMeasureOnceRelativeLayout'],
+          matches: [
+            '@[desc="关闭"][vid="crt"] <n LiveMeasureOnceRelativeLayout',
+          ],
           activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
         },
         {
