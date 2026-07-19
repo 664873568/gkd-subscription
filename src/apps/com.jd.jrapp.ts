@@ -408,11 +408,14 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[vid="ib_close"] + [vid="cd_content_root"]'],
-          activityIds: ['.bm.mainbox.main.MainActivity'],
+          activityIds: [
+            '.bm.mainbox.main.MainActivity',
+            '.bm.common.web.ui.WebActivity',
+          ],
         },
       ],
     },
