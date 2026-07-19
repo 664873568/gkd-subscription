@@ -665,7 +665,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 8000,
+          actionDelay: 9000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]',
           ],
@@ -746,7 +746,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 32000,
+          actionDelay: 35000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -777,7 +777,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 32000,
+          actionDelay: 35000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -799,7 +799,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 32000,
+          actionDelay: 35000,
           matches: ['@ImageView < [desc="任务完成 返回领取，关闭，按钮"]'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
