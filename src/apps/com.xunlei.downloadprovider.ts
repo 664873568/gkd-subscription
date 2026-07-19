@@ -14,9 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[id$="wm_pop_pic_close"] +n [id$="layout_ad_logo"]',
-          ],
+          matches: ['@[id$="wm_pop_pic_close"] +n [id$="layout_ad_logo"]'],
           activityIds: ['.linkhub.dlpanel.AddLinkToHubActivity'],
         },
         {
