@@ -14,6 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 3000,
           matches: ['@TextView[index=8][childCount=0] <n [id="sign-dialog"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -43,6 +44,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 3000,
           matches: ['@TextView[index=8][childCount=0] <n [id="sign-dialog"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -102,17 +104,15 @@ export default defineGkdApp({
     },
     {
       key: 6,
-      name: '地图图区-好车主-<',
+      name: '金币任务中心-兑换商城-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          actionDelay: 1000,
           matches: [
-            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="签到送好礼"][vid="title"]',
+            '@TextView + TextView + [text="兑换记录"] <<n [text="兑换商城"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -120,7 +120,7 @@ export default defineGkdApp({
     },
     {
       key: 7,
-      name: '地图图区-千问-<',
+      name: '地图图区',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -129,26 +129,10 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 1000,
-          matches: [
-            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="千问-阿里 AI 助手"][vid="title"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
-    {
-      key: 8,
-      name: '地图图区-飞猪-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 1000,
-          matches: [
+          anyMatches: [
             '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="此功能需访问飞猪旅行APP"]',
+            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="签到送好礼"][vid="title"]',
+            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="千问-阿里 AI 助手"][vid="title"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
