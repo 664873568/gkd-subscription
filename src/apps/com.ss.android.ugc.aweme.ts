@@ -134,6 +134,24 @@ export default defineGkdApp({
     },
     {
       key: 14,
+      name: '行情-发财金已到账-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 22000,
+          matches: ['@[desc="close"] < View <n View'],
+          activityIds: [
+            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity0',
+          ],
+        },
+      ],
+    },
+    {
+      key: 15,
       name: '基金落地页-发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -149,7 +167,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 16,
       name: '每周投-发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -211,7 +229,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 5000,
           matches: [
-            '@[text="立即领取"] <<n * [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
+            '@[text="立即领取"] < View <n View -n [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -299,17 +317,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
-            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
-          ],
+          actionDelay: 5000,
+          matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
-          matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
+          anyMatches: [
+            '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
+            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
+          ],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
@@ -346,9 +364,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
-            '@ImageButton <<n View + View >n [text="01a5e1e730630a185cbd7e5910f29b68.png~tplv-49obo7mizy-75compress"]',
-            '@ImageButton <<n View + View >n [text="609bb43258ed9006c7db8fca60dcef7e.png~tplv-49obo7mizy-png75"]',
+          matches: [
+            '@ImageButton <<n View + View >n [text*=".png~tplv-49obo7mizy"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -365,7 +382,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
-            '@[desc="返回"][vid="ed-"] <<n * [text="我的保障"][vid="title"]',
+            '@Image < View + [text="40998dca3d938f5fd378d6c1738e1ded.png~tplv-49obo7mizy-png75"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -381,9 +398,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@ImageButton <<n View + View >n [text="01a5e1e730630a185cbd7e5910f29b68.png~tplv-49obo7mizy-75compress"]',
-            '@ImageButton <<n View + View >n [text="609bb43258ed9006c7db8fca60dcef7e.png~tplv-49obo7mizy-png75"]',
+          matches: [
+            '@ImageButton <<n View + View >n [text*=".png~tplv-49obo7mizy"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -392,7 +408,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 5000,
           matches: [
-            '@[desc="返回"][vid="ed-"] <<n * [text="我的保障"][vid="title"]',
+            '@Image < View + [text="40998dca3d938f5fd378d6c1738e1ded.png~tplv-49obo7mizy-png75"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -408,7 +424,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@Button[desc="关闭"] - View > [text="d9fac2dc387f4604a0e96a0460ce68c8~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"] - View > [text$="~tplv-20ashz96qn-1"]',
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -536,9 +552,26 @@ export default defineGkdApp({
         },
       ],
     },
-    //更多任务
     {
       key: 44,
+      name: '车主服务-抽免单',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '@Image < View + [desc="doupay"] <<n [text="抖音支付优惠阵地"]',
+          ],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    //更多任务
+    {
+      key: 45,
       name: '车主服务-从「钱包」访问车主服务',
       matchRoot: true,
       actionMaximum: 1,
@@ -564,7 +597,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 45,
+      key: 46,
       name: '车主服务-搜索「车险」进入频道',
       matchRoot: true,
       actionMaximum: 1,
@@ -582,6 +615,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 5000,
           matches: [
             '@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]',
           ],
@@ -590,7 +624,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 46,
+      key: 47,
       name: '车主服务-车主卡券',
       matchRoot: true,
       actionMaximum: 1,
@@ -601,23 +635,6 @@ export default defineGkdApp({
           action: 'back',
           matches: ['[id="nav-bar"] <<n [text="车主卡券"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
-        },
-      ],
-    },
-    {
-      key: 47,
-      name: '车主服务-抽免单',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '@Image < View + [desc="doupay"] <<n [text="抖音支付优惠阵地"]',
-          ],
-          activityIds: ['.live.LiveDummyActivity'],
         },
       ],
     },
@@ -688,7 +705,7 @@ export default defineGkdApp({
         {
           actionDelay: 1000,
           matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc~="\\\\d+00"]',
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc$="00"]',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
