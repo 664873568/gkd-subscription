@@ -1174,7 +1174,8 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="跳过"] <<n * [vid="host_splash_fragment_root_lay"]',
+            '@[text="跳过"] < [vid="host_splash_fragment_root_lay"]',
+            '@[desc="跳过广告"][vid="xm_ad_host_count_down_click_lay"] - [desc="跳过广告"][vid="xm_ad_host_count_down_click_lay_no_click_view"] - [text="跳过广告"][vid="xm_ad_host_count_down_text"] < [vid="host_splash_skip_layout"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
