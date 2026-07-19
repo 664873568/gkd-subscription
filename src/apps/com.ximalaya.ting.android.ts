@@ -965,42 +965,6 @@ export default defineGkdApp({
     //看视频-com.tencentmusic.ad.tmead.core.activity.TMECoreActivity
     {
       key: 140,
-      name: '看视频-观看完视频，可获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@ViewGroup[index=3][childCount=1] <<n * [vid="tme_ad_tv_top_tips"]',
-          ],
-          activityIds: [
-            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 141,
-      name: '看视频-点击退出关闭视频',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[desc="点击退出关闭视频"] <<n * [vid="tme_ad_tv_top_tips"]',
-          ],
-          activityIds: [
-            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 142,
       name: '看视频-立即抢购',
       matchRoot: true,
       actionMaximum: 1,
@@ -1021,7 +985,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 143,
+      key: 141,
       name: '看视频-点击商品再得额外奖励500金币-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -1049,9 +1013,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          excludeMatches: [
-            '@ViewGroup[index=3][childCount=1] <<n * [vid="tme_ad_tv_top_tips"]',
-          ],
           matches: [
             '@ViewGroup <<2 ViewGroup - ViewGroup <<n ViewGroup - ViewGroup >3 View',
           ],
@@ -1062,7 +1023,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 144,
+      key: 142,
       name: '看视频-可获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
