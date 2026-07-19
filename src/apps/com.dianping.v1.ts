@@ -14,7 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 5000,
           matches: [
             '@ImageView < FrameLayout <n FrameLayout + ImageView[clickable=true]',
           ],
@@ -33,10 +33,12 @@ export default defineGkdApp({
       name: '浏览完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 15000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
+          actionDelay: 1000,
           matches: ['@[text="浏览完成"] - ImageView - ImageView < FrameLayout'],
           activityIds: [
             'com.dianping.nova.picasso.DPPicassoBoxActivity',
@@ -50,7 +52,7 @@ export default defineGkdApp({
       name: '返回寻宝',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 15000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
