@@ -14,7 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 8000,
+          actionDelay: 9000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]',
           ],
@@ -72,6 +72,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 35000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -102,7 +103,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 32000,
+          actionDelay: 35000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -124,7 +125,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 32000,
+          actionDelay: 35000,
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
@@ -178,8 +179,8 @@ export default defineGkdApp({
       name: '检测到更新',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
+      matchTime: 10000,
+      resetMatch: 'app',
       rules: [
         {
           matches: ['@[text="以后再说"] < LinearLayout -n [text="检测到更新"]'],
