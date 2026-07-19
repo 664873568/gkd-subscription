@@ -17,7 +17,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 10000,
           matches: [
-            '@[desc="关闭"][vid="axq"] <n ViewGroup - FrameLayout > [desc="游戏中心"]"]',
+            '@[desc="关闭"][vid="axq"] <n ViewGroup - FrameLayout > [desc="游戏中心"]',
           ],
           activityIds: [
             'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
@@ -524,6 +524,14 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: ['@Button <<n [text="我的月付金"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text^="svg+xml;base64"] + View >n [text="cloud-background.cbba3c7a"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
