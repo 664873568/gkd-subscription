@@ -63,7 +63,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: [
             '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
