@@ -965,7 +965,7 @@ export default defineGkdApp({
     //看视频-com.tencentmusic.ad.tmead.core.activity.TMECoreActivity
     {
       key: 140,
-      name: '看视频-立即抢购',
+      name: '看视频-点击后，看*秒可获得奖励-1',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1036,6 +1036,39 @@ export default defineGkdApp({
           ],
           matches: [
             '@[desc="关闭广告"][vid="tme_ad_endcard_close"] + [vid="tme_ad_endcard_window"]',
+          ],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 143,
+      name: '看视频-点击后，看*秒可获得奖励-2',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@View < ViewGroup -2 ViewGroup >3 View'],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 16000,
+          matches: ['@View + ImageView + TextView + View + ImageView'],
+          activityIds: ['com.tencent.ams.tg.ADActivity'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          matches: [
+            '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
