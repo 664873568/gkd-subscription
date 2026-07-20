@@ -64,7 +64,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[desc="YY游仓"] <<n [text^="YY游仓"]'],
+          matches: ['@[desc="YY游仓"] <<n ViewFactoryHolder'],
           activityIds: ['.MainActivity'],
         },
       ],
