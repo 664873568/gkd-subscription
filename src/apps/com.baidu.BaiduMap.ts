@@ -130,7 +130,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 1000,
           anyMatches: [
-            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="此功能需访问飞猪旅行APP"]',
+            '@[desc="返回"][vid="title_btn_left"] <<n [vid="title_bar"] + [vid="frameLayout1"] >n [text="此功能需访问飞猪旅行APP"]',
             '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="签到送好礼"][vid="title"]',
             '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="千问-阿里 AI 助手"][vid="title"]',
           ],
