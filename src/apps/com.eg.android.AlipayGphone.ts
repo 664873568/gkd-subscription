@@ -33,6 +33,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: ['@[text="Smallfish App"] >n [text="任务完成"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -55,6 +56,22 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '芝麻粒-完成任务',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 35000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="Smallfish App"] >n [text="已浏览完成"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$XRiverLite1',
           ],
         },
       ],
