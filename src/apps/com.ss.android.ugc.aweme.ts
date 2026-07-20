@@ -57,10 +57,10 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
+      matchDelay: 5000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
           matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
@@ -141,7 +141,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 22000,
           matches: ['@[desc="close"] < View <n View'],
           activityIds: [
@@ -286,6 +285,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"] - View > [text="9ce5c5471aae4dcfa14d3bbf983c3368~tplv-20ashz96qn-1"]',
             '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
@@ -324,8 +324,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           anyMatches: [
             '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"] - View > [text="9ce5c5471aae4dcfa14d3bbf983c3368~tplv-20ashz96qn-1"]',
             '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
@@ -398,15 +400,23 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 5000,
           matches: [
-            '@ImageButton <<n View + View >n [text*=".png~tplv-49obo7mizy"]',
+            '@Image < View + [text="40998dca3d938f5fd378d6c1738e1ded.png~tplv-49obo7mizy-png75"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
+          matches: [
+            '@ImageButton <<n View + View >n [text*=".png~tplv-49obo7mizy"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
           matches: [
             '@Image < View + [text="40998dca3d938f5fd378d6c1738e1ded.png~tplv-49obo7mizy-png75"]',
           ],
@@ -459,9 +469,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@Button[desc="关闭"] - View > [text="d9fac2dc387f4604a0e96a0460ce68c8~tplv-20ashz96qn-1"]',
-          ],
+          actionDelay: 5000,
+          matches: ['@[desc="返回"] + [text="生活缴费"]'],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
           ],
@@ -469,6 +478,16 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          matches: [
+            '@Button[desc="关闭"] - View > [text$="~tplv-20ashz96qn-1"]',
+          ],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
           actionDelay: 5000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
           activityIds: [
