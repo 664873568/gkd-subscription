@@ -166,7 +166,7 @@ export default defineGkdApp({
           matches: [
             '@[text="启动应用"][vid="permission_group_title"] + [text$="是否允许？"][vid="event_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
       ],
     },
@@ -183,7 +183,7 @@ export default defineGkdApp({
           matches: [
             '@[text="启动应用"][vid="permission_group_title"] + [text^="京东金融"][vid="event_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
       ],
     },
@@ -200,7 +200,24 @@ export default defineGkdApp({
             '@[text="本次允许"] <<n * [text^="京东金融 想要打开 QQ阅读"][vid="event_title"]',
             '@[text="本次允许"] <<n * [text^="京东金融 想要打开 京东健康"][vid="event_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
+      name: '启动应用-抖音',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[text="启动应用"][vid="permission_group_title"] + [text^="抖音"][vid="event_title"]',
+          ],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
       ],
     },
