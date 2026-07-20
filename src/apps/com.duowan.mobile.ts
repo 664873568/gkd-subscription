@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="立即签到"] <<n [text="做任务赢金币"]'],
+          matches: ['@[text="立即签到"] <<n View >n [text="天天签到赢金币！"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
