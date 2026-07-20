@@ -83,7 +83,7 @@ export default defineGkdApp({
       name: '天天赚话费-天天用好券-放弃优惠',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -128,7 +128,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 3000,
+          actionDelay: 35000,
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
