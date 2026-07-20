@@ -10,11 +10,11 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
+      matchDelay: 50000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
           matches: [
             '@ImageView < FrameLayout <n FrameLayout + ImageView[clickable=true]',
           ],
@@ -78,6 +78,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           matches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true]',
           ],
