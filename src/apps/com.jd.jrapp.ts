@@ -64,14 +64,17 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 5000,
           matches: ['@[id="signView_main_portal"] <<n [text="京东秒杀"]'],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
+          activityIds: [
+            '.bm.common.web.ui.WebActivity',
+            '.bm.common.container.ui.BaseContainerActivity',
+          ],
         },
       ],
     },
-    //
     {
-      key: 6,
+      key: 4,
       name: '继续浏览',
       matchRoot: true,
       actionMaximum: 1,
@@ -85,31 +88,45 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
-      name: '返回领奖',
+      key: 5,
+      name: '看视频-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 25000,
       resetMatch: 'activity',
       rules: [
         {
+          matches: [
+            '@[vid="back_button"] -n [vid="fl_operating_group"] >n [text="返回领奖"]',
+          ],
+          activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '返回领奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 15000,
+      resetMatch: 'activity',
+      rules: [
+        {
           action: 'back',
-          actionDelay: 2000,
+          actionDelay: 11000,
           anyMatches: [
             '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
-            '@[text="返回领奖"] <<n * [text="readMissionDown"]',
-            '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
-            '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] <<n * [vid="fragment_container"]',
+            '@[text="返回领奖"] < View - View >n [text="readMissionDown"]',
+            '@[text="浏览完成"] < View - View >n [text="readMissionArrow2"]',
+            '@[text="浏览完成"] < View - View >n [text="ff776b55ee07c915"]',
+            '@[text="返回领奖"] < View - View >n [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-            '@[text="返回领奖"] <<n [vid="fl_operating_group"] +n [vid="back_button"]',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
             '.bm.common.container.ui.BaseContainerActivity',
             '.bm.common.web.ui.landscape.WebLandscapeActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
-            '.bm.sh.jm.video.ui.VibratoActivity',
           ],
         },
       ],
@@ -119,7 +136,7 @@ export default defineGkdApp({
       name: '继续浏览-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 25000,
+      matchTime: 15000,
       resetMatch: 'activity',
       rules: [
         {
@@ -131,22 +148,20 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 11000,
           anyMatches: [
             '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
-            '@[text="返回领奖"] <<n * [text="readMissionDown"]',
-            '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
-            '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] <<n * [vid="fragment_container"]',
+            '@[text="返回领奖"] < View - View >n [text="readMissionDown"]',
+            '@[text="浏览完成"] < View - View >n [text="readMissionArrow2"]',
+            '@[text="浏览完成"] < View - View >n [text="ff776b55ee07c915"]',
+            '@[text="返回领奖"] < View - View >n [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-            '@[text="返回领奖"] <<n [vid="fl_operating_group"] +n [vid="back_button"]',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
             '.bm.common.container.ui.BaseContainerActivity',
             '.bm.common.web.ui.landscape.WebLandscapeActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
-            '.bm.sh.jm.video.ui.VibratoActivity',
           ],
         },
       ],
@@ -156,28 +171,26 @@ export default defineGkdApp({
       name: '返回领奖-继续浏览',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 25000,
+      matchTime: 15000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'back',
-          actionDelay: 2000,
+          actionDelay: 11000,
           anyMatches: [
             '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
-            '@[text="返回领奖"] <<n * [text="readMissionDown"]',
-            '@[text="浏览完成"] <<n * [text="readMissionArrow2"]',
-            '@[text="浏览完成"] <<n * [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] <<n * [vid="fragment_container"]',
+            '@[text="返回领奖"] < View - View >n [text="readMissionDown"]',
+            '@[text="浏览完成"] < View - View >n [text="readMissionArrow2"]',
+            '@[text="浏览完成"] < View - View >n [text="ff776b55ee07c915"]',
+            '@[text="返回领奖"] < View - View >n [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-            '@[text="返回领奖"] <<n [vid="fl_operating_group"] +n [vid="back_button"]',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
             '.bm.common.container.ui.BaseContainerActivity',
             '.bm.common.web.ui.landscape.WebLandscapeActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
-            '.bm.sh.jm.video.ui.VibratoActivity',
           ],
         },
         {
@@ -403,17 +416,19 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '版本更新-×',
+      name: '发现新版本',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           matches: ['@[vid="ib_close"] + [vid="cd_content_root"]'],
           activityIds: [
             '.bm.mainbox.main.MainActivity',
             '.bm.common.web.ui.WebActivity',
+            '.bm.zhyy.login.ui.LoginStatePromptDialog',
           ],
         },
       ],
