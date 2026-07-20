@@ -72,7 +72,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 35000,
+          actionDelay: 3000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -87,6 +87,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           matches: ['@[desc="返回"] <<n * [text="放弃优惠"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -103,13 +104,14 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 35000,
+          actionDelay: 3000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          action: 'back',
           matches: ['@[desc="返回"] <<n * [text="放弃优惠"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -125,7 +127,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 35000,
+          action: 'back',
+          actionDelay: 3000,
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
@@ -167,6 +170,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'back',
           excludeMatches: ['ImageView - @ImageView < ViewGroup -3 ScrollView'],
           matches: ['@ImageView < ViewGroup -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
