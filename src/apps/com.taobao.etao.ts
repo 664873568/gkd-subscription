@@ -18,5 +18,20 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 40,
+      name: '更新提示',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text="取消"] + [text="好,升级"]'],
+          activityIds: ['.app.homev4.HomeV4Activity'],
+        },
+      ],
+    },
   ],
 });
