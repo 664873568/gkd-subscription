@@ -14,8 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 3000,
-          matches: ['@TextView[index=8][childCount=0] <n [id="sign-dialog"]'],
+          matches: ['@TextView[index=8][childCount=0][clickable=true] <n [id="sign-dialog"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -44,8 +43,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
-          matches: ['@TextView[index=8][childCount=0] <n [id="sign-dialog"]'],
+          matches: ['@TextView[index=8][childCount=0][clickable=true] <n [id="sign-dialog"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
         {
@@ -111,6 +109,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           matches: [
             '@TextView + TextView + [text="兑换记录"] <<n [text="兑换商城"]',
           ],
@@ -127,7 +126,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 1000,
           anyMatches: [
             '@[desc="返回"][vid="title_btn_left"] <<n [vid="title_bar"] + [vid="frameLayout1"] >n [text="此功能需访问飞猪旅行APP"]',
@@ -180,6 +178,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 3000,
           matches: [
             '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
           ],
@@ -205,31 +204,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
-    {
-      key: 13,
-      name: '免费抽大奖-再试一次-立即领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
+          actionDelay: 3000,
           matches: [
             '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
           ],
@@ -342,7 +317,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@Image <<n View - View > [text="反馈"]'],
+          anyMatches: [
+            '@Image < [id="b6b02b"] < [id="3b7612"]',
+            '@Image < [id="694d63"] < [id="ef6da1"] < [id="0ccb29"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -387,7 +365,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@Image < [id="7b5368"] < [id="01dce7"] - [id="aa39b4"] > [text="反馈"][id="665045"]',
+            '@Image < [id="7b5368"] < [id="01dce7"] + [id="aa39b4"]',
           ],
           activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
         },
@@ -404,7 +382,7 @@ export default defineGkdApp({
         {
           actionDelay: 30000,
           matches: [
-            '@[text$="跳过"][id="f6243b"] <<n * [text="反馈"][id="b9e33b"]',
+            '@[text$="跳过"][id="f6243b"] - [text="反馈"][id="b9e33b"]',
           ],
           activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
         },
@@ -419,7 +397,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@Image < [id="694d63"] <<n * [text="反馈"][id="136354"]'],
+          matches: ['@Image < [id="694d63"] - [text="反馈"][id="136354"]'],
           activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
         },
       ],
