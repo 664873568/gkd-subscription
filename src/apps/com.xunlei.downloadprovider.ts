@@ -54,7 +54,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^="跳过"][vid="adprof_splash_skip_text"] < [vid="adprof_splash_skip_ll"]',
+            '[text^="跳过"][vid="adprof_splash_skip_text"] < [vid="adprof_splash_skip_ll"]',
           ],
           activityIds: ['.launch.LaunchActivity'],
         },
