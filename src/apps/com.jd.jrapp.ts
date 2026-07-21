@@ -115,46 +115,10 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 11000,
           anyMatches: [
-            '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
-            '@[text="返回领奖"] < View - View >n [text="readMissionDown"]',
-            '@[text="浏览完成"] < View - View >n [text="readMissionArrow2"]',
-            '@[text="浏览完成"] < View - View >n [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] < View - View >n [vid="fragment_container"]',
-            '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-          ],
-          activityIds: [
-            '.bm.common.web.ui.WebActivity',
-            '.bm.common.container.ui.BaseContainerActivity',
-            '.bm.common.web.ui.landscape.WebLandscapeActivity',
-            '.bm.jrv8.JRCustomDyPageActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 8,
-      name: '继续浏览-返回领奖',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 15000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="继续浏览"] -2 [text="恭喜获得浏览奖励"]'],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'back',
-          actionDelay: 11000,
-          anyMatches: [
-            '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
-            '@[text="返回领奖"] < View - View >n [text="readMissionDown"]',
-            '@[text="浏览完成"] < View - View >n [text="readMissionArrow2"]',
-            '@[text="浏览完成"] < View - View >n [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] < View - View >n [vid="fragment_container"]',
+            '@[text="浏览完成"] +2 [text="readMissionArrow2"]',
+            '@[text="浏览完成"] < View - View >3 [text="ff776b55ee07c915"]',
+            '@[text="返回领奖"] < View - View >3 [text="readMissionDown"]',
+            '@[text="返回领奖"] < View - View >3 [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
           ],
           activityIds: [
@@ -179,11 +143,10 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 11000,
           anyMatches: [
-            '@View + [id="fundCompSuite"] <<n [text="15理财日"]',
-            '@[text="返回领奖"] < View - View >n [text="readMissionDown"]',
-            '@[text="浏览完成"] < View - View >n [text="readMissionArrow2"]',
-            '@[text="浏览完成"] < View - View >n [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] < View - View >n [vid="fragment_container"]',
+            '@[text="浏览完成"] +2 [text="readMissionArrow2"]',
+            '@[text="浏览完成"] < View - View >3 [text="ff776b55ee07c915"]',
+            '@[text="返回领奖"] < View - View >3 [text="readMissionDown"]',
+            '@[text="返回领奖"] < View - View >3 [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
           ],
           activityIds: [
@@ -339,30 +302,31 @@ export default defineGkdApp({
         },
       ],
     },
+    //天天赚京豆
     {
       key: 25,
-      name: '任务已完成-恭喜获得',
+      name: '天天赚京豆-任务已完成-恭喜获得',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView -2 [text="再领1京豆"]'],
+          matches: ['@TextView -2 [text~="再领\\d京豆"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
     {
       key: 26,
-      name: '任务未完成-继续赚奖励',
+      name: '天天赚京豆-任务未完成-继续赚奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView - [text="立即领取"] -2 [text~="\\\\d京豆"]'],
+          matches: ['@TextView - [text="立即领取"] -2 [text~="\\d京豆"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
