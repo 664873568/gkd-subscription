@@ -7,60 +7,6 @@ export default defineGkdApp({
     //天猫超市
     {
       key: 0,
-      name: '天猫超市-好运签-兑赠金',
-      matchRoot: true,
-      actionMaximum: 3,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: ['@[text="兑赠金立即兑换"] <<n [text="天猫超市"]'],
-          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[text="知道了"] <<n [text="天猫超市"]'],
-          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
-        },
-      ],
-    },
-    {
-      key: 1,
-      name: '天猫超市-好运签-摇一摇',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[id="YVHLmvad9Z56"] > [text="摇一摇"] <<n [text="天猫超市"]',
-          ],
-          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '天猫超市-好运签-做任务赚好运值',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[id="YVHLmvad9Z56"] > [text="做任务赚好运值"] <<n [text="天猫超市"]',
-          ],
-          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
-        },
-      ],
-    },
-    {
-      key: 3,
       name: '天猫超市-好运签-做任务',
       matchRoot: true,
       actionMaximum: 1,
@@ -78,8 +24,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 16000,
           matches: [
-            '@[text="任务已完成"] <n [desc="任务已完成 快去领奖励"] <<n [text="天猫超市"]',
+            '@[text="任务已完成"] <n [desc="任务已完成 快去领奖励"] <<n [text^="天猫超市"]',
           ],
         },
         {
@@ -99,7 +46,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 1,
       name: '天猫超市-好运签-做任务-×',
       matchRoot: true,
       actionMaximum: 1,
