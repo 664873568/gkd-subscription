@@ -198,7 +198,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@View - [text$="s后自动关闭"] - [desc="HomepageActWindowImage"]'],
+          matches: [
+            '@View - [text$="s后自动关闭"] - [desc="HomepageActWindowImage"]',
+          ],
           activityIds: ['.MainActivity'],
         },
       ],
