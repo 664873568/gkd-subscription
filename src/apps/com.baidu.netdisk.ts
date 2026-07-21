@@ -238,7 +238,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@RelativeLayout <<n FrameLayout + FrameLayout + FrameLayout'],
+          matches: [
+            '@RelativeLayout <<n FrameLayout + FrameLayout + FrameLayout',
+          ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
