@@ -241,9 +241,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 16000,
-          matches: [
-            '@View < WebView < WebView <<n LinearLayout + View + View',
-          ],
+          matches: ['@View < WebView < WebView <<n LinearLayout + View + View'],
           activityIds: ['com.byazt.gd.Stub_Standard_Activity'],
         },
       ],
