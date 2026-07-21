@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView[index=8][childCount=0][clickable=true] <n [id="sign-dialog"]'],
+          matches: [
+            '@TextView[index=8][childCount=0][clickable=true] <n [id="sign-dialog"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -43,7 +45,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@TextView[index=8][childCount=0][clickable=true] <n [id="sign-dialog"]'],
+          matches: [
+            '@TextView[index=8][childCount=0][clickable=true] <n [id="sign-dialog"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
         {
@@ -364,9 +368,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@Image < [id="7b5368"] < [id="01dce7"] + [id="aa39b4"]',
-          ],
+          matches: ['@Image < [id="7b5368"] < [id="01dce7"] + [id="aa39b4"]'],
           activityIds: ['com.byazt.xs.Stub_Standard_Portrait_Activity'],
         },
       ],
