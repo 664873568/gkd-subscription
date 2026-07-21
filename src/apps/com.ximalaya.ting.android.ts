@@ -995,18 +995,16 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@TextView - Image <<n * [text="点击商品再得额外奖励500金币"]',
-            '@TextView + View <<n * [text="点击商品再得额外奖励500金币"]',
+            '@View[index=0][childCount=2][clickable=true] <<n FrameLayout - LinearLayout > [text="点击商品再得额外奖励500金币"]',
           ],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
           actionDelay: 10000,
           matches: [
-            '@View + ImageView <<n * [text="恭喜已获得额外奖励500金币"]',
+            'ImageView - @View < FrameLayout + FrameLayout >n [text="恭喜已获得额外奖励500金币"]',
           ],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
