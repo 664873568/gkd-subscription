@@ -32,8 +32,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text^="跳过"] <<n [vid="img_splash_ad"]',
-            '@[vid="tv_splash_ad_skip"] <<n [vid="img_splash_ad"]',
-            '@[vid="tv_splash_ad_skip"] <<n [vid="img_splash_ad"]',
+            '@[text^="跳过"][vid="tv_splash_ad_skip"] - [vid="img_splash_ad"]',
             '@[text^="跳过"][vid="fanti_ad_txt_skip"] <<n [vid="img_splash_ad"]',
           ],
           activityIds: ['null', 'com.jifen.qkbase.main.MainActivity'],
