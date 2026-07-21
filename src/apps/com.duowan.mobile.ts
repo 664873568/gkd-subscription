@@ -53,7 +53,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="领奖励"] <<n [text="做任务赢金币"]'],
+          matches: ['@[text="领奖励"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
@@ -82,7 +82,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="领奖励"] <<n [text="做任务赢金币"]'],
+          matches: ['@[text="领奖励"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
@@ -95,7 +95,7 @@ export default defineGkdApp({
     },
     {
       key: 6,
-      name: '做任务赢金币-限时任务',
+      name: '做任务赢金币-访问YY游仓',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -103,7 +103,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[desc="YY游仓"] <<n [text^="YY游仓"]'],
+          matches: ['@[desc="YY游仓"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
