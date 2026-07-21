@@ -72,7 +72,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 3000,
+          actionDelay: 32000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
@@ -104,7 +104,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 3000,
+          actionDelay: 32000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
