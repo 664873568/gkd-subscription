@@ -4,6 +4,24 @@ export default defineGkdApp({
   id: 'com.suning.mobile.epa',
   name: '星图金融',
   groups: [
+    //天天领现金
+    {
+      key: 0,
+      name: '天天领现金-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@ImageButton + View >n [text="点击去移动"]',
+            '@ImageButton + View >n [text~="\\\\ds后去中国移动"]',
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+      ],
+    },
     //首页功能类
     {
       key: 40,
