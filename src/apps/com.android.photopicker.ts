@@ -2,7 +2,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
   id: 'com.android.photopicker',
-  name: '照片选择器',
+  name: '照片和视频',
   groups: [
     {
       key: 0,
