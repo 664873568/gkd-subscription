@@ -2,7 +2,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
   id: 'com.miui.systemAdSolution',
-  name: '智能服务/',
+  name: '智能服务',
   groups: [
     //首页广告类
     {
@@ -11,13 +11,12 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           matches: [
             '@[text^="跳过广告"][vid="view_skip_button"] <<n [vid="view_splashAdSloganFlagView"]',
           ],
-          activityIds: ['null'],
         },
       ],
     },
