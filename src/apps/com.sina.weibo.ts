@@ -28,7 +28,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="任务完成\\n返回YY"]'],
-          activityIds: ['.browser.WeiboBrowser','null'],
+          activityIds: ['.browser.WeiboBrowser', 'null'],
         },
       ],
     },
@@ -49,7 +49,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: ['@[text="任务完成\\\\\\\\n返回YY"]'],
-          activityIds: ['.browser.WeiboBrowser','null'],
+          activityIds: ['.browser.WeiboBrowser', 'null'],
         },
       ],
     },
