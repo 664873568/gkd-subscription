@@ -2,7 +2,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
   id: 'com.android.providers.media.module',
-  name: '媒体文件选择器',
+  name: '媒体选择工具',
   groups: [
     {
       key: 0,
