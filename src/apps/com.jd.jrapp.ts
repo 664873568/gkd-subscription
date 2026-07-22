@@ -13,7 +13,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 3000,
           matches: [
             '@[vid="common_webview_navbar_left"] <<n * [text^="正在跳转"]',
           ],
@@ -30,7 +30,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 3000,
           matches: [
             '@[vid="common_webview_navbar_left"] <<n * [text^="跳转中"]',
           ],
@@ -47,6 +47,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 3000,
           matches: [
             '@Button < [vid="common_webview_navbar_left"] + [text="商品详情"]',
           ],
@@ -64,7 +65,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 3000,
           matches: ['@[id="signView_main_portal"] <<n [text="京东秒杀"]'],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -113,7 +114,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 11000,
           anyMatches: [
             '@[text="浏览完成"] +2 [text="readMissionArrow2"]',
             '@[text="浏览完成"] < View - View >3 [text="ff776b55ee07c915"]',
@@ -127,40 +127,6 @@ export default defineGkdApp({
             '.bm.common.web.ui.landscape.WebLandscapeActivity',
             '.bm.jrv8.JRCustomDyPageActivity',
           ],
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '返回领奖-继续浏览',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 15000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          action: 'back',
-          actionDelay: 11000,
-          anyMatches: [
-            '@[text="浏览完成"] +2 [text="readMissionArrow2"]',
-            '@[text="浏览完成"] < View - View >3 [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] < View - View >3 [text="readMissionDown"]',
-            '@[text="返回领奖"] < View - View >3 [vid="fragment_container"]',
-            '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
-          ],
-          activityIds: [
-            '.bm.common.web.ui.WebActivity',
-            '.bm.common.container.ui.BaseContainerActivity',
-            '.bm.common.web.ui.landscape.WebLandscapeActivity',
-            '.bm.jrv8.JRCustomDyPageActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[text="继续浏览"] -2 [text="恭喜获得浏览奖励"]'],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
@@ -196,6 +162,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 3000,
           matches: ['@[vid="manto_actionbar_home"] <<n * [text="京民通"]'],
           activityIds: ['com.jingdong.manto.ui.MantoActivitySingleProcess'],
         },
