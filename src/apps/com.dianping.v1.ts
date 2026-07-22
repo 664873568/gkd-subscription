@@ -80,7 +80,7 @@ export default defineGkdApp({
         {
           actionDelay: 1000,
           matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true]',
+            '@ImageView[clickable=true] < FrameLayout * FrameLayout > ImageView[clickable=true]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
