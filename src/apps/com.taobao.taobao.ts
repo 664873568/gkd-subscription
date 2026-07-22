@@ -24,7 +24,6 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          actionDelay: 16000,
           matches: [
             '@[text="任务已完成"] <n [desc="任务已完成 快去领奖励"] <<n [text^="天猫超市"]',
           ],
