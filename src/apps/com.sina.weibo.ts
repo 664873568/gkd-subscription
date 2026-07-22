@@ -27,8 +27,8 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="任务完成\\n返回YY"] <<n [text="用户任务中心"]'],
-          activityIds: ['.browser.WeiboBrowser'],
+          matches: ['@[text="任务完成\\n返回YY"]'],
+          activityIds: ['.browser.WeiboBrowser','null'],
         },
       ],
     },
@@ -48,8 +48,8 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="任务完成\\n返回YY"] <<n [text="用户任务中心"]'],
-          activityIds: ['.browser.WeiboBrowser'],
+          matches: ['@[text="任务完成\\\\\\\\n返回YY"]'],
+          activityIds: ['.browser.WeiboBrowser','null'],
         },
       ],
     },
@@ -63,7 +63,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] <<n * [text="广告"]'],
+          matches: ['@[text="跳过"] < FrameLayout - [text="广告"]'],
           activityIds: ['null'],
         },
       ],
