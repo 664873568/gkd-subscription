@@ -78,7 +78,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="打开"] <<n * [text="提示"]'],
+          matches: [
+            '@[text="打开"] <n View -n [text="提示"]',
+            '@[text="确定"] <n View -n [text="提示"]',
+          ],
           activityIds: ['.MainActivity'],
         },
       ],
@@ -93,6 +96,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 1000,
           matches: ['@[text="取消"] - [desc="删除"]'],
           activityIds: ['.MainActivity'],
         },
