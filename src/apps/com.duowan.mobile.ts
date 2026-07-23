@@ -29,7 +29,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 1,
       name: '做任务赢金币-打开',
       matchRoot: true,
       actionMaximum: 1,
@@ -39,6 +39,22 @@ export default defineGkdApp({
         {
           matches: [
             '@[text="打开"][vid="btn_ok"] <<n * [text="提醒"][vid="message"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '做任务赢金币-任务已完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@TextView - [text="前往领取"] -n View > [text="任务已完成"]',
           ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
