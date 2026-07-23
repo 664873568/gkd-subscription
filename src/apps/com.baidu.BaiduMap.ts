@@ -350,7 +350,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 11000,
+          actionDelay: 16000,
           matches: ['@ImageView + ImageView +2 [text="反馈"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Activity'],
         },
@@ -448,7 +448,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          actionDelay: 11000,
+          actionDelay: 16000,
           matches: [
             '@[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [id$="ksad_kwad_titlebar_title"]',
           ],
@@ -562,6 +562,16 @@ export default defineGkdApp({
           matches: ['@[text*="微信"] <<n * [text="提前拿奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
+      ],
+    },
+    {
+      key: 63,
+      name: '看视频-微信-恭喜获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
         {
           preKeys: [0],
           key: 1,
@@ -571,7 +581,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 63,
+      key: 64,
       name: '看视频-我要更快拿奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -587,7 +597,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 64,
+      key: 65,
       name: '看视频-打开App',
       matchRoot: true,
       actionMaximum: 1,
