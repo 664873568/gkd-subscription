@@ -46,7 +46,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@TextView[index=8][childCount=0][clickable=true] <n [id="sign-dialog"]',
+            '@TextView[childCount=0][clickable=true] <n [id="sign-dialog"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -115,7 +115,7 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '@TextView + TextView + [text="兑换记录"] <<n [text="兑换商城"]',
+            '@TextView + TextView + [text="兑换记录"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
