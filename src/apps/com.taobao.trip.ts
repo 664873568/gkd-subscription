@@ -76,21 +76,6 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '天天集能量-看视频赚钱',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'none',
-          matches: ['@[text="看视频赚钱"] <<n [text="天天集能量"]'],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
-        },
-      ],
-    },
-    {
-      key: 5,
       name: '天天集能量-领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -99,6 +84,23 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="领取奖励"] <<n [text="天天集能量"]'],
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 5,
+      name: '天天集能量-任意点击一个酒店',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]',
+          ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -116,37 +118,6 @@ export default defineGkdApp({
           activityIds: [
             'com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity',
           ],
-        },
-      ],
-    },
-    {
-      key: 7,
-      name: '河马畅听-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView - [text="河马畅听"]'],
-          activityIds: ['com.qq.e.ads.ADActivity'],
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '天天集能量-任意点击一个酒店',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: [
-            '@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]',
-          ],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
     },
@@ -186,13 +157,13 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="anythink_myoffer_btn_close_id"] <<n * [text="浏览"][vid="anythink_myoffer_panel_cta_layout"]',
+            '@[vid="anythink_myoffer_btn_close_id"] + [vid="anythink_myoffer_btn_close_shade_id"]',
           ],
           activityIds: ['com.anythink.core.common.inner.ui.ATPortraitActivity'],
         },
       ],
     },
-    //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
+    //看视频-com.baidu.mobads.sdk.api.*
     {
       key: 30,
       name: '看视频-精选推荐',
@@ -222,7 +193,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.anythink.basead.ui.ATPortraitActivity
+    //看视频-com.anythink.basead.ui.ATPortraitActivity.*
     {
       key: 40,
       name: '看视频-跳过↓',
@@ -253,7 +224,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 100,
           matches: [
             '@[text="跳过"] -n [text="奖励已领取"] <<n * [text="反馈"]',
           ],
@@ -276,7 +246,6 @@ export default defineGkdApp({
           snapshotUrls: ['https://i.gkd.li/i/23547990'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
-            'null',
           ],
         },
       ],
@@ -315,6 +284,63 @@ export default defineGkdApp({
     //看视频-com.qq.e.ads.*
     {
       key: 60,
+      name: '看视频-微信-提前拿奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 61,
+      name: '看视频-微信-恭喜获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView < FrameLayout + FrameLayout >2 ImageView',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 62,
+      name: '看视频-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@ImageView[width=48&&height=48] < FrameLayout < FrameLayout',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@ImageView[width=48&&height=48] < FrameLayout < FrameLayout',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 63,
       name: '看视频-二级广告页-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -327,32 +353,27 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
-      key: 61,
-      name: '看视频-广告-×',
+      key: 70,
+      name: '看视频-奖励已到账',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          actionDelay: 31000,
           matches: [
-            '@ImageView[width=48&&height=48] <<n * [text="滑动/点击了解更多"]',
+            '@View[clickable=true] < RelativeLayout + ImageView',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@ImageView[width=48&&height=48] <<n * [text="立即下载"]'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+          activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
         },
       ],
     },
-    //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
-      key: 70,
+      key: 71,
       name: '看视频-完成APP下载-即可领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -360,21 +381,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          actionDelay: 1000,
           matches: [
-            '@ImageView - RelativeLayout > View <<n [vid="action_bar_root"] >n [text="  广告"] + [text*="点众快看"]',
+            '@View[clickable=false] <<n FrameLayout -2 RelativeLayout > View',
           ],
-          snapshotUrls: ['https://i.gkd.li/i/23561396'],
-          activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="关闭广告"] - [text="去下载拿奖励"] - [text="只要完成APP下载，即可领取奖励"]',
-          ],
-          snapshotUrls: ['https://i.gkd.li/i/23561405'],
           activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
         },
       ],
@@ -420,8 +429,27 @@ export default defineGkdApp({
     },
     //首页广告类
     {
-      key: 499,
+      key: 498,
       name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[text^="跳过"][clickable=true]',
+            '@[vid="anythink_myoffer_splash_skip_area"] > [text$="跳过"]',
+          ],
+          activityIds: [
+            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 499,
+      name: '首页广告-跳过广告',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -431,12 +459,10 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="跳过"] + [text="5814"]',
             '@[id$="ms_skipView"] <<n * [id$="ms_img_meishu_ad_tag"]',
-            '@[text$="跳过"] < [vid="anythink_myoffer_splash_skip_area"]',
             '@[text="跳过广告"][vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
           ],
           activityIds: [
             'com.alipay.mobile.quinox.LauncherActivity',
-            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
             '.splash.ui.VideoSplashActivity',
           ],
         },
