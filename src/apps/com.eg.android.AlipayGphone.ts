@@ -326,9 +326,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 31000,
-          matches: [
-            '@TextView[clickable=true] <<n [text="悬浮球模版"]',
-          ],
+          matches: ['@TextView[clickable=true] <<n [text="悬浮球模版"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$XRiverLite2',
           ],
