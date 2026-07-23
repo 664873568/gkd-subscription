@@ -145,7 +145,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          matches: ['[id$="backButton"] <<n *[desc="返回"]'],
+          matches: ['[id$="backButton"][desc="返回"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567088'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
