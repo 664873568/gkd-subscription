@@ -21,6 +21,21 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 40,
+      name: '青少年模式',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="我知道了"][vid="tv_determine"]'],
+          activityIds: ['com.dz.business.main.ui.MainActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
@@ -31,7 +46,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="跳过"] + [text~="\\\\d"]'],
+          matches: ['@[text="跳过"]'],
           activityIds: ['com.dz.business.main.ui.MainActivity'],
         },
       ],
