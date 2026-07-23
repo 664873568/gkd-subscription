@@ -64,6 +64,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 2,
+      name: '薅羊毛 赚话费-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="O1CN01VQmkCg23mXLrMyROe_!!6000000007298-2-tps-144-144"] <<n [text="薅羊毛 赚话费"]',
+          ],
+          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
