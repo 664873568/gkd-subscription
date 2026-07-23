@@ -90,6 +90,21 @@ export default defineGkdApp({
     },
     {
       key: 5,
+      name: '浏览完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[text="浏览完成"] < View - View >3 [text="readMissionDown"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 6,
       name: '看视频-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -109,7 +124,7 @@ export default defineGkdApp({
       name: '返回领奖',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 15000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -269,9 +284,37 @@ export default defineGkdApp({
         },
       ],
     },
-    //天天赚京豆
     {
       key: 25,
+      name: '点淘',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="下载/打开APP"] <<n [text="点淘"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 26,
+      name: '打开APP',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="打开"] - [text="取消"] < View <<n Dialog'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    //天天赚京豆
+    {
+      key: 30,
       name: '天天赚京豆-任务已完成-恭喜获得',
       matchRoot: true,
       actionMaximum: 1,
@@ -285,7 +328,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 26,
+      key: 31,
       name: '天天赚京豆-任务未完成-继续赚奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -299,7 +342,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 27,
+      key: 32,
       name: '健康好礼限时领-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -315,7 +358,7 @@ export default defineGkdApp({
     },
     //机构福利
     {
-      key: 30,
+      key: 40,
       name: '做任务赚财宝分',
       matchRoot: true,
       actionMaximum: 1,
@@ -346,7 +389,7 @@ export default defineGkdApp({
     },
     //功能应用类
     {
-      key: 40,
+      key: 400,
       name: '发现新版本',
       matchRoot: true,
       actionMaximum: 1,
