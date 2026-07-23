@@ -98,7 +98,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[text="浏览完成"] < View - View >3 [text="readMissionDown"]'],
+          matches: [
+            '@[text="浏览完成"] < View - View >3 [text="readMissionDown"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
