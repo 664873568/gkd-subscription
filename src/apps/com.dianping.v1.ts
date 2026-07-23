@@ -10,13 +10,13 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      matchDelay: 50000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          actionDelay: 5000,
           matches: [
-            '@ImageView < FrameLayout <n FrameLayout + ImageView[clickable=true]',
+            'ImageView < @FrameLayout <3 FrameLayout + ImageView[clickable=true]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
