@@ -114,9 +114,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: [
-            '@TextView + TextView + [text="兑换记录"]',
-          ],
+          matches: ['@TextView + TextView + [text="兑换记录"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
