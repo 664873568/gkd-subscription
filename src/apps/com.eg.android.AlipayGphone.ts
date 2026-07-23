@@ -198,7 +198,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'none',
-          matches: ['@[text="单选题"] <<n [id$="/h5_trans_progress_rl"]'],
+          matches: ['@[text="单选题"] <<n [id$="h5_trans_progress_rl"]'],
           snapshotUrls: ['https://i.gkd.li/i/23567048'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
@@ -310,6 +310,27 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    //游戏中心
+    {
+      key: 40,
+      name: '任务已完成-返回领奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 31000,
+          matches: [
+            '@TextView[clickable=true] <<n [text="悬浮球模版"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$XRiverLite2',
           ],
         },
       ],
