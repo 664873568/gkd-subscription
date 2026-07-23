@@ -291,9 +291,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"]',
-          ],
+          matches: ['@[text*="微信"] <n FrameLayout - [text="提前拿奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -307,9 +305,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageView < FrameLayout + FrameLayout >2 ImageView',
-          ],
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -365,9 +361,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 31000,
-          matches: [
-            '@View[clickable=true] < RelativeLayout + ImageView',
-          ],
+          matches: ['@View[clickable=true] < RelativeLayout + ImageView'],
           activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
         },
       ],

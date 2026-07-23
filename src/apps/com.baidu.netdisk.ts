@@ -400,9 +400,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"]',
-          ],
+          matches: ['@[text*="微信"] <n FrameLayout - [text="提前拿奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
