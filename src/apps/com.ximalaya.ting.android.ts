@@ -995,6 +995,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
+            '@Button[clickable=true] <<n FrameLayout - LinearLayout > [text="点击商品再得额外奖励500金币"]',
             '@View[index=0][childCount=2][clickable=true] <<n FrameLayout - LinearLayout > [text="点击商品再得额外奖励500金币"]',
           ],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
@@ -1011,6 +1012,10 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          excludeAllMatches: [
+            '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
+            '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
+          ],
           matches: [
             '@ViewGroup <<2 ViewGroup - ViewGroup <<n ViewGroup - ViewGroup >3 View',
           ],
