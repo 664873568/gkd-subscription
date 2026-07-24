@@ -188,7 +188,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] + [text~="\\\\d"]'],
+          matches: ['@[text="跳过"] + [text~="[0-9]"]'],
           activityIds: ['.MainActivity'],
         },
       ],
