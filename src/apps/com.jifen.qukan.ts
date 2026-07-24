@@ -9,14 +9,13 @@ export default defineGkdApp({
       name: '限时福利-自动看视频',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
             '@[text$="自动看视频"][vid="tv_countdown"] -n [vid="xad_dialog_image"]',
           ],
-          activityIds: ['null'],
         },
       ],
     },
