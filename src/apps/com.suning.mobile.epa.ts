@@ -17,7 +17,7 @@ export default defineGkdApp({
           anyMatches: [
             '@ImageButton + View >n [text="点击去移动"]',
             '@ImageButton + View >n [text="点击去头条极速"]',
-            '@ImageButton + View >n [text~="\\\\ds后去中国移动"]',
+            '@ImageButton + View >n [text~="[0-9]s后去中国移动"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
