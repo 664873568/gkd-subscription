@@ -137,9 +137,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageButton +n [text="立即使用"] <<n [text="简单打印"]',
-          ],
+          matches: ['@ImageButton +n [text="立即使用"] <<n [text="简单打印"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
@@ -322,9 +320,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="svg%3e"] <<n * +n * > [text="已发放"]',
-          ],
+          matches: ['@[text="svg%3e"] <<n * +n * > [text="已发放"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
