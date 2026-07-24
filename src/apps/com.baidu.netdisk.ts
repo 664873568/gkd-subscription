@@ -440,6 +440,22 @@ export default defineGkdApp({
     },
     {
       key: 21,
+      name: '看视频-跳过-试玩*秒获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="跳过小游戏立即前往"] < @[id="bottom-cta"] <<n * +n * [text="跳过"] -n [text~="试玩[0-9]+秒获得奖励"]',
+          ],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 22,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -453,7 +469,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 23,
       name: '看视频-礼包-再逛*秒后可领奖',
       matchRoot: true,
       actionMaximum: 3,
@@ -470,7 +486,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23,
+      key: 24,
       name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -487,7 +503,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 25,
       name: '看视频-礼包-奖励已领取-<',
       matchRoot: true,
       actionMaximum: 1,
