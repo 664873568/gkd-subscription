@@ -238,14 +238,18 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[vid="send_msg_icon"] <n [vid="genflow_input_container"]'],
+          matches: [
+            '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
+          ],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
         {
           preKeys: [0],
           key: 1,
           actionDelay: 10000,
-          matches: ['@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]'],
+          matches: [
+            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
+          ],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
       ],
@@ -267,7 +271,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 10000,
-          matches: ['@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]'],
+          matches: [
+            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
+          ],
           activityIds: ['.listen.notes.ui.activity.ListenNotesPlayActivity'],
         },
       ],
@@ -288,7 +294,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[vid="send_msg_icon"] <n [vid="genflow_input_container"]'],
+          matches: [
+            '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
+          ],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
       ],
@@ -309,13 +317,17 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="笔记"][vid="view_video_content_child_tab_item_layout_text"]'],
+          matches: [
+            '@[text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
+          ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: ['@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]'],
+          matches: [
+            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
+          ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
       ],
@@ -343,7 +355,7 @@ export default defineGkdApp({
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           matches: ['@[vid="iv_back"] + [vid="iv_title"] + [vid="iv_search"]'],
@@ -371,10 +383,12 @@ export default defineGkdApp({
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
-          matches: ['@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]'],
+          matches: [
+            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
+          ],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
       ],
@@ -398,7 +412,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: ['@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]'],
+          matches: [
+            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
+          ],
           activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
         },
       ],
