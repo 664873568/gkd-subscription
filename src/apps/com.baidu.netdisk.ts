@@ -194,7 +194,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^="我要"] <<n View -n View >n [text$="跳过"] - [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text^="我要"] <<n * -n * [text$="跳过"] - [text~="去体验[0-9]+秒可立即领奖"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -256,8 +256,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="我要立即领奖"] <<n View -n View >n [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '@[text="我要减广告时长"] <<n View -n View >n [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -274,7 +274,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="7b144c81c2cb181f"] <<n View -n View >n [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text="7b144c81c2cb181f"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -322,7 +322,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="跳过"] <<n [desc="skip_button"] <n ViewGroup - ViewGroup > [desc="gift_box"]',
+            '@[text="跳过"] <<n [desc="skip_button"] <n * - * [desc="gift_box"]',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
