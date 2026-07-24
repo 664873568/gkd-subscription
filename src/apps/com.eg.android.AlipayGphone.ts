@@ -305,6 +305,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 3000,
           matches: [
             '@TextView[text="正在跳转"] <<n * WebView[text="正在跳转"]',
           ],
