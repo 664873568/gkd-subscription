@@ -478,9 +478,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          excludeMatches: [
-            '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-          ],
+          excludeMatches: ['[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'],
           matches: [
             '@RelativeLayout <<n FrameLayout + FrameLayout + FrameLayout',
           ],
