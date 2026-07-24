@@ -13,7 +13,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          action: 'clickCenter',
+          action: 'clickNode',
           actionDelay: 16000,
           anyMatches: [
             '@[desc^="YY"] >n [desc^="打开"][vid="icon"]',
