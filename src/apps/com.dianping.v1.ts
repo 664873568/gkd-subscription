@@ -70,23 +70,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
-      name: '查看附近的店',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 1000,
-          matches: [
-            '@ImageView[clickable=true] < FrameLayout * FrameLayout > ImageView[clickable=true]',
-          ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
-        },
-      ],
-    },
-    {
       key: 4,
       name: '继续开宝箱集卡',
       matchRoot: true,
