@@ -208,11 +208,13 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
           matches: [
             '@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
+          activityIds: [
+            '.bullet.ui.BulletContainerActivity',
+            '.search.activity.SearchResultActivity',
+          ],
         },
       ],
     },
@@ -261,8 +263,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 5000,
           matches: [
-            '@Image < View +2 View > [text="74d6f58b0fa1e485326f55622391637e.png~tplv-49obo7mizy-75compress"]',
+            '@Image < View + [text="b2353ab71ceb1a18d61081ee5554d385.png~tplv-49obo7mizy-75compress"] + View > [text="74d6f58b0fa1e485326f55622391637e.png~tplv-49obo7mizy-75compress"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -284,6 +287,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '@Button[desc="关闭"] - View > [text="7711e33a3ceb4b608189a89f05469b9f~tplv-20ashz96qn-1"]',
             '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
             '@Button[desc="关闭"] - View > [text="9ce5c5471aae4dcfa14d3bbf983c3368~tplv-20ashz96qn-1"]',
             '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
@@ -309,7 +313,7 @@ export default defineGkdApp({
     },
     {
       key: 33,
-      name: '车主服务-信用卡-广告-×',
+      name: '车主服务-信用卡-广告-残忍离开',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -325,8 +329,6 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
-            '@Button[desc="关闭"] - View > [text="9ce5c5471aae4dcfa14d3bbf983c3368~tplv-20ashz96qn-1"]',
             '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
@@ -335,6 +337,32 @@ export default defineGkdApp({
     },
     {
       key: 34,
+      name: '车主服务-信用卡-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '@Button[desc="关闭"] - View > [text="7711e33a3ceb4b608189a89f05469b9f~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"] - View > [text="9ce5c5471aae4dcfa14d3bbf983c3368~tplv-20ashz96qn-1"]',
+          ],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 35,
       name: '车主服务-食安保/运费险',
       matchRoot: true,
       actionMaximum: 1,
@@ -357,7 +385,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 35,
+      key: 36,
       name: '车主服务-我的保障-广告',
       matchRoot: true,
       actionMaximum: 1,
@@ -373,7 +401,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 36,
+      key: 37,
       name: '车主服务-我的保障',
       matchRoot: true,
       actionMaximum: 1,
@@ -390,7 +418,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 37,
+      key: 38,
       name: '车主服务-我的保障-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -412,10 +440,18 @@ export default defineGkdApp({
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@ImageButton[text="0f11e8da0dede4385b4d24d1fc6f2aa4.png~tplv-49obo7mizy-75compress"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
       ],
     },
     {
-      key: 38,
+      key: 39,
       name: '车主服务-查电费-广告',
       matchRoot: true,
       actionMaximum: 1,
@@ -433,7 +469,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 39,
+      key: 40,
       name: '车主服务-查电费',
       matchRoot: true,
       actionMaximum: 1,
@@ -450,7 +486,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 40,
+      key: 41,
       name: '车主服务-查电费-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -487,7 +523,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 42,
       name: '车主服务-月付金',
       matchRoot: true,
       actionMaximum: 1,
@@ -511,7 +547,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 43,
       name: '车主服务-月付金-广告',
       matchRoot: true,
       actionMaximum: 1,
@@ -528,7 +564,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 43,
+      key: 44,
       name: '车主服务-月付金-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -562,7 +598,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 44,
+      key: 45,
       name: '车主服务-抽免单',
       matchRoot: true,
       actionMaximum: 1,
@@ -580,7 +616,7 @@ export default defineGkdApp({
     },
     //更多任务
     {
-      key: 45,
+      key: 46,
       name: '车主服务-从「钱包」访问车主服务',
       matchRoot: true,
       actionMaximum: 1,
@@ -606,7 +642,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 46,
+      key: 47,
       name: '车主服务-搜索「车险」进入频道',
       matchRoot: true,
       actionMaximum: 1,
@@ -633,7 +669,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 47,
+      key: 48,
       name: '车主服务-车主卡券',
       matchRoot: true,
       actionMaximum: 1,
@@ -670,13 +706,13 @@ export default defineGkdApp({
       name: '赚充值金-更多任务',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 9000,
+          actionDelay: 10000,
           matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=2]',
+            '@ViewGroup[childCount=0] < ViewGroup[childCount=2] -n ScrollView',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
@@ -808,7 +844,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 32000,
           matches: ['@ImageView < [desc="任务完成 返回领取，关闭，按钮"]'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
