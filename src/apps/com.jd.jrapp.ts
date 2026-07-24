@@ -324,7 +324,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView -2 [text~="再领\\\\d京豆"]'],
+          matches: ['@TextView -2 [text~="再领[0-9]京豆"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -338,7 +338,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView - [text="立即领取"] -2 [text~="\\\\d京豆"]'],
+          matches: ['@TextView - [text="立即领取"] -2 [text~="[0-9]京豆"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
