@@ -329,7 +329,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="7b144c81c2cb181f"] -n [text="立即领取"] -n * > [text="限时领取"]'],
+          matches: [
+            '@[text="7b144c81c2cb181f"] -n [text="立即领取"] -n * > [text="限时领取"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
