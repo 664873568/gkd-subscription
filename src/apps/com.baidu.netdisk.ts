@@ -216,27 +216,6 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 13,
-      name: '任务中心-录入错题本',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="全部保存"] <<n [text="学习服务页"]'],
-          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[text="任务完成"][vid="tv_title"] -2 [vid="iv_close"]'],
-          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
-        },
-      ],
-    },
     //看视频-com.byazt.gd.Stub_Standard_Portrait_Activity
     {
       key: 20,
