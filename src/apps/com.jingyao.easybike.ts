@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '游戏中心-×',
+      name: '任务完成-领奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
