@@ -234,7 +234,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: ['@[desc="返回"] <<n * [text="Smallfish App"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -252,7 +252,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: ['@[desc="关闭"] <<n * [text="Smallfish App"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
@@ -269,7 +269,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: ['@[desc="返回"] <<n * [desc$="bridge.html"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
