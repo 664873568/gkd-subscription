@@ -14,9 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@TextView[width=81&&height=81] <n [id="sign-dialog"]',
-          ],
+          matches: ['@TextView[width=81&&height=81] <n [id="sign-dialog"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -47,9 +45,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@TextView[width=81&&height=81] <n [id="sign-dialog"]',
-          ],
+          matches: ['@TextView[width=81&&height=81] <n [id="sign-dialog"]'],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
         {
@@ -262,9 +258,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text$="跳过"] -n [text="奖励已领取"]',
-          ],
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -278,9 +272,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text$="跳过"] -n [text="奖励已领取"]',
-          ],
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -323,9 +315,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            'ImageView < @ViewGroup <<n * - * [desc="gift_box"]',
-          ],
+          matches: ['ImageView < @ViewGroup <<n * - * [desc="gift_box"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -551,9 +541,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          matches: [
-            'ImageView < @ViewGroup <<n * - * [desc="gift_box"]',
-          ],
+          matches: ['ImageView < @ViewGroup <<n * - * [desc="gift_box"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
@@ -567,9 +555,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            'ImageView < @ViewGroup <<n * - * [desc="gift_box"]',
-          ],
+          matches: ['ImageView < @ViewGroup <<n * - * [desc="gift_box"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
