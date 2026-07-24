@@ -218,7 +218,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 13,
       name: '免费抽大奖-再试一次-立即领取',
       matchRoot: true,
       actionMaximum: 1,
