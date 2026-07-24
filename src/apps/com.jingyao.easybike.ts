@@ -4,9 +4,26 @@ export default defineGkdApp({
   id: 'com.jingyao.easybike',
   name: '哈啰',
   groups: [
-    //游戏中心
     {
       key: 0,
+      name: '游戏中心-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[text="任务完成,领奖励"][id="task-bottom-text"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    //游戏中心
+    {
+      key: 10,
       name: '游戏中心-×',
       matchRoot: true,
       actionMaximum: 1,
