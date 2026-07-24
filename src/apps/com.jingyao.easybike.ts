@@ -14,9 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: [
-            '@[text="任务完成,领奖励"][id="task-bottom-text"]',
-          ],
+          matches: ['@[text="任务完成,领奖励"][id="task-bottom-text"]'],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
