@@ -322,14 +322,14 @@ export default defineGkdApp({
     },
     {
       key: 24,
-      name: '看视频-限时领取',
+      name: '看视频-限时领取-×',
       matchRoot: true,
       actionMaximum: 5,
       matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="7b144c81c2cb181f"] <<n * [text="限时领取"]'],
+          matches: ['@[text="7b144c81c2cb181f"] -n [text="立即领取"] -n * > [text="限时领取"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
