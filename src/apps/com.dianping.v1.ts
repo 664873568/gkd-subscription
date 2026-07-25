@@ -7,14 +7,15 @@ export default defineGkdApp({
     {
       key: 0,
       name: '立即签到',
+      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
           matches: [
             'ImageView < @FrameLayout <3 FrameLayout + ImageView[clickable=true]',
           ],
@@ -38,7 +39,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
           matches: ['@[text="浏览完成"] - ImageView - ImageView < FrameLayout'],
           activityIds: [
             'com.dianping.nova.picasso.DPPicassoBoxActivity',
@@ -57,13 +57,12 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
-          anyMatches: [
-            '@[text="恭喜获得"] + [text="100点金币"]',
-            '@ImageView[index=1][childCount=0] - ImageView[index=0][childCount=0] <<4 FrameLayout',
+          matches: [
+            '@*[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
             'com.sankuai.waimai.business.restaurant.poicontainer.WMRestaurantActivity',
           ],
         },
