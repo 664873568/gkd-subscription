@@ -110,7 +110,7 @@ export default defineGkdApp({
       name: '看视频-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 25000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -227,7 +227,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['@[text$="完成任务"] <<n * [text="bottom.21109d9b"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -288,20 +288,6 @@ export default defineGkdApp({
     },
     {
       key: 25,
-      name: '点淘',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="下载/打开APP"] <<n [text="点淘"]'],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
-      key: 26,
       name: '打开APP',
       matchRoot: true,
       actionMaximum: 1,
@@ -352,8 +338,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 3000,
-          matches: ['@[text="back"] + [text="健康好礼限时领"]'],
+          actionDelay: 2000,
+          matches: ['@[text="back"] + [text~=".*+"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
