@@ -11,7 +11,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[text="能量红包"] <<n * [text="首页"]'],
@@ -21,45 +21,6 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '首页-广告-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: [
-            '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]',
-          ],
-          activityIds: ['.splash.ui.ImageSplashActivity'],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '首页-能量红包-广告-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]',
-          ],
-          activityIds: ['.splash.ui.ImageSplashActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[text="能量红包"] <<n * [text="首页"]'],
-          activityIds: ['.home.HomeActivity'],
-        },
-      ],
-    },
-    {
-      key: 3,
       name: '天天集能量-天降惊喜-x',
       matchRoot: true,
       actionMaximum: 1,
@@ -75,7 +36,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 2,
       name: '天天集能量-领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -89,7 +50,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 3,
       name: '天天集能量-任意点击一个酒店',
       matchRoot: true,
       actionMaximum: 1,
@@ -106,7 +67,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 4,
       name: '天天集能量-网页无法打开',
       matchRoot: true,
       actionMaximum: 1,
@@ -423,7 +384,7 @@ export default defineGkdApp({
     },
     //首页广告类
     {
-      key: 498,
+      key: 500,
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -442,7 +403,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 499,
+      key: 501,
       name: '首页广告-跳过广告',
       matchRoot: true,
       actionMaximum: 1,
@@ -463,15 +424,59 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 500,
+      key: 502,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="O1CN01TD5wn71Ptmtb9GAxE_"]'],
+          matches: [
+            '@[text^="O1CN01TD5wn71Ptmtb9GAxE_"] <<n [vid="poplayer_penetrate_view_id"]',
+          ],
+          activityIds: [
+            '.home.HomeActivity',
+            '.splash.ui.ImageSplashActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 503,
+      name: '首页-能量红包-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '@[text="跳过"] + [text="5814"]',
+            '@[id$="ms_skipView"] <<n * [id$="ms_img_meishu_ad_tag"]',
+            '@[text="跳过广告"][vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.quinox.LauncherActivity',
+            '.splash.ui.VideoSplashActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]',
+          ],
+          activityIds: [
+            '.home.HomeActivity',
+            '.splash.ui.ImageSplashActivity',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: ['@[text="能量红包"] <<n * [text="首页"]'],
           activityIds: ['.home.HomeActivity'],
         },
       ],
