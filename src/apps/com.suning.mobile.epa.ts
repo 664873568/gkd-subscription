@@ -38,6 +38,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 41,
+      name: '开通消息通知-暂不开通',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text="暂不开通"][vid="new_push_guide_cancel"] <n [vid="new_push_root_view"]'],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
@@ -61,7 +75,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: [
