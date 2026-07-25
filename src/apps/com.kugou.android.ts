@@ -14,7 +14,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[desc="跳过"] <<n * [text="运营推广"]'],
+          matches: ['@[desc="跳过"] <n [desc="SplashCard"]'],
           activityIds: ['.app.MediaActivity'],
         },
       ],
