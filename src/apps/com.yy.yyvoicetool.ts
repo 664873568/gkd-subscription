@@ -173,7 +173,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="我知道了"] <<n * [text="未成年模式"]'],
+          matches: ['[text="我知道了"] < @View -n [text="未成年模式"]'],
           activityIds: ['.MainActivity'],
         },
       ],
