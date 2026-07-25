@@ -32,7 +32,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="立即签到"] -n [text="每日签到"] <<n [text="任务中心"]',
+            '@[text="立即签到"] -n [text="每日签到"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -40,7 +40,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="我知道了"] -n [text^="签到成功"] <<n [text="任务中心"]',
+            '@[text="我知道了"] -n [text^="签到成功"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -48,6 +48,22 @@ export default defineGkdApp({
     },
     {
       key: 2,
+      name: '任务中心-签到成功',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="我知道了"] -n [text^="签到成功"]',
+          ],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
+    {
+      key: 6,
       name: '任务中心-下载中间页-<',
       matchRoot: true,
       actionMaximum: 1,
