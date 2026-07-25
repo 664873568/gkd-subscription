@@ -14,10 +14,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: [
-            '@[text="跳过"] <<n * [text="广告"]',
-            '@[text="跳过"][vid="skip_time"] <<n [vid="ad_aplash"]',
-          ],
+          matches: ['@[text="跳过"] <<n [vid="ad_aplash"]'],
           activityIds: ['.homepage.Homepage'],
         },
       ],
