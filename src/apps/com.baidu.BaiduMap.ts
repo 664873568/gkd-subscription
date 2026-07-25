@@ -490,7 +490,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="点击"] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] <n * + * [text="跳过"]'],
+          matches: [
+            '@[text="点击"] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] <n * + * [text="跳过"]',
+          ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
         {
@@ -609,9 +611,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageView <<4 * - * [text="恭喜获得奖励"]',
-          ],
+          matches: ['@ImageView <<4 * - * [text="恭喜获得奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
