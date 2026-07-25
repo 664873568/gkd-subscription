@@ -47,7 +47,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="暂不开通"][vid="new_push_guide_cancel"] <n [vid="new_push_root_view"]'],
+          matches: [
+            '@[text="暂不开通"][vid="new_push_guide_cancel"] <n [vid="new_push_root_view"]',
+          ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
