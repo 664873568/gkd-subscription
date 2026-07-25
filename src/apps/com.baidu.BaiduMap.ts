@@ -163,15 +163,17 @@ export default defineGkdApp({
     //免费抽大奖
     {
       key: 10,
-      name: '免费抽大奖-立即领取',
+      name: '免费抽大奖-恭喜抽中 * 金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="立即领取"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
+          anyMatches: [
+            '@[text="立即领取"] < * - [text~="恭喜抽中 [0-9]+00 金币"]',
+            '@[text="再试一次"] < * - [text~="恭喜抽中 [0-9]+00 金币"]',
+            '@TextView[text=""][clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -179,48 +181,6 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '免费抽大奖-再试一次',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 3000,
-          matches: [
-            '@[text="再试一次"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
-    {
-      key: 12,
-      name: '免费抽大奖-立即领取-再试一次',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="立即领取"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="再试一次"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
-    {
-      key: 13,
       name: '免费抽大奖-再试一次-立即领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -230,15 +190,16 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="再试一次"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
+            '@[text="再试一次"] < * - [text~="恭喜抽中 [0-9]+00 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="立即领取"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
+          anyMatches: [
+            '@[text="立即领取"] < * - [text~="恭喜抽中 [0-9]+00 金币"]',
+            '@TextView[text=""][clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
