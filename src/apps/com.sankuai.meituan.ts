@@ -75,7 +75,6 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@View <<n [vid="fl_template_ad"]',
             '@[text$="跳过"] <<n [vid="fl_template_ad"]',
           ],
           activityIds: ['.msv.page.outsidead.splashad.MSVSplashAdActivity'],
