@@ -31,17 +31,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="立即签到"] -n [text="每日签到"]',
-          ],
+          matches: ['@[text="立即签到"] -n [text="每日签到"]'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="我知道了"] -n [text^="签到成功"]',
-          ],
+          matches: ['@[text="我知道了"] -n [text^="签到成功"]'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],
@@ -55,9 +51,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="我知道了"] -n [text^="签到成功"]',
-          ],
+          matches: ['@[text="我知道了"] -n [text^="签到成功"]'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],
