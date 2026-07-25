@@ -72,7 +72,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[width>70&&height>70] -n * [text="恭喜获得任务奖励"] <<n AlertDialog',
+            '@TextView[text=""][clickable=true] -n * [text="恭喜获得任务奖励"] <<n AlertDialog',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -102,7 +102,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[clickable=true] < * + * [text="继续看视频领金币"]',
+            '@TextView[text=""][clickable=true] < * + * [text="继续看视频领金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
