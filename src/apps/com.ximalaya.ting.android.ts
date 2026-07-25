@@ -994,7 +994,7 @@ export default defineGkdApp({
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
         {
-          preKeys: [0.1],
+          preKeys: [0,1],
           key: 2,
           actionDelay: 10000,
           matches: [
