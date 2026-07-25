@@ -325,7 +325,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="免费\\\\n抽大奖"] <<n * [text="幸运大转盘"]'],
+          matches: ['@[text="免费\\\\\\n抽大奖"] <<n * [text="幸运大转盘"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
