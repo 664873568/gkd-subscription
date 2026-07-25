@@ -14,7 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView[width=81&&height=81] <n [id="sign-dialog"]'],
+          matches: [
+            '@TextView[width>70&&height>70] -n [text~="已签到[0-9]+/14天"] <n [id="sign-dialog"]'
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -29,7 +31,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[width=81&&height=81] < * +n [text="去逛逛"] <n AlertDialog',
+            '@TextView[width>70&&height>70] < * +n [text="去逛逛"] <n AlertDialog',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -45,14 +47,16 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@TextView[width=81&&height=81] <n [id="sign-dialog"]'],
+          matches: [
+            '@TextView[width>70&&height>70] -n [text~="已签到[0-9]+/14天"] <n [id="sign-dialog"]'
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '@TextView[width=81&&height=81] < * +n [text="去逛逛"] <n AlertDialog',
+            '@TextView[width>70&&height>70] < * +n [text="去逛逛"] <n AlertDialog',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -68,7 +72,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[width=81&&height=81] -n * > [text="恭喜获得任务奖励"] <<n AlertDialog',
+            '@TextView[width>70&&height>70] -n * [text="恭喜获得任务奖励"] <<n AlertDialog',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -98,7 +102,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[width=81&&height=81] <<n * [text="继续看视频领金币"]',
+            '@TextView[width>70&&height>70] < * + * [text="继续看视频领金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -131,8 +135,8 @@ export default defineGkdApp({
           actionDelay: 1000,
           anyMatches: [
             '@[desc="返回"][vid="title_btn_left"] <<n [vid="title_bar"] + [vid="frameLayout1"] >n [text="此功能需访问飞猪旅行APP"]',
-            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="签到送好礼"][vid="title"]',
-            '@[desc="返回"][vid="title_btn_left"] - RelativeLayout > [text="千问-阿里 AI 助手"][vid="title"]',
+            '@[desc="返回"][vid="title_btn_left"] - * [text="签到送好礼"][vid="title"]',
+            '@[desc="返回"][vid="title_btn_left"] - * [text="千问-阿里 AI 助手"][vid="title"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -165,7 +169,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjjinbi"]',
+            '@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -182,7 +186,7 @@ export default defineGkdApp({
         {
           actionDelay: 3000,
           matches: [
-            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
+            '@[text="再试一次"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -199,7 +203,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjjinbi"]',
+            '@[text="立即领取"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -207,7 +211,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
+            '@[text="再试一次"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -224,7 +228,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="再试一次"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjduojinbi"]',
+            '@[text="再试一次"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -232,7 +236,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"] - [text="cjjinbi"]',
+            '@[text="立即领取"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
