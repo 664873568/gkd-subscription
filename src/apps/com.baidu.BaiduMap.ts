@@ -254,8 +254,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="去体验"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -319,7 +319,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['ImageView < @ViewGroup <<n * - * [desc="gift_box"]'],
+          matches: [
+            'ImageView < @ViewGroup <<n * - * [desc="gift_box"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -351,7 +353,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="继续播放视频内容"] -n * >n [text="9395b4e3ffe08bfb"]',
+            '@[text="继续播放视频内容"] -n * [text="9395b4e3ffe08bfb"]',
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
