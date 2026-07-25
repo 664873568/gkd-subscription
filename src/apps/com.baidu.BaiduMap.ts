@@ -102,7 +102,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[width>70&&height>70] < * + * [text="继续看视频领金币"]',
+            '@TextView[clickable=true] < * + * [text="继续看视频领金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
