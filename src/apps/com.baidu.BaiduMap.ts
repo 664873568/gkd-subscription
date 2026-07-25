@@ -169,7 +169,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="立即领取"] < View - [text^="恭喜抽中"][text$="00 金币"]',
+            '@[text="立即领取"] < View - [text~="恭喜抽中 [0-9]+00 金币"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
