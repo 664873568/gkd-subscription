@@ -87,7 +87,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="我知道了"] <<n * [text="连做7天任务,最高领7200"]'],
+          matches: [
+            '@TextView[text=""][clickable=true] <n * +n * [text="我知道了"]',
+          ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
@@ -333,8 +335,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="7b144c81c2cb181f"] -n [text="立即领取"] -n * > [text="限时领取"]',
+          anyMatches: [
+            '@[text="7b144c81c2cb181f"] -n * > [text="限时领取"]',
+            '@[text="7b144c81c2cb181f"] < * -n * > [text="限时领取"]',
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -637,6 +640,22 @@ export default defineGkdApp({
     },
     {
       key: 61,
+      name: '看视频-免-恭喜获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView <<4 * - * [text="恭喜获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 62,
       name: '看视频-广告-××',
       matchRoot: true,
       actionMaximum: 1,
@@ -659,7 +678,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 62,
+      key: 63,
       name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -674,7 +693,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 63,
+      key: 64,
       name: '看视频-微信-恭喜获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -690,7 +709,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 64,
+      key: 65,
       name: '看视频-我要更快拿奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -706,7 +725,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 65,
+      key: 66,
       name: '看视频-打开App',
       matchRoot: true,
       actionMaximum: 1,
