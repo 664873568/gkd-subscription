@@ -1003,7 +1003,7 @@ export default defineGkdApp({
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           excludeAllMatches: [
             '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
