@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^="立即签到"] -n [text~="[0-9]{4}金币"] -n [text="连续签到得金币"] - ImageButton',
+            '@[text~="立即签到 \\\\+[0-9]{4}金币"] -n [text="连续签到得金币"] - ImageButton',
           ],
           activityIds: ['com.dz.business.main.ui.MainActivity'],
         },
