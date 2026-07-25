@@ -435,10 +435,7 @@ export default defineGkdApp({
           matches: [
             '@[text^="O1CN01TD5wn71Ptmtb9GAxE_"] <<n [vid="poplayer_penetrate_view_id"]',
           ],
-          activityIds: [
-            '.home.HomeActivity',
-            '.splash.ui.ImageSplashActivity',
-          ],
+          activityIds: ['.home.HomeActivity', '.splash.ui.ImageSplashActivity'],
         },
       ],
     },
@@ -468,13 +465,10 @@ export default defineGkdApp({
           matches: [
             '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]',
           ],
-          activityIds: [
-            '.home.HomeActivity',
-            '.splash.ui.ImageSplashActivity',
-          ],
+          activityIds: ['.home.HomeActivity', '.splash.ui.ImageSplashActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[text="能量红包"] <<n * [text="首页"]'],
           activityIds: ['.home.HomeActivity'],
