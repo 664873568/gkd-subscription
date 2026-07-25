@@ -192,7 +192,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['View + ImageView + @ImageView + ImageView'],
+          matches: ['ImageView + View + @ImageView + ImageView'],
           activityIds: [
             'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
           ],
