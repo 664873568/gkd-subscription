@@ -319,9 +319,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            'ImageView < @ViewGroup <<n * - * [desc="gift_box"]',
-          ],
+          matches: ['ImageView < @ViewGroup <<n * - * [desc="gift_box"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
