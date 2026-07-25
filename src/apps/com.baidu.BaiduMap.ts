@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[width>70&&height>70] -n [text~="已签到[0-9]+/14天"] <n [id="sign-dialog"]'
+            '@TextView[width>70&&height>70] -n [text~="已签到[0-9]+/14天"] <n [id="sign-dialog"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
@@ -48,7 +48,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@TextView[width>70&&height>70] -n [text~="已签到[0-9]+/14天"] <n [id="sign-dialog"]'
+            '@TextView[width>70&&height>70] -n [text~="已签到[0-9]+/14天"] <n [id="sign-dialog"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
