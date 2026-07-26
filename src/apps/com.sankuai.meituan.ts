@@ -64,6 +64,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 14,
+      name: '看视频-完成跳转可领取-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 15000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ViewGroup[clickable=true] - ViewGroup[clickable=true] -n [text="完成跳转可领取"]'
+          ],
+          activityIds: ['.msv.page.activity.MSVPageActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
