@@ -656,7 +656,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[desc="关闭按钮"] < @*[clickable=true] < * - * [text="sign-shop"]',
+            '[desc="关闭按钮"] < @View[clickable=true] < * - * [text="sign-shop"]',
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
@@ -734,6 +734,15 @@ export default defineGkdApp({
           ],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
+        {
+          preKeys: [0,1],
+          key: 2,
+          actionDelay: 6000,
+          matches: [
+            '@[vid="title_quit"] <<n * +n * [text="任务处理中…"][vid="genflow_sub_desc"]',
+          ],
+          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
+        },
       ],
     },
     //学习星球-一键生成笔记
@@ -753,6 +762,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@[text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
           ],
@@ -832,7 +842,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['TextureRenderView <<n @View + [text="成长轨迹"]'],
+          matches: ['@View[clickable=true] + [text="成长轨迹"] <<n * + * [text="我知道了"][vid="iv_close"]'],
           activityIds: ['.cloudimage.ui.view.AlbumServiceActivity'],
         },
         {
@@ -844,6 +854,12 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          matches: ['[text="确定"] < @View[clickable=true] - [text="已选5张"]'],
+          activityIds: ['.kmp.bridge.KmpSharedActivity'],
+        },
+        {
+          preKeys: [0, 1,2],
+          key: 3,
           actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
@@ -877,6 +893,46 @@ export default defineGkdApp({
     },
     //生活星球-新建我的相簿
     {
+      key: 309,
+      name: '生活星球-新建我的相簿',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@ImageView[clickable=true] - View <<n * + * [vid="photo_books_album"]',
+          ],
+          activityIds: ['.cloudimage.ui.view.AlbumServiceActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@View[clickable=true] >n [text="新建自定义相簿"]',
+          ],
+          activityIds: ['.kmp.bridge.KmpSharedActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text="立即创建"][clickable=true] -n [text="新建相簿"]',
+          ],
+          activityIds: ['.kmp.bridge.KmpSharedActivity'],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          actionDelay: 5000,
+          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
+          activityIds: ['.kmp.bridge.KmpSharedActivity'],
+        },
+      ],
+    },
+    {
       key: 310,
       name: '任务完成获得时光',
       matchRoot: true,
@@ -886,7 +942,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[desc="关闭按钮"] < @*[clickable=true] < * - * [clickable=true] [text="btn"]',
+            '[desc="关闭按钮"] < @View[clickable=true] < * - * [clickable=true] [text="btn"]',
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
