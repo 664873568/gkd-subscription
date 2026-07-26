@@ -856,12 +856,18 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          matches: ['[text="手动选图"] < @View[clickable=true] -n [text="为你智能匹配相关照片"]'],
+          activityIds: ['.kmp.bridge.KmpSharedActivity'],
+        },
+        {
+          preKeys: [0, 1,2],
+          key: 3,
           matches: ['[text="确定"] < @View[clickable=true] - [text="已选5张"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
-          preKeys: [0, 1, 2],
-          key: 3,
+          preKeys: [0, 1, 2,3],
+          key: 4,
           actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
