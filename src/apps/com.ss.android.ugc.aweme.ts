@@ -543,7 +543,9 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 5000,
-          matches: ['@[desc="返回"] < [id="headerLeftBar"] + [text="抖音月付"]'],
+          matches: [
+            '@[desc="返回"] < [id="headerLeftBar"] + [text="抖音月付"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -598,7 +600,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@ImageButton[clickable=true] + View [text="恭喜完成任务"]',
@@ -617,9 +619,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: [
-            'Image < @View[clickable=true] + [desc="doupay"]',
-          ],
+          matches: ['Image < @View[clickable=true] + [desc="doupay"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
