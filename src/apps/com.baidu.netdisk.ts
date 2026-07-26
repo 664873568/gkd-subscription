@@ -93,7 +93,7 @@ export default defineGkdApp({
     },
     //任务中心
     {
-      key: 6,
+      key: 5,
       name: '任务中心-加载中…-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -111,7 +111,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 6,
       name: '任务中心-百度云升级/福利来袭-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -129,21 +129,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
-      name: '任务中心-简单打印',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageButton +n [text="立即使用"] <<n [text="简单打印"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
-      key: 9,
+      key: 7,
       name: '任务中心-恭喜获得-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -158,7 +144,7 @@ export default defineGkdApp({
     },
     //
     {
-      key: 10,
+      key: 8,
       name: '任务中心-选择照片',
       matchRoot: true,
       actionMaximum: 1,
@@ -183,7 +169,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 9,
       name: '任务中心-题目框选',
       matchRoot: true,
       actionMaximum: 1,
@@ -208,7 +194,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 10,
       name: '任务中心-录入错题本',
       matchRoot: true,
       actionMaximum: 1,
@@ -229,193 +215,16 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
-      name: '任务中心-编辑并发送指令/输入问题并发送',
+      key: 11,
+      name: '任务中心-简单打印',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: [
-            '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
-          ],
-          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 10000,
-          matches: [
-            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
-          ],
-          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
-        },
-      ],
-    },
-    {
-      key: 14,
-      name: '任务中心-录音',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[vid="bottom_btn"] < [vid="container_bottom_btn"]'],
-          activityIds: ['.listen.notes.ui.activity.ListenNoteMainActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 10000,
-          matches: [
-            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
-          ],
-          activityIds: ['.listen.notes.ui.activity.ListenNotesPlayActivity'],
-        },
-      ],
-    },
-    {
-      key: 15,
-      name: '任务中心-转存后剪辑',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="transBtn"] < View + View >n [desc="关闭按钮"]'],
+          matches: ['@ImageButton +n [text="立即使用"] <<n [text="简单打印"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
-          ],
-          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
-        },
-      ],
-    },
-    {
-      key: 16,
-      name: '任务中心-选择视频 查看AI笔记',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[vid="cover"] <<n [vid="recent_pager"]'],
-          activityIds: ['.servicepage.video.ui.VideoServiceActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
-          ],
-          activityIds: ['.video.VideoPlayerActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
-          ],
-          activityIds: ['.video.VideoPlayerActivity'],
-        },
-      ],
-    },
-    {
-      key: 17,
-      name: '任务中心-简单扫描',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[vid="rb_camera"] <n [vid="scan_root_view"]'],
-          activityIds: ['.scan.ui.ScanActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'back',
-          matches: [
-            '@[vid="take_photo_button"] <n [vid="ocr_bottom_container"] -n [text="拍摄纸质资料，生成高清电子版"][vid="take_photo_tip"]',
-          ],
-          activityIds: ['.ocr.OCRTakePhotoActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 5000,
-          matches: ['@[vid="iv_back"] + [vid="iv_title"] + [vid="iv_search"]'],
-          activityIds: ['.scan.ui.ScanActivity'],
-        },
-      ],
-    },
-    {
-      key: 18,
-      name: '任务中心-成长轨迹',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['TextureRenderView <<n @View + [text="成长轨迹"]'],
-          activityIds: ['.cloudimage.ui.view.AlbumServiceActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['[text="做同款"] < @View'],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 5000,
-          matches: [
-            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
-          ],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-      ],
-    },
-    {
-      key: 19,
-      name: '任务中心-AI照相馆',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="dyr-dt"] < @View <<n [vid="rl_red_bag_root"] + * [text="我知道了"][vid="iv_close"]',
-          ],
-          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 5000,
-          matches: [
-            '@[vid="image_view"] < [vid="gif_lottie_view"] - [vid="iv_close"]',
-          ],
-          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
         },
       ],
     },
@@ -832,6 +641,264 @@ export default defineGkdApp({
           activityIds: [
             '.platform.business.incentive.advertise.ui.AdvertiseActivity',
           ],
+        },
+      ],
+    },
+    //26.07.09-29.07.31 集勋章 赢大奖
+    //做任务赢勋章抽大奖
+    {
+      key: 300,
+      name: '好运签日历',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[desc="关闭按钮"] < @*[clickable=true] < * - * [text="sign-shop"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    //工作星球-一键生成PPT
+    {
+      key: 301,
+      name: '工作星球-一键生成PPT',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
+          ],
+          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: [
+            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
+          ],
+          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
+        },
+      ],
+    },
+    //工作星球-模拟面试练习
+    {
+      key: 302,
+      name: '工作星球-模拟面试练习',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[vid="view_anchor"] + [vid="ll_tip"] > [text="我知道了"][vid="iv_close"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: [
+            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    //工作星球-智能剪辑出片
+    {
+      key: 303,
+      name: '工作星球-智能剪辑出片',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="transBtn"] < View + View >n [desc="关闭按钮"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
+          ],
+          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
+        },
+      ],
+    },
+    //学习星球-一键生成笔记
+    {
+      key: 304,
+      name: '学习星球-一键生成笔记',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[vid="cover"] <<n [vid="recent_pager"]'],
+          activityIds: ['.servicepage.video.ui.VideoServiceActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
+          ],
+          activityIds: ['.video.VideoPlayerActivity'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          actionDelay: 5000,
+          matches: [
+            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
+          ],
+          activityIds: ['.video.VideoPlayerActivity'],
+        },
+      ],
+    },
+    //学习星球-纸质资料扫描
+    {
+      key: 305,
+      name: '学习星球-纸质资料扫描',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[vid="rb_camera"] <n [vid="scan_root_view"]'],
+          activityIds: ['.scan.ui.ScanActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@ImageView[clickable=true] <<n [vid="ocr_title_bar_container"] +n [text="拍摄纸质资料，生成高清电子版"][vid="take_photo_tip"]',
+          ],
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          actionDelay: 5000,
+          matches: ['@[vid="iv_back"] + [vid="iv_title"] + [vid="iv_search"]'],
+          activityIds: ['.scan.ui.ScanActivity'],
+        },
+      ],
+    },
+    //学习星球-
+    {
+      key: 306,
+      name: '学习星球-录音',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[vid="bottom_btn"] < [vid="container_bottom_btn"]'],
+          activityIds: ['.listen.notes.ui.activity.ListenNoteMainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: [
+            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
+          ],
+          activityIds: ['.listen.notes.ui.activity.ListenNotesPlayActivity'],
+        },
+      ],
+    },
+    //生活星球-记录成长轨迹
+    {
+      key: 307,
+      name: '生活星球-记录成长轨迹',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['TextureRenderView <<n @View + [text="成长轨迹"]'],
+          activityIds: ['.cloudimage.ui.view.AlbumServiceActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['[text="做同款"] < @View'],
+          activityIds: ['.kmp.bridge.KmpSharedActivity'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          actionDelay: 5000,
+          matches: [
+            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
+          ],
+          activityIds: ['.kmp.bridge.KmpSharedActivity'],
+        },
+      ],
+    },
+    //生活星球-生成写真照片
+    {
+      key: 308,
+      name: '生活星球-生成写真照片',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="dyr-dt"] < @View <<n [vid="rl_red_bag_root"] + * [text="我知道了"][vid="iv_close"]',
+          ],
+          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: [
+            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
+          ],
+          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
+        },
+      ],
+    },
+    //生活星球-新建我的相簿
+    {
+      key: 310,
+      name: '任务完成获得时光',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[desc="关闭按钮"] < @*[clickable=true] < * - * [clickable=true] [text="btn"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
     },
