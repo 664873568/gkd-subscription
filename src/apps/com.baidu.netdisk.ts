@@ -735,7 +735,7 @@ export default defineGkdApp({
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 6000,
           matches: [
@@ -842,7 +842,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@View[clickable=true] + [text="成长轨迹"] <<n * + * [text="我知道了"][vid="iv_close"]'],
+          matches: [
+            '@View[clickable=true] + [text="成长轨迹"] <<n * + * [text="我知道了"][vid="iv_close"]',
+          ],
           activityIds: ['.cloudimage.ui.view.AlbumServiceActivity'],
         },
         {
@@ -858,7 +860,7 @@ export default defineGkdApp({
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
@@ -910,21 +912,17 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@View[clickable=true] >n [text="新建自定义相簿"]',
-          ],
+          matches: ['@View[clickable=true] >n [text="新建自定义相簿"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@[text="立即创建"][clickable=true] -n [text="新建相簿"]',
-          ],
+          matches: ['@[text="立即创建"][clickable=true] -n [text="新建相簿"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
