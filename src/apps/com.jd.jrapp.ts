@@ -13,7 +13,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 3000,
+          actionDelay: 4000,
           matches: [
             '@[vid="common_webview_navbar_left"] <<n * [text^="正在跳转"]',
           ],
@@ -30,7 +30,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 3000,
+          actionDelay: 4000,
           matches: [
             '@[vid="common_webview_navbar_left"] <<n * [text^="跳转中"]',
           ],
@@ -93,7 +93,7 @@ export default defineGkdApp({
       name: '浏览完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -136,7 +136,7 @@ export default defineGkdApp({
             '@[text="浏览完成"] < View - View >3 [text="ff776b55ee07c915"]',
             '@[text="返回领奖"] < View - View >3 [text="readMissionDown"]',
             '@[text="返回领奖"] < View - View >3 [vid="fragment_container"]',
-            '@[text="返回领奖"] < ViewGroup + ImageView + ViewGroup',
+            '@[text="返回领奖"] < ViewGroup +n ImageView + ViewGroup',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -253,6 +253,20 @@ export default defineGkdApp({
     },
     {
       key: 23,
+      name: '打开APP',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="打开"] - [text="取消"] < View <<n Dialog'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 24,
       name: '此功能需访问飞猪旅行APP-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -270,7 +284,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 25,
       name: '打开飞猪',
       matchRoot: true,
       actionMaximum: 1,
@@ -282,20 +296,6 @@ export default defineGkdApp({
             '@[vid="common_webview_navbar_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
           ],
           matches: ['@[text="打开飞猪"] <3 [id="__endCallTop__"]'],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
-      key: 25,
-      name: '打开APP',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="打开"] - [text="取消"] < View <<n Dialog'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -338,8 +338,23 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: ['@[text="back"] + [text~=".*+"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 33,
+      name: 'JoyAI-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 3000,
+          matches: ['@Button[clickable=true] < [vid="common_webview_navbar_left"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
