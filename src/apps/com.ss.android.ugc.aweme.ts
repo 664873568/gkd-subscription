@@ -256,7 +256,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@Image <<n View + [text="9aa97892d6882edf9eb17221d3d9f0b3.png~tplv-49obo7mizy-75compress"]',
+            'Image < @View[clickable=true] <<n View + [text="9aa97892d6882edf9eb17221d3d9f0b3.png~tplv-49obo7mizy-75compress"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -393,8 +393,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageButton <<2 View +n View > [text*=".png~tplv-49obo7mizy"]',
+          anyMatches: [
+            '@ImageButton <<n * +n * [text="01a5e1e730630a185cbd7e5910f29b68.png~tplv-49obo7mizy-75compress"]',
+            '@ImageButton <<n * +n * [text="609bb43258ed9006c7db8fca60dcef7e.png~tplv-49obo7mizy-png75"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -427,8 +428,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@ImageButton <<2 View +n View > [text*=".png~tplv-49obo7mizy"]',
+          anyMatches: [
+            '@ImageButton <<n * +n * [text="01a5e1e730630a185cbd7e5910f29b68.png~tplv-49obo7mizy-75compress"]',
+            '@ImageButton <<n * +n * [text="609bb43258ed9006c7db8fca60dcef7e.png~tplv-49obo7mizy-png75"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
