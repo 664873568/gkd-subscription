@@ -543,7 +543,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 5000,
-          matches: ['@[desc="返回"] <<n [text="抖音月付"]'],
+          matches: ['@[desc="返回"] < [id="headerLeftBar"] + [text="抖音月付"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -593,7 +593,15 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           matches: [
-            '@[text^="svg+xml;base64"] + View >n [text="cloud-background.cbba3c7a"]',
+            '@[desc="返回"] < [id="headerLeftBar"] + [text="抖音月付"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0, 1,2],
+          key: 3,
+          matches: [
+            '@ImageButton[clickable=true] + View [text="恭喜完成任务"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -610,7 +618,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
-            '@Image < View + [desc="doupay"] <<n [text="抖音支付优惠阵地"]',
+            'Image < @View[clickable=true] + [desc="doupay"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -655,7 +663,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 5000,
           matches: [
-            '@ViewGroup[index=1][childCount=0] <<n * [desc="返回"][vid~="b[a-z][a-z]"]',
+            '@ViewGroup[index=1][childCount=0] <<n * - * [desc="返回"]',
           ],
           activityIds: ['.search.activity.SearchResultActivity'],
         },
@@ -664,7 +672,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 5000,
           matches: [
-            '@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]',
+            '@ImageButton[clickable=true] - ImageButton <<n * -n * [text="d60d1c8ebb042992a1535132108f5843.png~tplv-49obo7mizy-png75"]',
           ],
           activityIds: ['.search.activity.SearchResultActivity'],
         },
