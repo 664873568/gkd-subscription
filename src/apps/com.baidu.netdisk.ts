@@ -940,7 +940,23 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[desc="关闭按钮"] < @View[clickable=true] < * - * [clickable=true] [text="btn"]',
+            '[desc="关闭按钮"] < @View[clickable=true] < * - * View[clickable=true] [text="btn"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 311,
+      name: '恭喜你获得',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[desc="关闭按钮"] < @View[clickable=true] < * - * View[clickable=true] [text="prize-btn"]',
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
