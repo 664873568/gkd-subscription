@@ -117,9 +117,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[vid="anythink_myoffer_btn_close_id"][clickable=true]',
-          ],
+          matches: ['@[vid="anythink_myoffer_btn_close_id"][clickable=true]'],
           activityIds: ['com.anythink.core.common.inner.ui.ATPortraitActivity'],
         },
       ],
@@ -164,12 +162,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="已经获得奖励 ｜ 关闭"][clickable=true]',
-          ],
-          activityIds: [
-            'com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity',
-          ],
+          matches: ['@[text="已经获得奖励 ｜ 关闭"][clickable=true]'],
+          activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
         },
       ],
     },
@@ -380,7 +374,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@ImageView[clickable=true] +3 [text="立即下载"][clickable=true]'],
+          matches: [
+            '@ImageView[clickable=true] +3 [text="立即下载"][clickable=true]',
+          ],
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
         {
@@ -390,7 +386,7 @@ export default defineGkdApp({
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@ImageView - ImageView +5 TextView'],
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
