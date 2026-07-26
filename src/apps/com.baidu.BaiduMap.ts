@@ -299,7 +299,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]'],
+          matches: [
+            '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -743,7 +745,7 @@ export default defineGkdApp({
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[id="close_btn"]'],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
