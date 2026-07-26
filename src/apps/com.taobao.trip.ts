@@ -441,12 +441,13 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text="跳过"] + [text="5814"]',
-            '@[id$="ms_skipView"] <<n * [id$="ms_img_meishu_ad_tag"]',
+            '@[id$="ms_skipView"] < [id$="ms_skipView_container"]',
             '@[text="跳过广告"][vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
           ],
           activityIds: [
-            'com.alipay.mobile.quinox.LauncherActivity',
             '.splash.ui.VideoSplashActivity',
+            'com.alipay.mobile.quinox.LauncherActivity',
+            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
           ],
         },
       ],
@@ -472,19 +473,20 @@ export default defineGkdApp({
       name: '首页-能量红包-广告-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           anyMatches: [
             '@[text="跳过"] + [text="5814"]',
-            '@[id$="ms_skipView"] <<n * [id$="ms_img_meishu_ad_tag"]',
+            '@[id$="ms_skipView"] < [id$="ms_skipView_container"]',
             '@[text="跳过广告"][vid="splash_skip_hint_tv"] <<n [vid="splash_biz_skip_ad"]',
           ],
           activityIds: [
-            'com.alipay.mobile.quinox.LauncherActivity',
             '.splash.ui.VideoSplashActivity',
+            'com.alipay.mobile.quinox.LauncherActivity',
+            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
           ],
         },
         {
