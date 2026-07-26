@@ -74,7 +74,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ViewGroup[clickable=true] - ViewGroup[clickable=true] -n [text="完成跳转可领取"]'
+            '@ViewGroup[clickable=true] - ViewGroup[clickable=true] -n [text="完成跳转可领取"]',
           ],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
