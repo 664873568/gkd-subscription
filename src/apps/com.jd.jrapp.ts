@@ -354,7 +354,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 3000,
-          matches: ['@Button[clickable=true] < [vid="common_webview_navbar_left"]'],
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
