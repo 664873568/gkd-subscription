@@ -305,7 +305,7 @@ export default defineGkdApp({
         {
           excludeMatches: ['[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'],
           matches: [
-            '@RelativeLayout <<n FrameLayout + FrameLayout + FrameLayout',
+            '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -321,7 +321,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@RelativeLayout <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
+            '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
