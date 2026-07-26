@@ -682,9 +682,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
-          ],
+          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
       ],
@@ -700,16 +698,16 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[vid="view_anchor"] + [vid="ll_tip"] > [text="我知道了"][vid="iv_close"]'],
+          matches: [
+            '@[vid="view_anchor"] + [vid="ll_tip"] > [text="我知道了"][vid="iv_close"]',
+          ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
-          ],
+          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
@@ -764,9 +762,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
-          ],
+          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.video.VideoPlayerActivity'],
         },
       ],
@@ -820,9 +816,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
-          ],
+          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.listen.notes.ui.activity.ListenNotesPlayActivity'],
         },
       ],
@@ -851,9 +845,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
-          ],
+          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
       ],
@@ -878,9 +870,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]',
-          ],
+          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
         },
       ],
