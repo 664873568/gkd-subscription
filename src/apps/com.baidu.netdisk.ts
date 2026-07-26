@@ -764,7 +764,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1000,
           matches: [
-            '@[text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
+            '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] <<n @LinearLayout[clickable=true] <<n * + * [text="我知道了"][vid="iv_close"]',
           ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
@@ -788,7 +788,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[vid="rb_camera"] <n [vid="scan_root_view"]'],
+          actionDelay: 5000,
+          matches: ['@[vid="rb_camera"] -n * [vid="tv_no_records"]'],
           activityIds: ['.scan.ui.ScanActivity'],
         },
         {
@@ -802,7 +803,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 5000,
           matches: ['@[vid="iv_back"] + [vid="iv_title"] + [vid="iv_search"]'],
           activityIds: ['.scan.ui.ScanActivity'],
         },
