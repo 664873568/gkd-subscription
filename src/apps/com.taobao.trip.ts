@@ -118,7 +118,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="anythink_myoffer_btn_close_id"] + [vid="anythink_myoffer_btn_close_shade_id"]',
+            '@[vid="anythink_myoffer_btn_close_id"][clickable=true]',
           ],
           activityIds: ['com.anythink.core.common.inner.ui.ATPortraitActivity'],
         },
@@ -154,9 +154,28 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.anythink.basead.ui.ATPortraitActivity.*
+    //看视频-com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity
     {
       key: 40,
+      name: '看视频-跳过-*秒后可领取奖励-已经获得奖励"]',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="已经获得奖励 ｜ 关闭"][clickable=true]',
+          ],
+          activityIds: [
+            'com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    //看视频-com.anythink.basead.ui.ATPortraitActivity.*
+    {
+      key: 50,
       name: '看视频-跳过↓',
       matchRoot: true,
       actionMaximum: 1,
@@ -177,7 +196,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 51,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -195,7 +214,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 52,
       name: '看视频-跳转快应用-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -213,7 +232,7 @@ export default defineGkdApp({
     },
     //看视频-com.kwad.sdk.api.proxy.app.FeedDownloadActivity
     {
-      key: 50,
+      key: 60,
       name: '看视频-立即领取-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -229,7 +248,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 61,
       name: '看视频-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -244,7 +263,7 @@ export default defineGkdApp({
     },
     //看视频-com.qq.e.ads.*
     {
-      key: 60,
+      key: 70,
       name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -252,13 +271,20 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: ['@[text*="微信"] <n FrameLayout - [text="提前拿奖励"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 61,
+      key: 71,
       name: '看视频-微信-恭喜获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -266,13 +292,13 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
+          matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 62,
+      key: 72,
       name: '看视频-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -297,7 +323,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 63,
+      key: 73,
       name: '看视频-二级广告页-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -312,7 +338,7 @@ export default defineGkdApp({
     },
     //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
-      key: 70,
+      key: 80,
       name: '看视频-奖励已到账',
       matchRoot: true,
       actionMaximum: 1,
@@ -328,7 +354,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 71,
+      key: 81,
       name: '看视频-完成APP下载-即可领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -345,7 +371,7 @@ export default defineGkdApp({
     },
     //看视频-com.ubix.ssp.open.comm.UBiXVideoActivity
     {
-      key: 80,
+      key: 90,
       name: '看视频-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -354,12 +380,18 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@ImageView - [text="恭喜获得奖励"]'],
+          matches: ['@ImageView[clickable=true] +3 [text="立即下载"][clickable=true]'],
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          matches: ['@ImageView[clickable=true] +4 TextView[clickable=true]'],
+          activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
           matches: ['@ImageView - ImageView +5 TextView'],
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
