@@ -233,7 +233,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="开心收下"] - ImageView < ViewGroup - [text="金币"]',
+            '@[text="开心收下"] <n @ViewGroup[clickable=true] -n [text="恭喜获得"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -727,7 +727,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //点击并浏览页面
+    //
     {
       key: 90,
       name: '点击并浏览页面-领取奖励-已获得奖励',
@@ -753,7 +753,6 @@ export default defineGkdApp({
         },
       ],
     },
-    //点击广告领取奖励
     {
       key: 91,
       name: '点击广告领取奖励-领取奖励-已获得奖励',
@@ -778,6 +777,22 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '@[vid="host_reward_close_button"] - [text="已获得奖励"] <<n * [text="查看详情"]',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 92,
+      name: '看*秒广告领取奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="立即查看"][vid="host_bubble_ad_action_btn"] <<n * + * [text~="看[0-9]+秒广告领取奖励"][vid="host_reward_tip"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -936,6 +951,34 @@ export default defineGkdApp({
     //看视频-com.qq.e.ads.PortraitADActivity
     {
       key: 130,
+      name: '看视频-微信-提前拿奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text*="微信"] <n * - [text="提前拿奖励"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 131,
+      name: '看视频-微信-恭喜获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 132,
       name: '看视频-我要更快拿奖-奖励将于*秒后发放-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -949,7 +992,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 131,
+      key: 133,
       name: '看视频-已完成浏览*秒，提前获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -965,7 +1008,7 @@ export default defineGkdApp({
     //看视频-com.tencentmusic.ad.tmead.core.activity.TMECoreActivity
     {
       key: 140,
-      name: '看视频-点击后，看*秒可获得奖励-1',
+      name: '看视频-礼包-点击后，看*秒可获得奖励-1',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -986,7 +1029,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
+          actionDelay: 2000,
           anyMatches: [
             '@Button[clickable=true] <<n FrameLayout - LinearLayout > [text="点击商品再得额外奖励500金币"]',
             '@View[index=0][childCount=2][clickable=true] <<n FrameLayout - LinearLayout > [text="点击商品再得额外奖励500金币"]',
@@ -1005,6 +1048,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
+          actionDelay: 3000,
           excludeAllMatches: [
             '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
             '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
@@ -1020,7 +1064,7 @@ export default defineGkdApp({
     },
     {
       key: 141,
-      name: '看视频-点击后，看*秒可获得奖励-2',
+      name: '看视频-礼包-点击后，看*秒可获得奖励-2',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -1042,6 +1086,11 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 3000,
+          excludeAllMatches: [
+            '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
+            '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
+          ],
           matches: [
             '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
           ],
@@ -1053,6 +1102,29 @@ export default defineGkdApp({
     },
     {
       key: 142,
+      name: '看视频-礼包-恭喜已获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 3000,
+          excludeAllMatches: [
+            '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
+            '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
+          ],
+          matches: [
+            '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
+          ],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 143,
       name: '看视频-可获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -1163,11 +1235,14 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@[text="跳过"] < [vid="host_splash_fragment_root_lay"]',
-            '@[desc="跳过广告"][vid="xm_ad_host_count_down_click_lay"] - [desc="跳过广告"][vid="xm_ad_host_count_down_click_lay_no_click_view"] - [text="跳过广告"][vid="xm_ad_host_count_down_text"] < [vid="host_splash_skip_layout"]',
+            '@[desc="跳过广告"][clickable=true] <n [vid="host_splash_skip_layout"]',
           ],
-          activityIds: ['.host.activity.MainActivity'],
+          activityIds: [
+            '.host.activity.MainActivity',
+            '.host.activity.SplashAdActivity',
+          ],
         },
       ],
     },
