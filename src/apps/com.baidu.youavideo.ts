@@ -294,9 +294,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
-            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]',
-          ],
+          anyMatches: ['@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -626,7 +624,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="iv_close"][clickable=true] - [text="选择备份模式"]'],
+          matches: [
+            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]',
+          ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
