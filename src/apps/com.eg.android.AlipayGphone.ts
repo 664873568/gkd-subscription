@@ -323,9 +323,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[id$="tiny_half_close"] - [id$="tiny_half_expand"]',
-          ],
+          matches: ['@[id$="tiny_half_close"] - [id$="tiny_half_expand"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
           ],
