@@ -64,7 +64,6 @@ export default defineGkdApp({
           matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
-            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity0',
           ],
         },
       ],
@@ -83,7 +82,6 @@ export default defineGkdApp({
           matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
-            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity0',
           ],
         },
         {
@@ -91,7 +89,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 22000,
-          matches: ['@[desc="关闭"][vid="axq"]'],
+          matches: ['@[desc="关闭"][vid~="[a-z]{3}"]'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
@@ -109,7 +107,7 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 22000,
-          matches: ['@[desc="关闭"][vid="axq"]'],
+          matches: ['@[desc="关闭"][vid~="[a-z]{3}"]'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
@@ -141,10 +139,20 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 22000,
-          matches: ['@[desc="close"] < View <n View'],
+          key: 0,
+          matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
           activityIds: [
-            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity0',
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 22000,
+          matches: ['@[desc="关闭"][vid~="[a-z]{3}"]'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
         },
       ],
@@ -290,6 +298,7 @@ export default defineGkdApp({
             '@Button[desc="关闭"] - View > [text="7711e33a3ceb4b608189a89f05469b9f~tplv-20ashz96qn-1"]',
             '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
             '@Button[desc="关闭"] - View > [text="9ce5c5471aae4dcfa14d3bbf983c3368~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"] - View > [text="ce22a8e2980d4d6a8a6562c3cd130b22~tplv-20ashz96qn-1"]',
             '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
@@ -349,6 +358,7 @@ export default defineGkdApp({
             '@Button[desc="关闭"] - View > [text="7711e33a3ceb4b608189a89f05469b9f~tplv-20ashz96qn-1"]',
             '@Button[desc="关闭"] - View > [text="87300a5123d94e85a80a88a1ad3afc38~tplv-20ashz96qn-1"]',
             '@Button[desc="关闭"] - View > [text="9ce5c5471aae4dcfa14d3bbf983c3368~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"] - View > [text="ce22a8e2980d4d6a8a6562c3cd130b22~tplv-20ashz96qn-1"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -371,6 +381,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 5000,
           matches: [
             '@Image < View + View > [text="5d5e1ba17a3090fb80016b75d2fc8758.png~tplv-49obo7mizy-75compress"]',
           ],
@@ -437,6 +448,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 5000,
           matches: [
             '@Image < View + [text="40998dca3d938f5fd378d6c1738e1ded.png~tplv-49obo7mizy-png75"]',
           ],
@@ -624,9 +636,24 @@ export default defineGkdApp({
         },
       ],
     },
-    //更多任务
     {
       key: 46,
+      name: '车主服务-去懂车帝',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: ['@ImageView[clickable=true] < LinearLayout + [text="懂车帝"]'],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    //更多任务
+    {
+      key: 47,
       name: '车主服务-从「钱包」访问车主服务',
       matchRoot: true,
       actionMaximum: 1,
@@ -652,7 +679,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 47,
+      key: 48,
       name: '车主服务-搜索「车险」进入频道',
       matchRoot: true,
       actionMaximum: 1,
@@ -679,7 +706,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 48,
+      key: 49,
       name: '车主服务-车主卡券',
       matchRoot: true,
       actionMaximum: 1,
@@ -688,6 +715,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 3000,
           matches: ['[id="nav-bar"] <<n [text="车主卡券"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -801,7 +829,6 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 32000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -832,7 +859,6 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 32000,
           matches: ['@[text="返回领取"] - [text="浏览好物"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -854,7 +880,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 32000,
           matches: ['@ImageView < [desc="任务完成 返回领取，关闭，按钮"]'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
