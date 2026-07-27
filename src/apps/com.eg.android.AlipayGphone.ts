@@ -296,6 +296,42 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 25,
+      name: '广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@View < ViewGroup[index=8][childCount=1] -3 ViewGroup > View',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
+        },
+      ],
+    },
+    {
+      key: 26,
+      name: '广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[id$="tiny_half_close"] - [id$="tiny_half_expand"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+          ],
+        },
+      ],
+    },
     //充鸭攒话费
     {
       key: 30,
