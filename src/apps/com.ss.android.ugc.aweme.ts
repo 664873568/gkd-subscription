@@ -646,7 +646,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: ['@ImageView[clickable=true] < LinearLayout + [text="懂车帝"]'],
+          matches: [
+            '@ImageView[clickable=true] < LinearLayout + [text="懂车帝"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
