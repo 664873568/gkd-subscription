@@ -277,6 +277,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 24,
+      name: '赚工分-返回 返回首页',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 16000,
+          matches: ['[text=""] <<n @[desc="返回"][clickable=true] + [desc="返回首页"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
+          ],
+        },
+      ],
+    },
     //充鸭攒话费
     {
       key: 30,
