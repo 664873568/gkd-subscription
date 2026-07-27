@@ -502,7 +502,7 @@ export default defineGkdApp({
     },
     {
       key: 52,
-      name: '看视频-跳过-看*秒可直接拿奖励',
+      name: '看视频-跳过-礼包-看*秒可直接拿奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -511,7 +511,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="点击"] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] <n * + * [text="跳过"]',
+            '@[text="点击跳转拿奖励"] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"]',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
