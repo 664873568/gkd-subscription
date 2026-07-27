@@ -1237,7 +1237,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="跳过"] < [vid="host_splash_fragment_root_lay"]',
+            '@[text="跳过"] <<n [vid="host_splash_fragment_root_lay"]',
             '@[desc="跳过广告"][clickable=true] <n [vid="host_splash_skip_layout"]',
           ],
           activityIds: [
