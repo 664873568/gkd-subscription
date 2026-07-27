@@ -68,6 +68,22 @@ export default defineGkdApp({
     },
     {
       key: 4,
+      name: '天天集能量-浏览APP返回页',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView[index=0][childCount=0] < FrameLayout[index=1][childCount=1]',
+          ],
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
       name: '天天集能量-网页无法打开',
       matchRoot: true,
       actionMaximum: 1,
@@ -125,6 +141,20 @@ export default defineGkdApp({
     //看视频-com.baidu.mobads.sdk.api.*
     {
       key: 30,
+      name: '看视频-广告-拼多多',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView[clickable=true] - [text="反馈"] <<n LinearLayout + [id$="statusBarBackground"]'],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 31,
       name: '看视频-精选推荐',
       matchRoot: true,
       actionMaximum: 1,
@@ -133,13 +163,12 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@ImageView - [text="反馈"] +3 View'],
-          snapshotUrls: ['https://i.gkd.li/i/23561480'],
           activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
       ],
     },
     {
-      key: 31,
+      key: 32,
       name: '看视频-二级页-< ×',
       matchRoot: true,
       actionMaximum: 1,
@@ -167,9 +196,26 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.anythink.basead.ui.ATPortraitActivity.*
+    //看视频-com.byazt.mw.Stub_Standard_Portrait_Activity
     {
       key: 50,
+      name: '看视频-礼包-*s后可领取奖励-领取成功-×"]',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'ImageView < *[clickable=true] -n *[clickable=true] ImageView + [text="领取成功"]',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    //看视频-com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity
+    {
+      key: 60,
       name: '看视频-跳过↓',
       matchRoot: true,
       actionMaximum: 1,
@@ -190,7 +236,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 61,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -208,7 +254,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 52,
+      key: 62,
       name: '看视频-跳转快应用-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -226,7 +272,7 @@ export default defineGkdApp({
     },
     //看视频-com.kwad.sdk.api.proxy.app.FeedDownloadActivity
     {
-      key: 60,
+      key: 70,
       name: '看视频-立即领取-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -242,7 +288,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 61,
+      key: 71,
       name: '看视频-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -257,7 +303,7 @@ export default defineGkdApp({
     },
     //看视频-com.qq.e.ads.*
     {
-      key: 70,
+      key: 80,
       name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -278,7 +324,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 71,
+      key: 81,
       name: '看视频-微信-恭喜获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -292,7 +338,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 72,
+      key: 82,
       name: '看视频-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -317,7 +363,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 73,
+      key: 83,
       name: '看视频-二级广告页-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -332,7 +378,7 @@ export default defineGkdApp({
     },
     //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
-      key: 80,
+      key: 90,
       name: '看视频-奖励已到账',
       matchRoot: true,
       actionMaximum: 1,
@@ -348,7 +394,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 81,
+      key: 91,
       name: '看视频-完成APP下载-即可领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -365,7 +411,7 @@ export default defineGkdApp({
     },
     //看视频-com.ubix.ssp.open.comm.UBiXVideoActivity
     {
-      key: 90,
+      key: 100,
       name: '看视频-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
