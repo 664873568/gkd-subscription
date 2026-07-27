@@ -859,9 +859,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="跳过"] - [text="已获得奖励"] <2 [id="close_btn"]',
-          ],
+          matches: ['@[text="跳过"] - [text="已获得奖励"] <2 [id="close_btn"]'],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
