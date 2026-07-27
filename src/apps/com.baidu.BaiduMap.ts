@@ -502,7 +502,7 @@ export default defineGkdApp({
     },
     {
       key: 52,
-      name: '看视频-拿奖励-礼包-跳过',
+      name: '看视频-跳过-看*秒可直接拿奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
