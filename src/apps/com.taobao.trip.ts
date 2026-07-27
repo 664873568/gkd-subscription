@@ -148,7 +148,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView[clickable=true] - [text="反馈"] <<n LinearLayout + [id$="statusBarBackground"]'],
+          matches: [
+            '@ImageView[clickable=true] - [text="反馈"] <<n LinearLayout + [id$="statusBarBackground"]',
+          ],
           activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
       ],
