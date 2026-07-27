@@ -197,6 +197,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 3000,
           anyMatches: [
             '@[text="立即领取"] < * - [text~="恭喜抽中 [0-9]+00 金币"]',
             '@TextView[text=""][clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
