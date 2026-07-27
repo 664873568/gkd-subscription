@@ -287,7 +287,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: ['[text=""] <<n @[desc="返回"][clickable=true] + [desc="返回首页"]'],
+          matches: [
+            '[text=""] <<n @[desc="返回"][clickable=true] + [desc="返回首页"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
           ],
