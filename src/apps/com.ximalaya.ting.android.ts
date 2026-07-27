@@ -1029,10 +1029,11 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
           actionDelay: 2000,
           anyMatches: [
-            '@Button[clickable=true] <<n FrameLayout - LinearLayout > [text="点击商品再得额外奖励500金币"]',
-            '@View[index=0][childCount=2][clickable=true] <<n FrameLayout - LinearLayout > [text="点击商品再得额外奖励500金币"]',
+            '@Button[clickable=true] <<n * - * [text="点击商品再得额外奖励500金币"]',
+            '@View[index=0][childCount=2][clickable=true] <<n * - * [text="点击商品再得额外奖励500金币"]',
           ],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
