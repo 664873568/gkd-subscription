@@ -99,7 +99,7 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '@[text="浏览完成"] < View - View >3 [text="readMissionDown"]',
+            '@[text="浏览完成"] < * - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -123,6 +123,22 @@ export default defineGkdApp({
     },
     {
       key: 7,
+      name: '看视频-奖励已到账-返回做任务页面',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@TextView[clickable=true] <<n * + * [text="奖励已到账"] < * - * [text="readMissionDown"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 8,
       name: '返回领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -132,10 +148,10 @@ export default defineGkdApp({
         {
           action: 'back',
           anyMatches: [
-            '@[text="浏览完成"] +2 [text="readMissionArrow2"]',
-            '@[text="浏览完成"] < View - View >3 [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] < View - View >3 [text="readMissionDown"]',
-            '@[text="返回领奖"] < View - View >3 [vid="fragment_container"]',
+            '@[text="浏览完成"] +n [text="readMissionArrow2"]',
+            '@[text="浏览完成"] < * - * [text="ff776b55ee07c915"]',
+            '@[text="返回领奖"] < * - * [text="readMissionDown"]',
+            '@[text="返回领奖"] < * - * [vid="fragment_container"]',
             '@[text="返回领奖"] < ViewGroup +n ImageView + ViewGroup',
           ],
           activityIds: [
