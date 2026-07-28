@@ -355,7 +355,7 @@ export default defineGkdApp({
         {
           actionDelay: 3000,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * +n * [text="JoyAI"] ',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
