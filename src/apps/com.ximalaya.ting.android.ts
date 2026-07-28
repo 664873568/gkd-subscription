@@ -1247,5 +1247,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 501,
+      name: '恭喜获得30分钟VIP免费听权益-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[vid="main_free_listen_time_close_iv"] +n [text="恭喜获得30分钟VIP免费听权益"][vid="main_free_listen_time_title_tv"]',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
   ],
 });
