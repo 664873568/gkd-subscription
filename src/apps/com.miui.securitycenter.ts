@@ -180,7 +180,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '@[text="启动应用"][vid="permission_group_title"] + [text^="京东金融"][vid="event_title"]',
           ],
@@ -197,6 +197,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           anyMatches: [
             '@[text="本次允许"] <<n * [text^="京东金融 想要打开 QQ阅读"][vid="event_title"]',
             '@[text="本次允许"] <<n * [text^="京东金融 想要打开 京东健康"][vid="event_title"]',
