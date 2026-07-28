@@ -97,8 +97,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: ['@[text="浏览完成"] < * - * [text="readMissionDown"]'],
+          matches: ['@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="浏览完成"] < * - * [text="readMissionDown"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -368,7 +367,7 @@ export default defineGkdApp({
         {
           actionDelay: 3000,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * +n * [text="JoyAI"] ',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * +n * [text="JoyAI"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
