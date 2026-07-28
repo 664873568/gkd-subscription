@@ -155,6 +155,14 @@ export default defineGkdApp({
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
         },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: ['@ImageView - FrameLayout < ViewGroup - ScrollView'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
+        },
       ],
     },
     {
