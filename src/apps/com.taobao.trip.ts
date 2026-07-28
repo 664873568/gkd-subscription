@@ -201,6 +201,39 @@ export default defineGkdApp({
     //看视频-com.byazt.mw.Stub_Standard_Portrait_Activity
     {
       key: 50,
+      name: '看视频-礼包-再逛*秒后可领奖',
+      matchRoot: true,
+      actionMaximum: 3,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '看视频-礼包-奖励已领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 52,
       name: '看视频-礼包-*s后可领取奖励-领取成功-×"]',
       matchRoot: true,
       actionMaximum: 1,
@@ -414,6 +447,22 @@ export default defineGkdApp({
     //看视频-com.ubix.ssp.open.comm.UBiXVideoActivity
     {
       key: 100,
+      name: '看视频-点击广告并跳转获取奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="立即下载"][clickable=true] <<n * -n [text="点击广告并跳转获取奖励"]',
+          ],
+          activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 101,
       name: '看视频-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -421,22 +470,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: [
-            '@ImageView[clickable=true] +3 [text="立即下载"][clickable=true]',
-          ],
-          activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@ImageView[clickable=true] +4 TextView[clickable=true]'],
-          activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: ['@ImageView - ImageView +5 TextView'],
+          matches: ['@ImageView[clickable=true] - [text="恭喜获得奖励"]'],
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
       ],
@@ -550,6 +584,22 @@ export default defineGkdApp({
           key: 2,
           matches: ['@[text="能量红包"] <<n * [text="首页"]'],
           activityIds: ['.home.HomeActivity'],
+        },
+      ],
+    },
+    {
+      key: 504,
+      name: '广告-礼包-剩余*s-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="sdm_myoffer_btn_close_id"] <<n * -n * [vid="sdm_myoffer_tv_reward_tips_icon_id"] + [text~="剩余 [0-9]+s"][vid="sdm_myoffer_tv_reward_tips_id"]',
+          ],
+          activityIds: ['com.smartdigimkt.sdk.basead.ui.ATPortraitActivity'],
         },
       ],
     },
