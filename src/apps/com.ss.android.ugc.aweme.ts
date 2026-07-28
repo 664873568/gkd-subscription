@@ -156,7 +156,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@ImageView - FrameLayout < ViewGroup - ScrollView'],
           activityIds: [
