@@ -7,10 +7,8 @@ export default defineGkdApp({
     {
       key: 0,
       name: '立即签到',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -77,7 +75,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView',
             '@ImageView[clickable=true] < FrameLayout - FrameLayout >3 ImageView',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
