@@ -144,19 +144,18 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           anyMatches: [
-            '@[text="浏览完成"] +n [text="readMissionArrow2"]',
-            '@[text="浏览完成"] < * - * [text="ff776b55ee07c915"]',
-            '@[text="返回领奖"] < * - * [text="readMissionDown"]',
-            '@[text="返回领奖"] < * - * [vid="fragment_container"]',
-            '@[text="返回领奖"] < ViewGroup +n ImageView + ViewGroup',
+            //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="浏览完成"] +n [text="readMissionArrow2"]',
+            //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="浏览完成"] < * - * [text="ff776b55ee07c915"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',
+            //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [vid="fragment_container"]',
+            //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < ViewGroup +n ImageView + ViewGroup',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
-            '.bm.common.container.ui.BaseContainerActivity',
-            '.bm.common.web.ui.landscape.WebLandscapeActivity',
-            '.bm.jrv8.JRCustomDyPageActivity',
+            //'.bm.common.container.ui.BaseContainerActivity',
+            //'.bm.common.web.ui.landscape.WebLandscapeActivity',
+            //'.bm.jrv8.JRCustomDyPageActivity',
           ],
         },
       ],
