@@ -144,7 +144,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]'],
+          matches: [
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
@@ -160,7 +162,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]'],
+          matches: [
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
@@ -193,9 +197,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: [
-            '@[id$="ic_back_btn"] <<n * [text="蚂蚁投资者教育基地"]',
-          ],
+          matches: ['@[id$="ic_back_btn"] <<n * [text="蚂蚁投资者教育基地"]'],
           activityIds: [
             'com.alipay.android.living.activity.LivingDetailActivity',
           ],
@@ -248,7 +250,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 16000,
-          matches: ['@[desc="返回"][clickable=true] <<n * + * [text="Smallfish App"]'],
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * + * [text="Smallfish App"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
             'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
@@ -267,7 +271,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 16000,
-          matches: ['@[desc="关闭"][clickable=true] <<n * + * [text="Smallfish App"]'],
+          matches: [
+            '@[desc="关闭"][clickable=true] <<n * + * [text="Smallfish App"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
           ],
@@ -284,7 +290,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: ['@[desc="返回"][clickable=true] <<n * + * [desc$="bridge.html"]'],
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * + * [desc$="bridge.html"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
