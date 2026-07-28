@@ -123,7 +123,7 @@ export default defineGkdApp({
     },
     {
       key: 7,
-      name: '看视频-奖励已到账-返回做任务页面',
+      name: '奖励已到账-返回做任务页面',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
