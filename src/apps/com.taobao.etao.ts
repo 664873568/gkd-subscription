@@ -6,6 +6,22 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
+      name: '跳转APP-打开',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="打开"] - [text="取消"] <<n [vid="buttonPanel"] -n [vid="topPanel"] [text="提示"][vid="alertTitle"]',
+          ],
+          activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '去点淘领红包',
       matchRoot: true,
       actionMaximum: 1,
@@ -13,7 +29,18 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="下载/打开APP"] <<n [text="去点淘领红包"]'],
+          key: 0,
+          matches: [
+            '[text="下载/打开APP"] < @View[clickable=true] <<n * - * [text="去点淘领红包"][vid="tvTitle"]',
+          ],
+          activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="打开"] - [text="取消"] <<n [vid="buttonPanel"] -n [vid="topPanel"] [text="提示"][vid="alertTitle"]',
+          ],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
       ],
