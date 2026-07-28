@@ -243,7 +243,7 @@ export default defineGkdApp({
             '@[text=""] - [text="恭喜获得限时红包"]',
             '@[text="7b144c81c2cb181f"] -n * > [text="限时领取"]',
             '@[text="7b144c81c2cb181f"] < * -n * > [text="限时领取"]',
-            '@[text="7875bbac9bb10fdf82dc16f0a72edb8a__20260312icon-close"] <<n * -n * [text="c7cd142a32b09ca4"]',//限时拆盲盒领奖励
+            '@[text="7875bbac9bb10fdf82dc16f0a72edb8a__20260312icon-close"] <<n * -n * [text="c7cd142a32b09ca4"]', //限时拆盲盒领奖励
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -383,9 +383,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@[text$="跳过"] - [text="0s"]',
-          ],
+          excludeMatches: ['@[text$="跳过"] - [text="0s"]'],
           matches: ['@[text$="跳过"] [id="f6243b"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -407,9 +405,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@Image < View < View < View < View - View [text="反馈"]',
-          ],
+          matches: ['@Image < View < View < View < View - View [text="反馈"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
