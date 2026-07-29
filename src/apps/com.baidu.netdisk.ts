@@ -620,7 +620,7 @@ export default defineGkdApp({
           key: 0,
           matches: [
             '@[id="android:id/button1"] <<n * -n [text="Z 侏罗纪：重生"][vid="text1"] <<n * + * [text="点击勾选文件"][vid="tv_tip"]',
-            ]
+            ],
           activityIds: ['.ui.MainActivity'],
         },
         {
@@ -628,7 +628,7 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="智能整理"][vid="ui_id_menu_text"] <n @RelativeLayout[clickable=true] <<n * + * [text="点击智能整理"][vid="tv_tip"]',
-            ]
+            ],
           activityIds: ['.ui.MainActivity'],
         },
         {
@@ -636,7 +636,7 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
-            ]
+            ],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
       ],
@@ -653,7 +653,7 @@ export default defineGkdApp({
           key: 0,
           matches: [
             '[vid="cover"] < @RelativeLayout[clickable=true] < [vid="recent_pager"] <<n * +n * [text="选视频生成ai笔记"][vid="tv_title"]',
-            ]
+            ],
           activityIds: ['.servicepage.video.ui.VideoServiceActivity'],
         },
         {
@@ -661,7 +661,7 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] < RelativeLayout < @LinearLayout[clickable=true] <<n * +n * [text="选视频生成ai笔记"][vid="tv_title"]',
-            ]
+            ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
         {
@@ -669,7 +669,7 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
-            ]
+            ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
       ],
@@ -686,7 +686,7 @@ export default defineGkdApp({
           key: 0,
           matches: [
             '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI拍一拍"][vid="tv_title"]',
-            ]
+            ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
@@ -694,7 +694,7 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
-            ]
+            ],
           activityIds: [
             '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
             ],
@@ -713,7 +713,7 @@ export default defineGkdApp({
           key: 0,
           matches: [
             '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI去水印"][vid="tv_title"]',
-            ]
+            ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
@@ -721,7 +721,7 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
-            ]
+            ],
           activityIds: [
             '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
             ],
@@ -740,7 +740,7 @@ export default defineGkdApp({
           key: 0,
           matches: [
             '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI变清晰"][vid="tv_title"]',
-            ]
+            ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
@@ -748,7 +748,7 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
-            ]
+            ],
           activityIds: [
             '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
             ],
