@@ -162,9 +162,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '[text="back"] < @[text=""][clickable=true] <<n * +n * [text="返回领奖"] < * - * [text="readMissionDown"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',
             //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="浏览完成"] +n [text="readMissionArrow2"]',
             //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="浏览完成"] < * - * [text="ff776b55ee07c915"]',
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',
             //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [vid="fragment_container"]',
             //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < ViewGroup +n ImageView + ViewGroup',
           ],
