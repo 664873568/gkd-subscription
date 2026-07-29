@@ -27,22 +27,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
-      name: '看视频-跳过-试玩*秒获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="跳过小游戏立即前往"] <<n * +n * [text="跳过"] -n [text~="试玩[0-9]+秒获得奖励"]',
-          ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
       key: 22,
       name: '看视频-跳过-限时领取',
       matchRoot: true,
