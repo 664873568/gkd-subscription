@@ -8,13 +8,9 @@ export default defineGkdApp({
       key: 0,
       name: '系统桌面-最近任务-启动应用',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'app',
+      matchDelay: 16000,
       rules: [
         {
-          action: 'clickCenter',
-          actionDelay: 16000,
           anyMatches: [
             '@[desc^="YY"] >n [desc^="打开"][vid="icon"]',
             '@[desc^="YY语音"] >n [desc^="打开"][vid="icon"]',
