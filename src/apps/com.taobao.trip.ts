@@ -543,10 +543,17 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: [
             '@[text^="O1CN01TD5wn71Ptmtb9GAxE_"] <<n [vid="poplayer_penetrate_view_id"]',
           ],
           activityIds: ['.home.HomeActivity', '.splash.ui.ImageSplashActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="能量红包"] <<n * [text="首页"]'],
+          activityIds: ['.home.HomeActivity'],
         },
       ],
     },
