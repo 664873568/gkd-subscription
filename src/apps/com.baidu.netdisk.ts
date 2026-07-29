@@ -4,248 +4,6 @@ export default defineGkdApp({
   id: 'com.baidu.netdisk',
   name: '百度网盘',
   groups: [
-    //任务中心-.ui.cloudp2p.RichMediaActivity
-    {
-      key: 0,
-      name: '会员频道-会员等级体系新升级-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@TextView -2 [text="会员等级体系新升级"] <<n [text="会员频道"]',
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
-      key: 1,
-      name: '百度网盘超级会员日-已完成任务',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: [
-            '@[text="done"] +2 [text="2bd7c5199a3f9703e3ae80849"] <<n [text="百度网盘超级会员日"]',
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '签到成功-今日积分已翻倍',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@ImageButton[text="c"][clickable=true] < View + [text="qiandao"] +n [text="yifanbei"]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
-      ],
-    },
-    //游戏中心
-    {
-      key: 3,
-      name: '游戏中心-领取奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="lingqujiangli"] <<n [text="游戏中心"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '游戏中心-好礼通行证-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[desc="关闭"] -2 [text="point"] <<n [text="游戏中心"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@TextView -2 [text="好礼通行证"] <<n [text="游戏中心"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    //任务中心
-    {
-      key: 5,
-      name: '任务中心-加载中…-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 3000,
-          matches: [
-            '@[vid="left_button"] +2 [text="加载中…"][vid="middle_title_text"]',
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
-      key: 6,
-      name: '任务中心-百度云升级/福利来袭-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          anyMatches: [
-            '@[vid="left_button"] +2 [text="百度云升级"][vid="middle_title_text"]',
-            '@[vid="left_button"] +2 [text^="福利来袭"][vid="middle_title_text"]',
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
-      key: 7,
-      name: '任务中心-恭喜获得-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[vid="left_button"] <<n * +n * [text="恭喜获得"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    //
-    {
-      key: 8,
-      name: '任务中心-选择照片',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[vid="imageview_checkbox"] <<n [vid="grid_item_layout"][index=1] <<n [vid="fragment_container"] + [vid="bottom_bar"] > [text="已选：0/99"][vid="select_count_text"]',
-          ],
-          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="完成"][vid="done_button"] - [text="已选：1/99"][vid="select_count_text"]',
-          ],
-          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '任务中心-题目框选',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['ImageView + View + @ImageView + ImageView'],
-          activityIds: [
-            'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[desc="录入错题"] -n [desc="已选择 1 道题目"]'],
-          activityIds: [
-            'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 10,
-      name: '任务中心-录入错题本',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="全部保存"] <<n [text="学习服务页"]'],
-          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
-          ],
-          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
-        },
-      ],
-    },
-    {
-      key: 11,
-      name: '任务中心-简单打印',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageButton +n [text="立即使用"] <<n [text="简单打印"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
-      key: 12,
-      name: '任务中心-奇妙赏',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['[text="lingqujiangli"] < @View[text=""][clickable=true] <<n [text="奇妙赏"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
     //看视频-com.byazt.gd.Stub_Standard_Portrait_Activity
     {
       key: 20,
@@ -639,7 +397,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
+          matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -693,14 +451,169 @@ export default defineGkdApp({
         },
       ],
     },
-    //26.07.09-29.07.31 集勋章 赢大奖
-    //做任务赢勋章抽大奖
     {
-      key: 200,
-      name: '看视频-关闭广告',
+      key: 199,
+      name: '会员频道-会员等级体系新升级-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@TextView -2 [text="会员等级体系新升级"] <<n [text="会员频道"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    //任务中心
+    //第一轮：25.09.28-25.12.26
+    //第二轮：25.12.27-26.03.26
+    //第三轮：26.03.27-26.06.24
+    //第四轮：26.06.25-26.09.22
+    //任务中心-.ui.cloudp2p.RichMediaActivity
+    //每日签到
+    {
+      key: 200,
+      name: '每日签到-签到成功-今日积分已翻倍',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageButton[text="c"][clickable=true] < View + [text="qiandao"] +n [text="yifanbei"]',
+          ],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
+        },
+      ],
+    },
+    //做任务赚积分
+    //日常任务
+    {
+      key: 210,
+      name: '日常任务-百度网盘超级会员日',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[text="done"] +2 [text="2bd7c5199a3f9703e3ae80849"] <<n [text="百度网盘超级会员日"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 211,
+      name: '日常任务-集勋章抽金条手机',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="lingqujiangli"][clickable=true] - View > [text="task-close"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 212,
+      name: '日常任务-小程序点图文',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="left_button"] <<n * +n * [text="恭喜获得"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 213,
+      name: '日常任务-体验一刻相册',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="left_button"][clickable=true] +2 [text="福利来袭X-永久无限空间限时抢"][vid="middle_title_text"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 204,
+      name: '日常任务-去玩游戏合成3次',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          position: {
+            left: 'width * 0.9091',
+            top: 'width * 1.8286',
+            },
+          actionDelay: 30000,
+          matches: [
+            '@[id="GameCanvas"] < [id="Cocos2dGameContainer"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 205,
+      name: '日常任务-去寻道砍树3次',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[text="lingqujiangli"] < @View[text=""][clickable=true] + [desc="close"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 209,
+      name: '日常任务-奇妙赏',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[text="lingqujiangli"] < @View[text=""][clickable=true] <<n [text="奇妙赏"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    //最新AI功能
+    {
+      key: 210,
+      name: '最新AI功能-云一朵文件智能整理',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -722,18 +635,18 @@ export default defineGkdApp({
           preKeys: [0,1],
           key: 2,
           matches: [
-            '@[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
             ]
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
       ],
     },
     {
-      key: 201,
-      name: '看视频-关闭广告',
+      key: 211,
+      name: '最新AI功能-体验AI笔记',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -755,9 +668,379 @@ export default defineGkdApp({
           preKeys: [0,1],
           key: 2,
           matches: [
-            '@[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
             ]
           activityIds: ['.video.VideoPlayerActivity'],
+        },
+      ],
+    },
+    {
+      key: 212,
+      name: '最新AI功能-体验AI拍一拍',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI拍一拍"][vid="tv_title"]',
+            ]
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+            ]
+          activityIds: [
+            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
+            ],
+        },
+      ],
+    },
+    {
+      key: 213,
+      name: '最新AI功能-体验AI去水印',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI去水印"][vid="tv_title"]',
+            ]
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+            ]
+          activityIds: [
+            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
+            ],
+        },
+      ],
+    },
+    {
+      key: 214,
+      name: '最新AI功能-体验AI变清晰',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI变清晰"][vid="tv_title"]',
+            ]
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+            ]
+          activityIds: [
+            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
+            ],
+        },
+      ],
+    },
+    {
+      key: 215,
+      name: '最新AI功能-体验AI照相馆',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="dyr-dt"] < @View[text=""][clickable=true] <<n * + * [text="点击写真模板"][vid="tv_title"]',
+          ],
+          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+          ],
+          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 216,
+      name: '最新AI功能-体验AI消除',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI消除"][vid="tv_title"]',
+          ],
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+          ],
+          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 217,
+      name: '最新AI功能-体验AI去手写',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI去手写"][vid="tv_title"]',
+          ],
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+          ],
+          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 218,
+      name: '最新AI功能-去体验错题收集',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="相册导入"][vid="question_collect_gallery"] <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
+          ],
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          key: 1,
+          preKeys: [0],
+          matches: [
+            '@[vid="imageview_checkbox"] <<n [vid="grid_item_layout"][index=1] <<n [vid="fragment_container"] + [vid="bottom_bar"] > [text="已选：0/99"][vid="select_count_text"]',
+          ],
+          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text="完成"][vid="done_button"] - [text="已选：1/99"][vid="select_count_text"]',
+          ],
+          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          matches: ['ImageView - @ImageView[clickable=true] - ImageView - View <<n * + * [text="拍摄错题并录入"][vid="tv_title"]'],
+          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+        },
+        {
+          preKeys: [0,1,2,3],
+          key: 4,
+          matches: ['@[desc="录入错题"][clickable=true] -n [desc="已选择 1 道题目"] <<n * + * [text="拍摄错题并录入"][vid="tv_title"]'],
+          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+        },
+        {
+          preKeys: [0,1,2,3,4],
+          key: 5,
+          matches: ['@[text="全部保存"] <<n [text="学习服务页"]'],
+          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
+        },
+        {
+          preKeys: [0,1,2,3,4,5],
+          key: 6,
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+          ],
+          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 219,
+      name: '最新AI功能-去体验拍题解题',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[vid="take_photo_button"] <<n * + * [text="拍摄题目并解题"][vid="tv_title"]',
+          ],
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@ImageView[clickable=true] -2 [desc="每次只框一题，识别更准确"] <<n * + * [text="拍摄题目并解题"][vid="tv_title"]',
+          ],
+          activityIds: ['com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+          ],
+          activityIds: ['com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity'],
+        },
+      ],
+    },
+    //功能任务
+    {
+      key: 220,
+      name: '功能任务-去刷一刷首页',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+          ],
+          activityIds: ['.ui.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 221,
+      name: '功能任务-浏览书城小说30s',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="任务完成"][vid="tv_title"] -n [vid="gif_lottie_view"][clickable=true]',
+          ],
+          activityIds: ['.bdreader.ui.view.NovelMainActivity'],
+        },
+      ],
+    },
+    {
+      key: 222,
+      name: '功能任务-去逛逛游戏频道',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@TextView[text=""][clickable=true] - TextView[clickable=true] < View <n [text="游戏中心"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 223,
+      name: '功能任务-浏览短剧30s',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+          ],
+          activityIds: ['.playerlet.ui.ShortPlayServiceActivity'],
+        },
+      ],
+    },
+    {
+      key: 224,
+      name: '功能任务-去体验云打印',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: ['@ImageButton +n [text="立即使用"] <<n [text="简单打印"]'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@TextView[text=""][clickable=true] + [id="noticeSwiper"] <<n * + * [text="上传任意文件"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[text="手机相册"] < @View[clickable=true] <<n * + * [text="上传任意文件"]',
+          ],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          matches: [
+            '@[text="确定"][clickable=true] - [text="预览"] <<n * + * [text="上传任意文件"]',
+          ],
+        },
+        {
+          preKeys: [0,1,2,3],
+          key: 4,
+          matches: [
+            '[text="任务完成领奖"] - TextView < @View[text=""][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 225,
+      name: '功能任务-去体验云打印-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageButton +n [text="立即使用"] <<n [text="简单打印"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
     },
@@ -854,9 +1137,8 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 6000,
           matches: [
-            '@[vid="title_quit"] <<n * +n * [text="任务处理中…"][vid="genflow_sub_desc"]',
+            '@[vid="title_quit"][clickable=true] <<n * +n * [text="任务处理中…"][vid="genflow_sub_desc"]',
           ],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
@@ -879,7 +1161,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
           matches: [
             '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] < RelativeLayout < @LinearLayout[clickable=true] <<n * + * [text="我知道了"][vid="iv_close"]',
           ],
@@ -1057,6 +1338,7 @@ export default defineGkdApp({
         },
       ],
     },
+    //
     {
       key: 310,
       name: '任务完成获得时光',
@@ -1183,7 +1465,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text~="跳过 [0-9]"][vid="countdown"] <<n [vid="fl_ad_container"]',
+            '@[text~="跳过 [0-9]"][vid="countdown"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
