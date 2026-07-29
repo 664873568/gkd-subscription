@@ -276,7 +276,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]',//恭喜获得奖励
+            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]', //恭喜获得奖励
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -323,7 +323,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]',//恭喜获得奖励
+            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]', //恭喜获得奖励
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -402,9 +402,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="icon-close.e3e3211b"] -n * [text="限时领取"]',
-          ],
+          matches: ['@[text="icon-close.e3e3211b"] -n * [text="限时领取"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -961,7 +959,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          matches: ['@[text="立即创建"][clickable=true][focusable=true] -n [text="新建相簿"]'],
+          matches: [
+            '@[text="立即创建"][clickable=true][focusable=true] -n [text="新建相簿"]',
+          ],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
