@@ -559,7 +559,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 204,
+      key: 214,
       name: '日常任务-去玩游戏合成3次',
       matchRoot: true,
       actionMaximum: 1,
@@ -580,7 +580,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 205,
+      key: 215,
       name: '日常任务-去寻道砍树3次',
       matchRoot: true,
       actionMaximum: 1,
@@ -594,7 +594,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 209,
+      key: 219,
       name: '日常任务-奇妙赏',
       matchRoot: true,
       actionMaximum: 1,
@@ -609,7 +609,7 @@ export default defineGkdApp({
     },
     //最新AI功能
     {
-      key: 210,
+      key: 220,
       name: '最新AI功能-云一朵文件智能整理',
       matchRoot: true,
       actionMaximum: 1,
@@ -642,7 +642,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 211,
+      key: 221,
       name: '最新AI功能-体验AI笔记',
       matchRoot: true,
       actionMaximum: 1,
@@ -675,7 +675,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 212,
+      key: 222,
       name: '最新AI功能-体验AI拍一拍',
       matchRoot: true,
       actionMaximum: 1,
@@ -702,7 +702,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 213,
+      key: 223,
       name: '最新AI功能-体验AI去水印',
       matchRoot: true,
       actionMaximum: 1,
@@ -729,7 +729,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 214,
+      key: 224,
       name: '最新AI功能-体验AI变清晰',
       matchRoot: true,
       actionMaximum: 1,
@@ -756,7 +756,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 215,
+      key: 225,
       name: '最新AI功能-体验AI照相馆',
       matchRoot: true,
       actionMaximum: 1,
@@ -781,7 +781,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 216,
+      key: 226,
       name: '最新AI功能-体验AI消除',
       matchRoot: true,
       actionMaximum: 1,
@@ -806,7 +806,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 217,
+      key: 227,
       name: '最新AI功能-体验AI去手写',
       matchRoot: true,
       actionMaximum: 1,
@@ -831,7 +831,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 218,
+      key: 228,
       name: '最新AI功能-去体验错题收集',
       matchRoot: true,
       actionMaximum: 1,
@@ -890,7 +890,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 219,
+      key: 229,
       name: '最新AI功能-去体验拍题解题',
       matchRoot: true,
       actionMaximum: 1,
@@ -924,7 +924,7 @@ export default defineGkdApp({
     },
     //功能任务
     {
-      key: 220,
+      key: 230,
       name: '功能任务-去刷一刷首页',
       matchRoot: true,
       actionMaximum: 1,
@@ -940,7 +940,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 221,
+      key: 231,
       name: '功能任务-浏览书城小说30s',
       matchRoot: true,
       actionMaximum: 1,
@@ -956,7 +956,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 222,
+      key: 232,
       name: '功能任务-去逛逛游戏频道',
       matchRoot: true,
       actionMaximum: 1,
@@ -972,7 +972,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 223,
+      key: 233,
       name: '功能任务-浏览短剧30s',
       matchRoot: true,
       actionMaximum: 1,
@@ -988,7 +988,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 224,
+      key: 234,
       name: '功能任务-去体验云打印',
       matchRoot: true,
       actionMaximum: 1,
@@ -1031,7 +1031,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 225,
+      key: 235,
       name: '功能任务-去体验云打印-广告-×',
       matchRoot: true,
       actionMaximum: 1,
