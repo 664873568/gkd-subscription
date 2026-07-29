@@ -401,9 +401,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 3000,
-          matches: [
-            '[desc="前往菜鸟APP"][clickable=true] <<n [text="菜鸟"]',
-          ],
+          matches: ['[desc="前往菜鸟APP"][clickable=true] <<n [text="菜鸟"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
