@@ -330,6 +330,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           excludeMatches: ['[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'],
           matches: [
             '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
