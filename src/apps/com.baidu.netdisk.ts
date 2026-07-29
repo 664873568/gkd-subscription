@@ -36,7 +36,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="跳过小游戏立即前往"] < @[id="bottom-cta"] <<n * +n * [text="跳过"] -n [text~="试玩[0-9]+秒获得奖励"]',
+            '@[text="跳过小游戏立即前往"] <<n * +n * [text="跳过"] -n [text~="试玩[0-9]+秒获得奖励"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
