@@ -47,11 +47,13 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
-            '@ImageButton[text="c"] < View + [text="qiandao"] +n [text="yifanbei"]',
+            '@ImageButton[text="c"][clickable=true] < View + [text="qiandao"] +n [text="yifanbei"]',
           ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
       ],
     },
@@ -240,6 +242,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
+            '@[text="立即前往"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
@@ -265,6 +268,22 @@ export default defineGkdApp({
     },
     {
       key: 22,
+      name: '看视频-跳过-限时领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]',//恭喜获得奖励
+          ],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 23,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -278,7 +297,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23,
+      key: 24,
       name: '看视频-礼包-再逛*秒后可领奖',
       matchRoot: true,
       actionMaximum: 3,
@@ -295,7 +314,23 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 25,
+      name: '看视频-礼包-限时领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]',//恭喜获得奖励
+          ],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 26,
       name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -312,7 +347,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 25,
+      key: 27,
       name: '看视频-礼包-奖励已领取-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -328,7 +363,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 27,
+      key: 28,
       name: '看视频-已发放-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -342,7 +377,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 28,
+      key: 29,
       name: '看视频-领取成功-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -359,7 +394,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 29,
+      key: 30,
       name: '看视频-限时领取-×',
       matchRoot: true,
       actionMaximum: 6,
@@ -368,7 +403,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="icon-close.e3e3211b"] -n [text="立即领取"] -n * [text="限时领取"]',
+            '@[text="icon-close.e3e3211b"] -n * [text="限时领取"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -376,7 +411,7 @@ export default defineGkdApp({
     },
     //看视频-com.byazt.gd.Stub_Standard_Activity
     {
-      key: 38,
+      key: 37,
       name: '看视频-跳过-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -392,7 +427,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 39,
+      key: 38,
       name: '看视频-广告二级页',
       matchRoot: true,
       actionMaximum: 1,
@@ -409,7 +444,7 @@ export default defineGkdApp({
     },
     //看视频-com.byazt.ff.Stub_Standard_Portrait_Activity
     {
-      key: 30,
+      key: 39,
       name: '看视频-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -926,7 +961,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          matches: ['@[text="立即创建"][clickable=true] -n [text="新建相簿"]'],
+          matches: ['@[text="立即创建"][clickable=true][focusable=true] -n [text="新建相簿"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
@@ -1045,9 +1080,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text^="跳过"][vid="countdown"]',
-            '@[text^="跳过"][vid="tv_skip"]',
-            '@[text^="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
+            '@[text="跳过"] + [text~="[0-9]"]',
+            '@[text="跳过"][vid="countdown"]',
+            '@[text="跳过"][vid="tv_skip"]',
+            '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
           activityIds: ['.advertise.ui.SplashAdActivity'],
         },
