@@ -106,6 +106,22 @@ export default defineGkdApp({
     },
     {
       key: 6,
+      name: '奖励已到账-返回做任务页面',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@TextView[clickable=true] <<n * + * [text="奖励已到账"] < * - * [text="readMissionDown"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 7,
       name: '看视频-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -121,23 +137,23 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
-      name: '奖励已到账-返回做任务页面',
+      key: 8,
+      name: '返回签到',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '@TextView[clickable=true] <<n * + * [text="奖励已到账"] < * - * [text="readMissionDown"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="返回签到"] < * - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
     {
-      key: 8,
+      key: 9,
       name: '返回领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -369,7 +385,72 @@ export default defineGkdApp({
         {
           actionDelay: 3000,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * +n * [text="JoyAI"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="JoyAI"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 34,
+      name: '菜鸟-前往菜鸟APP',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 3000,
+          matches: [
+            '[desc="前往菜鸟APP"][clickable=true] <<n [text="菜鸟"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 35,
+      name: '七猫免费小说推广-下载免费看书',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[desc="下载免费看书"][clickable=true] <<n [text="七猫免费小说推广"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 36,
+      name: '下载百度极速版-下载百度极速版',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[desc="下载百度极速版"][clickable=true] <<n [text="下载百度极速版"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 37,
+      name: '全民K歌-立即下载',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[id="76d7f62d-5557-482a-8863-9b8b32bc35b4"][clickable=true] <<n [text="全民K歌"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
