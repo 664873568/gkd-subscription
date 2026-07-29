@@ -211,7 +211,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="任务完成"][vid="tv_title"] -2 [vid="iv_close"]'],
+          matches: [
+            '@[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+          ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
       ],
@@ -226,6 +228,20 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@ImageButton +n [text="立即使用"] <<n [text="简单打印"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '任务中心-奇妙赏',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[text="lingqujiangli"] < @View[text=""][clickable=true] <<n [text="奇妙赏"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
@@ -680,6 +696,74 @@ export default defineGkdApp({
     //26.07.09-29.07.31 集勋章 赢大奖
     //做任务赢勋章抽大奖
     {
+      key: 200,
+      name: '看视频-关闭广告',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[id="android:id/button1"] <<n * -n [text="Z 侏罗纪：重生"][vid="text1"] <<n * + * [text="点击勾选文件"][vid="tv_tip"]',
+            ]
+          activityIds: ['.ui.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="智能整理"][vid="ui_id_menu_text"] <n @RelativeLayout[clickable=true] <<n * + * [text="点击智能整理"][vid="tv_tip"]',
+            ]
+          activityIds: ['.ui.MainActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+            ]
+          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
+        },
+      ],
+    },
+    {
+      key: 201,
+      name: '看视频-关闭广告',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[vid="cover"] < @RelativeLayout[clickable=true] < [vid="recent_pager"] <<n * +n * [text="选视频生成ai笔记"][vid="tv_title"]',
+            ]
+          activityIds: ['.servicepage.video.ui.VideoServiceActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] < RelativeLayout < @LinearLayout[clickable=true] <<n * +n * [text="选视频生成ai笔记"][vid="tv_title"]',
+            ]
+          activityIds: ['.video.VideoPlayerActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
+            ]
+          activityIds: ['.video.VideoPlayerActivity'],
+        },
+      ],
+    },
+    //26.07.09-29.07.31 集勋章 赢大奖
+    //做任务赢勋章抽大奖
+    {
       key: 300,
       name: '好运签日历',
       matchRoot: true,
@@ -797,7 +881,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1000,
           matches: [
-            '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] <<n @LinearLayout[clickable=true] <<n * + * [text="我知道了"][vid="iv_close"]',
+            '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] < RelativeLayout < @LinearLayout[clickable=true] <<n * + * [text="我知道了"][vid="iv_close"]',
           ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
@@ -1081,7 +1165,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text="跳过"] + [text~="[0-9]"]',
-            '@[text="跳过"][vid="countdown"]',
+            '@[text~="跳过 [0-9]"][vid="countdown"]',
             '@[text="跳过"][vid="tv_skip"]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
@@ -1091,6 +1175,22 @@ export default defineGkdApp({
     },
     {
       key: 501,
+      name: '首页广告-跳过 *',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text~="跳过 [0-9]"][vid="countdown"] <<n [vid="fl_ad_container"]',
+          ],
+          activityIds: ['.ui.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 510,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
