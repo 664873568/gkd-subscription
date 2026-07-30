@@ -162,6 +162,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
             '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
           ],
