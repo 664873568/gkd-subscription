@@ -13,7 +13,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['ImageButton < View - @TextView[text=""][clickable=true] -2 [text="签到成功"]'],
+          matches: [
+            'ImageButton < View - @TextView[text=""][clickable=true] -2 [text="签到成功"]',
+          ],
           activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
       ],
