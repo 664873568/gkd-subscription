@@ -389,7 +389,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 71,
+      key: 72,
       name: '看视频-跳过-立即领取-礼包',
       matchRoot: true,
       actionMaximum: 1,
