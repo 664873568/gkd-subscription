@@ -327,9 +327,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="跳过"] -n [text="奖励已领取"]',
-          ],
+          matches: ['@[text="跳过"] -n [text="奖励已领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
@@ -397,7 +395,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]'],
+          matches: [
+            '@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]',
+          ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],

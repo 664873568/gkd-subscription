@@ -177,7 +177,7 @@ export default defineGkdApp({
           position: {
             left: 'width * 0.4988',
             top: 'width * 1.7183',
-            },
+          },
           matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -185,7 +185,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]'
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
