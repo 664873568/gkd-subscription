@@ -15,7 +15,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="icon_check"] - CardView < [desc="拍摄于 2025年12月27日 下午1:34:09的照片"]',
+            '[vid="icon_check"] - CardView < @[desc="拍摄于 2025年12月27日 下午1:34:09的照片"][clickable=true]',
           ],
           activityIds: [
             'com.android.providers.media.photopicker.PhotoPickerActivity',
@@ -24,7 +24,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text^="添加"] <n [vid="picker_bottom_bar"]'],
+          matches: [
+            '@[text="添加（1 项）"][vid="button_add"][clickable=true] <n [vid="picker_bottom_bar"]',
+          ],
           activityIds: [
             'com.android.providers.media.photopicker.PhotoPickerActivity',
           ],
