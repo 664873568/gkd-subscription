@@ -17,7 +17,10 @@ export default defineGkdApp({
           anyMatches: [
             '[text="跳过"][desc="跳过"] < @LinearLayout[clickable=true]',
           ],
-          activityIds: ['.module.splash.ui.SplashBaseActivity'],
+          activityIds: [
+            '.module.splash.ui.SplashBaseActivity',
+            '.module.hippy.ui.HippyInstanceActivity',
+          ],
         },
       ],
     },
