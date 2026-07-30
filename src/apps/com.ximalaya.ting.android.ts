@@ -1011,7 +1011,7 @@ export default defineGkdApp({
       name: '看视频-礼包-点击后，看*秒可获得奖励-1',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
