@@ -171,7 +171,7 @@ export default defineGkdApp({
     },
     {
       key: 32,
-      name: '看视频-二级页-< ×',
+      name: '看视频-广告二级页-< ×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -201,6 +201,54 @@ export default defineGkdApp({
     //看视频-com.byazt.mw.Stub_Standard_Portrait_Activity
     {
       key: 50,
+      name: '看视频-跳过-去体验*秒可立即领奖',
+      matchRoot: true,
+      actionMaximum: 3,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '看视频-跳过-限时奖励',
+      matchRoot: true,
+      actionMaximum: 6,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[text="恭喜获得奖励"]',
+            '@[text=""] - [text="恭喜获得限时奖励"]',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 52,
+      name: '看视频-跳过-奖励已领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 53,
       name: '看视频-礼包-再逛*秒后可领奖',
       matchRoot: true,
       actionMaximum: 3,
@@ -209,6 +257,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '@[text="我要加速"] <<n * +n * [text="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
@@ -217,7 +266,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 54,
       name: '看视频-礼包-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -233,7 +282,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 52,
+      key: 55,
       name: '看视频-礼包-*s后可领取奖励-领取成功-×"]',
       matchRoot: true,
       actionMaximum: 1,
@@ -259,10 +308,9 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text^="我要"] <<n * +n * >n [text$="跳过"]',
-            '@[text$="体验"] <<n * +n * >n [text$="跳过"]',
-            '@[text^="立即"] <<n * +n * >n [text$="跳过"]',
-            '@[text="再试一次"] <<n * +n * >n [text$="跳过"]',
+            '@[text="我要"] <<n * +n * >n [text$="跳过"]',
+            '@[text="体验"] <<n * +n * >n [text$="跳过"]',
+            '@[text="立即"] <<n * +n * >n [text$="跳过"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
@@ -290,14 +338,14 @@ export default defineGkdApp({
     },
     {
       key: 62,
-      name: '看视频-跳转快应用-×',
+      name: '看视频-二级广告页-< ×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView + ImageView +n [text="反馈"]'],
+          matches: ['@ImageView + ImageView +2 [text="反馈"]'],
           snapshotUrls: ['https://i.gkd.li/i/23547990'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
@@ -305,7 +353,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.kwad.sdk.api.proxy.app.FeedDownloadActivity
+    //看视频-com.kwad.sdk.api.proxy.app.*
     {
       key: 70,
       name: '看视频-立即领取-跳过',
@@ -324,14 +372,32 @@ export default defineGkdApp({
     },
     {
       key: 71,
-      name: '看视频-×',
+      name: '看视频-跳过-立即领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            'ImageView - @[desc="sky_lantern_main"][clickable=true] <<n * +n * [text="跳过"]',
+            '[text="点击下载免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
+            '[text="点击或滑动点击下载免看广告"] < [desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 71,
+      name: '看视频-跳过-立即领取-礼包',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[desc="18d5b4"] <<n * [desc="virtualNode"]'],
+          matches: ['@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
