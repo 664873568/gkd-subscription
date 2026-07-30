@@ -15,8 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="跳过"][vid="njn"] <<n * [desc="广告"][vid="o3b"]',
-            '@[text="跳过"][desc="跳过"] <<n * [desc="广告"][vid^="c8"]',
+            '[text="跳过"][desc="跳过"] < @LinearLayout[clickable=true]',
           ],
           activityIds: ['.module.splash.ui.SplashBaseActivity'],
         },
