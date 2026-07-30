@@ -171,7 +171,7 @@ export default defineGkdApp({
     },
     {
       key: 32,
-      name: '看视频-广告二级页-< ×',
+      name: '看视频-二级广告页baidu',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -235,7 +235,7 @@ export default defineGkdApp({
     },
     {
       key: 52,
-      name: '看视频-跳过-奖励已领取',
+      name: '看视频-跳过-奖励已领取byazt',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -320,7 +320,7 @@ export default defineGkdApp({
     },
     {
       key: 61,
-      name: '看视频-跳过-奖励已领取',
+      name: '看视频-跳过-奖励已领取bytedance',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -328,7 +328,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="跳过"] -n [text="奖励已领取"] <<n * [text="反馈"]',
+            '@[text="跳过"] -n [text="奖励已领取"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
@@ -338,7 +338,7 @@ export default defineGkdApp({
     },
     {
       key: 62,
-      name: '看视频-二级广告页-< ×',
+      name: '看视频-二级广告页bytedance',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -465,7 +465,7 @@ export default defineGkdApp({
     },
     {
       key: 83,
-      name: '看视频-二级广告页-×',
+      name: '看视频-二级广告页qq',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
