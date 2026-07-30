@@ -1103,7 +1103,7 @@ export default defineGkdApp({
     },
     {
       key: 142,
-      name: '看视频-礼包-恭喜已获得奖励-×',
+      name: '看视频-礼包-恭喜已获得奖励-×2',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1126,6 +1126,43 @@ export default defineGkdApp({
     },
     {
       key: 143,
+      name: '看视频-礼包-去微信玩*秒，即可获得奖励-3',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@View < ViewGroup <4 ViewGroup <<3 ViewGroup +2 ViewGroup >3 View',
+          ],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 144,
+      name: '看视频-礼包-恭喜已获得奖励-×3',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 3000,
+          matches: [
+            '@ViewGroup <<2 ViewGroup - ViewGroup < ViewGroup - ViewGroup >3 View',
+          ],
+          activityIds: [
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 145,
       name: '看视频-可获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
