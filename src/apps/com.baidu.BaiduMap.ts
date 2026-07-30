@@ -583,7 +583,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]'],
+          matches: [
+            '@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]',
+          ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
@@ -857,7 +859,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text$="跳过"] - [text="已获得奖励"] - [text="免"] < [id="close_btn"]'],
+          matches: [
+            '@[text$="跳过"] - [text="已获得奖励"] - [text="免"] < [id="close_btn"]',
+          ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
