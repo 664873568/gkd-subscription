@@ -137,38 +137,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
-      name: '返回签到',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="返回签到"] < * - * [text="readMissionDown"]',
-          ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '天天领红包-返回签到',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回签到"] < * - * [text="readMissionDown"]',
-          ],
-          activityIds: ['.bm.common.container.ui.BaseContainerActivity'],
-        },
-      ],
-    },
-    {
       key: 10,
       name: '返回领奖',
       matchRoot: true,
@@ -533,9 +501,58 @@ export default defineGkdApp({
         },
       ],
     },
+    //签到领现金
+    {
+      key: 50,
+      name: '签到领现金-返回签到-天天领红包',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回签到"] < * - * [text="readMissionDown"]',
+          ],
+          activityIds: ['.bm.common.container.ui.BaseContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '签到领现金-返回签到-省钱',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="省钱"] - * @ImageView[clickable=true] <<n * +n * [text="返回签到"]',
+          ],
+          activityIds: ['.bm.jrv8.JRCustomDyPageActivity'],
+        },
+      ],
+    },
+    {
+      key: 52,
+      name: '签到领现金-返回签到-京东外卖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="返回签到"] < * - * [text="readMissionDown"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
     //机构福利
     {
-      key: 40,
+      key: 100,
       name: '做任务赚财宝分',
       matchRoot: true,
       actionMaximum: 1,
