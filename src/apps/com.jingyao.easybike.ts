@@ -61,7 +61,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] <<n * [vid="view_bottom_logo"]'],
+          matches: [
+            '@[text="跳过"] <<n * [vid="view_bottom_logo"]'
+            '@[text~="跳过 [0-9]"][vid="tv_skip"][clickable=true] < [vid="on_skip_view"]'
+          ],
           activityIds: ['com.hellobike.atlas.business.portal.PortalActivity'],
         },
       ],
