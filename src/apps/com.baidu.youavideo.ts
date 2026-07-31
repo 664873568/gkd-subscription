@@ -113,7 +113,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['[text="未命名"][vid="tv_album_name"] <2 ViewGroup[clickable=true]'],
+          matches: [
+            '[text="未命名"][vid="tv_album_name"] <2 ViewGroup[clickable=true]',
+          ],
           activityIds: ['.home.view.HomeActivity'],
         },
         {
@@ -123,7 +125,7 @@ export default defineGkdApp({
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[text="微信"][vid="share_icon_weixin"]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
@@ -142,7 +144,7 @@ export default defineGkdApp({
           position: {
             left: 'width * 0.9230',
             top: 'width * 0.1626',
-            },
+          },
           actionDelay: 3000,
           matches: ['@[vid="layout_share_media_channel"]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
@@ -172,12 +174,12 @@ export default defineGkdApp({
           activityIds: ['.cloudalbum.ui.activity.CreateAlbumActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           position: {
             left: 'width * 0.9247',
             top: 'width * 1.3434',
-            },
+          },
           matches: ['@[vid="srv_list"]'],
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
@@ -195,7 +197,7 @@ export default defineGkdApp({
           position: {
             left: 'width * 0.9221',
             top: 'width * 1.8486',
-            },
+          },
           actionDelay: 3000,
           matches: ['@ComposeView'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
@@ -221,26 +223,30 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: ['@[text="确认"][vid="tv_select_finish"][clickable=true]'],
-          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
+          activityIds: [
+            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
+          ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           position: {
             left: 'width * 0.8564',
             top: 'width * 0.1981',
-            },
+          },
           actionDelay: 10000,
           matches: ['@ComposeView'],
-          activityIds: ['com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity'],
+          activityIds: [
+            'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
+          ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           position: {
             left: 'width * 0.9213',
             top: 'width * 0.6574',
-            },
+          },
           actionDelay: 10000,
           matches: ['@ScrollView'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
@@ -258,7 +264,9 @@ export default defineGkdApp({
         {
           key: 0,
           matches: ['@[text="确认"][vid="tv_select_finish"][clickable=true]'],
-          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
+          activityIds: [
+            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -266,18 +274,20 @@ export default defineGkdApp({
           position: {
             left: 'width * 0.8564',
             top: 'width * 0.1981',
-            },
+          },
           actionDelay: 10000,
           matches: ['@ComposeView'],
-          activityIds: ['com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity'],
+          activityIds: [
+            'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
+          ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           position: {
             left: 'width * 0.9213',
             top: 'width * 0.6574',
-            },
+          },
           actionDelay: 10000,
           matches: ['@ScrollView'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
