@@ -853,7 +853,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[id$="wm_image_clear"][clickable=true] - [id$="wm_custom_web_container"]'],
+          matches: [
+            '@[id$="wm_image_clear"][clickable=true] - [id$="wm_custom_web_container"]',
+          ],
           activityIds: ['com.wangmai.appsdkdex.WMPortraitActivity'],
         },
       ],
@@ -894,7 +896,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[text="放弃优惠"][clickable=true] + [text="立即使用"]'],
           activityIds: [
