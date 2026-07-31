@@ -4,10 +4,11 @@ export default defineGkdApp({
   id: 'com.baidu.youavideo',
   name: '一刻相册',
   groups: [
-    //任务中心-.operate.ui.view.activity.TaskCenterActivity
+    //福利中心
+    //每日签到
     {
       key: 0,
-      name: '任务中心',
+      name: '福利中心',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -23,7 +24,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '任务中心-每日签到',
+      name: '福利中心-每日签到',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -44,7 +45,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '任务中心-签到成功',
+      name: '福利中心-签到成功',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -57,8 +58,39 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
-      name: '任务中心-下载中间页-<',
+      key: 8,
+      name: '福利中心-看广告赚积分',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="看广告赚积分"] <2 @View[clickable=true] < * - * [text="浏览社区5s"] +3 [text="已完成"]',
+          ],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
+      name: '福利中心-继续观看',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="继续观看"] - [text="下次再来"]'],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
+      ],
+    },
+    //积分任务
+    {
+      key: 10,
+      name: '积分任务-去苏宁易购领云钻',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -72,24 +104,223 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
-      name: '任务中心-点击赚积分',
+      key: 11,
+      name: '积分任务-分享一个相册',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
+          matches: ['[text="未命名"][vid="tv_album_name"] <2 ViewGroup[clickable=true]'],
+          activityIds: ['.home.view.HomeActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="邀请共享"][vid="tv_invite"]'],
+          activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: ['@[text="微信"][vid="share_icon_weixin"]'],
+          activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '积分任务-分享一个相册-领取奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          position: {
+            left: 'width * 0.9230',
+            top: 'width * 0.1626',
+            },
+          actionDelay: 3000,
+          matches: ['@[vid="layout_share_media_channel"]'],
+          activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '积分任务-创建一个新相册',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 3000,
+          matches: ['@[vid="btn_create_album"][clickable=true]'],
+          activityIds: ['.home.view.HomeActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           matches: [
-            '@[text="点击赚积分"] <<n * -n * > [text="照片后台备份"] +n [text="已完成"] <<n [text="任务中心"]',
+            '@[text="立即创建"][vid="tv_create_album"][clickable=true]',
           ],
+          activityIds: ['.cloudalbum.ui.activity.CreateAlbumActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          position: {
+            left: 'width * 0.9247',
+            top: 'width * 1.3434',
+            },
+          matches: ['@[vid="srv_list"]'],
+          activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
+        },
+      ],
+    },
+    {
+      key: 14,
+      name: '积分任务-体验智能清理',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          position: {
+            left: 'width * 0.9221',
+            top: 'width * 1.8486',
+            },
+          actionDelay: 3000,
+          matches: ['@ComposeView'],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],
     },
     {
-      key: 8,
-      name: '任务中心-天天看激励视频-去完成',
+      key: 15,
+      name: '积分任务-制作并保存「春日」vlog',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="做同款"][vid="detail_black_icon_text"] - [vid="detail_black_icon"][clickable=true]',
+          ],
+          activityIds: ['.aiphoto.ui.home.view.CreativeDetailActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="确认"][vid="tv_select_finish"][clickable=true]'],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          position: {
+            left: 'width * 0.8564',
+            top: 'width * 0.1981',
+            },
+          actionDelay: 10000,
+          matches: ['@ComposeView'],
+          activityIds: ['com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity'],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          position: {
+            left: 'width * 0.9213',
+            top: 'width * 0.6574',
+            },
+          actionDelay: 10000,
+          matches: ['@ScrollView'],
+          activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
+        },
+      ],
+    },
+    {
+      key: 16,
+      name: '积分任务-制作照片卡点视频',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="确认"][vid="tv_select_finish"][clickable=true]'],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          position: {
+            left: 'width * 0.8564',
+            top: 'width * 0.1981',
+            },
+          actionDelay: 10000,
+          matches: ['@ComposeView'],
+          activityIds: ['com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          position: {
+            left: 'width * 0.9213',
+            top: 'width * 0.6574',
+            },
+          actionDelay: 10000,
+          matches: ['@ScrollView'],
+          activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
+        },
+      ],
+    },
+    {
+      key: 17,
+      name: '积分任务-老照片修复跨越时空',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '@[vid="detail_back"] +2 [vid="scroll_content"] >n [text="老照片一键修复"][vid="tv_title"]',
+          ],
+          activityIds: ['.aiphoto.ui.home.view.CreativeDetailActivity'],
+        },
+      ],
+    },
+    {
+      key: 18,
+      name: '积分任务-浏览社区5s',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 6000,
+          matches: [
+            '[vid="task_buoy_message"] <<6 @FrameLayout[clickable=true] < [vid="taskFinishFloatView"]',
+          ],
+          activityIds: ['.aiphoto.ui.publishwork.view.TopicDetailActivity'],
+        },
+      ],
+    },
+    {
+      key: 19,
+      name: '积分任务-天天看激励视频',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -98,23 +329,7 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '[text="去完成"] -n [text="天天看激励视频"] <n @View +n View >n [text="明日再来"]',
-          ],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '任务中心-继续观看',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="继续观看"] - [text="下次再来"] <<n [text="任务中心"]',
+            '[text="去完成"] -3 [text="天天看激励视频"] < @View[clickable=true] +n View >n [text="明日再来"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -122,7 +337,7 @@ export default defineGkdApp({
     },
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity
     {
-      key: 10,
+      key: 20,
       name: '看视频-跳过-去体验*秒可立即领奖',
       matchRoot: true,
       actionMaximum: 3,
@@ -146,7 +361,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 21,
       name: '看视频-跳过-限时领取-×',
       matchRoot: true,
       actionMaximum: 6,
@@ -166,7 +381,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 22,
       name: '看视频-跳过-恭喜获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -185,7 +400,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 23,
       name: '看视频-跳过-恭喜获得限时奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -214,7 +429,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 24,
       name: '看视频-跳过-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -253,7 +468,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 25,
       name: '看视频-奖励已领取-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -269,7 +484,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 16,
+      key: 26,
       name: '看视频-礼包-再逛*秒后可领奖',
       matchRoot: true,
       actionMaximum: 3,
@@ -288,7 +503,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 17,
+      key: 27,
       name: '看视频-礼包-限时领取-×',
       matchRoot: true,
       actionMaximum: 6,
@@ -304,7 +519,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 18,
+      key: 28,
       name: '看视频-礼包-奖励已领取-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -322,7 +537,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 19,
+      key: 29,
       name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -342,7 +557,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 20,
+      key: 30,
       name: '看视频-礼包-领取成功-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -360,7 +575,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 31,
       name: '看视频-跳过-×-立即领取+恭喜获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -378,7 +593,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 32,
       name: '看视频-礼包-×-应用详情+立即下载',
       matchRoot: true,
       actionMaximum: 1,
@@ -396,7 +611,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23,
+      key: 33,
       name: '看视频-跳过-×-立即领取+立即下载',
       matchRoot: true,
       actionMaximum: 1,
@@ -423,7 +638,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 34,
       name: '看视频-奖励已领取-去领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -447,7 +662,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 25,
+      key: 35,
       name: '看视频-跳过-继续播放视频内容',
       matchRoot: true,
       actionMaximum: 1,
@@ -463,7 +678,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 26,
+      key: 36,
       name: '看视频-恭喜提前获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -479,7 +694,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 27,
+      key: 37,
       name: '看视频-礼包-奖励已领取-跳过-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -504,7 +719,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 28,
+      key: 38,
       name: '看视频-温馨提示-去领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -521,7 +736,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 29,
+      key: 39,
       name: '看视频-限时砍一刀领奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -539,7 +754,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 30,
+      key: 40,
       name: '看视频-已发放-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -555,7 +770,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 41,
       name: '看视频-安装应用立即领奖-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -582,7 +797,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
+      key: 42,
       name: '看视频-广告二级页-< × 反馈',
       matchRoot: true,
       actionMaximum: 1,
@@ -601,7 +816,7 @@ export default defineGkdApp({
     },
     //看视频-com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity
     {
-      key: 39,
+      key: 49,
       name: '看视频-已领取-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -617,147 +832,9 @@ export default defineGkdApp({
         },
       ],
     },
-    //首页功能类
-    {
-      key: 40,
-      name: '选择备份模式',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]',
-          ],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 41,
-      name: '开始安全备份',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: ['@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]'],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 42,
-      name: '确认开启备份',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: ['@[text="确认开启备份"] <<n [vid="cl_open_auto_backup"]'],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 43,
-      name: '一键备份',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[vid="iv_close"] +n [text="一键备份"][vid="tv_backup"]'],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 44,
-      name: '立即升级',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[vid="img_close"] -n LinearLayout > [text="立即升级"]'],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
-    //首页广告类
-    {
-      key: 50,
-      name: '首页广告-免广告',
-      matchRoot: true,
-      actionMaximum: 2,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text*="跳过"] <<n * [text="免广告"][vid="text"]',
-            '@[vid="ms_skipView"] <<n * [text="免广告"][vid="text"]',
-          ],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.splash.ui.CoveredSplashAdvertiseActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 51,
-      name: '首页广告-×',
-      matchRoot: true,
-      actionMaximum: 2,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[vid="iv_close"] - ViewGroup >n [vid="jump_btn"]',
-            '@[vid="dialog_home_pop_close_button"] + [vid="img_lottie"]',
-            '@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',
-          ],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
     //会员支付类
     {
-      key: 60,
+      key: 300,
       name: '随心卡会员',
       matchRoot: true,
       actionMaximum: 1,
@@ -781,14 +858,151 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           anyMatches: [
-            '@ImageButton[text^="png;base64"] <<n [text="随心卡会员"]',
+            '@ImageButton[clickable=true] - * [text="立即开通"]',
             '@ImageButton + [text="v2_vip_icon.0cf7e01a"] <<n [text="随心卡会员"]',
-            '@[text="MYOtKBLsCY8AAAAASUVORK5CYII="] + [text="v2_vip_icon.0cf7e01a"] <<n [text="随心卡会员"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.vip.ui.VipWebActivity',
             '.vip.ui.VipPayWebDialogActivity',
+          ],
+        },
+      ],
+    },
+    //首页功能类
+    {
+      key: 400,
+      name: '选择备份模式',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 401,
+      name: '开始安全备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]'],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 402,
+      name: '确认开启备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[text="确认开启备份"] <<n [vid="cl_open_auto_backup"]'],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 403,
+      name: '一键备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="iv_close"] +n [text="一键备份"][vid="tv_backup"]'],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 404,
+      name: '立即升级',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="img_close"] -n LinearLayout > [text="立即升级"]'],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 500,
+      name: '首页广告-免广告',
+      matchRoot: true,
+      actionMaximum: 2,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[text*="跳过"] <<n * [text="免广告"][vid="text"]',
+            '@[vid="ms_skipView"] <<n * [text="免广告"][vid="text"]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.splash.ui.CoveredSplashAdvertiseActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 501,
+      name: '首页广告-×',
+      matchRoot: true,
+      actionMaximum: 2,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[vid="iv_close"] - ViewGroup >n [vid="jump_btn"]',
+            '@[vid="dialog_home_pop_close_button"] + [vid="img_lottie"]',
+            '@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
           ],
         },
       ],
