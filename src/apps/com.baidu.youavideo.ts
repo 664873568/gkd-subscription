@@ -486,6 +486,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -555,7 +556,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
+          actionDelay: 2000,
           excludeMatches: ['[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'],
           matches: [
             '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
@@ -768,7 +769,7 @@ export default defineGkdApp({
       name: '看视频-已发放-<',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -842,6 +843,21 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.wangmai.appsdkdex.WMPortraitActivity
+    {
+      key: 50,
+      name: '看视频-wangmai',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[id$="wm_image_clear"][clickable=true] - [id$="wm_custom_web_container"]'],
+          activityIds: ['com.wangmai.appsdkdex.WMPortraitActivity'],
+        },
+      ],
+    },
     //会员支付类
     {
       key: 300,
@@ -854,8 +870,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@TextView + View >n [text="立即使用"] <<n [text="随心卡会员"]',
-            '@TextView - View >n [text="立即使用"] <<n [text="随心卡会员"]',
+            '@TextView[clickable=true] + View >n [text="立即使用"]',
+            '@TextView[clickable=true] - View >n [text="立即使用"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
@@ -869,8 +885,18 @@ export default defineGkdApp({
           action: 'back',
           anyMatches: [
             '@ImageButton[clickable=true] - * [text="立即开通"]',
-            '@ImageButton + [text="v2_vip_icon.0cf7e01a"] <<n [text="随心卡会员"]',
+            '[text="v2_vip_icon.0cf7e01a"] - @[text="MYOtKBLsCY8AAAAASUVORK5CYII="][clickable=true] < * +n * [text="立即开通"]',
           ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.vip.ui.VipWebActivity',
+            '.vip.ui.VipPayWebDialogActivity',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: ['@[text="放弃优惠"][clickable=true] + [text="立即使用"]'],
           activityIds: [
             '.app.ui.SplashActivity',
             '.vip.ui.VipWebActivity',
