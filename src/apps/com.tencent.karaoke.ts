@@ -15,6 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '[text="跳过"][desc="跳过"] < @ViewGroup[clickable=true]',
             '[text="跳过"][desc="跳过"] < @LinearLayout[clickable=true]',
           ],
           activityIds: [
