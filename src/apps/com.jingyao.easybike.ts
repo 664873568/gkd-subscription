@@ -61,7 +61,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@[text="跳过"] <<n * [vid="view_bottom_logo"]'
             '@[text~="跳过 [0-9]"][vid="tv_skip"][clickable=true] < [vid="on_skip_view"]'
           ],
