@@ -1011,16 +1011,16 @@ export default defineGkdApp({
       name: '看视频-礼包-点击后，看*秒可获得奖励-1',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           excludeMatches: [
-            '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
+            '@View < ViewGroup <3 ViewGroup <<4 ViewGroup -2 ViewGroup >3 View',
           ],
           matches: [
-            '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
+            '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View',
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
@@ -1029,18 +1029,18 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'clickCenter',
-          actionDelay: 2000,
+          actionDelay: 3000,
           anyMatches: [
             '@Button[clickable=true] <<n * - * [text="点击商品再得额外奖励500金币"]',
-            '@View[index=0][childCount=2][clickable=true] <<n * - * [text="点击商品再得额外奖励500金币"]',
+            //'@View[index=0][childCount=2][clickable=true] <<n * - * [text="点击商品再得额外奖励500金币"]',
           ],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 10000,
+          action: 'back',
+          actionDelay: 11000,
           matches: [
             'ImageView - @View < FrameLayout + FrameLayout >n [text="恭喜已获得额外奖励500金币"]',
           ],
@@ -1050,12 +1050,8 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 3000,
-          excludeAllMatches: [
-            '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
-            '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
-          ],
           matches: [
-            '@ViewGroup <<2 ViewGroup - ViewGroup <<n ViewGroup - ViewGroup >3 View',
+            '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
@@ -1068,7 +1064,7 @@ export default defineGkdApp({
       name: '看视频-礼包-点击后，看*秒可获得奖励-2',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1081,17 +1077,15 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 16000,
-          matches: ['@View + ImageView + TextView + View + ImageView'],
+          matches: [
+            '@View[clickable=true] + ImageView + TextView + View + ImageView',
+          ],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
         {
           preKeys: [0, 1],
           key: 2,
           actionDelay: 3000,
-          excludeAllMatches: [
-            '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
-            '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
-          ],
           matches: [
             '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
           ],
