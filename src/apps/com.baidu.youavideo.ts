@@ -557,7 +557,10 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          excludeMatches: ['[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'],
+          excludeAllMatches: [
+            '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '[text~="[0-9]秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
+          ],
           matches: [
             '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
           ],
