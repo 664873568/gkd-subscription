@@ -91,9 +91,9 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text$="跳过"] <<n [vid="fl_template_ad"]',
             '@[id$="ms_skipView"] <<n [vid="fl_template_ad"]',
             '@View[clickable=true] <<n [vid="fl_template_ad"]',
+            '@[text~="[0-9]s \\| 跳过"][id$="sdm_myoffer_splash_skip"] < [id$="sdm_myoffer_splash_skip_area"][clickable=true] <<n [vid="fl_template_ad"]',
           ],
           activityIds: ['.msv.page.outsidead.splashad.MSVSplashAdActivity'],
         },
