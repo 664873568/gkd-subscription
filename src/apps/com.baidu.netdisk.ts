@@ -9,12 +9,12 @@ export default defineGkdApp({
       key: 20,
       name: '看视频-跳过-去体验*秒可立即领奖',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
+      actionMaximum: 3,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
+          actionDelay: 2000,
           anyMatches: [
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="立即前往"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
@@ -30,8 +30,8 @@ export default defineGkdApp({
       key: 22,
       name: '看视频-跳过-限时领取',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
+      actionMaximum: 6,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -47,7 +47,7 @@ export default defineGkdApp({
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -61,7 +61,7 @@ export default defineGkdApp({
       name: '看视频-礼包-再逛*秒后可领奖',
       matchRoot: true,
       actionMaximum: 3,
-      matchTime: 30000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -77,8 +77,8 @@ export default defineGkdApp({
       key: 25,
       name: '看视频-礼包-限时领取',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
+      actionMaximum: 6,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -94,7 +94,7 @@ export default defineGkdApp({
       name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1521,6 +1521,7 @@ export default defineGkdApp({
             '@[text~="跳过 [0-9]"][vid="countdown"]',
             '@[text="跳过"][vid="tv_skip"]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
+            '@View[clickable=true] <3 FrameLayout <2 FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
           activityIds: ['.advertise.ui.SplashAdActivity'],
         },
