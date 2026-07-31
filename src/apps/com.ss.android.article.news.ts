@@ -15,8 +15,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 5000,
-          matches: [
+          anyMatches: [
             '[text="搜你想看的"][desc="搜索框，搜你想看的"] < * - @[desc="返回"] <<n * - * [text="登录赚钱"]',
+            '[text="搜你想看的"][desc="搜索框，搜你想看的"] < * - @[desc="返回"] <<n * +n * [text="登录赚钱"]',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
         },
