@@ -327,7 +327,9 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
@@ -344,7 +346,9 @@ export default defineGkdApp({
             '@[text="恭喜获得奖励"]',
             '@[text=""] - [text="恭喜获得限时奖励"]',
           ],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
@@ -358,7 +362,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
