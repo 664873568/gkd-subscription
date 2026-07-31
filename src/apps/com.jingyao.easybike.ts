@@ -62,8 +62,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="跳过"] <<n * [vid="view_bottom_logo"]'
-            '@[text~="跳过 [0-9]"][vid="tv_skip"][clickable=true] < [vid="on_skip_view"]'
+            '@[text="跳过"] <<n * [vid="view_bottom_logo"]',
+            '@[text~="跳过 [0-9]"][vid="tv_skip"][clickable=true] < [vid="on_skip_view"]',
           ],
           activityIds: ['com.hellobike.atlas.business.portal.PortalActivity'],
         },
