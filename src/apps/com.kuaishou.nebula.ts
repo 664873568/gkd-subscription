@@ -21,6 +21,23 @@ export default defineGkdApp({
     },
     {
       key: 1,
+      name: '直播-返回',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[desc="查找"][vid="search_btn"] - [desc="返回"][vid="left_btn"]',
+          ],
+          activityIds: ['com.yxcorp.gifshow.detail.PhotoDetailActivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '点赞',
       matchRoot: true,
       actionMaximum: 1,
@@ -28,28 +45,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="like_icon"][visibleToUser=true]'],
-          activityIds: ['com.yxcorp.gifshow.HomeActivity'],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '打卡失败-点赞',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          action: 'back',
-          matches: ['@[text="与奖品擦肩而过"] +n View [text="重新选择商品"]'],
-          activityIds: ['com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
           matches: ['@[vid="like_icon"][visibleToUser=true]'],
           activityIds: ['com.yxcorp.gifshow.HomeActivity'],
         },
