@@ -184,7 +184,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 12,
       name: '彩票券-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -201,7 +201,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 13,
       name: '15理财日-返回领奖',
       matchRoot: true,
       actionMaximum: 1,
