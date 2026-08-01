@@ -8,6 +8,9 @@ export default defineGkdApp({
       key: 0,
       name: '系统桌面-最近任务-启动应用',
       matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
       rules: [
         {
           actionDelay: 16000,
