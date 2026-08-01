@@ -166,6 +166,22 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
+      name: '版本更新-稍后再说',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="稍后再说"][clickable=true] - [text="立即更新"] -n [text="版本更新"]',
+          ],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
       name: '未成年模式-我知道了',
       matchRoot: true,
       actionMaximum: 1,
