@@ -886,28 +886,40 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 2000,
           preKeys: [0],
-          matches: [
+          anyMatches: [
+            '[text="4月25日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <<n * + * [text="确定（0/99）"][vid="btn_confirm"]',
+            '[text="2025年12月27日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <<n * + * [text="确定（0/99）"][vid="btn_confirm"]',
             '@[vid="imageview_checkbox"] <<n [vid="grid_item_layout"][index=1] <<n [vid="fragment_container"] + [vid="bottom_bar"] > [text="已选：0/99"][vid="select_count_text"]',
           ],
-          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+          activityIds: [
+            '.kmp.bridge.KmpSharedActivity',
+            '.ui.localfile.selectfile.LocalImageSelectActivity',
+          ],
         },
         {
           preKeys: [0, 1],
           key: 2,
           actionDelay: 2000,
-          matches: [
+          anyMatches: [
+            '@[text="确定（1/99）"][vid="btn_confirm"][clickable=true]',
             '@[text="完成"][vid="done_button"] - [text="已选：1/99"][vid="select_count_text"]',
           ],
-          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+          activityIds: [
+            '.kmp.bridge.KmpSharedActivity',
+            '.ui.localfile.selectfile.LocalImageSelectActivity',
+          ],
         },
         {
           preKeys: [0, 1, 2],
           key: 3,
-          actionDelay: 2000,
+          actionDelay: 5000,
           matches: [
             'ImageView - @ImageView[clickable=true] - ImageView - View <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
           ],
-          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+          activityIds: [
+            '.ui.localfile.selectfile.LocalImageSelectActivity',
+            'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
+          ],
         },
         {
           preKeys: [0, 1, 2, 3],
@@ -916,13 +928,18 @@ export default defineGkdApp({
           matches: [
             '@[desc="录入错题"][clickable=true] -n [desc="已选择 1 道题目"] <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
           ],
-          activityIds: ['.ui.localfile.selectfile.LocalImageSelectActivity'],
+          activityIds: [
+            '.ui.localfile.selectfile.LocalImageSelectActivity',
+            'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
+          ],
         },
         {
           preKeys: [0, 1, 2, 3, 4],
           key: 5,
           actionDelay: 2000,
-          matches: ['@[text="全部保存"] <<n [text="学习服务页"]'],
+          matches: [
+            '@[text="全部保存"][clickable=true] <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
+          ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
         {
@@ -1046,7 +1063,7 @@ export default defineGkdApp({
       name: '功能任务-去体验云打印',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
@@ -1062,7 +1079,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 2000,
           matches: [
-            '[text="手机相册"] < @View[clickable=true] <<n * + * [text="上传任意文件"]',
+            '@[text="未选择任何文件"][clickable=true] - [text="手机相册"] <<n * + * [text="上传任意文件"]',
           ],
         },
         {
