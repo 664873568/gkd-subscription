@@ -1016,11 +1016,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
+          excludeAllMatches: [
             '@View < ViewGroup <3 ViewGroup <<4 ViewGroup -2 ViewGroup >3 View',
+            '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View',
           ],
           matches: [
-            '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View',
+            '@View < ViewGroup <2 ViewGroup <<2 ViewGroup -2 ViewGroup >n ViewGroup + ViewGroup >2 ViewGroup',
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
@@ -1029,6 +1030,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
           actionDelay: 3000,
           anyMatches: [
             '@Button[clickable=true] <<n * - * [text="点击商品再得额外奖励500金币"]',
@@ -1049,42 +1051,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          actionDelay: 3000,
-          matches: [
-            '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
-          ],
-          activityIds: [
-            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 141,
-      name: '看视频-礼包-点击后，看*秒可获得奖励-2',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@View < ViewGroup -2 ViewGroup >3 View'],
-          activityIds: [
-            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 16000,
-          matches: [
-            '@View[clickable=true] + ImageView + TextView + View + ImageView',
-          ],
-          activityIds: ['com.tencent.ams.tg.ADActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
           actionDelay: 3000,
           matches: [
             '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
