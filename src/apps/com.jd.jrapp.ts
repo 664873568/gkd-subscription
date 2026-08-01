@@ -212,7 +212,7 @@ export default defineGkdApp({
           position: {
             left: 'width * 0.0450',
             top: 'width * 0.1482',
-            },
+          },
           actionDelay: 10000,
           matches: [
             '@[text="03e6465108e2aec8.png!q70"] <<n [text="15理财日"] > View + View',
