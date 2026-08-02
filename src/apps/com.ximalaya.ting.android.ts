@@ -1027,7 +1027,7 @@ export default defineGkdApp({
             '@View < ViewGroup <3 ViewGroup <<4 ViewGroup -2 ViewGroup >3 View',
           ],
           matches: [
-            '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View',//立即购买
+            '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View', //立即购买
             //'@View < ViewGroup <2 ViewGroup <<2 ViewGroup -2 ViewGroup >n ViewGroup + ViewGroup >2 ViewGroup',
           ],
           activityIds: [
@@ -1190,9 +1190,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '@[vid="main_free_listen_time_close_iv"][clickable=true]',
-          ],
+          matches: ['@[vid="main_free_listen_time_close_iv"][clickable=true]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
