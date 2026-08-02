@@ -95,5 +95,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 51,
+      name: '广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text~="[0-9]"][vid="tv_countdown"] - [text="跳过"][vid="tv_close"] < [vid="ll_close"][clickable=true]',
+          ],
+          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
+        },
+      ],
+    },
   ],
 });
