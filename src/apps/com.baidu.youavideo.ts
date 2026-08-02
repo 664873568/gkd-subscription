@@ -214,6 +214,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="做同款"][vid="detail_black_icon_text"] - [vid="detail_black_icon"][clickable=true]',
           ],
@@ -263,6 +264,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: ['@[text="确认"][vid="tv_select_finish"][clickable=true]'],
           activityIds: [
             '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
