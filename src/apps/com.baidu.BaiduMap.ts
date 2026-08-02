@@ -416,28 +416,18 @@ export default defineGkdApp({
     },
     {
       key: 31,
-      name: '看视频-广告-×',
+      name: '看视频-广告-× 反馈',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@Image < View < View < View < View - View [text="反馈"]'],
-          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 32,
-      name: '看视频-反馈-广告-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[desc="4cc53"] <<n * [text="反馈"]'],
+          anyMatches: [
+            '@Image < View < View + View [text="反馈"]',
+            '@Image < View < View < View < View - View [text="反馈"]',
+            'ImageView < LinearLayout < LinearLayout[clickable=true] - FrameLayout [text="反馈"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -699,6 +689,20 @@ export default defineGkdApp({
     },
     {
       key: 64,
+      name: '看视频-广告-×qq',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView < FrameLayout + LinearLayout + ImageView'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 65,
       name: '看视频-免-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -712,7 +716,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 65,
+      key: 66,
       name: '看视频-我要更快拿奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -728,7 +732,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 66,
+      key: 67,
       name: '看视频-打开App',
       matchRoot: true,
       actionMaximum: 1,
