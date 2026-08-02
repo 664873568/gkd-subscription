@@ -47,7 +47,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text~="看广告领金币\\([0-9]/4\\)"] < @ViewGroup[clickable=true]',
+            '[text~="看广告领金币\([0-9]/4\)"] < @ViewGroup[clickable=true]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -327,7 +327,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="免费\\\\n抽大奖"] <<n * [text="幸运大转盘"]'],
+          matches: ['@[text="免费\\n抽大奖"] <<n * [text="幸运大转盘"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
