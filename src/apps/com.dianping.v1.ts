@@ -47,16 +47,15 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '返回寻宝',
+      name: '返回寻宝-恭喜获得',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
-            '@*[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
+            '@[desc="返回"][clickable=true] <<n * + * [text="恭喜获得"] + [text="100点金币"]',
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',
@@ -78,31 +77,6 @@ export default defineGkdApp({
           anyMatches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView',
             '@ImageView[clickable=true] < FrameLayout - FrameLayout >3 ImageView',
-          ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
-        },
-      ],
-    },
-    {
-      key: 5,
-      name: '继续开宝箱集卡-开宝箱得金币',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout >3 ImageView',
-          ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@FrameLayout > ImageView + ImageView + FrameLayout > [text="x"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
