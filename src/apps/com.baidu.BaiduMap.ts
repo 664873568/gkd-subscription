@@ -943,7 +943,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="关闭"][vid="tobid_interstitial_skip_text"] < [vid="tobid_interstitial_skip_ll"][clickable=true] - [vid="tobid_interstitial_skip_shade"]',
+            '[text="关闭"][vid="tobid_interstitial_skip_text"] < @[vid="tobid_interstitial_skip_ll"][clickable=true] - [vid="tobid_interstitial_skip_shade"]',
           ],
           activityIds: ['com.windmill.sdk.widget.InterstitialView_4012003'],
         },
