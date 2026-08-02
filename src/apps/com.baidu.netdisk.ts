@@ -488,9 +488,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '[text="开宝箱"] < View <n @View[clickable=true]',
-          ],
+          matches: ['[text="开宝箱"] < View <n @View[clickable=true]'],
           activityIds: [
             '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
           ],
