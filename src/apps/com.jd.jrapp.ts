@@ -451,7 +451,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 33,
+      key: 32,
       name: 'JoyAI-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -468,7 +468,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 34,
+      key: 33,
       name: '菜鸟-前往菜鸟APP',
       matchRoot: true,
       actionMaximum: 1,
@@ -483,7 +483,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 35,
+      key: 34,
       name: '七猫免费小说推广-下载免费看书',
       matchRoot: true,
       actionMaximum: 1,
@@ -500,7 +500,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 36,
+      key: 35,
       name: '下载百度极速版-下载百度极速版',
       matchRoot: true,
       actionMaximum: 1,
@@ -517,7 +517,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 37,
+      key: 36,
       name: '全民K歌-立即下载',
       matchRoot: true,
       actionMaximum: 1,
@@ -534,8 +534,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
-      name: '全民K歌-立即下载',
+      key: 37,
+      name: '点淘-下载/打开APP',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
