@@ -23,7 +23,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '赚金币-看广告领金币',
+      name: '赚金币-看广告领*金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -39,14 +39,16 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '赚金币-瓜分百亿金币-看广告领金币',
+      name: '赚金币-看广告领金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="看广告领金币"] <<n * [text="瓜分百亿金币"]'],
+          matches: [
+            '[text~="看广告领金币\\([0-9]/4\\)"] < @ViewGroup[clickable=true]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -730,7 +732,7 @@ export default defineGkdApp({
     //
     {
       key: 90,
-      name: '点击并浏览页面-领取奖励-已获得奖励',
+      name: '点击并浏览页面*s领取奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -739,7 +741,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="点击并浏览页面5s领取奖励"] <<n * [text="点击并浏览页面领取奖励"]',
+            '[text~="点击并浏览页面[0-9]s领取奖励"] <<n @[vid="host_video_ad_h5_layout_start"][clickable=true] <n * + * [text="点击并浏览页面领取奖励"] + [vid="host_reward_close_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -747,7 +749,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[vid="host_reward_close_button"] - [text="已获得奖励"] <<n * [text="查看详情"]',
+            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -765,10 +767,6 @@ export default defineGkdApp({
           key: 0,
           anyMatches: [
             '@[text="点击广告领取奖励"] <<n * [text="点击广告获得奖励"]',
-            '@[vid="host_bubble_ad_action_btn"] <<n * [vid="host_reward_tip"]',
-            '@[vid="host_action_view_layout"] <<n * [vid="host_reward_tip"]',
-            '@[vid="host_rl_download_layout"] <<n * [vid="host_reward_tip"]',
-            '@[vid="host_video_ad_h5_layout_start_btn"] <<n * [vid="host_reward_tip"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -776,7 +774,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[vid="host_reward_close_button"] - [text="已获得奖励"] <<n * [text="查看详情"]',
+            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -791,8 +789,17 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: [
-            '@[text="立即查看"][vid="host_bubble_ad_action_btn"] <<n * + * [text~="看[0-9]+秒广告领取奖励"][vid="host_reward_tip"]',
+            '[text="立即查看"][vid="host_bubble_ad_action_btn"] <<n @[vid="host_video_ad_app_layout_start"][clickable=true] <n * + * [text~="看[0-9]+秒广告领取奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -1018,10 +1025,10 @@ export default defineGkdApp({
           key: 0,
           excludeAllMatches: [
             '@View < ViewGroup <3 ViewGroup <<4 ViewGroup -2 ViewGroup >3 View',
-            '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View',
           ],
           matches: [
-            '@View < ViewGroup <2 ViewGroup <<2 ViewGroup -2 ViewGroup >n ViewGroup + ViewGroup >2 ViewGroup',
+            '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View',//立即购买
+            //'@View < ViewGroup <2 ViewGroup <<2 ViewGroup -2 ViewGroup >n ViewGroup + ViewGroup >2 ViewGroup',
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
@@ -1044,7 +1051,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 11000,
           matches: [
-            'ImageView - @View < FrameLayout + FrameLayout >n [text="恭喜已获得额外奖励500金币"]',
+            'ImageView - @View[clickable=true] < FrameLayout + FrameLayout [text="恭喜已获得额外奖励500金币"]',
           ],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
@@ -1058,6 +1065,22 @@ export default defineGkdApp({
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 141,
+      name: '看视频-二级广告页-< ×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'ImageView - @View[clickable=true] <<n LinearLayout + View + View',
+          ],
+          activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
       ],
     },
@@ -1086,7 +1109,7 @@ export default defineGkdApp({
     },
     {
       key: 143,
-      name: '看视频-礼包-去微信玩*秒，即可获得奖励-3',
+      name: '看视频-礼包-去微信玩*秒，即可获得奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -1094,28 +1117,10 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@View < ViewGroup <4 ViewGroup <<3 ViewGroup +2 ViewGroup >3 View',
+            'View < @ViewGroup <4 ViewGroup <<3 ViewGroup +2 ViewGroup >3 View',
           ],
           activityIds: [
-            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 144,
-      name: '看视频-礼包-恭喜已获得奖励-×3',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 3000,
-          matches: [
-            '@ViewGroup <<2 ViewGroup - ViewGroup < ViewGroup - ViewGroup >3 View',
-          ],
-          activityIds: [
+            '.host.activity.MainActivity',
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
           ],
         },
@@ -1178,15 +1183,15 @@ export default defineGkdApp({
     },
     {
       key: 300,
-      name: '恭喜获得VIP免费听权益-×',
+      name: 'VIP免费听权益-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           matches: [
-            '@[vid="main_free_listen_time_close_iv"] +n [text="恭喜获得VIP免费听权益"][vid="main_free_listen_time_title_tv"]',
+            '@[vid="main_free_listen_time_close_iv"][clickable=true]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -1241,22 +1246,6 @@ export default defineGkdApp({
             '.host.activity.MainActivity',
             '.host.activity.SplashAdActivity',
           ],
-        },
-      ],
-    },
-    {
-      key: 501,
-      name: '恭喜获得30分钟VIP免费听权益-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: [
-            '@[vid="main_free_listen_time_close_iv"] +n [text="恭喜获得30分钟VIP免费听权益"][vid="main_free_listen_time_title_tv"]',
-          ],
-          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
