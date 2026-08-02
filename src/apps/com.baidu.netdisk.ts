@@ -14,14 +14,15 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 1000,
           anyMatches: [
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
+            '@[text="我要加速领奖"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="立即前往"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -50,6 +51,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -64,6 +66,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           anyMatches: [
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -81,7 +84,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]'],
+          matches: ['@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -95,7 +98,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 1000,
           excludeMatches: ['[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'],
           matches: [
             '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
@@ -476,6 +479,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 201,
+      name: '开宝箱',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="开宝箱"] < View <n @View[clickable=true]',
+          ],
+          activityIds: [
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
+        },
+      ],
+    },
     //做任务赚积分
     //日常任务
     {
@@ -487,7 +508,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
             '@[text="done"] +2 [text="2bd7c5199a3f9703e3ae80849"] <<n [text="百度网盘超级会员日"]',
           ],
@@ -504,7 +524,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: [
             '@[text="lingqujiangli"][clickable=true] - View > [text="task-close"]',
           ],
@@ -551,10 +570,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          position: {
-            left: 'width * 0.9091',
-            top: 'width * 1.8286',
-          },
+          action: 'back',
           actionDelay: 30000,
           matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
@@ -570,7 +586,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: [
             '[text="lingqujiangli"] < @View[text=""][clickable=true] + [desc="close"]',
           ],
@@ -587,7 +602,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: [
             '[text="lingqujiangli"] < @View[text=""][clickable=true] <<n [text="奇妙赏"]',
           ],
@@ -608,23 +622,21 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[id="android:id/button1"] <<n * -n [text="Z 侏罗纪：重生"][vid="text1"] <<n * + * [text="点击勾选文件"][vid="tv_tip"]',
+            '@[id="android:id/button1"] <<n * -n [text="Z 侏罗纪：重生"][vid="text1"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
-            '[text="智能整理"][vid="ui_id_menu_text"] <n @RelativeLayout[clickable=true] <<n * + * [text="点击智能整理"][vid="tv_tip"]',
+            '[text="智能整理"][vid="ui_id_menu_text"] <n @RelativeLayout[clickable=true]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -651,7 +663,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
+          actionDelay: 6000,
           matches: [
             '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] < RelativeLayout < @LinearLayout[clickable=true] <<n * +n * [text="选视频生成ai笔记"][vid="tv_title"]',
           ],
@@ -660,7 +672,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -687,7 +698,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -716,7 +726,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -745,7 +754,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -774,7 +782,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -801,38 +808,13 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@ImageView[clickable=true] + [desc="自动消除"] + [desc="手动消除"]',
-          ],
-          activityIds: [
-            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
-          ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: ['@[desc="确认退出"] - [desc="再考虑下"]'],
-          activityIds: [
-            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
-          ],
-        },
-        {
-          preKeys: [0, 1, 2],
-          key: 3,
-          action: 'back',
-          matches: ['@[desc="AI消除"] - [desc="AI滤镜"]'],
-          activityIds: [
-            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
-          ],
-        },
-        {
-          preKeys: [0, 1, 2, 3],
-          key: 4,
           action: 'back',
           matches: [
-            '@[vid="ocr_bottom_image"] < [vid="bottom_image_container"]',
+            '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
-          activityIds: ['.ocr.OCRTakePhotoActivity'],
+          activityIds: [
+            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
+          ],
         },
       ],
     },
@@ -855,11 +837,13 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
-          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
+          activityIds: [
+            '.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity',
+            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
+          ],
         },
       ],
     },
@@ -942,7 +926,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2, 3, 4, 5],
           key: 6,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -980,7 +963,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
