@@ -47,7 +47,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text~="看广告领金币\([0-9]/4\)"] < @ViewGroup[clickable=true]',
+            '[text~="看广告领金币([0-9]/4)"] < @ViewGroup[clickable=true]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
