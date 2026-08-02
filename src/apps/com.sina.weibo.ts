@@ -13,7 +13,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@TextView - CheckBox - [text^="连续签到"]'],
+          matches: ['@TextView[clickable=true] -n [text^="连续签到"]'],
           activityIds: ['.browser.WeiboBrowser'],
         },
       ],
@@ -42,7 +42,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@TextView - CheckBox - [text^="连续签到"]'],
+          matches: ['@TextView[clickable=true] -n [text^="连续签到"]'],
           activityIds: ['.browser.WeiboBrowser'],
         },
         {
@@ -64,7 +64,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="跳过"] < FrameLayout - [text="广告"]'],
-          activityIds: ['.browser.WeiboBrowser'],
+          activityIds: ['.browser.WeiboBrowser','null'],
         },
       ],
     },
