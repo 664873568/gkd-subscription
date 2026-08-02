@@ -19,6 +19,7 @@ export default defineGkdApp({
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="立即前往"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
@@ -36,7 +37,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]', //恭喜获得奖励
+            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -83,7 +84,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="7b144c81c2cb181f"] < * -n * [text="限时领取"]', //恭喜获得奖励
+            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -1537,6 +1538,7 @@ export default defineGkdApp({
             '@[text="跳过"] + [text~="[0-9]"]',
             '@[text~="跳过 [0-9]"][vid="countdown"]',
             '@[text="跳过"][vid="tv_skip"]',
+            '@[vid="ms_skipView"] < [vid="ms_skipView_container"]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
             '@View[clickable=true] <3 FrameLayout <2 FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
