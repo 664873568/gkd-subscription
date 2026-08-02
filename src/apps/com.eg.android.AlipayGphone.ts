@@ -302,7 +302,7 @@ export default defineGkdApp({
     },
     {
       key: 24,
-      name: '赚工分-返回 返回首页',
+      name: '赚工分-返回 返回首页-⊙',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -311,9 +311,10 @@ export default defineGkdApp({
         {
           actionDelay: 16000,
           matches: [
-            '[text=""] <<n @[desc="返回"][clickable=true] + [desc="返回首页"]',
+            '[text=""] < @[desc="关闭"][clickable=true] <<n * -n [desc="返回"][clickable=true] + [desc="返回首页"]',
           ],
           activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
           ],
         },
