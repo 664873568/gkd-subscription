@@ -303,7 +303,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@Button[desc="关闭"][clickable=true] - View[text=""][clickable=true] > [text$="~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"][clickable=true] - View > [text$="~tplv-20ashz96qn-1"]',
             '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
@@ -360,7 +360,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@Button[desc="关闭"][clickable=true] - View[text=""][clickable=true] > [text$="~tplv-20ashz96qn-1"]',
+            '@Button[desc="关闭"][clickable=true] - View > [text$="~tplv-20ashz96qn-1"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
