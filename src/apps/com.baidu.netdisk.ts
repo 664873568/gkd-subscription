@@ -801,7 +801,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@ImageView[clickable=true] + [desc="自动消除"] + [desc="手动消除"]'],
+          matches: [
+            '@ImageView[clickable=true] + [desc="自动消除"] + [desc="手动消除"]',
+          ],
           activityIds: [
             '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
           ],
