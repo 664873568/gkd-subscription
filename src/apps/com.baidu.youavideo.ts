@@ -341,7 +341,7 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '[text="去完成"] -3 [text="天天看激励视频"] < @View[clickable=true] +n View >n [text="明日再来"]',
+            '[text="去完成"] -3 [text="天天看激励视频"] < @View[clickable=true] +n View [text="明日再来"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
