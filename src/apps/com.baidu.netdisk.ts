@@ -36,9 +36,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
-          ],
+          matches: ['@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -83,9 +81,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
-          ],
+          matches: ['@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
