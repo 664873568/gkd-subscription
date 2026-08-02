@@ -97,8 +97,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@TextView[text=""][clickable=true][index=0][childCount=0] <<n * +n * [text="浏览完成"] +2 [text="readMissionArrow2"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="浏览完成"] +2 [text="readMissionArrow2"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="浏览完成"] < * - * [text="readMissionDown"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="浏览完成"] < * - * [text="readMissionDown"]',
+            //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="浏览完成"] < * - * [text="ff776b55ee07c915"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -148,12 +152,8 @@ export default defineGkdApp({
         {
           anyMatches: [
             '[text="back"] < @[text=""][clickable=true] <<n * +n * [text="返回领奖"] < * - * [text="readMissionDown"]',
-            '@TextView[text=""][clickable=true][index=0][childCount=0] <<n * +n * [text="浏览完成"] +2 [text="readMissionArrow2"]',
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="浏览完成"] +2 [text="readMissionArrow2"]',
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="浏览完成"] < * - * [text="readMissionDown"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="返回领奖"] < * - * [text="readMissionDown"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',
-            //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="浏览完成"] < * - * [text="ff776b55ee07c915"]',
             //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [vid="fragment_container"]',
             //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < ViewGroup +n ImageView + ViewGroup',
           ],
@@ -209,10 +209,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          position: {
-            left: 'width * 0.0450',
-            top: 'width * 0.1482',
-          },
+          action: 'back',
           actionDelay: 10000,
           matches: [
             '@[text="03e6465108e2aec8.png!q70"] <<n [text="15理财日"] > View + View',
@@ -230,20 +227,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          position: {
-            left: 'width * 0.4988',
-            top: 'width * 1.7183',
-          },
-          actionDelay: 3000,
-          matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
+          action: 'back',
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',
+            '[text="返回领奖"] < * - * [text="readMissionDown"] <<n [text="财富庄园"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -465,21 +451,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
-      name: '健康好礼限时领-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 3000,
-          matches: ['@[text="back"][clickable=true] + [text~=".*+"]'],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
       key: 33,
       name: 'JoyAI-<',
       matchRoot: true,
@@ -562,6 +533,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 38,
+      name: '全民K歌-立即下载',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 3000,
+          matches: [
+            '[text="下载/打开APP"] < @View[clickable=true] <<n [text="点淘"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
     //签到领现金
     {
       key: 50,
@@ -622,6 +610,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 3000,
           matches: ['@Image -2 [text$="财宝分"] <<n [text="机构福利"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
