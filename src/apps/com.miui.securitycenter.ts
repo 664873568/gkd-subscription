@@ -73,6 +73,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -82,6 +83,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -100,6 +102,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开小米云服务"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -109,6 +112,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开小米云服务"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -127,6 +131,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -136,6 +141,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -145,6 +151,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -163,6 +170,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -172,6 +180,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开浏览器"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -244,6 +253,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '@[text="启动应用"][vid="permission_group_title"] + [text^="抖音"][vid="event_title"]',
           ],
