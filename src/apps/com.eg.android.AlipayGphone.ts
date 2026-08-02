@@ -155,7 +155,7 @@ export default defineGkdApp({
     },
     {
       key: 14,
-      name: '蚂蚁投资者教育基地-返回',
+      name: '蚂蚁投资者教育基地-理财盘友圈',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -164,7 +164,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true] + * [text="理财盘友圈"]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
