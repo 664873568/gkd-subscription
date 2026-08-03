@@ -75,20 +75,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
-      name: '继续浏览',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="继续浏览"] -2 [text="恭喜获得浏览奖励"]'],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
       key: 5,
       name: '浏览完成',
       matchRoot: true,
@@ -153,9 +139,11 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]', //垒金砖挑战
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',//垒金砖挑战
           ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
+          activityIds: [
+            '.bm.common.web.ui.WebActivity',
+          ],
         },
       ],
     },
@@ -270,6 +258,8 @@ export default defineGkdApp({
         },
       ],
     },
+    //24.08.20-26.12.31 养大鹅
+    //https://u.jr.jd.com/uc-fe-wxgrowing/cloudgoose/index/
     {
       key: 17,
       name: '养大鹅-天天来提额',
@@ -293,8 +283,6 @@ export default defineGkdApp({
     },
     //看视频 赚现金
     //https://u.jr.jd.com/downloadApp/index.html?jumpUrl=https://content.jr.jd.com/shareProject/shortVideo/vertical/index.html?contentId=824242245632133120
-    //24.08.20-26.12.31 养大鹅
-    //https://u.jr.jd.com/uc-fe-wxgrowing/cloudgoose/index/
     //22.12.26-26.12.31 养猪猪
     //https://u.jr.jd.com/uc-fe-wxgrowing/cloudpig/index/
     {
@@ -325,6 +313,20 @@ export default defineGkdApp({
             '@[vid="manto_actionbar_home"][clickable=true] <<n * -n * [text="返回领奖"] < * - * [text="readMissionDown"]',
           ],
           activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '继续浏览',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="继续浏览"] -2 [text="恭喜获得浏览奖励"]'],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
