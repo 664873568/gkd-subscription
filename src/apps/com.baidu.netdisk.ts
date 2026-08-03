@@ -14,7 +14,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
           anyMatches: [
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="我要加速领奖"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
@@ -66,7 +65,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
           anyMatches: [
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -98,8 +96,11 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
-          excludeMatches: ['[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'],
+          actionDelay: 2000,
+          excludeAllMatches: [
+            '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '[text~="[0-9]秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
+          ],
           matches: [
             '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
           ],
@@ -896,6 +897,7 @@ export default defineGkdApp({
             'ImageView - @ImageView[clickable=true] - ImageView - View <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
           ],
           activityIds: [
+            '.kmp.bridge.KmpSharedActivity',
             '.ui.localfile.selectfile.LocalImageSelectActivity',
             'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
           ],
@@ -1036,48 +1038,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 234,
-      name: '功能任务-去体验云打印',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '@TextView[text=""][clickable=true] + [id="noticeSwiper"] <<n * + * [text="上传任意文件"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 2000,
-          matches: [
-            '@[text="未选择任何文件"][clickable=true] - [text="手机相册"] <<n * + * [text="上传任意文件"]',
-          ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 2000,
-          matches: [
-            '@[text="确定"][clickable=true] - [text="预览"] <<n * + * [text="上传任意文件"]',
-          ],
-        },
-        {
-          preKeys: [0, 1, 2],
-          key: 3,
-          actionDelay: 2000,
-          matches: [
-            '[text="任务完成领奖"] - TextView < @View[text=""][clickable=true]',
-          ],
-        },
-      ],
-    },
-    {
       key: 235,
       name: '功能任务-去体验云打印-广告-×',
       matchRoot: true,
@@ -1087,6 +1047,60 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@ImageButton +n [text="立即使用"] <<n [text="简单打印"]'],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 236,
+      name: '功能任务-去体验云打印-手机相册',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[text=""][clickable=true] + [id="noticeSwiper"] <<n * + * [text="上传任意文件"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 2000,
+          matches: [
+            '@[text="未选择任何文件"][clickable=true] - [text="手机相册"] <<n * + * [text="上传任意文件"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 237,
+      name: '功能任务-去体验云打印-确定',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[text="确定"][clickable=true] - [text="预览"] <<n * + * [text="上传任意文件"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 2000,
+          matches: [
+            '[text="任务完成领奖"] - TextView < @View[text=""][clickable=true]',
+          ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
