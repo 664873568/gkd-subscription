@@ -141,6 +141,26 @@ export default defineGkdApp({
         },
       ],
     },
+    //2026-01.15-2027.12.31 摇黄金
+    //https://fu.jr.jd.com/fq-free-channel/shake-gold/index?channelLv=202209231527222DMrDH
+    {
+      key: 8,
+      name: '摇黄金-返回领奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',//垒金砖挑战
+          ],
+          activityIds: [
+            '.bm.common.web.ui.WebActivity',
+          ],
+        },
+      ],
+    },
     {
       key: 10,
       name: '返回领奖',
@@ -153,7 +173,6 @@ export default defineGkdApp({
           anyMatches: [
             '[text="back"] < @[text=""][clickable=true] <<n * +n * [text="返回领奖"] < * - * [text="readMissionDown"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="返回领奖"] < * - * [text="readMissionDown"]',
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',
             //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [vid="fragment_container"]',
             //'@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < ViewGroup +n ImageView + ViewGroup',
           ],
@@ -164,22 +183,6 @@ export default defineGkdApp({
             //'.bm.jrv8.JRCustomDyPageActivity',
             //'com.jingdong.manto.ui.MantoActivityUp1',
           ],
-        },
-      ],
-    },
-    {
-      key: 11,
-      name: '游戏-返回领奖',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[vid="manto_actionbar_home"][clickable=true] <<n * +n * [text="返回领奖"] < * - * [text="readMissionDown"]',
-          ],
-          activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
         },
       ],
     },
@@ -290,22 +293,12 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 18,
-      name: '签到领现金-京民通',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 3000,
-          matches: ['@[vid="manto_actionbar_home"] <<n * [text="京民通"]'],
-          activityIds: ['com.jingdong.manto.ui.MantoActivitySingleProcess'],
-        },
-      ],
-    },
+    //看视频 赚现金
+    //https://u.jr.jd.com/downloadApp/index.html?jumpUrl=https://content.jr.jd.com/shareProject/shortVideo/vertical/index.html?contentId=824242245632133120
+    //24.08.20-26.12.31 养大鹅
+    //https://u.jr.jd.com/uc-fe-wxgrowing/cloudgoose/index/
+    //22.12.26-26.12.31 养猪猪
+    //https://u.jr.jd.com/uc-fe-wxgrowing/cloudpig/index/
     {
       key: 19,
       name: '养猪猪-产粮机',
@@ -320,10 +313,30 @@ export default defineGkdApp({
         },
       ],
     },
-    //浏览APP任务
+    //做任务 赚粮食
+    {
+      key: 11,
+      name: '养猪猪-返回领奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="manto_actionbar_home"][clickable=true] <<n * -n * [text="返回领奖"] < * - * [text="readMissionDown"]',
+          ],
+          activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
+        },
+      ],
+    },
+    //25.12.25-26.12.31 天天赚钱 领京豆|天天赚京豆
+    //https://show.jd.com/m/RkO0AE9rKrYy6ZDd/?pageKey=RkO0AE9rKrYy6ZDd
+    //做任务开福袋
+    //做任务赚京豆
     {
       key: 20,
-      name: '去玩游戏领大奖-<',
+      name: '天天赚京豆-去玩游戏领大奖-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -341,7 +354,7 @@ export default defineGkdApp({
     },
     {
       key: 21,
-      name: '去APP完成任务-<',
+      name: '天天赚京豆-去APP完成任务-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -356,7 +369,7 @@ export default defineGkdApp({
     },
     {
       key: 22,
-      name: '任务完成-<',
+      name: '天天赚京豆-任务完成-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -374,7 +387,7 @@ export default defineGkdApp({
     },
     {
       key: 23,
-      name: '打开APP',
+      name: '天天赚京豆-打开APP',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -387,26 +400,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
-      name: '此功能需访问飞猪旅行APP-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 3000,
-          matches: [
-            '@[vid="common_webview_navbar_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
-          ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
       key: 25,
-      name: '打开飞猪',
+      name: '天天赚京豆-去飞猪签到兑现金',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -421,10 +416,26 @@ export default defineGkdApp({
         },
       ],
     },
-    //天天赚京豆
+    {
+      key: 24,
+      name: '天天赚京豆-去飞猪签到兑现金-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 3000,
+          matches: [
+            '@[vid="common_webview_navbar_left"] <<n * [text="此功能需访问飞猪旅行APP"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
     {
       key: 30,
-      name: '天天赚京豆-任务已完成-恭喜获得',
+      name: '天天赚京豆-任务已完成',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -438,7 +449,7 @@ export default defineGkdApp({
     },
     {
       key: 31,
-      name: '天天赚京豆-任务未完成-继续赚奖励',
+      name: '天天赚京豆-任务未完成',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -452,7 +463,7 @@ export default defineGkdApp({
     },
     {
       key: 32,
-      name: 'JoyAI-<',
+      name: '天天赚京豆-登录JoyAI并对话-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -469,7 +480,7 @@ export default defineGkdApp({
     },
     {
       key: 33,
-      name: '菜鸟-前往菜鸟APP',
+      name: '天天赚京豆-来菜鸟每天抽手机',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -484,7 +495,7 @@ export default defineGkdApp({
     },
     {
       key: 34,
-      name: '七猫免费小说推广-下载免费看书',
+      name: '天天赚京豆-去七猫小说领金币',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -501,7 +512,7 @@ export default defineGkdApp({
     },
     {
       key: 35,
-      name: '下载百度极速版-下载百度极速版',
+      name: '天天赚京豆-去百度极速版领现金',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -518,7 +529,7 @@ export default defineGkdApp({
     },
     {
       key: 36,
-      name: '全民K歌-立即下载',
+      name: '天天赚京豆-去全民K歌领福利',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -535,7 +546,7 @@ export default defineGkdApp({
     },
     {
       key: 37,
-      name: '点淘-下载/打开APP',
+      name: '天天赚京豆-去点淘APP赚零花钱',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -550,7 +561,25 @@ export default defineGkdApp({
         },
       ],
     },
-    //签到领现金
+    //25.01.01-26.12.31 签到领现金
+    //https://member.jr.jd.com/activity/sign/v5/indexV2.html
+    //https://member.jr.jd.com/activity/new-sign-in/home/
+    {
+      key: 18,
+      name: '签到领现金-京民通',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 3000,
+          matches: ['@[vid="manto_actionbar_home"] <<n * [text="京民通"]'],
+          activityIds: ['com.jingdong.manto.ui.MantoActivitySingleProcess'],
+        },
+      ],
+    },
     {
       key: 50,
       name: '签到领现金-返回签到-天天领红包',
@@ -599,7 +628,11 @@ export default defineGkdApp({
         },
       ],
     },
-    //机构福利
+    //24.04.22-25.12.31 做任务 领京豆|赚京豆-做任务领京豆二级页
+    //https://member.jr.jd.com/member/integral-mall/mission/
+    //https://member.jr.jd.com/member/coinQuest/coin/
+    //26.07.01-26.07.31 机构福利-财宝分福利
+    //https://show.jd.com/m/De5VMnmwbxY2Pyk3/?pageKey=De5VMnmwbxY2Pyk3
     {
       key: 100,
       name: '做任务赚财宝分',
