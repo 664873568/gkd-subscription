@@ -521,5 +521,66 @@ export default defineGkdApp({
         },
       ],
     },
+    //首页广告类
+    {
+      key: 50,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text~="跳过 [0-9]"][vid="tv_ad_skip"][clickable=true]'],
+          activityIds: ['.ui.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '首页-广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="iv_dialog_close_one"][clickable=true]'],
+          activityIds: ['.ui.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 52,
+      name: '广告-开启系统通知-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          position: {
+            left: 'width * 0.0907',
+            top: 'width * 0.0630',
+            },
+          matches: ['[text="立即开启"] - [text="开启系统通知，优惠券活动不错过"] < @View'],
+          activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
+        },
+      ],
+    },
+    {
+      key: 53,
+      name: '广告-支付成功-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="ivLandscapeClose"][clickable=true]'],
+          activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
+        },
+      ],
+    },
   ],
 });
