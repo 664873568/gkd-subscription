@@ -92,7 +92,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '请用指纹解锁-用于小米云服务',
       matchRoot: true,
       actionMaximum: 1,
