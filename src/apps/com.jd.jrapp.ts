@@ -1063,13 +1063,17 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 3000,
-          matches: ['@Image[clickable=true] -2 [text="1个财宝分"] <n View[index=9][childCount=4]'],
+          matches: [
+            '@Image[clickable=true] -2 [text="1个财宝分"] <n View[index=9][childCount=4]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@View[clickable=true] > [text="ce6aa1713606b4c1"] + [text="加自选"]'],
+          matches: [
+            '@View[clickable=true] > [text="ce6aa1713606b4c1"] + [text="加自选"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
