@@ -139,11 +139,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',//垒金砖挑战
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]', //垒金砖挑战
           ],
-          activityIds: [
-            '.bm.common.web.ui.WebActivity',
-          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
