@@ -25,7 +25,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="添加（1 项）"][vid="button_add"][clickable=true] <n [vid="picker_bottom_bar"]',
+            '@[text="添加（1 项）"][vid="button_add"][clickable=true] - [text="查看所选内容"][vid="button_view_selected"] < [vid="picker_bottom_bar"]',
           ],
           activityIds: [
             'com.android.providers.media.photopicker.PhotoPickerActivity',
