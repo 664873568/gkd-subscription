@@ -393,7 +393,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKey: [0],
+          preKeys: [0],
           key: 1,
           matches: [
             '@[text="恭喜获得奖励"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
