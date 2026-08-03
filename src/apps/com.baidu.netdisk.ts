@@ -371,8 +371,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
+            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="玩[0-9]+ 秒小游戏"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
