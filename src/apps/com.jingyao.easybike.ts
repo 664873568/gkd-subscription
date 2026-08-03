@@ -123,15 +123,16 @@ export default defineGkdApp({
     //看视频-com.qq.e.ads.PortraitADActivity
     {
       key: 20,
-      name: '看视频-微信-试看*秒短剧',
+      name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
+            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="玩[0-9]+ 秒小游戏"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
