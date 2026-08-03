@@ -899,7 +899,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 82,
+      key: 92,
       name: '天天赚京豆-登录JoyAI并对话-<',
       matchRoot: true,
       actionMaximum: 1,
