@@ -19,6 +19,78 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '领奖成功-点击广告 再得',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="点击广告 再得"] <<n * -2 * [text="领奖成功，"][vid="tvAdRewardTip"] +2 [text="+20"][vid="rewardCount"]'],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '领奖成功-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[vid="ivClose"][clickable=true] - * [text="领奖成功，"][vid="tvAdRewardTip"] +2 [text="+33"][vid="rewardCount"]'],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '浏览广告，领超多奖励金-去浏览',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]'],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 10000,
+          matches: ['@ImageView < FrameLayout + RecyclerView + FrameLayout [text="立即下载"]'],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '浏览广告，领超多奖励金-去浏览-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]'],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 10000,
+          matches: ['View - @ImageView[clickable=true] - TextView < FrameLayout + WebView'],
+          activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+      ],
+    },
     //游戏中心
     {
       key: 10,
@@ -33,6 +105,36 @@ export default defineGkdApp({
             '@[text="NeuBVlqVn9Ix3bCeUqHdW"] - [text="1331192856345702400"] <<n [text="游戏中心"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    //看视频-com.qq.e.ads.PortraitADActivity
+    {
+      key: 20,
+      name: '看视频-微信-试看*秒短剧',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 21,
+      name: '看视频-微信-恭喜获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 2000,
+          matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout [text*="微信"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
