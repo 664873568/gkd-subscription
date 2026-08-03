@@ -583,9 +583,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 3000,
-          matches: [
-            '[text="下载/打开APP"] < @[text=""][clickable=true]',
-          ],
+          matches: ['[text="下载/打开APP"] < @[text=""][clickable=true]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
