@@ -30,8 +30,8 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '@View + ImageView + FrameLayout >n [vid="contentTv"]',
+          anyMatches: [
+            '@View[clickable=true] + ImageView + FrameLayout >n [vid="contentTv"]',
             '[text~="[0-9]"] - [text="跳过"] < @LinearLayout[clickable=true]',
           ],
         },
