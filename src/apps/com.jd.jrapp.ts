@@ -626,7 +626,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: ['TextView[text=""][clickable=true] - @TextView[text=""][clickable=true] <<n [text="京东特价"]'],
+          matches: [
+            'TextView[text=""][clickable=true] - @TextView[text=""][clickable=true] <<n [text="京东特价"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -641,7 +643,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: ['@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="04400c60c697b53b"]'],
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="04400c60c697b53b"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -673,7 +677,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: ['@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="月黑风高"]'],
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="月黑风高"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -704,7 +710,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 3000,
-          matches: ['@[vid="manto_actionbar_home"][clickable=true] <<n * - * [text="京民通"]'],
+          matches: [
+            '@[vid="manto_actionbar_home"][clickable=true] <<n * - * [text="京民通"]',
+          ],
           activityIds: ['com.jingdong.manto.ui.MantoActivitySingleProcess'],
         },
       ],
@@ -719,7 +727,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: ['TextView[text=""][clickable=true] - @TextView[text=""][clickable=true] <<n [text="手机数码"]'],
+          matches: [
+            'TextView[text=""][clickable=true] - @TextView[text=""][clickable=true] <<n [text="手机数码"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -734,7 +744,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: ['@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="家庭常备药"]'],
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="家庭常备药"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
