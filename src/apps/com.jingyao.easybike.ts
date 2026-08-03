@@ -28,7 +28,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="点击广告 再得"] <<n * -2 * [text="领奖成功，"][vid="tvAdRewardTip"] +2 [text="+20"][vid="rewardCount"]'],
+          matches: [
+            '@[text="点击广告 再得"] <<n * -2 * [text="领奖成功，"][vid="tvAdRewardTip"] +2 [text="+20"][vid="rewardCount"]',
+          ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
@@ -42,7 +44,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="ivClose"][clickable=true] - * [text="领奖成功，"][vid="tvAdRewardTip"] +2 [text="+33"][vid="rewardCount"]'],
+          matches: [
+            '@[vid="ivClose"][clickable=true] - * [text="领奖成功，"][vid="tvAdRewardTip"] +2 [text="+33"][vid="rewardCount"]',
+          ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
@@ -57,14 +61,18 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]'],
+          matches: [
+            '@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]',
+          ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
           preKeys: [0],
           key: 1,
           actionDelay: 10000,
-          matches: ['@ImageView < FrameLayout + RecyclerView + FrameLayout [text="立即下载"]'],
+          matches: [
+            '@ImageView < FrameLayout + RecyclerView + FrameLayout [text="立即下载"]',
+          ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
@@ -79,14 +87,18 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]'],
+          matches: [
+            '@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]',
+          ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
           preKeys: [0],
           key: 1,
           actionDelay: 10000,
-          matches: ['View - @ImageView[clickable=true] - TextView < FrameLayout + WebView'],
+          matches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView',
+          ],
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
       ],
@@ -118,7 +130,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]'],
+          matches: [
+            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
+          ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -133,7 +147,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout [text*="微信"]'],
+          matches: [
+            'ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout [text*="微信"]',
+          ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
