@@ -372,7 +372,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text*="微信"] <n * - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
+            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -389,7 +389,7 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"]',
+            'ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout [text*="微信"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
