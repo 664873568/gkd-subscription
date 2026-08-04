@@ -385,6 +385,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'clickCenter',
           actionDelay: 1000,
           anyMatches: [
             '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
