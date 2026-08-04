@@ -688,6 +688,8 @@ export default defineGkdApp({
       actionMaximum: 1,
       forcedTime: 20000,
       matchTime: 20000,
+      priorityTime: 20000,
+      priorityActionMaximum: 1,
       resetMatch: 'activity',
       rules: [
         {
