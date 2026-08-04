@@ -90,7 +90,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[desc="关闭按钮"] - [vid="poplayer_native_state_id"]'],
+          matches: ['@[desc="关闭按钮"][clickable=true] - [vid="poplayer_native_state_id"]'],
           activityIds: ['com.taobao.tao.welcome.Welcome'],
         },
       ],
