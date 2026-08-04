@@ -622,6 +622,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '[text="lingqujiangli"] < @View[text=""][clickable=true] + [desc="close"]',
           ],
@@ -638,6 +639,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '[text="lingqujiangli"] < @View[text=""][clickable=true] - View [text="task-close"]',
           ],
@@ -657,7 +659,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          actionDelay: 5000,
           matches: [
             '@[id="android:id/button1"] <<n * -n [text="Z 侏罗纪：重生"][vid="text1"]',
           ],
@@ -666,6 +668,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text="智能整理"][vid="ui_id_menu_text"] <n @RelativeLayout[clickable=true]',
           ],
@@ -674,6 +677,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -712,6 +716,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -739,6 +744,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -796,6 +802,7 @@ export default defineGkdApp({
           preKeys: [0,1,2,3],
           key: 4,
           action: 'back',
+          actionDelay: 2000,
           matches: [
             '@[vid="ocr_bottom_image"] < [vid="bottom_image_container"]',
           ],
@@ -823,6 +830,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -852,6 +860,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -881,6 +890,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -909,6 +919,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -929,6 +940,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI去手写"][vid="tv_title"]',
           ],
@@ -937,6 +949,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -1028,6 +1041,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2, 3, 4, 5],
           key: 6,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -1066,6 +1080,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -1085,6 +1100,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
@@ -1101,6 +1117,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] -n [vid="gif_lottie_view"][clickable=true]',
           ],
@@ -1117,6 +1134,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '@TextView[text=""][clickable=true] - TextView[clickable=true] < View -n * [text="游戏中心"]',
           ],
@@ -1133,6 +1151,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '[text="任务完成"][vid="tv_title"] <<n @[vid="layout_drag"][clickable=true]',
           ],
