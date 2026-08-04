@@ -959,7 +959,7 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '[text="下载百度极速版"] < @[desc="下载百度极速版"][clickable=true]',
+            'TextView - @TextView[clickable=true] <<n [text="下载百度极速版"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
