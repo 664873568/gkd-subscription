@@ -14,7 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="打开"] - [text="取消"] <<n [vid="buttonPanel"] -n [vid="topPanel"] [text="提示"][vid="alertTitle"]',
+            '@[text="打开"][clickable=true] - [text="取消"] < * < [vid="buttonPanel"] -2 [vid="topPanel"] [text="提示"][vid="alertTitle"]',
           ],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
@@ -30,6 +30,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 3000,
           matches: [
             '[text="下载/打开APP"] < @View[clickable=true] <<n * - * [text="去点淘领红包"][vid="tvTitle"]',
           ],
