@@ -14,6 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[vid="icon_check"] - CardView < @[desc="拍摄于 2025年12月27日 下午1:34:09的照片"][clickable=true]',
           ],
@@ -24,6 +25,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '@[text="添加（1 项）"][vid="button_add"][clickable=true] - [text="查看所选内容"][vid="button_view_selected"] < [vid="picker_bottom_bar"]',
           ],
