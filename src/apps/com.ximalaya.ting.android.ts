@@ -31,7 +31,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text~="看广告领[0-9]+金币"] < @ViewGroup <n ViewGroup -n ViewGroup',
+            'ImageView < ViewGroup +2 ViewGroup > @ViewGroup[clickable=true] > [text~="看广告领[0-9]+金币"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -47,7 +47,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text~="看广告领金币([0-9]/4)"] < @ViewGroup[clickable=true]',
+            '@ViewGroup[clickable=true] > ViewGroup + [text~="看广告领金币\\([0-9]/4\\)"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -160,7 +160,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 14,
       name: '赚金币-限时领金币',
       matchRoot: true,
       actionMaximum: 1,
@@ -175,8 +175,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 16,
-      name: '赚金币-点击并浏览5秒即可额外获得金币',
+      key: 15,
+      name: '赚金币-点击并浏览5秒即可额外获得*金币-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -184,7 +184,23 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^="点击并浏览"][vid="main_watch_ad_button"] <<n * [text^="签到成功"]',
+            'ImageView < @ViewGroup[clickable=true] +3 * [vid="main_native_ad_root_lay"] + [text~="点击并浏览5秒即可额外获得([1-9]|[1-9][0-9]|[1-4][0-9]{2})金币"][vid="main_watch_ad_button"]',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 16,
+      name: '赚金币-点击并浏览5秒即可额外获得500金币',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'ImageView < ViewGroup[clickable=true] +3 * [vid="main_native_ad_root_lay"] + @[text="点击并浏览5秒即可额外获得500金币"][vid="main_watch_ad_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -749,7 +765,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
+            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] > [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -774,7 +790,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
+            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] > [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -791,7 +807,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="立即查看"][vid="host_bubble_ad_action_btn"] <<n @[vid="host_video_ad_app_layout_start"][clickable=true] <n * + * [text~="看[0-9]+秒广告领取奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
+            'TextView[vid="host_bubble_ad_action_btn"] <<n @[vid="host_video_ad_app_layout_start"][clickable=true] <n * + * [text~="看[0-9]+秒广告领取奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -799,7 +815,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
+            '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] > [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
