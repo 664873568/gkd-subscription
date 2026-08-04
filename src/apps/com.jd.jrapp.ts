@@ -187,7 +187,7 @@ export default defineGkdApp({
           matches: [
             '@[vid="back_button"][clickable=true] -n * [text="返回领奖"]',
           ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
+          activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
         },
       ],
     },
@@ -656,6 +656,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="返回签到页"] - [text="浏览完成"] < * - * [text="readMissionDown"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="readMissionArrow2"] - [text="继续浏览下一个"] - [text="浏览完成"] < * - * [text="readMissionDown"]',
             'TextView[text=""][id=null][clickable=true] - @TextView[text=""][id=null][clickable=true] <<n * +n * [text="readMissionArrow2"] - [text="继续浏览下一个"] - [text="浏览完成"] < * - * [text="readMissionDown"]',
           ],
@@ -1046,7 +1047,7 @@ export default defineGkdApp({
           matches: [
             '@[vid="back_button"][clickable=true] -n [vid="fl_operating_group"] >n [text="返回领奖"]',
           ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
+          activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
         },
       ],
     },
