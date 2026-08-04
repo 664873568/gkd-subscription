@@ -77,9 +77,7 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: ['@[text="浏览完成"] - ImageView - ImageView < FrameLayout'],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNBaseActivity',
-          ],
+          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
         },
       ],
     },
@@ -96,9 +94,7 @@ export default defineGkdApp({
             'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
             //'@[desc="返回"][clickable=true] <<n * + * [text="恭喜获得"] + [text="100点金币"] <<n * + * FrameLayout[clickable=true] ImageView + ImageView',
           ],
-          activityIds: [
-            'com.dianping.shopshell.PexusPoiActivity',
-          ],
+          activityIds: ['com.dianping.shopshell.PexusPoiActivity'],
         },
       ],
     },
