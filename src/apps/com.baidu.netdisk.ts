@@ -527,7 +527,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="任务系统"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]'
+            '[text="任务系统"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
           ],
           activityIds: [
             '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
