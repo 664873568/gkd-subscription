@@ -17,7 +17,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 10000,
           matches: [
-            '@[desc="关闭"][vid="axq"] <n ViewGroup - FrameLayout > [desc="游戏中心"]',
+            '@[desc="关闭"][vid~="[a-z]{3}"] <n ViewGroup - FrameLayout > [desc="游戏中心"]',
           ],
           activityIds: [
             'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
@@ -31,6 +31,22 @@ export default defineGkdApp({
             '.bullet.ui.BulletContainerActivity',
             'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
           ],
+        },
+      ],
+    },
+    {
+      key: 8,
+      name: '挑战任务-得惊喜盲盒',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[id*="plugin"] - * < * < FrameLayout[clickable=true] - * @Button[clickable=true]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
     },
@@ -299,32 +315,16 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
+          matches: [
             '@Button[desc="关闭"][clickable=true] - View > [text$="~tplv-20ashz96qn-1"]',
-            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
     },
     {
-      key: 32,
-      name: '车主服务-信用卡',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
-          activityIds: ['.live.LiveDummyActivity'],
-        },
-      ],
-    },
-    {
       key: 33,
-      name: '车主服务-信用卡-广告-残忍离开',
+      name: '车主服务-信用卡',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
