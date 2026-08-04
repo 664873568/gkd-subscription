@@ -404,9 +404,45 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 31000,
-          matches: ['@TextView[clickable=true] <<n [text="悬浮球模版"]'],
+          matches: ['@TextView[clickable=true] < [id="app"] <n [text="悬浮球模版"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$XRiverLite2',
+          ],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '任务完成-返回领奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[desc="关闭"][clickable=true] <<n * + * [text="悬浮球模版"] >n TextView[clickable=true]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 42,
+      name: '任务完成-返回领奖>',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * + * [text="Smallfish App"] >n View[clickable=true] >n [text="任务完成"] + [text="返回领奖>"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
         },
       ],
