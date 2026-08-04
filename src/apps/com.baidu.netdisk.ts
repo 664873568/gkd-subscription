@@ -14,6 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           anyMatches: [
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="我要加速领奖"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
@@ -36,7 +37,19 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]'],
+          key: 0,
+          anyMatches: [
+            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
+            '@[text="71255184fc23ad74"] < * - * [text="恭喜获得优惠券"]',
+          ],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="1301a2d542c5e480"] < * + [text="倒计时后将放弃优惠券"]',
+          ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -65,6 +78,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           anyMatches: [
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -97,7 +111,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
-          excludeAllMatches: [
+          excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '[text~="[0-9]秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
           ],
@@ -468,7 +482,7 @@ export default defineGkdApp({
     //每日签到
     {
       key: 200,
-      name: '每日签到-签到成功-今日积分已翻倍',
+      name: '每日签到',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -487,17 +501,53 @@ export default defineGkdApp({
     },
     {
       key: 201,
-      name: '开宝箱',
+      name: '开宝箱-*后开启点我减*分钟',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text="开宝箱"] < View <n @View[clickable=true]'],
+          matches: [
+            '[text="任务系统"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+          ],
           activityIds: [
             '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 202,
+      name: '开宝箱+5积分',
+      matchRoot: true,
+      actionMaximum: 6,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="任务系统"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]'
+          ],
+          activityIds: [
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 203,
+      name: '开宝箱',
+      matchRoot: true,
+      actionMaximum: 6,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="任务系统"] >n [text="～ 到底啦 ～"] +2 @View[visibleToUser=true]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
     },
@@ -607,7 +657,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="lingqujiangli"] < @View[text=""][clickable=true] <<n [text="奇妙赏"]',
+            '[text="lingqujiangli"] < @View[text=""][clickable=true] - View [text="task-close"]',
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
@@ -619,6 +669,7 @@ export default defineGkdApp({
       name: '最新AI功能-云一朵文件智能整理',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -653,6 +704,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI笔记',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -688,6 +740,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI拍一拍',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -716,6 +769,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI去水印',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -744,6 +798,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI变清晰',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -772,6 +827,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI照相馆',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -798,6 +854,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI消除',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -827,12 +884,12 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI去手写',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
             '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI去手写"][vid="tv_title"]',
           ],
@@ -856,6 +913,7 @@ export default defineGkdApp({
       name: '最新AI功能-去体验错题收集',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 40000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -943,6 +1001,7 @@ export default defineGkdApp({
       name: '最新AI功能-去体验拍题解题',
       matchRoot: true,
       actionMaximum: 1,
+      forcedTime: 20000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
