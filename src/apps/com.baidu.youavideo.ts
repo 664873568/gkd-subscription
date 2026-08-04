@@ -214,7 +214,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludMatches: [
+          excludeMatches: [
             '@[vid="detail_back"] +2 [vid="scroll_content"] >n [text="老照片一键修复"][vid="tv_title"]',
           ],
           matches: [
