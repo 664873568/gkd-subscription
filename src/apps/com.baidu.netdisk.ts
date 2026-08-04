@@ -776,30 +776,30 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 8000,
-          matches: [
-            '@[desc="自动消除"] + [desc="手动消除"]',
+          matches: ['@[desc="自动消除"] + [desc="手动消除"]'],
+          activityIds: [
+            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
           ],
-          activityIds: ['.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@[desc="确认退出"] - [desc="再考虑下"]',
+          matches: ['@[desc="确认退出"] - [desc="再考虑下"]'],
+          activityIds: [
+            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
           ],
-          activityIds: ['.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           action: 'back',
-          matches: [
-            '@[desc="AI消除"] - [desc="AI滤镜"]',
+          matches: ['@[desc="AI消除"] - [desc="AI滤镜"]'],
+          activityIds: [
+            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
           ],
-          activityIds: ['.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity'],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           action: 'back',
           actionDelay: 2000,
