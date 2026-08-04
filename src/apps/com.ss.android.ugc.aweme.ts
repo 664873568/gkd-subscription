@@ -225,11 +225,10 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageButton[index=1][childCount=0] - ImageButton <<n [text="车主服务"]',
+            '[text="车主服务"] >n ImageButton + @ImageButton[clickable=true]',
           ],
           activityIds: [
             '.bullet.ui.BulletContainerActivity',
-            '.search.activity.SearchResultActivity',
           ],
         },
       ],
@@ -511,6 +510,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 5000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -529,7 +529,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 5000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -554,8 +553,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
-          actionDelay: 5000,
           matches: [
             '@[desc="返回"] < [id="headerLeftBar"] + [text="抖音月付"]',
           ],
@@ -585,7 +582,7 @@ export default defineGkdApp({
       name: '车主服务-月付金-广告-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -616,7 +613,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 3,
           matches: [
-            '@ImageButton[clickable=true] + View [text="恭喜完成任务"]',
+            '[text="车主服务"] >n @ImageButton[clickable=true] + View [text="恭喜完成任务"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -691,7 +688,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
           matches: [
             '@ViewGroup[index=1][childCount=0] <<n * - * [desc="返回"]',
           ],
