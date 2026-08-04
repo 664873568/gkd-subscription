@@ -1184,6 +1184,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
+          excludeMatches: [
+            '@[text="上传中..."] - View < View < View',
+          ],
           matches: [
             '@[text=""][clickable=true] + [id="noticeSwiper"] <<n * + * [text="上传任意文件"]',
           ],
