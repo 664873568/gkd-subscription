@@ -14,9 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text^="看广告签到"] < * -3 HorizontalScrollView',
-          ],
+          matches: ['@[text^="看广告签到"] < * -3 HorizontalScrollView'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -81,7 +79,7 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '[text~="听书[0-9+]分钟领[0-9]+金币"] +n * @ViewGroup[clickable=true] > [text="去收听"]'
+            '[text~="听书[0-9+]分钟领[0-9]+金币"] +n * @ViewGroup[clickable=true] > [text="去收听"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -246,7 +244,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['[text="我知道了"] < @ViewGroup[clickable=true] -n [text="恭喜获得"]'],
+          matches: [
+            '[text="我知道了"] < @ViewGroup[clickable=true] -n [text="恭喜获得"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -260,7 +260,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text="我知道了"] < @ViewGroup[clickable=true] -n [text="恭喜获得"]'],
+          matches: [
+            '[text="我知道了"] < @ViewGroup[clickable=true] -n [text="恭喜获得"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -781,7 +783,7 @@ export default defineGkdApp({
           activityIds: ['.host.activity.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             'ImageView < @ViewGroup[clickable=true] +3 * [vid="main_native_ad_root_lay"] + [text~="点击并浏览5秒即可额外获得[0-9]{2}金币"][vid="main_watch_ad_button"]',
@@ -842,7 +844,7 @@ export default defineGkdApp({
           activityIds: ['.host.activity.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             'ImageView < @ViewGroup[clickable=true] +3 * [vid="main_native_ad_root_lay"] + [text~="点击并浏览5秒即可额外获得[0-9]{2}金币"][vid="main_watch_ad_button"]',
@@ -1075,7 +1077,7 @@ export default defineGkdApp({
           ],
           anyMatches: [
             '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View', //立即购买
-            '@View < ViewGroup <2 ViewGroup <<2 ViewGroup -2 ViewGroup >n ViewGroup + ViewGroup >2 ViewGroup',//立即下载
+            '@View < ViewGroup <2 ViewGroup <<2 ViewGroup -2 ViewGroup >n ViewGroup + ViewGroup >2 ViewGroup', //立即下载
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
@@ -1125,9 +1127,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: [
-            'ImageView - @View[clickable=true] < * + * [id="root"]',
-          ],
+          matches: ['ImageView - @View[clickable=true] < * + * [id="root"]'],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
       ],
