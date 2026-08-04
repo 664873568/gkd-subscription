@@ -501,24 +501,6 @@ export default defineGkdApp({
     },
     {
       key: 201,
-      name: '开宝箱-*后开启点我减*分钟',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[text="任务系统"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
-          ],
-          activityIds: [
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 202,
       name: '开宝箱+5积分',
       matchRoot: true,
       actionMaximum: 6,
@@ -536,7 +518,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 203,
+      key: 202,
       name: '开宝箱',
       matchRoot: true,
       actionMaximum: 6,
