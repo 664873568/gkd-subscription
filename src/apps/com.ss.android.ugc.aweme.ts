@@ -227,9 +227,7 @@ export default defineGkdApp({
           matches: [
             '[text="车主服务"] >n ImageButton + @ImageButton[clickable=true]',
           ],
-          activityIds: [
-            '.bullet.ui.BulletContainerActivity',
-          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
     },
