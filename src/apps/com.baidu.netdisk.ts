@@ -756,7 +756,7 @@ export default defineGkdApp({
     },
     {
       key: 2222,
-      name: '最新AI功能-体验AI拍一拍',
+      name: '最新AI功能-体验AI拍一拍-返回',
       matchRoot: true,
       actionMaximum: 1,
       forcedTime: 20000,
@@ -775,7 +775,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 8000,
           matches: [
             '@[desc="自动消除"] + [desc="手动消除"]',
           ],
