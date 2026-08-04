@@ -749,6 +749,61 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 2222,
+      name: '最新AI功能-体验AI拍一拍',
+      matchRoot: true,
+      actionMaximum: 1,
+      forcedTime: 20000,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI拍一拍"][vid="tv_title"]',
+          ],
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '@[desc="自动消除"] + [desc="手动消除"]',
+          ],
+          activityIds: ['.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[desc="确认退出"] - [desc="再考虑下"]',
+          ],
+          activityIds: ['.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity'],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          action: 'back',
+          matches: [
+            '@[desc="AI消除"] - [desc="AI滤镜"]',
+          ],
+          activityIds: ['.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity'],
+        },
+        {
+          preKeys: [0,1,2,3],
+          key: 4,
+          action: 'back',
+          matches: [
+            '@[vid="ocr_bottom_image"] < [vid="bottom_image_container"]',
+          ],
+          activityIds: ['.ocr.OCRTakePhotoActivity'],
+        },
+      ],
+    },
+    {
       key: 223,
       name: '最新AI功能-体验AI去水印',
       matchRoot: true,
