@@ -45,8 +45,8 @@ jobs:
             echo "No changes to commit."  
           else  
             git commit -m "chore: sync specified files from upstream"  
-            git pull --rebase origin main  
-            git push  
+            git pull --rebase origin main || true  
+            git push --force-with-lease  
           fi  
         env:  
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
