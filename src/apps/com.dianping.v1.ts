@@ -16,14 +16,16 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 5000,
           matches: [
-            'ImageView < @FrameLayout <3 FrameLayout + ImageView[clickable=true]',
+            'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@ImageView[clickable=true] - FrameLayout >2 ImageView'],
+          matches: [
+            '@ImageView[clickable=true] - FrameLayout > FrameLayout[clickable=true] >2 [text~="\\([0-9]s\\) "]',
+          ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
@@ -52,16 +54,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionMaximum: 2,
           matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true]',
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout >n FrameLayout[clickable=true] > ImageView',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['ImageView - ImageView < FrameLayout[clickable=true]'],
+          matches: [
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
+          ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
@@ -91,10 +94,13 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
+            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] <n * - * [text="恭喜获得"] + [text="100点金币"]',
             //'@[desc="返回"][clickable=true] <<n * + * [text="恭喜获得"] + [text="100点金币"] <<n * + * FrameLayout[clickable=true] ImageView + ImageView',
           ],
-          activityIds: ['com.dianping.shopshell.PexusPoiActivity'],
+          activityIds: [
+            'com.dianping.shopshell.PexusPoiActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
         },
       ],
     },
