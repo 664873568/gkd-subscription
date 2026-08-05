@@ -29,7 +29,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="点击广告 再得"] <<n * -2 * [text="领奖成功，"][vid="tvAdRewardTip"] +2 [text="+20"][vid="rewardCount"]',
+            '[text="点击广告 再得"] < @[vid="btnRewardClickWithAds"] <2 [vid="adViewBannerLayout"] -2 [vid="ll_tips"] [text="领奖成功，"][vid="tvAdRewardTip"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
@@ -37,26 +37,10 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '领奖成功-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[vid="ivClose"][clickable=true] - * [text="领奖成功，"][vid="tvAdRewardTip"] +2 [text="+33"][vid="rewardCount"]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-      ],
-    },
-    {
-      key: 3,
       name: '浏览广告，领超多奖励金-去浏览',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -78,7 +62,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 3,
       name: '浏览广告，领超多奖励金-去浏览-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -103,9 +87,60 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 5,
+      name: '奖励金-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@View[clickable=true] + [text="奖励金"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 6,
+      name: '奖励金-二级广告页-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="left_img"][clickable=true] + [vid="top_center_llt"] [vid="title"]',
+          ],
+          activityIds: [
+            'com.hellobike.bundlelibrary.web.WebActivity',
+            'com.hellobike.advertbundle.webview.AdvWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 18,
+      name: '奖励金-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@View[clickable=true] + [text="奖励金"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
     //游戏中心
     {
-      key: 10,
+      key: 19,
       name: '游戏中心-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -155,9 +190,26 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.windmill.sdk.widget.InterstitialView_4012003
+    {
+      key: 100,
+      name: '看视频-广告-关闭',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="tobid_interstitial_skip_ll"][clickable=true] > [text="关闭"][vid="tobid_interstitial_skip_text"]',
+          ],
+          activityIds: ['com.windmill.sdk.widget.InterstitialView_4012003'],
+        },
+      ],
+    },
     //首页功能类
     {
-      key: 40,
+      key: 400,
       name: '开启消息通知-取消',
       matchRoot: true,
       actionMaximum: 1,
@@ -172,7 +224,7 @@ export default defineGkdApp({
     },
     //首页广告类
     {
-      key: 50,
+      key: 500,
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
