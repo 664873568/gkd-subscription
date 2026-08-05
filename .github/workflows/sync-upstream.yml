@@ -46,7 +46,7 @@ jobs:
           else  
             git commit -m "chore: sync specified files from upstream"  
             git pull --rebase origin main || true  
-            git push --force-with-lease  
+            git push --force  
           fi  
         env:  
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
