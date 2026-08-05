@@ -161,7 +161,7 @@ export default defineGkdApp({
     //浏览10s*4
     {
       key: 40,
-      name: '养大鹅-逛白条频道10秒',
+      name: '养大鹅-浏览白条频道10秒',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -692,6 +692,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
+          excludeMatches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + ImageView <<n * - * [text="返回领奖"] < * - * [text="readMissionDown"]',
+          ],
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="04400c60c697b53b"]',
           ],
