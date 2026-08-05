@@ -58,9 +58,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: [
-            '@ImageButton[clickable=true] < View + [text="星选商城"]',
-          ],
+          matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
