@@ -23,6 +23,48 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '天天领现金-红包签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@View[clickable=true] > [text~="签到领[0-9]+积分"] + View > Image',
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@ImageButton[clickable=true] < View + View > [text="红包签到"]',
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '天天领现金-星选商城',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '@ImageButton[clickable=true] < View + [text="星选商城"]',
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+      ],
+    },
     //首页功能类
     {
       key: 40,
