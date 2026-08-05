@@ -177,7 +177,7 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '养大鹅-浏览视频10秒',
+      name: '养大鹅-看视频至高领10元',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -269,7 +269,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="京喜购物"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="京喜自营"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
