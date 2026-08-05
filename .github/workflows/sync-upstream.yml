@@ -7,7 +7,6 @@ on:
   
 permissions:  
   contents: write  
-  workflows: write  
   
 jobs:  
   sync:  
@@ -39,7 +38,7 @@ jobs:
             mkdir -p "$(dirname "$FILE")"  
             curl -sL -o "$FILE" "https://raw.githubusercontent.com/$UPSTREAM_REPO/$BRANCH/$FILE" || echo "Failed: $FILE"  
           done  
-  
+
       - name: Commit and push if changed  
         run: |  
           git config user.name "github-actions[bot]"  
