@@ -70,12 +70,27 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 15000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           matches: [
             '@ViewGroup[clickable=true] - ViewGroup[clickable=true] -n [text="完成跳转可领取"]',
           ],
+          activityIds: ['.msv.page.activity.MSVPageActivity'],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '看视频-任务已完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[vid="toast_container"] > [text="任务已完成"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
       ],
@@ -91,9 +106,9 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[id$="ms_skipView"] <<n [vid="fl_template_ad"]',
-            '@View[clickable=true] <<n [vid="fl_template_ad"]',
-            '[text~="[0-9]s \\| 跳过"][id$="sdm_myoffer_splash_skip"] < @[id$="sdm_myoffer_splash_skip_area"][clickable=true] <<n [vid="fl_template_ad"]',
+            '[vid="fl_template_ad"] >n @[id$="ms_skipView"]',
+            '[vid="fl_template_ad"] >n @View[clickable=true]',
+            '[vid="fl_template_ad"] >n @[id$="sdm_myoffer_splash_skip_area"][clickable=true] > [text~="[0-9]s \\\\| 跳过"][id$="sdm_myoffer_splash_skip"]',
           ],
           activityIds: ['.msv.page.outsidead.splashad.MSVSplashAdActivity'],
         },
