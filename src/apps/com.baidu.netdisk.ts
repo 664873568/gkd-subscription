@@ -39,8 +39,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
-            '@[text="71255184fc23ad74"] < * - * [text="恭喜获得优惠券"]',
+            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
+            '@[text="71255184fc23ad74"] < * - * [text="恭喜获得优惠券"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -96,7 +96,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]'],
+          anyMatches: [
+            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+          ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -197,8 +199,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            'ImageView < @LinearLayout -n LinearLayout > [text="领取成功"]',
-            'TextView[text="跳过"] < @LinearLayout -n LinearLayout > [text="领取成功"]',
+            'ImageView < @LinearLayout[clickable=true] -n LinearLayout > [text="领取成功"]',
+            'TextView[text="跳过"] < @LinearLayout[clickable=true] -n LinearLayout > [text="领取成功"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -1684,9 +1686,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '@[text="跳过"][vid="tv_skip"]',
             '@[text="跳过"] + [text~="[0-9]"]',
             '@[text~="跳过 [0-9]"][vid="countdown"]',
-            '@[text="跳过"][vid="tv_skip"]',
+            '@[text~="[0-9] \\\\| 跳过"][clickable=true]',
             '@[vid="ms_skipView"] < [vid="ms_skipView_container"]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
             '@View[clickable=true] <3 FrameLayout <2 FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
