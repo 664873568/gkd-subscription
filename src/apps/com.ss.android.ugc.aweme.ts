@@ -35,7 +35,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 7,
       name: '挑战任务-得惊喜盲盒',
       matchRoot: true,
       actionMaximum: 1,
@@ -47,6 +47,23 @@ export default defineGkdApp({
             '[id*="plugin"] - * < * < FrameLayout[clickable=true] - * @Button[clickable=true]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 8,
+      name: '支付成功-返回商户',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '[desc="返回"] +n ScrollView [desc="返回商户"]',
+          ],
+          activityIds: ['.live.LiveDummyHybridTransparentActivity'],
         },
       ],
     },
