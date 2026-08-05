@@ -7,7 +7,7 @@ on:
   
 permissions:  
   contents: write  
-  workflows: write         # 允许修改 .github/workflows/ 下的文件  
+  workflows: write  
   
 jobs:  
   sync:  
@@ -45,6 +45,8 @@ jobs:
             echo "No changes to commit."  
           else  
             git commit -m "chore: sync specified files from upstream"  
+            git pull --rebase origin main  
             git push  
-          env:  
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          fi  
+        env:  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
