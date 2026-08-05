@@ -1,4 +1,4 @@
-name: Sync specific files from upstream  
+name: sync-upstream  
   
 on:  
   schedule:  
@@ -39,7 +39,7 @@ jobs:
             mkdir -p "$(dirname "$FILE")"  
             curl -sL -o "$FILE" "https://raw.githubusercontent.com/$UPSTREAM_REPO/$BRANCH/$FILE" || echo "Failed: $FILE"  
           done  
-
+  
       - name: Commit and push if changed  
         run: |  
           git config user.name "github-actions[bot]"  
