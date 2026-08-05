@@ -102,41 +102,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 26,
-      name: '看视频-礼包-再逛*秒后可领奖-下滑',
-      matchRoot: true,
-      actionMaximum: 3,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'swipe',
-          swipeArg: {
-            start: {
-              x: 'screenWidth*0.5',
-              y: 'screenHeight*0.75'
-            },
-            end: {
-              x: 'screenWidth*0.5',
-              y: 'screenHeight*0.25'
-            },
-            duration: 1000,
-          },
-          matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] @[id="_scrollView"][childCount=3]',
-          ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-        {
-          action: 'click',
-          matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] [id="_scrollView"][childCount=1] @[text="立即打开"]',
-          ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
       key: 27,
       name: '看视频-礼包-<',
       matchRoot: true,
