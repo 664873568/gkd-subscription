@@ -363,8 +363,9 @@ export default defineGkdApp({
             '@[text="我要加速领奖"] <<n * -n * [text$="跳过"] - [text~="[0-9]+s"]',
             '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] - [text~="[0-9]+s"]',
             '@[text="去体验"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="立即前往加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要立即领奖"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
@@ -386,8 +387,10 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="恭喜获得奖励"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
+            '@[text="恭喜获得奖励"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',//惊喜福利
+            '@[text="恭喜获得奖励"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="继续播放视频内容"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
+            '@[text="32b391f8609869b1"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text=""] - [text="恭喜获得限时奖励"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text=""] - [text="恭喜获得限时奖励"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
           ],
@@ -398,8 +401,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="恭喜获得奖励"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
+          anyMatches: [
+            '@Image < * +n [text="限时奖励点击领取"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
+            '@[text="3ca6ab446dec1c57"] < * + * [text="恭喜获得优惠券"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -437,6 +441,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@View[clickable=true] - [text="reward_pop_get"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -453,7 +458,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="7b144c81c2cb181f"] < * - * [text~="恭喜获得[0-9]+元红包"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
           activityIds: [
@@ -762,24 +768,6 @@ export default defineGkdApp({
             'ImageView < LinearLayout[clickable=true] < @LinearLayout[clickable=true] - FrameLayout > [text="反馈"]',
           ],
           activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 44,
-      name: '看视频-广告二级页-< × 反馈',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 16000,
-          matches: ['@ImageView + ImageView +2 [text="反馈"]'],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
         },
