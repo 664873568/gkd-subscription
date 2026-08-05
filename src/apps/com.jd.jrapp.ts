@@ -1138,7 +1138,50 @@ export default defineGkdApp({
     //26.07.01-26.07.31 机构福利-财宝分福利
     //https://show.jd.com/m/De5VMnmwbxY2Pyk3/?pageKey=De5VMnmwbxY2Pyk3
     {
-      key: 130,
+      key: 131,
+      name: '做任务赚财宝分-取消自选',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 3000,
+          matches: [
+            '@Image[clickable=true] -2 [text="1个财宝分"] <n View[index=9][childCount=4]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@View[clickable=true] > [text="ae1d4a7d750f0dcb"] + [text="已自选"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          matches: [
+            '[text="已删除自选"] < * - * @View[clickable=true] > [text="ce6aa1713606b4c1"] + [text="加自选"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0, 2],
+          key: 3,
+          action: 'back',
+          matches: [
+            '@[text="HPmi0zAOZAAAAAElFTkSuQmCC"] + [text="已添加到自选"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 131,
       name: '做任务赚财宝分',
       matchRoot: true,
       actionMaximum: 1,
