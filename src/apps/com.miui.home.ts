@@ -21,6 +21,7 @@ export default defineGkdApp({
             '@[desc^="百度网盘"] >n [desc^="打开"][vid="icon"]',
             '@[desc^="大众点评"] >n [desc^="打开"][vid="icon"]',
             '@[desc^="飞猪旅行"] >n [desc^="打开"][vid="icon"]',
+            '@[desc^="哈啰"] >n [desc^="打开"][vid="icon"]',
             '@[desc^="京东金融"] >n [desc^="打开"][vid="icon"]',
             '@[desc^="酷我音乐"] >n [desc^="打开"][vid="icon"]',
             '@[desc^="美团"] >n [desc^="打开"][vid="icon"]',
