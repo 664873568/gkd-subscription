@@ -374,6 +374,24 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 31,
+      name: '充鸭攒话费-获得-返回',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * - * [text="获得"] + [text="1"] + [text="返回"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
+        },
+      ],
+    },
+    {
       key: 32,
       name: '充鸭攒话费-正在跳转-返回',
       matchRoot: true,
