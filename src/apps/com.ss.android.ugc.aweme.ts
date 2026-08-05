@@ -60,9 +60,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: [
-            '[desc="返回"] +n ScrollView [desc="返回商户"]',
-          ],
+          matches: ['[desc="返回"] +n ScrollView [desc="返回商户"]'],
           activityIds: ['.live.LiveDummyHybridTransparentActivity'],
         },
       ],
