@@ -200,7 +200,10 @@ export default defineGkdApp({
           },
           actionDelay: 3000,
           matches: ['@ComposeView'],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+          activityIds: [
+            '.operate.ui.view.activity.TaskCenterActivity',
+            '.home.view.assistant.activity.CleanUpClusterActivity',
+          ],
         },
       ],
     },
@@ -368,6 +371,7 @@ export default defineGkdApp({
             '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="立即前往加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要立即领奖"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
           activityIds: [
@@ -606,7 +610,7 @@ export default defineGkdApp({
           action: 'back',
           excludeMatches: [
             '@[text="去领奖"][id="_scrollView"]',
-            '@RelativeLayout [text="svg%3e"] + [text^="再逛"]',
+            '@RelativeLayout [text="svg%3e"] + [text="再逛"]',
           ],
           anyMatches: [
             '@RelativeLayout [text="奖励已领取"]',
@@ -721,7 +725,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@RelativeLayout <<n * [text="已发放"]'],
+          matches: ['[text="已发放"] >n @RelativeLayout'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -739,7 +743,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="跳过"] -2 [text$="安装应用立即领奖"][id="26fdb3"]',
+            '@[text="跳过"] -2 [text$="安装应用立即领奖"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -775,6 +779,23 @@ export default defineGkdApp({
     },
     //看视频-com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity
     {
+      key: 48,
+      name: '看视频-二级广告页-< × 反馈',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 16000,
+          matches: ['@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
+          ],
+        },
+      ],
+    },
+    {
       key: 49,
       name: '看视频-已领取-×',
       matchRoot: true,
@@ -784,7 +805,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: ['@[text^="svg+xml;base64"] <<n * [text="已领取"]'],
+          matches: ['[text="已领取"] >n @[text="svg+xml;base64"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
           ],
@@ -858,7 +879,7 @@ export default defineGkdApp({
     //首页功能类
     {
       key: 400,
-      name: '选择备份模式',
+      name: '备份-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -866,27 +887,8 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]',
-          ],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 401,
-      name: '开始安全备份',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: ['@[text="开始安全备份"] <<n [vid="cl_open_auto_backup"]'],
+            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]',//选择备份模式|一键备份|一键开始原画质备份
+          ],|
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
@@ -897,7 +899,7 @@ export default defineGkdApp({
     },
     {
       key: 402,
-      name: '确认开启备份',
+      name: '开始安全备份',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -905,7 +907,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[text="确认开启备份"] <<n [vid="cl_open_auto_backup"]'],
+          matches: ['[vid="cl_open_auto_backup"] >n @[text="开始安全备份"]'],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
@@ -916,14 +918,15 @@ export default defineGkdApp({
     },
     {
       key: 403,
-      name: '一键备份',
+      name: '确认开启备份',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="iv_close"] +n [text="一键备份"][vid="tv_backup"]'],
+          action: 'back',
+          matches: ['[vid="cl_open_auto_backup"] >n @[text="确认开启备份"]'],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
@@ -961,8 +964,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text*="跳过"] <<n * [text="免广告"][vid="text"]',
-            '@[vid="ms_skipView"] <<n * [text="免广告"][vid="text"]',
+            '[text="免广告"][vid="text"] >n [vid="cl_open_auto_backup"] >n @',
+            '[text="免广告"][vid="text"] >n @[vid="ms_skipView"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
