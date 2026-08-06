@@ -88,23 +88,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
-      name: '奖励金-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@View[clickable=true] + [text="奖励金"]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-      ],
-    },
-    {
-      key: 6,
+      key: 4,
       name: '奖励金-二级广告页-<',
       matchRoot: true,
       actionMaximum: 1,
