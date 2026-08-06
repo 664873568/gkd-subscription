@@ -116,20 +116,6 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 7,
-      name: '每日任务-完成应用浏览',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="关闭"][clickable=true] -n [text="已获得奖励"]'],
-          activityIds: ['.MainActivity'],
-        },
-      ],
-    },
     //每日任务-看视频最高赚
     {
       key: 10,
