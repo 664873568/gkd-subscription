@@ -21,6 +21,22 @@ export default defineGkdApp({
     },
     {
       key: 1,
+      name: '任务完成-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="ivClose"][clickable=true] - [vid="rlDialogContent"] [text="任务完成，"][vid="tvAdRewardTip"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '领奖成功-点击广告 再得',
       matchRoot: true,
       actionMaximum: 1,
@@ -36,7 +52,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '浏览广告，领超多奖励金-去浏览',
       matchRoot: true,
       actionMaximum: 1,
@@ -62,7 +78,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '浏览广告，领超多奖励金-去浏览-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -88,7 +104,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '奖励金-二级广告页-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -199,8 +215,13 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="取消"] <<n * [text="开启消息通知"]'],
-          activityIds: ['com.hellobike.atlas.business.portal.PortalActivity'],
+          matches: [
+            '@[text="取消"][clickable=true] < * < [vid="bottomContainer"] -2 [vid="topContainer"] > [text="开启消息通知"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+            'com.hellobike.atlas.business.portal.PortalActivity',
+          ],
         },
       ],
     },
