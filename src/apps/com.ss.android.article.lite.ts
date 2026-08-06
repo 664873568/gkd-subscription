@@ -9,15 +9,12 @@ export default defineGkdApp({
       name: 'YY-去头条极速版',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          actionDelay: 5000,
-          anyMatches: [
-            '[text="搜你想看的"][desc="搜索框，搜你想看的"] < * - @[desc="返回"] <<n * - * [text="点击赚钱"]',
-            '[text="搜你想看的"][desc="搜索框，搜你想看的"] < * - @[desc="返回"] <<n * - * [text="登录领钱"]',
+          matches: [
+            'MeasureOnceRelativeLayout2[clickable=true] -2 * [index=0][childCount=2] @[desc="返回"] ',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
         },
@@ -29,7 +26,7 @@ export default defineGkdApp({
       name: '升级版本-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -40,11 +37,8 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
-          actionDelay: 5000,
-          anyMatches: [
-            '[text="搜你想看的"][desc="搜索框，搜你想看的"] < * - @[desc="返回"] <<n * - * [text="点击赚钱"]',
-            '[text="搜你想看的"][desc="搜索框，搜你想看的"] < * - @[desc="返回"] <<n * - * [text="登录领钱"]',
+          matches: [
+            'MeasureOnceRelativeLayout2[clickable=true] -2 * [index=0][childCount=2] @[desc="返回"] ',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
         },
