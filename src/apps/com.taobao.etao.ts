@@ -6,7 +6,23 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '跳转APP-打开',
+      name: '签到领钱-逛大促会场',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[vid="left_panel"] > @[desc="返回"][clickable=true] + * [vid="tvTitle"]',
+          ],
+          activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '签到领钱-打开',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -22,8 +38,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
-      name: '去点淘领红包',
+      key: 2,
+      name: '签到领钱-去点淘领红包',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -42,22 +58,6 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '@[text="打开"] - [text="取消"] <<n [vid="buttonPanel"] -n [vid="topPanel"] [text="提示"][vid="alertTitle"]',
-          ],
-          activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '跳转APP-打开',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[vid="left_panel"] > @[desc="返回"][clickable=true] + * [vid="tvTitle"]',
           ],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
