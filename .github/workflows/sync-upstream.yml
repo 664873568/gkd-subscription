@@ -8,15 +8,9 @@ on:
 env:  
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
   
-permissions:  
-  contents: write  
-  
 jobs:  
   sync:  
     runs-on: ubuntu-latest  
-    permissions:  
-      contents: write  
-      workflows: write  
     steps:  
       - uses: actions/checkout@v7  
         with:  
