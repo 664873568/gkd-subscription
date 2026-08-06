@@ -380,7 +380,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="关闭"][clickable=true] - [text="任务已完成，恭喜获得奖励！"]'],
+          matches: [
+            '@[text="关闭"][clickable=true] - [text="任务已完成，恭喜获得奖励！"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
