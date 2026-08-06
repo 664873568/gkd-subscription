@@ -57,7 +57,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="我知道了"][vid="tv_determine"]'],
+          matches: [
+            '@[text="我知道了"][vid="tv_determine"][clickable=true] -3 [text="青少年模式"][vid="tv_title"]',
+          ],
           activityIds: ['com.dz.business.main.ui.MainActivity'],
         },
       ],
