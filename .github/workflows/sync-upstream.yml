@@ -55,7 +55,5 @@ jobs:
           else  
             git commit -m "chore: sync specified files from upstream"  
             git pull --rebase origin main  
-            git push https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git main    
+            git push https://664873568:${{ secrets.PAT }}@github.com/${{ github.repository }}.git main  
           fi  
-        env:  
-          GITHUB_TOKEN: ${{ secrets.PAT }}  
