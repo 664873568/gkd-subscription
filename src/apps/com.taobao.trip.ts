@@ -141,7 +141,7 @@ export default defineGkdApp({
     //看视频-com.baidu.mobads.sdk.api.*
     {
       key: 30,
-      name: '看视频-广告-拼多多',
+      name: '看视频-广告-拼多多-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -150,6 +150,7 @@ export default defineGkdApp({
         {
           matches: [
             '@ImageView[clickable=true] - [text="反馈"] <<n LinearLayout + [id$="statusBarBackground"]',
+            '@ImageView[clickable=true] - * [text="反馈"] <<n LinearLayout + [id$="statusBarBackground"]',
           ],
           activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
@@ -309,7 +310,69 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="我要立即领奖"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
+          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 61,
+      name: '看视频-跳过-奖励已领取byazt.sr',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 62,
+      name: '看视频-礼包-再逛*秒后可领奖byazt.sr',
+      matchRoot: true,
+      actionMaximum: 3,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+          ],
+          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 63,
+      name: '看视频-礼包-限时领取byazt.sr',
+      matchRoot: true,
+      actionMaximum: 3,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'
+          ],
+          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 64,
+      name: '看视频-礼包-<byazt.sr',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['FrameLayout - FrameLayout - FrameLayout @RelativeLayout[clickable=true]'],
           activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -451,7 +514,9 @@ export default defineGkdApp({
           anyMatches: [
             'ImageView - @[desc="sky_lantern_main"][clickable=true] <<n * +n * [text="跳过"]',
             '[text="点击下载免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
+            '[text="点击跳转免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
             '[text="点击或滑动点击下载免看广告"] < [desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
+            '[text="点击或滑动点击跳转免看广告"] < [desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
