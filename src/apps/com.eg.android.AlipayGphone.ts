@@ -315,13 +315,30 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
           ],
         },
       ],
     },
     {
       key: 25,
+      name: '赚工分-去看视频30秒领红包-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[id$="ic_back_btn"] < * < @[id$="back_btn_container"][clickable=true] < * -n * [desc="元"]',
+          ],
+          activityIds: [
+            'com.alipay.android.living.activity.LivingDetailActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 26,
       name: '广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -339,7 +356,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 26,
+      key: 27,
       name: '广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -350,6 +367,22 @@ export default defineGkdApp({
           matches: ['@[id$="tiny_half_close"] - [id$="tiny_half_expand"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+          ],
+        },
+      ],
+    },
+    {
+      key: 28,
+      name: '任务已完成，恭喜获得奖励！-关闭',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="关闭"][clickable=true] - [text="任务已完成，恭喜获得奖励！"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
         },
       ],
@@ -365,7 +398,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="签到"] -2 [text="今天"] <<n [id="__react-content"]',
+            '[id="__react-content"] >n @View > [text="今天"] +2 [text="签到"]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
