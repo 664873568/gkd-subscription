@@ -24,7 +24,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@ImageView[clickable=true] - FrameLayout > FrameLayout[clickable=true] >2 [text~="\\([0-9]s\\) "]',
+            '@ImageView[clickable=true] - FrameLayout > FrameLayout[clickable=true] >2 [text~="\\\\([0-9]s\\\\) "]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
