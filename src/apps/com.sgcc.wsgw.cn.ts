@@ -25,13 +25,29 @@ export default defineGkdApp({
       key: 50,
       name: '首页广告-×',
       matchRoot: true,
-      actionMaximum: 2,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
           matches: ['@ImageView < [desc="关闭"]'],
           activityIds: ['com.sgcc.wsgw.rnbundle.activity.HomeReactActivity'],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '首页广告-系统检修升级公告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView < [desc="关闭"]'],
+          activityIds: [
+            'com.htjc.pay.lite.moudle.singleaccountelepay.SingleAccountElePayIndexActivity',
+          ],
         },
       ],
     },
