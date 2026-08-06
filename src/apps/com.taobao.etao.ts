@@ -4,8 +4,34 @@ export default defineGkdApp({
   id: 'com.taobao.etao',
   name: '一淘',
   groups: [
+    //签到领钱
     {
       key: 0,
+      name: '签到领钱-签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="O1CN01zgOxbV1KnJSkjY2Fc_!!6000000001208-2-tps-150-150"] < * + [text="签到"]',
+          ],
+          activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="O1CN01zgOxbV1KnJSkjY2Fc_!!6000000001208-2-tps-150-150"] < * + [text="领取"] + [text="签到"]',
+          ],
+          activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '签到领钱-逛大促会场',
       matchRoot: true,
       actionMaximum: 1,
@@ -13,15 +39,32 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
+          matches: [
+            '@[text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] < * + [text="逛大促会场"]',
+          ],
+          activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           matches: [
             '[vid="left_panel"] > @[desc="返回"][clickable=true] + * [vid="tvTitle"]',
           ],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] < * + [text="领取"] + [text="逛大促会场"]',
+          ],
+          activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
+        },
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '签到领钱-打开',
       matchRoot: true,
       actionMaximum: 1,
@@ -38,7 +81,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '签到领钱-去点淘领红包',
       matchRoot: true,
       actionMaximum: 1,
