@@ -77,9 +77,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 4000,
           matches: [
-            '[text~="听书[0-9+]分钟领[0-9]+金币"] +n * @ViewGroup[clickable=true] > [text="去收听"]',
+            '[text="去收听"] < @ViewGroup[clickable=true] < * < * -2 [text~="听书[0-9]+分钟领[0-9]+金币"] +3 * [text~="\\\\+[0-9]{3,}"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -109,9 +109,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 4000,
+          actionDelay: 2000,
           matches: [
-            '[text="看广告"] < @ViewGroup[clickable=true] < * - [text="看广告得金币"] +2 * [text~="[0-9]{3}"]',
+            '[text="看广告"] < @ViewGroup[clickable=true] < * - [text="看广告得金币"] +2 * [text~="[0-9]{3,}"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -126,7 +126,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 4000,
+          actionDelay: 3000,
           matches: [
             '@[vid="main_watch_ad_button"] <<n * [text="看广告得金币"]',
           ],
@@ -172,6 +172,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 5000,
           matches: [
             '@[text="正在努力加载中"][vid="tv_progress"] - [vid="pb_progress"] < [vid="ll_progress"]',
           ],
@@ -190,7 +191,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
-            '@ViewGroup[clickable=true] > ViewGroup[clickable=true] > View + [text="限时领金币"]',
+            'ViewGroup > @ViewGroup[clickable=true] > ViewGroup[clickable=true] > View + [text="限时领金币"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -308,7 +309,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="翻下一位"] <n * - * >n [text="再翻一次"]'],
+          matches: ['[text="翻下一位"] < @ViewGroup[clickable=true] - ViewGroup[clickable=true] > [text="再翻一次"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -323,10 +324,10 @@ export default defineGkdApp({
       rules: [
         {
           excludeMatches: [
-            '@ViewGroup - ViewGroup < ViewGroup + ViewGroup >n [text="翻下一位"]',
+            'ViewGroup - ViewGroup < @ViewGroup[clickable=true] + ViewGroup [text="翻下一位"]',
           ],
           matches: [
-            '@ViewGroup - ViewGroup < ViewGroup + ViewGroup >n [text="再翻一次"]',
+            'ViewGroup - ViewGroup < @ViewGroup[clickable=true] + ViewGroup [text="再翻一次"]',
           ],
           activityIds: ['.host.activity.MainActivity'],
         },
@@ -341,7 +342,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="直接领取"] <<n * [text="翻卡赢9999金币"]'],
+          matches: [
+            '[text="直接领取"] < @ViewGroup[clickable=true] < * -n [text="翻卡赢 9999 金币"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -362,14 +365,14 @@ export default defineGkdApp({
     },
     {
       key: 25,
-      name: '赚金币-幸运大转盘-免费抽大奖',
+      name: '赚金币-幸运大转盘-看广告 抽奖',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="免费\\n抽大奖"] <<n * [text="幸运大转盘"]'],
+          matches: ['[text="幸运大转盘"] +n * @ViewGroup[clickable=true] [text="看广告\\n抽奖"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -390,14 +393,16 @@ export default defineGkdApp({
     },
     {
       key: 27,
-      name: '赚金币-幸运大转盘-看广告额外领',
+      name: '赚金币-幸运大转盘-看广告金币翻倍',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="看广告额外领"] <<n * [text="幸运大转盘"]'],
+          matches: [
+            '@[text="看广告金币翻倍"] -4 [text="恭喜获得"] +2 [text~="\\\\+[0-9]{3,}"] + * [text="继续抽"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -757,7 +762,80 @@ export default defineGkdApp({
         },
       ],
     },
-    //
+    //限时下载任务
+    {
+      key: 60,
+      name: '限时下载任务-去安装',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="限时下载任务"][vid="main_title_iv"] < * + [vid="install_list_container"] @[text="去安装"][vid="item_ad_button"][clickable=true]',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[id="forRemHack"] + [id="root"] >n @[id^="BlockButtonDownload"][clickable=true] > [text="立即下载"]',
+          ],
+          activityIds: ['com.tencent.ams.tg.ADActivity'],
+        },
+      ],
+    },
+    {
+      key: 61,
+      name: '限时下载任务-去浏览',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 16000,
+          matches: [
+            '[text="限时下载任务"][vid="main_title_iv"] < * +n [vid="open_list_container"] @[text="去浏览"][vid="item_ad_button"][clickable=true]',
+          ],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    //免费领礼物
+    {
+      key: 62,
+      name: '免费领礼物-去浏览',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 16000,
+          matches: ['[text="免费领礼物"] +n * @ViewGroup[clickable=true] > [text="去浏览"]'],
+          activityIds: ['.host.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 89,
+      name: '看视频-二级广告页-< ×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 16000,
+          matches: ['ImageView[clickable=true] - @View[clickable=true] < * + * [id="root"]'],
+          activityIds: ['com.tencent.ams.tg.ADActivity'],
+        },
+      ],
+    },
     {
       key: 90,
       name: '点击并浏览页面*s领取奖励',
@@ -1072,12 +1150,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           excludeMatches: [
-            '@View < ViewGroup <3 ViewGroup <<4 ViewGroup -2 ViewGroup >3 View',
+            'View < @ViewGroup <3 * <<4 * -2 * >3 View',
           ],
           anyMatches: [
-            '@View < ViewGroup <4 ViewGroup <<4 ViewGroup +2 ViewGroup >3 View', //立即购买
-            '@View < ViewGroup <2 ViewGroup <<2 ViewGroup -2 ViewGroup >n ViewGroup + ViewGroup >2 ViewGroup', //立即下载
+            'View < @ViewGroup <4 * <<4 * +2 * >3 View', //立即购买
+            'View < @ViewGroup <4 * < * <2 * +2 * >3 View <<n * + * > *[childCount=1] >2 ViewGroup', //立即下载
+            'View < @ViewGroup <2 * <<2 * -2 * >n * + * >2 ViewGroup', //查看详情
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
@@ -1109,7 +1189,7 @@ export default defineGkdApp({
           key: 3,
           actionDelay: 3000,
           matches: [
-            '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
+            '@ViewGroup <<2 * - * <<  - * >3 View',
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
@@ -1119,16 +1199,21 @@ export default defineGkdApp({
     },
     {
       key: 141,
-      name: '看视频-二级广告页-< ×',
+      name: '看视频-礼包-去微信玩*秒，即可获得奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 16000,
-          matches: ['ImageView - @View[clickable=true] < * + * [id="root"]'],
-          activityIds: ['com.tencent.ams.tg.ADActivity'],
+          matches: [
+            //'View < @ViewGroup <4 * <<3 * +2 * >3 View',
+            'View < @ViewGroup <4 * < * <2 * +2 * >3 View <<n * + * > *[childCount=1] >2 ViewGroup',//去微信玩15秒
+          ],
+          activityIds: [
+            '.host.activity.MainActivity',
+            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
+          ],
         },
       ],
     },
@@ -1142,12 +1227,8 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 3000,
-          excludeMatches: [
-            '@View < ViewGroup <4 ViewGroup <<n ViewGroup +2 ViewGroup >3 View',
-            '@View < ViewGroup <3 ViewGroup <<n ViewGroup -2 ViewGroup >3 View',
-          ],
           matches: [
-            '@ViewGroup <<2 ViewGroup - ViewGroup << ViewGroup - ViewGroup >3 View',
+            '@ViewGroup <<2 * - * < * - * >3 View',//去微信浏览
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
@@ -1157,25 +1238,6 @@ export default defineGkdApp({
     },
     {
       key: 143,
-      name: '看视频-礼包-去微信玩*秒，即可获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            'View < @ViewGroup <4 ViewGroup <<3 ViewGroup +2 ViewGroup >3 View',
-          ],
-          activityIds: [
-            '.host.activity.MainActivity',
-            'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 145,
       name: '看视频-可获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -1285,7 +1347,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="跳过"] <<n [vid="host_splash_fragment_root_lay"]',
+            '[vid="host_splash_fragment_root_lay >n @[text="跳过"]"]',
             '@[desc="跳过广告"][vid="xm_ad_host_count_down_click_lay"][clickable=true] - [desc="跳过广告"][vid="xm_ad_host_count_down_click_lay_no_click_view"][clickable=true] - [text="跳过广告"][vid="xm_ad_host_count_down_text"]',
           ],
           activityIds: [
