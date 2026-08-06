@@ -22,27 +22,6 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '安装应用',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 5000,
-          anyMatches: [
-            '@[text="禁止安装"] <<n * [text^="是否允许"]',
-            '@[desc="返回"][vid="up"] <<n * [text="安装包扫描中，请稍候"][vid="loadingText"]',
-          ],
-          activityIds: [
-            'com.miui.packageInstaller.NewInstallerPrepareActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 2,
       name: '频繁安装应用',
       matchRoot: true,
       actionMaximum: 1,
@@ -50,10 +29,42 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 5000,
-          matches: ['@[text="取消"] <<n * [text$="频繁安装应用"]'],
+          matches: ['[text$="频繁安装应用"] >n @[text="取消"]'],
           activityIds: ['null'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '喜马拉雅-安装应用',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="允许"][clickable=true] < [vid="buttonPanel"] - ScrollView [text="是否允许「喜马拉雅」安装应用？"][vid="title"]',
+          ],
+          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[vid="second_button"] [vid="left_button_info_view"] [text="继续安装"][vid="left_button_msg"]',
+          ],
+          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text="完成"][vid="start_button"][clickable=true]',
+          ],
+          activityIds: ['com.miui.packageInstaller.ui.normalmode.InstallProgressActivity'],
         },
       ],
     },
