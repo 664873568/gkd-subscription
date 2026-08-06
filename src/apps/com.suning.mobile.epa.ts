@@ -25,7 +25,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '天天领现金-红包签到',
+      name: '天天领现金-签到领大额红包',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -34,7 +34,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@View[clickable=true] > [text~="签到领[0-9]+积分"] + View > Image',
+            '@View[clickable=true] > [text~="签到领[0-9]+积分"] + * Image',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -42,7 +42,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@ImageButton[clickable=true] < View + View > [text="红包签到"]',
+            '@ImageButton[clickable=true] < * + * [text="红包签到"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -50,7 +50,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '天天领现金-星选商城',
+      name: '天天领现金-去逛星选商城频道',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -58,7 +58,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'],
+          matches: ['@ImageButton[clickable=true] < * + [text="星选商城"]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
@@ -70,7 +70,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[vid="txt_dialog_reject"] +n [vid="txt_dialog_commit"]'],
@@ -84,7 +84,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: [
