@@ -103,7 +103,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 6,
       name: '每日任务-完成应用浏览',
       matchRoot: true,
       actionMaximum: 1,
@@ -117,7 +117,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 7,
       name: '每日任务-完成应用浏览',
       matchRoot: true,
       actionMaximum: 1,
