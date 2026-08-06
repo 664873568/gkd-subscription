@@ -9,15 +9,12 @@ export default defineGkdApp({
       name: 'YY-打开今日头条',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          actionDelay: 5000,
-          anyMatches: [
-            '[text="搜你想看的"][desc="搜索框，搜你想看的"] < * - @[desc="返回"] <<n * - * [text="登录赚钱"]',
-            '[text="搜你想看的"][desc="搜索框，搜你想看的"] < * - @[desc="返回"] <<n * +n * [text="登录赚钱"]',
+          matches: [
+            'MeasureOnceRelativeLayout2[clickable=true] -2 * [index=0][childCount=2] @[desc="返回"] ',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
         },
