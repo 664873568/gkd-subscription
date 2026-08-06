@@ -29,7 +29,7 @@ pnpm install
 pnpm install --registry=https://registry.npmmirror.com
 ```
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/64f9da9d-8c6b-4a57-8fe8-ef13ef91346a)
+![image](https://e.gkd.li/33bb6379-2fae-4139-abc3-6250a287ad84)
 
 至此环境已在 `subscription` 目录下初始化完毕, 使用 vscode 打开目录即可开始开发
 
@@ -43,7 +43,7 @@ pnpm install --registry=https://registry.npmmirror.com
 
 <https://github.com/username/subscription/edit/main/src/subscription.ts>
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/6a724cd9-b2cd-429d-bf2e-87f2c8b3d566)
+![image](https://e.gkd.li/bb539a50-cbdb-4fec-8a93-4a9c5d067de0)
 
 ## 目录结构
 
@@ -54,11 +54,18 @@ pnpm install --registry=https://registry.npmmirror.com
 
 在 vscode 内使用鼠标悬浮在任意字段上即可查看注释说明, 也可在 <https://gkd.li/api> 搜索查看
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/35400b43-0d79-4a67-bd4c-6915613488db)
+![image](https://e.gkd.li/3b3c8b14-f7f4-46ee-90dc-b69b9233f993)
 
 现在您可编辑 [./src](./src/) 下的文件来自定义您的订阅, 构建后的订阅文件处于 [./dist](./dist/) 目录下
 
 另外您必须修改 订阅详情 [./src/subscription.ts](./src/subscription.ts) 下的 id 字段, 否则可能会和其它订阅冲突, 填一个较大的随机数字即可
+
+可以在 github 查找下方代码块 ([快捷链接](https://github.com/search?q=export+default+defineGkdSubscription%28%7B+++id%3A+&type=code)), 查看您的订阅id是否跟已有项目重复
+
+```ts
+export default defineGkdSubscription({
+  id:
+```
 
 ## 格式修复
 
@@ -74,7 +81,7 @@ pnpm install --registry=https://registry.npmmirror.com
 
 然后找到 Workflow permissions 点击 Read and write permissions 然后点击下方的 Save 即可
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/e3bbefe3-7745-42c7-adc8-3cfe2757c9cf)
+![image](https://e.gkd.li/89dd8c22-f3f0-4331-a3d1-03d466dcc3d6)
 
 ## 构建订阅
 
@@ -88,7 +95,7 @@ pnpm install --registry=https://registry.npmmirror.com
 
 然后点击右侧的 `Run workflow` 即可运行并发布
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/bbaf5113-8ab3-4be0-9a79-ee7a7389a58c)
+![image](https://e.gkd.li/ab202786-d56d-4dba-a5ee-03190aafb6e6)
 
 构建后订阅将输出到 dist 目录下, gkd.json 的文件订阅地址如下, 复制后到 GKD 添加即可
 
@@ -104,47 +111,7 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 如果无法访问 raw.githubusercontent.com 和 fastly.jsdelivr.net
 
-您可以将本仓库发布到 npm 上, 然后通过 registry.npmmirror.com 加速访问
-
-要发布到 npm 上, 必须先将 [./package.json](./package.json) 的 name 字段改成未使用的包名, 否则发布失败
-
-您可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
-
-或者改成 `@your_npm_name/subscription`, 这种类型是 scope 名称, 其中 `your_npm_name` 是你下面要注册的 npm 用户名
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/79817967-6f97-4935-9bf3-179bbf50b3aa)
-
-接下来获取 token, 你需要先注册 <https://www.npmjs.com>, 然后到 Access Tokens 界面点击 Generate New Token 选择 Classic Token 后随便输入 Name 选择 Publish 即可生成并复制
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/ca5eaf26-3705-4dc7-9584-4a235bbefde2)
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/6da188ab-e415-44de-b2f7-3f985ab4d401)
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/55db57f6-1021-4d85-afd0-fe7df1f9bbcf)
-
-复制后打开 <https://github.com/username/subscription/settings/secrets/actions/new>
-
-在 Name 输入 `NPM_TOKEN`, 在 Secret 输入刚刚复制的 token, 点击 Add secret 即可添加成功
-
-![image](https://github.com/gkd-kit/gkd/assets/38517192/72b062d8-4540-4602-82fe-416ea5348014)
-
-然后只需要重复上面的 构建订阅 步骤即可发布, 发布后得到的镜像加速链接如下
-
-```txt
-https://registry.npmmirror.com/gkd-subscription-xxxx/latest/files/dist/gkd.json5
-```
-
-注: 将 gkd-subscription-xxxx 换成您的包名
-
-如果你的包名是 `@your_npm_name/subscription` 这种类型, 加速链接是
-
-```txt
-https://registry.npmmirror.com/@your_npm_name/subscription/latest/files/dist/gkd.json5
-```
-
-由于 npmmirror 被恶意刷流量后已经改为白名单模式, 不在白名单内的包, 上面的链接无法正常加速访问
-
-因此要使上面的链接被正常访问, 你需要向 <https://github.com/cnpm/unpkg-white-list> 提交 pr 将你的包添加到白名单
+请自行解决网络问题
 
 ## 自定义配置文件
 
@@ -171,26 +138,26 @@ https://registry.npmmirror.com/@your_npm_name/subscription/latest/files/dist/gkd
  * @default package.json.gkd
  */
 type GkdConfig = {
-    /**
-     * @default 'dist'
-     */
-    outDir?: string;
-    /**
-     * @default 'gkd.json5'
-     */
-    file?: string;
-    /**
-     * @default 'gkd.version.json5'
-     */
-    versionFile?: string;
-    /**
-     * @default 'CHANGELOG.md'
-     */
-    changelog?: string;
-    /**
-     * @default 'README.md'
-     */
-    readme?: string;
+  /**
+   * @default 'dist'
+   */
+  outDir?: string;
+  /**
+   * @default 'gkd.json5'
+   */
+  file?: string;
+  /**
+   * @default 'gkd.version.json5'
+   */
+  versionFile?: string;
+  /**
+   * @default 'CHANGELOG.md'
+   */
+  changelog?: string;
+  /**
+   * @default 'README.md'
+   */
+  readme?: string;
 };
 ```
 
