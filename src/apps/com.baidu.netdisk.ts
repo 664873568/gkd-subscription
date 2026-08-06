@@ -116,11 +116,11 @@ export default defineGkdApp({
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
-              y: 'screenHeight*0.75'
+              y: 'screenHeight*0.75',
             },
             end: {
               x: 'screenWidth*0.5',
-              y: 'screenHeight*0.25'
+              y: 'screenHeight*0.25',
             },
             duration: 1000,
           },

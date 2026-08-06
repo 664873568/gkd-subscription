@@ -115,9 +115,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@View[clickable=true] + [text="奖励金"]',
-          ],
+          matches: ['@View[clickable=true] + [text="奖励金"]'],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],

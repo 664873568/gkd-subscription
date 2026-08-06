@@ -387,7 +387,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="恭喜获得奖励"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',//惊喜福利
+            '@[text="恭喜获得奖励"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]', //惊喜福利
             '@[text="恭喜获得奖励"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="继续播放视频内容"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="32b391f8609869b1"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
