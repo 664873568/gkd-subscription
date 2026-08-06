@@ -4,6 +4,25 @@ export default defineGkdApp({
   id: 'com.kwai.videoeditor',
   name: '快影',
   groups: [
+    //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity
+    {
+      key: 20,
+      name: '看视频-广告-反馈 ×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
+          ],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
