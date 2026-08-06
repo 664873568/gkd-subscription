@@ -13,9 +13,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 5000,
-          matches: ['@[text="取消"] <<n * [text$="正尝试安装应用"]'],
+          matches: ['[text$="正尝试安装应用"] >n @[text="取消"]'],
           activityIds: ['com.miui.packageInstaller.InstallStart'],
         },
       ],
