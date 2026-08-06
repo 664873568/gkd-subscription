@@ -10,7 +10,7 @@ env:
   
 permissions:  
   contents: write  
-  workflows: write  
+  actions: : write  
   
 jobs:  
   sync:  
