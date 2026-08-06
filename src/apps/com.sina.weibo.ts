@@ -53,6 +53,35 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '浏览微博 完成任务',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'swipe',
+          actionMaximum: 3,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          matches: [
+            '@[vid="root_rl"] > [text="浏览微博\\n完成任务"]',
+          ],
+          activityIds: ['.MainTabActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
