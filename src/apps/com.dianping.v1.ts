@@ -111,7 +111,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '今日累计奖励-领取',
       matchRoot: true,
       actionMaximum: 3,
