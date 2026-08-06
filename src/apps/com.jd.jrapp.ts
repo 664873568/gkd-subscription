@@ -1141,7 +1141,7 @@ export default defineGkdApp({
     //26.07.01-26.07.31 机构福利-财宝分福利
     //https://show.jd.com/m/De5VMnmwbxY2Pyk3/?pageKey=De5VMnmwbxY2Pyk3
     {
-      key: 131,
+      key: 130,
       name: '做任务赚财宝分-取消自选',
       matchRoot: true,
       actionMaximum: 1,
