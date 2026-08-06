@@ -39,7 +39,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['ImageView - ImageView < FrameLayout[clickable=true]'],
+          action: 'clickCenter',
+          matches: [
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
+          ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
@@ -78,9 +81,11 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: ['@[text="浏览完成"] - ImageView - ImageView < FrameLayout'],
-          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
+          matches: ['@FrameLayout[clickable=true] > [text="浏览完成"]'],
+          activityIds: [
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+            'com.meituan.android.mrn.container.MRNBaseActivity',
+          ],
         },
       ],
     },
@@ -93,6 +98,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'clickCenter',
           matches: [
             'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] <n * - * [text="恭喜获得"] + [text="100点金币"]',
             //'@[desc="返回"][clickable=true] <<n * + * [text="恭喜获得"] + [text="100点金币"] <<n * + * FrameLayout[clickable=true] ImageView + ImageView',
@@ -101,6 +107,23 @@ export default defineGkdApp({
             'com.dianping.shopshell.PexusPoiActivity',
             'com.dianping.nova.picasso.DPPicassoBoxActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '今日累计奖励-领取',
+      matchRoot: true,
+      actionMaximum: 3,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'clickCenter',
+          matches: [
+            '[text="完成进度10/10"] - [text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"] ',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
     },
