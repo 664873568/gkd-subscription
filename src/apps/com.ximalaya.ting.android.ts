@@ -1189,7 +1189,7 @@ export default defineGkdApp({
           key: 3,
           actionDelay: 3000,
           matches: [
-            '@ViewGroup <<2 * - * <<  - * >3 View',
+            '@ViewGroup <<2 * - * << * - * >3 View',
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
