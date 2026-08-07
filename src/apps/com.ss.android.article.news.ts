@@ -13,8 +13,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            'MeasureOnceRelativeLayout2[clickable=true] -2 * [index=0][childCount=2] @[desc="返回"] ',
+          anyMatches: [
+            'MeasureOnceRelativeLayout2 >n [index=0][childCount=2] >n @[desc="返回"][clickable=true]',
+            'MeasureOnceRelativeLayout2[clickable=true] -2 * [index=0][childCount=2] >n @[desc="返回"]',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
         },
