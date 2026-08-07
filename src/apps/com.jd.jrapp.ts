@@ -794,7 +794,10 @@ export default defineGkdApp({
           matches: [
             '@[vid="recycler_view"] + [vid="fl_operating_group"] [text~="\\\\+(1[1-9]|[2-9][0-9]|[0-9]{3,})"] - ImageView < * < * - * ViewGroup[clickable=true]',
           ],
-          activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
+          activityIds: [
+            .bm.mainbox.main.MainActivity',
+            '.bm.sh.jm.video.ui.VibratoActivity',
+          ],
         },
       ],
     },
