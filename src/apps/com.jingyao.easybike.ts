@@ -4,24 +4,42 @@ export default defineGkdApp({
   id: 'com.jingyao.easybike',
   name: '哈啰',
   groups: [
+    //奖励金
     {
       key: 0,
-      name: '任务完成-领奖励',
+      name: '奖励金-签到',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: ['@[text="任务完成,领奖励"][id="task-bottom-text"]'],
+          matches: [
+            '[text="签到"][vid="tvSignInClick"] + [vid="btnSignInClickWithAds"] > @[text~="点击广告再领[0-9]+奖励金"][vid="tvSignInClickWithAds"]',
+          ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
     },
     {
       key: 1,
-      name: '任务完成-×',
+      name: '奖励金-领奖成功-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="ivClose"][clickable=true] - [vid="rlDialogContent"] [text="领奖成功，"][vid="tvAdRewardTip"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '奖励金-任务完成-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -36,7 +54,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '领奖成功-点击广告 再得',
       matchRoot: true,
       actionMaximum: 1,
@@ -52,7 +70,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '浏览广告，领超多奖励金-去浏览',
       matchRoot: true,
       actionMaximum: 1,
@@ -78,7 +96,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '浏览广告，领超多奖励金-去浏览-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -104,7 +122,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 6,
       name: '奖励金-二级广告页-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -112,6 +130,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          excludeMatches: [
+            '@[vid="left_img"][clickable=true] < [vid="main_rlt"] < [vid="top_bar"] < [vid="rl_bar"] + * [id="mf-app"]',
+          ],
           matches: [
             '@[vid="left_img"][clickable=true] + [vid="top_center_llt"] [vid="title"]',
           ],
@@ -123,7 +144,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 18,
+      key: 7,
       name: '奖励金-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -138,7 +159,7 @@ export default defineGkdApp({
     },
     //游戏中心
     {
-      key: 19,
+      key: 10,
       name: '游戏中心-×',
       matchRoot: true,
       actionMaximum: 1,
