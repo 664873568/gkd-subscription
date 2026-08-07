@@ -301,25 +301,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
-      name: '赚工分-返回 返回首页-⊙',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 16000,
-          matches: [
-            '[text=""] < @[desc="关闭"][clickable=true] <<n * -n [desc="返回"][clickable=true] + [desc="返回首页"]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
-          ],
-        },
-      ],
-    },
-    {
       key: 25,
       name: '赚工分-去看视频30秒领红包-<',
       matchRoot: true,
@@ -498,6 +479,25 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 100,
+      name: '赚工分-返回 返回首页-⊙',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 16000,
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * - * [text="瑞幸咖啡温馨提示"] +n [text="同意"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
           ],
         },
       ],
