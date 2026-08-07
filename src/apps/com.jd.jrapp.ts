@@ -791,9 +791,7 @@ export default defineGkdApp({
             duration: 1000,
           },
           actionCd: 60000,
-          matches: [
-            '@[vid="recycler_view"]',
-          ],
+          matches: ['@[vid="recycler_view"]'],
           activityIds: [
             '.bm.mainbox.main.MainActivity',
             '.bm.sh.jm.video.ui.VibratoActivity',
