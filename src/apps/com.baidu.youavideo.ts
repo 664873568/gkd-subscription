@@ -888,7 +888,7 @@ export default defineGkdApp({
         {
           matches: [
             '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]',//选择备份模式|一键备份|一键开始原画质备份
-          ],|
+          ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
