@@ -774,7 +774,7 @@ export default defineGkdApp({
       key: 90,
       name: '看视频 赚现金-上滑',
       matchRoot: true,
-      actionMaximum: 180,
+      actionMaximum: 60,
       resetMatch: 'activity',
       rules: [
         {
@@ -790,9 +790,9 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionCd: 20000,
+          actionCd: 60000,
           matches: [
-            '@[vid="recycler_view"] + [vid="fl_operating_group"] [text~="\\\\+(1[1-9]|[2-9][0-9]|[0-9]{3,})"] - ImageView < * < * - * ViewGroup[clickable=true]',
+            '@[vid="recycler_view"]',
           ],
           activityIds: [
             '.bm.mainbox.main.MainActivity',
