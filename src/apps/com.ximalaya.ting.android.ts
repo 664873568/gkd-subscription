@@ -1027,9 +1027,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="icon-close.e3e3211b"] -n * > [text="限时领取"]',
-          ],
+          matches: ['@[text="icon-close.e3e3211b"] -n * > [text="限时领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
