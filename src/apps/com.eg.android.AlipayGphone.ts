@@ -255,8 +255,8 @@ export default defineGkdApp({
             '[text="Smallfish App"] > [id="app"] > View > @View[clickable=true]',
           ],
           activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',//已浏览完成 返回>
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',//任务完成
             'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
           ],
         },
