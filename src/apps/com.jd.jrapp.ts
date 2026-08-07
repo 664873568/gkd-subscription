@@ -430,7 +430,7 @@ export default defineGkdApp({
     //赚抽奖次数
     //逛一逛*14
     {
-      key: 52,
+      key: 53,
       name: '签到领现金-浏览完成-继续浏览下一个',
       matchRoot: true,
       actionMaximum: 1,
@@ -448,7 +448,7 @@ export default defineGkdApp({
     },
     //浏览*10
     {
-      key: 53,
+      key: 54,
       name: '签到领现金-商品详情-<',//逛月黑风高频道-天天逛特价 2元也包邮-逛一逛滋补馆
       matchRoot: true,
       actionMaximum: 1,
@@ -465,7 +465,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 54,
+      key: 55,
       name: '签到领现金-返回领奖',//逛白条频道领红包-浏览财富会员领权益-去停车缴费，领京豆
       matchRoot: true,
       actionMaximum: 1,
@@ -481,7 +481,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 55,
+      key: 56,
       name: '签到领现金-赚抽奖次数-看视频最高赚10元',
       matchRoot: true,
       actionMaximum: 1,
@@ -497,7 +497,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 56,
+      key: 57,
       name: '签到领现金-赚抽奖次数-<',//浏览财富会员领权益-去逛手机数码馆
       matchRoot: true,
       actionMaximum: 1,
@@ -514,7 +514,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 57,
+      key: 58,
       name: '签到领现金-赚抽奖次数-去市民中心，领京豆',
       matchRoot: true,
       actionMaximum: 1,
