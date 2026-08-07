@@ -791,7 +791,10 @@ export default defineGkdApp({
             duration: 1000,
           },
           actionCd: 60000,
-          matches: ['@[vid="recycler_view"]'],
+          anyMatches: [
+            '@[vid="recycler_view"]',
+            '@[vid="recycler_view"] [text="上滑继续看视频"]',
+          ],
           activityIds: [
             '.bm.mainbox.main.MainActivity',
             '.bm.sh.jm.video.ui.VibratoActivity',
