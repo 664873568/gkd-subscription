@@ -792,8 +792,8 @@ export default defineGkdApp({
           },
           actionCd: 60000,
           anyMatches: [
-            '@[vid="recycler_view"]',
             '@[vid="recycler_view"] [text="上滑继续看视频"]',
+            '@[vid="fl_operating_group"] [text~="\\+(1[0-9]|[2-9][0-9]|[0-9]{3,})"]',
           ],
           activityIds: [
             '.bm.mainbox.main.MainActivity',
