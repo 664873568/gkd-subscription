@@ -343,7 +343,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[id="__react-content"] >n @View > [text="今天"] +2 [text="签到"]',
+            '[id="__react-content"] >n [text="今天"] +2 @[text="签到"]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
