@@ -35,7 +35,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 1,
       name: '挑战任务-得惊喜盲盒',
       matchRoot: true,
       actionMaximum: 1,
@@ -51,7 +51,23 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 6,
+      name: '支付成功-去升级',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageButton[clickable=true] < View +2 * [text="0a4743e049dbbda4e58e6fdc8fab9e7a.png~tplv-49obo7mizy-75compress"]',
+          ],
+          activityIds: ['.live.LiveDummyHybridTransparentActivity'],
+        },
+      ],
+    },
+    {
+      key: 7,
       name: '支付成功-返回商户',
       matchRoot: true,
       actionMaximum: 1,
@@ -59,8 +75,34 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'backe',
           actionDelay: 5000,
           matches: ['[desc="返回"] +n ScrollView [desc="返回商户"]'],
+          activityIds: ['.live.LiveDummyHybridTransparentActivity'],
+        },
+      ],
+    },
+    {
+      key: 8,
+      name: '支付成功',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@ImageButton[clickable=true] < View +2 * [text="0a4743e049dbbda4e58e6fdc8fab9e7a.png~tplv-49obo7mizy-75compress"]',
+          ],
+          activityIds: ['.live.LiveDummyHybridTransparentActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'backe',
+          actionDelay: 5000,
+          matches: ['@[desc="返回"] +n ScrollView [desc="返回商户"]'],
           activityIds: ['.live.LiveDummyHybridTransparentActivity'],
         },
       ],
