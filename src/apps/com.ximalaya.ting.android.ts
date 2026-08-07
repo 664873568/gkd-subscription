@@ -1008,13 +1008,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 1000,
           anyMatches: [
-            '@[text^="我要"] <<n *[text$="跳过"]',
-            '@[text$="体验"] <<n *[text$="跳过"]',
-            '@[text="立即前往"] <<n *[text$="跳过"]',
-            '@[text="再试一次"] <<n *[text$="跳过"]',
-            '@[text="去领奖励"] <<n *[text$="跳过"]',
+            '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] - [text~="[0-9]+s"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -1024,14 +1020,16 @@ export default defineGkdApp({
     },
     {
       key: 121,
-      name: '看视频-跳过-奖励已领取',
+      name: '看视频-限时领取',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      actionMaximum: 5,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          matches: [
+            '@[text="icon-close.e3e3211b"] -n * > [text="限时领取"]',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -1040,6 +1038,23 @@ export default defineGkdApp({
     },
     {
       key: 122,
+      name: '看视频-跳过-奖励已领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 1000,
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 123,
       name: '反馈-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -1057,24 +1072,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 123,
-      name: '看视频-限时领取',
-      matchRoot: true,
-      actionMaximum: 5,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="icon-close.e3e3211b"] -n View > [text="限时领取"]',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
       key: 124,
       name: '看视频-已发放-×',
       matchRoot: true,
@@ -1083,6 +1080,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           matches: ['@[text="svg%3e"] <<n * [text="已发放"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
