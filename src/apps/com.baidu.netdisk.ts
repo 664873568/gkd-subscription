@@ -213,9 +213,7 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          matches: [
-            '@[id="root"] + [text="需要下滑浏览更多才能领取奖励哦"]',
-          ],
+          matches: ['@[id="root"] + [text="需要下滑浏览更多才能领取奖励哦"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -404,9 +402,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageView - * [text="恭喜获得奖励！"]',
-          ],
+          matches: ['@ImageView - * [text="恭喜获得奖励！"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
