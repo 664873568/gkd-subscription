@@ -212,7 +212,7 @@ export default defineGkdApp({
     //浏览10s*4
     {
       key: 40,
-      name: '养大鹅-返回领奖',//浏览白条频道10秒-玩互动游戏领京豆
+      name: '养大鹅-返回领奖',//浏览白条频道10秒-玩互动游戏领京豆-浏览财富庄园10秒
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -353,22 +353,6 @@ export default defineGkdApp({
           actionDelay: 10000,
           matches: ['@[text="退出"][clickable=true]'],
           activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
-        },
-      ],
-    },
-    {
-      key: 48,
-      name: '养大鹅-返回领奖',//浏览财富庄园10秒
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
-          ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
