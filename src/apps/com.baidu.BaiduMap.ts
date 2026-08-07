@@ -264,7 +264,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: ['@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]'],
+          matches: [
+            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]',
+          ],
           activityIds: ['com.byazt.ff.Stub_Standard_Activity'],
         },
       ],
@@ -705,7 +707,7 @@ export default defineGkdApp({
           key: 1,
           matches: [
             //'@ImageView < FrameLayout + LinearLayout + ImageView'
-            '@ImageView < FrameLayout < FrameLayout + * [text="立即下载"]'
+            '@ImageView < FrameLayout < FrameLayout + * [text="立即下载"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
