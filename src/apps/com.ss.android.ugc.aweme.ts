@@ -100,7 +100,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'backe',
+          action: 'back',
           actionDelay: 5000,
           matches: ['@[desc="返回"] +n ScrollView [desc="返回商户"]'],
           activityIds: ['.live.LiveDummyHybridTransparentActivity'],
