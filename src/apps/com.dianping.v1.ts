@@ -81,10 +81,14 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@FrameLayout[clickable=true] > [text="浏览完成"]'],
+          action: 'clickCenter',
+          matches: [
+            '@FrameLayout[clickable=true] > ImageView + ImageView + [text="浏览完成"]',
+          ],
           activityIds: [
-            'com.dianping.nova.picasso.DPPicassoBoxActivity',
-            'com.meituan.android.mrn.container.MRNBaseActivity',
+            'com.dianping.base.web.ui.NovaTitansActivity',//随Visa探英伦风情
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',//浏览免费试频道
+            'com.meituan.android.mrn.container.MRNBaseActivity',//逛精选团购 享超值优惠
           ],
         },
       ],
