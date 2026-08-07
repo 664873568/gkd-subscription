@@ -808,7 +808,7 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          interval: 20000,
+          actionCd: 20000,
           matches: [
             '@[vid="recycler_view"] + [vid="fl_operating_group"] [text~="\\\\+(1[1-9]|[2-9][0-9]|[0-9]{3,})"] - ImageView < * < * - * ViewGroup[clickable=true]',
           ],
