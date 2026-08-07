@@ -7,14 +7,15 @@ export default defineGkdApp({
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity
     {
       key: 20,
-      name: '看视频-广告-反馈 ×',
+      name: '看视频-全屏广告-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@Image[clickable=false] <<n * - * [text="点击到落地页或三方APP"]',
             '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"]',
           ],
           activityIds: [
