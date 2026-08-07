@@ -86,9 +86,9 @@ export default defineGkdApp({
             '@FrameLayout[clickable=true] > ImageView + ImageView + [text="浏览完成"]',
           ],
           activityIds: [
-            'com.dianping.base.web.ui.NovaTitansActivity',//随Visa探英伦风情
-            'com.dianping.nova.picasso.DPPicassoBoxActivity',//浏览免费试频道
-            'com.meituan.android.mrn.container.MRNBaseActivity',//逛精选团购 享超值优惠
+            'com.dianping.base.web.ui.NovaTitansActivity', //随Visa探英伦风情
+            'com.dianping.nova.picasso.DPPicassoBoxActivity', //浏览免费试频道
+            'com.meituan.android.mrn.container.MRNBaseActivity', //逛精选团购 享超值优惠
           ],
         },
       ],
