@@ -742,9 +742,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="跳过"] -2 [text$="安装应用立即领奖"]',
-          ],
+          matches: ['@[text="跳过"] -2 [text$="安装应用立即领奖"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -788,7 +786,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: ['@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]'],
+          matches: [
+            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
           ],
@@ -887,7 +887,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]',//选择备份模式|一键备份|一键开始原画质备份
+            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]', //选择备份模式|一键备份|一键开始原画质备份
           ],
           activityIds: [
             '.app.ui.SplashActivity',

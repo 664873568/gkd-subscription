@@ -309,7 +309,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text="翻下一位"] < @ViewGroup[clickable=true] - ViewGroup[clickable=true] > [text="再翻一次"]'],
+          matches: [
+            '[text="翻下一位"] < @ViewGroup[clickable=true] - ViewGroup[clickable=true] > [text="再翻一次"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -372,7 +374,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text="幸运大转盘"] +n * @ViewGroup[clickable=true] [text="看广告\\n抽奖"]'],
+          matches: [
+            '[text="幸运大转盘"] +n * @ViewGroup[clickable=true] [text="看广告\\n抽奖"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -816,7 +820,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: ['[text="免费领礼物"] +n * @ViewGroup[clickable=true] > [text="去浏览"]'],
+          matches: [
+            '[text="免费领礼物"] +n * @ViewGroup[clickable=true] > [text="去浏览"]',
+          ],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -831,7 +837,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: ['ImageView[clickable=true] - @View[clickable=true] < * + * [id="root"]'],
+          matches: [
+            'ImageView[clickable=true] - @View[clickable=true] < * + * [id="root"]',
+          ],
           activityIds: ['com.tencent.ams.tg.ADActivity'],
         },
       ],
@@ -1151,9 +1159,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 1000,
-          excludeMatches: [
-            'View < @ViewGroup <3 * <<4 * -2 * >3 View',
-          ],
+          excludeMatches: ['View < @ViewGroup <3 * <<4 * -2 * >3 View'],
           anyMatches: [
             'View < @ViewGroup <4 * <<4 * +2 * >3 View', //立即购买
             'View < @ViewGroup <4 * < * <2 * +2 * >3 View <<n * + * > *[childCount=1] >2 ViewGroup', //立即下载
@@ -1188,9 +1194,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 3000,
-          matches: [
-            '@ViewGroup <<2 * - * << * - * >3 View',
-          ],
+          matches: ['@ViewGroup <<2 * - * << * - * >3 View'],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',
           ],
@@ -1208,7 +1212,7 @@ export default defineGkdApp({
         {
           matches: [
             //'View < @ViewGroup <4 * <<3 * +2 * >3 View',
-            'View < @ViewGroup <4 * < * <2 * +2 * >3 View <<n * + * > *[childCount=1] >2 ViewGroup',//去微信玩15秒
+            'View < @ViewGroup <4 * < * <2 * +2 * >3 View <<n * + * > *[childCount=1] >2 ViewGroup', //去微信玩15秒
           ],
           activityIds: [
             '.host.activity.MainActivity',
@@ -1228,7 +1232,7 @@ export default defineGkdApp({
         {
           actionDelay: 3000,
           matches: [
-            '@ViewGroup <<2 * - * < * - * >3 View',//去微信浏览
+            '@ViewGroup <<2 * - * < * - * >3 View', //去微信浏览
           ],
           activityIds: [
             'com.tencentmusic.ad.tmead.core.activity.TMECoreActivity',

@@ -357,7 +357,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]'
+            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
           activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
         },
@@ -372,7 +372,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['FrameLayout - FrameLayout - FrameLayout @RelativeLayout[clickable=true]'],
+          matches: [
+            'FrameLayout - FrameLayout - FrameLayout @RelativeLayout[clickable=true]',
+          ],
           activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
         },
       ],

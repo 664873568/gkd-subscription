@@ -47,7 +47,9 @@ export default defineGkdApp({
           matches: [
             '@[text="允许"][clickable=true] < [vid="buttonPanel"] - ScrollView [text="是否允许「喜马拉雅」安装应用？"][vid="title"]',
           ],
-          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity'],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -55,15 +57,17 @@ export default defineGkdApp({
           matches: [
             '@[vid="second_button"] [vid="left_button_info_view"] [text="继续安装"][vid="left_button_msg"]',
           ],
-          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity'],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@[text="完成"][vid="start_button"][clickable=true]',
+          matches: ['@[text="完成"][vid="start_button"][clickable=true]'],
+          activityIds: [
+            'com.miui.packageInstaller.ui.normalmode.InstallProgressActivity',
           ],
-          activityIds: ['com.miui.packageInstaller.ui.normalmode.InstallProgressActivity'],
         },
       ],
     },

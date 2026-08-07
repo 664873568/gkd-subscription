@@ -54,7 +54,7 @@ export default defineGkdApp({
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] < * + [text="领取"] + [text="逛大促会场"]',
