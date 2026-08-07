@@ -249,53 +249,15 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
+          action: 'clickCenter',
           actionDelay: 16000,
           matches: [
-            '@[desc="返回"][clickable=true] <<n * + * [text="Smallfish App"]',
+            '[text="Smallfish App"] > [id="app"] > View > @View[clickable=true]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-            'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 22,
-      name: '赚工分-任务完成-⊙',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 16000,
-          matches: [
-            '@[desc="关闭"][clickable=true] <<n * + * [text="Smallfish App"]',
-          ],
-          activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
-          ],
-        },
-      ],
-    },
-    {
-      key: 23,
-      name: '赚工分-已完成',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 16000,
-          matches: [
-            '@[desc="返回"][clickable=true] <<n * + * [desc$="bridge.html"]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+            'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
           ],
         },
       ],
