@@ -75,7 +75,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'backe',
+          action: 'back',
           actionDelay: 5000,
           matches: ['[desc="返回"] +n ScrollView [desc="返回商户"]'],
           activityIds: ['.live.LiveDummyHybridTransparentActivity'],
