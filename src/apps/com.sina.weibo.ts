@@ -75,7 +75,9 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          matches: ['@[vid="root_rl"] > [text="浏览微博\\n完成任务"]'],
+          matches: [
+            '[text="浏览微博\n完成任务"] <n [vid="root_rl"][clickable=true] < * < [vid="floating_window"] -2 * [vid="view_recycler"]',
+          ],
           activityIds: ['.MainTabActivity'],
         },
       ],
