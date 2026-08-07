@@ -18,7 +18,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="我要加速领奖"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
-            '@[text="立即前往"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="立即前往"] < View <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
@@ -29,7 +29,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 21,
       name: '看视频-跳过-限时领取',
       matchRoot: true,
       actionMaximum: 6,
@@ -177,7 +177,52 @@ export default defineGkdApp({
     },
     {
       key: 29,
-      name: '看视频-已发放-×',
+      name: '看视频-礼包-跳过-*s后可领取奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="立即体"] <<n * - * [text="跳过"] < * -n * ImageView + [text~="[0-9]+s后可领取奖励"]',
+            //'@[text="立即体验"] <<n * - * [text="跳过"] < * -n * ImageView + [text~="[0-9]+s后可领取奖励"]',
+          ],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 30,
+      name: '看视频-下滑-×',
+      matchRoot: true,
+      actionMaximum: 6,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'swipe',
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          matches: [
+            '@[id="root"] + [text="需要下滑浏览更多才能领取奖励哦"]',
+          ],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 31,
+      name: '看视频-下滑-已发放-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -190,7 +235,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 30,
+      key: 32,
       name: '看视频-领取成功-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -207,7 +252,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 33,
       name: '看视频-限时领取-×',
       matchRoot: true,
       actionMaximum: 6,
@@ -320,6 +365,22 @@ export default defineGkdApp({
     },
     {
       key: 52,
+      name: '看视频-免-恭喜获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView < FrameLayout <n * < * - * [text="恭喜获得奖励"] < * + FrameLayout ImageView + FrameLayout',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 53,
       name: '看视频-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -328,14 +389,14 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[width=48&&height=48] < * -n * [text="恭喜获得奖励"]',
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * [text="已完成浏览15秒，提前获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 53,
+      key: 54,
       name: '看视频-恭喜获得奖励！-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -344,14 +405,14 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[width=132&&height=132] - * [text="恭喜获得奖励！"]',
+            '@ImageView - * [text="恭喜获得奖励！"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 54,
+      key: 55,
       name: '看视频-点击广告拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -367,7 +428,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 55,
+      key: 56,
       name: '看视频-新人专享福利-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -381,23 +442,23 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 56,
+      key: 57,
       name: '看视频-奖励将于*秒后发放',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '@[text="我要更快拿奖"] <<n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
+            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 57,
+      key: 58,
       name: '看视频-已完成浏览10秒，提前获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -406,7 +467,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[width=48&&height=48] <<n * -n * [text="已完成浏览10秒，提前获得奖励"]',
+            '@ImageView <<n * -n * [text="已完成浏览10秒，提前获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -549,7 +610,10 @@ export default defineGkdApp({
           matches: [
             '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
           ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
       ],
     },
@@ -1689,6 +1753,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="跳过"][vid="tv_skip"]',
             '@[text="跳过"] + [text~="[0-9]"]',
+            '@[text~="跳过 [0-9]"][clickable=true]',
             '@[text~="跳过 [0-9]"][vid="countdown"]',
             '@[text~="[0-9] \\\\| 跳过"][clickable=true]',
             '@[vid="ms_skipView"] < [vid="ms_skipView_container"]',
