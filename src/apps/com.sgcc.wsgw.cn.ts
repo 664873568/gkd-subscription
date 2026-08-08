@@ -4,9 +4,10 @@ export default defineGkdApp({
   id: 'com.sgcc.wsgw.cn',
   name: '网上国网',
   groups: [
+    //每日签到 兑好礼
     {
       key: 0,
-      name: '签到成功-×',
+      name: '每日签到-签到成功-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,6 +16,31 @@ export default defineGkdApp({
         {
           matches: [
             'ImageButton < View - @TextView[text=""][clickable=true] -2 [text="签到成功"]',
+          ],
+          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '每日签到-抽奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="本月累计签到抽好礼"] +n * > @ImageButton[clickable=true]',
+          ],
+          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@TextView[clickable=true] - [text~="抽中[0-9]+个签到金"]',
           ],
           activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
