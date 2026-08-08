@@ -57,8 +57,6 @@ export default defineGkdApp({
       key: 3,
       name: '浏览微博 完成任务',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -76,7 +74,7 @@ export default defineGkdApp({
             duration: 1000,
           },
           matches: [
-            '[text="浏览微博\\n完成任务"] <n [vid="root_rl"][clickable=true] < * < [vid="floating_window"] -2 * [vid="view_recycler"]',
+            '[text="浏览微博\\n完成任务"] <n [vid="root_rl"][clickable=true] < * < [vid="floating_window"] -2 * @[vid="view_recycler"]',
           ],
           activityIds: ['.MainTabActivity'],
         },
