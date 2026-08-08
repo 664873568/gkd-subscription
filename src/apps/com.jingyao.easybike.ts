@@ -30,6 +30,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          excludeMatches: [
+            '[text="点击广告 再得"] < @[vid="btnRewardClickWithAds"] <2 [vid="adViewBannerLayout"] -2 [vid="ll_tips"] [text="领奖成功，"][vid="tvAdRewardTip"]',
+          ],
           matches: [
             '@[vid="ivClose"][clickable=true] - [vid="rlDialogContent"] [text="领奖成功，"][vid="tvAdRewardTip"]',
           ],
