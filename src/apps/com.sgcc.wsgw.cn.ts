@@ -39,9 +39,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@TextView[clickable=true] - [text~="抽中[0-9]+个签到金"]',
-          ],
+          matches: ['@TextView[clickable=true] - [text~="抽中[0-9]+个签到金"]'],
           activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
       ],
