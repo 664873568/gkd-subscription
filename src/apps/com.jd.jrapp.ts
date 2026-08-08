@@ -313,7 +313,7 @@ export default defineGkdApp({
     },
     {
       key: 46,
-      name: '养大鹅-逛超市抢鸡蛋-<'
+      name: '养大鹅-逛超市抢鸡蛋-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
