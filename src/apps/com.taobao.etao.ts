@@ -14,17 +14,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
           matches: [
             '@[text="O1CN01zgOxbV1KnJSkjY2Fc_!!6000000001208-2-tps-150-150"] < * + [text="签到"]',
-          ],
-          activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="O1CN01zgOxbV1KnJSkjY2Fc_!!6000000001208-2-tps-150-150"] < * + [text="领取"] + [text="签到"]',
           ],
           activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
         },
@@ -40,6 +31,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '@[text="O1CN01zgOxbV1KnJSkjY2Fc_!!6000000001208-2-tps-150-150"] < * + [text="签到"]',
+          ],
           matches: [
             '@[text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] < * + [text="逛大促会场"]',
           ],
@@ -67,14 +61,15 @@ export default defineGkdApp({
       key: 2,
       name: '签到领钱-打开',
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 3000,
+          fastQuery: true,
+          actionMaximum: 1,
           matches: [
-            '@[text="打开"][clickable=true] - [text="取消"] < * < [vid="buttonPanel"] -2 [vid="topPanel"] [text="提示"][vid="alertTitle"]',
+            '@[text="打开"][clickable=true] - [text="取消"]',
           ],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
@@ -100,7 +95,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="打开"] - [text="取消"] <<n [vid="buttonPanel"] -n [vid="topPanel"] [text="提示"][vid="alertTitle"]',
+            '@[text="打开"] - [text="取消"]',
           ],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
