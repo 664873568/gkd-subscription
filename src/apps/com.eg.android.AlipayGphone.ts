@@ -120,18 +120,16 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
-          matches: [
-            '@[desc="返回"][clickable=true] + * [text="理财盘友圈"]',
-          ],
+          matches: ['@[desc="返回"][clickable=true] + * [text="理财盘友圈"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 5000,
           matches: [
@@ -169,29 +167,25 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionMaximum: 2,
-          matches: [
-            '[text$="选题"] +n @View[clickable=true]',
-          ],
+          matches: ['[text$="选题"] +n @View[clickable=true]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionMaximum: 2,
-          matches: [
-            '[text$="选题"] +n @[text="提交答案"][clickable=true]',
-          ],
+          matches: ['[text$="选题"] +n @[text="提交答案"][clickable=true]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
           ],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           matches: [
             '@TextView[clickable=true] +3 * > [text="答对了，领取奖励"]',
@@ -201,7 +195,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2,3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           actionDelay: 5000,
           matches: [
@@ -398,7 +392,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           position: {
             left: 'width * 0.5009',
@@ -419,9 +413,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[id="task"] @View [text="查看3个商品领奖励"]',
-          ],
+          matches: ['[id="task"] @View [text="查看3个商品领奖励"]'],
         },
         {
           preKeys: [0],
@@ -440,12 +432,10 @@ export default defineGkdApp({
           },
           actionCd: 5000,
           actionMaximum: 6,
-          matches: [
-            '@[id="feeds"] [text~="滑动浏览[0-9]+s，赚3充值金"]',
-          ],
+          matches: ['@[id="feeds"] [text~="滑动浏览[0-9]+s，赚3充值金"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[desc="返回"][clickable=true] <<n * - * [text="获得"] + [text="3"] + [text="返回"]',
@@ -455,7 +445,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           position: {
             left: 'width * 0.5009',
@@ -476,9 +466,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[desc="返回"][clickable=true] <<n * - * [text="借呗"]',
-          ],
+          matches: ['@[desc="返回"][clickable=true] <<n * - * [text="借呗"]'],
         },
         {
           preKeys: [0],
@@ -541,9 +529,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '[id="task"] @View [text="逛精选好物得奖励"]',
-          ],
+          anyMatches: ['[id="task"] @View [text="逛精选好物得奖励"]'],
         },
         {
           preKeys: [0],
@@ -593,9 +579,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[id="task"] @[text="换一换"]',
-          ],
+          matches: ['[id="task"] @[text="换一换"]'],
         },
         {
           preKeys: [0],
@@ -608,7 +592,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           anyMatches: [
@@ -630,19 +614,15 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[id="task"] @[text="换一换"]',
-          ],
+          matches: ['[id="task"] @[text="换一换"]'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[id="task"] @View [text="玩游戏赚现金"]',
-          ],
+          matches: ['[id="task"] @View [text="玩游戏赚现金"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -653,7 +633,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionMaximum: 3,
           matches: [
@@ -675,19 +655,15 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[id="task"] @[text="换一换"]',
-          ],
+          matches: ['[id="task"] @[text="换一换"]'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[id="task"] @View [text="逛5秒快递包裹游历"]',
-          ],
+          matches: ['[id="task"] @View [text="逛5秒快递包裹游历"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -698,7 +674,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@[desc="返回"][clickable=true] <<n * - * [text="· 全网查件 便捷寄件"]',
@@ -719,30 +695,24 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[id="task"] @[text="换一换"]',
-          ],
+          matches: ['[id="task"] @[text="换一换"]'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[id="task"] @View [text="逛闲鱼赚支付红包"]',
-          ],
+          matches: ['[id="task"] @View [text="逛闲鱼赚支付红包"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
-          matches: [
-            '@[desc="返回"][clickable=true] <<n * - *',
-          ],
+          matches: ['@[desc="返回"][clickable=true] <<n * - *'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@[desc="返回"][clickable=true] <<n * - * [id="page-activity"]',
