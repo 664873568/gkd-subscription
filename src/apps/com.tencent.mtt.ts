@@ -31,8 +31,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@View[clickable=true] + ImageView + FrameLayout >n [vid="contentTv"]',
-            '[text~="[0-9]"] - [text="跳过"] < @LinearLayout[clickable=true]',
+            '@View[clickable=true] + * + * >n [vid="contentTv"]',
+            '@LinearLayout[clickable=true] > [text="跳过"] + [text~="[0-9]"]',
           ],
         },
       ],
