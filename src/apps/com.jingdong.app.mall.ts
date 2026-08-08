@@ -91,9 +91,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '@[desc="关闭"][clickable=true] - * [text="去开启通知"]',
-          ],
+          matches: ['@[desc="关闭"][clickable=true] - * [text="去开启通知"]'],
           activityIds: ['.MainFrameActivity'],
         },
       ],
