@@ -4,62 +4,7 @@ export default defineGkdApp({
   id: 'com.eg.android.AlipayGphone',
   name: '支付宝',
   groups: [
-    //网商财神
-    {
-      key: 0,
-      name: '网商财神-开红包-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      forcedTime: 5000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@TextView -n * < * -n * <<n [id="ant-render-id-CPT_67f7a08a088a0168e4b61c05"]',
-            '@TextView -n * < * -n * < * < * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 1,
-      name: '网商财神-开红包-完成任务',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: ['@[text="Smallfish App"] >n [text="任务完成"]'],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
-          ],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '网商财神-开红包-继续迎财神',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@TextView <n * <n * -n * <<n [id="ant-render-id-CPT_67f7a204088a0168e4b61c07"]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
-        },
-      ],
-    },
+    //芝麻粒
     {
       key: 3,
       name: '芝麻粒-完成任务',
@@ -506,7 +451,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: [
+          anyMatches: [
             '@[desc="关闭"][clickable=true] <<n * - * [text="天天集福气"]',
             '@[desc="关闭"][clickable=true] <<n * - * [text*="多多有礼"]',
             '@[desc="返回"][clickable=true] <<n * - * [text*="金币"]',
