@@ -36,9 +36,7 @@ export default defineGkdApp({
           matches: [
             'Image + * > @[text="去抽奖"][clickable=true] + TextView[clickable=true]',
           ],
-          activityIds: [
-            '.liteapp.app.UPLiteAppActivity2',
-          ],
+          activityIds: ['.liteapp.app.UPLiteAppActivity2'],
         },
         {
           preKeys: [0],
@@ -46,9 +44,7 @@ export default defineGkdApp({
           matches: [
             '[id="root-router-view"] @[text~="剩余 [1-9]次 抽奖机会"][clickable=true]',
           ],
-          activityIds: [
-            '.liteapp.app.UPLiteAppActivity2',
-          ],
+          activityIds: ['.liteapp.app.UPLiteAppActivity2'],
         },
       ],
     },
@@ -64,9 +60,7 @@ export default defineGkdApp({
           matches: [
             '[id="root-router-view"] @[text~="剩余 [1-9]次 抽奖机会"][clickable=true]',
           ],
-          activityIds: [
-            '.liteapp.app.UPLiteAppActivity2',
-          ],
+          activityIds: ['.liteapp.app.UPLiteAppActivity2'],
         },
       ],
     },
