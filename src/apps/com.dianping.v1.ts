@@ -114,9 +114,7 @@ export default defineGkdApp({
           matches: [
             'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
           ],
-          activityIds: [
-            'com.dianping.shopshell.PexusPoiActivity',
-          ],
+          activityIds: ['com.dianping.shopshell.PexusPoiActivity'],
         },
       ],
     },
@@ -134,9 +132,7 @@ export default defineGkdApp({
           matches: [
             'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true]',
           ],
-          activityIds: [
-            'com.dianping.nova.picasso.DPPicassoBoxActivity',
-          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
     },
