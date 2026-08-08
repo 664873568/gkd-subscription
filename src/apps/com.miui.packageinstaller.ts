@@ -48,7 +48,7 @@ export default defineGkdApp({
             '@[text="允许"][clickable=true] < [vid="buttonPanel"] - ScrollView [text="是否允许「喜马拉雅」安装应用？"][vid="title"]',
           ],
           activityIds: [
-            'null'
+            'null',
             'com.miui.packageInstaller.NewInstallerPrepareActivity',
           ],
         },
