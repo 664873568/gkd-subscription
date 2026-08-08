@@ -14,8 +14,17 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: [
             '@[text="O1CN01zgOxbV1KnJSkjY2Fc_!!6000000001208-2-tps-150-150"] < * + [text="签到"]',
+          ],
+          activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="福狸中心"] >n @[text="TB16l86YLb2gK0jSZK9XXaEgFXa-92-92.png_100x100.jpg_"]',
           ],
           activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
         },
@@ -42,6 +51,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 3000,
           matches: [
             '[vid="left_panel"] > @[desc="返回"][clickable=true] + * [vid="tvTitle"]',
           ],
