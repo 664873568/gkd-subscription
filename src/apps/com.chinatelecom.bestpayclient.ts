@@ -521,6 +521,23 @@ export default defineGkdApp({
         },
       ],
     },
+    //系统应用类
+    {
+      key: 40,
+      name: '温馨提示-取消',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="温馨提示"] +n * [text="取消"][clickable=true] + [text="去开启"]',
+          ],
+          activityIds: ['.ui.MainActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
@@ -552,6 +569,22 @@ export default defineGkdApp({
     },
     {
       key: 52,
+      name: '广告-专属定制-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@TextView[clickable=true] - * [text="rBwwImpV1naADcCuAAE012gtJK0647"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 53,
       name: '广告-开启系统通知-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -571,7 +604,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 53,
+      key: 54,
       name: '广告-支付成功-×',
       matchRoot: true,
       actionMaximum: 1,
