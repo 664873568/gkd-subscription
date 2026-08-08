@@ -43,9 +43,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionMaximum: 3,
-          matches: [
-            '@ImageButton[clickable=true] < * + * [text="红包签到"]',
-          ],
+          matches: ['@ImageButton[clickable=true] < * + * [text="红包签到"]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],

@@ -92,7 +92,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '@[vid="titleLeft"][clickable=true] + [text="用户任务中心"][vid="titleText"]'
+            '@[vid="titleLeft"][clickable=true] + [text="用户任务中心"][vid="titleText"]',
           ],
           activityIds: ['.browser.WeiboBrowser'],
         },
