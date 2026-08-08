@@ -7,6 +7,39 @@ export default defineGkdApp({
     //做任务赢金币
     {
       key: 0,
+      name: '做任务赢金币-登录领取',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@TextView[clickable=true] - [text="登录领取"][clickable=true] <n * -n * [text="天天签到赢金币！"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'TextView[clickable=true] - @[text="登录领取"][clickable=true] <n * -n * [text="天天签到赢金币！"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text="同意并登录"][clickable=true] -n [text="温馨提示"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '做任务赢金币-立即签到',
       matchRoot: true,
       actionMaximum: 1,
@@ -15,7 +48,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="立即签到"] <<n View >n [text="天天签到赢金币！"]'],
+          matches: ['@[text="立即签到"] <<n * >n [text="天天签到赢金币！"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
@@ -30,7 +63,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '做任务赢金币-打开',
       matchRoot: true,
       actionMaximum: 1,
@@ -39,14 +72,14 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="打开"][vid="btn_ok"] <<n * [text="提醒"][vid="message"]',
+            '[text="提醒"][vid="message"] >n @[text="打开"][vid="btn_ok"]',
           ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '做任务赢金币-任务已完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -55,14 +88,14 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView - [text="前往领取"] -n View > [text="任务已完成"]',
+            '@TextView - [text="前往领取"] -n * [text="任务已完成"]',
           ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '做任务赢金币-领奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -76,7 +109,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '做任务赢金币-恭喜获得-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -90,7 +123,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 6,
       name: '做任务赢金币-领奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -111,7 +144,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 7,
       name: '做任务赢金币-访问YY游仓',
       matchRoot: true,
       actionMaximum: 1,
@@ -126,7 +159,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 8,
       name: '导流结果弹窗',
       matchRoot: true,
       actionMaximum: 1,
@@ -135,11 +168,11 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView - View > [text="继续参与活动"] <<n [text="导流结果弹窗"]',
+            '[text="导流结果弹窗"] >n [text="继续参与活动"] < * + @TextView',
           ],
           activityIds: [
-            'com.yy.mobile.ui.common.JsSupportWebAcitivity',
             'com.yy.mobile.ui.splash.SplashActivity',
+            'com.yy.mobile.ui.common.JsSupportWebAcitivity',
           ],
         },
       ],
@@ -154,7 +187,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="iv_close"] <<n * [text="打开通知权限"]'],
+          matches: ['[text="打开通知权限"] >n @[vid="iv_close"]'],
           activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
         },
       ],
@@ -185,7 +218,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="知道了"][vid="ok_btn"] <<n * [text="未成年模式"][vid="title"]',
+            '[text="未成年模式"][vid="title"] >n @[text="知道了"][vid="ok_btn"]',
           ],
           activityIds: ['com.yy.mobile.ui.splash.SplashActivity'],
         },
@@ -201,11 +234,11 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="不允许"][vid="btn_cancel"] <<n * [text="“YY”想访问您的剪切板"][vid="message"]',
+            '[text="“YY”想访问您的剪切板"][vid="message"] >n @[text="不允许"][vid="btn_cancel"]',
           ],
           activityIds: [
-            'com.yy.mobile.ui.common.JsSupportWebAcitivity',
             'com.yy.mobile.ui.splash.SplashActivity',
+            'com.yy.mobile.ui.common.JsSupportWebAcitivity',
           ],
         },
       ],
