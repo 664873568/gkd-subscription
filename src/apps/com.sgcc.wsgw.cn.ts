@@ -23,22 +23,13 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '每日签到-抽奖',
+      name: '每日签到-抽中*个签到金',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: [
-            '[text="本月累计签到抽好礼"] +n * > @ImageButton[clickable=true]',
-          ],
-          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
           matches: ['@TextView[clickable=true] - [text~="抽中[0-9]+个签到金"]'],
           activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
