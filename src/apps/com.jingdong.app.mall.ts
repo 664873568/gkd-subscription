@@ -81,6 +81,23 @@ export default defineGkdApp({
         },
       ],
     },
+    //系统应用类
+    {
+      key: 40,
+      name: '去开启通知-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[desc="关闭"][clickable=true] - * [text="去开启通知"]',
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
