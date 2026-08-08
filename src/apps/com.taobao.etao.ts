@@ -68,9 +68,7 @@ export default defineGkdApp({
         {
           fastQuery: true,
           actionMaximum: 1,
-          matches: [
-            '@[text="打开"][clickable=true] - [text="取消"]',
-          ],
+          matches: ['@[text="打开"][clickable=true] - [text="取消"]'],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
       ],
@@ -94,9 +92,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="打开"] - [text="取消"]',
-          ],
+          matches: ['@[text="打开"] - [text="取消"]'],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
       ],
