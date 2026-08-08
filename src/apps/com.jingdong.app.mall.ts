@@ -107,7 +107,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="跳过"] < @[desc="跳过"][clickable=true] -2 [desc="启动图广告"]',
+            '@[text="跳过"] < [desc="跳过"][clickable=true] -2 [desc="启动图广告"]',
           ],
           activityIds: ['.MainFrameActivity'],
         },
