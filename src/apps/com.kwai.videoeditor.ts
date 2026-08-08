@@ -53,10 +53,10 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@ImageView[clickable=true] - * [text="广告"]',
+            '@ImageView[clickable=true] - * [text="广告"]',//点击跳转第三方页面
             '@ImageView[clickable=false] < FrameLayout <2 * + * [text="上滑/点击了解更多内容"]',
           ],
-          activityIds: ['.commercialization.splash.GeneralAdSplashActivity'],
+          activityIds: ['.commercialization.splash.GeneralAdSplashActivity','null'],
         },
       ],
     },
