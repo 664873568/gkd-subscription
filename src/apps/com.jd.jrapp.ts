@@ -313,6 +313,31 @@ export default defineGkdApp({
     },
     {
       key: 46,
+      name: '养大鹅-逛超市抢鸡蛋-<'
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="京东超市"] >n @[text="关闭弹窗"][clickable=true]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'TextView[clickable=true] - @TextView[clickable=true] <<n WebView[text="京东超市"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 47,
       name: '养大鹅-从京东信誉分频道进入',
       matchRoot: true,
       actionMaximum: 1,
@@ -333,7 +358,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 47,
+      key: 48,
       name: '养大鹅-开炮击杀任意一条鱼-<',
       matchRoot: true,
       matchTime: 20000,
