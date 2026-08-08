@@ -637,7 +637,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [,
+          matches: [
             '[id="task"] @View [text="玩游戏赚现金"]',
           ],
         },
@@ -682,7 +682,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [,
+          matches: [
             '[id="task"] @View [text="逛5秒快递包裹游历"]',
           ],
         },
@@ -726,7 +726,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [,
+          matches: [
             '[id="task"] @View [text="逛闲鱼赚支付红包"]',
           ],
         },
