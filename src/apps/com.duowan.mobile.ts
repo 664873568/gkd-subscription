@@ -29,7 +29,7 @@ export default defineGkdApp({
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="同意并登录"][clickable=true] -n [text="温馨提示"]',
@@ -87,9 +87,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@TextView - [text="前往领取"] -n * [text="任务已完成"]',
-          ],
+          matches: ['@TextView - [text="前往领取"] -n * [text="任务已完成"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
