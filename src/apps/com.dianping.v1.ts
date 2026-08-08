@@ -41,6 +41,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'clickCenter',
+          excludeMatches: [
+            'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
+          ],
           matches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
           ],
@@ -67,6 +70,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          excludeMatches: [
+            'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
+          ],
           matches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
           ],
