@@ -286,6 +286,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           actionDelay: 5000,
           matches: [
             'TextView[clickable=true] - @TextView[clickable=true] <<n [text="京东秒杀"]',
