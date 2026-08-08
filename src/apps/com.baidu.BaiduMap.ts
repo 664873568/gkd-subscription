@@ -322,7 +322,7 @@ export default defineGkdApp({
     },
     {
       key: 26,
-      name: '看视频-跳过-<',
+      name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -330,8 +330,12 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 2000,
+          excludeMatches: [
+            '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '[text~="[0-9]+秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
+          ],
           matches: [
-            '@RelativeLayout[clickable=true] <<4 FrameLayout + FrameLayout + FrameLayout',
+            'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
