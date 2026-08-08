@@ -153,7 +153,7 @@ export default defineGkdApp({
             '[text~="[0-9]秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
           ],
           matches: [
-            '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
+            'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
