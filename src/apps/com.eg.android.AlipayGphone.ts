@@ -667,7 +667,7 @@ export default defineGkdApp({
     },
     {
       key: 39,
-      name: '充鸭攒话费-任务-玩游戏赚现金',
+      name: '充鸭攒话费-任务-逛5秒快递包裹游历',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
