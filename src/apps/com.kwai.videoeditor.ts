@@ -16,6 +16,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@Image[clickable=false] <<n * - * [text="点击到落地页或三方APP"]',
+            '@Image[clickable=false] <<n * -n * [text="反馈"] <<n * + * [text="轻触或上滑"]',
             '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"]',
           ],
           activityIds: [
