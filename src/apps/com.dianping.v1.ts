@@ -105,7 +105,6 @@ export default defineGkdApp({
           action: 'clickCenter',
           matches: [
             'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] <n * - * [text="恭喜获得"] + [text="100点金币"]',
-            //'@[desc="返回"][clickable=true] <<n * + * [text="恭喜获得"] + [text="100点金币"] <<n * + * FrameLayout[clickable=true] ImageView + ImageView',
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',
@@ -125,7 +124,24 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           matches: [
-            '[text="完成进度10/10"] - [text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"] ',
+            '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
+      name: '星图金融-返回',
+      matchRoot: true,
+      actionMaximum: 3,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[desc="back"] <<n * - * FrameLayout[clickable=false] > [text="已领取"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
