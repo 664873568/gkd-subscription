@@ -261,5 +261,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 11,
+      name: '支付宝 想要打开 淘宝-拒绝',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[text="拒绝"] <<n * [text^="支付宝 想要打开 淘宝"][vid="event_title"]',
+          ],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
+        },
+      ],
+    },
   ],
 });
