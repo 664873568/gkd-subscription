@@ -116,13 +116,32 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',
-            'com.dianping.nova.picasso.DPPicassoBoxActivity',
           ],
         },
       ],
     },
     {
       key: 5,
+      name: '返回寻宝',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'clickCenter',
+          actionDelay: 1000,
+          matches: [
+            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true]',
+          ],
+          activityIds: [
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 6,
       name: '今日累计奖励-领取',
       matchRoot: true,
       actionMaximum: 3,
