@@ -956,7 +956,7 @@ export default defineGkdApp({
     //首页广告类
     {
       key: 500,
-      name: '首页广告-免广告',
+      name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 2,
       matchTime: 10000,
@@ -964,8 +964,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '[text="免广告"][vid="text"] >n [vid="cl_open_auto_backup"] >n @',
-            '[text="免广告"][vid="text"] >n @[vid="ms_skipView"]',
+            '[vid="flash_fragment"] >n [text~="跳过 [0-9]"][clickable=true]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
@@ -984,7 +983,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[vid="iv_close"] - ViewGroup >n [vid="jump_btn"]',
+            '@[vid="iv_close"] - * >n [vid="jump_btn"]',
             '@[vid="dialog_home_pop_close_button"] + [vid="img_lottie"]',
             '@[vid="dialog_home_pop_close_button"] + [vid="img_thumbnail"]',
           ],
