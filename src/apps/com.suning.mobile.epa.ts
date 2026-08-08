@@ -9,12 +9,13 @@ export default defineGkdApp({
       key: 0,
       name: '天天领现金-×',
       matchRoot: true,
-      actionMaximum: 1,
+      actionMaximum: 2,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
+            '@ImageButton + View >n [text="点击去UC"]',
             '@ImageButton + View >n [text="点击去移动"]',
             '@ImageButton + View >n [text="点击去头条极速"]',
             '@ImageButton + View >n [text~="[0-9]s后去中国移动"]',
