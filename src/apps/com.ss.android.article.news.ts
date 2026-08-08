@@ -15,6 +15,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
+            '@[desc="返回"][clickable=true] <<n MeasureOnceRelativeLayout2[clickable=false] [text="登录赚钱"]',
             '@[desc="返回"][clickable=true] <<n * - * MeasureOnceRelativeLayout2[clickable=true] [text="登录赚钱"]',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
