@@ -13,9 +13,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
-            'MeasureOnceRelativeLayout2 >n [index=0][childCount=2] >n @[desc="返回"][clickable=true]',
-            'MeasureOnceRelativeLayout2[clickable=true] -2 * [index=0][childCount=2] >n @[desc="返回"]',
+          actionDelay: 5000,
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * - * MeasureOnceRelativeLayout2[clickable=true] [text="登录赚钱"]',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
         },
