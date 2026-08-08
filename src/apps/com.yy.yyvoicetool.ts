@@ -107,27 +107,37 @@ export default defineGkdApp({
       name: '每日任务-完成应用浏览',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
+          matches: [
+            '@[text="去领奖"][clickable=true] - * [text="完成应用浏览"]',
+          ],
+          activityIds: ['.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           matches: ['@[text="关闭"][clickable=true] -n [text="已获得奖励"]'],
           activityIds: ['.MainActivity'],
         },
       ],
     },
-    //每日任务-看视频最高赚
+    //看视频
     {
       key: 10,
-      name: '每日任务-看视频最高赚-领金币',
+      name: '看视频',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
-            '@[text="领金币"][clickable=true] - [text~="看视频最高赚7500金币\\\\（[0-9+]/15\\\\）"]',
+            '@[text="看视频"][clickable=true] - [text^="看视频最高赚"]',
           ],
           activityIds: ['.MainActivity'],
         },
@@ -135,13 +145,22 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '每日任务-看视频有惊喜-继续领*金币',
+      name: '看视频-领金币',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
+          matches: [
+            '@[text="领金币"][clickable=true] - [text^="看视频最高赚"]',
+          ],
+          activityIds: ['.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           matches: [
             '@[text~="继续领 [0-9]00 金币 \\\\(最高\\\\)"][clickable=true] -2 [text~="恭喜获得[0-9]+金币"]',
           ],
@@ -169,6 +188,36 @@ export default defineGkdApp({
     },
     {
       key: 13,
+      name: '每日任务-看视频-取消-奖励已发放',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] - [text="应用详情"][vid="adn_dialog_download_title"]',
+          ],
+          activityIds: [
+            'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[vid="noah_hc_close_button"][clickable=true] -2 [text="奖励已发放"][vid="noah_hc_countdown_view"]',
+          ],
+          activityIds: [
+            'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 14,
       name: '每日任务-看视频-奖励已发放-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -271,7 +320,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] + [text~="[0-9]"]'],
+          matches: ['@View > [text="跳过"] + [text~="[0-9]"]'],
           activityIds: ['.MainActivity'],
         },
       ],
