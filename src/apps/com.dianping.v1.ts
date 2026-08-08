@@ -23,8 +23,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@ImageView[clickable=true] - FrameLayout > FrameLayout[clickable=true] >2 [text~="\\\\([0-9]s\\\\) "]',
+          anyMatches: [
+            '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
+            '@ImageView[clickable=true] - FrameLayout > FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\) "]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
@@ -57,6 +58,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 3000,
           matches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout >n FrameLayout[clickable=true] > ImageView',
           ],
@@ -104,7 +106,7 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           matches: [
-            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] <n * - * [text="恭喜获得"] + [text="100点金币"]',
+            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',
@@ -140,8 +142,12 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 5000,
+          excludeMatches: [
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
+          ],
           matches: [
-            '@[desc="back"] <<n * - * FrameLayout[clickable=false] > [text="已领取"]',
+            '@[desc="back"] <<n * - * FrameLayout[clickable=false] > FrameLayout[index=2] > [text="已领取"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
