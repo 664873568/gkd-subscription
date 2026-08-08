@@ -730,9 +730,7 @@ export default defineGkdApp({
         {
           actionDelay: 1000,
           excludeMatches: ['[text="听书领现金"] >n @[text="去加倍"]'],
-          matches: [
-            '[text="听书领现金"] >n @[text="领取" || text="看广告领"]',
-          ],
+          matches: ['[text="听书领现金"] >n @[text="领取" || text="看广告领"]'],
           activityIds: ['.host.activity.MainActivity'],
         },
       ],
@@ -939,9 +937,7 @@ export default defineGkdApp({
           matches: [
             'RelativeLayout > View[clickable=true] + View[clickable=true] + TextView + View',
           ],
-          activityIds: [
-            'com.baidu.mobads.sdk.api.AppActivity',
-          ],
+          activityIds: ['com.baidu.mobads.sdk.api.AppActivity'],
         },
       ],
     },

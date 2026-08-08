@@ -321,9 +321,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="京东超市"] >n @[text="关闭弹窗"][clickable=true]',
-          ],
+          matches: ['[text="京东超市"] >n @[text="关闭弹窗"][clickable=true]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
