@@ -23,6 +23,22 @@ export default defineGkdApp({
     },
     {
       key: 1,
+      name: '奖励金-任务完成-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="ivClose"][clickable=true] - [vid="rlDialogContent"] [text="任务完成，"][vid="tvAdRewardTip"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '奖励金-领奖成功-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -35,22 +51,6 @@ export default defineGkdApp({
           ],
           matches: [
             '@[vid="ivClose"][clickable=true] - [vid="rlDialogContent"] [text="领奖成功，"][vid="tvAdRewardTip"]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '奖励金-任务完成-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[vid="ivClose"][clickable=true] - [vid="rlDialogContent"] [text="任务完成，"][vid="tvAdRewardTip"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
