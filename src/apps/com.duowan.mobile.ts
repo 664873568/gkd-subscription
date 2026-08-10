@@ -4,10 +4,10 @@ export default defineGkdApp({
   id: 'com.duowan.mobile',
   name: 'YY',
   groups: [
-    //做任务赢金币
+    //做任务·看直播·赚金币
     {
       key: 0,
-      name: '做任务赢金币-登录领取',
+      name: '做任务-登录领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -40,7 +40,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '做任务赢金币-立即签到',
+      name: '做任务-立即签到',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -64,13 +64,32 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '做任务赢金币-打开',
+      name: '做任务-去完成',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
+          actionDelay: 3000,
+          anyMatches: [
+            '@[text="去完成"][clickable=true] < * -n * [text="打开YY语音"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="去头条极速版"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="打开今日头条"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="打开星图金融"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="去快手极速版"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="打开携程旅行"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="打开京东金融"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="打开百度地图"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="去微博赚红包"]',
+            '@[text="去完成"][clickable=true] < * -n * [text="打开QQ音乐"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           matches: [
             '[text="提醒"][vid="message"] >n @[text="打开"][vid="btn_ok"]',
           ],
@@ -80,7 +99,32 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '做任务赢金币-任务已完成',
+      name: '做任务-访问YY游仓',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 3000,
+          matches: [
+            '@[text="去完成"][clickable=true] < * -n * [text="YY游仓"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: ['@[desc="YY游仓"]'],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '做任务-任务已完成',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -93,8 +137,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
-      name: '做任务赢金币-领奖励',
+      key: 5,
+      name: '做任务-领奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -107,8 +151,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
-      name: '做任务赢金币-恭喜获得-×',
+      key: 6,
+      name: '做任务-恭喜获得-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -121,8 +165,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
-      name: '做任务赢金币-领奖励-×',
+      key: 7,
+      name: '做任务-领奖励-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -141,24 +185,10 @@ export default defineGkdApp({
         },
       ],
     },
+    //导流结果弹窗
     {
-      key: 7,
-      name: '做任务赢金币-访问YY游仓',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: ['@[desc="YY游仓"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
-        },
-      ],
-    },
-    {
-      key: 8,
-      name: '导流结果弹窗',
+      key: 10,
+      name: '导流结果弹窗-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -171,6 +201,24 @@ export default defineGkdApp({
           activityIds: [
             'com.yy.mobile.ui.splash.SplashActivity',
             'com.yy.mobile.ui.common.JsSupportWebAcitivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '导流结果弹窗-收下并送出',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'TextView[clickable=true] - * > @[text="收下并送出"][clickable=true] + [desc="任务完成后即可领取奖励"]',
+          ],
+          activityIds: [
+            '.basemedia.watchlive.activity.LiveTemplateActivity',
           ],
         },
       ],
@@ -216,7 +264,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="未成年模式"][vid="title"] >n @[text="知道了"][vid="ok_btn"]',
+            '@[text="知道了"][vid="ok_btn"][clickable=true] - * [text="未成年模式"][vid="title"] +n [text="开启未成年模式"][vid="tips_text"]',
           ],
           activityIds: ['com.yy.mobile.ui.splash.SplashActivity'],
         },
@@ -232,11 +280,12 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="“YY”想访问您的剪切板"][vid="message"] >n @[text="不允许"][vid="btn_cancel"]',
+            '@[text="不允许"][vid="btn_cancel"][clickable=true] < * -n * > [text="“YY”想访问您的剪切板"][vid="message"]',
           ],
           activityIds: [
             'com.yy.mobile.ui.splash.SplashActivity',
             'com.yy.mobile.ui.common.JsSupportWebAcitivity',
+            'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
           ],
         },
       ],
