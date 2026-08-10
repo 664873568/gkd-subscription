@@ -172,21 +172,6 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 10,
-      name: '每日任务-搜索',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 1000,
-          matches: ['@[text="取消"] - [desc="删除"]'],
-          activityIds: ['.MainActivity'],
-        },
-      ],
-    },
     //看视频
     {
       key: 20,
