@@ -17,9 +17,7 @@ export default defineGkdApp({
           anyMatches: [
             '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
           ],
-          activityIds: [
-            'com.byazt.re.Stub_Standard_Portrait_Activity',
-          ],
+          activityIds: ['com.byazt.re.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
