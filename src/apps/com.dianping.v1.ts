@@ -9,12 +9,13 @@ export default defineGkdApp({
       name: '立即签到',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
+          action: 'clickCenter',
           matches: [
             'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
           ],
@@ -23,6 +24,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
           anyMatches: [
             '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
             '@ImageView[clickable=true] - FrameLayout > FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\) "]',
@@ -36,6 +38,7 @@ export default defineGkdApp({
       name: '开宝箱得金币',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -56,12 +59,12 @@ export default defineGkdApp({
       name: '继续开宝箱集卡',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
           matches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout >n FrameLayout[clickable=true] > ImageView',
           ],
@@ -70,6 +73,8 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
+          actionDelay: 3000,
           excludeMatches: [
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
           ],
@@ -82,6 +87,69 @@ export default defineGkdApp({
     },
     {
       key: 3,
+      name: '查看附近的店',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 3000,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] ImageView',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          actionDelay: 3000,
+          excludeMatches: [
+            'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
+          ],
+          matches: [
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '集卡得免单',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 3000,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout [text="10元免单券"]',
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout [text="10元免单券"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          actionDelay: 3000,
+          excludeMatches: [
+            'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
+          ],
+          matches: [
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
+    {
+      key: 5,
       name: '浏览完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -102,7 +170,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 6,
       name: '返回寻宝-恭喜获得',
       matchRoot: true,
       actionMaximum: 1,
@@ -119,7 +187,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 7,
       name: '返回寻宝',
       matchRoot: true,
       actionMaximum: 1,
@@ -128,16 +196,18 @@ export default defineGkdApp({
       rules: [
         {
           action: 'clickCenter',
-          actionDelay: 1000,
           matches: [
-            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true]',
+            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout -  FrameLayout',
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+          activityIds: [
+            'com.dianping.shopshell.PexusPoiActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
         },
       ],
     },
     {
-      key: 6,
+      key: 8,
       name: '今日累计奖励-领取',
       matchRoot: true,
       actionMaximum: 3,
