@@ -8,13 +8,14 @@ export default defineGkdApp({
       key: 0,
       name: 'YY-去头条极速版',
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 20000,
+      matchDelay: 6000,
       resetMatch: 'activity',
+      actionMaximum: 1,
       rules: [
         {
-          actionDelay: 5000,
-          matches: [
+          anyMatches: [
+            '@[desc="返回"][clickable=true] <<n * - MeasureOnceRelativeLayout2 [text="登录领钱"]',
             '@[desc="返回"][clickable=true] <<n * - * MeasureOnceRelativeLayout2[clickable=true] [text="点击赚钱"]',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
