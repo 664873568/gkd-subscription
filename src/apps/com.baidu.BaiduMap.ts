@@ -201,7 +201,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
           anyMatches: [
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="我要加速领奖"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
@@ -263,7 +262,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -278,7 +276,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
           anyMatches: [
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -312,10 +309,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '[text~="[0-9]+秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
+            '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
           ],
           matches: [
             'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
