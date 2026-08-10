@@ -126,9 +126,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@TextView[clickable=true] +n * > [text="获得以下奖励"]',
-          ],
+          matches: ['@TextView[clickable=true] +n * > [text="获得以下奖励"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
           ],
@@ -310,7 +308,7 @@ export default defineGkdApp({
           matches: ['@[id$="nebulax_root_view"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           action: 'swipe',
           swipeArg: {
@@ -324,10 +322,10 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          matches: [
-            '@[id="__react-content"] >n [text="滑动浏览得"]',
+          matches: ['@[id="__react-content"] >n [text="滑动浏览得"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01'],
         },
       ],
     },
@@ -683,7 +681,9 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
-          matches: ['@[desc="返回"][clickable=true] <<n * - * [text="就选你啦"]'],
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * - * [text="就选你啦"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
@@ -699,7 +699,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           action: 'back',
           matches: [
@@ -740,9 +740,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '[text="出行券包天天领"] >n @[text="一键收下"]',
-          ],
+          matches: ['[text="出行券包天天领"] >n @[text="一键收下"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
