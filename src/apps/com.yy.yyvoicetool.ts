@@ -84,7 +84,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 5,
       name: '每日任务-去完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -118,7 +118,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 7,
       name: '每日任务-限时任务',
       matchRoot: true,
       actionMaximum: 1,
@@ -133,7 +133,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 8,
       name: '每日任务-搜索',
       matchRoot: true,
       actionMaximum: 1,
@@ -173,7 +173,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 10,
       name: '每日任务-搜索',
       matchRoot: true,
       actionMaximum: 1,
@@ -189,7 +189,7 @@ export default defineGkdApp({
     },
     //看视频
     {
-      key: 10,
+      key: 20,
       name: '看视频',
       matchRoot: true,
       actionMaximum: 1,
@@ -206,7 +206,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 21,
       name: '看视频-领金币',
       matchRoot: true,
       actionMaximum: 1,
@@ -231,7 +231,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 22,
       name: '看视频-观看广告*秒获得奖励-关闭',
       matchRoot: true,
       actionMaximum: 1,
@@ -248,7 +248,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 23,
       name: '每日任务-看视频-点击跳转后停留 *秒立即获奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -266,7 +266,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 24,
       name: '每日任务-看视频-取消-奖励已发放',
       matchRoot: true,
       actionMaximum: 1,
@@ -296,7 +296,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 25,
       name: '每日任务-看视频-奖励已发放-×',
       matchRoot: true,
       actionMaximum: 1,
