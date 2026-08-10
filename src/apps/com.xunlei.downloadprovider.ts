@@ -78,9 +78,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            'LinearLayout > @[text="跳过"] + [text~="[0-9]"]',
-          ],
+          matches: ['LinearLayout > @[text="跳过"] + [text~="[0-9]"]'],
           activityIds: ['.launch.LaunchActivity'],
         },
       ],
