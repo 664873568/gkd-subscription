@@ -39,8 +39,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
-            '@[text="71255184fc23ad74"] < * - * [text="恭喜获得优惠券"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
+            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
+            '@[text="71255184fc23ad74"] < * - * [text="恭喜获得优惠券"]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -59,10 +59,11 @@ export default defineGkdApp({
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -87,22 +88,6 @@ export default defineGkdApp({
     },
     {
       key: 25,
-      name: '看视频-礼包-限时领取',
-      matchRoot: true,
-      actionMaximum: 6,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-          ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 26,
       name: '看视频-礼包-再逛*秒后可领奖-下滑',
       matchRoot: true,
       actionMaximum: 3,
@@ -124,7 +109,7 @@ export default defineGkdApp({
             duration: 1000,
           },
           matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] @[id="_scrollView"][childCount=3]',
+            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] @[id="_scrollView"][childCount>1]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -139,14 +124,15 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 27,
+      key: 26,
       name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
@@ -159,11 +145,11 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 28,
+      key: 27,
       name: '看视频-礼包-奖励已领取-<',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -175,7 +161,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 29,
+      key: 28,
       name: '看视频-礼包-跳过-*s后可领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -192,7 +178,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 30,
+      key: 29,
       name: '看视频-下滑-×',
       matchRoot: true,
       actionMaximum: 6,
@@ -218,7 +204,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 30,
       name: '看视频-下滑-已发放-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -232,7 +218,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
+      key: 31,
       name: '看视频-领取成功-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -249,7 +235,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 33,
+      key: 32,
       name: '看视频-限时领取-×',
       matchRoot: true,
       actionMaximum: 6,
@@ -264,7 +250,7 @@ export default defineGkdApp({
     },
     //看视频-com.byazt.gd.Stub_Standard_Activity
     {
-      key: 37,
+      key: 33,
       name: '看视频-跳过-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -280,7 +266,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
+      key: 34,
       name: '看视频-二级广告页-byazt',
       matchRoot: true,
       actionMaximum: 1,
@@ -299,7 +285,7 @@ export default defineGkdApp({
     },
     //看视频-com.byazt.ff.Stub_Standard_Portrait_Activity
     {
-      key: 39,
+      key: 35,
       name: '看视频-广告-×',
       matchRoot: true,
       actionMaximum: 1,
