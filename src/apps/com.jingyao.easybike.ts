@@ -249,6 +249,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 499,
+      name: '广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@TextView[clickable=true] - [text="369c4aa0a0854d4cb5c262736c29adfa"]',//去抢购
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 500,
@@ -268,7 +284,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 501,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
