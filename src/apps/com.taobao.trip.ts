@@ -526,7 +526,23 @@ export default defineGkdApp({
     },
     {
       key: 92,
-      name: '看视频-跳过-立即领取-礼包',
+      name: '看视频-跳过-礼包-看*秒可直接拿奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="点击跳转拿奖励"][clickable=true] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"] ',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 93,
+      name: '看视频-跳过-礼包',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -578,24 +594,15 @@ export default defineGkdApp({
     },
     {
       key: 102,
-      name: '看视频-广告-×',
+      name: '看视频-奖励将于*秒后发放',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
           matches: [
-            '@ImageView[width=48&&height=48] < FrameLayout < FrameLayout',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@ImageView[width=48&&height=48] < FrameLayout < FrameLayout',
+            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text~="奖励将于[0-9]+秒后发放"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -603,6 +610,23 @@ export default defineGkdApp({
     },
     {
       key: 103,
+      name: '看视频-恭喜获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
+            'ImageView < FrameLayout < @FrameLayout - [text="恭喜获得奖励"] < LinearLayout < * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 104,
       name: '看视频-二级广告页qq',
       matchRoot: true,
       actionMaximum: 1,
@@ -693,6 +717,20 @@ export default defineGkdApp({
             '@[vid="fliggy_update_cancel_btn"] <<n * [text="下载并安装"][vid="fliggy_update_ok_tv"]',
           ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 499,
+      name: '首页-引导',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[desc="跳过"][clickable=true]'],
+          activityIds: ['.home.HomeActivity'],
         },
       ],
     },
