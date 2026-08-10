@@ -610,7 +610,7 @@ export default defineGkdApp({
     },
     {
       key: 103,
-      name: '看视频-恭喜获得奖励-×',
+      name: '看视频-恭喜获得奖励-×qq',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -691,7 +691,7 @@ export default defineGkdApp({
     },
     {
       key: 121,
-      name: '看视频-恭喜获得奖励-×',
+      name: '看视频-恭喜获得奖励-×ubix',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
