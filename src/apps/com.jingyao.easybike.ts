@@ -259,7 +259,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[clickable=true] - [text="369c4aa0a0854d4cb5c262736c29adfa"]',//去抢购
+            '@TextView[clickable=true] - [text="369c4aa0a0854d4cb5c262736c29adfa"]', //去抢购
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
