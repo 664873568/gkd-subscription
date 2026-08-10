@@ -21,7 +21,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[vid="feedback_first_new_dialog_close"] - [text="您觉得当前广告如何"][vid="feedback_first_new_dialog_title"]',
+            '@[vid="feedback_first_new_dialog_close"][clickable=true] - [text="您觉得当前广告如何"][vid="feedback_first_new_dialog_title"]',
           ],
           activityIds: ['.linkhub.dlpanel.AddLinkToHubActivity'],
         },
@@ -43,6 +43,31 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 20,
+      name: '广告-反馈-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup < * + * [text="反馈"]',
+          ],
+          activityIds: ['com.byazt.mz.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          preDelay: [0],
+          key: 1,
+          matches: [
+            '@[vid="feedback_first_new_dialog_close"][clickable=true] - [text="您觉得当前广告如何"][vid="feedback_first_new_dialog_title"]',
+          ],
+          activityIds: ['.frame.MainTabActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
@@ -54,7 +79,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text^="跳过"][vid="adprof_splash_skip_text"] < [vid="adprof_splash_skip_ll"]',
+            'LinearLayout > @[text="跳过"] + [text~="[0-9]"]',
           ],
           activityIds: ['.launch.LaunchActivity'],
         },
