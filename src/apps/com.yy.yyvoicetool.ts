@@ -4,9 +4,38 @@ export default defineGkdApp({
   id: 'com.yy.yyvoicetool',
   name: 'YY语音',
   groups: [
-    //每日任务
+    //连续签到
     {
       key: 0,
+      name: '每天领钱-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@View - [text$="自动关闭"] - ViewFactoryHolder'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '连续签到-立即签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="立即签到"] <<n * [text="连续签到"]'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    //每日任务
+    {
+      key: 2,
       name: '每日任务-领奖励',
       matchRoot: true,
       actionMaximum: 5,
@@ -20,7 +49,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 3,
       name: '每日任务-我知道了',
       matchRoot: true,
       actionMaximum: 5,
@@ -34,7 +63,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 4,
       name: '每日任务-领奖励-我知道了',
       matchRoot: true,
       actionMaximum: 5,
@@ -55,23 +84,25 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
-      name: '每日任务-限时任务',
+      key: 8,
+      name: '每日任务-去完成',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: ['@[desc="YY游仓"] <<n ViewFactoryHolder'],
+          actionDelay: 3000,
+          matches: [
+            '@[text="去完成"][clickable=true] - * [text="完成应用浏览"]',
+          ],
           activityIds: ['.MainActivity'],
         },
       ],
     },
     {
-      key: 4,
-      name: '每日任务-打开',
+      key: 6,
+      name: '每日任务-确定',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -88,6 +119,21 @@ export default defineGkdApp({
     },
     {
       key: 5,
+      name: '每日任务-限时任务',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: ['@[desc="YY游仓"] <<n ViewFactoryHolder'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 7,
       name: '每日任务-搜索',
       matchRoot: true,
       actionMaximum: 1,
@@ -96,14 +142,13 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
           matches: ['@[text="取消"] - [desc="删除"]'],
           activityIds: ['.MainActivity'],
         },
       ],
     },
     {
-      key: 6,
+      key: 9,
       name: '每日任务-完成应用浏览',
       matchRoot: true,
       actionMaximum: 1,
@@ -112,6 +157,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           matches: [
             '@[text="去领奖"][clickable=true] - * [text="完成应用浏览"]',
           ],
@@ -120,7 +166,23 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: ['@[text="关闭"][clickable=true] -n [text="已获得奖励"]'],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '每日任务-搜索',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 1000,
+          matches: ['@[text="取消"] - [desc="删除"]'],
           activityIds: ['.MainActivity'],
         },
       ],
@@ -135,7 +197,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 4000,
           matches: [
             '@[text="看视频"][clickable=true] - [text^="看视频最高赚"]',
           ],
@@ -170,6 +232,23 @@ export default defineGkdApp({
     },
     {
       key: 12,
+      name: '看视频-观看广告*秒获得奖励-关闭',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@[text="关闭"][clickable=true] -n [text="已获得奖励"]',
+            '@[text="关闭"][clickable=true] -n [text="观看广告获得奖励"]',
+          ],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 13,
       name: '每日任务-看视频-点击跳转后停留 *秒立即获奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -178,7 +257,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"] +n * [text="立即点击领取"][vid="noah_reward_cta_tip_tv"]',
+            '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"] +n [vid="noah_reward_cta_tip_container"] > [text="立即点击领取"][vid="noah_reward_cta_tip_tv"]',
           ],
           activityIds: [
             'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
@@ -187,7 +266,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 14,
       name: '每日任务-看视频-取消-奖励已发放',
       matchRoot: true,
       actionMaximum: 1,
@@ -196,7 +275,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
             '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] - [text="应用详情"][vid="adn_dialog_download_title"]',
           ],
@@ -217,7 +296,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 15,
       name: '每日任务-看视频-奖励已发放-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -231,35 +310,6 @@ export default defineGkdApp({
           activityIds: [
             'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
           ],
-        },
-      ],
-    },
-    //连续签到
-    {
-      key: 20,
-      name: '每天领钱-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@View - [text$="自动关闭"] - ViewFactoryHolder'],
-          activityIds: ['.MainActivity'],
-        },
-      ],
-    },
-    {
-      key: 21,
-      name: '连续签到-立即签到',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="立即签到"] <<n * [text="连续签到"]'],
-          activityIds: ['.MainActivity'],
         },
       ],
     },
