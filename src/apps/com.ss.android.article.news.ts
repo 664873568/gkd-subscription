@@ -14,7 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@[desc="返回"][clickable=true] <<n MeasureOnceRelativeLayout2 [text="登录赚钱"]',
             '@[desc="返回"][clickable=true] <<n * - * MeasureOnceRelativeLayout2[clickable=true] [text="登录赚钱"]',
           ],
