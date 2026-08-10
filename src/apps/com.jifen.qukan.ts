@@ -30,9 +30,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text^="跳过"] <<n [vid="img_splash_ad"]',
-            '@[text^="跳过"][vid="tv_splash_ad_skip"] - [vid="img_splash_ad"]',
-            '@[text^="跳过"][vid="fanti_ad_txt_skip"] <<n [vid="img_splash_ad"]',
+            '[vid="img_splash_ad"] >n @[desc="CLOSE_AD"][vid="fanti_ad_count_and_skip_container_ex"][clickable=true] > [vid="fanti_ad_count_and_skip_container"] > [text^="跳过"][vid="fanti_ad_txt_skip"] + [text~="[0-9]"][vid="fanti_ad_txt_count_down"]',
           ],
           activityIds: ['null', 'com.jifen.qkbase.main.MainActivity'],
         },
