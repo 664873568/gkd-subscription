@@ -967,9 +967,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          matches: [
-            '@ImageView[clickable=true] +2 [desc="保存"]',
-          ],
+          matches: ['@ImageView[clickable=true] +2 [desc="保存"]'],
           activityIds: [
             '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
           ],
@@ -1054,9 +1052,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          matches: [
-            '@ImageView[clickable=true] +2 [desc="保存"]',
-          ],
+          matches: ['@ImageView[clickable=true] +2 [desc="保存"]'],
           activityIds: [
             '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
           ],
@@ -1818,8 +1814,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="暂不开启"][vid="not_open"][clickable=true] - [text="开启安全备份"][vid="btn_text"]'],
-          activityIds: ['.ui.MainActivity','.ui.NewQuickSettingsActivity'],
+          matches: [
+            '@[text="暂不开启"][vid="not_open"][clickable=true] - [text="开启安全备份"][vid="btn_text"]',
+          ],
+          activityIds: ['.ui.MainActivity', '.ui.NewQuickSettingsActivity'],
         },
       ],
     },
