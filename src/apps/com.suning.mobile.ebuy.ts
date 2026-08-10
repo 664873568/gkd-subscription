@@ -14,7 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 10000,
           matches: [
             '@[desc="返回"][vid="btn_back"][clickable=true] < [vid="layout_ucwv_back"] + [text="云钻魔法狮"][vid="title"]',
           ],
