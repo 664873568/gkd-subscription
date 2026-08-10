@@ -494,7 +494,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0],1,
+          preKeys: [0,1],
           key: 2,
           matches: [
             '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"] +n [vid="noah_reward_cta_tip_container"] > [text="立即点击领取"][vid="noah_reward_cta_tip_tv"]',
