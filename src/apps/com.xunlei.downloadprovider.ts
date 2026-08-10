@@ -59,7 +59,7 @@ export default defineGkdApp({
           activityIds: ['com.byazt.mz.Stub_Standard_Portrait_Activity'],
         },
         {
-          preDelay: [0],
+          preKeys: [0],
           key: 1,
           matches: [
             '@[vid="feedback_first_new_dialog_close"][clickable=true] - [text="您觉得当前广告如何"][vid="feedback_first_new_dialog_title"]',
