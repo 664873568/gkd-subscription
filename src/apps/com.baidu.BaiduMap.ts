@@ -308,7 +308,7 @@ export default defineGkdApp({
             duration: 1000,
           },
           matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] @[id="_scrollView"][childCount=3]',
+            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] @[id="_scrollView"][childCount>1]',
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
