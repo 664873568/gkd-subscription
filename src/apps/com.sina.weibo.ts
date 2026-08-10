@@ -108,7 +108,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] < FrameLayout - [text="广告"]'],
+          matches: ['@[text="跳过"] < * - [text="广告"]'],
           activityIds: ['.browser.WeiboBrowser', 'null'],
         },
       ],
