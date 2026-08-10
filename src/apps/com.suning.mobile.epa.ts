@@ -43,17 +43,19 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@ImageButton[clickable=true] - [text="仍要放弃"] - [text="继续赚积分"]'],
+          matches: [
+            '@ImageButton[clickable=true] - [text="仍要放弃"] - [text="继续赚积分"]',
+          ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['[id="mainViewWrapper"] >n @ImageButton[clickable=true]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: ['@ImageButton[clickable=true] < * + * [text="红包签到"]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
