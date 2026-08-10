@@ -4,7 +4,7 @@ export default defineGkdApp({
   id: 'com.kwai.videoeditor',
   name: '快影',
   groups: [
-    //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity
+    //看视频-com.byazt.re.Stub_Standard_Portrait_Activity
     {
       key: 20,
       name: '看视频-全屏广告-×',
@@ -15,9 +15,29 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@Image[clickable=false] <<n * - * [text="点击到落地页或三方APP"]',
+            '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
+          ],
+          activityIds: [
+            'com.byazt.re.Stub_Standard_Portrait_Activity',
+          ],
+        },
+      ],
+    },
+    //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity
+    {
+      key: 30,
+      name: '看视频-全屏广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
             '@Image[clickable=false] <<n * -n * [text="反馈"] <<n * + * [text="轻触或上滑"]',
-            '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"]',
+            '@Image[clickable=false] <<n * - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',
+            '@ImageView[clickable=false] <<n * - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',
+            '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
