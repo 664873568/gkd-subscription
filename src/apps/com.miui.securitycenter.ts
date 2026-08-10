@@ -79,16 +79,6 @@ export default defineGkdApp({
           ],
           activityIds: ['com.miui.applicationlock.AppLockActivity'],
         },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          action: 'back',
-          actionDelay: 1000,
-          matches: [
-            '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
-          ],
-          activityIds: ['com.miui.applicationlock.AppLockActivity'],
-        },
       ],
     },
     {
@@ -100,17 +90,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          action: 'back',
-          actionDelay: 1000,
-          matches: [
-            '[text="用于打开小米云服务"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
-          ],
-          activityIds: ['com.miui.applicationlock.AppLockActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
           action: 'back',
           actionDelay: 1000,
           matches: [
@@ -129,27 +108,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          action: 'back',
-          actionDelay: 1000,
-          matches: [
-            '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
-          ],
-          activityIds: ['com.miui.applicationlock.AppLockActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'back',
-          actionDelay: 1000,
-          matches: [
-            '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
-          ],
-          activityIds: ['com.miui.applicationlock.AppLockActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
           action: 'back',
           actionDelay: 1000,
           matches: [
@@ -190,17 +148,16 @@ export default defineGkdApp({
     },
     {
       key: 7,
-      name: '启动应用',
+      name: '启动应用-拒绝',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 16000,
           matches: [
-            '@[text="启动应用"][vid="permission_group_title"] + [text$="是否允许？"][vid="event_title"]',
+            '@[text="拒绝"] <n * - * [text="启动应用"][vid="permission_group_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
@@ -208,17 +165,16 @@ export default defineGkdApp({
     },
     {
       key: 8,
-      name: '启动应用-京东金融',
+      name: '启动应用-拒绝-京东金融',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           actionDelay: 3000,
           matches: [
-            '@[text="启动应用"][vid="permission_group_title"] + [text^="京东金融"][vid="event_title"]',
+            '@[text="拒绝"] <n * - * [text="启动应用"][vid="permission_group_title"] + [text^="京东金融"][vid="event_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
@@ -226,7 +182,7 @@ export default defineGkdApp({
     },
     {
       key: 9,
-      name: '京东金融 想要打开-本次允许',
+      name: '启动应用-本次允许-京东金融',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -235,9 +191,9 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           anyMatches: [
-            '@[text="本次允许"] <<n * [text^="京东金融 想要打开 JoyAI"][vid="event_title"]',
-            '@[text="本次允许"] <<n * [text^="京东金融 想要打开 QQ阅读"][vid="event_title"]',
-            '@[text="本次允许"] <<n * [text^="京东金融 想要打开 京东健康"][vid="event_title"]',
+            '@[text="本次允许"] < * - * [text="启动应用"][vid="permission_group_title"] + [text="京东金融 想要打开 JoyAI，是否允许？"][vid="event_title"]',
+            '@[text="本次允许"] < * - * [text="启动应用"][vid="permission_group_title"] + [text="京东金融 想要打开 QQ阅读，是否允许？"][vid="event_title"]',
+            '@[text="本次允许"] < * - * [text="启动应用"][vid="permission_group_title"] + [text="京东金融 想要打开 京东健康，是否允许？"][vid="event_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
@@ -245,17 +201,16 @@ export default defineGkdApp({
     },
     {
       key: 10,
-      name: '启动应用-抖音',
+      name: '启动应用-拒绝-抖音',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          actionDelay: 1000,
+          actionDelay: 3000,
           matches: [
-            '@[text="启动应用"][vid="permission_group_title"] + [text^="抖音"][vid="event_title"]',
+            '@[text="拒绝"] <n * - * [text="启动应用"][vid="permission_group_title"] + [text^="抖音"][vid="event_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
@@ -263,15 +218,16 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '支付宝 想要打开 淘宝-拒绝',
+      name: '启动应用-拒绝-支付宝',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
-            '@[text="拒绝"] <<n * [text^="支付宝 想要打开 淘宝"][vid="event_title"]',
+          actionDelay: 3000,
+          matches: [
+            '@[text="拒绝"] <n * - * [text="启动应用"][vid="permission_group_title"] + [text="支付宝 想要打开 淘宝，是否允许？"][vid="event_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
