@@ -9,6 +9,7 @@ export default defineGkdApp({
       name: '打卡失败',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -24,6 +25,7 @@ export default defineGkdApp({
       name: '直播-返回',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
