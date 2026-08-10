@@ -7,7 +7,7 @@ export default defineGkdApp({
     //看视频-com.byazt.re.Stub_Standard_Portrait_Activity
     {
       key: 20,
-      name: '看视频-全屏广告-×',
+      name: '看视频-全屏广告-×byazt',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -26,7 +26,7 @@ export default defineGkdApp({
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity
     {
       key: 30,
-      name: '看视频-全屏广告-×',
+      name: '看视频-全屏广告-×bytedance',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
