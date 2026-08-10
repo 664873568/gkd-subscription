@@ -62,7 +62,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
@@ -71,7 +71,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 1000,
           matches: [
@@ -139,7 +139,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
@@ -148,7 +148,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 1000,
           matches: [
@@ -225,9 +225,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 3000,
-          matches: [
-            '@[text="去完成"][clickable=true] -n [text="访问YY游仓"]',
-          ],
+          matches: ['@[text="去完成"][clickable=true] -n [text="访问YY游仓"]'],
           activityIds: ['.MainActivity'],
         },
         {
@@ -241,7 +239,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
@@ -250,7 +248,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 1000,
           matches: [
@@ -282,39 +280,39 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1000,
           matches: [
-            'ViewFactoryHolder + @View[clickable=true] > [text="说点什么吧..."]',//点击聊天框
+            'ViewFactoryHolder + @View[clickable=true] > [text="说点什么吧..."]', //点击聊天框
           ],
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
-            'ViewFactoryHolder + @View[clickable=true]',//点击表情
+            'ViewFactoryHolder + @View[clickable=true]', //点击表情
           ],
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 1000,
           matches: [
-            'ViewFactoryHolder +n View[clickable=true] >n View[childCount=48] > @View[clickable=true][index=0]',//选择表情
+            'ViewFactoryHolder +n View[clickable=true] >n View[childCount=48] > @View[clickable=true][index=0]', //选择表情
           ],
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           actionDelay: 1000,
           matches: [
-            'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]',//发送表情
+            'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]', //发送表情
           ],
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2,3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           action: 'back',
           actionDelay: 1000,
@@ -324,7 +322,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2,3,4,5],
+          preKeys: [0, 1, 2, 3, 4, 5],
           key: 6,
           actionDelay: 1000,
           matches: [
@@ -333,7 +331,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2,3,4,5,6],
+          preKeys: [0, 1, 2, 3, 4, 5, 6],
           key: 7,
           actionDelay: 1000,
           matches: [
@@ -380,13 +378,11 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 1000,
-          matches: [
-            '@ComposeView > [desc="删除"] + [text="取消"]',
-          ],
+          matches: ['@ComposeView > [desc="删除"] + [text="取消"]'],
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
@@ -395,7 +391,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 1000,
           matches: [
@@ -431,7 +427,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
@@ -494,7 +490,7 @@ export default defineGkdApp({
           activityIds: ['.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"] +n [vid="noah_reward_cta_tip_container"] > [text="立即点击领取"][vid="noah_reward_cta_tip_tv"]',

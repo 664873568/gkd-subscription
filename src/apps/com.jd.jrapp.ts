@@ -142,7 +142,7 @@ export default defineGkdApp({
     },
     {
       key: 13,
-      name: '返回领奖',//签到领现金-
+      name: '返回领奖', //签到领现金-
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -925,9 +925,7 @@ export default defineGkdApp({
             duration: 200,
           },
           actionCd: 60000,
-          matches: [
-            '@[vid="recycler_view"] [text="上滑继续看视频"]',
-          ],
+          matches: ['@[vid="recycler_view"] [text="上滑继续看视频"]'],
           activityIds: [
             '.bm.mainbox.main.MainActivity',
             '.bm.sh.jm.video.ui.VibratoActivity',
