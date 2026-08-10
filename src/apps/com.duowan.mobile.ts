@@ -217,9 +217,7 @@ export default defineGkdApp({
           matches: [
             'TextView[clickable=true] - * > @[text="收下并送出"][clickable=true] + [desc="任务完成后即可领取奖励"]',
           ],
-          activityIds: [
-            '.basemedia.watchlive.activity.LiveTemplateActivity',
-          ],
+          activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
         },
       ],
     },
