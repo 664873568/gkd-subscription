@@ -180,7 +180,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 22000,
-          matches: ['[desc="close"] < @View[clickable=true] - View > [desc="more button"]'],
+          matches: [
+            '[desc="close"] < @View[clickable=true] - View > [desc="more button"]',
+          ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
@@ -224,7 +226,9 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 21000,
-          matches: ['[desc="close"] < @View[clickable=true] - View > [desc="more button"]'],
+          matches: [
+            '[desc="close"] < @View[clickable=true] - View > [desc="more button"]',
+          ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
