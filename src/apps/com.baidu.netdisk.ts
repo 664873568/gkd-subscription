@@ -10,7 +10,6 @@ export default defineGkdApp({
       name: '看视频-跳过-去体验*秒可立即领奖',
       matchRoot: true,
       actionMaximum: 3,
-      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -60,7 +59,6 @@ export default defineGkdApp({
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 2000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -75,7 +73,6 @@ export default defineGkdApp({
       name: '看视频-礼包-再逛*秒后可领奖',
       matchRoot: true,
       actionMaximum: 3,
-      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -146,14 +143,13 @@ export default defineGkdApp({
       name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 2000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '[text~="[0-9]秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
+            '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
           ],
           matches: [
             'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
@@ -183,7 +179,6 @@ export default defineGkdApp({
       name: '看视频-礼包-跳过-*s后可领取奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
       matchTime: 30000,
       resetMatch: 'activity',
       rules: [
