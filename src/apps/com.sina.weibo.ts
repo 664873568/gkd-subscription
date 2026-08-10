@@ -80,24 +80,6 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 4,
-      name: '星图金融-返回',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 5000,
-          matches: [
-            '@[vid="titleLeft"][clickable=true] + [text="用户任务中心"][vid="titleText"]',
-          ],
-          activityIds: ['.browser.WeiboBrowser'],
-        },
-      ],
-    },
     //首页广告类
     {
       key: 50,
