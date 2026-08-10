@@ -7,14 +7,14 @@ export default defineGkdApp({
     //看视频-com.byazt.re.Stub_Standard_Portrait_Activity
     {
       key: 20,
-      name: '看视频-全屏广告-×byazt',
+      name: '看视频-全屏广告-×cbrs',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
+          matches: [
             '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
           ],
           activityIds: ['com.byazt.re.Stub_Standard_Portrait_Activity'],
@@ -24,7 +24,7 @@ export default defineGkdApp({
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity
     {
       key: 30,
-      name: '看视频-全屏广告-×bytedance',
+      name: '看视频-全屏广告-×cbso',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -46,23 +46,40 @@ export default defineGkdApp({
     //看视频-com.kwai.krn.KrnKyActivity
     {
       key: 40,
-      name: '看视频-全屏广告-×kwai',
+      name: '看视频-全屏广告-×ckkk',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
+          matches: [
             '@ImageView[clickable=true] + LinearLayout + RelativeLayout + ImageView + ImageView',
           ],
           activityIds: ['com.kwai.krn.KrnKyActivity'],
         },
       ],
     },
-    //首页广告类
+    //看视频-com.octopus.ad.AdActivity
     {
       key: 50,
+      name: '看视频-全屏广告-×coaa',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView[clickable=true] - [text="反馈"] - ImageView < FrameLayout',
+          ],
+          activityIds: ['com.octopus.ad.AdActivity'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 500,
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -79,7 +96,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 501,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -90,6 +107,7 @@ export default defineGkdApp({
           anyMatches: [
             '@ImageView[clickable=true] - * [text="广告"]', //点击跳转第三方页面
             '@ImageView[clickable=false] < FrameLayout <2 * + * [text="上滑/点击了解更多内容"]',
+            '@ImageView < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="下载或打开第三方应用"]',
           ],
           activityIds: [
             '.commercialization.splash.GeneralAdSplashActivity',
