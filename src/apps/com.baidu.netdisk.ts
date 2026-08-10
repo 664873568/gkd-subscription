@@ -55,6 +55,23 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 22,
+      name: '看视频-跳过-广告二级页-< × 反馈',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 16000,
+          matches: [
+            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]',
+          ],
+          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
       key: 23,
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
