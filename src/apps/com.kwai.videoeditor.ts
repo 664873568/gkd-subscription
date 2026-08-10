@@ -43,6 +43,23 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.kwai.krn.KrnKyActivity
+    {
+      key: 40,
+      name: '看视频-全屏广告-×kwai',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@ImageView[clickable=true] + LinearLayout + RelativeLayout + ImageView + ImageView',
+          ],
+          activityIds: ['com.kwai.krn.KrnKyActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
