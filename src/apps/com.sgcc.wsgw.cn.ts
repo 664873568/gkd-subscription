@@ -35,6 +35,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 2,
+      name: '立即查看-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageButton[clickable=true] < * - * [text="立即查看"]'],
+          activityIds: [
+            'com.sgcc.wsgw.mainbundle.ElectricTitleActivity',
+          ],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
