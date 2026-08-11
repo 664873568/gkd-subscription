@@ -612,7 +612,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="ivLandscapeClose"][clickable=true]'],
+          anyMatches: [
+            '@[vid="ivVerticalClose"][clickable=true]',
+            '@[vid="ivLandscapeClose"][clickable=true]',
+          ],
           activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
         },
       ],
