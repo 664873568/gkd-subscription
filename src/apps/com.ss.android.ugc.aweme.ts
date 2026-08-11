@@ -162,7 +162,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 22000,
-          matches: ['@[desc="关闭"][vid~="[a-z]{3}"]'],
+          matches: ['@[vid~="[a-z]{3}"]'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
@@ -387,7 +387,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@Button[desc="关闭"][clickable=true] - View > [text$="~tplv-20ashz96qn-1"]',
+            '@Button[clickable=true] - View > [text$="~tplv-20ashz96qn-1"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -429,7 +429,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@Button[desc="关闭"][clickable=true] - View > [text$="~tplv-20ashz96qn-1"]',
+            '@Button[clickable=true] - View > [text$="~tplv-20ashz96qn-1"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -539,6 +539,7 @@ export default defineGkdApp({
       name: '车主服务-查电费-广告',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -629,6 +630,7 @@ export default defineGkdApp({
       name: '车主服务-月付金-广告',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -662,12 +664,14 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           matches: ['@Button <<n [text="我的月付金"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 1000,
           matches: [
             '@[desc="返回"] < [id="headerLeftBar"] + [text="抖音月付"]',
           ],
@@ -676,6 +680,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
+          actionDelay: 3000,
           matches: [
             '[text="车主服务"] >n @ImageButton[clickable=true] + View [text="恭喜完成任务"]',
           ],
