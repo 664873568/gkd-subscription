@@ -1028,5 +1028,22 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 400,
+      name: '隐私保护指引-暂不开启',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="暂不开启"][vid="term_first_btn"][clickable=true] -n [text="隐私保护指引"][vid="term_title"]',
+          ],
+          activityIds: ['com.baidu.baidumaps.guide.TermsActivity'],
+        },
+      ],
+    },
   ],
 });
