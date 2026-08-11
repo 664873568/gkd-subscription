@@ -619,7 +619,7 @@ export default defineGkdApp({
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
