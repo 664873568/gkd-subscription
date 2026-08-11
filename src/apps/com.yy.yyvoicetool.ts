@@ -55,7 +55,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1000,
           matches: [
-            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] - [text="应用详情"][vid="adn_dialog_download_title"]',
+            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
           ],
           activityIds: [
             'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
@@ -122,7 +122,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 3000,
           matches: [
-            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] - [text="应用详情"][vid="adn_dialog_download_title"]',
+            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
           ],
           activityIds: [
             'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
