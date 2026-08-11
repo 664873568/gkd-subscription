@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '浏览-已完成-点击立即返回',
+      name: '点击立即返回-已完成',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,9 +15,9 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '@RelativeLayout - RelativeLayout[id$="/a75"] > DrawerLayout[id$="/o7"]',
+            '@RelativeLayout[clickable=true] >n [text="点击立即返回"][vid="task_sub_text"] - [vid="task_progress_bar_container"] >n [text="已完成"][vid="task_progress_state"]',
           ],
-          activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
+          activityIds: ['.personel.FloatViewActivity'],
         },
       ],
     },
