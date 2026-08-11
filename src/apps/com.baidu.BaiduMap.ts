@@ -208,6 +208,7 @@ export default defineGkdApp({
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="我要立即领奖"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
@@ -452,6 +453,52 @@ export default defineGkdApp({
             'ImageView < LinearLayout[clickable=true] < @LinearLayout[clickable=true] - * [text="反馈"] <<n * + * [text=" 立即查看 "]',
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 38,
+      name: '看视频-下滑-*秒',
+      matchRoot: true,
+      actionMaximum: 6,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'swipe',
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          matches: [
+            '[text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > @[id="app"]',
+          ],
+          activityIds: [
+            'com.byazt.ff.Stub_Standard_Portrait_Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 39,
+      name: '看视频-下滑-已发放-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="svg%3e"] < * < * +n * [text="已发放"]'],
+          activityIds: [
+            'com.byazt.ff.Stub_Standard_Portrait_Activity',
+          ],
         },
       ],
     },
@@ -1042,6 +1089,22 @@ export default defineGkdApp({
             '@[text="暂不开启"][vid="term_first_btn"][clickable=true] -n [text="隐私保护指引"][vid="term_title"]',
           ],
           activityIds: ['com.baidu.baidumaps.guide.TermsActivity'],
+        },
+      ],
+    },
+    {
+      key: 401,
+      name: '开启推送通知-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="push_close"][clickable=true] - * > [vid="imgGif"] + * > [text="以后再说"][vid="cancel"] + [text="去开启"][vid="go_setting"]',
+          ],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
     },
