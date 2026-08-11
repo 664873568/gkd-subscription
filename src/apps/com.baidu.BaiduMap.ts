@@ -933,29 +933,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 83,
-      name: '看视频-跳过-试玩*秒领取奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="立即试玩"] < @View[clickable=true] <<n * -n * [text~="试玩[0-9]+秒领取奖励"] + [id="close_btn"] [text~="[0-9]+"] +n [text="跳过"]',
-          ],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[id="close_btn"][clickable=true]'],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-        },
-      ],
-    },
-    {
       key: 84,
       name: '看视频-跳过-*s后可领取奖励-免',
       matchRoot: true,
@@ -964,9 +941,34 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          key: 0,
+          anyMatches: [
+            '[text="立即前往"] <n @View[clickable=true] <<n * -n * [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text$="跳过"]',
             '[text="立即试玩"] <n @View[clickable=true] <<n * -n * [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text$="跳过"]',
           ],
+          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 11000,
+          matches: [
+            '@ImageView[clickable=true] <<n * + * [id="ldbody"]',
+          ],
+          activityIds: ['com.sigmob.sdk.base.common.AdActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[text$="跳过"][clickable=true] - [text="已获得奖励"] - [text="免"] < [id="close_btn"]',
+          ],
+          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[id="close_btn"][clickable=true]'],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
       ],
@@ -982,7 +984,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text$="跳过"] - [text="已获得奖励"] - [text="免"] < [id="close_btn"]',
+            '@[text$="跳过"][clickable=true] - [text="已获得奖励"] - [text="免"] < [id="close_btn"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
