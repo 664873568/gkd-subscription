@@ -36,7 +36,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@View[clickable=true] > [text~="签到领[0-9]+积分"] + * Image',
+            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
