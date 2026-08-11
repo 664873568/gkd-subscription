@@ -185,6 +185,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 8,
+      name: '做任务-频道-确定',
+      desc: '你在其他设备上已登录频道，是否确认手机端进入频道，并将其他设备踢出频道？',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="确定"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text*="频道"][vid="message"]',
+          ],
+          activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
+        },
+      ],
+    },
     //导流结果弹窗
     {
       key: 10,
