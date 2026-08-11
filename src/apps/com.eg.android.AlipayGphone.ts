@@ -696,7 +696,7 @@ export default defineGkdApp({
     },
     {
       key: 101,
-      name: '半屏广告-×',//百度网盘-小程序点图文领奖-去小程序点图文
+      name: '半屏广告-×', //百度网盘-小程序点图文领奖-去小程序点图文
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
@@ -715,7 +715,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['[id$="halfscreen_main_title"] >n @[id$="tiny_half_close"]'],
+          matches: [
+            '[id$="halfscreen_main_title"] >n @[id$="tiny_half_close"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
           ],
