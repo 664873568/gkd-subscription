@@ -573,6 +573,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 16000,
           matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -587,6 +588,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 16000,
           matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -594,6 +596,41 @@ export default defineGkdApp({
     },
     {
       key: 102,
+      name: '看视频-微信-阅读小说 可获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="可获得奖励"] - [text="阅读小说"] < * <n * + RecyclerView >n @LinearLayout > [text="点击去微信看全文"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 16000,
+          matches: [
+            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          actionDelay: 1000,
+          matches: [
+            '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 104,
       name: '看视频-奖励将于*秒后发放',
       matchRoot: true,
       actionMaximum: 1,
@@ -609,7 +646,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 103,
+      key: 105,
       name: '看视频-恭喜获得奖励-×qq',
       matchRoot: true,
       actionMaximum: 1,
@@ -626,7 +663,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 104,
+      key: 106,
       name: '看视频-二级广告页qq',
       matchRoot: true,
       actionMaximum: 1,
