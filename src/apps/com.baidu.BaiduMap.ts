@@ -480,9 +480,7 @@ export default defineGkdApp({
           matches: [
             '[text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > @[id="app"]',
           ],
-          activityIds: [
-            'com.byazt.ff.Stub_Standard_Portrait_Activity',
-          ],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
@@ -496,9 +494,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="svg%3e"] < * < * +n * [text="已发放"]'],
-          activityIds: [
-            'com.byazt.ff.Stub_Standard_Portrait_Activity',
-          ],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
