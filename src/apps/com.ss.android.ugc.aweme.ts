@@ -219,18 +219,19 @@ export default defineGkdApp({
           matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity0',
           ],
         },
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
-          actionDelay: 21000,
+          actionDelay: 22000,
           matches: [
             '[desc="close"] < @View[clickable=true] - View > [desc="more button"]',
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity0',
           ],
         },
         {
@@ -239,6 +240,7 @@ export default defineGkdApp({
           matches: ['@ImageView - FrameLayout < ViewGroup - ScrollView'],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity0',
           ],
         },
       ],
@@ -307,6 +309,7 @@ export default defineGkdApp({
             '[text="车主服务"] >n ImageButton + @ImageButton[clickable=true]',
           ],
           activityIds: [
+            '.wallet.ui.WalletActivity',
             '.bullet.ui.BulletContainerActivity',
             '.cjpay.hostimpl.container.CJLiveDummyActivity',
           ],
