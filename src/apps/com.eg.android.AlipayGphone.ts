@@ -699,7 +699,7 @@ export default defineGkdApp({
       name: '半屏广告-×',//百度网盘-小程序点图文领奖-去小程序点图文
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 5000,
+      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
