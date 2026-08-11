@@ -937,7 +937,7 @@ export default defineGkdApp({
       name: '看视频-跳过-*s后可领取奖励-免',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -966,8 +966,8 @@ export default defineGkdApp({
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
-          preKeys: [0],
-          key: 1,
+          preKeys: [0,1,2],
+          key: 3,
           matches: ['@[id="close_btn"][clickable=true]'],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
