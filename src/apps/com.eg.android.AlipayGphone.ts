@@ -230,40 +230,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 26,
-      name: '广告-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@View < ViewGroup[index=8][childCount=1] -3 ViewGroup > View',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
-          ],
-        },
-      ],
-    },
-    {
-      key: 27,
-      name: '广告-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[id$="tiny_half_close"] - [id$="tiny_half_expand"]'],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
-          ],
-        },
-      ],
-    },
-    {
       key: 28,
       name: '任务已完成，恭喜获得奖励！-关闭',
       matchRoot: true,
@@ -714,6 +680,50 @@ export default defineGkdApp({
     //
     {
       key: 100,
+      name: '飞猪旅行-点一键收下得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[text="出行券包天天领"] >n @[text="一键收下"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 101,
+      name: '半屏广告-×',//百度网盘-小程序点图文领奖-去小程序点图文
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 5000,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@LinearLayout[clickable=true] >n CKViewPager > FrameLayout[index=1]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['[id$="halfscreen_main_title"] >n @[id$="tiny_half_close"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+          ],
+        },
+      ],
+    },
+    {
+      key: 102,
       name: '支付宝-小程序',
       matchRoot: true,
       actionMaximum: 1,
@@ -731,18 +741,21 @@ export default defineGkdApp({
         },
       ],
     },
+    //首页广告类
     {
-      key: 101,
-      name: '飞猪旅行-点一键收下得奖励',
+      key: 499,
+      name: '广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text="出行券包天天领"] >n @[text="一键收下"]'],
+          matches: [
+            '@View < ViewGroup[index=8][childCount=1] -3 ViewGroup > View',
+          ],
           activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
           ],
         },
       ],
