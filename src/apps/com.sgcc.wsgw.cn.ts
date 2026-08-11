@@ -45,9 +45,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@ImageButton[clickable=true] < * - * [text="立即查看"]'],
-          activityIds: [
-            'com.sgcc.wsgw.mainbundle.ElectricTitleActivity',
-          ],
+          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
       ],
     },
