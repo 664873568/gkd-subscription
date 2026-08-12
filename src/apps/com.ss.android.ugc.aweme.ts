@@ -628,7 +628,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]'],
+          matches: [
+            '[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
