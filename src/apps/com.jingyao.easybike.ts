@@ -377,7 +377,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 499,
+      key: 498,
       name: '广告-奖励金-×',
       matchRoot: true,
       actionMaximum: 1,
