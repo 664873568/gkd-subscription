@@ -23,7 +23,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '奖励金-签到',
+      name: '奖励金-签到成功-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
