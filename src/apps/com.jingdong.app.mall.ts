@@ -113,5 +113,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 51,
+      name: '首页广告-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            'ViewGroup[clickable=true] + ViewGroup > @[desc="关闭"][clickable=true] > ImageView',
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+      ],
+    },
   ],
 });
