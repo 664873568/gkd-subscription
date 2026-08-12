@@ -4,19 +4,67 @@ export default defineGkdApp({
   id: 'com.baidu.searchbox.lite',
   name: '百度极速版',
   groups: [
-    //现金长签到
+    //26.07.23-26.09.11 暑期免费看
     {
       key: 0,
-      name: '现金长签到-去观看',
+      name: '暑期免费看-去完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '[text="task-dj"] + [text~="看短剧\\\\([0-9+]/15\\\\)"] + [text="看15s短剧抽票抽票次数+3"] + @[text="去完成"][clickable=true]',
+            '[text="task-mj"] + [text~="看漫剧\\\\([0-9+]/15\\\\)"] + [text="看15s漫剧抽票抽票次数+3"] + @[text="去完成"][clickable=true]',
+            '[text="task-yz"] + [text~="看影视综\\\\([0-9+]/15\\\\)"] + [text="看15s影视综抽票抽票次数+3"] + @[text="去完成"][clickable=true]',
+            '[text="task-login"] + [text~="登录百度极速版\\\\([0-9+]/1\\\\)"] + [text="每完成1次抽票次数+3"] + @[text="去完成"][clickable=true]',
+            '[text="task-yz"] + [text~="前往影视频道观看电视剧\\\\([0-9+]/1\\\\)"] + [text="观看一次抽票次数+3"] + @[text="去完成"][clickable=true]',
+          ],
+          activityIds: [
+            'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: [
+            '@FrameLayout[clickable=true] >n [text="领取奖励"][vid="obfuscated"]',
+          ],
+          activityIds: [
+            'com.baidu.searchbox.video.feedflow.tab.VideoTabActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '暑期免费看-抽10次',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="去观看"] <<n [text="现金长签到"]'],
+          excludeMatches: ['[text="去完成"][clickable=true]'],
+          matches: [
+            '[text~="剩余抽纪念票次数：[1-9][0-9] 次"] - * [text="chou10"] < @View[clickable=true] - View[clickable=true] > [text="chou1"]',
+          ],
           activityIds: [
-            'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
+            'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: [
+            '@[text="close6"][clickable=true] + [text="draw-card-title-bg"] + [text="获得10张纪念票"]',
+          ],
+          activityIds: [
+            'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
           ],
         },
       ],
