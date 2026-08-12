@@ -157,7 +157,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 14,
       name: '返回领奖-15理财日',
       matchRoot: true,
       actionMaximum: 1,
