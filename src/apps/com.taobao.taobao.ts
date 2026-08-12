@@ -36,7 +36,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           excludeMatches: [
             '[text="天猫超市"] >n @View[clickable=true] > [text="领任务"]',
