@@ -901,7 +901,7 @@ export default defineGkdApp({
           },
           actionCd: 60000,
           matches: [
-            '@[vid="fl_operating_group"] [text~="\\\\+(1[1-9]|[2-9][0-9]|[0-9]{3,})"]',
+            '@[vid="fl_operating_group"] [text~="\\\\+(1[0-9]|[2-9][0-9]|[0-9]{3,})"]',
           ],
           activityIds: [
             '.bm.mainbox.main.MainActivity',
