@@ -260,6 +260,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'clickCenter',
+          actionDelay: 2000,
           matches: [
             '[id="__react-content"] >n [text="今天"] +2 @[text="签到"]',
           ],
@@ -308,8 +309,9 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 3000,
           anyMatches: [
-            '[id="task"] @View [text="点外卖领红包"]',
-            '[id="task"] @View [text="去借呗领5元话费红包"]',
+            '[id="task"] >n @View >n [text="逛闪购领大额红包"]',
+            '[id="task"] >n @View >n [text="点外卖领红包"]',
+            '[id="task"] >n @View >n [text="去借呗领5元话费红包"]',
           ],
         },
         {
@@ -317,6 +319,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 5000,
           anyMatches: [
+            '@[desc="返回"][clickable=true] <<n * - * [id="p-2021003183669766-title-icon"]',
             '[id="__react-content"] >n @Button[clickable=true] + [text="请选择地址"]',
             '@[desc="返回"][clickable=true] <<n * - * [text="借呗"]',
           ],
@@ -347,7 +350,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 5000,
-          matches: ['[id="task"] @View [text="查看3个商品领奖励"]'],
+          matches: ['[id="task"] >n @View >n [text="查看3个商品领奖励"]'],
         },
         {
           preKeys: [0],
@@ -366,7 +369,7 @@ export default defineGkdApp({
           },
           actionCd: 5000,
           actionMaximum: 6,
-          matches: ['@[id="feeds"] [text~="滑动浏览[0-9]+s，赚3充值金"]'],
+          matches: ['@[id="feeds"] >n [text~="滑动浏览[0-9]+s，赚3充值金"]'],
         },
         {
           preKeys: [0, 1],
@@ -418,7 +421,7 @@ export default defineGkdApp({
     },
     {
       key: 34,
-      name: '充鸭攒话费-任务-逛一逛领购物大红包',
+      name: '充鸭攒话费-任务',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -428,14 +431,14 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 3000,
           anyMatches: [
-            '[id="task"] @View [text="逛一逛领购物大红包"]',
-            '[id="task"] @View [text="逛支付有礼抽福利"]',
-            '[id="task"] @View [text="逛一逛领优惠"]',
-            '[id="task"] @View [text="逛一逛领好礼"]',
-            '[id="task"] @View [text="逛一逛得福利"]',
-            '[id="task"] @View [text="遛小狗得好礼"]',
-            '[id="task"] @View [text="逛5秒淘宝人生领奖励"]',
-            '[id="task"] @View [text="逛一逛天天领奖励"]',
+            '[id="task"] >n @View >n [text="逛一逛领购物大红包"]',
+            '[id="task"] >n @View >n [text="逛支付有礼抽福利"]',
+            '[id="task"] >n @View >n [text="逛一逛领优惠"]',
+            '[id="task"] >n @View >n [text="逛一逛领好礼"]',
+            '[id="task"] >n @View >n [text="逛一逛得福利"]',
+            '[id="task"] >n @View >n [text="遛小狗得好礼"]',
+            '[id="task"] >n @View >n [text="逛5秒淘宝人生领奖励"]',
+            '[id="task"] >n @View >n [text="逛一逛天天领奖励"]',
           ],
         },
         {
@@ -466,7 +469,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 3000,
-          anyMatches: ['[id="task"] @View [text="逛精选好物得奖励"]'],
+          anyMatches: ['[id="task"] >n @View >n [text="逛精选好物得奖励"]'],
         },
         {
           preKeys: [0],
@@ -489,8 +492,8 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 3000,
           anyMatches: [
-            '[id="task"] @View [text="逛招商领150元话费"]',
-            '[id="task"] @View [text="逛光大领150元话费"]',
+            '[id="task"] >n @View >n [text="逛招商领150元话费"]',
+            '[id="task"] >n @View >n [text="逛光大领150元话费"]',
           ],
         },
         {
@@ -518,16 +521,16 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 4000,
-          matches: ['[id="task"] @[text="换一换"]'],
+          matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '[id="task"] @View [text="免费领保障金"]',
-            '[id="task"] @View [text="去装宽带超划算"]',
-            '[id="task"] @View [text="去出行里程签到得奖励"]',
-            '[id="task"] @View [text="动动手指赚现金红包"]',
+            '[id="task"] >n @View >n [text="免费领保障金"]',
+            '[id="task"] >n @View >n [text="去装宽带超划算"]',
+            '[id="task"] >n @View >n [text="去出行里程签到得奖励"]',
+            '[id="task"] >n @View >n [text="动动手指赚现金红包"]',
           ],
         },
         {
@@ -554,12 +557,12 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 4000,
-          matches: ['[id="task"] @[text="换一换"]'],
+          matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['[id="task"] @View [text="玩游戏赚现金"]'],
+          matches: ['[id="task"] >n @View >n [text="玩游戏赚现金"]'],
         },
         {
           preKeys: [0, 1],
@@ -596,12 +599,12 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 4000,
-          matches: ['[id="task"] @[text="换一换"]'],
+          matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['[id="task"] @View [text="逛5秒快递包裹游历"]'],
+          matches: ['[id="task"] >n @View >n [text="逛5秒快递包裹游历"]'],
         },
         {
           preKeys: [0, 1],
@@ -637,12 +640,12 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 4000,
-          matches: ['[id="task"] @[text="换一换"]'],
+          matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['[id="task"] @View [text="逛闲鱼赚支付红包"]'],
+          matches: ['[id="task"] >n @View >n [text="逛闲鱼赚支付红包"]'],
         },
         {
           preKeys: [0, 1],
