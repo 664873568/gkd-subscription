@@ -624,19 +624,28 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: ['@Button <<n [text="我的月付金"]'],
+          matches: ['[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
-            '@[desc="返回"] < [id="headerLeftBar"] + [text="抖音月付"]',
+            '@[desc="返回"][clickable=true] < [id="headerLeftBar"][clickable=true] + [text="抖音月付"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          actionDelay: 3000,
+          matches: [
+            '[text="车主服务"] >n @ImageButton[clickable=true] + View [text="恭喜完成任务"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -648,7 +657,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
