@@ -1236,9 +1236,7 @@ export default defineGkdApp({
           matches: [
             '@[vid="iv_close"][clickable=true] - [text="打开通知提醒"][vid="tv_title1"]',
           ],
-          activityIds: [
-            '.bm.mainbox.main.MainActivity',
-          ],
+          activityIds: ['.bm.mainbox.main.MainActivity'],
         },
       ],
     },

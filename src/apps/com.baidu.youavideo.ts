@@ -929,16 +929,14 @@ export default defineGkdApp({
     //首页功能类
     {
       key: 400,
-      name: '一键备份-×',//一键备份|一键开始原画质备份
+      name: '一键备份-×', //一键备份|一键开始原画质备份
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]',
-          ],
+          matches: ['@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]'],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
