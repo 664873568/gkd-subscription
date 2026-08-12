@@ -812,7 +812,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[id="android:id/button1"] <<n * -n [text="Z 侏罗纪：重生"][vid="text1"]',
+            '[text="点击勾选文件"][vid="tv_tip"] <n * < * - * [vid="checkable_layout"][clickable=true] >n [text="Z 侏罗纪：重生"][vid="text1"] +n [vid="item_right"] >n @[id="android:id/button1"][clickable=true]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
@@ -821,7 +821,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1000,
           matches: [
-            '[text="智能整理"][vid="ui_id_menu_text"] <n @RelativeLayout[clickable=true]',
+            '@RelativeLayout[clickable=true] >n [text="智能整理"][vid="ui_id_menu_text"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
@@ -847,16 +847,16 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[vid="cover"] < @RelativeLayout[clickable=true] < [vid="recent_pager"] <<n * +n * [text="选视频生成ai笔记"][vid="tv_title"]',
+            '[vid="recent_pager"] <<n * +n * [text="选视频生成ai笔记"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] -n * @RelativeLayout[clickable=true] > [vid="cover"]',
           ],
           activityIds: ['.servicepage.video.ui.VideoServiceActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
+          actionDelay: 6000,
           matches: [
-            '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] < RelativeLayout < @LinearLayout[clickable=true] <<n * +n * [text="选视频生成ai笔记"][vid="tv_title"]',
+            '[text="选视频生成ai笔记"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] -n * @LinearLayout[clickable=true] >n [text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
           ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
@@ -882,7 +882,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI拍一拍"][vid="tv_title"]',
+            '[text="体验AI拍一拍"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
@@ -938,7 +938,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI拍一拍"][vid="tv_title"]',
+            '[text="体验AI拍一拍"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
@@ -994,7 +994,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI去水印"][vid="tv_title"]',
+            '[text="体验AI去水印"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
@@ -1023,7 +1023,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI去水印"][vid="tv_title"]',
+            '[text="体验AI去水印"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
@@ -1079,7 +1079,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI变清晰"][vid="tv_title"]',
+            '[text="体验AI变清晰"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
@@ -1107,7 +1107,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="dyr-dt"] < @View[text=""][clickable=true] <<n * + * [text="点击写真模板"][vid="tv_title"]',
+            '[text="点击写真模板"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @View[text=""][clickable=true] > [text="dyr-dt"]',
           ],
           activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
         },
@@ -1133,7 +1133,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI消除"][vid="tv_title"]',
+            '[text="体验AI消除"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
@@ -1161,8 +1161,8 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="take_ai_photo_button"] <<n * + * [text="体验AI去手写"][vid="tv_title"]',
-          ],
+            '[text="体验AI去手写"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
+          ], 
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
@@ -1190,7 +1190,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="相册导入"][vid="question_collect_gallery"] <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
+            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[text="相册导入"][vid="question_collect_gallery"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
@@ -1201,7 +1201,7 @@ export default defineGkdApp({
           anyMatches: [
             '[text="4月25日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <<n * + * [text="确定（0/99）"][vid="btn_confirm"]',
             '[text="2025年12月27日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <<n * + * [text="确定（0/99）"][vid="btn_confirm"]',
-            '@[vid="imageview_checkbox"] <<n [vid="grid_item_layout"][index=1] <<n [vid="fragment_container"] + [vid="bottom_bar"] > [text="已选：0/99"][vid="select_count_text"]',
+            '[text="已选：0/99"][vid="select_count_text"] < [vid="bottom_bar"] - [vid="fragment_container"] >n [vid="grid_item_layout"][index=1] >n @[vid="imageview_checkbox"]',
           ],
           activityIds: [
             '.kmp.bridge.KmpSharedActivity',
@@ -1225,7 +1225,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 3,
           matches: [
-            'ImageView - @ImageView[clickable=true] - ImageView - View <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
+            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * View + ImageView + @ImageView[clickable=true] + ImageView',
           ],
           activityIds: [
             '.kmp.bridge.KmpSharedActivity',
@@ -1236,8 +1236,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2, 3],
           key: 4,
+          actionDelay: 1000,
           matches: [
-            '@[desc="录入错题"][clickable=true] -n [desc="已选择 1 道题目"] <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
+            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="已选择 1 道题目"] +n @[desc="录入错题"][clickable=true]',
           ],
           activityIds: [
             '.ui.localfile.selectfile.LocalImageSelectActivity',
@@ -1247,8 +1248,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2, 3, 4],
           key: 5,
+          actionDelay: 1000,
           matches: [
-            '@[text="全部保存"][clickable=true] <<n * + * [text="拍摄错题并录入"][vid="tv_title"]',
+            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[text="全部保存"][clickable=true]',
           ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
@@ -1274,15 +1276,16 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="take_photo_button"] <<n * + * [text="拍摄题目并解题"][vid="tv_title"]',
+            '[text="拍摄题目并解题"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_photo_button"]',
           ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 5000,
           matches: [
-            '@ImageView[clickable=true] -2 [desc="每次只框一题，识别更准确"] <<n * + * [text="拍摄题目并解题"][vid="tv_title"]',
+            '[text="拍摄题目并解题"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="每次只框一题，识别更准确"] +2 @ImageView[clickable=true]',
           ],
           activityIds: [
             'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
@@ -1325,7 +1328,7 @@ export default defineGkdApp({
             duration: 1000,
           },
           matches: [
-            '@[vid="sticky_nested_layout"] > [vid="stickyContentView"]',
+            '@[vid="refresh_layout"] > [vid="sticky_nested_layout"] > [vid="stickyContentView"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
@@ -1333,7 +1336,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="任务完成"][vid="tv_title"] -n [vid="gif_lottie_view"][clickable=true]',
+            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
@@ -1350,7 +1353,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="任务完成"][vid="tv_title"] -n [vid="gif_lottie_view"][clickable=true]',
+            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
           activityIds: ['.bdreader.ui.view.NovelMainActivity'],
         },
@@ -1886,31 +1889,20 @@ export default defineGkdApp({
             '@[text~="跳过 [0-9]"][clickable=true]',
             '@[text~="跳过 [0-9]"][vid="countdown"]',
             '@[text~="[0-9] \\\\| 跳过"][clickable=true]',
+            '[vid="fl_ad_container"] >n @View[clickable=true]',
             '@[vid="ms_skipView"] < [vid="ms_skipView_container"]',
             '@[text~="跳过 0[0-9]"][vid="tv_skip"][clickable=true]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
-            '@View[clickable=true] <3 FrameLayout <2 FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
-          activityIds: ['.advertise.ui.SplashAdActivity'],
+          activityIds: [
+            '.ui.MainActivity',
+            '.advertise.ui.SplashAdActivity',
+          ],
         },
       ],
     },
     {
       key: 501,
-      name: '首页广告-跳过 *',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text~="跳过 [0-9]"][vid="countdown"]'],
-          activityIds: ['.ui.MainActivity'],
-        },
-      ],
-    },
-    {
-      key: 510,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
