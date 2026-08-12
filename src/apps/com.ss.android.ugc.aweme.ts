@@ -904,7 +904,7 @@ export default defineGkdApp({
           action: 'back',
           anyMatches: [
             '@[desc="芒果TV"] - ImageView < ViewGroup',
-            '@[desc="腾讯视频"] - ImageView < ViewGroup'
+            '@[desc="腾讯视频"] - ImageView < ViewGroup',
             '@[desc="bilibili"] - ImageView < ViewGroup',
           ],
           activityIds: [
