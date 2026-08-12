@@ -107,23 +107,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
-      name: '互动游戏-<', //互动游戏
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '[text="游戏大厅"] >n @View[clickable=true] > [text="dancing"]',
-          ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
       key: 12,
       name: '消除烤串-⊙',
       matchRoot: true,
