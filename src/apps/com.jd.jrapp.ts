@@ -156,6 +156,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 13,
+      name: '返回领奖-15理财日',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@View[clickable=false] - View[clickable=true] < [text="15理财日"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
     //22.12.26-26.12.31 养猪猪
     //https://u.jr.jd.com/uc-fe-wxgrowing/cloudpig/index/
     {
@@ -565,9 +581,24 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
+          matches: [
+            'TextView[clickable=true] - @TextView[clickable=true] <<n WebView[text="家电家居"] >n [text="readMissionArrow2"] - [text="继续浏览下一个"] - [text="浏览完成"] < View[clickable=true] - * [text="readMissionDown"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 54,
+      name: '签到领现金-浏览完成-返回签到页',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
             '[text="返回签到页"] - [text="浏览完成"] < @View[clickable=true] - * [text="readMissionDown"]',
-            '[text="readMissionArrow2"] - [text="继续浏览下一个"] - [text="浏览完成"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -575,7 +606,7 @@ export default defineGkdApp({
     },
     //浏览*10
     {
-      key: 54,
+      key: 55,
       name: '签到领现金-商品详情-<', //逛月黑风高频道-天天逛特价 2元也包邮-逛一逛滋补馆
       matchRoot: true,
       actionMaximum: 1,
@@ -592,7 +623,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 55,
+      key: 56,
       name: '签到领现金-返回领奖', //逛白条频道领红包-浏览财富会员领权益-去停车缴费，领京豆
       matchRoot: true,
       actionMaximum: 1,
@@ -608,7 +639,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 56,
+      key: 57,
       name: '签到领现金-赚抽奖次数-看视频最高赚10元',
       matchRoot: true,
       actionMaximum: 1,
@@ -624,7 +655,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 57,
+      key: 58,
       name: '签到领现金-赚抽奖次数-<', //浏览财富会员领权益-去逛手机数码馆
       matchRoot: true,
       actionMaximum: 1,
@@ -641,7 +672,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 58,
+      key: 59,
       name: '签到领现金-赚抽奖次数-去市民中心，领京豆',
       matchRoot: true,
       actionMaximum: 1,
@@ -1175,7 +1206,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 400,
-      name: '发现新版本',
+      name: '发现新版本-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1188,6 +1219,25 @@ export default defineGkdApp({
             '.bm.mainbox.main.MainActivity',
             '.bm.common.web.ui.WebActivity',
             '.bm.zhyy.login.ui.LoginStatePromptDialog',
+          ],
+        },
+      ],
+    },
+    {
+      key: 401,
+      name: '打开通知提醒-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '@[vid="iv_close"][clickable=true] - [text="打开通知提醒"][vid="tv_title1"]',
+          ],
+          activityIds: [
+            '.bm.mainbox.main.MainActivity',
           ],
         },
       ],
