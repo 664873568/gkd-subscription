@@ -420,13 +420,13 @@ export default defineGkdApp({
       name: '看视频-跳过-二级广告页-< × 反馈',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           actionDelay: 16000,
           matches: [
-            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]',
+            '@ImageView[clickable=true] + ImageView[clickable=true] + TextView + [text="反馈"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
@@ -929,7 +929,7 @@ export default defineGkdApp({
     //首页功能类
     {
       key: 400,
-      name: '备份-×',
+      name: '一键备份-×',//一键备份|一键开始原画质备份
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -937,7 +937,27 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]', //选择备份模式|一键备份|一键开始原画质备份
+            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 401,
+      name: '选择备份模式-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
