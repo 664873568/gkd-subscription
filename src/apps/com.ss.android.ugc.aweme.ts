@@ -469,7 +469,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@Image < View + View > [text="5d5e1ba17a3090fb80016b75d2fc8758.png~tplv-49obo7mizy-75compress"]',
+            'Image < @View[clickable=true] + View > [text="5d5e1ba17a3090fb80016b75d2fc8758.png~tplv-49obo7mizy-75compress"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
