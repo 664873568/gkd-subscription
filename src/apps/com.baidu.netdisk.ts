@@ -1162,7 +1162,7 @@ export default defineGkdApp({
           key: 0,
           matches: [
             '[text="体验AI去手写"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
-          ], 
+          ],
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
@@ -1894,10 +1894,7 @@ export default defineGkdApp({
             '@[text~="跳过 0[0-9]"][vid="tv_skip"][clickable=true]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
-          activityIds: [
-            '.ui.MainActivity',
-            '.advertise.ui.SplashAdActivity',
-          ],
+          activityIds: ['.ui.MainActivity', '.advertise.ui.SplashAdActivity'],
         },
       ],
     },

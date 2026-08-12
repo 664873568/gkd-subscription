@@ -163,8 +163,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="跳过"][clickable=true] - * [text="点击跳转至第三方页面"]'],
-          activityIds: ['com.anythink.core.common.inner.ui.activity.ATMixSplashActivity'],
+          matches: [
+            '@[text="跳过"][clickable=true] - * [text="点击跳转至第三方页面"]',
+          ],
+          activityIds: [
+            'com.anythink.core.common.inner.ui.activity.ATMixSplashActivity',
+          ],
         },
       ],
     },
@@ -180,16 +184,16 @@ export default defineGkdApp({
         {
           order: 0,
           matches: [
-            '@ImageView[clickable=true] + ImageView + [text="点击或滑动查看奖励"]',//立即领取
+            '@ImageView[clickable=true] + ImageView + [text="点击或滑动查看奖励"]', //立即领取
           ],
           activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
         {
           order: 1,
           anyMatches: [
-            '@ImageView[clickable=true] - * [text="反馈"] <n * + * [text="摇动手机  了解更多"]',//去看看
-            '@ImageView[clickable=true] - * [text="反馈"] +n RelativeLayout +n RelativeLayout > View',//去看看
-            '@ImageView[clickable=true] - * [text="反馈"] <n * + RelativeLayout + RelativeLayout + View',//去看看
+            '@ImageView[clickable=true] - * [text="反馈"] <n * + * [text="摇动手机  了解更多"]', //去看看
+            '@ImageView[clickable=true] - * [text="反馈"] +n RelativeLayout +n RelativeLayout > View', //去看看
+            '@ImageView[clickable=true] - * [text="反馈"] <n * + RelativeLayout + RelativeLayout + View', //去看看
           ],
           activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
