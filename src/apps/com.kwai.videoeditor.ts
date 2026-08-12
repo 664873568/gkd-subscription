@@ -108,6 +108,7 @@ export default defineGkdApp({
             '@ImageView[clickable=true] - * [text="广告"]', //点击跳转第三方页面
             '@ImageView[clickable=false] < FrameLayout <2 * + * [text="上滑/点击了解更多内容"]',
             '@ImageView < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="下载或打开第三方应用"]',
+            '[text="扭动或点击查看详情"] <n * + * LinearLayout + FrameLayout > @ImageView[clickable=false]',
           ],
           activityIds: [
             '.commercialization.splash.GeneralAdSplashActivity',
