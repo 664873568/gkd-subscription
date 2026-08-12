@@ -179,7 +179,7 @@ export default defineGkdApp({
       rules: [
         {
           order: 0,
-          atches: [
+          matches: [
             '@ImageView[clickable=true] + ImageView + [text="点击或滑动查看奖励"]',//立即领取
           ],
           activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
