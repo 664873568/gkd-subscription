@@ -16,14 +16,20 @@ export default defineGkdApp({
         {
           key: 0,
           matches: ['@[text="去完成"][clickable=true]'],
-          activityIds: ['com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1'],
+          activityIds: [
+            'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
           action: 'back',
-          matches: ['@FrameLayout[clickable=true] >n [text="领取奖励"][vid="obfuscated"]'],
-          activityIds: ['com.baidu.searchbox.video.feedflow.tab.VideoTabActivity'],
+          matches: [
+            '@FrameLayout[clickable=true] >n [text="领取奖励"][vid="obfuscated"]',
+          ],
+          activityIds: [
+            'com.baidu.searchbox.video.feedflow.tab.VideoTabActivity',
+          ],
         },
       ],
     },
@@ -40,7 +46,9 @@ export default defineGkdApp({
           matches: [
             '[text~="剩余抽纪念票次数：[1-9][0-9]+ 次"] - * @View[clickable=true] > [text="chou10"]',
           ],
-          activityIds: ['com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1'],
+          activityIds: [
+            'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
+          ],
         },
         {
           preKeys: [0],
@@ -49,7 +57,9 @@ export default defineGkdApp({
           matches: [
             '@[text="close6"][clickable=true] + [text="draw-card-title-bg"] + [text="获得10张纪念票"]',
           ],
-          activityIds: ['com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1'],
+          activityIds: [
+            'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
+          ],
         },
       ],
     },
