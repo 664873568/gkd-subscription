@@ -43,7 +43,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 50,
+      key: 51,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
