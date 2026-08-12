@@ -277,7 +277,7 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          actionMaxmum: 3,
+          actionMaximum: 3,
           matches: [
             '[id="game-navbar"] + @View >n [text="新游速递"] + [text="任务已完成，获得45金币，明天再来吧"]',
           ],
