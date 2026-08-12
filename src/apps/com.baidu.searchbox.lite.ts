@@ -37,8 +37,7 @@ export default defineGkdApp({
       key: 1,
       name: '暑期免费看-抽10次',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      actionMaximum: 15,
       resetMatch: 'activity',
       rules: [
         {
