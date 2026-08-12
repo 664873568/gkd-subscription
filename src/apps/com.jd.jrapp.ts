@@ -665,7 +665,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
-            'TextView[clickable=true] - @TextView[clickable=true] <<n WebView',
+            'TextView[clickable=true] - @TextView[clickable=true] <<n WebView[text!=""]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
