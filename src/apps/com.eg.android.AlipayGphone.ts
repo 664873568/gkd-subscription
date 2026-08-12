@@ -155,6 +155,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '@[text="我知道了"][clickable=true] <n * + View[clickable=true] > Image',
           ],
@@ -199,7 +200,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'clickCenter',
-          actionDelay: 16000,
+          actionDelay: 17000,
           matches: [
             '[text="Smallfish App"] > [id="app"] > View > @View[clickable=true]',
           ],
@@ -212,8 +213,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 25,
-      name: '赚工分-去看视频30秒领红包-<',
+      key: 28,
+      name: '去看视频30秒领红包-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -230,7 +231,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 28,
+      key: 29,
       name: '任务已完成，恭喜获得奖励！-关闭',
       matchRoot: true,
       actionMaximum: 1,
