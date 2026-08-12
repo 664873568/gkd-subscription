@@ -125,7 +125,7 @@ export default defineGkdApp({
     },
     {
       key: 13,
-      name: '返回领奖', //签到领现金-
+      name: '返回领奖', //签到领现金-15理财日
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -134,22 +134,6 @@ export default defineGkdApp({
         {
           matches: [
             '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
-          ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
-      key: 14,
-      name: '返回领奖-15理财日',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@View[clickable=false] - View[clickable=true] < [text="15理财日"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
