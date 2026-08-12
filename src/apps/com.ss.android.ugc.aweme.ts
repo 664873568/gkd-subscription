@@ -191,7 +191,7 @@ export default defineGkdApp({
     },
     {
       key: 13,
-      name: '券红包-发财金已到账-<',
+      name: '理财-券红包-发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -207,11 +207,27 @@ export default defineGkdApp({
     },
     {
       key: 14,
-      name: '行情-发财金已到账-<',
+      name: '理财-行情-发财金已到账-<',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 22000,
+          matches: ['@[desc="券红包"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '理财-行情-发财金已到账-×',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
-      matchTime: 30000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -227,7 +243,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 22000,
           matches: [
-            '[desc="close"] < @View[clickable=true] - View > [desc="more button"]',
+            'FrameLayout[clickable=true] - * @[desc="关闭"][clickable=true]',
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
@@ -246,8 +262,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
-      name: '基金落地页-发财金已到账-<',
+      key: 16,
+      name: '理财-基金落地页-发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -262,8 +278,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 16,
-      name: '每周投-发财金已到账-<',
+      key: 17,
+      name: '理财-每周投-发财金已到账-<',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -470,6 +486,7 @@ export default defineGkdApp({
       name: '车主服务-我的保障-广告',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -505,7 +522,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -877,8 +894,9 @@ export default defineGkdApp({
         {
           action: 'back',
           anyMatches: [
-            '@[desc="bilibili"] - ImageView < ViewGroup',
             '@[desc="芒果TV"] - ImageView < ViewGroup',
+            '@[desc="腾讯视频"] - ImageView < ViewGroup'
+            '@[desc="bilibili"] - ImageView < ViewGroup',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
@@ -896,8 +914,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: ['@[text="返回领取"] - [text="浏览好物"]'],
+          matches: [
+            '@[desc="返回"][clickable=true] <<n [id="mix-navbar"] +n * [text="浏览好物"] + [text="返回领取"]',
+          ],
           activityIds: ['.live.LiveDummyActivity'],
         },
       ],
@@ -926,8 +945,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'back',
-          matches: ['@[text="返回领取"] - [text="浏览好物"]'],
+          matches: [
+            '@[desc="返回"][clickable=true] <<n [id="mix-navbar"] +n * [text="浏览好物"] + [text="返回领取"]',
+          ],
           activityIds: ['.live.LiveDummyActivity'],
         },
         {
