@@ -83,6 +83,22 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 8,
+      name: '*已安装完成，是否立即打开？-取消',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="取消"][clickable=true] + [text="打开"]'],
+          activityIds: [
+            'com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity',
+          ],
+        },
+      ],
+    },
+    {
       key: 9,
       name: '天天集能量-网页无法打开',
       matchRoot: true,
@@ -138,19 +154,42 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.baidu.mobads.sdk.api.*
     {
-      key: 30,
-      name: '看视频-广告-拼多多-×',
+      key: 22,
+      name: '看视频-广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@ImageView[clickable=true] - [text="反馈"] <<n LinearLayout + [id$="statusBarBackground"]',
-            '@ImageView[clickable=true] - * [text="反馈"] <<n LinearLayout + [id$="statusBarBackground"]',
+          matches: ['@[text="跳过"][clickable=true] - * [text="点击跳转至第三方页面"]'],
+          activityIds: ['com.anythink.core.common.inner.ui.activity.ATMixSplashActivity'],
+        },
+      ],
+    },
+    //看视频-com.baidu.mobads.sdk.api.*
+    {
+      key: 30,
+      name: '看视频-广告-×',
+      matchRoot: true,
+      actionMaximum: 2,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          order: 0,
+          atches: [
+            '@ImageView[clickable=true] + ImageView + [text="点击或滑动查看奖励"]',//立即领取
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+        {
+          order: 1,
+          anyMatches: [
+            '@ImageView[clickable=true] - * [text="反馈"] <n * + * [text="摇动手机  了解更多"]',//去看看
+            '@ImageView[clickable=true] - * [text="反馈"] +n RelativeLayout +n RelativeLayout > View',//去看看
+            '@ImageView[clickable=true] - * [text="反馈"] <n * + RelativeLayout + RelativeLayout + View',//去看看
           ],
           activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
@@ -551,6 +590,22 @@ export default defineGkdApp({
         {
           matches: [
             '@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]',
+          ],
+          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 94,
+      name: '看视频-礼包-免费获取-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'ImageView < ViewGroup[clickable=true] < @ViewGroup[clickable=true] < [desc="close_button"] - * [desc="call_button"] > [text="免费获取"] <<n * - * [desc="gift_box"] > ImageView',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
