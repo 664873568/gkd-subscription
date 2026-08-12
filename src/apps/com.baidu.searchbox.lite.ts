@@ -41,6 +41,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           excludeMatches: ['[text="去完成"][clickable=true]'],
           matches: [
             '[text~="剩余抽纪念票次数：[1-9][0-9]+ 次"] - * @View[clickable=true] > [text="chou10"]',
