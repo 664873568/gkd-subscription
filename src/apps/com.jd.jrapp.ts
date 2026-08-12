@@ -882,7 +882,7 @@ export default defineGkdApp({
       key: 90,
       name: '看视频 赚现金-上滑',
       matchRoot: true,
-      actionMaximum: 60,
+      actionMaximum: 100,
       resetMatch: 'activity',
       rules: [
         {
