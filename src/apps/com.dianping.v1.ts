@@ -163,7 +163,7 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.dianping.base.web.ui.NovaTitansActivity', //随Visa探英伦风情
-            'com.dianping.nova.picasso.DPPicassoBoxActivity', //浏览免费试频道
+            'com.dianping.nova.picasso.DPPicassoBoxActivity', //浏览免费试频道//浏览当地人推荐榜
             'com.meituan.android.mrn.container.MRNBaseActivity', //逛精选团购 享超值优惠
           ],
         },
