@@ -83,7 +83,7 @@ export default defineGkdApp({
     //看视频-.commercialization.splash.GeneralAdSplashActivity
     {
       key: 498,
-      name: '首页广告-跳过',
+      name: '首页广告-跳过csg',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -100,7 +100,7 @@ export default defineGkdApp({
     },
     {
       key: 499,
-      name: '首页广告-×',
+      name: '首页广告-×csg',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
