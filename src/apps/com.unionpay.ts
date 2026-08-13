@@ -80,7 +80,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             'Image < @View[clickable=true] -n [text="去查看"][clickable=true]',
