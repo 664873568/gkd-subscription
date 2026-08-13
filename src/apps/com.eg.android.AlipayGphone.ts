@@ -757,6 +757,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          action: 'clickCenter',
           matches: [
             '@LinearLayout[clickable=true] >n CKViewPager > FrameLayout[index=1]',
           ],
