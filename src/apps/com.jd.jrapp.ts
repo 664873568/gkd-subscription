@@ -833,7 +833,7 @@ export default defineGkdApp({
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="菜鸟"] >n @View[clickable=true] > [text="前往菜鸟APP"]',
