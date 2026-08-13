@@ -52,6 +52,20 @@ export default defineGkdApp({
     //首页广告类
     {
       key: 50,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['[vid="rn_frame"] >n ViewGroup > ViewGroup > [text~="跳过\\\\([0-9]s\\\\)"]'],
+          activityIds: ['com.sgcc.wsgw.rnbundle.activity.HomeReactActivity'],
+        },
+      ],
+    },
+    {
+      key: 51,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -65,7 +79,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 52,
       name: '首页广告-系统检修升级公告-×',
       matchRoot: true,
       actionMaximum: 1,
