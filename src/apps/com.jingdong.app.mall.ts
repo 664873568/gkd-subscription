@@ -78,7 +78,9 @@ export default defineGkdApp({
       rules: [
         {
           excludeMatches: ['[text="做任务 攒经验"]'],
-          matches: ['[text="互动游戏"] >n [text="赚京豆"] >n [text="攒经验 ›"][clickable=true]'],
+          matches: [
+            '[text="互动游戏"] >n [text="赚京豆"] >n [text="攒经验 ›"][clickable=true]',
+          ],
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
       ],
@@ -105,14 +107,16 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'clickCenter',
-          matches: ['@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]'],
+          matches: [
+            '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]',
+          ],
           activityIds: [
             'com.jd.lib.babel.view.activity.BabelActivity',
             'com.jd.lib.productdetail.ProductDetailActivity',
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 3000,
           matches: [
@@ -143,13 +147,17 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 7000,
-          matches: ['@[desc="关闭"][clickable=true] - [desc="更多"][clickable=true]'],
+          matches: [
+            '@[desc="关闭"][clickable=true] - [desc="更多"][clickable=true]',
+          ],
           activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: ['@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]'],
+          matches: [
+            '@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]',
+          ],
           activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
         },
       ],
