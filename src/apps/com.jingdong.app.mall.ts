@@ -66,18 +66,117 @@ export default defineGkdApp({
         },
       ],
     },
+    //互动游戏
+    //https://prodev.m.jd.com/mall/active/3fcyrvLZALNPWCEDRvaZJVrzek8v/index.html
     {
-      key: 5,
-      name: '浏览游戏-⊙',
+      key: 10,
+      name: '互动游戏-攒经验',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 40000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 30000,
-          matches: ['@[vid="aqw"] <<n * TextureView'],
+          excludeMatches: ['[text="做任务 攒经验"]'],
+          matches: ['[text="互动游戏"] >n [text="赚京豆"] >n [text="攒经验 ›"][clickable=true]'],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '互动游戏-逛一逛',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'clickCenter',
+          actionDelay: 3000,
+          anyMatches: [
+            '[text="互动游戏"] >n @View[clickable=true] > [text="逛一逛"]',
+            '[text="互动游戏"] >n [text~="热卖商品推荐\\\\([0-4]/5\\\\)"] +2 @View[clickable=true] > [text="去完成"]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          matches: ['@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]'],
+          activityIds: [
+            'com.jd.lib.babel.view.activity.BabelActivity',
+            'com.jd.lib.productdetail.ProductDetailActivity',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          actionDelay: 3000,
+          matches: [
+            '[text="互动游戏"] >n @TextView[clickable=true] + * [text="已完成"]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '互动游戏-逛一逛-游戏',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'clickCenter',
+          actionDelay: 3000,
+          matches: [
+            '[text="互动游戏"] >n @View[clickable=true] > [text="逛一逛"]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 7000,
+          matches: ['@[desc="关闭"][clickable=true] - [desc="更多"][clickable=true]'],
           activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: ['@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]'],
+          activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '互动游戏-领取',
+      matchRoot: true,
+      actionMaximum: 10,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 3000,
+          matches: [
+            '[text="互动游戏"] >n [text="赚京豆"] >n [text="全部奖励已解锁"] + * >n @[text="领取"][clickable=true]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="互动游戏"] >n [text="京豆奖励"] +n @[text="开心收下"][clickable=true]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
       ],
     },
