@@ -10,6 +10,7 @@ export default defineGkdApp({
       name: '签到领钱-签到',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 1000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -35,14 +36,12 @@ export default defineGkdApp({
       name: '签到领钱-逛大促会场',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@[text="O1CN01zgOxbV1KnJSkjY2Fc_!!6000000001208-2-tps-150-150"] < * + [text="签到"]',
-          ],
           matches: [
             '@[text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] < * + [text="逛大促会场"]',
           ],
@@ -71,13 +70,13 @@ export default defineGkdApp({
       key: 2,
       name: '签到领钱-打开',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           fastQuery: true,
-          actionMaximum: 1,
           matches: ['@[text="打开"][clickable=true] - [text="取消"]'],
           activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
         },
@@ -88,12 +87,12 @@ export default defineGkdApp({
       name: '签到领钱-去点淘领红包',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
           matches: [
             '[text="下载/打开APP"] < @View[clickable=true] <<n * - * [text="去点淘领红包"][vid="tvTitle"]',
           ],
