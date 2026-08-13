@@ -59,7 +59,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['[vid="rn_frame"] >n ViewGroup > ViewGroup > [text~="跳过\\\\([0-9]s\\\\)"]'],
+          matches: [
+            '[vid="rn_frame"] >n ViewGroup > ViewGroup > [text~="跳过\\\\([0-9]s\\\\)"]',
+          ],
           activityIds: ['com.sgcc.wsgw.rnbundle.activity.HomeReactActivity'],
         },
       ],
