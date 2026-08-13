@@ -679,14 +679,16 @@ export default defineGkdApp({
     },
     {
       key: 61,
-      name: '天天赚京豆-任务已完成',
+      name: '天天赚京豆-任务已完成-恭喜获得',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView -2 [text~="再领[0-9]京豆"]'],
+          matches: [
+            '@TextView[clickable=true] -2 [text~="再领[0-9]个京豆"][clickable=true]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -710,11 +712,11 @@ export default defineGkdApp({
       name: '天天赚京豆-打开APP',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: ['@[text="打开"] - [text="取消"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -725,11 +727,11 @@ export default defineGkdApp({
       name: '天天赚京豆-去七猫小说领金币',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: [
             '[text="七猫免费小说推广"] > View[clickable=true] >n @[desc="下载免费看书"][clickable=true] > [text="下载免费看书"]',
           ],
@@ -742,11 +744,11 @@ export default defineGkdApp({
       name: '天天赚京豆-去飞猪签到兑现金',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           excludeMatches: [
             '[text="此功能需访问飞猪旅行APP"] >n @[vid="common_webview_navbar_left"]',
           ],
@@ -760,11 +762,11 @@ export default defineGkdApp({
       name: '天天赚京豆-去百度极速版领现金',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: ['[text="下载百度极速版"] >n @TextView[clickable=true]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -775,11 +777,11 @@ export default defineGkdApp({
       name: '天天赚京豆-去点淘APP赚零花钱',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           anyMatches: [
             '[text="点淘"] >n @View[clickable=true] > [text="下载/打开APP"]',
             '[text="点淘"] >n [text="O1CN01aoHt3B1zVoG3DlIIc_!!6000000006720-2-tps-750-1751.png_q75.jpg_"] + @TextView[clickable=true]', //点击领元宝
@@ -793,11 +795,11 @@ export default defineGkdApp({
       name: '天天赚京豆-去全民K歌领福利',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: [
             '@[id="76d7f62d-5557-482a-8863-9b8b32bc35b4"][clickable=true]',
           ],
@@ -810,14 +812,31 @@ export default defineGkdApp({
       name: '天天赚京豆-来菜鸟每天抽手机',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          key: 0,
           anyMatches: [
-            '[text="菜鸟"] >n @TextView[clickable=true] > [text="前往菜鸟APP"]',
-            '[text="菜鸟"] >n @[id="root"]',
+            '[text="菜鸟"] >n @View[clickable=true] > [text="前往菜鸟APP"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="菜鸟"] << * + * [text="菜鸟"] >n @[id="root"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[vid="iv_platform_icon"][clickable=true] + [text="刷新"][vid="tv_platform_text"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[text="菜鸟"] >n @View[clickable=true] > [text="前往菜鸟APP"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
