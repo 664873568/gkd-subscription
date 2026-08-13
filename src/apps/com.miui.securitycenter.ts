@@ -233,5 +233,22 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 40,
+      name: '获取已安装的应用信息-拒绝',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="拒绝"][clickable=true] < [vid="buttonPanel"] -n [vid="topPanel"] > [text~="是否允许“.*”获取已安装的应用信息"][vid="alertTitle"]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
   ],
 });
