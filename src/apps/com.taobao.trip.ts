@@ -403,7 +403,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]'],
+          matches: [
+            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]',
+          ],
           activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -426,14 +428,15 @@ export default defineGkdApp({
     },
     {
       key: 65,
-      name: '看视频-跳过-礼包-领取成功byazt.sr', //*s后可领取奖励
+      name: '看视频-跳过-礼包-领取成功byazt.sr',//*s后可领取奖励
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            'ImageView < @LinearLayout[clickable=true] -n LinearLayout[clickable=true] > ImageView + [text="领取成功"]',
             '[text="跳过"] < @LinearLayout[clickable=true] -n LinearLayout[clickable=true] > ImageView + [text="领取成功"]',
           ],
           activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
@@ -498,7 +501,7 @@ export default defineGkdApp({
     },
     {
       key: 73,
-      name: '看视频-跳过-礼包-领取成功bsoc', //*s后可领取奖励
+      name: '看视频-跳过-礼包-领取成功bsoc',//*s后可领取奖励
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 2000,
@@ -571,7 +574,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.kwad.sdk.api.proxy.app.*
+    //看视频-com.kwad.sdk.api.proxy.app.FeedDownloadActivity
     {
       key: 90,
       name: '看视频-立即领取-跳过',
@@ -588,12 +591,13 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
     {
       key: 91,
       name: '看视频-跳过-立即领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 2000,
+      matchDelay: 5000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -602,8 +606,8 @@ export default defineGkdApp({
             'ImageView - @[desc="sky_lantern_main"][clickable=true] <<n * +n * [text="跳过"]',
             '[text="点击下载免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
             '[text="点击跳转免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
-            '[text="点击或滑动点击下载免看广告"] < [desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
-            '[text="点击或滑动点击跳转免看广告"] < [desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
+            '[text="点击或滑动点击下载免看广告"] < @[desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
+            '[text="点击或滑动点击跳转免看广告"] < @[desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
