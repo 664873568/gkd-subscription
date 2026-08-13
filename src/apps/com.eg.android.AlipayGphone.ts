@@ -57,8 +57,13 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
+          position: {
+            left: 'width * 0.5035',
+            top: 'width * 0.5052',
+          },
           matches: [
-            '[id="ppage-index-index"] >n @[text="去完成"] -n [text="完成任务可得300个投教奖学金"]',
+            '[id="ppage-index-index"] >n @View > [text="浏览1篇投教精选内容"] +n [text="去完成"]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
@@ -79,7 +84,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          actionDelay: 5000,
           matches: [
             '[id="ppage-index-index"] >n [text="任务完成"] +n @[text="收下并继续探险"]',
           ],
@@ -134,7 +138,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: [
             '[id="ppage-index-index"] >n [text="恭喜你"] +n @[text="收下了"]',
           ],
@@ -195,7 +198,7 @@ export default defineGkdApp({
       name: '赚工分-任务完成-<',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -704,7 +707,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -734,7 +737,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 16000,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
