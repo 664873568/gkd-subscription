@@ -158,7 +158,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '@[text="我知道了"][clickable=true] <n * + View[clickable=true] > Image',
           ],
@@ -197,7 +197,6 @@ export default defineGkdApp({
       key: 22,
       name: '赚工分-任务完成-<',
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 30000,
       resetMatch: 'activity',
       rules: [
@@ -210,7 +209,18 @@ export default defineGkdApp({
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity', //已浏览完成 返回>//芝麻炼金-逛玩赚支付宝领现金
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02', //任务完成
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',//逛商家服务
             'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
+          ],
+        },
+        {
+          action: 'clickCenter',
+          actionMaximum: 2,
+          matches: [
+            '[text="Smallfish App"] > [id="app"] > View > @View[clickable=true]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',//逛商家服务
           ],
         },
       ],
@@ -263,7 +273,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'clickCenter',
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
             '[id="__react-content"] >n [text="今天"] +2 @[text="签到"]',
           ],
@@ -305,12 +315,12 @@ export default defineGkdApp({
       name: '充鸭攒话费-任务-点外卖领红包',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
+          actionDelay: 4000,
           anyMatches: [
             '[id="task"] >n @View >n [text="逛闪购领大额红包"]',
             '[id="task"] >n @View >n [text="点外卖领红包"]',
@@ -352,7 +362,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
+          actionDelay: 6000,
           matches: ['[id="task"] >n @View >n [text="查看3个商品领奖励"]'],
         },
         {
@@ -401,12 +411,12 @@ export default defineGkdApp({
       name: '充鸭攒话费-任务-去借呗领*话费红包',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
+          actionDelay: 4000,
           matches: ['@[desc="返回"][clickable=true] <<n * - * [text="借呗"]'],
         },
         {
@@ -427,12 +437,12 @@ export default defineGkdApp({
       name: '充鸭攒话费-任务',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
+          actionDelay: 4000,
           anyMatches: [
             '[id="task"] >n @View >n [text="逛一逛领购物大红包"]',
             '[id="task"] >n @View >n [text="逛支付有礼抽福利"]',
@@ -471,7 +481,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
+          actionDelay: 4000,
           anyMatches: ['[id="task"] >n @View >n [text="逛精选好物得奖励"]'],
         },
         {
@@ -488,12 +498,12 @@ export default defineGkdApp({
       name: '充鸭攒话费-逛*领150元话费',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
+          actionDelay: 4000,
           anyMatches: [
             '[id="task"] >n @View >n [text="逛招商领150元话费"]',
             '[id="task"] >n @View >n [text="逛光大领150元话费"]',
@@ -518,12 +528,12 @@ export default defineGkdApp({
       name: '充鸭攒话费-任务-换一换',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 4000,
+          actionDelay: 5000,
           matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
@@ -554,12 +564,12 @@ export default defineGkdApp({
       name: '充鸭攒话费-任务-玩游戏赚现金',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 4000,
+          actionDelay: 5000,
           matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
@@ -596,12 +606,12 @@ export default defineGkdApp({
       name: '充鸭攒话费-任务-逛5秒快递包裹游历',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 4000,
+          actionDelay: 5000,
           matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
@@ -637,12 +647,12 @@ export default defineGkdApp({
       name: '充鸭攒话费-任务-逛闲鱼赚支付红包',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 4000,
+          actionDelay: 5000,
           matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
