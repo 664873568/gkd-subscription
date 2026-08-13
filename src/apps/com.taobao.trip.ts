@@ -403,9 +403,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]',
-          ],
+          matches: ['@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]'],
           activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
         },
       ],
@@ -428,7 +426,7 @@ export default defineGkdApp({
     },
     {
       key: 65,
-      name: '看视频-跳过-礼包-领取成功byazt.sr',//*s后可领取奖励
+      name: '看视频-跳过-礼包-领取成功byazt.sr', //*s后可领取奖励
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -501,7 +499,7 @@ export default defineGkdApp({
     },
     {
       key: 73,
-      name: '看视频-跳过-礼包-领取成功bsoc',//*s后可领取奖励
+      name: '看视频-跳过-礼包-领取成功bsoc', //*s后可领取奖励
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 2000,
