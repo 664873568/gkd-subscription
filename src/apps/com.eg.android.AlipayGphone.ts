@@ -209,7 +209,7 @@ export default defineGkdApp({
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity', //已浏览完成 返回>//芝麻炼金-逛玩赚支付宝领现金
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02', //任务完成
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',//逛商家服务
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main', //逛商家服务
             'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
           ],
         },
@@ -220,7 +220,7 @@ export default defineGkdApp({
             '[text="Smallfish App"] > [id="app"] > View > @View[clickable=true]',
           ],
           activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',//逛商家服务
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity', //逛商家服务
           ],
         },
       ],
