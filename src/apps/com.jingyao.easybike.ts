@@ -186,11 +186,10 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           matches: [
             '[text="游戏中心"] >n @View[clickable=true] > [text="oXpz4laBxppU0AAAAASUVORK5CYII="] + [text="签到"]',
           ],
@@ -199,6 +198,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '[text="游戏中心"] >n @View[clickable=true] > [text~="恭喜获得 [0-9]+ 金币"] + [text="好的"]',
           ],
@@ -208,41 +208,6 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '游戏中心-去完成',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 70000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text="游戏中心"] >n [text^="玩2个"] + @[text="去完成"][clickable=true]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 61000,
-          matches: [
-            '[vid="float_change_view"][clickable=true] >n [vid="float_nor_ll"] >n @[vid="float_close"]',
-          ],
-          activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          matches: [
-            '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
-          ],
-          activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
-        },
-      ],
-    },
-    {
-      key: 12,
       name: '游戏中心-再玩',
       matchRoot: true,
       actionMaximum: 1,
@@ -291,16 +256,23 @@ export default defineGkdApp({
           matches: [
             '[vid="float_change_view"][clickable=true] >n [vid="float_nor_ll"] >n @[vid="float_close"]',
           ],
-          activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
+          activityIds: [
+            'com.chengle.lib.game.web.WebGameActivity',
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+          ],
         },
         {
           order: 3,
           preKeys: [0],
           key: 2,
-          matches: [
+          anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
+            '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n @[text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + [text="暂不评论"][vid="rate_cancel"]',
           ],
-          activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
+          activityIds: [
+            'com.chengle.lib.game.web.WebGameActivity',
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+          ],
         },
       ],
     },
