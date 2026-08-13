@@ -14,8 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
+            '@ImageView[clickable=false] <<n *[childCount=1] - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',//美团-惊喜等你拿
           ],
           activityIds: ['com.byazt.re.Stub_Standard_Portrait_Activity'],
         },
@@ -34,8 +35,8 @@ export default defineGkdApp({
           anyMatches: [
             '@Image[clickable=false] <<n * -n * [text="反馈"] <<n * + * [text="轻触或上滑"]',
             '@Image[clickable=false] <<n * - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',
-            '@ImageView[clickable=false] <<n * - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',
             '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
+            '@ImageView[clickable=false] <<n *[childCount=1] - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',//苏宁易购-惊喜等你拿
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
@@ -54,6 +55,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
+            '@ImageView[clickable=false] < FrameLayout <n * + * [text="上滑/点击了解更多内容"] < * + [text="跳转微信"]',
             '@ImageView[clickable=true] + LinearLayout + RelativeLayout + ImageView + ImageView',
           ],
           activityIds: ['com.kwai.krn.KrnKyActivity'],
@@ -70,16 +72,17 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@[text~="跳过 [0-9]"][clickable=true]',
             '@ImageView[clickable=true] - [text="反馈"] - ImageView < FrameLayout',
           ],
           activityIds: ['com.octopus.ad.AdActivity'],
         },
       ],
     },
-    //首页广告类
+    //看视频-.commercialization.splash.GeneralAdSplashActivity
     {
-      key: 500,
+      key: 498,
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
@@ -96,7 +99,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 501,
+      key: 499,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -109,11 +112,27 @@ export default defineGkdApp({
             '@ImageView[clickable=false] < FrameLayout <2 * + * [text="上滑/点击了解更多内容"]',
             '@ImageView < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="下载或打开第三方应用"]',
             '[text="扭动或点击查看详情"] <n * + * LinearLayout + FrameLayout > @ImageView[clickable=false]',
+            '@ImageView[clickable=false] < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="跳转微信"]',
           ],
           activityIds: [
             '.commercialization.splash.GeneralAdSplashActivity',
             'null',
           ],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 500,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text~="跳过 [0-9]"]'],
+          activityIds: ['.activity.MainActivity'],
         },
       ],
     },
