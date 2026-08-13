@@ -167,12 +167,12 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@FrameLayout[clickable=true] > FrameLayout > [id*="cj_plugin:id"] + FrameLayout > ImageView'
+            '@FrameLayout[clickable=true] > FrameLayout > [id*="cj_plugin:id"] + FrameLayout > ImageView',
           ],
           activityIds: [
-            '.live.LiveDummyActivity',//券红包
-            '.bullet.ui.BulletContainerActivity',//基金落地页-每周投
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',//行情
+            '.live.LiveDummyActivity', //券红包
+            '.bullet.ui.BulletContainerActivity', //基金落地页-每周投
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0', //行情
           ],
         },
       ],
@@ -506,7 +506,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 1000,
-          matches: ['[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]'],
+          matches: [
+            '[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
