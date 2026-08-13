@@ -347,11 +347,13 @@ export default defineGkdApp({
       name: '看视频-跳过-去体验*秒可立即领奖byazt.sr',
       matchRoot: true,
       actionMaximum: 3,
+      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
+            '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要立即领奖"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
@@ -364,7 +366,8 @@ export default defineGkdApp({
       name: '看视频-跳过-奖励已领取byazt.sr',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -378,6 +381,7 @@ export default defineGkdApp({
       name: '看视频-礼包-再逛*秒后可领奖byazt.sr',
       matchRoot: true,
       actionMaximum: 3,
+      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -400,7 +404,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
         },
@@ -422,12 +426,29 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 65,
+      name: '看视频-跳过-礼包-领取成功byazt.sr',//*s后可领取奖励
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="跳过"] < @LinearLayout[clickable=true] -n LinearLayout[clickable=true] > ImageView + [text="领取成功"]',
+          ],
+          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity
     {
       key: 70,
-      name: '看视频-跳过-去体验*秒可立即领奖.b.c',
+      name: '看视频-跳过-去体验*秒可立即领奖bsoc',
       matchRoot: true,
       actionMaximum: 3,
+      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -443,7 +464,7 @@ export default defineGkdApp({
     },
     {
       key: 71,
-      name: '看视频-跳过-限时奖励.b.c',
+      name: '看视频-跳过-限时奖励bsoc',
       matchRoot: true,
       actionMaximum: 6,
       matchTime: 40000,
@@ -462,14 +483,34 @@ export default defineGkdApp({
     },
     {
       key: 72,
-      name: '看视频-跳过-奖励已领取.b.c',
+      name: '看视频-跳过-奖励已领取bsoc',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 73,
+      name: '看视频-跳过-礼包-领取成功bsoc',//*s后可领取奖励
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 2000,
+      matchTime: 40000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="跳过"] < @LinearLayout[clickable=true] -n LinearLayout[clickable=true] > ImageView + [text="领取成功"]',
+          ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -481,8 +522,9 @@ export default defineGkdApp({
       key: 80,
       name: '看视频-跳过↓',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      actionMaximum: 3,
+      matchDelay: 1000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -499,10 +541,11 @@ export default defineGkdApp({
     },
     {
       key: 81,
-      name: '看视频-跳过-奖励已领取.b.s',
+      name: '看视频-跳过-奖励已领取bsos',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -515,15 +558,15 @@ export default defineGkdApp({
     },
     {
       key: 82,
-      name: '看视频-二级广告页bytedance',
+      name: '看视频-二级广告页bsoc',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 16000,
           matches: ['@ImageView + ImageView +2 [text="反馈"]'],
-          snapshotUrls: ['https://i.gkd.li/i/23547990'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
           ],
@@ -552,6 +595,7 @@ export default defineGkdApp({
       name: '看视频-跳过-立即领取',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 2000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -572,7 +616,7 @@ export default defineGkdApp({
       name: '看视频-跳过-礼包-看*秒可直接拿奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -588,7 +632,8 @@ export default defineGkdApp({
       name: '看视频-跳过-礼包',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -658,7 +703,7 @@ export default defineGkdApp({
       name: '看视频-微信-阅读小说 可获得奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
@@ -844,6 +889,7 @@ export default defineGkdApp({
             '@[text="跳过"][clickable=true]',
             '[text~="跳过  [0-9]"] < @[id$="vilon_close_miss"]',
             '@[vid="anythink_myoffer_splash_skip_area"] > [text="跳过"]',
+            '@[vid="sdm_myoffer_splash_skip_area"][clickable=true] > [text~="[0-9]s \\\\| Skip"][vid="sdm_myoffer_splash_skip"]',
           ],
           activityIds: [
             'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
@@ -861,9 +907,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="跳过"] + [text="5814"]',
             '@[id$="ms_skipView"] < [id$="ms_skipView_container"]',
-            '[text="跳过广告"][vid="splash_skip_hint_tv"] <<n @[vid="splash_biz_skip_ad"]',
+            '@[vid="splash_biz_skip_ad"] >n [text="跳过广告"][vid="splash_skip_hint_tv"]',
           ],
           activityIds: [
             '.splash.ui.ImageSplashActivity',
@@ -908,9 +953,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="跳过"] + [text="5814"]',
             '@[id$="ms_skipView"] < [id$="ms_skipView_container"]',
-            '[text="跳过广告"][vid="splash_skip_hint_tv"] <<n @[vid="splash_biz_skip_ad"]',
+            '@[vid="splash_biz_skip_ad"] >n [text="跳过广告"][vid="splash_skip_hint_tv"]',
           ],
           activityIds: [
             '.splash.ui.ImageSplashActivity',
