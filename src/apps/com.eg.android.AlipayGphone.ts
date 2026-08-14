@@ -70,7 +70,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 16000,
           matches: [
@@ -81,7 +81,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@[text="关闭"][clickable=true] - [text="任务已完成，恭喜获得奖励！"] - [text="广告"]',
@@ -129,9 +129,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[id="app"][clickable=true] <<n * + * [text~="滑一滑[0-9]+秒得奖励"]',
           ],
-          matches: [
-            '@[desc="返回"][clickable=true] + * [text="先用后付购物"]',
-          ],
+          matches: ['@[desc="返回"][clickable=true] + * [text="先用后付购物"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
