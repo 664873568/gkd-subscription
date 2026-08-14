@@ -524,6 +524,22 @@ export default defineGkdApp({
     //系统应用类
     {
       key: 40,
+      name: '新版本上线啦！-下次再说',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="新版本上线啦！"][vid="bupdate_tv_title"] <n * + * >n [text="立即体验"][vid="bupdate_btn_confirm_update"] + @[text="下次再说"][vid="bupdate_tv_bottom_tip"][clickable=true]',
+          ],
+          activityIds: ['.ui.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
       name: '温馨提示-取消',
       matchRoot: true,
       actionMaximum: 1,
@@ -562,7 +578,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="iv_dialog_close_one"][clickable=true]'],
+          anyMatches: [
+            '@[vid="iv_sky_close"][clickable=true]',
+            '@[vid="iv_dialog_close_one"][clickable=true]',
+          ],
           activityIds: ['.ui.MainActivity'],
         },
       ],
