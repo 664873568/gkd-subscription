@@ -7,7 +7,7 @@ export default defineGkdApp({
     //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
     {
       key: 10,
-      name: '看视频-跳过-去体验*秒可立即领奖',
+      name: '看视频-跳过-去体验*秒可立即领奖bms',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -24,7 +24,7 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '看视频-跳过-跳过',
+      name: '看视频-跳过-跳过bms',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 2000,
@@ -42,7 +42,7 @@ export default defineGkdApp({
     //看视频-com.byazt.gd.Stub_Standard_Portrait_Activity
     {
       key: 20,
-      name: '看视频-跳过-去体验*秒可立即领奖',
+      name: '看视频-跳过-去体验*秒可立即领奖bgs',
       matchRoot: true,
       actionMaximum: 3,
       matchDelay: 1000,
@@ -68,7 +68,7 @@ export default defineGkdApp({
     },
     {
       key: 21,
-      name: '看视频-跳过-限时领取',
+      name: '看视频-跳过-限时领取bgs',
       matchRoot: true,
       actionMaximum: 6,
       matchTime: 40000,
@@ -111,7 +111,7 @@ export default defineGkdApp({
     },
     {
       key: 23,
-      name: '看视频-跳过-奖励已领取',
+      name: '看视频-跳过-奖励已领取bgs',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 2000,
@@ -126,7 +126,7 @@ export default defineGkdApp({
     },
     {
       key: 24,
-      name: '看视频-礼包-再逛*秒后可领奖',
+      name: '看视频-礼包-再逛*秒后可领奖bgs',
       matchRoot: true,
       actionMaximum: 3,
       matchDelay: 1000,
