@@ -6,17 +6,134 @@ export default defineGkdApp({
   groups: [
     //芝麻粒
     {
-      key: 3,
-      name: '芝麻粒-完成任务',
+      key: 0,
+      name: '芝麻粒-送你1次免费炼金机会',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 35000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="Smallfish App"] >n [text="已浏览完成"]'],
+          antMatches: [
+            '[text="芝麻粒炼金"] >n @View[clickable=true] > [text="去完成任务"]',
+            '[text="芝麻粒炼金"] >n @View[clickable=true] > [text="去浏览 15s 视频"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '芝麻粒-完成任务',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 70000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="Smallfish App"] >n @View[clickable=true] >n [text="已浏览完成"] + [text="返回>"]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$XRiverLite1',
+          ],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '芝麻粒-广告-查看商品或滑动*秒后可领奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@View[clickable=true] < * < [id="xlight-feeds"] - * > [text="广告"] + [text~="查看商品或滑动[0-9]+秒后可领奖励"] + [text="关闭"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="关闭"] - [text~="查看商品或滑动[0-9]+秒后可领奖励"] - [text="广告"] < * + [id="xlight-feeds"] >n @View[clickable=true]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          actionDelay: 16000,
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * - * [text="瑞幸咖啡温馨提示"] +n [text="同意"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App03',
+          ],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          matches: [
+            '@[text="关闭"][clickable=true] - [text="任务已完成，恭喜获得奖励！"] - [text="广告"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '芝麻粒-滑一滑*秒得奖励',
+      matchRoot: true,
+      actionMaximum: 10,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'swipe',
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionDelay: 3000,
+          actionMaximum: 6,
+          matches: [
+            '@[id="app"][clickable=true] <<n * + * [text~="滑一滑[0-9]+秒得奖励"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          excludeMatches: [
+            '@[id="app"][clickable=true] <<n * + * [text~="滑一滑[0-9]+秒得奖励"]',
+          ],
+          matches: [
+            '@[desc="返回"][clickable=true] + * [text="先用后付购物"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
         },
       ],
@@ -242,24 +359,6 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.alipay.android.living.activity.LivingDetailActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 29,
-      name: '任务已完成，恭喜获得奖励！-关闭',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="关闭"][clickable=true] - [text="任务已完成，恭喜获得奖励！"]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
         },
       ],
