@@ -14,9 +14,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '@[text~="跳过 [0-9]"][clickable=true]',
-          ],
+          matches: ['@[text~="跳过 [0-9]"][clickable=true]'],
           activityIds: ['.ui.splashad.SplashAdActivity'],
         },
       ],
