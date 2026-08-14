@@ -187,16 +187,18 @@ export default defineGkdApp({
           matches: [
             '[text="直播间心愿"] >n @View[clickable=true] > [text="0276048048dc874a"]',
           ],
-          activityIds: ['com.jd.lib.mylive.view.activity.VideoLiveRoomActivity'],
+          activityIds: [
+            'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
+          ],
         },
         {
           preKeys: [0, 1],
           key: 2,
           actionDelay: 7000,
-          matches: [
-            '@[desc="关闭直播间"][clickable=true] > ImageView',
+          matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
+          activityIds: [
+            'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
           ],
-          activityIds: ['com.jd.lib.mylive.view.activity.VideoLiveRoomActivity'],
         },
       ],
     },
