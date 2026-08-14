@@ -16,8 +16,8 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           anyMatches: [
-            '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
-            '@ImageView[clickable=false] <<n *[childCount=1] - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //美团-惊喜等你拿
+            '@ImageView < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
+            '@ImageView <<n *[childCount=1] - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //美团-惊喜等你拿
           ],
           activityIds: ['com.byazt.re.Stub_Standard_Portrait_Activity'],
         },
@@ -35,10 +35,11 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           anyMatches: [
-            '@Image[clickable=false] <<n * -n * [text="反馈"] <<n * + * [text="轻触或上滑"]',
-            '@Image[clickable=false] <<n * - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',
-            '@ImageView[clickable=false] < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
-            '@ImageView[clickable=false] <<n *[childCount=1] - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //苏宁易购-惊喜等你拿
+            '@Image <<n * -n * [text="反馈"] <<n * + * [text="轻触或上滑"]',
+            '@Image <<n * - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',
+            '@ImageView < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
+            '@Image < View < View - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
+            '@ImageView <<n *[childCount=1] - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //苏宁易购-惊喜等你拿
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
@@ -57,7 +58,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[clickable=false] < FrameLayout <n * + * [text="上滑/点击了解更多内容"] < * + [text="跳转微信"]',
+            '@ImageView < FrameLayout <n * + * [text="上滑/点击了解更多内容"] < * + [text="跳转微信"]',
             '@ImageView[clickable=true] + LinearLayout + RelativeLayout + ImageView + ImageView',
           ],
           activityIds: ['com.kwai.krn.KrnKyActivity'],
@@ -111,10 +112,10 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@ImageView[clickable=true] - * [text="广告"]', //点击跳转第三方页面
-            '@ImageView[clickable=false] < FrameLayout <2 * + * [text="上滑/点击了解更多内容"]',
+            '@ImageView < FrameLayout <2 * + * [text="上滑/点击了解更多内容"]',
             '@ImageView < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="下载或打开第三方应用"]',
-            '[text="扭动或点击查看详情"] <n * + * LinearLayout + FrameLayout > @ImageView[clickable=false]',
-            '@ImageView[clickable=false] < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="跳转微信"]',
+            '[text="扭动或点击查看详情"] <n * + * LinearLayout + FrameLayout > @ImageView',
+            '@ImageView < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="跳转微信"]',
           ],
           activityIds: [
             '.commercialization.splash.GeneralAdSplashActivity',
