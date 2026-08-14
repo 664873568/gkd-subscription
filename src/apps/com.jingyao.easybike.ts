@@ -266,7 +266,7 @@ export default defineGkdApp({
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           action: 'clickCenter',
           actionDelay: 61000,
@@ -279,7 +279,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
@@ -325,13 +325,11 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 1000,
-          matches: [
-            '[text="游戏中心"] >n [text="一键领取"][clickable=true]',
-          ],
+          matches: ['[text="游戏中心"] >n [text="一键领取"][clickable=true]'],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 3000,
           matches: [
@@ -340,7 +338,7 @@ export default defineGkdApp({
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 1000,
           matches: [
