@@ -182,40 +182,13 @@ export default defineGkdApp({
     //游戏中心
     {
       key: 10,
-      name: '游戏中心-签到',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="游戏中心"] >n @View[clickable=true] > [text="oXpz4laBxppU0AAAAASUVORK5CYII="] + [text="签到"]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 1000,
-          matches: [
-            '[text="游戏中心"] >n @View[clickable=true] > [text~="恭喜获得 [0-9]+ 金币"] + [text="好的"]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-      ],
-    },
-    {
-      key: 11,
-      name: '游戏中心-再玩',
+      name: '游戏中心-热门推荐/新游速递',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 70000,
       resetMatch: 'activity',
       rules: [
         {
-          order: 0,
           key: 0,
           actionDelay: 2000,
           anyMatches: [
@@ -223,13 +196,46 @@ export default defineGkdApp({
             '[text="开玩"] <n View <n @View[index=2][clickable=true] -n * [text="再玩1个热门推荐各60秒"]',
             '@View[index=0][clickable=true] < ListView < * - * [text="再玩2个新游速递各60秒"]',
             '@View[index=1][clickable=true] <n ListView < * - * [text="再玩1个新游速递各60秒"]',
-            '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个大家都在玩各60秒"]',
-            '[text="开玩"] <n View <n @View[index=2][clickable=true] -n * [text="再玩1个大家都在玩各60秒"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          order: 1,
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          actionDelay: 61000,
+          matches: [
+            '[vid="float_change_view"][clickable=true] >n [vid="float_nor_ll"] >n @[vid="float_close"]',
+          ],
+          activityIds: [
+            'com.chengle.lib.game.web.WebGameActivity',
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          anyMatches: [
+            '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
+            '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n [text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + @[text="暂不评论"][vid="rate_cancel"]',
+          ],
+          activityIds: [
+            'com.chengle.lib.game.web.WebGameActivity',
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '游戏中心-大家都在',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 70000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -243,15 +249,26 @@ export default defineGkdApp({
             duration: 200,
           },
           actionMaximum: 3,
+          actionDelay: 1000,
           matches: [
             '[id="game-navbar"] + @View >n [text="新游速递"] + [text="任务已完成，获得45金币，明天再来吧"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          order: 2,
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
+          anyMatches: [
+            '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个大家都在玩各60秒"]',
+            '[text="开玩"] <n View <n @View[index=2][clickable=true] -n * [text="再玩1个大家都在玩各60秒"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          action: 'clickCenter',
           actionDelay: 61000,
           matches: [
             '[vid="float_change_view"][clickable=true] >n [vid="float_nor_ll"] >n @[vid="float_close"]',
@@ -262,17 +279,74 @@ export default defineGkdApp({
           ],
         },
         {
-          order: 3,
-          preKeys: [0],
-          key: 2,
+          preKeys: [0,1,2],
+          key: 3,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
-            '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n @[text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + [text="暂不评论"][vid="rate_cancel"]',
+            '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n [text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + @[text="暂不评论"][vid="rate_cancel"]',
           ],
           activityIds: [
             'com.chengle.lib.game.web.WebGameActivity',
             'com.alipay.mobile.nebulacore.ui.H5Activity',
           ],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '游戏中心-签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          action: 'swipe',
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            duration: 200,
+          },
+          actionMaximum: 3,
+          actionDelay: 1000,
+          matches: [
+            '[id="game-navbar"] + @View >n [text="大家都在玩"] + [text="任务已完成，获得20金币，明天再来吧"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 1000,
+          matches: [
+            '[text="游戏中心"] >n [text="一键领取"][clickable=true]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          actionDelay: 3000,
+          matches: [
+            '[text="游戏中心"] >n @View[clickable=true] > [text="oXpz4laBxppU0AAAAASUVORK5CYII="] + [text="签到"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          actionDelay: 1000,
+          matches: [
+            '[text="游戏中心"] >n @View[clickable=true] > [text~="恭喜获得 [0-9]+ 金币"] + [text="好的"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
     },
