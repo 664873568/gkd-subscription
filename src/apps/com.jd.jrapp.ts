@@ -809,6 +809,23 @@ export default defineGkdApp({
     },
     {
       key: 69,
+      name: '天天赚京豆-百度网盘领福利',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 3000,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="去网盘新任务系统"] >n View[clickable=true] > @TextView[clickable=true]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 70,
       name: '天天赚京豆-来菜鸟每天抽手机',
       matchRoot: true,
       actionMaximum: 1,
@@ -819,8 +836,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
+            '[text="菜鸟"] >n @[id="root"]',
             '[text="菜鸟"] >n @View[clickable=true] > [text="前往菜鸟APP"]',
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="菜鸟"] << * + * [text="菜鸟"] >n @[id="root"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -920,7 +937,7 @@ export default defineGkdApp({
           },
           actionCd: 60000,
           matches: [
-            '@[vid="fl_operating_group"] [text~="\\\\+(1[0-9]|[2-9][0-9]|[0-9]{3,})"]',
+            '@[vid="fl_operating_group"] >n [text~="(?:[0-9]|[1-4][0-9]|5[0-2])/53"]',
           ],
           activityIds: [
             '.bm.mainbox.main.MainActivity',
