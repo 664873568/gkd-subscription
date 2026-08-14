@@ -107,6 +107,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'clickCenter',
+          actionDelay: 1000,
           matches: [
             '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]',
           ],
@@ -164,6 +165,43 @@ export default defineGkdApp({
     },
     {
       key: 13,
+      name: '互动游戏-逛一逛-直播',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'clickCenter',
+          actionDelay: 3000,
+          matches: [
+            '[text="互动游戏"] >n @View[clickable=true] > [text="逛一逛"]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 1000,
+          matches: [
+            '[text="直播间心愿"] >n @View[clickable=true] > [text="0276048048dc874a"]',
+          ],
+          activityIds: ['com.jd.lib.mylive.view.activity.VideoLiveRoomActivity'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          actionDelay: 7000,
+          matches: [
+            '@[desc="关闭直播间"][clickable=true] > ImageView',
+          ],
+          activityIds: ['com.jd.lib.mylive.view.activity.VideoLiveRoomActivity'],
+        },
+      ],
+    },
+    {
+      key: 14,
       name: '互动游戏-领取',
       matchRoot: true,
       actionMaximum: 10,
@@ -229,8 +267,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
+          anyMatches: [
             'ViewGroup[clickable=true] + ViewGroup > @[desc="关闭"][clickable=true] > ImageView',
+            'ViewGroup > FrameLayout[clickable=true] + @FrameLayout[clickable=true] > [desc="关闭"]',
           ],
           activityIds: ['.MainFrameActivity'],
         },
