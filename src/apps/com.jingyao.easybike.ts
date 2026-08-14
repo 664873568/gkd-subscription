@@ -17,7 +17,10 @@ export default defineGkdApp({
           matches: [
             '[text="签到"][vid="tvSignInClick"] + [vid="btnSignInClickWithAds"] > @[text~="点击广告再领[0-9]+奖励金"][vid="tvSignInClickWithAds"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+          activityIds: [
+            'com.alipay.mobile.nebulacore.ui.H5Activity',
+            'com.hellobike.atlas.business.portal.PortalActivity',
+          ],
         },
       ],
     },
