@@ -201,6 +201,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           action: 'clickCenter',
           actionDelay: 17000,
           matches: [
@@ -214,6 +215,8 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
+          key: 1,
           action: 'clickCenter',
           actionMaximum: 2,
           matches: [
