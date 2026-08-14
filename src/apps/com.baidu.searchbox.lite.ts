@@ -10,6 +10,7 @@ export default defineGkdApp({
       name: '暑期免费看-去完成',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 1000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -37,14 +38,14 @@ export default defineGkdApp({
       key: 1,
       name: '暑期免费看-抽10次',
       matchRoot: true,
-      actionMaximum: 30,
+      actionMaximum: 100,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           excludeMatches: ['[text="去完成"][clickable=true]'],
           matches: [
-            '[text~="剩余抽纪念票次数：[1-9][0-9]+ 次"] - * @View[clickable=true] > [text="chou10"]',
+            '[text~="剩余抽纪念票次数：[1-9][0-9]+ 次"] - @View[clickable=true] > [text="chou10"]',
           ],
           activityIds: [
             'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
