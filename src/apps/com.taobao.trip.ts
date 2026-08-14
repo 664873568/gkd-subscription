@@ -114,6 +114,42 @@ export default defineGkdApp({
         },
       ],
     },
+    //天天集能量-首页广告
+    {
+      key: 10,
+      name: '天天集能量-首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            'FrameLayout > @[vid="sdm_myoffer_splash_skip_area"][clickable=true] > [text~="[0-9]s \\\\| Skip"][vid="sdm_myoffer_splash_skip"]',
+            'FrameLayout > @[vid="anythink_myoffer_splash_skip_area"][clickable=true] > [text~="[0-9]s \\\\| 跳过"][vid="anythink_myoffer_splash_skip"]',
+          ],
+          activityIds: [
+            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '天天集能量-首页广告-礼包-剩余*s-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="sdm_myoffer_btn_close_id"] <<n * -n * [vid="sdm_myoffer_tv_reward_tips_icon_id"] + [text~="剩余 [0-9]+s"][vid="sdm_myoffer_tv_reward_tips_id"]',
+          ],
+          activityIds: ['com.smartdigimkt.sdk.basead.ui.ATPortraitActivity'],
+        },
+      ],
+    },
     //看视频-com.anythink.basead.ui.ATPortraitActivity
     {
       key: 20,
@@ -886,27 +922,6 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="跳过"][clickable=true]',
-            '[text~="跳过  [0-9]"] < @[id$="vilon_close_miss"]',
-            '@[vid="anythink_myoffer_splash_skip_area"] > [text="跳过"]',
-            '@[vid="sdm_myoffer_splash_skip_area"][clickable=true] > [text~="[0-9]s \\\\| Skip"][vid="sdm_myoffer_splash_skip"]',
-          ],
-          activityIds: [
-            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 501,
-      name: '首页广告-跳过广告',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
             '@[id$="ms_skipView"] < [id$="ms_skipView_container"]',
             '@[vid="splash_biz_skip_ad"] >n [text="跳过广告"][vid="splash_skip_hint_tv"]',
           ],
@@ -914,13 +929,12 @@ export default defineGkdApp({
             '.splash.ui.ImageSplashActivity',
             '.splash.ui.VideoSplashActivity',
             'com.alipay.mobile.quinox.LauncherActivity',
-            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
           ],
         },
       ],
     },
     {
-      key: 502,
+      key: 501,
       name: '首页广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -943,7 +957,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 503,
+      key: 502,
       name: '首页-能量红包-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -960,7 +974,6 @@ export default defineGkdApp({
             '.splash.ui.ImageSplashActivity',
             '.splash.ui.VideoSplashActivity',
             'com.alipay.mobile.quinox.LauncherActivity',
-            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
           ],
         },
         {
@@ -976,22 +989,6 @@ export default defineGkdApp({
           key: 2,
           matches: ['@[text="能量红包"] <<n * [text="首页"]'],
           activityIds: ['.home.HomeActivity'],
-        },
-      ],
-    },
-    {
-      key: 504,
-      name: '广告-礼包-剩余*s-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[vid="sdm_myoffer_btn_close_id"] <<n * -n * [vid="sdm_myoffer_tv_reward_tips_icon_id"] + [text~="剩余 [0-9]+s"][vid="sdm_myoffer_tv_reward_tips_id"]',
-          ],
-          activityIds: ['com.smartdigimkt.sdk.basead.ui.ATPortraitActivity'],
         },
       ],
     },
