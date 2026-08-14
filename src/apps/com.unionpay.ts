@@ -26,6 +26,26 @@ export default defineGkdApp({
     },
     {
       key: 1,
+      name: '玩转中心--我知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.liteapp.app.UPLiteAppActivity1',
+        '.liteapp.app.UPLiteAppActivity2',
+        '.liteapp.app.UPLiteAppActivity3',
+      ],
+      rules: [
+        {
+          matches: [
+            'AlertDialog > View > [text="知道了"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '玩转中心-签到成功-签到抽大奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -53,7 +73,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '玩转中心-去抽奖-幸运扭蛋机',
       matchRoot: true,
       actionMaximum: 1,
