@@ -270,7 +270,7 @@ export default defineGkdApp({
       name: '充鸭攒话费-签到',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -288,7 +288,7 @@ export default defineGkdApp({
             left: 'width * 0.5009',
             top: 'width * 1.4593',
           },
-          actionDelay: 3000,
+          actionDelay: 4000,
           matches: ['@[id$="nebulax_root_view"]'],
         },
         {
@@ -334,6 +334,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
           actionDelay: 5000,
           anyMatches: [
             '@[desc="返回"][clickable=true] <<n * - * [id="p-2021003183669766-title-icon"]',
@@ -351,7 +352,7 @@ export default defineGkdApp({
             left: 'width * 0.5009',
             top: 'width * 1.4593',
           },
-          actionDelay: 3000,
+          actionDelay: 4000,
           matches: ['@[id$="nebulax_root_view"]'],
         },
       ],
@@ -406,7 +407,7 @@ export default defineGkdApp({
             left: 'width * 0.5009',
             top: 'width * 1.4593',
           },
-          actionDelay: 3000,
+          actionDelay: 4000,
           matches: ['@[id$="nebulax_root_view"]'],
         },
       ],
@@ -471,6 +472,7 @@ export default defineGkdApp({
             '@[desc="返回"][clickable=true] <<n * - * [text*="金币"]',
             '@[desc="返回"][clickable=true] <<n * - * [text*="话费币"]',
             '@[desc="返回"][clickable=true] <<n * - * [text="金币挑战赛"]',
+            '@[desc="返回"][clickable=true] <<n * - * [text="放弃奖励 >"]',
             '@[desc="返回"][clickable=true] <<n * - * [text="O1CN010nSA061UCo6yWR7MJ_!!6000000002482-2-tps-195-149.png_"]',
             '@[desc="返回"][clickable=true] <<n * - * [text="打开淘宝App"]',
             '@[desc="返回"][clickable=true] <<n * - * [text="集分宝"]',
@@ -545,7 +547,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 5000,
           matches: [
-            '@[desc="返回"][clickable=true] <<n * - * [text="O1CN010nSA061UCo6yWR7MJ_!!6000000002482-2-tps-195-149.png_"]',
+            '@[desc="返回"][clickable=true] <<n * - * [text="打开淘宝App"]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
