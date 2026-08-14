@@ -4,22 +4,60 @@ export default defineGkdApp({
   id: 'com.baidu.netdisk',
   name: '百度网盘',
   groups: [
+    //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
+    {
+      key: 10,
+      name: '看视频-跳过-去体验*秒可立即领奖',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="我要加速领奖"] - ImageView < @RelativeLayout[clickable=true] <n * -n [text$="跳过"]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '看视频-跳过-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 2000,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="跳过"][clickable=true] -n * > @[text="跳过"][clickable=true]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+      ],
+    },
     //看视频-com.byazt.gd.Stub_Standard_Portrait_Activity
     {
       key: 20,
       name: '看视频-跳过-去体验*秒可立即领奖',
       matchRoot: true,
       actionMaximum: 3,
+      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
+            '@[text="立即领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="我要加速领奖"] <<n * -n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="立即前往"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="我要立即领奖"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             'TextView - @[text="去体验"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
@@ -76,11 +114,11 @@ export default defineGkdApp({
       name: '看视频-跳过-奖励已领取',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 2000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -91,6 +129,7 @@ export default defineGkdApp({
       name: '看视频-礼包-再逛*秒后可领奖',
       matchRoot: true,
       actionMaximum: 3,
+      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -107,7 +146,7 @@ export default defineGkdApp({
       key: 25,
       name: '看视频-礼包-再逛*秒后可领奖-下滑',
       matchRoot: true,
-      actionMaximum: 3,
+      actionMaximum: 10,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -145,11 +184,11 @@ export default defineGkdApp({
       name: '看视频-礼包-<',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 2000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
@@ -182,6 +221,7 @@ export default defineGkdApp({
       name: '看视频-礼包-跳过-*s后可领取奖励',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 1000,
       matchTime: 30000,
       resetMatch: 'activity',
       rules: [
@@ -198,7 +238,7 @@ export default defineGkdApp({
       key: 29,
       name: '看视频-下滑-×',
       matchRoot: true,
-      actionMaximum: 6,
+      actionMaximum: 10,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -225,6 +265,7 @@ export default defineGkdApp({
       name: '看视频-下滑-已发放-×',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 2000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -755,12 +796,15 @@ export default defineGkdApp({
       name: '日常任务-去玩游戏合成3次',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 30000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          actionDelay: 30000,
+          position: {
+            left: 'width * 0.9083',
+            top: 'width * 1.8279',
+          },
           matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
@@ -1891,7 +1935,7 @@ export default defineGkdApp({
             '@[text~="[0-9] \\\\| 跳过"][clickable=true]',
             '[vid="fl_ad_container"] >n @View[clickable=true]',
             '@[vid="ms_skipView"] < [vid="ms_skipView_container"]',
-            '@[text~="跳过 0[0-9]"][vid="tv_skip"][clickable=true]',
+            '@[text~="跳过 [0-9]"][vid="tv_skip"][clickable=true]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
           activityIds: ['.ui.MainActivity', '.advertise.ui.SplashAdActivity'],
