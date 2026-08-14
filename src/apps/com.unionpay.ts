@@ -38,9 +38,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          matches: [
-            'AlertDialog > View > [text="知道了"][clickable=true]',
-          ],
+          matches: ['AlertDialog > View > [text="知道了"][clickable=true]'],
         },
       ],
     },
