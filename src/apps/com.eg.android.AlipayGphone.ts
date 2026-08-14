@@ -14,7 +14,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          antMatches: [
+          anyMatches: [
             '[text="芝麻粒炼金"] >n @View[clickable=true] > [text="去完成任务"]',
             '[text="芝麻粒炼金"] >n @View[clickable=true] > [text="去浏览 15s 视频"]',
           ],
