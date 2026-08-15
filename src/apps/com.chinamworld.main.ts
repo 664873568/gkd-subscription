@@ -14,9 +14,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '@[desc="关闭"][vid="close"][clickable=true]',
-          ],
+          matches: ['@[desc="关闭"][vid="close"][clickable=true]'],
           activityIds: ['com.ccb.start.view.startdialog.StartDialogActivity'],
         },
       ],
