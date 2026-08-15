@@ -320,7 +320,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 17000,
           matches: [
-            '[text="Smallfish App"] > [id="app"] > View > @View[clickable=true]',
+            'FrameLayout > [desc*="180020570000060569"] >n [text="Smallfish App"] > [id="app"] > View > @View[clickable=true]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity', //已浏览完成 返回>//芝麻炼金-逛玩赚支付宝领现金
@@ -669,7 +669,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'clickCenter',
-          actionDelay: 2000,
+          actionDelay: 3000,
           anyMatches: [
             '[id="task"] >n @View >n [text="免费领保障金"]',
             '[id="task"] >n @View >n [text="去装宽带超划算"]',
@@ -824,6 +824,28 @@ export default defineGkdApp({
           action: 'back',
           matches: [
             '[id="__react-content"] > [id="page-activity"] >n [id="lotteryComp"]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    //充值缴费
+    {
+      key: 50,
+      name: '充值缴费-已完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'clickCenter',
+          actionDelay: 10000,
+          matches: [
+            'FrameLayout > [desc*="180020570000015088"] >n [text="Smallfish App"] > @[id="app"][clickable=true] > TextView',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
