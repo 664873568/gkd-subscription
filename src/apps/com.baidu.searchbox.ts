@@ -32,5 +32,22 @@ export default defineGkdApp({
         },
       ],
     },
+    //首页广告类
+    {
+      key: 50,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@RelativeLayout[clickable=true] > LinearLayout > [text="跳过"] + [text~="0[0-9]"]',
+          ],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
   ],
 });
