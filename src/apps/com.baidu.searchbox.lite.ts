@@ -7,7 +7,7 @@ export default defineGkdApp({
     //26.05.25开始 每日福利-每日开红包得奖励
     {
       key: 10,
-      name: '每日福利-看广告',//*s后可领取奖励
+      name: '每日福利-看广告', //*s后可领取奖励
       matchRoot: true,
       matchDelay: 1000,
       matchTime: 40000,
@@ -34,7 +34,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
@@ -86,7 +86,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 60000,
           matches: [
@@ -137,7 +137,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 150000,
           matches: [
@@ -200,9 +200,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          matches: [
-            '@FrameLayout[clickable=true] >n [text="领取奖励"]',
-          ],
+          matches: ['@FrameLayout[clickable=true] >n [text="领取奖励"]'],
           activityIds: [
             'com.baidu.searchbox.video.feedflow.tab.VideoTabActivity',
           ],
