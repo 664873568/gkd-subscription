@@ -10,7 +10,7 @@ export default defineGkdApp({
       name: '签到领钱-签到',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
+      matchDelay: 2000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -24,6 +24,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 3000,
           matches: [
             '[text="福狸中心"] >n @[text="TB16l86YLb2gK0jSZK9XXaEgFXa-92-92.png_100x100.jpg_"]',
           ],
