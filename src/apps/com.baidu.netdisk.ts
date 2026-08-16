@@ -462,7 +462,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="点击广告拿奖励"] <<n * [text="点击广告，即可获得奖励"]',
+            '@[text="点击广告拿奖励"] <<n * - * [text="点击广告，即可获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
