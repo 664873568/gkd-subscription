@@ -30,6 +30,7 @@ export default defineGkdApp({
       name: '天天领现金-签到领大额红包',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 2000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -43,6 +44,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@ImageButton[clickable=true] - [text="仍要放弃"] - [text="继续赚积分"]',
           ],
@@ -51,12 +53,14 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 1000,
           matches: ['[id="mainViewWrapper"] >n @ImageButton[clickable=true]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
           preKeys: [0, 1, 2],
           key: 3,
+          actionDelay: 1000,
           matches: ['@ImageButton[clickable=true] < * + * [text="红包签到"]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -67,11 +71,11 @@ export default defineGkdApp({
       name: '天天领现金-去逛星选商城频道',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
           matches: ['@ImageButton[clickable=true] < * + [text="星选商城"]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -135,9 +139,12 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="bottom_sale_info_close"] + [vid="bottom_sale_info_img"]',
+            '@[vid="bottom_sale_info_close"][clickable=true] +n [vid="bottom_sale_info_btn"]',
           ],
-          activityIds: ['.launcher.LauncherActivity'],
+          activityIds: [
+            '.launcher.LauncherActivity',
+            'com.suning.webview.H5SystemBaseActivity',
+          ],
         },
       ],
     },
@@ -152,9 +159,12 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[vid="bottom_sale_info_close"] + [vid="bottom_sale_info_img"]',
+            '@[vid="bottom_sale_info_close"][clickable=true] +n [vid="bottom_sale_info_btn"]',
           ],
-          activityIds: ['.launcher.LauncherActivity'],
+          activityIds: [
+            '.launcher.LauncherActivity',
+            'com.suning.webview.H5SystemBaseActivity',
+          ],
         },
         {
           preKeys: [0],
