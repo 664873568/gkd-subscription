@@ -37,6 +37,20 @@ export default defineGkdApp({
     },
     {
       key: 2,
+      name: '天天集能量-取消',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@[text="取消"][clickable=true] + [text="打开"][clickable=true]'],//*已安装完成，是否立即打开？
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 3,
       name: '天天集能量-领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -50,7 +64,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '天天集能量-任意点击一个酒店',
       matchRoot: true,
       actionMaximum: 1,
@@ -67,7 +81,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '天天集能量-浏览APP返回页',
       matchRoot: true,
       actionMaximum: 1,
@@ -714,7 +728,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 16000,
-          matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView'],
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -724,12 +738,14 @@ export default defineGkdApp({
       name: '看视频-微信-恭喜获得奖励',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 1000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 16000,
-          matches: ['ImageView < @FrameLayout + FrameLayout >2 ImageView'],
+          matches: [
+            'ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout > [text*="微信"]'
+          ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
@@ -813,6 +829,40 @@ export default defineGkdApp({
         {
           matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],
           activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+      ],
+    },
+    {
+      key: 107,
+      name: '看视频-点击广告，即可获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="点击广告拿奖励"] <<n * - * [text="点击广告，即可获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 108,
+      name: '看视频-免-恭喜获得奖励-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView < FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
