@@ -532,9 +532,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: [
-            '@[desc="返回"][clickable=true] <<n * - * [text="借呗"]',
-          ],
+          matches: ['@[desc="返回"][clickable=true] <<n * - * [text="借呗"]'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ],
