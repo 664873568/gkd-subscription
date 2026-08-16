@@ -74,9 +74,9 @@ export default defineGkdApp({
               x: 'screenWidth*0.5',
               y: 'screenHeight*0.25',
             },
-            duration: 1000,
+            duration: 200,
           },
-          actionDelay: 5000,
+          actionCd: 5000,
           actionMaximum: 10,
           matches: [
             '@[vid="video_flow_cmp_list"] <<n * +n * ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text~="再看[0-9]+个\\\\n可得红包"]',
@@ -88,7 +88,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 60000,
           matches: [
             '@ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text="点击领取\\n1个红包"]',
           ],
@@ -125,9 +124,9 @@ export default defineGkdApp({
               x: 'screenWidth*0.5',
               y: 'screenHeight*0.25',
             },
-            duration: 1000,
+            duration: 200,
           },
-          actionDelay: 15000,
+          actionCd: 15000,
           actionMaximum: 10,
           matches: [
             '@[vid="video_flow_cmp_list"] <<n * +n * ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text~="再看[0-9]+秒\\\\n可得红包"]',
@@ -139,7 +138,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 150000,
           matches: [
             '@ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text="点击领取\\n1个红包"]',
           ],
