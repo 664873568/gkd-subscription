@@ -55,11 +55,18 @@ export default defineGkdApp({
       name: '抖音月付-天天预约领金币-看视频20秒领',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          matches: [
+            '@[desc="看视频"] + [desc="20"] + [desc="秒"] + [desc="领"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -73,11 +80,60 @@ export default defineGkdApp({
             duration: 200,
           },
           actionMaximum: 10,
-          actionDelay: 3000,
-          matches: [
-            'FrameLayout > ViewGroup[clickable=true] > View + FrameLayout > LinearLayout > [text~="00:[0-9][0-9]"]',
+          actionDelay: 5000,
+          anyMatches: [
+            '@[desc="视频"][vid="viewpager"] <<n * +n * [text~="看00:[0-9][0-9]领预约奖励"]',
+            '@[desc="视频"][vid="viewpager"] <<n * +n * [text~="00:[0-9][0-9]"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+          activityIds: ['.main.MainActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            'FrameLayout > @ViewGroup[clickable=true] > View + FrameLayout > LinearLayout > [text="点击领预约奖励"]',
+          ],
+          activityIds: ['.main.MainActivity'],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          matches: [
+            '@[desc="领取金币"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '手机充值-广告-×live',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[desc="关闭"][clickable=true] - * > [text="190521fc43254cb0b96fe55e90fa4dfa~tplv-20ashz96qn-1"]',//放心借
+          ],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '手机充值-广告-×bullet',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[desc="关闭"][clickable=true] - * > [text="2ec70291e3984ad789797699237a21b8~tplv-20ashz96qn-1"]',//恭喜获得
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
     },
@@ -197,6 +253,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           matches: [
             '@FrameLayout[clickable=true] > FrameLayout > [id*="cj_plugin:id"] + FrameLayout > ImageView',
           ],
@@ -417,6 +474,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@Image < View + [text="40998dca3d938f5fd378d6c1738e1ded.png~tplv-49obo7mizy-png75"]',
           ],
@@ -490,7 +548,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
           matches: [
             '[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]',
           ],
@@ -508,7 +565,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 4000,
+          actionDelay: 5000,
           matches: [
             '[text="车主服务"] >n @ImageButton[clickable=true] + * [text="恭喜完成任务"]',
           ],
@@ -554,7 +611,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          actionDelay: 4000,
+          actionDelay: 5000,
           matches: [
             '[text="车主服务"] >n @ImageButton[clickable=true] + * [text="恭喜完成任务"]',
           ],
