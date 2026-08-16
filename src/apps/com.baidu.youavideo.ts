@@ -1039,9 +1039,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="立即前往加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
-          activityIds: [
-            '.splash.ui.CoveredSplashAdvertiseActivity',
-          ],
+          activityIds: ['.splash.ui.CoveredSplashAdvertiseActivity'],
         },
       ],
     },
@@ -1056,7 +1054,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '[text="免广告"][vid="text"] < * - * @[text~="跳过 [0-9]"][clickable=true] + * ImageView',//摇动手机-跳转至详情页或第三方应用
+            '[text="免广告"][vid="text"] < * - * @[text~="跳过 [0-9]"][clickable=true] + * ImageView', //摇动手机-跳转至详情页或第三方应用
             '[text="免广告"][vid="text"] < * - * @[text~="跳过 [0-9]"][clickable=true] + * [text="点击下载应用"]',
             '[text="免广告"][vid="text"] < * - * @[text~="跳过 [0-9]"][clickable=true] + * [text="点击跳转至网页或第三方应用"]',
             '[text="免广告"][vid="text"] < * - * @[text~="[0-9] \\\\| 跳过"][clickable=true] + * [text="点击按钮了解更多"]',
