@@ -143,7 +143,7 @@ export default defineGkdApp({
           actionCd: 12000,
           actionMaximum: 20,
           matches: [
-            '@[vid="video_flow_cmp_list"] <<n * +n * ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text~="再看[0-9]+秒\\\\n可得红包"]',
+            '@[vid="video_flow_cmp_list"] <<n * +n * [text~="再看[0-9]+秒\\\\n可得红包"]',
           ],
           activityIds: [
             'com.baidu.searchbox.video.feedflow.tab.VideoTabActivity',
