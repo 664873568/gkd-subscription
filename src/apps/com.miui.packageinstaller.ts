@@ -39,7 +39,6 @@ export default defineGkdApp({
       name: '喜马拉雅-安装应用',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
