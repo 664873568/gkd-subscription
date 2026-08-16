@@ -88,7 +88,7 @@ export default defineGkdApp({
           activityIds: ['.main.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             'FrameLayout > @ViewGroup[clickable=true] > View + FrameLayout > LinearLayout > [text="点击领预约奖励"]',
@@ -96,11 +96,9 @@ export default defineGkdApp({
           activityIds: ['.main.MainActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
-          matches: [
-            '@[desc="领取金币"]',
-          ],
+          matches: ['@[desc="领取金币"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -115,7 +113,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[desc="关闭"][clickable=true] - * > [text="190521fc43254cb0b96fe55e90fa4dfa~tplv-20ashz96qn-1"]',//放心借
+            '@[desc="关闭"][clickable=true] - * > [text="190521fc43254cb0b96fe55e90fa4dfa~tplv-20ashz96qn-1"]', //放心借
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -131,7 +129,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[desc="关闭"][clickable=true] - * > [text="2ec70291e3984ad789797699237a21b8~tplv-20ashz96qn-1"]',//恭喜获得
+            '@[desc="关闭"][clickable=true] - * > [text="2ec70291e3984ad789797699237a21b8~tplv-20ashz96qn-1"]', //恭喜获得
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
