@@ -197,9 +197,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           actionDelay: 7000,
-          matches: [
-            '@[desc="关闭直播间"][clickable=true] > ImageView',
-          ],
+          matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
           activityIds: [
             'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
           ],
