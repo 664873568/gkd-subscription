@@ -162,9 +162,7 @@ export default defineGkdApp({
           matches: [
             '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]',
           ],
-          activityIds: [
-            'com.jd.lib.productdetail.ProductDetailActivity',
-          ],
+          activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
         {
           matches: [
