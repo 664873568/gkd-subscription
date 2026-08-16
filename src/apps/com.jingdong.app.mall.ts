@@ -85,18 +85,19 @@ export default defineGkdApp({
         },
       ],
     },
+    //去东东农场领水果-跟着JOY去旅行-
     {
       key: 11,
       name: '互动游戏-逛一逛',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'clickCenter',
-          actionDelay: 3000,
           anyMatches: [
             '[text="互动游戏"] >n @View[clickable=true] > [text="逛一逛"]',
             '[text="互动游戏"] >n [text~="热卖商品推荐\\\\([0-4]/5\\\\)"] +2 @View[clickable=true] > [text="去完成"]',
@@ -107,11 +108,11 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'clickCenter',
-          actionDelay: 1000,
           matches: [
             '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]',
           ],
           activityIds: [
+            '.personel.FloatViewActivity',
             'com.jd.lib.babel.view.activity.BabelActivity',
             'com.jd.lib.productdetail.ProductDetailActivity',
           ],
@@ -119,7 +120,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 3000,
           matches: [
             '[text="互动游戏"] >n @TextView[clickable=true] + * [text="已完成"]',
           ],
@@ -127,18 +127,19 @@ export default defineGkdApp({
         },
       ],
     },
+    //向僵尸开炮-串串消除王-AI斗地主-AI掼蛋-三国：冰河时代
     {
       key: 12,
       name: '互动游戏-逛一逛-游戏',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'clickCenter',
-          actionDelay: 3000,
           matches: [
             '[text="互动游戏"] >n @View[clickable=true] > [text="逛一逛"]',
           ],
@@ -165,16 +166,16 @@ export default defineGkdApp({
     },
     {
       key: 13,
-      name: '互动游戏-逛一逛-直播',
+      name: '互动游戏-逛一逛-看直播赚钱',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'clickCenter',
-          actionDelay: 3000,
           matches: [
             '[text="互动游戏"] >n @View[clickable=true] > [text="逛一逛"]',
           ],
@@ -183,8 +184,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
-          matches: [
+          actionDelay: 7000,
+          anyMatches: [
+            '@[desc="关闭直播间"][clickable=true] > ImageView',
             '[text="直播间心愿"] >n @View[clickable=true] > [text="0276048048dc874a"]',
           ],
           activityIds: [
@@ -195,7 +197,9 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           actionDelay: 7000,
-          matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
+          matches: [
+            '@[desc="关闭直播间"][clickable=true] > ImageView',
+          ],
           activityIds: [
             'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
           ],
