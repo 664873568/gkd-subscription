@@ -874,16 +874,17 @@ export default defineGkdApp({
       key: 101,
       name: '半屏广告-×', //百度网盘-小程序点图文领奖-去小程序点图文
       matchRoot: true,
-      actionMaximum: 1,
+      actionMaximum: 2,
       matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'clickCenter',
-          matches: [
+          anyMatches: [
             '@LinearLayout[clickable=true] >n CKViewPager > FrameLayout[index=1]',
+            '@LinearLayout[clickable=true] > ViewGroup > ViewGroup > ViewGroup[index=1]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
@@ -920,10 +921,9 @@ export default defineGkdApp({
         },
       ],
     },
-    //首页广告类
     {
-      key: 499,
-      name: '广告-跳过',
+      key: 103,
+      name: '支付宝-小程序-广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
