@@ -212,17 +212,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="提现"] >n @View[clickable=true] > [text="50元"]',
-          ],
+          matches: ['[text="提现"] >n @View[clickable=true] > [text="50元"]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="确定"][vid="btn_ok"][clickable=true]',
-          ],
+          matches: ['@[text="确定"][vid="btn_ok"][clickable=true]'],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
