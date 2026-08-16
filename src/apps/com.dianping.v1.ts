@@ -74,7 +74,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'clickCenter',
-          actionDelay: 3000,
+          actionDelay: 4000,
           excludeMatches: [
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
           ],
@@ -105,7 +105,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'clickCenter',
-          actionDelay: 3000,
+          actionDelay: 4000,
           excludeMatches: [
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
           ],
@@ -137,7 +137,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'clickCenter',
-          actionDelay: 3000,
+          actionDelay: 4000,
           excludeMatches: [
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
           ],
@@ -153,6 +153,7 @@ export default defineGkdApp({
       name: '浏览完成',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 15000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -165,6 +166,7 @@ export default defineGkdApp({
             'com.dianping.base.web.ui.NovaTitansActivity', //随Visa探英伦风情
             'com.dianping.nova.picasso.DPPicassoBoxActivity', //浏览免费试频道//浏览当地人推荐榜
             'com.meituan.android.mrn.container.MRNBaseActivity', //逛精选团购 享超值优惠
+            'com.meituan.android.mrnx.container.MRNXStandardActivity',
           ],
         },
       ],
@@ -174,6 +176,7 @@ export default defineGkdApp({
       name: '返回寻宝-恭喜获得',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -191,6 +194,7 @@ export default defineGkdApp({
       name: '返回寻宝',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -211,6 +215,7 @@ export default defineGkdApp({
       name: '今日累计奖励-领取',
       matchRoot: true,
       actionMaximum: 3,
+      matchDelay: 3000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -227,7 +232,8 @@ export default defineGkdApp({
       key: 9,
       name: '星图金融-返回',
       matchRoot: true,
-      actionMaximum: 3,
+      actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
