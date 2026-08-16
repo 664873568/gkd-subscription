@@ -7,7 +7,7 @@ export default defineGkdApp({
     //26.05.25开始 每日福利-每日开红包得奖励
     {
       key: 10,
-      name: '每日福利-开红包',
+      name: '每日福利-免费红包',
       matchRoot: true,
       resetMatch: 'activity',
       rules: [
