@@ -69,7 +69,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text~="\\（剩余([0-9]|[1-2][0-9])张\\）"] + * > @[text="立即兑换"][clickable=true] - ListView > [text="20元"]',
+            '[text~="\\\\（剩余([0-9]|[1-2][0-9])张\\\\）"] + * > @[text="立即兑换"][clickable=true] - ListView > [text="20元"]',
           ],
           activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
