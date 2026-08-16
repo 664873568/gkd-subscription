@@ -11,7 +11,7 @@ export default defineGkdApp({
     //看视频 赚现金-股票投顾
     {
       key: 0,
-      name: 'Button<', 
+      name: 'Button<',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
@@ -87,7 +87,7 @@ export default defineGkdApp({
     //看视频 赚现金-浏览免费领礼物-走路抽黄金转运珠-养猪猪-看收藏大牛学知识
     {
       key: 4,
-      name: '返回领奖', 
+      name: '返回领奖',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
@@ -100,8 +100,8 @@ export default defineGkdApp({
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
-            '.bm.sh.jm.video.ui.VibratoActivity',//看视频
-            'com.jingdong.manto.ui.MantoActivityUp1',//养猪猪
+            '.bm.sh.jm.video.ui.VibratoActivity', //看视频
+            'com.jingdong.manto.ui.MantoActivityUp1', //养猪猪
           ],
         },
       ],
