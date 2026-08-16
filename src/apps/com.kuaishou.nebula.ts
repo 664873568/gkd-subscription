@@ -9,7 +9,7 @@ export default defineGkdApp({
       name: '打卡失败',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
+      matchDelay: 10000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -25,7 +25,7 @@ export default defineGkdApp({
       name: '直播-返回',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
+      matchDelay: 10000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -49,6 +49,23 @@ export default defineGkdApp({
         {
           matches: ['@[vid="like_icon"][visibleToUser=true]'],
           activityIds: ['com.yxcorp.gifshow.HomeActivity'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 40,
+      name: '打开推送通知-忽略',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="打开推送通知"][vid="title"] +n * >n @[text="忽略"][vid="negative"][clickable=true] +n [text="去打开"][vid="positive"]',
+          ],
+          activityIds: ['com.yxcorp.gifshow.detail.PhotoDetailActivity'],
         },
       ],
     },
