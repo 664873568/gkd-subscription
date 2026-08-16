@@ -116,7 +116,7 @@ export default defineGkdApp({
             '[text="扭动或点击查看详情"] <n * + * LinearLayout + FrameLayout > @ImageView',
             '@ImageView < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="跳转微信"]',
             '@ImageView < FrameLayout - * [text="上滑/点击了解更多内容"] < * + [text="下载或打开第三方应用"]',
-            '@ImageView < FrameLayout[childCount=1] <n * +n * [text="上滑/点击了解更多内容"] < * + [text="打开或下载第三方应用"]',//元宝
+            '@ImageView < FrameLayout[childCount=1] <n * +n * [text="上滑/点击了解更多内容"] < * + [text="打开或下载第三方应用"]', //元宝
           ],
           activityIds: [
             '.commercialization.splash.GeneralAdSplashActivity',
