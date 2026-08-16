@@ -44,7 +44,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="取消"][clickable=true] + [text="打开"][clickable=true]'],//*已安装完成，是否立即打开？
+          matches: [
+            '@[text="取消"][clickable=true] + [text="打开"][clickable=true]',
+          ], //*已安装完成，是否立即打开？
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
@@ -744,7 +746,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            'ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout > [text*="微信"]'
+            'ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout > [text*="微信"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
