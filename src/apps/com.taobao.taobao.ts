@@ -10,13 +10,16 @@ export default defineGkdApp({
       name: '天猫超市-好运签-做任务',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 2000,
       matchTime: 30000,
       resetMatch: 'activity',
       activityIds: ['com.taobao.themis.container.app.TMSActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          excludeMatches: [
+            '[text="天猫超市"] >n @View[clickable=true] > [text="领奖励"]',
+          ],
           matches: [
             '[text="天猫超市"] >n @View[clickable=true] > [text="领任务"]',
           ],
