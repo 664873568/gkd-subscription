@@ -51,7 +51,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="再看一个领取更多福利"][clickable=true] + LinearLayout > FrameLayout > @[text="残忍离开"][clickable=true]',
