@@ -9,8 +9,8 @@ export default defineGkdApp({
       name: 'YY-打开今日头条',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 20000,
-      matchDelay: 6000,
       resetMatch: 'activity',
       rules: [
         {
