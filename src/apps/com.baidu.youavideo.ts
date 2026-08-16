@@ -841,7 +841,7 @@ export default defineGkdApp({
     },
     {
       key: 42,
-      name: '看视频-广告-反馈 ×',
+      name: '看视频-全屏广告-反馈 ×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
