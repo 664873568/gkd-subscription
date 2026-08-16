@@ -250,5 +250,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 41,
+      name: '存储空间严重不足-取消',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="取消"][clickable=true] < [vid="buttonPanel"] -n [vid="topPanel"] > [text="存储空间严重不足"][vid="alertTitle"]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
   ],
 });
