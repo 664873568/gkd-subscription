@@ -202,6 +202,31 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 9,
+      name: '提现-50元',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="提现"] >n @View[clickable=true] > [text="50元"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="确定"][vid="btn_ok"][clickable=true]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
     //导流结果弹窗
     {
       key: 10,
