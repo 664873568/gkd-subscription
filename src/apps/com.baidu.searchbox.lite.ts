@@ -7,15 +7,33 @@ export default defineGkdApp({
     //26.05.25开始 每日福利-每日开红包得奖励
     {
       key: 10,
+      name: '每日福利-开红包',
+      matchRoot: true,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="去领取"][clickable=true] -2 [text="今日送你免费红包 （0/1）"]',
+          ],
+          activityIds: [
+            'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 11,
       name: '每日福利-看广告', //*s后可领取奖励
       matchRoot: true,
       matchDelay: 1000,
-      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          matches: ['@[text="去完成"][clickable=true] - [text="点击看广告"]'],
+          anyMatches: [
+            '@[text="去完成"][clickable=true] -2 [text="看3个广告得1个红包 （0/3）"]',
+            '@[text="继续看"][clickable=true] -2 [text~="看3个广告得1个红包 （[0-2]/3）"]',
+          ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
           ],
@@ -23,7 +41,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 30000,
           anyMatches: [
             '@ImageView[clickable=true] - [text="广告"] - * [text="已完成任务"]',
             '@ImageView[clickable=true] - [text="广告"] - * [text="已领取1金币"]',
@@ -34,9 +51,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0,1],
           key: 2,
-          actionDelay: 1000,
           matches: [
             '[text="再看一个领取更多福利"][clickable=true] + LinearLayout > FrameLayout > @[text="残忍离开"][clickable=true]',
           ],
@@ -48,22 +64,22 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 12,
       name: '每日福利-看视频*个',
       matchRoot: true,
       matchDelay: 2000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: ['@[text="去完成"][clickable=true] - [text="点击看视频"]'],
+          anyMatches: [
+            '@[text="去完成"][clickable=true] -2 [text="看10个视频得1个红包 （0/10）"]',
+            '@[text="继续看"][clickable=true] -2 [text~="看10个视频得1个红包 （[0-9]/10）"]',
+          ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -77,17 +93,15 @@ export default defineGkdApp({
             duration: 200,
           },
           actionCd: 5000,
-          actionMaximum: 10,
+          actionMaximum: 20,
           matches: [
-            '@[vid="video_flow_cmp_list"] <<n * +n * ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text~="再看[0-9]+个\\\\n可得红包"]',
+            '@[vid="video_flow_cmp_list"] <<n * +n * [text~="再看[0-9]+个\\\\n可得红包"]',
           ],
           activityIds: [
             'com.baidu.searchbox.video.feedflow.tab.VideoTabActivity',
           ],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
           matches: [
             '@ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text="点击领取\\n1个红包"]',
           ],
@@ -98,22 +112,22 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 13,
       name: '每日福利-看视频*秒',
       matchRoot: true,
       matchDelay: 3000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: ['@[text="去完成"][clickable=true] - [text="点击看视频"]'],
+          anyMatches: [
+            '@[text="去完成"][clickable=true] -2 [text="看2分钟视频得1个红包"]',
+            '@[text="继续看"][clickable=true] -2 [text="看2分钟视频得1个红包"]',
+          ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -126,8 +140,8 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          actionCd: 15000,
-          actionMaximum: 10,
+          actionCd: 12000,
+          actionMaximum: 20,
           matches: [
             '@[vid="video_flow_cmp_list"] <<n * +n * ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text~="再看[0-9]+秒\\\\n可得红包"]',
           ],
@@ -136,8 +150,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
           matches: [
             '@ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text="点击领取\\n1个红包"]',
           ],
@@ -148,10 +160,10 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 14,
       name: '每日福利-开红包',
       matchRoot: true,
-      actionMaximum: 10,
+      matchDelay: 3000,
       resetMatch: 'activity',
       rules: [
         {
@@ -182,7 +194,7 @@ export default defineGkdApp({
       name: '暑期免费看-去完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 2000,
+      matchDelay: 1000,
       matchTime: 20000,
       resetMatch: 'activity',
       rules: [
@@ -210,12 +222,11 @@ export default defineGkdApp({
       name: '暑期免费看-抽10次',
       matchRoot: true,
       matchDelay: 2000,
-      actionMaximum: 10,
+      actionMaximum: 20,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           excludeMatches: ['[text="去完成"][clickable=true]'],
           matches: [
             '[text~="剩余抽纪念票次数：[1-9][0-9]+ 次"] - @View[clickable=true] > [text="chou10"]',
