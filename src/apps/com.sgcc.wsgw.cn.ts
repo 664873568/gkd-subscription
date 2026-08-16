@@ -49,6 +49,32 @@ export default defineGkdApp({
         },
       ],
     },
+    //兑换开放时间：2026年8月16日-2026年9月30日 每日11点更新
+    {
+      key: 3,
+      name: '优惠券兑换-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text~="\\\\（剩余([1-9]|[1-2][0-9])张\\\\）"] - * > @[text="立即兑换"][clickable=true] - ListView > [text="20元"]',
+          ],
+          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text~="\\（剩余([0-9]|[1-2][0-9])张\\）"] + * > @[text="立即兑换"][clickable=true] - ListView > [text="20元"]',
+          ],
+          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
