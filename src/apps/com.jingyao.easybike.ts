@@ -49,9 +49,7 @@ export default defineGkdApp({
           matches: [
             '[vid="magicBoxSignIn"] + * >n @[text~="点击广告再领[0-9]+奖励金"][vid="tvSignInClickWithAds"] <n [vid="btnSignInClickWithAds"] < * + [vid="adViewBanner"] >n @LinearLayout[clickable=true]',
           ],
-          activityIds: [
-            'com.alipay.mobile.nebulacore.ui.H5Activity',
-          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],
     },
