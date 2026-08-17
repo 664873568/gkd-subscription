@@ -18,7 +18,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 5000,
           matches: [
-            '@[desc="关闭"][vid~="[a-z]{3}"] <n ViewGroup - FrameLayout > [desc="游戏中心"]',
+            '@[desc="关闭"] <n ViewGroup - FrameLayout > [desc="游戏中心"]',
           ],
         },
         {
