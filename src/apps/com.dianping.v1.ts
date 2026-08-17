@@ -35,36 +35,35 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '每日签到-继续开宝箱集卡/查看附近的店/集卡得免单-开宝箱得金币',
+      name: '每日签到-开宝箱得金币',
       matchRoot: true,
       matchDelay: 3000,
       resetMatch: 'activity',
       activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
       rules: [
         {
-          matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout >n FrameLayout[clickable=true] > ImageView',
-          ],
-        },
-        {
-          matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] ImageView',
-          ],
-        },
-        {
-          anyMatches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout [text="10元免单券"]',
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout [text="10元免单券"]',
-          ],
-        },
-        {
           action: 'clickCenter',
-          actionDelay: 1000,
           excludeMatches: [
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
           ],
           matches: [
-            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout >n [text="x"]',//开宝箱得金币
+          ],
+        },
+        {
+          matches: [
+            'ImageView[clickable=true] < FrameLayout - FrameLayout >n @FrameLayout[clickable=true] > ImageView',//继续开宝箱集卡
+          ],
+        },
+        {
+          matches: [
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView',//查看附近的店
+          ],
+        },
+        {
+          anyMatches: [
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout >n [text="10元免单券"]',//集卡得免单
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout >n [text="10元免单券"]',
           ],
         },
       ],
@@ -108,7 +107,7 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           matches: [
-            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout -  FrameLayout',
+            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout - FrameLayout',
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',
@@ -121,7 +120,6 @@ export default defineGkdApp({
       key: 4,
       name: '每日签到-今日累计奖励-领取',
       matchRoot: true,
-      actionMaximum: 3,
       matchDelay: 3000,
       matchTime: 20000,
       resetMatch: 'activity',
@@ -148,7 +146,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           excludeMatches: [
-            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout [text="x"]',
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout >n [text="x"]',
           ],
           matches: [
             '@[desc="back"] <<n * - * FrameLayout[clickable=false] > FrameLayout[index=2] > [text="已领取"]',
