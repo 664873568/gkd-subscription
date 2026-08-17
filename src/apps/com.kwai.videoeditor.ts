@@ -39,7 +39,7 @@ export default defineGkdApp({
             '@Image <<n * - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',
             '@ImageView < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
             '@Image < View < View - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
-            '@ImageView <<n *[childCount=1] - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //苏宁易购-惊喜等你拿
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //苏宁易购-惊喜等你拿
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
