@@ -60,7 +60,7 @@ export default defineGkdApp({
           matches: [
             '@ImageView[clickable=true] + LinearLayout + RelativeLayout + ImageView + ImageView',
             '@ImageView < FrameLayout <n * + * [text="上滑/点击了解更多内容"] < * + [text="跳转微信"]',
-            'ImageView < @LinearLayout[clickable=true] -n * > [text~="[0-9]+s"] <<n * - * [text="反馈"]',//苏宁易购-立即下载
+            'ImageView < @LinearLayout[clickable=true] -n * > [text~="[0-9]+s"] <<n * - * [text="反馈"]', //苏宁易购-立即下载
           ],
           activityIds: ['com.kwai.krn.KrnKyActivity'],
         },
