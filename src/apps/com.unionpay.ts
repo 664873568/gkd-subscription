@@ -18,9 +18,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          excludeMatches: [
-            '[text="我的积点"][vid="tv_title_text"]',
-          ],
+          excludeMatches: ['[text="我的积点"][vid="tv_title_text"]'],
           matches: [
             '[vid="view_content_container"] >n View[index=1][childCount=1] >n @ImageButton',
           ],
@@ -57,9 +55,7 @@ export default defineGkdApp({
           ],
         },
         {
-          matches: [
-            'AlertDialog > View > [text="知道了"][clickable=true]',
-          ],
+          matches: ['AlertDialog > View > [text="知道了"][clickable=true]'],
         },
       ],
     },
