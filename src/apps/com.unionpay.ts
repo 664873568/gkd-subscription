@@ -18,7 +18,9 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          excludeMatches: ['[text="我的积点"][vid="tv_title_text"]'],
+          excludeMatches: [
+            '[text="我的积点"][vid="tv_title_text"]',
+          ],
           matches: [
             '[vid="view_content_container"] >n View[index=1][childCount=1] >n @ImageButton',
           ],
@@ -27,10 +29,9 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '玩转中心--我知道了',
+      name: '玩转中心',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
       resetMatch: 'activity',
       activityIds: [
         '.liteapp.app.UPLiteAppActivity1',
@@ -39,70 +40,25 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          matches: ['AlertDialog > View > [text="知道了"][clickable=true]'],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '玩转中心-签到成功-签到抽大奖',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.liteapp.app.UPLiteAppActivity1',
-        '.liteapp.app.UPLiteAppActivity2',
-        '.liteapp.app.UPLiteAppActivity3',
-      ],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[id="root-router-view"] >n @[text="签到成功"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[id="root-router-view"] @[text~="剩余 [1-9]次 抽奖机会"][clickable=true]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 3,
-      name: '玩转中心-去抽奖-幸运扭蛋机',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.liteapp.app.UPLiteAppActivity1',
-        '.liteapp.app.UPLiteAppActivity2',
-        '.liteapp.app.UPLiteAppActivity3',
-      ],
-      rules: [
-        {
-          key: 0,
           anyMatches: [
+            '[id="root-router-view"] >n @[text="签到成功"][clickable=true]',
             '[id="root-router-view"] >n @[text="去抽奖"][clickable=true]',
             'Image + * > @[text="去抽奖"][clickable=true] + TextView[clickable=true]',
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
           matches: [
-            '[id="root-router-view"] @[text~="剩余 [1-9]次 抽奖机会"][clickable=true]',
+            '[id="root-router-view"] >n @[text~="剩余 [1-9]次 抽奖机会"][clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
           matches: [
             'Image < @View[clickable=true] -n [text="去查看"][clickable=true]',
+          ],
+        },
+        {
+          matches: [
+            'AlertDialog > View > [text="知道了"][clickable=true]',
           ],
         },
       ],
