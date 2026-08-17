@@ -47,22 +47,22 @@ export default defineGkdApp({
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
           ],
           matches: [
-            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout >n [text="x"]',//开宝箱得金币
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout >n [text="x"]', //开宝箱得金币
           ],
         },
         {
           matches: [
-            'ImageView[clickable=true] < FrameLayout - FrameLayout >n @FrameLayout[clickable=true] > ImageView',//继续开宝箱集卡
+            'ImageView[clickable=true] < FrameLayout - FrameLayout >n @FrameLayout[clickable=true] > ImageView', //继续开宝箱集卡
           ],
         },
         {
           matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView',//查看附近的店
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
           ],
         },
         {
           anyMatches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout >n [text="10元免单券"]',//集卡得免单
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout >n [text="10元免单券"]', //集卡得免单
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout >n [text="10元免单券"]',
           ],
         },
