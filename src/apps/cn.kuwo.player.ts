@@ -4,6 +4,31 @@ export default defineGkdApp({
   id: 'cn.kuwo.player',
   name: '酷我音乐',
   groups: [
+    //金币提现
+    //每天0:00,09:00,13:00,17:00,20:00刷新提现额度；金币有效期为金币获得后的60个自然日，记得尽快兑换喔～
+    {
+      key: 10,
+      name: '金币提现-跳过',
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['.activities.MainActivity'],
+      rules: [
+        {
+          excludeAllMatches: [
+            '[text="金币提现"] +n @[text="确认提现"][clickable=true]',
+            '[text="金币提现"] +n @View[index=8][clickable=true] > [text="需要20000金币"]',
+          ],
+          matches: ['[text="金币提现"] +4 @TextView[clickable=true]'],
+        },
+        {
+          matches: ['[text="金币提现"] +n @View[index=9][clickable=true] > [text="需要20000金币"]'],
+        },
+        {
+          excludeMatches: ['[text="金币提现"] +n @View[index=8][clickable=true] > [text="拆现金红包"]'],
+          matches: ['[text="金币提现"] +n @[text="确认提现"][clickable=true]'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
