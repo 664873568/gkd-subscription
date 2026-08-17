@@ -86,7 +86,7 @@ export default defineGkdApp({
             'com.dianping.base.web.ui.NovaTitansActivity', //随Visa探英伦风情
             'com.dianping.nova.picasso.DPPicassoBoxActivity', //浏览免费试频道//浏览当地人推荐榜
             'com.meituan.android.mrn.container.MRNBaseActivity', //逛精选团购 享超值优惠
-            'com.meituan.android.mrnx.container.MRNXStandardActivity',//逛精选团购 享超值优惠-闪电特惠
+            'com.meituan.android.mrnx.container.MRNXStandardActivity', //逛精选团购 享超值优惠-闪电特惠
           ],
         },
       ],
@@ -103,9 +103,7 @@ export default defineGkdApp({
           matches: [
             'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
           ],
-          activityIds: [
-            'com.dianping.shopshell.PexusPoiActivity',
-          ],
+          activityIds: ['com.dianping.shopshell.PexusPoiActivity'],
         },
         {
           action: 'clickCenter',
