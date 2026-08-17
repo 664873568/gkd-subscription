@@ -635,6 +635,24 @@ export default defineGkdApp({
     },
     //兑好礼
     {
+      key: 47,
+      name: '兑好礼-提现-10元',
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['.host.activity.MainActivity'],
+      rules: [
+        {
+          matches: ['[text="微信提现"] +n @ViewGroup[clickable=true] > [text="10"] + [text="元"]'],
+        },
+        {
+          matches: ['[text="微信提现"] +n @ViewGroup[clickable=true] > [text="去提现"]'],
+        },
+        {
+          matches: ['[text="选择到账方式"] +n @ViewGroup[clickable=true] > [text="普通到账"] + [text="1～3 天到账"] + * > [text="看1个广告"]'],
+        },
+      ],
+    },
+    {
       key: 48,
       name: '兑好礼-看广告+500金币',
       matchRoot: true,
@@ -830,35 +848,27 @@ export default defineGkdApp({
       key: 70,
       name: '点击并浏览页面*s领取奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
+      activityIds: ['.host.activity.MainActivity'],
       rules: [
         {
-          key: 0,
           matches: [
             '[text="点击并浏览页面领取奖励"][vid="host_reward_tip"] <<n * - * @[vid="host_video_ad_h5_layout_start"][clickable=true] >n [text~="点击并浏览页面[0-9]s领取奖励"][vid="host_bubble_ad_action_btn"]',
           ],
-          activityIds: ['.host.activity.MainActivity'],
         },
         {
-          preKeys: [0],
-          key: 1,
           actionDelay: 2000,
           matches: [
             '@[desc="关闭广告"][vid="host_reward_close_real"] - [vid="host_reward_title_layout"] >n [text="已获得奖励"][vid="host_reward_tip"] + [vid="host_reward_close_button"]',
           ],
-          activityIds: ['.host.activity.MainActivity'],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
           actionDelay: 1000,
           anyMatches: [
             'ImageView < @ViewGroup[clickable=true] +n * [vid="main_native_ad_root_lay"] + [text~="点击并浏览5秒即可额外获得[0-9]{2}金币"][vid="main_watch_ad_button"]',
             'ImageView < ViewGroup[clickable=true] +n * [vid="main_native_ad_root_lay"] + @[text~="点击并浏览5秒即可额外获得[0-9]{3,}金币"][vid="main_watch_ad_button"]',
           ],
-          activityIds: ['.host.activity.MainActivity'],
         },
       ],
     },
@@ -867,7 +877,7 @@ export default defineGkdApp({
       name: '点击广告领取奖励-领取奖励-已获得奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
