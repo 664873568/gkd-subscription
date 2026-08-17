@@ -33,6 +33,23 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 40,
+      name: '首页-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@TextView[clickable=true] +n [text="开通会员畅听VIP海量曲库"]',
+          ],
+          activityIds: ['.activities.MainActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
