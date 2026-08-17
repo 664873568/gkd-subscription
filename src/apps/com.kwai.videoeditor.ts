@@ -10,7 +10,7 @@ export default defineGkdApp({
       name: '看视频-全屏广告-×cbrs',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -29,7 +29,7 @@ export default defineGkdApp({
       name: '看视频-全屏广告-×cbso',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -39,7 +39,7 @@ export default defineGkdApp({
             '@Image <<n * - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',
             '@ImageView < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
             '@Image < View < View - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
-            '@ImageView < ViewGroup < ViewGroup < ViewGroup - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //苏宁易购-惊喜等你拿
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //苏宁易购-汽车之家-惊喜等你拿
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
@@ -53,7 +53,7 @@ export default defineGkdApp({
       name: '看视频-全屏广告-×ckkk',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -72,7 +72,7 @@ export default defineGkdApp({
       name: '看视频-全屏广告-×coaa',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -90,7 +90,7 @@ export default defineGkdApp({
       name: '首页广告-跳过csg',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'app',
       rules: [
         {
@@ -107,7 +107,7 @@ export default defineGkdApp({
       name: '首页广告-×csg',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchTime: 20000,
       resetMatch: 'app',
       rules: [
         {
