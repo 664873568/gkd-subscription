@@ -12,7 +12,9 @@ export default defineGkdApp({
       matchDelay: 5000,
       matchTime: 20000,
       resetMatch: 'activity',
-      activityIds: ['com.minigame.merge.miniapphost.placeholder.MiniGameActivity0'],
+      activityIds: [
+        'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
+      ],
       rules: [
         {
           key: 0,
@@ -52,7 +54,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[desc="看视频"] + [desc~="[0-9]+"] + [desc="秒"] + [desc="领"]'],
+          matches: [
+            '@[desc="看视频"] + [desc~="[0-9]+"] + [desc="秒"] + [desc="领"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
@@ -93,7 +97,9 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          matches: ['HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView'],//恭喜获得惊喜奖励×
+          matches: [
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView',
+          ], //恭喜获得惊喜奖励×
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
@@ -156,15 +162,13 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageButton[clickable=true] < View +2 * [text="0a4743e049dbbda4e58e6fdc8fab9e7a.png~tplv-49obo7mizy-75compress"]',//去升级
+            '@ImageButton[clickable=true] < View +2 * [text="0a4743e049dbbda4e58e6fdc8fab9e7a.png~tplv-49obo7mizy-75compress"]', //去升级
           ],
         },
         {
           action: 'back',
           actionDelay: 1000,
-          matches: [
-            '@[desc="返回"] +n ScrollView [desc="返回商户"]',
-          ],
+          matches: ['@[desc="返回"] +n ScrollView [desc="返回商户"]'],
         },
         {
           actionDelay: 1000,
@@ -326,9 +330,7 @@ export default defineGkdApp({
         },
         {
           actionDelay: 1000,
-          matches: [
-            '@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]',
-          ],
+          matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
         },
         {
           actionDelay: 1000,
@@ -352,9 +354,7 @@ export default defineGkdApp({
           ],
         },
         {
-          matches: [
-            '@[text="仍要退出"] + [text="立即收下"]',
-          ],
+          matches: ['@[text="仍要退出"] + [text="立即收下"]'],
         },
       ],
     },
