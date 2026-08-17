@@ -67,12 +67,13 @@ export default defineGkdApp({
       name: '做任务-去完成',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 2000,
       matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
           anyMatches: [
             '@[text="去完成"][clickable=true] < * -n [text="打开YY语音"]',
             '@[text="去完成"][clickable=true] < * -n [text="去头条极速版"]',
@@ -85,15 +86,14 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] < * -n [text="去微博赚红包"]',
             '@[text="去完成"][clickable=true] < * -n [text="打开QQ音乐"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提醒"][vid="message"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
@@ -102,23 +102,23 @@ export default defineGkdApp({
       name: '做任务-访问YY游仓',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
           matches: [
             '@[text="去完成"][clickable=true] < * -n [text="访问YY游仓"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0],
           key: 1,
           action: 'back',
+          actionDelay: 1000,
           matches: ['@[desc="YY游仓"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
@@ -171,17 +171,16 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
           matches: ['@[text="领奖励"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0],
           key: 1,
           matches: ['@TextView  - [text="马上完成"] -n [text="恭喜获得"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
@@ -209,17 +208,18 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
           matches: ['[text="提现"] >n @View[clickable=true] > [text="50元"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="确定"][vid="btn_ok"][clickable=true]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+          matches: [
+            '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提示"][vid="message"]',
+          ],
         },
       ],
     },
@@ -255,7 +255,9 @@ export default defineGkdApp({
           matches: [
             'TextView[clickable=true] - * > @[text="收下并送出"][clickable=true] + [desc="任务完成后即可领取奖励"]',
           ],
-          activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
+          activityIds: [
+            '.basemedia.watchlive.activity.LiveTemplateActivity',
+          ],
         },
       ],
     },
