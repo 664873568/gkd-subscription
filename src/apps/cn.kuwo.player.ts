@@ -21,10 +21,14 @@ export default defineGkdApp({
           matches: ['[text="金币提现"] +4 @TextView[clickable=true]'],
         },
         {
-          matches: ['[text="金币提现"] +n @View[index=9][clickable=true] > [text="需要20000金币"]'],
+          matches: [
+            '[text="金币提现"] +n @View[index=9][clickable=true] > [text="需要20000金币"]',
+          ],
         },
         {
-          excludeMatches: ['[text="金币提现"] +n @View[index=8][clickable=true] > [text="拆现金红包"]'],
+          excludeMatches: [
+            '[text="金币提现"] +n @View[index=8][clickable=true] > [text="拆现金红包"]',
+          ],
           matches: ['[text="金币提现"] +n @[text="确认提现"][clickable=true]'],
         },
       ],
