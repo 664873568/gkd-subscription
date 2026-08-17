@@ -642,13 +642,19 @@ export default defineGkdApp({
       activityIds: ['.host.activity.MainActivity'],
       rules: [
         {
-          matches: ['[text="微信提现"] +n @ViewGroup[clickable=true] > [text="10"] + [text="元"]'],
+          matches: [
+            '[text="微信提现"] +n @ViewGroup[clickable=true] > [text="10"] + [text="元"]',
+          ],
         },
         {
-          matches: ['[text="微信提现"] +n @ViewGroup[clickable=true] > [text="去提现"]'],
+          matches: [
+            '[text="微信提现"] +n @ViewGroup[clickable=true] > [text="去提现"]',
+          ],
         },
         {
-          matches: ['[text="选择到账方式"] +n @ViewGroup[clickable=true] > [text="普通到账"] + [text="1～3 天到账"] + * > [text="看1个广告"]'],
+          matches: [
+            '[text="选择到账方式"] +n @ViewGroup[clickable=true] > [text="普通到账"] + [text="1～3 天到账"] + * > [text="看1个广告"]',
+          ],
         },
       ],
     },
