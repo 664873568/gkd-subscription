@@ -213,7 +213,7 @@ export default defineGkdApp({
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
