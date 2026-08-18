@@ -11,42 +11,41 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 2000,
-      matchTime: 30000,
       resetMatch: 'activity',
       activityIds: ['com.taobao.themis.container.app.TMSActivity'],
       rules: [
         {
           key: 0,
           excludeMatches: [
-            '[text="天猫超市"] >n @View[clickable=true] > [text="领奖励"]',
+            '[id="chaoshi-header-titlebar"] +n @View[clickable=true] > [text="领奖励"]',
           ],
           matches: [
-            '[text="天猫超市"] >n @View[clickable=true] > [text="领任务"]',
+            '[id="chaoshi-header-titlebar"] +n @View[clickable=true] > [text="领任务"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="天猫超市"] >n @[desc="任务已完成 快去领奖励"][clickable=true] > [text="任务已完成"] +n [text="快去领奖励"]',
+            '[id="chaoshi-header-titlebar"] +n @[desc="任务已完成 快去领奖励"][clickable=true] > [text="任务已完成"] +n [text="快去领奖励"]',
           ],
         },
         {
           preKeys: [0, 1],
           key: 2,
           matches: [
-            '[text="天猫超市"] >n @View[clickable=true] > [text="领奖励"]',
+            '[id="chaoshi-header-titlebar"] +n @View[clickable=true] > [text="领奖励"]',
           ],
         },
         {
           preKeys: [0, 1, 2],
           key: 3,
           excludeMatches: [
-            '[text="天猫超市"] >n @View[clickable=true] > [text="领任务"]',
-            '[text="天猫超市"] >n @View[clickable=true] > [text="领奖励"]',
+            '[id="chaoshi-header-titlebar"] +n @View[clickable=true] > [text="领任务"]',
+            '[id="chaoshi-header-titlebar"] +n @View[clickable=true] > [text="领奖励"]',
           ],
           matches: [
-            '[text="天猫超市"] >n @[text="O1CN01UKt34q1bWga0WWl5L_!!6000000003473-2-tps-80-80.png_90x90q50.jpg_"][clickable=true] <n * + [id="panel-content"] >n [text="已领奖"]',
+            '[id="chaoshi-header-titlebar"] +n @[text="O1CN01UKt34q1bWga0WWl5L_!!6000000003473-2-tps-80-80.png_90x90q50.jpg_"][clickable=true] <n * + [id="panel-content"] >n [text="已领奖"]',
           ],
         },
       ],
