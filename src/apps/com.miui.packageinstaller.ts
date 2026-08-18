@@ -9,11 +9,10 @@ export default defineGkdApp({
       name: '启动应用',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
           matches: ['[text$="正尝试安装应用"] >n @[text="取消"]'],
           activityIds: ['com.miui.packageInstaller.InstallStart'],
         },
@@ -24,13 +23,14 @@ export default defineGkdApp({
       name: '频繁安装应用',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
-          matches: ['[text$="频繁安装应用"] >n @[text="取消"]'],
-          activityIds: ['null'],
+          matches: [
+            '@[text="取消"][clickable=true] - [text="验证"] < [vid="buttonPanel"] - * [text$="频繁安装应用"][vid="title"]',
+          ],
         },
       ],
     },
@@ -64,7 +64,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          matches: ['@[text="完成"][vid="start_button"][clickable=true]'],
+          matches: [
+            '@[text="完成"][vid="start_button"][clickable=true]',
+          ],
           activityIds: [
             'com.miui.packageInstaller.ui.normalmode.InstallProgressActivity',
           ],
