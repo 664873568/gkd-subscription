@@ -12,9 +12,9 @@ export default defineGkdApp({
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
-            'com.alipay.mobile.nebulacore.ui.H5Activity',
-            'com.hellobike.atlas.business.portal.PortalActivity',
-          ],
+        'com.alipay.mobile.nebulacore.ui.H5Activity',
+        'com.hellobike.atlas.business.portal.PortalActivity',
+      ],
       rules: [
         {
           matches: [
@@ -146,7 +146,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
       rules: [
-        {//观看*秒广告领取奖励
+        {
+          //观看*秒广告领取奖励
           key: 0,
           matches: [
             '@[vid="beizi_reward_video_privilege_dialog_container_ll"] >n [text="提前领奖"][vid="beizi_reward_video_privilege_dialog_interaction_title_tv"]',
@@ -160,7 +161,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="已经获得奖励 ｜ 关闭"][vid="beizi_reward_video_ad_end_car_close_tv"][clickable=true]',
