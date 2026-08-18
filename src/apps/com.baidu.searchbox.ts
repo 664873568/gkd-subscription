@@ -9,11 +9,10 @@ export default defineGkdApp({
       name: '浏览好物-返回领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="立即领取"] <<n [text="搜有红包 - 百度"]'],
+          matches: ['[text="搜有红包 - 百度"] >n @[text="立即领取"]'],
           activityIds: ['com.baidu.browser.search.LightSearchActivity'],
         },
       ],
@@ -23,12 +22,28 @@ export default defineGkdApp({
       name: '明星列表-完成并进入',
       matchRoot: true,
       actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[text="明星列表"] >n @[text="完成并进入送花页面"]'],
+          activityIds: ['com.baidu.browser.search.LightSearchActivity'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 40,
+      name: '升级-关闭',
+      matchRoot: true,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="完成并进入送花页面"] <<n [text="明星列表"]'],
-          activityIds: ['com.baidu.browser.search.LightSearchActivity'],
+          matches: [
+            '@[desc="关闭"][clickable=true] - * [text="升级"] >n [text="下载并安装"]',
+          ],
+          activityIds: ['.update.UpdateDialogActivity'],
         },
       ],
     },
