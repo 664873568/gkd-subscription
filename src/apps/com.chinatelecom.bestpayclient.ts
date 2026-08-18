@@ -554,6 +554,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 42,
+      name: '开启消息通知-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="开启消息通知"][vid="msg_notification_open_title"] +n @[text="跳过"][vid="msg_notification_skip_btn"][clickable=true] + [text="立即开启"][vid="msg_notification_open_btn"]',
+          ],
+          activityIds: ['.ui.MainActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
