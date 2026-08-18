@@ -139,7 +139,7 @@ export default defineGkdApp({
     //做任务赚奖励金
     {
       key: 5,
-      name: '奖励金-看视频领大量奖励金',//观看*秒广告领取奖励
+      name: '奖励金-看视频领大量奖励金', //观看*秒广告领取奖励
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
