@@ -277,9 +277,7 @@ export default defineGkdApp({
           ],
         },
         {
-          matches: [
-            '@ViewGroup[clickable=true] > [text="2京豆兑换"]',
-          ],
+          matches: ['@ViewGroup[clickable=true] > [text="2京豆兑换"]'],
         },
         {
           matches: [
@@ -568,9 +566,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
         {
-          matches: [
-            'Dialog >n [text="取消"] + @[text="打开"]',
-          ],
+          matches: ['Dialog >n [text="取消"] + @[text="打开"]'],
         },
         {
           matches: [
@@ -736,9 +732,9 @@ export default defineGkdApp({
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
-            '.bm.mainbox.main.MainActivity',
-            '.bm.sh.jm.video.ui.VibratoActivity',
-          ],
+        '.bm.mainbox.main.MainActivity',
+        '.bm.sh.jm.video.ui.VibratoActivity',
+      ],
       rules: [
         {
           action: 'swipe',
