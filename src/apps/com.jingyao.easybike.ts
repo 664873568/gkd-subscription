@@ -139,7 +139,7 @@ export default defineGkdApp({
     //做任务赚奖励金
     {
       key: 5,
-      name: '奖励金-看视频领大量奖励金',
+      name: '奖励金-看视频领大量奖励金',//观看*秒广告领取奖励
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -147,7 +147,6 @@ export default defineGkdApp({
       activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
       rules: [
         {
-          //观看*秒广告领取奖励
           key: 0,
           matches: [
             '@[vid="beizi_reward_video_privilege_dialog_container_ll"] >n [text="提前领奖"][vid="beizi_reward_video_privilege_dialog_interaction_title_tv"]',
@@ -193,7 +192,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
           anyMatches: [
             '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个热门推荐各60秒"]',
             '[text="开玩"] <n View <n @View[index=2][clickable=true] -n * [text="再玩1个热门推荐60秒"]',
@@ -203,8 +201,6 @@ export default defineGkdApp({
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          preKeys: [0],
-          key: 1,
           action: 'back',
           actionDelay: 60000,
           matches: [
@@ -213,8 +209,6 @@ export default defineGkdApp({
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
           actionDelay: 1000,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
@@ -232,7 +226,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -243,28 +236,34 @@ export default defineGkdApp({
               x: 'screenWidth*0.5',
               y: 'screenHeight*0.25',
             },
-            duration: 200,
+            duration: 100,
           },
           actionCd: 200,
-          actionMaximum: 3,
+          actionMaximum: 2,
           matches: [
             '[id="game-navbar"] + @View >n [text="新游速递"] + [text="任务已完成，获得45金币，明天再来吧"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          preKeys: [0],
-          key: 1,
+          position: {
+            left: 'width * 0.8955',
+            top: 'width * 0.3005',
+          },
           actionDelay: 1000,
-          anyMatches: [
-            '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个大家都在玩各60秒"]',
-            '[text="开玩"] <n View <n @View[index=2][clickable=true] -n * [text="再玩1个大家都在玩60秒"]',
+          matches: [
+            '[id="game-navbar"] + View > @View > [text="您已经到底了"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
+          actionDelay: 1000,
+          matches: [
+            '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个大家都在玩各60秒"]',
+          ],
+          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
+        },
+        {
           action: 'back',
           actionDelay: 60000,
           matches: [
@@ -273,8 +272,6 @@ export default defineGkdApp({
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
         {
-          preKeys: [0, 1, 2],
-          key: 3,
           actionDelay: 1000,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
