@@ -163,6 +163,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 1000,
           matches: [
             '@[text="已经获得奖励 ｜ 关闭"][vid="beizi_reward_video_ad_end_car_close_tv"][clickable=true]',
           ],
@@ -193,7 +194,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           anyMatches: [
             '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个热门推荐各60秒"]',
             '[text="开玩"] <n View <n @View[index=2][clickable=true] -n * [text="再玩1个热门推荐60秒"]',
@@ -215,6 +215,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 1000,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
             '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n [text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + @[text="暂不评论"][vid="rate_cancel"]',
@@ -254,7 +255,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
+          actionDelay: 1000,
           anyMatches: [
             '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个大家都在玩各60秒"]',
             '[text="开玩"] <n View <n @View[index=2][clickable=true] -n * [text="再玩1个大家都在玩60秒"]',
@@ -274,6 +275,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
+          actionDelay: 1000,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
             '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n [text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + @[text="暂不评论"][vid="rate_cancel"]',
@@ -339,33 +341,21 @@ export default defineGkdApp({
       key: 20,
       name: '看视频-微信-提前拿奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
           anyMatches: [
             '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
             '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="玩[0-9]+ 秒小游戏"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
-      ],
-    },
-    {
-      key: 21,
-      name: '看视频-微信-恭喜获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
           actionDelay: 2000,
           matches: [
             'ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout [text*="微信"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
