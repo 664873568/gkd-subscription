@@ -16,6 +16,7 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           anyMatches: [
+            'ImageView < @LinearLayout[clickable=true] -n * > [text~="[0-9]+s"] <<n * - * [text="反馈"]', //苏宁易购-立即下载
             '@ImageView < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
             '@ImageView <<n *[childCount=1] - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //美团-惊喜等你拿
           ],
