@@ -38,7 +38,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * + * [text="正在跳转......"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] <<n * - * [text="正在跳转..."]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -158,7 +158,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
-            'TextView[clickable=true] - @TextView[clickable=true] <<n WebView',
+            'TextView[clickable=true] - @TextView[clickable=true] <<n [id="J_babelOptPage"] <<n WebView',
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
@@ -211,6 +211,23 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 10,
+      name: '返回领奖-继续浏览下一个',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '[text="readMissionArrow2"] - [text="继续浏览下一个"] - [text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
       key: 16,
       name: '彩票券-返回领奖',
       matchRoot: true,
@@ -257,6 +274,31 @@ export default defineGkdApp({
             '[vid="manto_actionbar_option"][clickable=true] + @[vid="manto_actionbar_home"][clickable=true]',
           ],
           activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
+        },
+      ],
+    },
+    {
+      key: 19,
+      name: '京豆秒杀-京豆每日抢',
+      matchRoot: true,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.jrv8.JRCustomDyPageActivity'],
+      rules: [
+        {
+          matches: [
+            '[text="抢兑"] < ViewGroup - ImageView < @ViewGroup[clickable=true] <n * -2 * [text="小金库白条还款券"]',
+          ],
+        },
+        {
+          matches: [
+            '@ViewGroup[clickable=true] > [text="2京豆兑换"]',
+          ],
+        },
+        {
+          matches: [
+            '@[text="确认兑换"][clickable=true] <n * -n * [text="小金库白条还款券"]',
+          ],
         },
       ],
     },
@@ -445,7 +487,7 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            'TextView[clickable=true] - @TextView[clickable=true] <<n WebView[text="家电家居"] >n [text="readMissionArrow2"] - [text="继续浏览下一个"] - [text="浏览完成"] < View[clickable=true] - * [text="readMissionDown"]',
+            '[text="继续浏览下一个"] - [text="浏览完成"] < View[clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -558,12 +600,14 @@ export default defineGkdApp({
       name: '天天赚京豆-打开APP',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="打开"] - [text="取消"]'],
+          matches: ['Dialog >n [text="取消"] + @[text="打开"]'],
+          matches: [
+            '[text="bottom.21109d9b"] - @View[clickable=true] > [text="完成任务"]',
+          ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
