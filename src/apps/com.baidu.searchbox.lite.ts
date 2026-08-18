@@ -275,23 +275,9 @@ export default defineGkdApp({
         },
       ],
     },
-    //首页广告类
+    //功能应用类
     {
-      key: 50,
-      name: '首页-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: ['@[text="跳过"] <<5 RelativeLayout[vid="obfuscated"]'],
-          activityIds: ['com.baidu.searchbox.MainActivity'],
-        },
-      ],
-    },
-    {
-      key: 51,
+      key: 40,
       name: '升级-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -301,6 +287,23 @@ export default defineGkdApp({
         {
           matches: ['@[desc="关闭"] <<n * [text="立即升级"]'],
           activityIds: ['com.baidu.searchbox.update.UpdateDialogActivity'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 50,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="广告"] + @RelativeLayout[clickable=true] > LinearLayout > [text="跳过"] + [text~="0[0-9]"]'
+          ],
+          activityIds: ['com.baidu.searchbox.MainActivity'],
         },
       ],
     },
