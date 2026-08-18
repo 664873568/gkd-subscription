@@ -63,9 +63,7 @@ export default defineGkdApp({
           ],
         },
         {
-          matches: [
-            '[text="即将兑换"] +n @[text="确认兑换"][clickable=true]',
-          ],
+          matches: ['[text="即将兑换"] +n @[text="确认兑换"][clickable=true]'],
         },
       ],
     },
