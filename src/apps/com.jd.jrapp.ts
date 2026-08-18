@@ -593,27 +593,27 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '[text="七猫免费小说推广"] > View[clickable=true] >n @[desc="下载免费看书"][clickable=true] > [text="下载免费看书"]',//去七猫小说领金币
-            '[id="__endCallTop__"] > @[text="打开飞猪"]',//去飞猪签到兑现金
-            '[text="下载百度极速版"] >n @TextView[clickable=true]',//去百度极速版领现金
-            '[text="点淘"] >n @View[clickable=true] > [text="下载/打开APP"]',//去点淘APP赚零花钱
-            '@[id="76d7f62d-5557-482a-8863-9b8b32bc35b4"][clickable=true]',//去全民K歌领福利
-            '[text="去网盘新任务系统"] >n View[clickable=true] > @TextView[clickable=true]',//百度网盘领福利
+            '[text="七猫免费小说推广"] > View[clickable=true] >n @[desc="下载免费看书"][clickable=true] > [text="下载免费看书"]', //去七猫小说领金币
+            '[id="__endCallTop__"] > @[text="打开飞猪"]', //去飞猪签到兑现金
+            '[text="下载百度极速版"] >n @TextView[clickable=true]', //去百度极速版领现金
+            '[text="点淘"] >n @View[clickable=true] > [text="下载/打开APP"]', //去点淘APP赚零花钱
+            '@[id="76d7f62d-5557-482a-8863-9b8b32bc35b4"][clickable=true]', //去全民K歌领福利
+            '[text="去网盘新任务系统"] >n View[clickable=true] > @TextView[clickable=true]', //百度网盘领福利
             '[text="菜鸟"] >n @[id="root"]',
-            '[text="菜鸟"] >n @View[clickable=true] > [text="前往菜鸟APP"]',//来菜鸟每天抽手机
+            '[text="菜鸟"] >n @View[clickable=true] > [text="前往菜鸟APP"]', //来菜鸟每天抽手机
           ],
         },
         {
           key: 2,
           matches: [
-            '[text*="京东金融"] + View > [text="取消"] + @[text="打开"][clickable=true]',//"京东金融"想要打开"*"
+            '[text*="京东金融"] + View > [text="取消"] + @[text="打开"][clickable=true]', //"京东金融"想要打开"*"
           ],
         },
         {
           key: 3,
           anyMatches: [
-            '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]',//任务已完成 恭喜获得
-            '@TextView[clickable=true] - [text="立即领取"] -n [text~="[0-9]个京豆"]',//任务未完成 继续赚奖励
+            '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]', //任务已完成 恭喜获得
+            '@TextView[clickable=true] - [text="立即领取"] -n [text~="[0-9]个京豆"]', //任务未完成 继续赚奖励
           ],
         },
       ],
@@ -646,35 +646,31 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 3000,
           anyMatches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + TextView[text="京东钱包"] + ImageView + [vid="common_webview_navbar_right"]',//浏览钱包频道10秒
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + ImageView + [vid="common_webview_navbar_right"]',//查看信誉分频道10秒
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + TextView[text="京东钱包"] + ImageView + [vid="common_webview_navbar_right"]', //浏览钱包频道10秒
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + ImageView + [vid="common_webview_navbar_right"]', //查看信誉分频道10秒
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 3,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',//浏览帅哥美女向前冲-浏览京东手机馆
+            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]', //浏览帅哥美女向前冲-浏览京东手机馆
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 4,
           actionDelay: 3000,
-          matches: [
-            '@[text~="摇黄金 x[1-9]"][clickable=true]',
-          ],
+          matches: ['@[text~="摇黄金 x[1-9]"][clickable=true]'],
         },
         {
-          preKeys: [0,1,4],
+          preKeys: [0, 1, 4],
           key: 5,
-          matches: [
-            '@[text="开心收下"][clickable=true]',
-          ],
+          matches: ['@[text="开心收下"][clickable=true]'],
         },
       ],
     },
@@ -725,9 +721,7 @@ export default defineGkdApp({
             duration: 200,
           },
           actionCd: 50000,
-          matches: [
-            '@[vid="recycler_view"] [text="上滑继续看视频"]',
-          ],
+          matches: ['@[vid="recycler_view"] [text="上滑继续看视频"]'],
         },
         {
           key: 2,
@@ -779,7 +773,7 @@ export default defineGkdApp({
           actionDelay: 3000,
           anyMatches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] + TextView + [vid="common_webview_navbar_right"]',
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [vid="common_webview_navbar_right"]',//每日都可领京豆-去看看股票投资工具-竞猜足球瓜分百万京豆
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [vid="common_webview_navbar_right"]', //每日都可领京豆-去看看股票投资工具-竞猜足球瓜分百万京豆
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -788,7 +782,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 3000,
           matches: [
-            '[text="圈子"] >n @TextView[clickable=true] + TextView[clickable=true]',//浏览基金圈 结交同路人
+            '[text="圈子"] >n @TextView[clickable=true] + TextView[clickable=true]', //浏览基金圈 结交同路人
           ],
           activityIds: ['.bm.common.container.ui.BaseContainerActivity'],
         },
@@ -796,7 +790,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',//浏览免费领礼物-浏览15理财日10秒-浏览向前冲10s
+            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]', //浏览免费领礼物-浏览15理财日10秒-浏览向前冲10s
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -804,15 +798,15 @@ export default defineGkdApp({
           preKeys: [0],
           key: 4,
           matches: [
-            'View[clickable=true] > @View[clickable=true] > [text="喂食10次"]',//成功喂一次猪
+            'View[clickable=true] > @View[clickable=true] > [text="喂食10次"]', //成功喂一次猪
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
-          preKeys: [0,4],
+          preKeys: [0, 4],
           key: 5,
           matches: [
-            '@View[clickable=true] > [text="back"]',//成功喂一次猪
+            '@View[clickable=true] > [text="back"]', //成功喂一次猪
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -820,7 +814,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 6,
           matches: [
-            '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup',//看收藏大牛学知识
+            '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup', //看收藏大牛学知识
           ],
           activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
         },
@@ -828,15 +822,15 @@ export default defineGkdApp({
           preKeys: [0],
           key: 7,
           matches: [
-            '@View[clickable=true] > [text="03e6058058b35dde"]',//养大鹅1分兑好礼
+            '@View[clickable=true] > [text="03e6058058b35dde"]', //养大鹅1分兑好礼
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
-          preKeys: [0,7],
+          preKeys: [0, 7],
           key: 8,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + ImageView + [vid="common_webview_navbar_right"]',//养大鹅1分兑好礼
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + ImageView + [vid="common_webview_navbar_right"]', //养大鹅1分兑好礼
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -844,7 +838,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 9,
           matches: [
-            '[text="黄金频道页"] >n @TextView[clickable=true] + [text="139b35d682d5bb6e"]',//逛一逛黄金频道
+            '[text="黄金频道页"] >n @TextView[clickable=true] + [text="139b35d682d5bb6e"]', //逛一逛黄金频道
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -924,7 +918,7 @@ export default defineGkdApp({
           matches: ['@[vid="web_all"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
