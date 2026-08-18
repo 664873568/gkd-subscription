@@ -54,20 +54,18 @@ export default defineGkdApp({
       key: 3,
       name: '优惠券兑换-确认兑换',
       matchRoot: true,
-      matchTime: 20000,
       resetMatch: 'activity',
       activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
       rules: [
         {
-          key: 0,
           matches: [
-            '[text~="\\\\（剩余([1-9]|[1-2][0-9])张\\\\）"] - * > @[text="立即兑换"][clickable=true] - ListView > [text="20元"]',
+            '[text~="\\\\（剩余([1-9]|[0-9][0-9])张\\\\）"] - * > @[text="立即兑换"][clickable=true] - ListView > [text="20元"]',
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
-          matches: ['[text="即将兑换"] +n @[text="确认兑换"][clickable=true]'],
+          matches: [
+            '[text="即将兑换"] +n @[text="确认兑换"][clickable=true]',
+          ],
         },
       ],
     },
