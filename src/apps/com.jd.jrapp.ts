@@ -580,6 +580,7 @@ export default defineGkdApp({
       name: '天天赚京豆-去七猫小说领金币',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -596,6 +597,7 @@ export default defineGkdApp({
       name: '天天赚京豆-去飞猪签到兑现金',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -613,6 +615,7 @@ export default defineGkdApp({
       name: '天天赚京豆-去百度极速版领现金',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -627,6 +630,7 @@ export default defineGkdApp({
       name: '天天赚京豆-去点淘APP赚零花钱',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -644,6 +648,7 @@ export default defineGkdApp({
       name: '天天赚京豆-去全民K歌领福利',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -660,6 +665,7 @@ export default defineGkdApp({
       name: '天天赚京豆-百度网盘领福利',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -676,6 +682,7 @@ export default defineGkdApp({
       name: '天天赚京豆-来菜鸟每天抽手机',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 3000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
