@@ -8,10 +8,8 @@ export default defineGkdApp({
       key: 0,
       name: 'YY-去头条极速版',
       matchRoot: true,
-      matchTime: 20000,
-      matchDelay: 6000,
+      matchDelay: 5000,
       resetMatch: 'activity',
-      actionMaximum: 1,
       rules: [
         {
           anyMatches: [
@@ -28,7 +26,7 @@ export default defineGkdApp({
       name: '升级版本-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -39,10 +37,24 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             'MeasureOnceRelativeLayout2[clickable=true] -2 * [index=0][childCount=2] @[desc="返回"] ',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '开启重要资讯通知-暂不开启-×',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'app',
+      rules: [
+        {
+          anyMatches: ['@ImageView - ViewGroup < ViewGroup'],
+          activityIds: ['.activity.SplashActivity'],
         },
       ],
     },
