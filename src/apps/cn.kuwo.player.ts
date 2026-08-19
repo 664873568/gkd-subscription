@@ -62,8 +62,8 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[desc="跳过"][vid="btnSkip"]',
-            '@[text="跳过"][vid="qq_skip_button"]',
-            '[text="跳过"][vid="smallLogo_tvSkip"] < @[vid="smallLogo_rlSkip"][clickable=true]',
+            '@LinearLayout[clickable=true] > FrameLayout > [text="跳过"][vid="qq_skip_button"]',
+            '@[vid="smallLogo_rlSkip"][clickable=true] > [text="跳过"][vid="smallLogo_tvSkip"]',
           ],
           activityIds: ['.activities.EntryActivity'],
         },
