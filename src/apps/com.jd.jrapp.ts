@@ -748,14 +748,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelya: 2000,
+          actionDelay: 2000,
           matches: [
             '@TextView[clickable=true] - [text="先去主页看看"] - [text~="立即摇\\\\([0-9]s\\\\)"]',
           ],
         },
         {
           key: 1,
-          actionDelya: 1000,
+          actionDelay: 1000,
           matches: [
             '@TextView[clickable=true] - View > [text~="摇黄金 x[0-9]"]',
           ],
@@ -796,7 +796,7 @@ export default defineGkdApp({
         {
           preKeys: [1, 2, 5],
           key: 6,
-          actionDelya: 1000,
+          actionDelay: 1000,
           matches: ['@[text="开心收下"][clickable=true]'],
         },
       ],
