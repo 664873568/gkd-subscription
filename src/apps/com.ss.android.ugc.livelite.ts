@@ -10,11 +10,10 @@ export default defineGkdApp({
       name: '天天赚话费-更多任务',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 9000,
           matches: [
             '@ViewGroup[childCount=0] < ViewGroup[childCount=2] -n ScrollView',
           ],
@@ -29,11 +28,10 @@ export default defineGkdApp({
       name: '天天赚话费-赚充值金',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: [
             '@ViewGroup[index=0][childCount=0] < ViewGroup[index=2][childCount=1] - ViewGroup[index=1][childCount=2]',
           ],
@@ -48,13 +46,12 @@ export default defineGkdApp({
       name: '天天赚话费-再赚充值金',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
           matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 ViewGroup[desc~="\\\\d+00"]',
+            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 ViewGroup[desc~="[0-9]+00"]',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
@@ -67,7 +64,7 @@ export default defineGkdApp({
       name: '天天赚话费-天天用好券-返回领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 40000,
+      matchDelay: 2000,
       resetMatch: 'activity',
       rules: [
         {
@@ -80,25 +77,25 @@ export default defineGkdApp({
     },
     {
       key: 44,
-      name: '天天赚话费-天天用好券',
+      name: '天天赚话费-天天用好券-返回领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 40000,
+      matchDelay: 2000,
       resetMatch: 'activity',
+      activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
       rules: [
         {
           key: 0,
           matches: [
             '@[desc="返回"] <<n [id="mix-navbar"] +n [id="b05ddabf003f3617"] >n [text="浏览好物"] + [text="返回领取"]',
           ],
-          activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           action: 'back',
           matches: ['@[desc="返回"] <<n * [text="放弃优惠"]'],
-          activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
         },
       ],
     },
@@ -108,50 +105,19 @@ export default defineGkdApp({
       name: '看视频-任务完成 返回领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 40000,
+      matchDelay: 30000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView < ViewGroup[childCount=1] -3 ScrollView'],
-          activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 61,
-      name: '看视频-直播',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 30000,
-          matches: [
-            '@[desc="关闭"][vid="crt"] <n LiveMeasureOnceRelativeLayout',
-          ],
-          activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
-        },
-      ],
-    },
-    {
-      key: 62,
-      name: '看视频--任务完成 返回领取-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 30000,
+          key: 0,
           matches: [
             '@[desc="关闭"][vid="crt"] <n LiveMeasureOnceRelativeLayout',
           ],
           activityIds: ['com.ss.android.ugc.aweme.live.LivePlayActivity'],
         },
         {
-          preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: ['@ImageView < ViewGroup[childCount=1] -3 ScrollView'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
