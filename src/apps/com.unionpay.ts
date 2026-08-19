@@ -38,6 +38,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
+          key: 0,
           anyMatches: [
             '[id="root-router-view"] >n @[text="签到成功"][clickable=true]',
             '[id="root-router-view"] >n @[text="去抽奖"][clickable=true]',
@@ -45,16 +46,25 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 1000,
           matches: [
             '[id="root-router-view"] >n @[text~="剩余 [1-9]次 抽奖机会"][clickable=true]',
           ],
         },
         {
-          matches: [
+          preKeys: [0,1],
+          key: 2,
+          actionDelay: 1000,
+          anyMatches: [
             'Image < @View[clickable=true] -n [text="去查看"][clickable=true]',
+            'Image < @View[clickable=true] -n [text="开心收下"][clickable=true]',
           ],
         },
         {
+          key: 3,
+          actionDelay: 1000,
           matches: ['AlertDialog > View > [text="知道了"][clickable=true]'],
         },
       ],
