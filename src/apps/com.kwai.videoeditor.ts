@@ -37,8 +37,8 @@ export default defineGkdApp({
           action: 'clickCenter',
           anyMatches: [
             '@Image <<n * -n * [text="反馈"] <<n * + * [text="轻触或上滑"]',
-            '@ImageView < * - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
             '@Image < View < View - * [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',
+            '@ImageView < ViewGroup - * > [text="反馈"] <<n * + * [text="点击或上滑打开"] + * [text="跳转至详情页或第三方应用"]',//小米应用商店
             '@ImageView < ViewGroup < ViewGroup < ViewGroup - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //美团-苏宁易购-汽车之家-淘宝闪购-惊喜等你拿
             '@Image < View < View < View < View - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //拼多多-惊喜等你拿
           ],
