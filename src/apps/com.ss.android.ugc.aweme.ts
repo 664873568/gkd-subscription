@@ -16,9 +16,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@View[clickable=true] > [text="签到可得"]',
-          ],
+          matches: ['@View[clickable=true] > [text="签到可得"]'],
         },
         {
           preKeys: [0],
@@ -48,13 +46,15 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 15000,
-          matches: ['@[desc="关闭"] <n ViewGroup - FrameLayout > [desc="游戏中心"]'],
+          matches: [
+            '@[desc="关闭"] <n ViewGroup - FrameLayout > [desc="游戏中心"]',
+          ],
           activityIds: [
             'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: ['@ImageView - ViewGroup < ViewGroup - ScrollView'],
@@ -381,7 +381,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 1000,
           matches: ['@[text="仍要退出"] + [text="立即收下"]'],
@@ -656,7 +656,7 @@ export default defineGkdApp({
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="我知道了"] - [text="AaIe25teg7ljAAAAAElFTkSuQmCC"]',
@@ -689,7 +689,7 @@ export default defineGkdApp({
           activityIds: ['.search.activity.SearchResultActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           matches: [
