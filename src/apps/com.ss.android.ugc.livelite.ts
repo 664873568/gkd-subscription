@@ -6,11 +6,11 @@ export default defineGkdApp({
   groups: [
     //充值中心-天天赚话费
     {
-      key: 40,
+      key: 0,
       name: '天天赚话费-更多任务',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
+      matchDelay: 2000,
       resetMatch: 'activity',
       rules: [
         {
@@ -24,7 +24,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 1,
       name: '天天赚话费-赚充值金',
       matchRoot: true,
       actionMaximum: 1,
@@ -42,7 +42,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 2,
       name: '天天赚话费-再赚充值金',
       matchRoot: true,
       actionMaximum: 1,
@@ -60,23 +60,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 43,
-      name: '天天赚话费-天天用好券-返回领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[desc="返回"] <<n [id="mix-navbar"] +n [id="b05ddabf003f3617"] >n [text="浏览好物"] + [text="返回领取"]',
-          ],
-          activityIds: ['com.ss.android.ugc.aweme.live.LiveDummyActivity'],
-        },
-      ],
-    },
-    {
-      key: 44,
+      key: 3,
       name: '天天赚话费-天天用好券-返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -101,7 +85,7 @@ export default defineGkdApp({
     },
     //看视频
     {
-      key: 60,
+      key: 4,
       name: '看视频-任务完成 返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -125,7 +109,7 @@ export default defineGkdApp({
     },
     //功能应用类
     {
-      key: 400,
+      key: 40,
       name: '检测到更新',
       matchRoot: true,
       actionMaximum: 1,
