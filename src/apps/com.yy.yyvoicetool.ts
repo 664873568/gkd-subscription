@@ -365,7 +365,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text^="直播间号"] - @View[clickable=true] -2 View[clickable=true][childCount=0]',
