@@ -433,13 +433,13 @@ export default defineGkdApp({
           action: 'longClickCenter',
           actionCd: 200,
           actionMaximum: 100,
-          matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'],//京豆捕鱼｜消耗10%能量值
+          matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'], //京豆捕鱼｜消耗10%能量值
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 4,
           actionDelay: 30000,
-          matches: ['@[text="退出"][clickable=true]'],//京豆捕鱼｜消耗10%能量值
+          matches: ['@[text="退出"][clickable=true]'], //京豆捕鱼｜消耗10%能量值
         },
         {
           preKeys: [0],
