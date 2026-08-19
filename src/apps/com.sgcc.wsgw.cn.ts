@@ -58,7 +58,8 @@ export default defineGkdApp({
       activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '[text="2000签到金"] + @ImageButton[clickable=true] + [text~="\\\\（剩余([1-9]|[0-9]*)张\\\\）"]',
             '[text~="\\\\（剩余([1-9]|[0-9][0-9])张\\\\）"] - * > @[text="立即兑换"][clickable=true] - ListView > [text="20元"]',
           ],
         },
