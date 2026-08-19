@@ -14,7 +14,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="oneKey"][clickable=true]'],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
