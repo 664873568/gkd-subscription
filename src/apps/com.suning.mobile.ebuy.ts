@@ -9,12 +9,11 @@ export default defineGkdApp({
       name: '星图金融-返回',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 10000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
-          actionDelay: 10000,
           matches: [
             '@[desc="返回"][vid="btn_back"][clickable=true] < [vid="layout_ucwv_back"] + [text="云钻魔法狮"][vid="title"]',
           ],
