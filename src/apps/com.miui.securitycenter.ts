@@ -165,6 +165,23 @@ export default defineGkdApp({
     },
     {
       key: 8,
+      name: '启动应用-拒绝-京东',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 3000,
+          matches: [
+            '@[text="拒绝"] <n * - * [text="启动应用"][vid="permission_group_title"] + [text^="京东"][vid="event_title"]',
+          ],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
       name: '启动应用-拒绝-京东金融',
       matchRoot: true,
       actionMaximum: 1,
@@ -181,7 +198,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 9,
+      key: 10,
       name: '启动应用-本次允许-京东金融',
       matchRoot: true,
       actionMaximum: 1,
@@ -200,7 +217,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 10,
+      key: 11,
       name: '启动应用-拒绝-抖音',
       matchRoot: true,
       actionMaximum: 1,
@@ -217,7 +234,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 12,
       name: '启动应用-拒绝-支付宝',
       matchRoot: true,
       actionMaximum: 1,
