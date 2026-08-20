@@ -22,7 +22,10 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: ['View > View > @[text="去完成"][clickable=true]'],
+          anyMatches: [
+            '@[text="去完成"][clickable=true] -n [text!="0.1元好货低价提(0/1)"]',
+            '@[text="去完成"][clickable=true] -n [text!="健康金限时领(0/1)"]',
+          ],
           activityIds: [
             '.WebActivity',
             'com.jd.lib.ttt.page.TTTMultiPageActivity',
@@ -33,7 +36,7 @@ export default defineGkdApp({
           key: 2,
           action: 'clickCenter',
           matches: [
-            '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]', //品质不打折，外卖不打烊！-浏览页面得京豆-逛秒杀频道 签到领京豆-逛逛频道领好礼(0/12)-逛自营二手 全品类低价捡漏-浏览页面领京豆(0/2)-逛京东校园签到得京豆-转发好友！瓜分拼手气红包
+            '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]', //浏览页面得京豆-逛秒杀频道 签到领京豆-逛逛频道领好礼(0/12)-逛自营二手 全品类低价捡漏-浏览页面领京豆(0/2)-逛京东校园签到得京豆-转发好友！瓜分拼手气红包
           ],
           activityIds: [
             '.personel.FloatViewActivity',
@@ -43,7 +46,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 3,
-          actionDelay: 15000,
+          actionDelay: 5000,
           matches: [
             'RelativeLayout > @[desc="返回"][clickable=true]', //浏览点击3个商品(0/3)
             'TextView - @TextView[clickable=true] <<n WebView', //浏览京东金融领京豆(0/3)
@@ -56,36 +59,36 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 4,
-          actionDelay: 15000,
+          actionDelay: 5000,
           matches: ['@FrameLayout[clickable=true] > [desc="搜索"]'], //看视频领3折券
           activityIds: ['com.jd.lib.Discovery.view.DiscoveryActivity'],
         },
         {
           preKeys: [1],
           key: 5,
-          actionDelay: 15000,
           matches: [
-            'ViewGroup > LinearLayout > @TextView[text=""][clickable=true] + ImageView',
-          ], //逛新品频道 每天领红包-逛排行榜最高得99豆-逛超级明星抽8888红包-逛拍卖领京豆
-          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
-        },
-        {
-          preKeys: [1],
-          key: 6,
-          actionDelay: 15000,
-          matches: [
-            'ViewGroup + ViewGroup + @ViewGroup[clickable=true] > ImageView',
-          ], //健康金限时领
+            'ScrollView + ViewGroup >n @ViewGroup[childCount=1][clickable=true] >n ImageView', //0.1元好货低价提-<
+          ],
           activityIds: [
             'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
           ],
         },
         {
           preKeys: [1],
-          key: 7,
+          key: 6,
+          actionDelay: 5000,
           matches: [
-            'ViewGroup[childCount=2] > ViewGroup + ViewGroup[childCount=2] > @ViewGroup[clickable=true] > ImageView',
-          ], //健康金限时领
+            'ViewGroup > LinearLayout > @TextView[text=""][clickable=true] + ImageView', //逛新品频道 每天领红包-逛排行榜最高得99豆-逛超级明星抽8888红包-逛拍卖领京豆
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 7,
+          actionDelay: 5000,
+          matches: [
+            'ViewGroup + ViewGroup + @ViewGroup[clickable=true] > ImageView', //健康金限时领-×
+          ],
           activityIds: [
             'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
           ],
@@ -93,28 +96,38 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 8,
-          actionDelay: 15000,
           matches: [
-            '[text="推荐"] <n @ViewGroup[clickable=true] < * + * [text="试用领取"]',
+            'ViewGroup[childCount=10] + ViewGroup[childCount=2] > ViewGroup + ViewGroup[childCount=2] > @ViewGroup[clickable=true] > ImageView', //健康金限时领-<
           ],
-          activityIds: ['.MainFrameActivity'],
+          activityIds: [
+            'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
+          ],
         },
         {
-          preKeys: [1, 8],
+          preKeys: [1],
           key: 9,
+          actionDelay: 5000,
           matches: [
-            '[text="9.9包邮"] <n @ViewGroup[clickable=true] < * - * [text="推荐"]',
+            '[text="推荐"] <n @ViewGroup[clickable=true] < * + * [text="试用领取"]',//逛逛频道领好礼(0/12)
           ],
           activityIds: ['.MainFrameActivity'],
         },
         {
+          preKeys: [1, 9],
           key: 10,
+          matches: [
+            '[text="9.9包邮"] <n @ViewGroup[clickable=true] < * - * [text="推荐"]',//逛逛频道领好礼(0/12)
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+        {
+          key: 11,
           matches: ['@[text~="砸一下\\\\(剩余[0-9]+次\\\\)"][clickable=true]'],
           activityIds: ['.WebActivity', '.MainFrameActivity'],
         },
         {
-          preKeys: [10],
-          key: 11,
+          preKeys: [11],
+          key: 12,
           matches: [
             '@[desc="关闭弹窗"][clickable=true] + View > View > View + TextView[clickable=true]',
           ],
