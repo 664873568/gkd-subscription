@@ -4,9 +4,27 @@ export default defineGkdApp({
   id: 'com.jingdong.app.mall',
   name: '京东',
   groups: [
-    //天天砸金蛋
+    //黑色星期五 4.9抢15枚鸡蛋-周四 20:00/20:30/22:00-周五 10:00/16:00/20:00/22:00
+    //https://prodev.m.jd.com/mall/active/6g7nXqEqSD9FXFB4cStkfWD47qJ/index.html
     {
       key: 0,
+      name: '黑色星期五-领券抢',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionCd: 100,
+          actionMaximum: 1000,
+          matches: ['[text="黑色星期五"] >n @[text="领券抢"][clickable=true] - * [text="15枚鲜蛋"]'],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+      ],
+    },
+    //天天砸金蛋
+    //https://prodev.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
+    {
+      key: 1,
       name: '天天砸金蛋-去完成',
       matchRoot: true,
       matchDelay: 1000,
