@@ -9,13 +9,11 @@ export default defineGkdApp({
       key: 0,
       name: '天天砸金蛋-去完成',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 2000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           anyMatches: [
             '@View[clickable=true] > View > View > [text="sign icon"]',
             '@View[clickable=true] > View > View > [desc="sign icon"]',
@@ -24,7 +22,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 2000,
           matches: ['View > View > @[text="去完成"][clickable=true]'],
           activityIds: [
             '.WebActivity',
@@ -140,7 +137,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 1000,
           excludeMatches: ['[text="做任务 攒经验"]'],
           matches: [
             '[text="互动游戏"] >n [text="赚京豆"] >n [text="攒经验 ›"][clickable=true]',
@@ -154,7 +150,7 @@ export default defineGkdApp({
       name: '互动游戏-逛一逛-看直播赚钱',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 2000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -168,7 +164,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
           anyMatches: [
             '[text="粉丝关注任务"] >n @TextView[clickable=true][index=1]',
             '[text="直播间心愿"] >n @View[clickable=true] > [text="0276048048dc874a"]',
@@ -180,7 +175,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          actionDelay: 6000,
+          actionDelay: 5000,
           matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
           activityIds: [
             'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
@@ -193,7 +188,7 @@ export default defineGkdApp({
       key: 12,
       name: '互动游戏-逛一逛',
       matchRoot: true,
-      matchDelay: 2000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -220,7 +215,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 1000,
           matches: [
             '[text="互动游戏"] >n @TextView[clickable=true] + * [text="已完成"]',
           ],
@@ -233,7 +227,7 @@ export default defineGkdApp({
       key: 13,
       name: '互动游戏-逛一逛-游戏',
       matchRoot: true,
-      matchDelay: 3000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -246,7 +240,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 6000,
+          actionDelay: 5000,
           matches: [
             '@[desc="关闭"][clickable=true] - [desc="更多"][clickable=true]',
           ],
@@ -254,7 +248,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 1000,
           matches: [
             '@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]',
           ],
@@ -266,11 +259,12 @@ export default defineGkdApp({
       key: 14,
       name: '互动游戏-去完成',
       matchRoot: true,
-      matchDelay: 3000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           action: 'clickCenter',
           matches: [
             '[text="互动游戏"] >n [text~="热卖商品推荐\\\\([0-4]/5\\\\)"] +2 @View[clickable=true] > [text="去完成"]',
@@ -290,7 +284,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 1000,
           matches: [
             '[text="互动游戏"] >n @TextView[clickable=true] + * [text="已完成"]',
           ],
@@ -302,12 +295,13 @@ export default defineGkdApp({
       key: 15,
       name: '互动游戏-领取',
       matchRoot: true,
-      matchDelay: 4000,
+      matchDelay: 2000,
       resetMatch: 'activity',
       activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="互动游戏"] >n [text="赚京豆"] >n [text="全部奖励已解锁"] + * >n @[text="领取"][clickable=true]',
           ],
@@ -315,7 +309,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
           matches: [
             '[text="互动游戏"] >n [text="京豆奖励"] +n @[text="开心收下"][clickable=true]',
           ],
