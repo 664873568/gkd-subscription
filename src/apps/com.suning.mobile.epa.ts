@@ -9,7 +9,6 @@ export default defineGkdApp({
       key: 0,
       name: '天天领现金-×',
       matchRoot: true,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -27,34 +26,26 @@ export default defineGkdApp({
       key: 1,
       name: '天天领现金-签到领大额红包',
       matchRoot: true,
-      matchDelay: 5000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
       rules: [
         {
           matches: [
             '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image',
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
-          action: 'back',
-          actionDelay: 1000,
           matches: [
             '@ImageButton[clickable=true] - [text="仍要放弃"] - [text="继续赚积分"]',
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
-          action: 'back',
-          actionDelay: 1000,
           matches: ['[id="mainViewWrapper"] >n @ImageButton[clickable=true]'],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
-          action: 'back',
           actionDelay: 1000,
           matches: ['@ImageButton[clickable=true] < * + * [text="红包签到"]'],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
     },
@@ -66,7 +57,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 1000,
           matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -82,8 +73,11 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="txt_dialog_reject"] +n [vid="txt_dialog_commit"]'],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+          matches: ['@[vid="txt_dialog_reject"][clickable=true] +n [vid="txt_dialog_commit"]'],
+          activityIds: [
+            '.launcher.LauncherActivity',
+            'com.suning.webview.H5SystemBaseActivity',
+          ],
         },
       ],
     },
@@ -108,8 +102,7 @@ export default defineGkdApp({
       key: 50,
       name: '首页-领现金',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -124,7 +117,6 @@ export default defineGkdApp({
       key: 51,
       name: '首页广告-×',
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -136,34 +128,6 @@ export default defineGkdApp({
             '.launcher.LauncherActivity',
             'com.suning.webview.H5SystemBaseActivity',
           ],
-        },
-      ],
-    },
-    {
-      key: 52,
-      name: '首页广告-领现金',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[vid="bottom_sale_info_close"][clickable=true] +n [vid="bottom_sale_info_btn"]',
-          ],
-          activityIds: [
-            '.launcher.LauncherActivity',
-            'com.suning.webview.H5SystemBaseActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="领现金"] - [vid="item_img_container"] > [vid="item_img"]',
-          ],
-          activityIds: ['.launcher.LauncherActivity'],
         },
       ],
     },
