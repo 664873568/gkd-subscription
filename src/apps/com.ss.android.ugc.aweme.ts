@@ -596,9 +596,7 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          matches: [
-            '[text="抖音月付"] >n @[desc="返回"][clickable=true]',
-          ],
+          matches: ['[text="抖音月付"] >n @[desc="返回"][clickable=true]'],
         },
         {
           key: 4,
