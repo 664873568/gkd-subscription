@@ -16,7 +16,9 @@ export default defineGkdApp({
         {
           actionCd: 100,
           actionMaximum: 1000,
-          matches: ['[text="黑色星期五"] >n @[text="领券抢"][clickable=true] - * [text="15枚鲜蛋"]'],
+          matches: [
+            '[text="黑色星期五"] >n @[text="领券抢"][clickable=true] - * [text="15枚鲜蛋"]',
+          ],
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
       ],
