@@ -23,8 +23,8 @@ export default defineGkdApp({
         {
           key: 1,
           anyMatches: [
-            '@[text="去完成"][clickable=true] -n [text!="0.1元好货低价提(0/1)"]',
-            '@[text="去完成"][clickable=true] -n [text!="健康金限时领(0/1)"]',
+            '@[text="去完成"][clickable=true] -2 [text!="0.1元好货低价提(0/1)"]',
+            '@[text="去完成"][clickable=true] -2 [text!="健康金限时领(0/1)"]',
           ],
           activityIds: [
             '.WebActivity',
