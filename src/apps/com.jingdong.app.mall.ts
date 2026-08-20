@@ -19,7 +19,7 @@ export default defineGkdApp({
             '@View[clickable=true] > View > View > [desc="sign icon"]',
             '@View[clickable=true] > View > View > [text="sign icon"]',
           ],
-          activityIds: ['.WebActivity','.MainFrameActivity'],
+          activityIds: ['.WebActivity', '.MainFrameActivity'],
         },
         {
           key: 1,
@@ -39,7 +39,7 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] -n [text^="逛拍卖领京豆"]',
             '@[text="去完成"][clickable=true] -n [text^="转发好友！瓜分拼手气红包"]',
           ],
-          activityIds: ['.WebActivity','.MainFrameActivity'],
+          activityIds: ['.WebActivity', '.MainFrameActivity'],
         },
         {
           key: 2,
@@ -85,7 +85,7 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] -n [text^="转发好友！瓜分拼手气红包"]',
           ],
           matches: ['@[text~="砸一下\\\\(剩余[0-9]+次\\\\)"][clickable=true]'],
-          activityIds: ['.WebActivity','.MainFrameActivity'],
+          activityIds: ['.WebActivity', '.MainFrameActivity'],
         },
         {
           key: 7,
@@ -93,7 +93,7 @@ export default defineGkdApp({
             '@[text="关闭弹窗"][clickable=true] + View > View > View + TextView[clickable=true]',
             '@[desc="关闭弹窗"][clickable=true] + View > View > View + TextView[clickable=true]',
           ],
-          activityIds: ['.WebActivity','.MainFrameActivity'],
+          activityIds: ['.WebActivity', '.MainFrameActivity'],
         },
       ],
     },
