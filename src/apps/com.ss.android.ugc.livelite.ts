@@ -107,6 +107,37 @@ export default defineGkdApp({
         },
       ],
     },
+    //赚金币
+    {
+      key: 10,
+      name: '赚金币',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'LinearLayout > ViewGroup > @ViewGroup[childCount=4][index=0] > ImageView + ViewGroup + ViewGroup + ViewGroup',
+          ],
+          activityIds: ['com.ss.android.ugc.aweme.main.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '金币购物抵钱-立即签到',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['ViewGroup > ViewGroup > [desc="立即签到"]'],
+          activityIds: ['com.ss.android.ugc.aweme.bullet.ui.BulletContainerActivity'],
+        },
+      ],
+    },
     //功能应用类
     {
       key: 40,
