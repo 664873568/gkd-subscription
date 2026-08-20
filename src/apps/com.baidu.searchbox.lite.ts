@@ -31,8 +31,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="去完成"][clickable=true] -2 [text="看3个广告得1个红包 （0/3）"]',
-            '@[text="继续看"][clickable=true] -2 [text~="看3个广告得1个红包 （[0-2]/3）"]',
+            '@[text="去完成"][clickable=true] -2 [text~="看[0-9]+个广告得1个红包 （[0-9]+/[0-9]+）"]',
+            '@[text="继续看"][clickable=true] -2 [text~="看[0-9]+个广告得1个红包 （[0-9]+/[0-9]+）"]',
           ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
@@ -67,13 +67,14 @@ export default defineGkdApp({
       key: 12,
       name: '每日福利-看视频*个',
       matchRoot: true,
-      matchDelay: 2000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 1000,
           anyMatches: [
-            '@[text="去完成"][clickable=true] -2 [text="看10个视频得1个红包 （0/10）"]',
-            '@[text="继续看"][clickable=true] -2 [text~="看10个视频得1个红包 （[0-9]/10）"]',
+            '@[text="去完成"][clickable=true] -2 [text="看[0-9]+个视频得1个红包 （[0-9]+/[0-9]+）"]',
+            '@[text="继续看"][clickable=true] -2 [text~="看[0-9]+个视频得1个红包 （[0-9]+/[0-9]+）"]',
           ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
@@ -115,13 +116,14 @@ export default defineGkdApp({
       key: 13,
       name: '每日福利-看视频*秒',
       matchRoot: true,
-      matchDelay: 3000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           anyMatches: [
-            '@[text="去完成"][clickable=true] -2 [text="看2分钟视频得1个红包"]',
-            '@[text="继续看"][clickable=true] -2 [text="看2分钟视频得1个红包"]',
+            '@[text="去完成"][clickable=true] -2 [text="看[0-9]+分钟视频得1个红包"]',
+            '@[text="继续看"][clickable=true] -2 [text="看[0-9]+分钟视频得1个红包"]',
           ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
@@ -195,7 +197,6 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
-      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -221,7 +222,7 @@ export default defineGkdApp({
       key: 21,
       name: '暑期免费看-抽10次',
       matchRoot: true,
-      matchDelay: 2000,
+      matchDelay: 1000,
       actionMaximum: 20,
       resetMatch: 'activity',
       rules: [
@@ -256,12 +257,11 @@ export default defineGkdApp({
       name: '看视频-已获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
           matches: [
             '@[vid="obfuscated"] - [text="广告"] <<n * [text="已获得奖励"]',
           ],
