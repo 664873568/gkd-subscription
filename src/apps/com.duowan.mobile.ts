@@ -116,6 +116,29 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 3,
+      name: '看直播',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="做任务赢金币"] >n @View[clickable=true] >n [text~="[0-9]+分钟"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@TextView[clickable=true] - [text="知道了"] -n [text="恭喜获得"]',
+          ],
+        },
+      ],
+    },
+    {
       key: 8,
       name: '做任务-频道-确定',
       desc: '你在其他设备上已登录频道，是否确认手机端进入频道，并将其他设备踢出频道？',
