@@ -426,11 +426,9 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@View[clickable=true] > [text="back"]',
-          ],
+          matches: ['@View[clickable=true] > [text="back"]'],
         },
       ],
     },
@@ -459,7 +457,7 @@ export default defineGkdApp({
           activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 60000,
           matches: ['@[text="退出"][clickable=true]'],
@@ -535,7 +533,7 @@ export default defineGkdApp({
           matches: ['@[text="551d38b59d892f29"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[text="领"][clickable=true] < View'],
         },
@@ -719,7 +717,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]', //任务已完成 恭喜获得
@@ -772,7 +770,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]', //任务已完成 恭喜获得
@@ -819,7 +817,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           action: 'clickCenter',
           anyMatches: [
@@ -833,7 +831,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           anyMatches: [
             '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]', //任务已完成 恭喜获得
@@ -939,13 +937,13 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1, 2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 3000,
           matches: ['@[text~="摇黄金 x[1-9]"][clickable=true]'],
         },
         {
-          preKeys: [0,1, 2, 3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           matches: ['@[text="开心收下"][clickable=true]'],
         },
@@ -1138,9 +1136,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@View[clickable=true] > [text="back"]',
-          ],
+          matches: ['@View[clickable=true] > [text="back"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
@@ -1194,9 +1190,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@View[clickable=true] > [text="03e6058058b35dde"]',
-          ],
+          matches: ['@View[clickable=true] > [text="03e6058058b35dde"]'],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
