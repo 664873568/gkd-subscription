@@ -109,7 +109,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 4,
           actionDelay: 1000,
           matches: [
@@ -118,7 +118,7 @@ export default defineGkdApp({
         },
         {
           key: 5,
-          preKeys: [2,3,4],
+          preKeys: [2, 3, 4],
           actionDelay: 1000,
           matches: [
             'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]', //发送表情
