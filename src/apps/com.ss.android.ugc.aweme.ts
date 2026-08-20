@@ -526,7 +526,7 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          mmatches: [
+          matches: [
             '@ImageButton[text="0f11e8da0dede4385b4d24d1fc6f2aa4.png~tplv-49obo7mizy-75compress"]',
           ],
         },
