@@ -7,7 +7,7 @@ export default defineGkdApp({
     //做任务·看直播·赚金币
     {
       key: 0,
-      name: '做任务-登录领取',
+      name: '天天签到赢金币-登录领取',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -40,10 +40,10 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '做任务-立即签到',
+      name: '天天签到赢金币-立即签到',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -67,14 +67,15 @@ export default defineGkdApp({
       name: '做任务-去完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           anyMatches: [
+            '@[text="去完成"][clickable=true] < * -n [text="访问YY游仓"]',
             '@[text="去完成"][clickable=true] < * -n [text="打开YY语音"]',
             '@[text="去完成"][clickable=true] < * -n [text="去头条极速版"]',
             '@[text="去完成"][clickable=true] < * -n [text="打开今日头条"]',
@@ -90,96 +91,26 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
+          action: 'back',
+          matches: ['@[desc="YY游仓"]'],
+        },
+        {
+          preKeys: [0],
+          key: 2,
           matches: [
             '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提醒"][vid="message"]',
           ],
         },
-      ],
-    },
-    {
-      key: 3,
-      name: '做任务-访问YY游仓',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 3000,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
-      rules: [
         {
-          key: 0,
-          matches: [
-            '@[text="去完成"][clickable=true] < * -n [text="访问YY游仓"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'back',
-          actionDelay: 1000,
-          matches: ['@[desc="YY游仓"]'],
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '做任务-任务已完成',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
+          key: 3,
           matches: ['@TextView - [text="前往领取"] -n * [text="任务已完成"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
-      ],
-    },
-    {
-      key: 5,
-      name: '做任务-领奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
-          matches: ['@[text="领奖励"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
-        },
-      ],
-    },
-    {
-      key: 6,
-      name: '做任务-恭喜获得-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@TextView  - [text="马上完成"] -n [text="恭喜获得"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
-        },
-      ],
-    },
-    {
-      key: 7,
-      name: '做任务-领奖励-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
-      rules: [
-        {
-          key: 0,
+          key: 4,
           matches: ['@[text="领奖励"]'],
         },
         {
-          preKeys: [0],
-          key: 1,
+          key: 5,
           matches: ['@TextView  - [text="马上完成"] -n [text="恭喜获得"]'],
         },
       ],
@@ -259,7 +190,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //功能类
+    //功能应用类
     {
       key: 40,
       name: '打开通知权限-×',
