@@ -73,7 +73,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="txt_dialog_reject"][clickable=true] +n [vid="txt_dialog_commit"]'],
+          matches: [
+            '@[vid="txt_dialog_reject"][clickable=true] +n [vid="txt_dialog_commit"]',
+          ],
           activityIds: [
             '.launcher.LauncherActivity',
             'com.suning.webview.H5SystemBaseActivity',
