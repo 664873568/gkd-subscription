@@ -9,14 +9,29 @@ export default defineGkdApp({
       name: '小米应用商店-关闭',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 16000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
-          actionDelay: 16000,
-          anyMatches: ['@[desc="关闭"] <<n * [text="小米应用商店"]'],
-          activityIds: ['null'],
+          matches: ['@[desc="关闭"] <<n * [text="小米应用商店"]'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 40,
+      name: '隐私政策更新-同意',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="隐私政策更新"][vid="tv_title"] +n [text="退出应用"][vid="tv_negative"] + @[text="同意"][vid="tv_positive"][clickable=true]',
+          ],
+          activityIds: ['.business_ui.main.MarketTabActivity'],
         },
       ],
     },
@@ -27,10 +42,10 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
-          anyMatches: ['@[desc="关闭"][vid="iv_close"]'],
+          matches: ['@[desc="关闭"][vid="iv_close"]'],
           activityIds: ['.business_ui.main.MarketTabActivity'],
         },
       ],
