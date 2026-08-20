@@ -48,7 +48,10 @@ export default defineGkdApp({
             'RelativeLayout > @[desc="返回"][clickable=true]', //浏览点击3个商品(0/3)
             'TextView - @TextView[clickable=true] <<n WebView', //浏览京东金融领京豆(0/3)
           ],
-          activityIds: ['.WebActivity'],
+          activityIds: [
+            '.WebActivity',
+            'com.jd.lib.productdetail.ProductDetailActivity',
+          ],
         },
         {
           preKeys: [1],
