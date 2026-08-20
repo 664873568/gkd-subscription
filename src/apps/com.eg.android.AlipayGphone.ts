@@ -850,7 +850,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51
+      key: 51,
       name: '支金豆-去抽签',
       matchRoot: true,
       matchDelay: 1000,
