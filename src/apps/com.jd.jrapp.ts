@@ -537,7 +537,7 @@ export default defineGkdApp({
         {
           preKeys: [0,1],
           key: 2,
-          matches: ['@[text="领"][clickable=true] < View"]'],
+          matches: ['@[text="领"][clickable=true] < View'],
         },
       ],
     },
