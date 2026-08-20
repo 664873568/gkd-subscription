@@ -9,30 +9,39 @@ export default defineGkdApp({
       key: 0,
       name: '天天砸金蛋-去完成',
       matchRoot: true,
-      matchDelay: 2000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          actionMaximum: 1,
           anyMatches: [
-            '@View[clickable=true] > View > View > [text="sign icon"]',
             '@View[clickable=true] > View > View > [desc="sign icon"]',
+            '@View[clickable=true] > View > View > [text="sign icon"]',
           ],
-          activityIds: ['.WebActivity', '.MainFrameActivity'],
+          activityIds: ['.WebActivity','.MainFrameActivity'],
         },
         {
           key: 1,
           anyMatches: [
-            '@[text="去完成"][clickable=true] -2 [text!="0.1元好货低价提(0/1)"]',
-            '@[text="去完成"][clickable=true] -2 [text!="健康金限时领(0/1)"]',
+            '@[text="去完成"][clickable=true] -n [text^="浏览页面得京豆"]',
+            '@[text="去完成"][clickable=true] -n [text^="浏览点击3个商品"]',
+            '@[text="去完成"][clickable=true] -n [text^="看视频领3折券"]',
+            //'@[text="去完成"][clickable=true] -n [text^="0.1元好货低价提"]',
+            '@[text="去完成"][clickable=true] -n [text^="逛秒杀频道 签到领京豆"]',
+            '@[text="去完成"][clickable=true] -n [text^="逛逛频道领好礼"]',
+            '@[text="去完成"][clickable=true] -n [text^="逛自营二手 全品类低价捡漏"]',
+            '@[text="去完成"][clickable=true] -n [text^="浏览页面领京豆"]',
+            '@[text="去完成"][clickable=true] -n [text^="浏览京东金融领京豆"]',
+            //'@[text="去完成"][clickable=true] -n [text^="健康金限时领"]',
+            '@[text="去完成"][clickable=true] -n [text^="逛排行榜最高得99豆"]',
+            '@[text="去完成"][clickable=true] -n [text^="逛超级明星抽8888红包"]',
+            '@[text="去完成"][clickable=true] -n [text^="逛拍卖领京豆"]',
+            '@[text="去完成"][clickable=true] -n [text^="转发好友！瓜分拼手气红包"]',
           ],
-          activityIds: [
-            '.WebActivity',
-            'com.jd.lib.ttt.page.TTTMultiPageActivity',
-          ],
+          activityIds: ['.WebActivity','.MainFrameActivity'],
         },
         {
-          preKeys: [1],
           key: 2,
           action: 'clickCenter',
           matches: [
@@ -40,14 +49,14 @@ export default defineGkdApp({
           ],
           activityIds: [
             '.personel.FloatViewActivity',
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
             'com.jd.lib.babel.view.activity.BabelActivity',
           ],
         },
         {
-          preKeys: [1],
           key: 3,
-          actionDelay: 5000,
-          matches: [
+          actionDelay: 15000,
+          anyMatches: [
             'RelativeLayout > @[desc="返回"][clickable=true]', //浏览点击3个商品(0/3)
             'TextView - @TextView[clickable=true] <<n WebView', //浏览京东金融领京豆(0/3)
           ],
@@ -57,81 +66,34 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
           key: 4,
-          actionDelay: 5000,
+          actionDelay: 15000,
           matches: ['@FrameLayout[clickable=true] > [desc="搜索"]'], //看视频领3折券
           activityIds: ['com.jd.lib.Discovery.view.DiscoveryActivity'],
         },
         {
-          preKeys: [1],
           key: 5,
+          actionDelay: 15000,
           matches: [
-            'ScrollView + ViewGroup >n @ViewGroup[childCount=1][clickable=true] >n ImageView', //0.1元好货低价提-<
-          ],
-          activityIds: [
-            'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 6,
-          actionDelay: 5000,
-          matches: [
-            'ViewGroup > LinearLayout > @TextView[text=""][clickable=true] + ImageView', //逛新品频道 每天领红包-逛排行榜最高得99豆-逛超级明星抽8888红包-逛拍卖领京豆
+            'ViewGroup > LinearLayout > @TextView[text=""][clickable=true] + ImageView', //逛排行榜最高得99豆-逛超级明星抽8888红包-逛拍卖领京豆
           ],
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
         {
-          preKeys: [1],
-          key: 7,
-          actionDelay: 5000,
-          matches: [
-            'ViewGroup + ViewGroup + @ViewGroup[clickable=true] > ImageView', //健康金限时领-×
+          key: 6,
+          excludeMatches: [
+            '@[text="去完成"][clickable=true] -n [text^="转发好友！瓜分拼手气红包"]',
           ],
-          activityIds: [
-            'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 8,
-          matches: [
-            'ViewGroup[childCount=10] + ViewGroup[childCount=2] > ViewGroup + ViewGroup[childCount=2] > @ViewGroup[clickable=true] > ImageView', //健康金限时领-<
-          ],
-          activityIds: [
-            'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 9,
-          actionDelay: 5000,
-          matches: [
-            '[text="推荐"] <n @ViewGroup[clickable=true] < * + * [text="试用领取"]', //逛逛频道领好礼(0/12)
-          ],
-          activityIds: ['.MainFrameActivity'],
-        },
-        {
-          preKeys: [1, 9],
-          key: 10,
-          matches: [
-            '[text="9.9包邮"] <n @ViewGroup[clickable=true] < * - * [text="推荐"]', //逛逛频道领好礼(0/12)
-          ],
-          activityIds: ['.MainFrameActivity'],
-        },
-        {
-          key: 11,
           matches: ['@[text~="砸一下\\\\(剩余[0-9]+次\\\\)"][clickable=true]'],
-          activityIds: ['.WebActivity', '.MainFrameActivity'],
+          activityIds: ['.WebActivity','.MainFrameActivity'],
         },
         {
-          preKeys: [11],
-          key: 12,
-          matches: [
+          key: 7,
+          anyMatches: [
+            '@[text="关闭弹窗"][clickable=true] + View > View > View + TextView[clickable=true]',
             '@[desc="关闭弹窗"][clickable=true] + View > View > View + TextView[clickable=true]',
           ],
-          activityIds: ['.WebActivity', '.MainFrameActivity'],
+          activityIds: ['.WebActivity','.MainFrameActivity'],
         },
       ],
     },
