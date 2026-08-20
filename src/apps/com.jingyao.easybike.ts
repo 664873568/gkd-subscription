@@ -8,8 +8,8 @@ export default defineGkdApp({
     {
       key: 0,
       name: '奖励金-立即签到',
-      matchDelay: 1000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         'com.alipay.mobile.nebulacore.ui.H5Activity',
@@ -17,18 +17,19 @@ export default defineGkdApp({
       ],
       rules: [
         {
+          key: 0,
           matches: [
             '[vid="magicBoxSignIn"] + * @[text="立即签到"][vid="tvSignInClick"][clickable=true]',
           ],
         },
         {
-          actionDelay: 1000,
+          key: 1,
           matches: [
             '@[vid="ivClose"][clickable=true] - [vid="rlDialogContent"] >n [text="签到成功，"][vid="tvAdRewardTip"]',
           ],
         },
         {
-          actionDelay: 1000,
+          key: 2,
           matches: [
             '[vid="magicBoxSignIn"] + * >n [text~="点击广告再领[0-9]+奖励金"][vid="tvSignInClickWithAds"] <n [vid="btnSignInClickWithAds"] <n * + [vid="adViewBanner"] >n @LinearLayout[clickable=true]',
           ],
@@ -40,19 +41,18 @@ export default defineGkdApp({
       key: 1,
       name: '奖励金-领奖成功',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
       rules: [
         {
-          actionDelay: 1000,
+          key: 0,
           matches: [
             '[text="点击广告 再得"] < @[vid="btnRewardClickWithAds"] <2 [vid="adViewBannerLayout"] -2 [vid="ll_tips"] >n [text="领奖成功，"][vid="tvAdRewardTip"]',
           ],
         },
         {
-          actionDelay: 1000,
+          key: 1,
           excludeMatches: [
             '[text="点击广告 再得"] < @[vid="btnRewardClickWithAds"] <2 [vid="adViewBannerLayout"] -2 [vid="ll_tips"] >n [text="领奖成功，"][vid="tvAdRewardTip"]',
           ],
@@ -67,12 +67,11 @@ export default defineGkdApp({
       name: '浏览广告，领超多奖励金-去浏览',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           matches: [
             '@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]',
           ],
@@ -142,7 +141,7 @@ export default defineGkdApp({
       name: '奖励金-看视频领大量奖励金', //观看*秒广告领取奖励
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
       rules: [
@@ -162,9 +161,34 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 1000,
           matches: [
             '@[text="已经获得奖励 ｜ 关闭"][vid="beizi_reward_video_ad_end_car_close_tv"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 6,
+      name: '兑换中心-兑换',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
+      rules: [
+        {
+          key: 0,
+          position: {
+            left: 'width * 0.4981',
+            top: 'width * 1.1073',
+          },
+          matches: [
+            '[text="游戏中心"] >n [text="兑换中心"] + View > @View[index=6]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '[text="游戏中心"] >n [text="卡券详情"] +n View > [text="兑换"][clickable=true]',
           ],
         },
       ],
@@ -185,6 +209,7 @@ export default defineGkdApp({
     },
     //游戏中心
     {
+      order: 10,
       key: 10,
       name: '游戏中心-热门推荐/新游速递',
       matchRoot: true,
@@ -192,6 +217,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           anyMatches: [
             '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个热门推荐各60秒"]',
             '[text="开玩"] <n View <n @View[index=2][clickable=true] -n * [text="再玩1个热门推荐60秒"]',
@@ -201,6 +227,7 @@ export default defineGkdApp({
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
+          key: 1,
           action: 'back',
           actionDelay: 60000,
           matches: [
@@ -209,6 +236,7 @@ export default defineGkdApp({
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
         {
+          key: 2,
           actionDelay: 1000,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
@@ -219,13 +247,15 @@ export default defineGkdApp({
       ],
     },
     {
+      order: 11,
       key: 11,
       name: '游戏中心-大家都在玩',
       matchRoot: true,
-      matchDelay: 2000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -246,24 +276,25 @@ export default defineGkdApp({
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
+          key: 1,
           position: {
             left: 'width * 0.8955',
             top: 'width * 0.3005',
           },
-          actionDelay: 1000,
           matches: [
             '[id="game-navbar"] + View > @View > [text="您已经到底了"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          actionDelay: 1000,
+          key: 2,
           matches: [
             '[text="开玩"] <n View <n @View[index=1][clickable=true] - * [text="再玩2个大家都在玩各60秒"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
+          key: 3,
           action: 'back',
           actionDelay: 60000,
           matches: [
@@ -272,7 +303,7 @@ export default defineGkdApp({
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
         {
-          actionDelay: 1000,
+          key: 4,
           anyMatches: [
             '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
             '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n [text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + @[text="暂不评论"][vid="rate_cancel"]',
@@ -282,6 +313,7 @@ export default defineGkdApp({
       ],
     },
     {
+      order: 12,
       key: 12,
       name: '游戏中心-签到',
       matchRoot: true,
