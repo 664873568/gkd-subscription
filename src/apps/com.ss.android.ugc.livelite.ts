@@ -134,7 +134,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['ViewGroup > ViewGroup > [desc="立即签到"]'],
-          activityIds: ['com.ss.android.ugc.aweme.bullet.ui.BulletContainerActivity'],
+          activityIds: [
+            'com.ss.android.ugc.aweme.bullet.ui.BulletContainerActivity',
+          ],
         },
       ],
     },
