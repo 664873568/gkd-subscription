@@ -108,7 +108,7 @@ export default defineGkdApp({
           key: 9,
           actionDelay: 5000,
           matches: [
-            '[text="推荐"] <n @ViewGroup[clickable=true] < * + * [text="试用领取"]',//逛逛频道领好礼(0/12)
+            '[text="推荐"] <n @ViewGroup[clickable=true] < * + * [text="试用领取"]', //逛逛频道领好礼(0/12)
           ],
           activityIds: ['.MainFrameActivity'],
         },
@@ -116,7 +116,7 @@ export default defineGkdApp({
           preKeys: [1, 9],
           key: 10,
           matches: [
-            '[text="9.9包邮"] <n @ViewGroup[clickable=true] < * - * [text="推荐"]',//逛逛频道领好礼(0/12)
+            '[text="9.9包邮"] <n @ViewGroup[clickable=true] < * - * [text="推荐"]', //逛逛频道领好礼(0/12)
           ],
           activityIds: ['.MainFrameActivity'],
         },
