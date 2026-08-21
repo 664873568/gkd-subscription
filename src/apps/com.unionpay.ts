@@ -29,7 +29,8 @@ export default defineGkdApp({
       key: 1,
       name: '玩转中心',
       matchRoot: true,
-      matchDelay: 2000,
+      matchDelay: 1000,
+      matchTime: 10000,
       resetMatch: 'activity',
       activityIds: [
         '.liteapp.app.UPLiteAppActivity1',
@@ -46,15 +47,12 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
-          actionDelay: 1000,
           matches: [
             '[id="root-router-view"] >n @[text~="剩余 [1-9]次 抽奖机会"][clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           anyMatches: [
@@ -64,7 +62,7 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['AlertDialog > View > [text="知道了"][clickable=true]'],
         },
       ],
