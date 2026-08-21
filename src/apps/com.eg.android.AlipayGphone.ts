@@ -612,9 +612,7 @@ export default defineGkdApp({
           key: 0,
           action: 'clickCenter',
           actionDelay: 5000,
-          matches: [
-            '@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]',
-          ],
+          matches: ['@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]'],
         },
         {
           key: 1,
@@ -641,7 +639,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 1000,
-          excludeMatches: ['@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]'],
+          excludeMatches: [
+            '@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]',
+          ],
           matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
@@ -681,7 +681,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 1000,
-          excludeMatches: ['@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]'],
+          excludeMatches: [
+            '@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]',
+          ],
           matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
@@ -727,7 +729,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 1000,
-          excludeMatches: ['@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]'],
+          excludeMatches: [
+            '@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]',
+          ],
           matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
@@ -772,7 +776,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 1000,
-          excludeMatches: ['@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]'],
+          excludeMatches: [
+            '@[text="去完成"] - * > [text="逛5秒淘宝人生领奖励"]',
+          ],
           matches: ['[id="task"] >n @[text="换一换"]'],
         },
         {
