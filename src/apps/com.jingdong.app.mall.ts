@@ -117,6 +117,57 @@ export default defineGkdApp({
         },
       ],
     },
+    //26.08.20-26.09.16 寻鲜争霸赛 为TA投票
+    //https://prodev.m.jd.com/mall/active/UCAYQxqQV3mKZNfu8bG2t8wsYog/index.html
+    {
+      key: 2,
+      name: '寻鲜争霸赛 为TA投票',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      actionMaximum: 1,
+      rules: [
+        {
+          key: 0,
+          actionDelay: 1000,
+          matches: [
+            '[text="寻鲜争霸赛 为TA投票"] >n @View[clickable=true] > [text="做任务赚人气值"]',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          anyMatches: [
+            '@[text="去完成"][clickable=true] -2 [text^="逛逛大闸蟹"]',
+            '@[text="去完成"][clickable=true] -2 [text^="逛逛佳沛"]',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          actionDelay: 5000,
+          anyMatches: [
+            'RelativeLayout > @ImageView[desc="返回"][clickable=true]',
+            'ViewGroup > LinearLayout > @TextView[text=""][clickable=true] + ImageView',
+            'WebView >n [id="J_babelOptPage"] >n @TextView[clickable=true] + View + TextView',
+          ],
+          activityIds: [
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+          ],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          matches: [
+            '[text="寻鲜争霸赛 为TA投票"] >n @[text="关闭"][clickable=true] -2 View > [text~="恭喜获得[0-9]人气值"]',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+      ],
+    },
     //互动游戏
     //https://prodev.m.jd.com/mall/active/3fcyrvLZALNPWCEDRvaZJVrzek8v/index.html
     {
