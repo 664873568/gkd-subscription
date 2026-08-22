@@ -128,14 +128,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="天天抽大奖"] >n @ImageButton[text="11d4c35793c0e3677e32627055c3741f.png~tplv-49obo7mizy-whq:0:0:q75"][clickable=true]',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="天天抽大奖"] >n View[clickable=true] > @Button[clickable=true]',
@@ -165,9 +165,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          matches: [
-            '[vid="2d3"] > [vid="1xc"] + [vid="1xf"]',
-          ],
+          matches: ['[vid="2d3"] > [vid="1xc"] + [vid="1xf"]'],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
           ],
@@ -561,11 +559,11 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           matches: [
-            '@ImageButton[text="0f11e8da0dede4385b4d24d1fc6f2aa4.png~tplv-49obo7mizy-75compress"]',//荣誉证书-去领证书-×
+            '@ImageButton[text="0f11e8da0dede4385b4d24d1fc6f2aa4.png~tplv-49obo7mizy-75compress"]', //荣誉证书-去领证书-×
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             'Image < @View[clickable=true] + [text="40998dca3d938f5fd378d6c1738e1ded.png~tplv-49obo7mizy-png75"]',
@@ -640,12 +638,12 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 3,
           matches: ['[text="抖音月付"] >n @[desc="返回"][clickable=true]'],
         },
         {
-          preKeys: [0,2,3],
+          preKeys: [0, 2, 3],
           key: 4,
           matches: [
             '[text="车主服务"] >n @ImageButton[clickable=true] + * [text="恭喜完成任务"]',
@@ -754,7 +752,7 @@ export default defineGkdApp({
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="我知道了"] - [text="AaIe25teg7ljAAAAAElFTkSuQmCC"]',
