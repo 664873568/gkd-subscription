@@ -117,13 +117,13 @@ export default defineGkdApp({
           activityIds: ['.home.view.HomeActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@[text="邀请共享"][vid="tv_invite"]'],
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: ['@[text="微信"][vid="share_icon_weixin"]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
@@ -170,7 +170,7 @@ export default defineGkdApp({
           activityIds: ['.home.view.HomeActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="立即创建"][vid="tv_create_album"][clickable=true]',
@@ -178,7 +178,7 @@ export default defineGkdApp({
           activityIds: ['.cloudalbum.ui.activity.CreateAlbumActivity'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           position: {
             left: 'width * 0.9247',
@@ -217,7 +217,7 @@ export default defineGkdApp({
           activityIds: ['.aiphoto.ui.home.view.CreativeDetailActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             //'@[text="确认"][vid="tv_select_finish"][clickable=true]'
@@ -228,7 +228,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][clickable=true] > [text="2026年6月28日"][vid="tv_date"]',
@@ -238,7 +238,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           matches: [
             '[text="已选8个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
@@ -248,7 +248,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2,3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           position: {
             left: 'width * 0.8564',
@@ -261,7 +261,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2,3,4,5],
+          preKeys: [0, 1, 2, 3, 4, 5],
           key: 6,
           position: {
             left: 'width * 0.9213',
@@ -300,7 +300,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @[vid="linear_section"][clickable=true][index=0]',
@@ -310,7 +310,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="已选1个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
@@ -320,7 +320,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           position: {
             left: 'width * 0.8564',
@@ -333,7 +333,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2,3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           position: {
             left: 'width * 0.9213',
@@ -508,7 +508,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            'ImageView[clickable=true] + @ImageView[clickable=true] + TextView + [text="反馈"]',//二级广告页
+            'ImageView[clickable=true] + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
@@ -521,7 +521,7 @@ export default defineGkdApp({
             '@[text=""] - [text="恭喜获得限时奖励"]',
             '@[text="恭喜获得奖励"] < * + * >n [text="惊喜福利"]',
             '@[text="继续播放视频内容"] -n * [text="跳两步有机会获得奖励"]',
-            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]',//恭喜获得膨胀优惠券
+            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]', //恭喜获得膨胀优惠券
             '@[text="7b144c81c2cb181f"] < * - * >n [text="恭喜获得奖励"] + [text="惊喜福利"]',
             '@[text="7b144c81c2cb181f"] < * - * >n [text~="恭喜获得[0-9]+(\\\\.[0-9]+)?元红包"]',
           ],
@@ -821,8 +821,8 @@ export default defineGkdApp({
       matchTime: 40000,
       resetMatch: 'activity',
       activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
+        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -850,7 +850,7 @@ export default defineGkdApp({
             '@[text=""] - [text="恭喜获得限时奖励"]',
             '@[text="恭喜获得奖励"] < * + * >n [text="惊喜福利"]',
             '@[text="继续播放视频内容"] -n * [text="跳两步有机会获得奖励"]',
-            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]',//恭喜获得膨胀优惠券
+            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]', //恭喜获得膨胀优惠券
             '@[text="7b144c81c2cb181f"] < * - * >n [text="恭喜获得奖励"] + [text="惊喜福利"]',
             '@[text="7b144c81c2cb181f"] < * - * >n [text~="恭喜获得[0-9]+(\\\\.[0-9]+)?元红包"]',
           ],
@@ -994,7 +994,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="img_close"][clickable=true] -n LinearLayout > [text="立即升级"]'],
+          matches: [
+            '@[vid="img_close"][clickable=true] -n LinearLayout > [text="立即升级"]',
+          ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
