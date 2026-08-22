@@ -135,7 +135,6 @@ export default defineGkdApp({
       name: '积分任务-去完成-分享一个相册-领取奖励',
       matchRoot: true,
       matchDelay: 1000,
-      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -278,7 +277,6 @@ export default defineGkdApp({
       key: 8,
       name: '积分任务-去完成-制作照片卡点视频',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -351,7 +349,6 @@ export default defineGkdApp({
       key: 9,
       name: '积分任务-去完成-体验智能清理',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -383,7 +380,6 @@ export default defineGkdApp({
       key: 10,
       name: '积分任务-去完成-老照片修复跨越时空',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -410,7 +406,6 @@ export default defineGkdApp({
       key: 11,
       name: '积分任务-去完成-浏览社区5s',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -437,7 +432,6 @@ export default defineGkdApp({
       key: 12,
       name: '积分任务-去完成-天天看激励视频',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -574,7 +568,7 @@ export default defineGkdApp({
           ],
         },
         {
-          action: 1000,
+          actionDelay: 1000,
           matches: [
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
@@ -587,7 +581,7 @@ export default defineGkdApp({
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '[text~="[0-9]+秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
           ],
-          action: 1000,
+          actionDelay: 1000,
           matches: [
             '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
           ],
