@@ -168,6 +168,63 @@ export default defineGkdApp({
         },
       ],
     },
+    //店铺关注
+    //https://shop.m.jd.com/favorite/home
+    //https://prodev.m.jd.com/mall/active/2WUEUPEgJ6bMgeW6CatRVTViJ9xU/index.html
+    {
+      key: 3,
+      name: '店铺关注',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ViewGroup[clickable=true] > [desc~="关注[1-9][0-9]*"] > [text="关注"]',
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+      ],
+    },
+    {
+      key: 10,
+      name: '店铺关注',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.setting.view.activity.PersonalMultiTabActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id^="com.jd.lib.setting.feature:id"] > @[text="管理"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="店铺关注"] >n @[text="已选0个店铺"][clickable=true] + [text="取消关注"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[text="店铺关注"] >n [text~="已选[1-9][0-9]*个店铺"] + @[text="取消关注"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          matches: [
+            '[text="店铺关注"] >n [text="取消关注"] +n [text="取消"] + @[text="确定"][clickable=true]',
+          ],
+        },
+      ],
+    },
     //互动游戏
     //https://prodev.m.jd.com/mall/active/3fcyrvLZALNPWCEDRvaZJVrzek8v/index.html
     {
