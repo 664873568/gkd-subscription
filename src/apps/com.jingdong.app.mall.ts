@@ -194,7 +194,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jd.lib.setting.view.activity.PersonalMultiTabActivity'],
+      activityIds: [
+        'com.jd.lib.setting.view.activity.PersonalMultiTabActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -214,14 +216,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="店铺关注"] >n [text~="已选[1-9][0-9]*个店铺"] + @[text="取消关注"][clickable=true]',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="店铺关注"] >n [text="取消关注"] +n [text="取消"] + @[text="确定"][clickable=true]',

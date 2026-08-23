@@ -526,8 +526,8 @@ export default defineGkdApp({
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
+        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -726,14 +726,12 @@ export default defineGkdApp({
       matchTime: 20000,
       resetMatch: 'activity',
       activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
+        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+      ],
       rules: [
         {
           key: 0,
-          matches: [
-            '@Image < View +n [text="立即领取"] [text="恭喜获得奖励"]',
-          ],
+          matches: ['@Image < View +n [text="立即领取"] [text="恭喜获得奖励"]'],
         },
         {
           preKeys: [0],
@@ -794,8 +792,8 @@ export default defineGkdApp({
       matchTime: 30000,
       resetMatch: 'activity',
       activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
+        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+      ],
       rules: [
         {
           key: 0,

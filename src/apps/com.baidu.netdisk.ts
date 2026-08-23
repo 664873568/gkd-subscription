@@ -54,7 +54,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]',//二级广告页
+            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]', //二级广告页
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
@@ -290,7 +290,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]',//恭喜获得奖励
+            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
           ],
         },
       ],
@@ -479,13 +479,13 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@ImageButton[text="fanbei"][clickable=true] -n [text="qiandao"] - View > [text="c"]',//看视频积分翻倍
+            '@ImageButton[text="fanbei"][clickable=true] -n [text="qiandao"] - View > [text="c"]', //看视频积分翻倍
           ],
         },
         {
           key: 1,
           matches: [
-            '@ImageButton[text="c"][clickable=true] < View + [text="qiandao"] +n [text="yifanbei"]',//今日积分已翻倍
+            '@ImageButton[text="c"][clickable=true] < View + [text="qiandao"] +n [text="yifanbei"]', //今日积分已翻倍
           ],
         },
       ],
@@ -526,15 +526,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="每日答题"] +8 @[text="去完成"][clickable=true]',
-          ],
+          matches: ['[text="每日答题"] +8 @[text="去完成"][clickable=true]'],
         },
         {
           key: 1,
-          matches: [
-            '[text="每日答题"] +8 @[text="领取"][clickable=true]',
-          ],
+          matches: ['[text="每日答题"] +8 @[text="领取"][clickable=true]'],
         },
       ],
     },
@@ -548,15 +544,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="做广告任务"] +8 @[text="去完成"][clickable=true]',
-          ],
+          matches: ['[text="做广告任务"] +8 @[text="去完成"][clickable=true]'],
         },
         {
           key: 1,
-          matches: [
-            '[text="做广告任务"] +8 @[text="领取"][clickable=true]',
-          ],
+          matches: ['[text="做广告任务"] +8 @[text="领取"][clickable=true]'],
         },
       ],
     },
@@ -1283,7 +1275,7 @@ export default defineGkdApp({
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="确定"][clickable=true] - [text="预览"] <<n * + * [text="上传任意文件"]',
@@ -1291,7 +1283,7 @@ export default defineGkdApp({
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@View[text=""][clickable=true] > TextView[clickable=true] + [text="任务完成领奖"]',
