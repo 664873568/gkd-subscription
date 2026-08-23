@@ -189,8 +189,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 10,
-      name: '店铺关注',
+      key: 4,
+      name: '店铺关注-取消关注',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -205,6 +205,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          position: {
+            left: 'width * 0.0612',
+            top: 'width * 0.1245',
+          },
           matches: [
             '[text="店铺关注"] >n @[text="已选0个店铺"][clickable=true] + [text="取消关注"]',
           ],
