@@ -80,6 +80,7 @@ export default defineGkdApp({
         },
       ],
     },
+    //飞猪旅行-去美团赚20元
     {
       key: 15,
       name: '看视频-任务已完成',
@@ -90,6 +91,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
+          actionDelay: 1000,
           matches: ['@[vid="toast_container"] > [text="任务已完成"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
