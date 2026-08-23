@@ -260,7 +260,7 @@ export default defineGkdApp({
           matches: ['@ViewGroup[clickable=true] > [text="2京豆兑换"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="确认兑换"][clickable=true] <n * -n * [text="小金库白条还款券"]',
@@ -372,9 +372,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="赚京豆"] >n @[text="做任务赚豆"][clickable=true]',
-          ],
+          matches: ['[text="赚京豆"] >n @[text="做任务赚豆"][clickable=true]'],
         },
         {
           preKeys: [0],
@@ -405,9 +403,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="赚京豆"] >n @[text="浏览App赚豆"][clickable=true]',
-          ],
+          matches: ['[text="赚京豆"] >n @[text="浏览App赚豆"][clickable=true]'],
         },
         {
           preKeys: [0],
@@ -562,9 +558,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
-          matches: [
-            '@TextView[clickable=true] +n * [text*="7天收满100个蛋"]',
-          ],
+          matches: ['@TextView[clickable=true] +n * [text*="7天收满100个蛋"]'],
         },
         {
           preKeys: [0],
@@ -1081,9 +1075,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 1000,
-          matches: [
-            '@TextView[clickable=true] - View > [text~="摇黄金 x1"]',
-          ],
+          matches: ['@TextView[clickable=true] - View > [text~="摇黄金 x1"]'],
         },
         {
           preKeys: [0],
