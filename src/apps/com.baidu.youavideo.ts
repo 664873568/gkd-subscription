@@ -28,16 +28,15 @@ export default defineGkdApp({
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
       rules: [
         {
           key: 0,
           matches: ['@[text="立即签到"] -n [text="每日签到"]'],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
           key: 1,
           matches: ['@[text="我知道了"] -n [text^="签到成功"]'],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
       ],
     },
@@ -97,6 +96,7 @@ export default defineGkdApp({
       key: 4,
       name: '积分任务-去完成-分享一个相册',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -109,8 +109,8 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          key: 1,
           preKeys: [0],
+          key: 1,
           matches: [
             '@ViewGroup[clickable=true] > [text="未命名"][vid="tv_album_name"]',
           ],
@@ -134,6 +134,7 @@ export default defineGkdApp({
       key: 5,
       name: '积分任务-去完成-分享一个相册-领取奖励',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -152,6 +153,7 @@ export default defineGkdApp({
       key: 6,
       name: '积分任务-去完成-创建一个新相册',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -194,6 +196,7 @@ export default defineGkdApp({
       key: 7,
       name: '积分任务-去完成-制作并保存「春日」vlog',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -277,6 +280,7 @@ export default defineGkdApp({
       key: 8,
       name: '积分任务-去完成-制作照片卡点视频',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -349,6 +353,7 @@ export default defineGkdApp({
       key: 9,
       name: '积分任务-去完成-体验智能清理',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -380,6 +385,7 @@ export default defineGkdApp({
       key: 10,
       name: '积分任务-去完成-老照片修复跨越时空',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -406,6 +412,7 @@ export default defineGkdApp({
       key: 11,
       name: '积分任务-去完成-浏览社区5s',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -432,6 +439,7 @@ export default defineGkdApp({
       key: 12,
       name: '积分任务-去完成-天天看激励视频',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -505,7 +513,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 2000,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -573,6 +580,7 @@ export default defineGkdApp({
         },
         {
           key: 4,
+          actionCd: 5000,
           matches: [
             '[text="需要下滑浏览更多才能领取奖励哦"] < * -n [id="root"] >n [id="_scrollView"][childCount=1] >n @TextView',
           ],
