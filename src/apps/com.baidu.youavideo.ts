@@ -505,31 +505,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          anyMatches: [
-            '@[text="32b391f8609869b1"]',
-            '@[text=""] - [text="恭喜获得限时奖励"]',
-            '@[text="恭喜获得奖励"] < * + * >n [text="惊喜福利"]',
-            '@[text="继续播放视频内容"] -n * [text="跳两步有机会获得奖励"]',
-            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]', //恭喜获得膨胀优惠券
-            '@[text="7b144c81c2cb181f"] < * - * >n [text="恭喜获得奖励"] + [text="惊喜福利"]',
-            '@[text="7b144c81c2cb181f"] < * - * >n [text~="恭喜获得[0-9]+(\\\\.[0-9]+)?元红包"]',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-        {
-          key: 3,
-          anyMatches: [
-            '@Image < * +n [text="限时奖励点击领取"]',
-            '@[text="3ca6ab446dec1c57"] < * + * [text="恭喜获得优惠券"]',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-        {
-          key: 4,
           actionDelay: 2000,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: [
@@ -557,6 +532,25 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          anyMatches: [
+            '@[text="32b391f8609869b1"]',
+            '@[text=""] - [text="恭喜获得限时奖励"]',
+            '@[text="恭喜获得奖励"] < * + * >n [text="惊喜福利"]',
+            '@[text="继续播放视频内容"] -n * [text="跳两步有机会获得奖励"]',
+            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]', //恭喜获得膨胀优惠券
+            '@[text="7b144c81c2cb181f"] < * - * >n [text="恭喜获得奖励"] + [text="惊喜福利"]',
+            '@[text="7b144c81c2cb181f"] < * - * >n [text~="恭喜获得[0-9]+(\\\\.[0-9]+)?元红包"]',
+          ],
+        },
+        {
+          key: 2,
+          anyMatches: [
+            '@Image < * +n [text="限时奖励点击领取"]',
+            '@[text="3ca6ab446dec1c57"] < * + * [text="恭喜获得优惠券"]',
+          ],
+        },
+        {
+          key: 3,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -578,7 +572,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
+          key: 4,
           matches: [
             '[text="需要下滑浏览更多才能领取奖励哦"] < * -n [id="root"] >n [id="_scrollView"][childCount=1] >n @TextView',
           ],
@@ -587,13 +581,13 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
+          key: 5,
           matches: [
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
         },
         {
-          key: 4,
+          key: 6,
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '[text~="[0-9]+秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
