@@ -902,7 +902,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //
+    //浏览App活动
     {
       key: 100,
       name: '飞猪旅行-点一键收下得奖励',
@@ -919,9 +919,12 @@ export default defineGkdApp({
         },
       ],
     },
+    //百度地图-去支付宝浏览图文领奖
+    //百度网盘-小程序点图文领奖-去小程序点图文
+    //飞猪旅行-点一键收下得奖励
     {
       key: 101,
-      name: '半屏广告-×', //百度网盘-小程序点图文领奖-去小程序点图文
+      name: '半屏广告-×',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
