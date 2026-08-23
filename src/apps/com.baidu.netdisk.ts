@@ -9,33 +9,21 @@ export default defineGkdApp({
       key: 10,
       name: '看视频-跳过-去体验*秒可立即领奖bms',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
-      matchTime: 20000,
       resetMatch: 'activity',
+      activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
       rules: [
         {
+          key: 0,
           matches: [
             '[text="我要加速领奖"] - ImageView < @RelativeLayout[clickable=true] <n * -n [text$="跳过"]',
           ],
-          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
-      ],
-    },
-    {
-      key: 11,
-      name: '看视频-跳过-跳过bms',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
           matches: [
             '[text="跳过"][clickable=true] -n * > @[text="跳过"][clickable=true]',
           ],
-          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
       ],
     },
@@ -44,12 +32,10 @@ export default defineGkdApp({
       key: 20,
       name: '看视频-跳过-去体验*秒可立即领奖bgs',
       matchRoot: true,
-      actionMaximum: 3,
-      matchDelay: 1000,
-      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           anyMatches: [
             '@[text="立即领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
             '@[text="我要加速领奖"] <<n * +n * [text$="跳过"] -n [text~="[0-9]+s"]',
@@ -64,94 +50,50 @@ export default defineGkdApp({
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
-      ],
-    },
-    {
-      key: 21,
-      name: '看视频-跳过-限时领取bgs',
-      matchRoot: true,
-      actionMaximum: 6,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
         {
-          key: 0,
-          anyMatches: [
-            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
-            '@[text="71255184fc23ad74"] < * - * [text="恭喜获得优惠券"]',
-          ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-        {
-          preKeys: [0],
           key: 1,
+          actionDelay: 15000,
           matches: [
-            '@[text="1301a2d542c5e480"] < * + [text="倒计时后将放弃优惠券"]',
+            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]',//二级广告页
           ],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
-      ],
-    },
-    {
-      key: 22,
-      name: '看视频-跳过-广告二级页-< × 反馈',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
         {
-          actionDelay: 16000,
-          matches: [
-            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]',
-          ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 23,
-      name: '看视频-跳过-奖励已领取bgs',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
+          key: 2,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
     {
-      key: 24,
+      key: 21,
       name: '看视频-礼包-再逛*秒后可领奖bgs',
       matchRoot: true,
-      actionMaximum: 3,
-      matchDelay: 1000,
-      matchTime: 40000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
       rules: [
         {
+          key: 0,
           anyMatches: [
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
-      ],
-    },
-    {
-      key: 25,
-      name: '看视频-礼包-再逛*秒后可领奖-下滑',
-      matchRoot: true,
-      actionMaximum: 10,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
         {
-          order: 0,
+          key: 1,
+          anyMatches: [
+            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
+            '@[text="71255184fc23ad74"] < * - * [text="恭喜获得优惠券"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[text="1301a2d542c5e480"] < * + [text="倒计时后将放弃优惠券"]',
+          ],
+        },
+        {
+          key: 3,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -164,31 +106,27 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
+          actionCd: 5000,
           matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] @[id="_scrollView"][childCount>1]',
+            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] >n @[id="_scrollView"][childCount>1]',
           ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
         {
-          order: 1,
-          action: 'click',
+          key: 4,
+          actionCd: 5000,
           matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] [id="_scrollView"][childCount=1] @[text="立即打开"]',
+            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] >n [id="_scrollView"][childCount=1] >n @TextView',
           ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
-      ],
-    },
-    {
-      key: 26,
-      name: '看视频-礼包-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 5,
+          matches: [
+            '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
+          ],
+        },
+        {
+          key: 6,
+          actionDelay: 2000,
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
@@ -196,53 +134,18 @@ export default defineGkdApp({
           matches: [
             'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
           ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
     {
-      key: 27,
-      name: '看视频-礼包-奖励已领取-<',
+      key: 22,
+      name: '看视频-下滑--已发放-*秒',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
       rules: [
         {
-          matches: [
-            '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
-          ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 28,
-      name: '看视频-礼包-跳过-*s后可领取奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="立即体"] <<n * - * [text="跳过"] < * -n * ImageView + [text~="[0-9]+s后可领取奖励"]',
-            //'@[text="立即体验"] <<n * - * [text="跳过"] < * -n * ImageView + [text~="[0-9]+s后可领取奖励"]',
-          ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 29,
-      name: '看视频-下滑-×',
-      matchRoot: true,
-      actionMaximum: 10,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
+          key: 0,
           action: 'swipe',
           swipeArg: {
             start: {
@@ -255,49 +158,60 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          matches: ['@[id="root"] + [text="需要下滑浏览更多才能领取奖励哦"]'],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
+          actionCd: 5000,
+          matches: [
+            '@[id="app"] < [id="root"] +n [text="需要下滑浏览更多才能领取奖励哦"]',
+          ],
         },
-      ],
-    },
-    {
-      key: 30,
-      name: '看视频-下滑-已发放-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
+          anyMatches: [
+            '@[text="7b144c81c2cb181f"] < * -n [text="恭喜获得奖励"]',
+            '@[text="71255184fc23ad74"] < * - * [text="恭喜获得优惠券"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[text="1301a2d542c5e480"] < * + [text="倒计时后将放弃优惠券"]',
+          ],
+        },
+        {
+          key: 3,
           matches: ['@[text="svg%3e"] <<n * +n * [text="已发放"]'],
           activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
     {
-      key: 31,
-      name: '看视频-领取成功-×',
+      key: 23,
+      name: '看视频-礼包-跳过-*s后可领取奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
       rules: [
         {
+          key: 0,
+          matches: [
+            '@[text="立即体"] <<n * - * [text="跳过"] < * -n * ImageView + [text~="[0-9]+s后可领取奖励"]',
+            //'@[text="立即体验"] <<n * - * [text="跳过"] < * -n * ImageView + [text~="[0-9]+s后可领取奖励"]',
+          ],
+        },
+        {
+          key: 1,
           anyMatches: [
             'ImageView < @LinearLayout[clickable=true] -n LinearLayout > [text="领取成功"]',
             'TextView[text="跳过"] < @LinearLayout[clickable=true] -n LinearLayout > [text="领取成功"]',
           ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
     {
-      key: 32,
+      key: 24,
       name: '看视频-限时领取-×',
       matchRoot: true,
-      actionMaximum: 6,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -308,42 +222,27 @@ export default defineGkdApp({
     },
     //看视频-com.byazt.gd.Stub_Standard_Activity
     {
-      key: 33,
-      name: '看视频-跳过-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 16000,
-          matches: ['@[id="floatingBuyBar"] - [id="web"]'],
-          activityIds: ['com.byazt.gd.Stub_Standard_Activity'],
-        },
-      ],
-    },
-    {
-      key: 34,
+      key: 30,
       name: '看视频-二级广告页-byazt',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.gd.Stub_Standard_Activity'],
       rules: [
         {
           action: 'back',
-          actionDelay: 16000,
-          matches: [
-            'View - View - @LinearLayout [id="web"] + [id="floatingBuyBar"]',
+          actionDelay: 15000,
+          anyMatches: [
+            '[id="web"] + [id="floatingBuyBar"]',
+            'View - View - LinearLayout [id="web"] + [id="floatingBuyBar"]',
+            '[id="warp"] > [text="限时特惠"] +n [id="clickArea"]',
           ],
-          activityIds: ['com.byazt.gd.Stub_Standard_Activity'],
         },
       ],
     },
     //看视频-com.byazt.ff.Stub_Standard_Portrait_Activity
     {
-      key: 35,
+      key: 40,
       name: '看视频-广告-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -358,11 +257,10 @@ export default defineGkdApp({
     },
     //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
     {
-      key: 40,
+      key: 50,
       name: '看视频-礼包-跳过',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -373,73 +271,83 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.qq.e.ads.PortraitADActivity
+    //看视频-com.qq.e.ads.PortraitADActivity-微信
     {
-      key: 50,
-      name: '看视频-完成App.*，即可获得奖励',
+      key: 60,
+      name: '看视频-微信-提前拿奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
-          matches: [
-            '@[text="点击下载或打开第三方应用"] <<n * +n * [text~="完成App.*，即可获得奖励"]',
+          key: 0,
+          anyMatches: [
+            '@[text*="微信"][index=parent.childCount.minus(1)] <n * - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
+            '@[text*="微信"][index=parent.childCount.minus(1)] <n * - [text="提前拿奖励"] - [text~="玩[0-9]+ 秒小游戏"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          key: 1,
+          matches: [
+            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]',//恭喜获得奖励
+          ],
         },
       ],
     },
     {
-      key: 51,
-      name: '看视频-打开App体验*秒，即可获得奖励',
+      key: 61,
+      name: '看视频-微信-阅读小说 可获得奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
+          key: 0,
           matches: [
+            '@[text="点击去微信看全文"] <<n * - * [text="阅读小说"] + [text="可获得奖励"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 62,
+      name: '看视频-打开/完成App，即可获得奖励',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '@[text="点击下载或打开第三方应用"] <<n * +n * [text~="完成App.*，即可获得奖励"]',
             '@[text="点击打开或下载第三方应用"] <<n * +n * [text~="打开App体验[0-9]+秒，即可获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
-      ],
-    },
-    {
-      key: 52,
-      name: '看视频-免-恭喜获得奖励-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
           matches: [
             '@ImageView < FrameLayout <n * < * - * [text="恭喜获得奖励"] < * + FrameLayout ImageView + FrameLayout',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
-      ],
-    },
-    {
-      key: 53,
-      name: '看视频-恭喜获得奖励-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 2,
           matches: [
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * [text="已完成浏览15秒，提前获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 54,
+      key: 63,
       name: '看视频-恭喜获得奖励！-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -453,7 +361,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 55,
+      key: 64,
       name: '看视频-点击广告拿奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -469,7 +377,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 56,
+      key: 65,
       name: '看视频-新人专享福利-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -483,39 +391,29 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 57,
+      key: 66,
       name: '看视频-奖励将于*秒后发放',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
+          key: 0,
           matches: [
             '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
-      ],
-    },
-    {
-      key: 58,
-      name: '看视频-已完成浏览10秒，提前获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
           matches: [
             '@ImageView <<n * -n * [text="已完成浏览10秒，提前获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 59,
+      key: 67,
       name: '看视频-奖励将于*秒后发放-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -525,74 +423,6 @@ export default defineGkdApp({
         {
           matches: [
             'ImageView < FrameLayout < @FrameLayout + * [text="查看详情"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    //看视频-com.qq.e.ads.PortraitADActivity-微信
-    {
-      key: 60,
-      name: '看视频-微信-提前拿奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
-            '@[text*="微信"] <n FrameLayout - [text="提前拿奖励"] - [text~="玩[0-9]+ 秒小游戏"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 61,
-      name: '看视频-微信-恭喜获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 62,
-      name: '看视频-微信-阅读小说 可获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="点击去微信看全文"] <<n * - * [text="阅读小说"] + [text="可获得奖励"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 63,
-      name: '看视频-微信-恭喜已经获得奖励！',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -638,91 +468,94 @@ export default defineGkdApp({
     //每日签到
     {
       key: 200,
-      name: '签到成功-看视频积分翻倍',
+      name: '签到成功',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
       rules: [
         {
+          key: 0,
           matches: [
-            '@ImageButton[text="fanbei"][clickable=true] -n [text="qiandao"] - View > [text="c"]',
+            '@ImageButton[text="fanbei"][clickable=true] -n [text="qiandao"] - View > [text="c"]',//看视频积分翻倍
           ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+        },
+        {
+          key: 1,
+          matches: [
+            '@ImageButton[text="c"][clickable=true] < View + [text="qiandao"] +n [text="yifanbei"]',//今日积分已翻倍
           ],
         },
       ],
     },
     {
       key: 201,
-      name: '签到成功-今日积分已翻倍',
+      name: '开宝箱',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
       rules: [
         {
+          key: 0,
           matches: [
-            '@ImageButton[text="c"][clickable=true] < View + [text="qiandao"] +n [text="yifanbei"]',
+            '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
           ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+        },
+        {
+          key: 1,
+          actionDelay: 1000,
+          matches: [
+            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
           ],
         },
       ],
     },
     {
       key: 202,
-      name: '开宝箱+5积分',
+      name: '成长值任务-每日答题',
       matchRoot: true,
-      actionMaximum: 6,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           matches: [
-            '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+            '[text="每日答题"] +8 @[text="去完成"][clickable=true]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
-            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+            '[text="每日答题"] +8 @[text="领取"][clickable=true]',
           ],
         },
       ],
     },
     {
       key: 203,
-      name: '开宝箱-*后开启点我减*分钟',
+      name: '成长值任务-做广告任务',
       matchRoot: true,
-      actionMaximum: 6,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
         {
-          actionDelay: 2000,
+          key: 0,
           matches: [
-            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+            '[text="做广告任务"] +8 @[text="去完成"][clickable=true]',
           ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+        },
+        {
+          key: 1,
+          matches: [
+            '[text="做广告任务"] +8 @[text="领取"][clickable=true]',
           ],
         },
       ],
@@ -797,7 +630,6 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 30000,
-      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -832,7 +664,6 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -849,23 +680,23 @@ export default defineGkdApp({
       name: '最新AI功能-云一朵文件智能整理',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          fastQuery: true,
           matches: [
-            '[text="点击勾选文件"][vid="tv_tip"] <n * < * - * [vid="checkable_layout"][clickable=true] >n [text="Z 侏罗纪：重生"][vid="text1"] +n [vid="item_right"] >n @[id="android:id/button1"][clickable=true]',
+            '[text="点击勾选文件"][vid="tv_tip"] +n @[vid="view_anchor"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
+          fastQuery: true,
           matches: [
-            '@RelativeLayout[clickable=true] >n [text="智能整理"][vid="ui_id_menu_text"]',
+            '[text="点击智能整理"][vid="tv_tip"] +n @[vid="view_anchor"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
@@ -884,8 +715,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI笔记',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -919,8 +749,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI拍一拍',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -947,8 +776,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI拍一拍-立即拍摄',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -975,8 +803,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI拍一拍-返回',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1018,7 +845,6 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3],
           key: 4,
           action: 'back',
-          actionDelay: 2000,
           matches: [
             '@[vid="ocr_bottom_image"] < [vid="bottom_image_container"]',
           ],
@@ -1031,8 +857,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI去水印',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1059,13 +884,11 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI去水印-返回',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
             '[text="体验AI去水印"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
           ],
@@ -1103,7 +926,6 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3],
           key: 4,
           action: 'back',
-          actionDelay: 2000,
           matches: [
             '@[vid="ocr_bottom_image"] < [vid="bottom_image_container"]',
           ],
@@ -1116,8 +938,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI变清晰',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1144,8 +965,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI照相馆',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1170,8 +990,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI消除',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1198,8 +1017,7 @@ export default defineGkdApp({
       name: '最新AI功能-体验AI去手写',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1227,8 +1045,7 @@ export default defineGkdApp({
       name: '最新AI功能-去体验错题收集',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 30000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1240,7 +1057,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 1000,
           preKeys: [0],
           anyMatches: [
             '[text="4月25日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <<n * + * [text="确定（0/99）"][vid="btn_confirm"]',
@@ -1255,7 +1071,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 1000,
           anyMatches: [
             '@[text="确定（1/99）"][vid="btn_confirm"][clickable=true]',
             '@[text="完成"][vid="done_button"] - [text="已选：1/99"][vid="select_count_text"]',
@@ -1280,7 +1095,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2, 3],
           key: 4,
-          actionDelay: 1000,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="已选择 1 道题目"] +n @[desc="录入错题"][clickable=true]',
           ],
@@ -1292,7 +1106,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2, 3, 4],
           key: 5,
-          actionDelay: 1000,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[text="全部保存"][clickable=true]',
           ],
@@ -1313,8 +1126,7 @@ export default defineGkdApp({
       name: '最新AI功能-去体验拍题解题',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1327,7 +1139,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: [
             '[text="拍摄题目并解题"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="每次只框一题，识别更准确"] +2 @ImageView[clickable=true]',
           ],
@@ -1353,7 +1164,6 @@ export default defineGkdApp({
       name: '功能任务-去刷一刷首页',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -1391,7 +1201,6 @@ export default defineGkdApp({
       name: '功能任务-浏览书城小说30s',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -1408,7 +1217,6 @@ export default defineGkdApp({
       name: '功能任务-去逛逛游戏频道',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -1425,7 +1233,6 @@ export default defineGkdApp({
       name: '功能任务-浏览短剧30s',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -1453,11 +1260,10 @@ export default defineGkdApp({
     },
     {
       key: 236,
-      name: '功能任务-去体验云打印-手机相册',
+      name: '功能任务-去体验云打印',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1476,27 +1282,17 @@ export default defineGkdApp({
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
-      ],
-    },
-    {
-      key: 237,
-      name: '功能任务-去体验云打印-确定',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
         {
-          key: 0,
+          preKeys: [0,1],
+          key: 2,
           matches: [
             '@[text="确定"][clickable=true] - [text="预览"] <<n * + * [text="上传任意文件"]',
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
-          preKeys: [0],
-          key: 1,
+          preKeys: [0,1,2],
+          key: 3,
           matches: [
             '@View[text=""][clickable=true] > TextView[clickable=true] + [text="任务完成领奖"]',
           ],
@@ -1528,12 +1324,11 @@ export default defineGkdApp({
       name: '工作星球-一键生成PPT',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
             '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
           ],
@@ -1542,7 +1337,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
@@ -1554,12 +1348,11 @@ export default defineGkdApp({
       name: '工作星球-模拟面试练习',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
             '@[vid="view_anchor"] + [vid="ll_tip"] > [text="我知道了"][vid="iv_close"]',
           ],
@@ -1568,7 +1361,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
@@ -1580,19 +1372,17 @@ export default defineGkdApp({
       name: '工作星球-智能剪辑出片',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 330000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: ['@[text="transBtn"] < View + View >n [desc="关闭按钮"]'],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
           ],
@@ -1601,7 +1391,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 2000,
           matches: [
             '@[vid="title_quit"][clickable=true] <<n * +n * [text="任务处理中…"][vid="genflow_sub_desc"]',
           ],
@@ -1615,19 +1404,17 @@ export default defineGkdApp({
       name: '学习星球-一键生成笔记',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: ['@[vid="cover"] <<n [vid="recent_pager"]'],
           activityIds: ['.servicepage.video.ui.VideoServiceActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] < RelativeLayout < @LinearLayout[clickable=true] <<n * + * [text="我知道了"][vid="iv_close"]',
           ],
@@ -1636,7 +1423,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.video.VideoPlayerActivity'],
         },
@@ -1648,19 +1434,17 @@ export default defineGkdApp({
       name: '学习星球-纸质资料扫描',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: ['@[vid="rb_camera"] -n * [vid="tv_no_records"]'],
           activityIds: ['.scan.ui.ScanActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '@ImageView[clickable=true] <<n [vid="ocr_title_bar_container"] +n [text="拍摄纸质资料，生成高清电子版"][vid="take_photo_tip"]',
           ],
@@ -1669,7 +1453,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 2000,
           matches: ['@[vid="iv_back"] + [vid="iv_title"] + [vid="iv_search"]'],
           activityIds: ['.scan.ui.ScanActivity'],
         },
@@ -1681,19 +1464,17 @@ export default defineGkdApp({
       name: '学习星球-录音',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: ['@[vid="bottom_btn"] < [vid="container_bottom_btn"]'],
           activityIds: ['.listen.notes.ui.activity.ListenNoteMainActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.listen.notes.ui.activity.ListenNotesPlayActivity'],
         },
@@ -1705,12 +1486,11 @@ export default defineGkdApp({
       name: '生活星球-记录成长轨迹',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
             '@View[clickable=true] + [text="成长轨迹"] <<n * + * [text="我知道了"][vid="iv_close"]',
           ],
@@ -1719,14 +1499,12 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: ['[text="做同款"] < @View'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 2000,
           matches: [
             '[text="手动选图"] < @View[clickable=true] -n [text="为你智能匹配相关照片"]',
           ],
@@ -1735,14 +1513,12 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          actionDelay: 2000,
           matches: ['[text="确定"] < @View[clickable=true] - [text="已选5张"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
           preKeys: [0, 1, 2, 3],
           key: 4,
-          actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
@@ -1754,12 +1530,11 @@ export default defineGkdApp({
       name: '生活星球-生成写真照片',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
             '[text="dyr-dt"] < @View <<n [vid="rl_red_bag_root"] + * [text="我知道了"][vid="iv_close"]',
           ],
@@ -1768,7 +1543,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
         },
@@ -1780,12 +1554,11 @@ export default defineGkdApp({
       name: '生活星球-新建我的相簿',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchTime: 30000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
             '@ImageView[clickable=true] - View <<n * + * [vid="photo_books_album"]',
           ],
@@ -1794,14 +1567,12 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: ['@View[clickable=true] >n [text="新建自定义相簿"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 2000,
           matches: [
             '@[text="立即创建"][clickable=true][focusable=true] -n [text="新建相簿"]',
           ],
@@ -1810,7 +1581,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          actionDelay: 5000,
           matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
           activityIds: ['.kmp.bridge.KmpSharedActivity'],
         },
@@ -1852,7 +1622,7 @@ export default defineGkdApp({
     //首页功能类
     {
       key: 400,
-      name: '开启安全备份',
+      name: '开启安全备份-暂不开启',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1868,7 +1638,7 @@ export default defineGkdApp({
     },
     {
       key: 401,
-      name: '开启照片自动备份',
+      name: '开启照片自动备份-暂不开启',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1884,7 +1654,7 @@ export default defineGkdApp({
     },
     {
       key: 402,
-      name: '百度网盘更新啦',
+      name: '百度网盘更新啦-下次再说',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1903,14 +1673,13 @@ export default defineGkdApp({
     },
     {
       key: 403,
-      name: '喜欢“百度网盘”吗？',
+      name: '喜欢“百度网盘”吗？-以后再说',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
-          action: 'back',
           matches: [
             '@[text="以后再说"][vid="tv_left_btn"][clickable=true] -n [text="喜欢“百度网盘”吗？"][vid="tv_title"]',
           ],
@@ -1948,7 +1717,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[vid="iv_close"] + [vid="cl_content"]'],
