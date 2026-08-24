@@ -290,7 +290,7 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 15000,
-          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],//二级广告页
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'], //二级广告页
         },
         {
           key: 2,
@@ -318,7 +318,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',//二级广告页
+            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View', //二级广告页
           ],
         },
         {
@@ -345,7 +345,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],//二级广告页
+          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'], //二级广告页
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
