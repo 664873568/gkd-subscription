@@ -141,8 +141,12 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            'FrameLayout > @[vid="sdm_myoffer_splash_skip_area"][clickable=true] > [text~="[0-9]s \\\\| Skip"][vid="sdm_myoffer_splash_skip"]',
-            'FrameLayout > @[vid="anythink_myoffer_splash_skip_area"][clickable=true] > [text~="[0-9]s \\\\| 跳过"][vid="anythink_myoffer_splash_skip"]',
+            '@[text~="跳过 [0-9]"][clickable=true]',
+            '[id$="ms_skipView"] < @[id$="ms_skipView_container"]',
+            '@[text="跳过"][clickable=true] - * [text="点击跳转至第三方页面"]',
+            '[text~="[0-9]s \\\\| 跳过"][vid="sdm_myoffer_splash_skip"] < @[vid="sdm_myoffer_splash_skip_area"][clickable=true]',
+            '[text~="[0-9]s \\\\| Skip"][vid="sdm_myoffer_splash_skip"] < @[vid="sdm_myoffer_splash_skip_area"][clickable=true]',
+            '[text~="[0-9]s \\\\| 跳过"][vid="anythink_myoffer_splash_skip"] < @[vid="anythink_myoffer_splash_skip_area"][clickable=true]',
           ],
           activityIds: [
             'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
@@ -229,8 +233,7 @@ export default defineGkdApp({
       key: 30,
       name: '看视频-广告-×',
       matchRoot: true,
-      actionMaximum: 2,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -242,40 +245,21 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          anyMatches: [
-            '@ImageView[clickable=true] - * [text="反馈"] <n * + * [text="摇动手机  了解更多"]', //去看看
-            '@ImageView[clickable=true] - * [text="反馈"] +n RelativeLayout +n RelativeLayout > View', //去看看
-            '@ImageView[clickable=true] - * [text="反馈"] <n * + RelativeLayout + RelativeLayout + View', //去看看
-          ],
-          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 31,
-      name: '看视频-精选推荐',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView - [text="反馈"] +3 View'],
-          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 32,
-      name: '看视频-二级广告页baidu',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
+          actionDelay: 15000,
           matches: ['@View + View +2 View'],
           activityIds: ['com.baidu.mobads.sdk.api.AppActivity'],
+        },
+        {
+          key: 2,
+          anyMatches: [
+            '@ImageView[clickable=true] - [text="反馈"] +n View[clickable=true]', //去看看//精选推荐
+            '@ImageView[clickable=true] - [text="反馈"] -n * View[clickable=true]',//去看看
+            '@ImageView[clickable=true] - [text="反馈"] -n * [text="摇动手机 了解更多"]', //去看看
+            '@ImageView[clickable=true] - * [text="反馈"] +n * > View[clickable=true]', //去看看
+            '@ImageView[clickable=true] - * [text="反馈"] <n * +n  View[clickable=true]', //去看看
+            '@ImageView[clickable=true] - * [text="反馈"] <n * + * [text="摇动手机  了解更多"]', //去看看
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
       ],
     },
@@ -312,13 +296,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          anyMatches: [
-            '@[text="恭喜获得奖励"]',
-            '@[text=""] - [text="恭喜获得限时奖励"]',
-          ],
-        },
-        {
-          key: 2,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
         },
       ],
@@ -334,13 +311,46 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="我要加速"] <<n * +n * [text="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
         },
         {
           key: 1,
+          matches: [
+            '@[text="恭喜获得奖励"]',
+            '@[text=""] - [text="恭喜获得限时奖励"]',
+            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]',
+          ],
+        },
+        {
+          key: 2,
+          action: 'swipe',
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionCd: 5000,
+          matches: [
+            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] >n @[id="_scrollView"][childCount>1]',
+          ],
+        },
+        {
+          key: 3,
+          actionCd: 5000,
+          matches: [
+            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] >n [id="_scrollView"][childCount=1] >n @TextView',
+          ],
+        },
+        {
+          key: 4,
           matches: [
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
@@ -502,7 +512,7 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 15000,
-          matches: ['@ImageView + ImageView +2 [text="反馈"]'], //二级广告页
+          matches: ['@ImageView + ImageView +2 [text="反馈"]'],//二级广告页
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
           ],
@@ -536,7 +546,7 @@ export default defineGkdApp({
     //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
     {
       key: 91,
-      name: '看视频-跳过-立即领取',
+      name: '看视频-跳过-立即领取/立即获取',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -561,20 +571,21 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="点击跳转拿奖励"][clickable=true] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"] ',
+          anyMatches: [
+            '@[text~="点击跳转拿奖励\\([0-9]+s\\)"][clickable=true] <<n * + * [text="立即获取"] <<n * + *[desc="skip_button"] [text="跳过"]',
+            '@[text="点击跳转拿奖励"][clickable=true] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"]',
+            '@[text="点击下载拿奖励"][clickable=true] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"]',
           ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
         {
           key: 1,
           matches: [
             '@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]',
           ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
     },
@@ -594,7 +605,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.qq.e.ads.*
+    //看视频-com.qq.e.ads.PortraitADActivity
     {
       key: 100,
       name: '看视频-微信-提前拿奖励',
@@ -613,7 +624,7 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 15000,
-          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'], //二级广告页
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],//二级广告页
         },
         {
           key: 2,
@@ -641,7 +652,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View', //二级广告页
+            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',//二级广告页
           ],
         },
         {
@@ -668,7 +679,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'], //二级广告页
+          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],//二级广告页
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
@@ -721,7 +732,7 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 31000,
-          matches: ['@View[clickable=true] < RelativeLayout + ImageView'], //奖励已到账
+          matches: ['@View[clickable=true] < RelativeLayout + ImageView'],//奖励已到账
         },
       ],
     },
