@@ -172,7 +172,7 @@ export default defineGkdApp({
       name: '看视频-免看本次广告',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -224,7 +224,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.baidu.mobads.sdk.api.*
+    //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
     {
       key: 30,
       name: '看视频-广告-×',
@@ -234,14 +234,14 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          order: 0,
+          key: 0,
           matches: [
             '@ImageView[clickable=true] + ImageView + [text="点击或滑动查看奖励"]', //立即领取
           ],
           activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
         },
         {
-          order: 1,
+          key: 1,
           anyMatches: [
             '@ImageView[clickable=true] - * [text="反馈"] <n * + * [text="摇动手机  了解更多"]', //去看看
             '@ImageView[clickable=true] - * [text="反馈"] +n RelativeLayout +n RelativeLayout > View', //去看看
@@ -282,7 +282,7 @@ export default defineGkdApp({
     //看视频-com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity
     {
       key: 40,
-      name: '看视频-跳过-*秒后可领取奖励-已经获得奖励"]',
+      name: '看视频-跳过-*秒后可领取奖励beizi.ad',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -299,87 +299,57 @@ export default defineGkdApp({
       key: 50,
       name: '看视频-跳过-去体验*秒可立即领奖byazt.mw',
       matchRoot: true,
-      actionMaximum: 3,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
       rules: [
         {
+          key: 0,
           anyMatches: [
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
-          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          key: 1,
+          anyMatches: [
+            '@[text="恭喜获得奖励"]',
+            '@[text=""] - [text="恭喜获得限时奖励"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
         },
       ],
     },
     {
       key: 51,
-      name: '看视频-跳过-限时奖励byazt.mw',
-      matchRoot: true,
-      actionMaximum: 6,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text="恭喜获得奖励"]',
-            '@[text=""] - [text="恭喜获得限时奖励"]',
-          ],
-          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 52,
-      name: '看视频-跳过-奖励已领取byazt.mw',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 53,
       name: '看视频-礼包-再逛*秒后可领奖byazt.mw',
       matchRoot: true,
-      actionMaximum: 3,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
       rules: [
         {
+          key: 0,
           anyMatches: [
             '@[text="我要加速"] <<n * +n * [text="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
-          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
         },
-      ],
-    },
-    {
-      key: 54,
-      name: '看视频-礼包-奖励已领取byazt.mw',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
           matches: [
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
-          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
     {
-      key: 55,
-      name: '看视频-礼包-*s后可领取奖励-领取成功-×"]',
+      key: 52,
+      name: '看视频-礼包-*s后可领取奖励byazt.mw',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -398,89 +368,57 @@ export default defineGkdApp({
       key: 60,
       name: '看视频-跳过-去体验*秒可立即领奖byazt.sr',
       matchRoot: true,
-      actionMaximum: 3,
       matchDelay: 1000,
-      matchTime: 40000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
       rules: [
         {
+          key: 0,
           anyMatches: [
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要立即领奖"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
-          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          key: 1,
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
         },
       ],
     },
     {
       key: 61,
-      name: '看视频-跳过-奖励已领取byazt.sr',
+      name: '看视频-礼包-再逛*秒后可领奖byazt.sr',
       matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
       rules: [
         {
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
+          key: 0,
+          anyMatches: [
+            '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: ['@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]'],
+        },
+        {
+          key: 2,
+          matches: [
+            'FrameLayout - FrameLayout - FrameLayout @RelativeLayout[clickable=true]',
+          ],
         },
       ],
     },
     {
       key: 62,
-      name: '看视频-礼包-再逛*秒后可领奖byazt.sr',
+      name: '看视频-跳过-礼包-*s后可领取奖励byazt.sr',
       matchRoot: true,
-      actionMaximum: 3,
+      actionMaximum: 1,
       matchDelay: 1000,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-          ],
-          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 63,
-      name: '看视频-礼包-限时领取byazt.sr',
-      matchRoot: true,
-      actionMaximum: 3,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]'],
-          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 64,
-      name: '看视频-礼包-<byazt.sr',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            'FrameLayout - FrameLayout - FrameLayout @RelativeLayout[clickable=true]',
-          ],
-          activityIds: ['com.byazt.sr.Stub_Standard_Portrait_Activity'],
-        },
-      ],
-    },
-    {
-      key: 65,
-      name: '看视频-跳过-礼包-领取成功byazt.sr', //*s后可领取奖励
-      matchRoot: true,
-      actionMaximum: 1,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -498,63 +436,37 @@ export default defineGkdApp({
       key: 70,
       name: '看视频-跳过-去体验*秒可立即领奖bsoc',
       matchRoot: true,
-      actionMaximum: 3,
       matchDelay: 1000,
-      matchTime: 40000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+      ],
       rules: [
         {
+          key: 0,
           anyMatches: [
             '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+        },
+        {
+          key: 1,
+          anyMatches: [
+            '@[text="恭喜获得奖励"]',
+            '@[text=""] - [text="恭喜获得限时奖励"]',
           ],
+        },
+        {
+          key: 2,
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
         },
       ],
     },
     {
       key: 71,
-      name: '看视频-跳过-限时奖励bsoc',
-      matchRoot: true,
-      actionMaximum: 6,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text="恭喜获得奖励"]',
-            '@[text=""] - [text="恭喜获得限时奖励"]',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 72,
-      name: '看视频-跳过-奖励已领取bsoc',
+      name: '看视频-跳过-礼包-*s后可领取奖励bsoc',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 73,
-      name: '看视频-跳过-礼包-领取成功bsoc', //*s后可领取奖励
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
+      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -571,14 +483,13 @@ export default defineGkdApp({
     //看视频-com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity
     {
       key: 80,
-      name: '看视频-跳过↓',
+      name: '看视频-跳过-去体验*秒可立即领奖',
       matchRoot: true,
-      actionMaximum: 3,
       matchDelay: 1000,
-      matchTime: 40000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           anyMatches: [
             '@[text="我要"] <<n * +n * >n [text$="跳过"]',
             '@[text="体验"] <<n * +n * >n [text$="跳过"]',
@@ -588,38 +499,19 @@ export default defineGkdApp({
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           ],
         },
-      ],
-    },
-    {
-      key: 81,
-      name: '看视频-跳过-奖励已领取bsos',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
+          actionDelay: 15000,
+          matches: ['@ImageView + ImageView +2 [text="反馈"]'],//二级广告页
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
+          ],
+        },
+        {
+          key: 2,
           matches: ['@[text="跳过"] -n [text="奖励已领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 82,
-      name: '看视频-二级广告页bsoc',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 16000,
-          matches: ['@ImageView + ImageView +2 [text="反馈"]'],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
           ],
         },
       ],
@@ -647,7 +539,7 @@ export default defineGkdApp({
       name: '看视频-跳过-立即领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
+      matchDelay: 1000,
       matchTime: 40000,
       resetMatch: 'activity',
       rules: [
@@ -667,28 +559,18 @@ export default defineGkdApp({
       key: 92,
       name: '看视频-跳过-礼包-看*秒可直接拿奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: [
             '@[text="点击跳转拿奖励"][clickable=true] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"] ',
           ],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
-      ],
-    },
-    {
-      key: 93,
-      name: '看视频-跳过-礼包',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
           matches: [
             '@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]',
           ],
@@ -697,7 +579,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 94,
+      key: 93,
       name: '看视频-礼包-免费获取-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -717,101 +599,80 @@ export default defineGkdApp({
       key: 100,
       name: '看视频-微信-提前拿奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
           key: 0,
-          matches: ['@[text*="微信"] <n FrameLayout - [text="提前拿奖励"]'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+          anyMatches: [
+            '@[text*="微信"][index=parent.childCount.minus(1)] <n * - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
+            '@[text*="微信"][index=parent.childCount.minus(1)] <n * - [text="提前拿奖励"] - [text~="玩[0-9]+ 秒小游戏"]',
+          ],
         },
         {
-          preKeys: [0],
           key: 1,
-          actionDelay: 16000,
-          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+          actionDelay: 15000,
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],//二级广告页
+        },
+        {
+          key: 2,
+          matches: [
+            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
+          ],
         },
       ],
     },
     {
       key: 101,
-      name: '看视频-微信-恭喜获得奖励',
+      name: '看视频-微信-阅读小说 可获得奖励',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
-      matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
+          key: 0,
           matches: [
-            'ImageView < @FrameLayout + FrameLayout >2 ImageView + FrameLayout > [text*="微信"]',
+            '[text="点击去微信看全文"] < @LinearLayout <<n * - * [text="阅读小说"] + [text="可获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          key: 1,
+          actionDelay: 15000,
+          matches: [
+            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',//二级广告页
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
+          ],
         },
       ],
     },
     {
       key: 102,
-      name: '看视频-微信-阅读小说 可获得奖励',
+      name: '看视频-奖励将于*秒后发放',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           matches: [
-            '[text="可获得奖励"] - [text="阅读小说"] < * <n * + RecyclerView >n @LinearLayout > [text="点击去微信看全文"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 16000,
-          matches: [
-            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 1000,
-          matches: [
-            '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 104,
-      name: '看视频-奖励将于*秒后发放',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
             '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text~="奖励将于[0-9]+秒后发放"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
-      ],
-    },
-    {
-      key: 105,
-      name: '看视频-恭喜获得奖励-×qq',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
+          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],//二级广告页
+          activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+        {
+          key: 2,
           anyMatches: [
             'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
             'ImageView < FrameLayout < @FrameLayout - [text="恭喜获得奖励"] < LinearLayout < * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
@@ -821,83 +682,46 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 106,
-      name: '看视频-二级广告页qq',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],
-          activityIds: ['com.qq.e.ads.ADActivity'],
-        },
-      ],
-    },
-    {
-      key: 107,
+      key: 103,
       name: '看视频-点击广告，即可获得奖励',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
-      matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
+          key: 0,
           matches: [
             '@[text="点击广告拿奖励"] <<n * - * [text="点击广告，即可获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
-      ],
-    },
-    {
-      key: 108,
-      name: '看视频-免-恭喜获得奖励-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
           matches: [
             '@ImageView < FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
       key: 110,
-      name: '看视频-奖励已到账',
+      name: '看视频-完成APP下载-即可领取奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 31000,
-          matches: ['@View[clickable=true] < RelativeLayout + ImageView'],
-          activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
-        },
-      ],
-    },
-    {
-      key: 111,
-      name: '看视频-完成APP下载-即可领取奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
           matches: [
             '@View[clickable=false] <<n FrameLayout -2 RelativeLayout > View',
           ],
-          activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
+        },
+        {
+          key: 1,
+          actionDelay: 31000,
+          matches: ['@View[clickable=true] < RelativeLayout + ImageView'],//奖励已到账
         },
       ],
     },
@@ -906,27 +730,18 @@ export default defineGkdApp({
       key: 120,
       name: '看视频-点击广告并跳转获取奖励',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: [
             '@[text="立即下载"][clickable=true] <<n * -n [text="点击广告并跳转获取奖励"]',
           ],
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
-      ],
-    },
-    {
-      key: 121,
-      name: '看视频-恭喜获得奖励-×ubix',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 1,
           matches: ['@ImageView[clickable=true] - [text="恭喜获得奖励"]'],
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
