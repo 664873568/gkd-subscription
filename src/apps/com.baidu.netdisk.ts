@@ -289,6 +289,11 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionDelay: 15000,
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],//二级广告页
+        },
+        {
+          key: 2,
           matches: [
             'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
           ],
@@ -306,11 +311,18 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="点击去微信看全文"] <<n * - * [text="阅读小说"] + [text="可获得奖励"]',
+            '[text="点击去微信看全文"] < @LinearLayout <<n * - * [text="阅读小说"] + [text="可获得奖励"]',
           ],
         },
         {
           key: 1,
+          actionDelay: 15000,
+          matches: [
+            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',//二级广告页
+          ],
+        },
+        {
+          key: 2,
           matches: [
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
           ],
@@ -319,6 +331,55 @@ export default defineGkdApp({
     },
     {
       key: 62,
+      name: '看视频-奖励将于*秒后发放',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          key: 1,
+          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],//二级广告页
+          activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+        {
+          key: 2,
+          anyMatches: [
+            'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
+            'ImageView < FrameLayout < @FrameLayout - [text="恭喜获得奖励"] < LinearLayout < * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 63,
+      name: '看视频-点击广告，即可获得奖励',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="点击广告拿奖励"] <<n * - * [text="点击广告，即可获得奖励"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: ['@ImageView - * [text="恭喜获得奖励！"]'],
+        },
+      ],
+    },
+    {
+      key: 64,
       name: '看视频-打开/完成App，即可获得奖励',
       matchRoot: true,
       matchDelay: 1000,
@@ -335,7 +396,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@ImageView < FrameLayout <n * < * - * [text="恭喜获得奖励"] < * + FrameLayout ImageView + FrameLayout',
+            '@ImageView < FrameLayout <n * < * - * [text="恭喜获得奖励"] < * + FrameLayout >n ImageView + FrameLayout',
           ],
         },
         {
@@ -347,73 +408,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 63,
-      name: '看视频-恭喜获得奖励！-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView - * [text="恭喜获得奖励！"]'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 64,
-      name: '看视频-点击广告拿奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="点击广告拿奖励"] <<n * - * [text="点击广告，即可获得奖励"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
       key: 65,
-      name: '看视频-新人专享福利-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView - [text="新人专享福利"]'],
-          activityIds: ['com.qq.e.ads.ADActivity'],
-        },
-      ],
-    },
-    {
-      key: 66,
-      name: '看视频-奖励将于*秒后发放',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '@ImageView <<n * -n * [text="已完成浏览10秒，提前获得奖励"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 67,
       name: '看视频-奖励将于*秒后发放-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -425,6 +420,20 @@ export default defineGkdApp({
             'ImageView < FrameLayout < @FrameLayout + * [text="查看详情"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 66,
+      name: '看视频-新人专享福利-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView - [text="新人专享福利"]'],
+          activityIds: ['com.qq.e.ads.ADActivity'],
         },
       ],
     },
