@@ -10,15 +10,15 @@ export default defineGkdApp({
       name: '天天签到赢金币-登录领取',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
           matches: [
             '@TextView[clickable=true] - [text="登录领取"][clickable=true] <n * -n * [text="天天签到赢金币！"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0],
@@ -26,7 +26,6 @@ export default defineGkdApp({
           matches: [
             'TextView[clickable=true] - @[text="登录领取"][clickable=true] <n * -n * [text="天天签到赢金币！"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0, 1],
@@ -34,7 +33,6 @@ export default defineGkdApp({
           matches: [
             '@[text="同意并登录"][clickable=true] -n [text="温馨提示"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
@@ -45,11 +43,11 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
           matches: ['@[text="立即签到"] <<n * >n [text="天天签到赢金币！"]'],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0],
@@ -58,12 +56,35 @@ export default defineGkdApp({
             '@TextView - [text="关注主播赚金币"] -n [text="成功领取今日金币"]',
             '@TextView - [text="关注主播赚金币"] -n [text="成功领取今日礼包"]',
           ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
     {
       key: 2,
+      name: '做任务-去完成-访问YY游仓',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 1000,
+          matches: [
+            'View[index=3] > [text="访问YY游仓"] +n View > [text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: ['@[desc="YY游仓"]'],
+        },
+      ],
+    },
+    {
+      key: 3,
       name: '做任务-去完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -75,48 +96,41 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           anyMatches: [
-            '@[text="去完成"][clickable=true] < * -n [text="访问YY游仓"]',
-            '@[text="去完成"][clickable=true] < * -n [text="打开YY语音"]',
-            '@[text="去完成"][clickable=true] < * -n [text="去头条极速版"]',
-            '@[text="去完成"][clickable=true] < * -n [text="打开今日头条"]',
-            '@[text="去完成"][clickable=true] < * -n [text="打开星图金融"]',
-            '@[text="去完成"][clickable=true] < * -n [text="去快手极速版"]',
-            '@[text="去完成"][clickable=true] < * -n [text="打开携程旅行"]',
-            '@[text="去完成"][clickable=true] < * -n [text="打开京东金融"]',
-            '@[text="去完成"][clickable=true] < * -n [text="打开百度地图"]',
-            '@[text="去完成"][clickable=true] < * -n [text="去微博赚红包"]',
-            '@[text="去完成"][clickable=true] < * -n [text="打开QQ音乐"]',
+            'View[index=3] > [text="打开YY语音"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="去头条极速版"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="打开今日头条"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="打开星图金融"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="去快手极速版"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="打开携程旅行"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="打开京东金融"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="打开百度地图"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="去微博赚红包"] +n View > [text="去完成"][clickable=true]',
+            'View[index=3] > [text="打开QQ音乐"] +n View > [text="去完成"][clickable=true]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
-          matches: ['@[desc="YY游仓"]'],
-        },
-        {
-          preKeys: [0],
-          key: 2,
           matches: [
             '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提醒"][vid="message"]',
           ],
         },
         {
-          key: 3,
+          key: 2,
           matches: ['@TextView - [text="前往领取"] -n * [text="任务已完成"]'],
         },
         {
-          key: 4,
+          key: 3,
           matches: ['@[text="领奖励"]'],
         },
         {
-          key: 5,
+          key: 4,
           matches: ['@TextView  - [text="马上完成"] -n [text="恭喜获得"]'],
         },
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '看直播',
       matchRoot: true,
       matchDelay: 1000,
@@ -166,13 +180,21 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '[text="提现"] >n @View[clickable=true] > [text="50元"] + [text="今日份数已用完"]',
+          ],
           matches: ['[text="提现"] >n @View[clickable=true] > [text="50元"]'],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提示"][vid="message"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '[text="提现"] >n @TextView[clickable=true] + View > View > TextView',
           ],
         },
       ],
