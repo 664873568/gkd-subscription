@@ -30,7 +30,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@TextView[clickable=true] - [text~="抽中[0-9]+个签到金"]'],
+          matches: ['[text~="抽中[0-9]+个签到金"] + @TextView[clickable=true]'],
           activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
       ],
@@ -59,12 +59,15 @@ export default defineGkdApp({
       activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
       rules: [
         {
+          key: 0,
           anyMatches: [
-            '[text="2000签到金"] + @ImageButton[clickable=true] + [text~="（剩余([1-9]|[0-9]*)张）"]',
-            '[text~="（剩余([1-9]|[0-9]*)张）"] - * > @[text="立即兑换"][clickable=true] - ListView > [text="20元"]',
+            '[text~="（剩余([1-9][0-9]*)张）"] - @ImageButton[clickable=true] - [text="2000签到金"]',
+            '[text~="（剩余([1-9][0-9]*)张）"] - * > @[text="立即兑换"][clickable=true] - ListView > [text="2000签到金"]',
           ],
         },
         {
+          preKeys: [0],
+          key: 1,
           matches: ['[text="即将兑换"] +n @[text="确认兑换"][clickable=true]'],
         },
       ],
