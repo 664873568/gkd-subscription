@@ -314,7 +314,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="每日任务"] +n View[index=2] >n [text="收藏任意频道"] +n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View >n [text="收藏任意频道"] +n @[text="去完成"][clickable=true]',
           ],
           matches: [
             '[text="每日任务"] +n View[index=1] >n [text="完成应用下载"] +n @[text="去完成"][clickable=true]',
@@ -359,10 +359,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="每日任务"] +n View[index=2] >n [text="收藏任意频道"] +n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View >n [text="收藏任意频道"] +n @[text="去完成"][clickable=true]',
           ],
           matches: [
-            '[text="每日任务"] +n View[index=1] >n [text="完成应用浏览"] +n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View >n [text="完成应用浏览"] +n @[text="去完成"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
