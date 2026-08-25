@@ -236,13 +236,13 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          actionMaximum: 1,
+          excludeMatches: ['@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]'],
           matches: ['@[desc="领取金币"] < ViewGroup < ViewGroup'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           key: 4,
-          matches: ['@ViewGroup[index=6] -n * > [desc="金币领取成功"]'],
+          matches: ['@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
@@ -589,7 +589,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@Button[desc="关闭"] - View > [text$="~tplv-20ashz96qn-1"]',
+            '[text$="~tplv-20ashz96qn-1"] < * + @Button[desc="关闭"]',
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -601,7 +601,6 @@ export default defineGkdApp({
           actionDelay: 1000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
           activityIds: [
-            '.live.LiveDummyActivity',
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
           ],
         },
