@@ -810,7 +810,10 @@ export default defineGkdApp({
           matches: [
             '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View[index=8] -n [text="今日已完成 明日继续"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
+          activityIds: [
+            '.bullet.ui.BulletContainerActivity',
+            '.search.activity.SearchResultActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -827,6 +830,37 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '@ImageButton[clickable=true] - ImageButton <<n * -n * [text="d60d1c8ebb042992a1535132108f5843.png~tplv-49obo7mizy-png75"]',
+          ],
+          activityIds: ['.search.activity.SearchResultActivity'],
+        },
+      ],
+    },
+    {
+      key: 35,
+      name: '车主服务-搜索「车险」进入频道',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 1000,
+          matches: [
+            '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View[index=8] -n [text="今日已完成 明日继续"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          actionMaximum: 2,
+          action: 'clickCenter',
+          excludeMatches: [
+            'FrameLayout > ViewGroup > ViewGroup + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup + ViewGroup',
+          ],
+          matches: [
+            '@[desc="返回"][clickable=true] < * + * [text="搜索"][desc="搜索"]',
           ],
           activityIds: ['.search.activity.SearchResultActivity'],
         },
