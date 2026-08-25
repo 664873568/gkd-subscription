@@ -314,7 +314,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          notMatches: [
+          excludeMatches: [
             'View[clickable=true] >3 [text="分享得红包最高8.8"] +n @View[clickable=true] > [text="逛一逛"]',
           ],
           matches: [
