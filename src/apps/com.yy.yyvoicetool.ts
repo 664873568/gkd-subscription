@@ -20,30 +20,65 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '连续签到-立即签到',
+      name: '立即签到',
       matchRoot: true,
       actionMaximum: 1,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="立即签到"] <<n * [text="连续签到"]'],
-          activityIds: ['.MainActivity'],
-        },
-      ],
-    },
-    //每日任务
-    {
-      key: 10,
-      name: '每日任务-去完成-访问YY游仓',
-      matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
       rules: [
         {
           key: 0,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
-          matches: ['@[text="去完成"][clickable=true] -n [text="访问YY游仓"]'],
+          matches: ['@[text="立即签到"][clickable=true][index=parent.childCount.minus(1)]'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
+        },
+      ],
+    },
+    //每日任务
+    {
+      key: 10,
+      name: '每日任务-领奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.MainActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="每日任务"] + View[index=1] >n @[text="领奖励"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '每日任务-去完成-访问YY游仓',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.MainActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="每日任务"] +n View[index=4] >n [text="访问YY游仓"] +n @[text="去完成"][clickable=true]',
+          ],
         },
         {
           preKeys: [0],
@@ -57,7 +92,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           matches: [
-            '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
+            '[text="每日任务"] + View[index=1] >n @[text="领奖励"][clickable=true]',
           ],
         },
         {
@@ -70,7 +105,44 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 12,
+      name: '每日任务-去完成-浏览App',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.MainActivity'],
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '[text="每日任务"] +n View[index=2] >n [text="打开汽车之家APP"] +n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[index=2] >n [text="去一刻相册领积分"] +n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[index=2] >n [text="打开星图金融"] +n @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="打开"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '[text="每日任务"] + View[index=1] >n @[text="领奖励"][clickable=true]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 13,
       name: '每日任务-去完成-访问指定频道',
       matchRoot: true,
       matchDelay: 1000,
@@ -79,11 +151,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
           anyMatches: [
-            '@[text="去完成"][clickable=true] -n [text="访问指定频道"]',
-            '@[text="去完成"][clickable=true] -n [text="频道内发言"]',
+            '[text="每日任务"] +n View[index=2] >n [text="访问指定频道"] +n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[index=2] >n [text="频道内发言"] +n @[text="去完成"][clickable=true]',
           ],
         },
         {
@@ -126,6 +196,7 @@ export default defineGkdApp({
         },
         {
           key: 6,
+          preKeys: [2, 3, 4,5],
           action: 'back',
           actionDelay: 1000,
           matches: [
@@ -134,12 +205,14 @@ export default defineGkdApp({
         },
         {
           key: 7,
+          preKeys: [2, 3, 4,5,6],
           matches: [
-            '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
+            '[text="每日任务"] + View[index=1] >n @[text="领奖励"][clickable=true]',
           ],
         },
         {
           key: 8,
+          preKeys: [2, 3, 4,5,6,7],
           matches: [
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
@@ -147,19 +220,18 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 14,
       name: '每日任务-去完成-去搜索热门频道',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
           matches: [
-            '@[text="去完成"][clickable=true] -n [text="去搜索热门频道"]',
+            '[text="每日任务"] +n View[index=2] >n [text="去搜索热门频道"] +n @[text="去完成"][clickable=true]',
           ],
         },
         {
@@ -172,7 +244,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           matches: [
-            '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
+            '[text="每日任务"] + View[index=1] >n @[text="领奖励"][clickable=true]',
           ],
         },
         {
@@ -185,19 +257,18 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 15,
       name: '每日任务-去完成-收藏任意频道',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
           matches: [
-            '@[text="去完成"][clickable=true] -n [text="收藏任意频道"]',
+            '[text="每日任务"] +n View[index=2] >n [text="收藏任意频道"] +n @[text="去完成"][clickable=true]',
           ],
         },
         {
@@ -215,12 +286,14 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0, 1,2],
           key: 3,
           matches: [
-            '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
+            '[text="每日任务"] +n View[index=1] >n @[text="领奖励"][clickable=true]',
           ],
         },
         {
+          preKeys: [0, 1,2,3],
           key: 4,
           matches: [
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
@@ -229,57 +302,20 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
-      name: '每日任务-去完成',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.MainActivity'],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 4000,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
-          anyMatches: [
-            '@[text="去完成"][clickable=true] -n [text="打开汽车之家APP"]',
-            '@[text="去完成"][clickable=true] -n [text="去一刻相册领积分"]',
-            '@[text="去完成"][clickable=true] -n [text="打开星图金融"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="打开"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]',
-          ],
-        },
-        {
-          key: 2,
-          matches: [
-            '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
-          ],
-        },
-        {
-          key: 3,
-          matches: [
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 15,
+      key: 16,
       name: '每日任务-去完成-完成应用下载',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
+          excludeMatches: [
+            '[text="每日任务"] +n View[index=2] >n [text="收藏任意频道"] +n @[text="去完成"][clickable=true]',
+          ],
           matches: [
-            '@[text="去完成"][clickable=true] - * [text="完成应用下载"]',
+            '[text="每日任务"] +n View[index=1] >n [text="完成应用下载"] +n @[text="去完成"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
@@ -312,7 +348,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 16,
+      key: 17,
       name: '每日任务-去完成-完成应用浏览',
       matchRoot: true,
       matchDelay: 1000,
@@ -320,10 +356,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
+          excludeMatches: [
+            '[text="每日任务"] +n View[index=2] >n [text="收藏任意频道"] +n @[text="去完成"][clickable=true]',
+          ],
           matches: [
-            '@[text="去完成"][clickable=true] - * [text="完成应用浏览"]',
+            '[text="每日任务"] +n View[index=1] >n [text="完成应用浏览"] +n @[text="去完成"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
@@ -374,7 +411,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 17,
+      key: 18,
       name: '每日任务-看视频',
       matchRoot: true,
       matchDelay: 1000,
@@ -382,10 +419,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 6000,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
+          excludeMatches: [
+            '[text="每日任务"] +n View[index=1] >n [text="完成应用浏览"] +n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[index=1] >n [text="完成应用下载"] +n @[text="去完成"][clickable=true]',
+          ],
           matches: [
-            '@[text="看视频"][clickable=true] - [text^="看视频最高赚"]',
+            '[text~="看视频最高赚[0-9].[0-9]万金币\\\\（(?:[0-9]|1[0-9]|2[0-4])/25\\\\）"] + @[text="看视频"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
@@ -422,14 +461,14 @@ export default defineGkdApp({
         {
           key: 4,
           matches: [
-            '@[text="领金币"][clickable=true] - [text~="看视频最高赚[0-9].[0-9]万金币\\\\（(?:[0-9]|1[0-9]|2[0-4])/25\\\\）"]',
+            '[text~="看视频最高赚[0-9].[0-9]万金币\\\\（(?:[0-9]|1[0-9]|2[0-4])/25\\\\）"] + @[text="领金币"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
         {
           key: 5,
           matches: [
-            '@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"] +n [text~="继续领 [0-9]+00 金币 \\\\(最高\\\\)"][clickable=true]',
+            '[text~="继续领 [0-9]+00 金币 \\\\(最高\\\\)"][clickable=true] -n [text~="恭喜获得[0-9]+金币"] - @TextView[clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
@@ -440,7 +479,7 @@ export default defineGkdApp({
       key: 20,
       name: '看视频-观看广告*秒获得奖励-关闭',
       matchRoot: true,
-      matchDelay: 5000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
