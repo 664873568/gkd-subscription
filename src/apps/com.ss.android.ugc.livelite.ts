@@ -113,12 +113,12 @@ export default defineGkdApp({
       name: '赚金币',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            'LinearLayout > ViewGroup > @ViewGroup[childCount=4][index=0] > ImageView + ViewGroup + ViewGroup + ViewGroup',
+            'LinearLayout > ViewGroup > @ViewGroup[childCount=5][index=0] > ImageView + ViewGroup + ViewGroup + ViewGroup',
           ],
           activityIds: ['com.ss.android.ugc.aweme.main.MainActivity'],
         },
