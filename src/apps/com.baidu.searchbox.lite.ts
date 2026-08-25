@@ -303,7 +303,9 @@ export default defineGkdApp({
           matches: [
             'ImageView[clickable=true] + [text="累计获得"] +n * > @CheckBox[clickable=true] + [text="不再提示"]',
           ],
-          activityIds: ['com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity'],
+          activityIds: [
+            'com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -311,7 +313,9 @@ export default defineGkdApp({
           matches: [
             '@ImageView[clickable=true] + [text="累计获得"] +n * > CheckBox[clickable=true] + [text="不再提示"]',
           ],
-          activityIds: ['com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity'],
+          activityIds: [
+            'com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity',
+          ],
         },
       ],
     },

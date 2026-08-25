@@ -181,7 +181,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="互动游戏"] >n @TextView[clickable=true] + * [text="已完成"]',
@@ -216,7 +216,7 @@ export default defineGkdApp({
           activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]',
@@ -254,7 +254,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="互动游戏"] >n @TextView[clickable=true] + * [text="已完成"]',

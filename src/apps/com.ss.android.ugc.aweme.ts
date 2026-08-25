@@ -247,13 +247,17 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          excludeMatches: ['@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]'],
+          excludeMatches: [
+            '@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]',
+          ],
           matches: ['@[desc="领取金币"] < ViewGroup < ViewGroup'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           key: 4,
-          matches: ['@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]'],
+          matches: [
+            '@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
@@ -481,14 +485,14 @@ export default defineGkdApp({
           activityIds: ['.live.LiveDummyActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           action: 'clickCenter',
           matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 5000,
           action: 'clickCenter',
@@ -620,15 +624,13 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[text$="~tplv-20ashz96qn-1"] < * + @Button[desc="关闭"]',
-          ],
+          matches: ['[text$="~tplv-20ashz96qn-1"] < * + @Button[desc="关闭"]'],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
@@ -671,9 +673,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 3,
           action: 'back',
-          matches: [
-            '[text="车主服务"] >n [text="恭喜完成任务"]',
-          ],
+          matches: ['[text="车主服务"] >n [text="恭喜完成任务"]'],
         },
       ],
     },
