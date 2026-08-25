@@ -5,9 +5,10 @@ export default defineGkdApp({
   name: '百度地图',
   groups: [
     //金币任务中心-com.baidu.baidumaps.MapsActivity
+    //签到*天得*金币[id="J-sign-card"]
     {
-      key: 0,
-      name: '金币任务中心-签到日历-××',
+      key: 1,
+      name: '金币任务中心-签到日历-立即签到',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -17,177 +18,260 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[id="sign-dialog"] > [text~="已签到[0-9]+/14天"] +n @TextView[text=""][clickable=true]',
+            'AlertDialog > [id="sign-dialog"] > [text~="已签到[0-9]+/14天"] +n @TextView[clickable=true]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            'AlertDialog > [text="去逛逛"] -n * > @TextView[text=""][clickable=true]',
+            'AlertDialog > [text="去逛逛"] -n * > @TextView[clickable=true]',
           ],
         },
       ],
     },
-    {
-      key: 1,
-      name: '金币任务中心-兑换商城-<',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: ['@TextView + TextView + [text="兑换记录"]'],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
+    //看视频最高赚99999金币*50[id="J-watchVideo"]
     {
       key: 2,
-      name: '金币任务中心-恭喜获得任务奖励-×',
+      name: '金币任务中心-看视频-赚金币',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@TextView[text=""][clickable=true] -n * [text="恭喜获得任务奖励"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '金币任务中心-我知道了-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@TextView[text=""][clickable=true] <n * +n * [text="我知道了"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
-    {
-      key: 5,
-      name: '金币任务中心-继续看视频领金币-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@TextView[text=""][clickable=true] < * + * [text="继续看视频领金币"]',
-          ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
-    {
-      key: 7,
-      name: '地图图区',
-      matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
+          key: 0,
+          matches: [
+            '@View[clickable=true] > [text="待领取"] - View > [text~="[0-9]{3,}"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@TextView[clickable=true] < * + * [text="继续看视频领金币"]',
+          ],
+        },
+      ],
+    },
+    //再做*个任务。额外得*[id="task-loader"]
+    {
+      key: 3,
+      name: '金币任务中心-浏览App-去完成',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@View[clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
+          ],
+        },
+        {
+          key: 1,
           anyMatches: [
             '@[desc="返回"][vid="title_btn_left"] - * [text="签到送好礼"][vid="title"]',
             '@[desc="返回"][vid="title_btn_left"] - * [text="千问-阿里 AI 助手"][vid="title"]',
             '@[desc="返回"][vid="title_btn_left"] <<n [vid="title_bar"] + [vid="frameLayout1"] >n [text="此功能需访问飞猪旅行APP"]',
             '@[desc="返回"][vid="title_btn_left"] <<n [vid="title_bar"] + [vid="frameLayout1"] >n [text="恭喜获得"] + [text="任务已完成\\n请返回到列表领取奖励"]',
           ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
-      ],
-    },
-    {
-      key: 8,
-      name: '正在载入',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
         {
-          action: 'back',
-          matches: ['@[text="正在载入"][vid="bm_progress_message"]'],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '全屏广告',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@ImageView < ViewGroup < ViewGroup - * [text="反馈"] <<n * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
-            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * + * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
-            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
+          key: 2,
+          matches: [
+            '@TextView[clickable=true] -n * [text="恭喜获得任务奖励"]',
           ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
+        },
+        {
+          key: 3,
+          matches: [
+            '@TextView[clickable=true] <n * +n * [text="我知道了"]',
           ],
         },
       ],
     },
-    //免费抽大奖
     {
-      key: 10,
-      name: '免费抽大奖-免费抽奖',
+      key: 4,
+      name: '金币任务中心-浏览App-已完成-领取金币/点击领取',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
           key: 0,
-          action: 'none',
-          matches: [
-            '[text="免费抽大奖"] +n * > @View[clickable=true] [text="免费抽奖"]',
+          anyMatches: [
+            '[id="J-save-wrap"] > @View[clickable=true] > [text="领取金币"]',
+            '[id="J-reward-list"] >n @[text="点击领取"][clickable=true]',
           ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          anyMatches: [
-            '[text="立即领取"] < @View[clickable=true] - [text~="恭喜抽中 [0-9]+00 金币"]',
-            '@TextView[text=""][clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
+          matches: [
+            '@View[clickable=true] > [text="我知道了"]',
           ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
     },
+    //免费抽大奖[id="J-sign-card"]
     {
-      key: 11,
-      name: '免费抽大奖-恭喜获得金币奖励',
+      key: 5,
+      name: '金币任务中心-免费抽大奖-免费抽奖',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
+          key: 0,
+          excludeMatches: [
+            '@View[clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
+          ],
+          matches: [
+            '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text="免费抽奖"]',
+          ],
+        },
+        {
+          key: 1,
           anyMatches: [
             '[text="立即领取"] < @View[clickable=true] - [text~="恭喜抽中 [0-9]+00 金币"]',
             '[text="再试一次"] < @View[clickable=true] - [text~="恭喜抽中 [0-9]+00 金币"]',
-            '@TextView[text=""][clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
+            '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
           ],
-          activityIds: ['com.baidu.baidumaps.MapsActivity'],
+        },
+      ],
+    },
+    //翻卡赢 9999金币[id="J-flip-card"]
+    {
+      key: 6,
+      name: '金币任务中心-翻卡-翻',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text="免费抽奖"]',
+          ],
+          matches: [
+            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [text$="位卡"]',
+          ],
+        },
+        {
+          key: 1,
+          anyMatches: [
+            '[text="恭喜翻出"] +n @View[clickable=true] > [text="继续翻十位领取"]',
+            '[text="恭喜翻出"] +n @View[clickable=true] > [text="继续翻百位"]',
+            '[text="恭喜翻出"] +n @View[clickable=true] > [text="立即收下"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true][index=parent.childCount.minus(1)]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '[text="恭喜获得收益翻倍卡"] + [text="明天再来可翻倍今日收益"] +n @View[clickable=true] > [text="明日来翻倍"]',
+          ],
+        },
+      ],
+    },
+    //天天赢大奖[id="lucky-wheel-entry"]
+    {
+      key: 7,
+      name: '金币任务中心-天天赢大奖-去抽奖',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [text$="位卡"]',
+          ],
+          matches: [
+            '[text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]',
+          ],
+        },
+        {
+          key: 1,
+          anyMatches: [
+            'View > @[text="去完成"][clickable=true] -n [text^="浏览页面得次数"]',
+            'View > @[text="去完成"][clickable=true] -n [text^="看视频得次数"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="去做任务赚次数"]"]',
+          ],
+        },
+      ],
+    },
+    //开红包领现金[id="J-sign-card"]
+    {
+      key: 8,
+      name: '金币任务中心-开红包领现金-去完成',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]',
+          ],
+          matches: [
+            '@[text="去完成"][clickable=true] - [text="大额红包开不停 每个红包都有钱"] - * [text="开红包领现金"]',
+          ],
+        },
+        {
+          key: 1,
+          anyMatches: [
+            '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
+            '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
+            '[text="成功完成任务"] <n * < * +n @View[clickable=true] > [text="继续开红包"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
+        },
+      ],
+    },
+    //开宝箱得金币[id="J-chest-box"]
+    {
+      key: 9,
+      name: '金币任务中心-开宝箱得金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '@[text="去完成"][clickable=true] - [text="大额红包开不停 每个红包都有钱"] - * [text="开红包领现金"]',
+          ],
+          matches: [
+            '@View[clickable=true] > [id="J-chest-box"] > [id="J-chest-box-inner"] >n [text="开宝箱得金币"]',
+          ],
+        },
+        {
+          key: 1,
+          anyMatches: [
+            '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="膨胀到[0-9]+金币"]',
+            '[text="恭喜获得金币奖励"] < * +n @View[clickable=true] > [text~="再领[0-9]+金币"]',
         },
       ],
     },
@@ -501,6 +585,26 @@ export default defineGkdApp({
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 49,
+      name: '看视频-全屏广告',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '@ImageView < ViewGroup < ViewGroup - * [text="反馈"] <<n * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * + * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
           ],
         },
       ],
