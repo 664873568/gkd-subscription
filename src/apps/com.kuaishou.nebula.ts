@@ -6,11 +6,9 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '打卡失败',
+      name: '百度网盘-去快手极速版点赞',
       matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 10000,
-      matchTime: 20000,
+      matchTime: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -18,17 +16,6 @@ export default defineGkdApp({
           matches: ['@[text="与奖品擦肩而过"] +n View [text="重新选择商品"]'],
           activityIds: ['com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity'],
         },
-      ],
-    },
-    {
-      key: 1,
-      name: '直播-返回',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 10000,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
         {
           action: 'back',
           matches: [
@@ -36,18 +23,12 @@ export default defineGkdApp({
           ],
           activityIds: ['com.yxcorp.gifshow.detail.PhotoDetailActivity'],
         },
-      ],
-    },
-    {
-      key: 2,
-      name: '点赞',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
           matches: ['@[vid="like_icon"][visibleToUser=true]'],
+          activityIds: ['com.yxcorp.gifshow.HomeActivity'],
+        },
+        {
+          matches: ['@ImageView[clickable=true] + [text="邀好友得大额红包"]'],
           activityIds: ['com.yxcorp.gifshow.HomeActivity'],
         },
       ],
