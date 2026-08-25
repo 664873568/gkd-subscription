@@ -140,7 +140,9 @@ export default defineGkdApp({
             '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * + * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
             '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
           ],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
+          ],
         },
       ],
     },
@@ -215,7 +217,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]',//二级广告页
+            '@ImageView[clickable=true] + ImageView[clickable=true] +2 [text="反馈"]', //二级广告页
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Activity'],
         },
@@ -437,7 +439,7 @@ export default defineGkdApp({
           anyMatches: [
             '@Image <<n * - * [text="反馈"] <<n * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
             'ImageView < LinearLayout[clickable=true] < @LinearLayout[clickable=true] - * [text="反馈"] <<n * + * [text=" 立即查看 "]',
-            '@ImageView < ViewGroup < ViewGroup < ViewGroup - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]',//京东-惊喜等你拿
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //京东-惊喜等你拿
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -497,7 +499,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
-          activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
         },
       ],
     },
