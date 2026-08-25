@@ -93,7 +93,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           action: 'back',
-          matches: [
+          anyMatches: [
             '@FrameLayout[clickable=true] > FrameLayout > FrameLayout + [id*="cj_plugin:id"] > FrameLayout',
             '@ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]',
           ],
@@ -165,7 +165,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          matches: ['[vid="2d3"] > [vid="1xc"] + [vid="1xf"]'],
+          matches: [
+            'FrameLayout > FrameLayout > ViewGroup > FrameLayout > ImageView + TextView',
+          ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
           ],
