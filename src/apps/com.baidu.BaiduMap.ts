@@ -894,7 +894,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 84,
+      key: 83,
       name: '看视频-跳过-*s后可领取奖励-免',
       matchRoot: true,
       matchDelay: 1000,
@@ -931,7 +931,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 86,
+      key: 84,
       name: '看视频-跳过-点击领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -948,7 +948,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 87,
+      key: 85,
       name: '看视频-跳过-点击领取奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -964,7 +964,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 88,
+      key: 86,
       name: '看视频-跳过-*s后获取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -990,7 +990,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 88,
+      key: 87,
       name: '看视频-跳过-已获得奖励',
       matchRoot: true,
       actionMaximum: 1,
