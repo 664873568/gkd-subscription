@@ -246,6 +246,7 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
+          ],
         },
       ],
     },
@@ -272,6 +273,7 @@ export default defineGkdApp({
           anyMatches: [
             '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="膨胀到[0-9]+金币"]',
             '[text="恭喜获得金币奖励"] < * +n @View[clickable=true] > [text~="再领[0-9]+金币"]',
+          ],
         },
       ],
     },
