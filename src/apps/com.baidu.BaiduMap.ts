@@ -79,15 +79,11 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          matches: [
-            '@TextView[clickable=true] -n * [text="恭喜获得任务奖励"]',
-          ],
+          matches: ['@TextView[clickable=true] -n * [text="恭喜获得任务奖励"]'],
         },
         {
           key: 3,
-          matches: [
-            '@TextView[clickable=true] <n * +n * [text="我知道了"]',
-          ],
+          matches: ['@TextView[clickable=true] <n * +n * [text="我知道了"]'],
         },
       ],
     },
@@ -109,9 +105,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@View[clickable=true] > [text="我知道了"]',
-          ],
+          matches: ['@View[clickable=true] > [text="我知道了"]'],
         },
       ],
     },
@@ -197,9 +191,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [text$="位卡"]',
           ],
-          matches: [
-            '[text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]',
-          ],
+          matches: ['[text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]'],
         },
         {
           key: 1,
