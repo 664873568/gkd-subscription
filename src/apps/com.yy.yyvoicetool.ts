@@ -29,7 +29,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="立即签到"][clickable=true][index=parent.childCount.minus(1)]'],
+          matches: [
+            '@[text="立即签到"][clickable=true][index=parent.childCount.minus(1)]',
+          ],
         },
         {
           preKeys: [0],
@@ -196,7 +198,7 @@ export default defineGkdApp({
         },
         {
           key: 6,
-          preKeys: [2, 3, 4,5],
+          preKeys: [2, 3, 4, 5],
           action: 'back',
           actionDelay: 1000,
           matches: [
@@ -205,14 +207,14 @@ export default defineGkdApp({
         },
         {
           key: 7,
-          preKeys: [2, 3, 4,5,6],
+          preKeys: [2, 3, 4, 5, 6],
           matches: [
             '[text="每日任务"] + View[index=1] >n @[text="领奖励"][clickable=true]',
           ],
         },
         {
           key: 8,
-          preKeys: [2, 3, 4,5,6,7],
+          preKeys: [2, 3, 4, 5, 6, 7],
           matches: [
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
@@ -286,14 +288,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="每日任务"] +n View[index=1] >n @[text="领奖励"][clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           matches: [
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
