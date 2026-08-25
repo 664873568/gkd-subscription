@@ -211,7 +211,7 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="去做任务赚次数"]"]',
+            '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="去做任务赚次数"]',
           ],
         },
       ],
