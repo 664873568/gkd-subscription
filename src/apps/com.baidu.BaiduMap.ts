@@ -631,7 +631,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 56,
+      key: 57,
       name: '看视频-礼包-免费获取-×',
       matchRoot: true,
       actionMaximum: 1,
