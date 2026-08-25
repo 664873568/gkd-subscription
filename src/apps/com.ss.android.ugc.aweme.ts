@@ -837,7 +837,7 @@ export default defineGkdApp({
     },
     {
       key: 35,
-      name: '车主服务-搜索「车险」进入频道',
+      name: '车主服务-搜索「车险」进入频道-返回',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
