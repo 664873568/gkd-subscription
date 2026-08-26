@@ -191,6 +191,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          action: 'none',
           excludeMatches: [
             '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [text$="位卡"]',
           ],
@@ -223,7 +224,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]',
+            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [text$="位卡"]',
           ],
           matches: [
             '@[text="去完成"][clickable=true] - [text="大额红包开不停 每个红包都有钱"] - * [text="开红包领现金"]',
