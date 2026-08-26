@@ -64,6 +64,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '@View[clickable=true] > [text="待领取"] - View > [text~="[0-9]{3,}"]',
+          ],
           matches: [
             '@View[clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
           ],
