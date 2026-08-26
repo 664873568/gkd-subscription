@@ -121,6 +121,7 @@ export default defineGkdApp({
       name: '金币任务中心-免费抽大奖-免费抽奖',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
@@ -229,6 +230,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionDelay: 2000,
           anyMatches: [
             '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
             '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
@@ -237,6 +239,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          actionDelay: 1000,
           matches: [
             '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
           ],
@@ -264,8 +267,8 @@ export default defineGkdApp({
         {
           key: 1,
           anyMatches: [
-            '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="膨胀到[0-9]+金币"]',
-            '[text="恭喜获得金币奖励"] < * +n @View[clickable=true] > [text~="再领[0-9]+金币"]',
+            '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="膨胀到[0-9]{3,}金币"]',
+            '[text="恭喜获得金币奖励"] < * +n @View[clickable=true] > [text~="再领[0-9]{3,}金币"]',
           ],
         },
       ],
@@ -638,6 +641,7 @@ export default defineGkdApp({
       name: '看视频-跳过-礼包-下载app/看*秒可直接拿奖励',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
       rules: [
