@@ -42,7 +42,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '@View[clickable=true] > [text="待领取"] - View > [text~="[0-9]{3,}"]',
           ],
@@ -69,6 +69,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@View[clickable=true] > [text="待领取"] - View > [text~="[0-9]{3,}"]',
           ],
+          actionDelay: 1000,
           matches: [
             '[id="task-loader"] >n @View[clickable=true][getChild(0).text!~="去中国移动领话费流量"] > [text~="[0-9]{3,}"] +n [text="去完成"]',
           ],
@@ -126,7 +127,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@View[clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
+            '[id="task-loader"] >n @View[clickable=true][getChild(0).text!~="去中国移动领话费流量"] > [text~="[0-9]{3,}"] +n [text="去完成"]',
           ],
           matches: [
             '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text="免费抽奖"]',
