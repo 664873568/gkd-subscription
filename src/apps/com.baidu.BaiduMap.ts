@@ -1001,7 +1001,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="跳过"][clickable=true] <n [id="close_btn"] - [text="奖励已下发"] - [text="反馈"]'],
+          matches: [
+            '@[text="跳过"][clickable=true] <n [id="close_btn"] - [text="奖励已下发"] - [text="反馈"]',
+          ],
         },
         {
           preKeys: [0],
@@ -1062,7 +1064,7 @@ export default defineGkdApp({
           activityIds: ['com.sigmob.sdk.base.common.AdActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text$="跳过"][clickable=true] - [text="已获得奖励"] - [text="免"] < [id="close_btn"]',
@@ -1070,7 +1072,7 @@ export default defineGkdApp({
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@[id="close_btn"][clickable=true] - [text="反馈"] - * [text="马上去看看"]',
