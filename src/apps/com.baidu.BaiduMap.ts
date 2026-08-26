@@ -1130,9 +1130,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: [
-            '@[id="close_btn"][clickable=true] + * [text="点击前往"]',
-          ],
+          matches: ['@[id="close_btn"][clickable=true] + * [text="点击前往"]'],
         },
       ],
     },
