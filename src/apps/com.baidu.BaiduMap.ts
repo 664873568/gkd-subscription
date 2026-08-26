@@ -850,9 +850,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@ImageView < FrameLayout < FrameLayout + * [text="立即下载"]',
-            '@ImageView < FrameLayout < FrameLayout + * [text="下载游戏"]',
-            //'@ImageView < FrameLayout < FrameLayout + FrameLayout[getChild(2).getChild(1).name$="TextView"]',
+            '@ImageView < FrameLayout < FrameLayout + FrameLayout[getChild(2).getChild(1).name$="TextView"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -1057,31 +1055,29 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '[text="立即前往"] <n @View[clickable=true] <<n * -n * [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text="跳过"]',
-            '[text="立即试玩"] <n @View[clickable=true] <<n * -n * [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text="跳过"]',
+            '[text="立即前往"] <n @View[clickable=true] <<n * -n * > [text="反馈"] + [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text$="跳过"]',
+            '[text="立即试玩"] <n @View[clickable=true] <<n * -n * > [text="反馈"] + [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text$="跳过"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
-          preKeys: [0],
           key: 1,
           actionDelay: 10000,
           matches: ['@ImageView[clickable=true] <<n * + * [id="ldbody"]'],
           activityIds: ['com.sigmob.sdk.base.common.AdActivity'],
         },
         {
-          preKeys: [0, 1],
           key: 2,
           matches: [
-            '@[text$="跳过"][clickable=true] - [text="已获得奖励"] - [text="免"] < [id="close_btn"]',
+            '@[text$="跳过"][clickable=true] - [text="已获得奖励"] - [text="免"] < [id="close_btn"] - [text="反馈"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
-          preKeys: [0, 1, 2],
           key: 3,
-          matches: [
-            '@[id="close_btn"][clickable=true] - [text="反馈"] - * [text="马上去看看"]',
+          anyMatches: [
+            '[text="反馈"] + @[id="close_btn"][clickable=true] +n * > [text="马上去看看"]',
+            '[text="反馈"] + @[id="close_btn"][clickable=true] +n * > [text="进入游戏"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
