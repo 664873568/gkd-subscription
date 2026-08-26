@@ -141,28 +141,28 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 2,
           matches: [
             'ViewFactoryHolder + @View[clickable=true]', //点击表情
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             'ViewFactoryHolder +n View[clickable=true] >n View[childCount=48] > @View[clickable=true][index=0]', //选择表情
           ],
         },
         {
-          preKeys: [0,1,2, 3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           matches: [
             'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]', //发送表情
           ],
         },
         {
-          preKeys: [0,1,2, 3, 4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           action: 'back',
           matches: [
@@ -377,9 +377,7 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
-          matches: [
-            '[text~="恭喜获得[0-9]+金币"] - @TextView[clickable=true]',
-          ],
+          matches: ['[text~="恭喜获得[0-9]+金币"] - @TextView[clickable=true]'],
         },
       ],
     },
