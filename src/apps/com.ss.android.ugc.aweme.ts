@@ -16,7 +16,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 5000,
           matches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="签到可得"]',
           ],
@@ -82,7 +82,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 5000,
           excludeMatches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="浏览小游戏"]',
           ],
@@ -116,7 +116,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 5000,
           excludeMatches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="浏览钱包页面"]',
           ],
@@ -162,7 +162,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="浏览钱包页面"]',
           ],
-          actionDelay: 1000,
+          actionDelay: 5000,
           matches: [
             '[text="我的月付金"] >n View[index=0] > @[text="去抽奖"][clickable=true] - View[clickable=true] > [text="浏览天天开宝箱活动"]',
           ],
@@ -191,7 +191,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 1000,
+          actionDelay: 5000,
           matches: [
             '[text="我的月付金"] >n View[index=0] > @[text="去抽奖"][clickable=true] - View[clickable=true] > [text="天天抽披哥入场券"]',
           ],
@@ -338,8 +338,7 @@ export default defineGkdApp({
       key: 13,
       name: '理财-*发财金已到账',
       matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -403,7 +402,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           matches: [
             '@[text="立即领取"] < View <n View -n [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
           ],
@@ -433,7 +431,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text="立即领取"] < View <n View -n [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="保险商城"]',
           ],
@@ -446,7 +444,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0],
           key: 2,
           matches: [
             'Image < @View[clickable=true] + [text="b2353ab71ceb1a18d61081ee5554d385.png~tplv-49obo7mizy-75compress"] + View > [text="74d6f58b0fa1e485326f55622391637e.png~tplv-49obo7mizy-75compress"]',
@@ -470,7 +468,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="信用卡"]',
           ],
@@ -514,7 +512,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="食安保"]',
           ],
@@ -544,7 +542,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="充值中心"]',
           ],
@@ -574,7 +572,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="我的保障"]',
           ],
@@ -615,7 +613,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="查电费"]',
           ],
@@ -632,7 +630,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 5000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -651,7 +648,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="月付金"]',
           ],
@@ -666,7 +663,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 5000,
           matches: ['[text="抖音月付"] >n @[desc="返回"][clickable=true]'],
         },
         {
@@ -688,7 +684,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="运费险"]',
           ],
@@ -703,7 +699,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          actionDelay: 5000,
           matches: ['@[text="仍要退出"] + [text="立即收下"]'],
         },
       ],
@@ -718,7 +713,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="抽免单"]',
           ],
@@ -727,7 +722,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: ['Image < @View[clickable=true] + [desc="doupay"]'],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -743,7 +737,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="去懂车帝"]',
           ],
@@ -767,7 +761,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -n [text="从「钱包」访问车主服务"] < View[index=6] -n [text="今日已完成 明日继续"]',
           ],
@@ -779,7 +773,6 @@ export default defineGkdApp({
           excludeMatches: [
             '@FrameLayout[clickable=true] > FrameLayout > FrameLayout + [id*="cj_plugin:id"] > FrameLayout',
           ],
-          actionDelay: 5000,
           action: 'back',
           matches: [
             '@ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]',
@@ -806,7 +799,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View[index=8] -n [text="今日已完成 明日继续"]',
           ],
@@ -818,7 +811,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           action: 'clickCenter',
           matches: [
             'FrameLayout > ViewGroup > ViewGroup + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup + ViewGroup',
@@ -844,7 +836,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View[index=8] -n [text="今日已完成 明日继续"]',
           ],
@@ -853,7 +845,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           actionMaximum: 2,
           action: 'clickCenter',
           excludeMatches: [
