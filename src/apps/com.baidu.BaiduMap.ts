@@ -150,6 +150,7 @@ export default defineGkdApp({
       name: '金币任务中心-翻卡-翻',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
@@ -184,6 +185,7 @@ export default defineGkdApp({
       name: '金币任务中心-天天赢大奖-去抽奖',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
@@ -216,6 +218,7 @@ export default defineGkdApp({
       name: '金币任务中心-开红包领现金-去完成',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
@@ -239,6 +242,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          excludeMatches: [
+            '[text="开红包领现金"] >n [text="邀请1位好友"] + @ImageButton[clickable=true]',
+          ],
           actionDelay: 1000,
           matches: [
             '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
@@ -252,6 +258,7 @@ export default defineGkdApp({
       name: '金币任务中心-开宝箱得金币',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
