@@ -157,7 +157,7 @@ export default defineGkdApp({
             '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text="免费抽奖"]',
           ],
           matches: [
-            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [text$="位卡"]',
+            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > View > Image',
           ],
         },
         {
@@ -170,12 +170,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          matches: [
-            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true][index=parent.childCount.minus(1)]',
-          ],
-        },
-        {
-          key: 3,
           matches: [
             '[text="恭喜获得收益翻倍卡"] + [text="明天再来可翻倍今日收益"] +n @View[clickable=true] > [text="明日来翻倍"]',
           ],
@@ -195,7 +189,7 @@ export default defineGkdApp({
           key: 0,
           action: 'none',
           excludeMatches: [
-            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [text$="位卡"]',
+            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > View > Image',
           ],
           matches: ['[text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]'],
         },
@@ -226,7 +220,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [text$="位卡"]',
+            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > View > Image',
           ],
           matches: [
             '@[text="去完成"][clickable=true] - [text="大额红包开不停 每个红包都有钱"] - * [text="开红包领现金"]',
