@@ -101,9 +101,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="领奖励"][clickable=true] < View <n View[index=3]',
-          ],
+          matches: ['@[text="领奖励"][clickable=true] < View <n View[index=3]'],
         },
         {
           preKeys: [0],
@@ -150,9 +148,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@[text="领奖励"][clickable=true] < View <n View',
-          ],
+          excludeMatches: ['@[text="领奖励"][clickable=true] < View <n View'],
           anyMatches: [
             '@[text="去完成"][clickable=true] < View -n [text="打开YY语音"] < View[index=3]',
             '@[text="去完成"][clickable=true] < View -n [text="去头条极速版"] < View[index=3]',
