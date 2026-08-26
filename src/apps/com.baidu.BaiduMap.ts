@@ -200,13 +200,24 @@ export default defineGkdApp({
         {
           key: 1,
           anyMatches: [
-            'View > @[text="去完成"][clickable=true] -n [text^="浏览页面得次数"]',
-            'View > @[text="去完成"][clickable=true] -n [text^="看视频得次数"]',
+            '[text~="看视频得次数 \\\\([0-9]/10\\\\)"] + [text="完成视频任务得1次抽奖机会"] + @[text="去完成"][clickable=true]',
+            '[text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
           ],
         },
         {
           key: 2,
+          excludeMatches: [
+            '[text~="看视频得次数 \\\\([0-9]/10\\\\)"] + [text="完成视频任务得1次抽奖机会"] + @[text="去完成"][clickable=true]',
+            '[text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
+          ],
           matches: [
+            '@View[clickable=true] > View + [text="立刻抽奖"] +n [text~="[1-9][0-9]*"]',
+          ],
+        },
+        {
+          key: 3,
+          anyMatches: [
+            '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="再抽一次"]',
             '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="去做任务赚次数"]',
           ],
         },
@@ -227,12 +238,16 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > View > Image',
           ],
+          action: 'none',
           matches: [
             '@[text="去完成"][clickable=true] - [text="大额红包开不停 每个红包都有钱"] - * [text="开红包领现金"]',
           ],
         },
         {
           key: 1,
+          excludeMatches: [
+            '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
+          ],
           actionDelay: 2000,
           anyMatches: [
             '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
@@ -244,6 +259,7 @@ export default defineGkdApp({
           key: 2,
           excludeMatches: [
             '[text="开红包领现金"] >n [text="邀请1位好友"] + @ImageButton[clickable=true]',
+            '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
           ],
           actionDelay: 1000,
           matches: [
@@ -463,8 +479,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          preKeys: [0],
-          key: 1,
           matches: ['ImageView < @ViewGroup <<n * - * [desc="gift_box"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -527,8 +541,25 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@Image <<n * - * [text="反馈"] <<n * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
             'ImageView < LinearLayout[clickable=true] < @LinearLayout[clickable=true] - * [text="反馈"] <<n * + * [text=" 立即查看 "]',
             '@ImageView < ViewGroup < ViewGroup < ViewGroup - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //京东-惊喜等你拿
+          ],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 28,
+      name: '看视频-搜索-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 30000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[id="root"] > [id="app"] >n @[text="svg%3e"] +n [text="搜索"]',
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
@@ -785,7 +816,7 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
+            '@ImageView < FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -804,6 +835,29 @@ export default defineGkdApp({
             '@ImageView[clickable=true] -2 ImageView + LinearLayout > [text="恭喜获得奖励！"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 62,
+      name: '看视频-奖励将于*秒后发放',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@ImageView < FrameLayout < FrameLayout - * [text="恭喜获得奖励"]',
+            //'@ImageView < FrameLayout < FrameLayout <<n * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
+          ],
         },
       ],
     },
@@ -913,29 +967,6 @@ export default defineGkdApp({
             '@[text="点击下载或打开第三方应用"] <<n * [text="打开App体验15秒，即可获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 70,
-      name: '看视频-奖励将于*秒后发放',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
-          ],
         },
       ],
     },
@@ -1085,21 +1116,22 @@ export default defineGkdApp({
     },
     {
       key: 85,
-      name: '看视频-跳过-点击领取奖励',
+      name: '看视频-跳过-*秒',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
       rules: [
         {
+          key: 0,
           anyMatches: [
-            '@[text="立即领取奖励"] <<n * -n * [text="跳过"]',
-            '@[text="点击领奖"] <<n * -n * [text="点击领取奖励"] +n * [text="跳过"]',
+            '@[text="立即领取奖励"][clickable=true] <<n * -n * > [text="反馈"] + [id="close_btn"] > [text="跳过"]',
           ],
         },
         {
+          key: 1,
           matches: [
-            '@[id="close_btn"] < * + * [id="close_btn"] + * [text="点击前往"]',
+            '@[id="close_btn"][clickable=true] + * [text="点击前往"]',
           ],
         },
       ],
