@@ -694,7 +694,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          anyMmatches: [
+          anyMatches: [
             '@Image <<n * + [getChild(0).getChild(1).text="广告"] -n * [getChild(0).text="反馈"] + [getChild(0).text="点击取消静音"]',
             '@ImageView <<n * - [getChild(0).getChild(1).text="广告"] - [getChild(0).getChild(1).getChild(1).text="向上滑动 或 点击"] - * [getChild(0).text="反馈"] + [getChild(0).text="点击取消静音"]',
           ],
