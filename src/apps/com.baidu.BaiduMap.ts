@@ -573,6 +573,28 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 29,
+      name: '看视频-跳过-去体验*秒立即领奖',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text~="去体验[0-9]秒立即领奖"] <<n * +n * [text~="[0-9]s"] + [text$="跳过"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[text$="跳过"] - [text~="0s"]',
+          ],
+        },
+      ],
+    },
     //看视频-com.byazt.xs.Stub_Standard_Portrait_Activity
     {
       key: 30,
