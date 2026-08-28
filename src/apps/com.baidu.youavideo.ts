@@ -51,7 +51,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'back",
+          action: 'back',
           matches: ['@[text="我知道了"] -n [text^="签到成功"]'],
         },
       ],
