@@ -26,7 +26,7 @@ export default defineGkdApp({
       name: '每日签到-累计*天抽',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelkay: 1000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
       rules: [
