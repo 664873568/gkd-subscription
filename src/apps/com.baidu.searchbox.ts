@@ -6,6 +6,36 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
+      name: '提现中心-去提现-20',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.browser.search.LightSearchActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="提现中心"] >n @[text="去提现"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="提现中心"] >n [text="选择提现金额"] +n [text="请选择提现档位"] - * > @View[clickable=true] > [text="20.00"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[text="提现中心"] >n [text="选择提现金额"] +n @[text="确认提现"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '浏览好物-返回领取',
       matchRoot: true,
       actionMaximum: 1,
@@ -18,7 +48,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '明星列表-完成并进入',
       matchRoot: true,
       actionMaximum: 1,
