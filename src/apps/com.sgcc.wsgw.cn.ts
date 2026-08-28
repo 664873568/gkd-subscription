@@ -23,15 +23,22 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '每日签到-抽中*个签到金',
+      name: '每日签到-累计*天抽',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelkay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
       rules: [
         {
+          key: 0,
+          actionDelay: 3000,
+          matches: ['[text~="累签(8|15|21|28)天抽"] + View > @ImageButton[clickable=true]'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           matches: ['[text~="抽中[0-9]+个签到金"] + @TextView[clickable=true]'],
-          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
       ],
     },
@@ -54,8 +61,8 @@ export default defineGkdApp({
       key: 3,
       name: '优惠券兑换-确认兑换',
       matchRoot: true,
+      matchTime: 10000,
       resetMatch: 'activity',
-      actionMaximum: 10,
       activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
       rules: [
         {
