@@ -107,7 +107,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '@TextView[clickable=true] -n [text="恭喜获得"] + [text="马上完成"]',
+            '@TextView[clickable=true] -n [text="恭喜获得"] n [text="马上完成"]',
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
         },
@@ -149,21 +149,8 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: ['@[text="领奖励"][clickable=true] < View <n View'],
-          anyMatches: [
-            '@[text="去完成"][clickable=true] < View -n [text="打开YY语音"] < View[index=3]',
-            '@[text="去完成"][clickable=true] < View -n [text="去头条极速版"] < View[index=3]',
-            '@[text="去完成"][clickable=true] < View -n [text="打开今日头条"] < View[index=3]',
-            //'@[text="去完成"][clickable=true] < View -n [text="关注1位主播"] < View[index=3]',
-            '@[text="去完成"][clickable=true] < View -n [text="打开星图金融"] < View[index=4]',
-            '@[text="去完成"][clickable=true] < View -n [text="去快手极速版"] < View[index=4]',
-            '@[text="去完成"][clickable=true] < View -n [text="打开携程旅行"] < View[index=4]',
-            '@[text="去完成"][clickable=true] < View -n [text="打开京东金融"] < View[index=4]',
-            '@[text="去完成"][clickable=true] < View -n [text="打开百度地图"] < View[index=4]',
-            //'@[text="去完成"][clickable=true] < View -n [text="充值1次"] < View[index=4]',
-            //'@[text="去完成"][clickable=true] < View -n [text="看广告视频领金币"] < View[index=5]',
-            //'@[text="去送礼"][clickable=true] < View -n [text="送出0.1元礼物"] < View[index=6]',
-            '@[text="去完成"][clickable=true] < View -n [text="去微博赚红包"] < View[index=7]',
-            '@[text="去完成"][clickable=true] < View -n [text="打开QQ音乐"] < View[index=7]',
+          matches: [
+            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
         },
         {
@@ -188,16 +175,14 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@[text="去完成"][clickable=true] < View -n [text="打开QQ音乐"] < View',
-          ],
+          action: 'none',
           matches: [
-            '@[text="去完成"][clickable=true] < View -n [text="关注1位主播"] < View[index=3]',
+            '@[text="去完成"][clickable=true] < View -n [text~="关注1位主播|直播间1次发言"] < View[index=3]',
           ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
           preKeys: [0],
@@ -205,6 +190,7 @@ export default defineGkdApp({
           matches: [
             '@[text="确定"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text*="频道"][vid="message"]',
           ],
+          activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
         },
       ],
     },
@@ -214,7 +200,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+      activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
       rules: [
         {
           key: 0,
@@ -224,6 +210,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           matches: [
             '@TextView[clickable=true] - [text="知道了"] -n [text="恭喜获得"]',
