@@ -14,9 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="提现中心"] >n @[text="去提现"][clickable=true]',
-          ],
+          matches: ['[text="提现中心"] >n @[text="去提现"][clickable=true]'],
         },
         {
           preKeys: [0],
@@ -26,7 +24,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="提现中心"] >n [text="选择提现金额"] +n @[text="确认提现"][clickable=true]',
