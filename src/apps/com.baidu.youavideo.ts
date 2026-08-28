@@ -28,7 +28,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text="提现到支付宝"][vid="btn_withdraw"][clickable=true]',
@@ -76,7 +76,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 3000,
           matches: [
-            '@[vid="title_bar_left_img"][clickable=true] + [text="下载中间页 : 苏宁易购手机版"][vid="title_bar_tv"]',//去苏宁易购领云钻
+            '@[vid="title_bar_left_img"][clickable=true] + [text="下载中间页 : 苏宁易购手机版"][vid="title_bar_tv"]', //去苏宁易购领云钻
           ],
           activityIds: ['.web.WebActivity'],
         },
