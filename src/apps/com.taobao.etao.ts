@@ -54,18 +54,18 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 3000,
           matches: [
-            '[vid="left_panel"] > @[desc="返回"][clickable=true] + * [vid="tvTitle"]',//逛大促会场
+            '[vid="left_panel"] > @[desc="返回"][clickable=true] + * [vid="tvTitle"]', //逛大促会场
           ],
         },
         {
           preKeys: [0],
           key: 2,
           matches: [
-            '[text="下载/打开APP"] < @View[clickable=true] <<n * - * [text="去点淘领红包"][vid="tvTitle"]',//去点淘领红包
+            '[text="下载/打开APP"] < @View[clickable=true] <<n * - * [text="去点淘领红包"][vid="tvTitle"]', //去点淘领红包
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           actionDelay: 3000,
           key: 3,
           matches: ['@[text="打开"][clickable=true] - [text="取消"]'],
