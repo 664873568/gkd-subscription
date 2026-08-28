@@ -87,7 +87,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="打开"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]',//浏览App
+            '@[text="打开"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]', //浏览App
           ],
         },
         {
@@ -95,14 +95,14 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           matches: [
-            '@ViewFactoryHolder >n [id="fun-root"][clickable=true] >n [desc="YY游仓"]',//访问YY游仓
+            '@ViewFactoryHolder >n [id="fun-root"][clickable=true] >n [desc="YY游仓"]', //访问YY游仓
           ],
         },
         {
           preKeys: [0],
           key: 3,
           action: 'back',
-          matches: ['@ComposeView > [desc="删除"] + [text="取消"]'],//去搜索热门频道
+          matches: ['@ComposeView > [desc="删除"] + [text="取消"]'], //去搜索热门频道
         },
       ],
     },
