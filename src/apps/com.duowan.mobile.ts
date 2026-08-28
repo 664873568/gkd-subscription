@@ -91,7 +91,7 @@ export default defineGkdApp({
     },
     //做任务
     {
-      key: 10,
+      key: 3,
       name: '做任务-领奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -114,31 +114,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
-      name: '做任务-去完成-访问YY游仓',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 1000,
-          matches: [
-            '@[text="去完成"][clickable=true] < View -n [text="访问YY游仓"] < View[index=3]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'back',
-          matches: ['@[desc="YY游仓"]'],
-        },
-      ],
-    },
-    {
-      key: 12,
+      key: 4,
       name: '做任务-去完成-浏览App',
       matchRoot: true,
       actionMaximum: 1,
@@ -149,6 +125,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: ['@[text="领奖励"][clickable=true] < View <n View'],
+          actionDelay: 1000,
           matches: [
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
@@ -161,7 +138,13 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 2,
+          action: 'back',
+          matches: ['@[desc="YY游仓"]'],
+        },
+        {
+          key: 3,
           matches: [
             '@TextView[clickable=true] - [text="前往领取"] -n * [text="任务已完成"]',
           ],
@@ -169,7 +152,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 5,
       name: '做任务-去完成-关注1位主播',
       matchRoot: true,
       actionMaximum: 1,
@@ -178,6 +161,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: ['@[text="领奖励"][clickable=true] < View <n View'],
+          actionDelay: 1000,
           action: 'none',
           matches: [
             '@[text="去完成"][clickable=true] < View -n [text~="关注1位主播|直播间1次发言"] < View[index=3]',
@@ -195,7 +180,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 6,
       name: '看直播',
       matchRoot: true,
       matchDelay: 1000,
@@ -220,7 +205,7 @@ export default defineGkdApp({
     },
     //导流结果弹窗
     {
-      key: 30,
+      key: 10,
       name: '导流结果弹窗-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -229,7 +214,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="导流结果弹窗"] >n [text="继续参与活动"] < * + @TextView',
+            '[text="导流结果弹窗"] >n [text="继续参与活动"] < * + @TextView[clickable=true]',
           ],
           activityIds: [
             'com.yy.mobile.ui.splash.SplashActivity',
@@ -239,7 +224,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 11,
       name: '导流结果弹窗-收下并送出',
       matchRoot: true,
       actionMaximum: 1,
@@ -264,7 +249,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['[text="打开通知权限"] >n @[vid="iv_close"]'],
+          matches: [
+            '@[vid="iv_close"][clickable=true] - * > [text="打开通知权限"] +n [text="去开启"]',
+          ],
           activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
         },
       ],
@@ -279,7 +266,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="btn_cancel"] +n [vid="button_container"] > [text="立即下载"][vid="btn_ok"]',
+            '@[vid="btn_cancel"][clickable=true] +n [vid="button_container"] > [text="立即下载"][vid="btn_ok"]',
           ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
