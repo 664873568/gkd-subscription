@@ -107,7 +107,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '@TextView[clickable=true] -n [text="恭喜获得"] n [text="马上完成"]',
+            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
         },
