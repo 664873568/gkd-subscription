@@ -18,9 +18,8 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          excludeMatches: ['[text="我的积点"][vid="tv_title_text"]'],
           matches: [
-            '[vid="view_content_container"] >n View[index=1][childCount=1] >n @ImageButton',
+            'View[getChild(0).getChild(0).name$="ImageButton"] + * >n @ImageButton[clickable=true]',
           ],
         },
       ],
