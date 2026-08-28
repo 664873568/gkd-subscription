@@ -292,8 +292,11 @@ export default defineGkdApp({
         {
           key: 1,
           anyMatches: [
-            '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="膨胀到[0-9]{3,}金币"]',
             '[text="恭喜获得金币奖励"] < * +n @View[clickable=true] > [text~="再领[0-9]{3,}金币"]',
+            '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="再领[0-9]{3,}金币"]',
+            '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="膨胀到[0-9]{3,}金币"]',
+            //'@TextView[clickable=true] - * > [text~="再领[0-9]{2,}金币"] < *  -n * > [text~="恭喜获得[0-9]+金币"]',
+            '@TextView[clickable=true] - View[getChild(0).text~="再领[0-9]{2,}金币"] -n View[getChild(0).text~="恭喜获得[0-9]+金币"]',
           ],
         },
       ],
@@ -1000,6 +1003,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
+            '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="立即下载"]',
             '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="去微信看看"]',
             //'@ImageView < FrameLayout < FrameLayout + FrameLayout[getChild(2).getChild(1).text="去微信看看"]',
             '@ImageView < FrameLayout + LinearLayout >n [text="去微信看看"]',
@@ -1069,6 +1073,30 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 69,
+      name: '看视频-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="跳过"] < LinearLayout < * + * [text="立即下载"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          key: 1,
+          matches: [
+            '[getChild(3).getChild(1).text="立即下载"] - * @[text="跳过"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
     //看视频-com.sigmob.sdk.base.common.PortraitAdActivity
     {
       key: 80,
@@ -1103,7 +1131,6 @@ export default defineGkdApp({
       key: 81,
       name: '看视频-跳过-已获得奖励',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
@@ -1115,7 +1142,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           anyMatches: [
             '[text="反馈"] + @[id="close_btn"][clickable=true] +n View > [text="立即打开"]',
@@ -1128,7 +1154,6 @@ export default defineGkdApp({
       key: 82,
       name: '看视频-跳过-奖励已下发',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
@@ -1140,7 +1165,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '@[id="close_btn"][clickable=true] - [text="反馈"] - * [text="马上去看看"]',
@@ -1178,7 +1202,6 @@ export default defineGkdApp({
       key: 84,
       name: '看视频-跳过-*s后可领取奖励-免',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -1240,19 +1263,29 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
       rules: [
         {
           key: 0,
           matches: [
             '[text~="[0-9]秒后自动放弃继续看广告"] - @TextView[clickable=true] -n [text="5秒更快拿奖励"]',
           ],
+          activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
         {
           key: 1,
           matches: [
             '@[text="继续看广告"] - TextView[clickable=true] -n [text="恭喜获得奖励"]',
           ],
+          activityIds: ['com.ubix.ssp.open.comm.UBiXWebViewActivity'],
+        },
+        {
+          key: 2,
+          anyMatches: [
+            '@ImageView[clickable=true] - [text="恭喜获得奖励"] +n * [text="查看详情"]',
+            '@ImageView[clickable=true] - [text="恭喜获得奖励"] +n * [text="立即下载"]',
+            //'@ImageView[clickable=true] - [text="恭喜获得奖励"] +n [getChild(0).getChild(3).name$="TextView"]',
+          ],
+          activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
       ],
     },
