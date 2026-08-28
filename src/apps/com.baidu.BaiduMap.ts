@@ -589,9 +589,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: [
-            '@[text$="跳过"] - [text~="0s"]',
-          ],
+          matches: ['@[text$="跳过"] - [text~="0s"]'],
         },
       ],
     },
