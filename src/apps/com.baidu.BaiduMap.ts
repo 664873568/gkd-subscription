@@ -1083,9 +1083,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="跳过"] < LinearLayout < * + * [text="立即下载"]',
-          ],
+          matches: ['@[text="跳过"] < LinearLayout < * + * [text="立即下载"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
