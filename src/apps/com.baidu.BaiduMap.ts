@@ -681,7 +681,9 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity'],
+      activityIds: [
+        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
+      ],
       rules: [
         {
           key: 0,

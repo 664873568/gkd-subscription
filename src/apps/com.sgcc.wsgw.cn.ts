@@ -33,7 +33,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 3000,
-          matches: ['[text~="累签(8|15|21|28)天抽"] + View > @ImageButton[clickable=true]'],
+          matches: [
+            '[text~="累签(8|15|21|28)天抽"] + View > @ImageButton[clickable=true]',
+          ],
         },
         {
           preKeys: [0],
