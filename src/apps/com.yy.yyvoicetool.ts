@@ -350,7 +350,10 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
-          matches: ['[text~="恭喜获得[0-9]+金币"] - @TextView[clickable=true]'],
+          anyMatches: [
+            '[text~="恭喜获得[0-9]+金币"] - @TextView[clickable=true]',
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
         },
       ],
     },
