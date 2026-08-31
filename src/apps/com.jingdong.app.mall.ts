@@ -109,9 +109,7 @@ export default defineGkdApp({
             top: 'width * 0.0639',
           },
           actionDelay: 2000,
-          matches: [
-            '[text="黑色星期五"] >n @[id="blackFiveSignInFloor"]',
-          ],
+          matches: ['[text="黑色星期五"] >n @[id="blackFiveSignInFloor"]'],
         },
       ],
     },
@@ -201,9 +199,7 @@ export default defineGkdApp({
           key: 5,
           excludeMatches: ['[text="每日签到"] >n [text="赚更多汪贝"]'],
           actionDelay: 5000,
-          matches: [
-            '@TextView[clickable=true] < LinearLayout < ViewGroup',
-          ],
+          matches: ['@TextView[clickable=true] < LinearLayout < ViewGroup'],
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
         {
@@ -574,7 +570,7 @@ export default defineGkdApp({
           actionMaximum: 2,
           action: 'back',
           anyMatches: [
-            '@ImageView < ViewGroup - ImageView < ViewGroup',//健康金限时领
+            '@ImageView < ViewGroup - ImageView < ViewGroup', //健康金限时领
             '@ImageView < ViewGroup -n ViewGroup < ViewGroup',
           ],
           activityIds: [
@@ -599,7 +595,7 @@ export default defineGkdApp({
           matches: ['@[text~="砸一下\\\\(剩余[0-9]+次\\\\)"][clickable=true]'],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           matches: [
             '@[desc="关闭弹窗" || text="关闭弹窗"][clickable=true] + View > View > View + TextView[clickable=true]',
