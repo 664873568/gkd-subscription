@@ -158,7 +158,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludMatches: ['[text="每日签到"] >n [text="赚更多汪贝"]'],
+          excludeMatches: ['[text="每日签到"] >n [text="赚更多汪贝"]'],
           actionDelay: 5000,
           actionMaximum: 2,
           action: 'back',
@@ -199,7 +199,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 5,
-          excludMatches: ['[text="每日签到"] >n [text="赚更多汪贝"]'],
+          excludeMatches: ['[text="每日签到"] >n [text="赚更多汪贝"]'],
           actionDelay: 5000,
           matches: [
             '@TextView[clickable=true] < LinearLayout < ViewGroup',
@@ -616,7 +616,6 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      actionMaximum: 1,
       rules: [
         {
           key: 0,
