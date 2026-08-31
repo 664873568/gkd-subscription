@@ -585,7 +585,7 @@ export default defineGkdApp({
     },
     {
       key: 52,
-      name: '天天砸金蛋',
+      name: '天天砸金蛋-砸一下',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
