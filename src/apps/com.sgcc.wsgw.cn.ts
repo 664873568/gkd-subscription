@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            'ImageButton < View - @TextView[text=""][clickable=true] -2 [text="签到成功"]',
+            '[text="签到成功"] +n @TextView[clickable=true] + View > ImageButton',
           ],
           activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
@@ -23,6 +23,45 @@ export default defineGkdApp({
     },
     {
       key: 1,
+      name: '每日签到-补签-×',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="month-swiper"] >n View > View > ImageButton + @ImageButton[clickable=true]',
+          ],
+          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text~="本月剩余补签次数：[0-9]次"] + TextView + View > @ImageButton[clickable=true]',
+          ],
+          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[vid="umeng_Weixin"][clickable=true] > [text="微信"]',
+          ],
+          activityIds: ['com.sgcc.wsgw.publiclibrary.share.UmengActivity'],
+        },
+        {
+          key: 3,
+          matches: [
+            '[text="补签成功"] +n @TextView[clickable=true] + View > ImageButton',
+          ],
+          activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '每日签到-累计*天抽',
       matchRoot: true,
       actionMaximum: 1,
@@ -45,7 +84,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '立即查看-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -60,7 +99,7 @@ export default defineGkdApp({
     },
     //兑换开放时间：2026年8月16日-2026年9月30日 每日11点更新
     {
-      key: 3,
+      key: 4,
       name: '优惠券兑换-确认兑换',
       matchRoot: true,
       matchTime: 10000,
