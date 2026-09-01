@@ -157,7 +157,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text="免费抽奖"]',
+            '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
           ],
           actionDelay: 3000,
           matches: [
@@ -296,7 +296,6 @@ export default defineGkdApp({
             '[text="恭喜获得金币奖励"] < * +n @View[clickable=true] > [text~="再领[0-9]{3,}金币"]',
             '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="再领[0-9]{3,}金币"]',
             '[text~="恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="膨胀到[0-9]{3,}金币"]',
-            //'@TextView[clickable=true] - * > [text~="再领[0-9]{2,}金币"] < *  -n * > [text~="恭喜获得[0-9]+金币"]',
             '@TextView[clickable=true] - View[getChild(0).text~="再领[0-9]{2,}金币"] -n View[getChild(0).text~="恭喜获得[0-9]+金币"]',
           ],
         },
@@ -934,8 +933,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text*="微信"][index=parent.childCount.minus(1)] <n * - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
-            '@[text*="微信"][index=parent.childCount.minus(1)] <n * - [text="提前拿奖励"] - [text~="玩[0-9]+ 秒小游戏"]',
+            '[text~=".*[0-9]+ 秒.*"] + [text="提前拿奖励"] + * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -986,9 +984,10 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: [
+          anyMmatches: [
             '@ImageView < FrameLayout < FrameLayout - * [text="恭喜获得奖励"]',
-            //'@ImageView < FrameLayout < FrameLayout <<n * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text="已完成浏览15秒，提前获得奖励"]',
+            //'[getChild(4).text~="已完成浏览[0-9]+秒，提前获得奖励"] +n * @ImageView[index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -1021,7 +1020,6 @@ export default defineGkdApp({
       key: 64,
       name: '看视频-广告-××',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -1034,7 +1032,6 @@ export default defineGkdApp({
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
-          preKeys: [0],
           key: 1,
           anyMatches: [
             '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="立即下载"]',
@@ -1111,18 +1108,12 @@ export default defineGkdApp({
       key: 69,
       name: '看视频-跳过',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: ['@[text="跳过"] < LinearLayout < * + * [text="立即下载"]'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          key: 1,
-          matches: [
+          anyMatches: [
+            '@[text="跳过"] < LinearLayout < * + * [text="立即下载"]',
             '[getChild(3).getChild(1).text="立即下载"] - * @[text="跳过"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
@@ -1141,9 +1132,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '[text="立即前往"] < @View[clickable=true] <<n * -n * > [text~="浏览[0-9]+秒领取奖励"] + [id="close_btn"] > [text="跳过"]',
-            '[text="立即试玩"] < @View[clickable=true] <<n * -n * > [text~="浏览[0-9]+秒领取奖励"] + [id="close_btn"] > [text="跳过"]',
+          matches: [
+            '[text~="立即前往|立即试玩"] < @View[clickable=true] <<n * -n * > [text~="浏览[0-9]+秒领取奖励"] + [id="close_btn"] > [text="跳过"]',
           ],
         },
         {
@@ -1161,7 +1151,7 @@ export default defineGkdApp({
     },
     {
       key: 81,
-      name: '看视频-跳过-已获得奖励',
+      name: '看视频-跳过-*s后获取奖励',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1170,43 +1160,20 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="跳过"][clickable=true] <n [id="close_btn"] - [text="已获得奖励"] - [text="反馈"]',
+            '@[text="跳过"][clickable=true] <n [id="close_btn"] - [text~="已获得奖励|奖励已下发"] -n [text="反馈"]',
           ],
         },
         {
           key: 1,
-          anyMatches: [
-            '[text="反馈"] + @[id="close_btn"][clickable=true] +n View > [text="立即打开"]',
-            '@[id="close_btn"][clickable=true] - [text="反馈"] - * [text="马上去看看"]',
+          matches: [
+            '@[id="close_btn"][clickable=true] - [text="反馈"] <n * [text~="立即打开|马上去看看"]',
           ],
         },
       ],
     },
     {
       key: 82,
-      name: '看视频-跳过-奖励已下发',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="跳过"][clickable=true] <n [id="close_btn"] - [text="奖励已下发"] - [text="反馈"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '@[id="close_btn"][clickable=true] - [text="反馈"] - * [text="马上去看看"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 83,
-      name: '看视频-跳过-*s后获取奖励',
+      name: '看视频-跳过-*s后获取奖励-抽奖',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1231,7 +1198,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 84,
+      key: 83,
       name: '看视频-跳过-*s后可领取奖励-免',
       matchRoot: true,
       matchDelay: 1000,
@@ -1239,9 +1206,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '[text="立即前往"] <n @View[clickable=true] <<n * -n * > [text="反馈"] + [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text$="跳过"]',
-            '[text="立即试玩"] <n @View[clickable=true] <<n * -n * > [text="反馈"] + [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text$="跳过"]',
+          matches: [
+            '[text~="立即前往|立即试玩"] <n @View[clickable=true] <<n * -n * > [text="反馈"] + [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text$="跳过"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
@@ -1260,9 +1226,8 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          anyMatches: [
-            '[text="反馈"] + @[id="close_btn"][clickable=true] +n * > [text="马上去看看"]',
-            '[text="反馈"] + @[id="close_btn"][clickable=true] +n * > [text="进入游戏"]',
+          matches: [
+            '[text="反馈"] + @[id="close_btn"][clickable=true] +n * > [text~="马上去看看|进入游戏"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
@@ -1312,29 +1277,29 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          anyMatches: [
-            '@ImageView[clickable=true] - [text="恭喜获得奖励"] +n * [text="查看详情"]',
-            '@ImageView[clickable=true] - [text="恭喜获得奖励"] +n * [text="立即下载"]',
-            //'@ImageView[clickable=true] - [text="恭喜获得奖励"] +n [getChild(0).getChild(3).name$="TextView"]',
+          matches: [
+            '[getChild(0).getChild(3).text~="立即下载|查看详情"] -n @ImageView[clickable=true] - [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.ubix.ssp.open.comm.UBiXVideoActivity'],
         },
       ],
     },
-    //看视频-com.windmill.sdk.widget.InterstitialView_4012003
+    //看视频-com.windmill.sdk.widget.InterstitialView_*
     {
       key: 100,
       name: '看视频-广告-跳过-关闭',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
             '@[vid="tobid_interstitial_skip_ll"][clickable=true] > [text="关闭"][vid="tobid_interstitial_skip_text"]',
           ],
-          activityIds: ['com.windmill.sdk.widget.InterstitialView_4012003'],
+          activityIds: [
+            'com.windmill.sdk.widget.InterstitialView_4012001',
+            'com.windmill.sdk.widget.InterstitialView_4012003',
+          ],
         },
       ],
     },
