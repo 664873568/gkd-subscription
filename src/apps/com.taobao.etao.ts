@@ -29,6 +29,12 @@ export default defineGkdApp({
             '@View[getChild(0).text="TB16l86YLb2gK0jSZK9XXaEgFXa-92-92.png_100x100.jpg_"] + [text="领取"] + [text="签到"]',
           ],
         },
+        {
+          key: 2,
+          matches: [
+            '@Image[text="TB16l86YLb2gK0jSZK9XXaEgFXa-92-92.png_100x100.jpg_"]',
+          ],
+        },
       ],
     },
     {
