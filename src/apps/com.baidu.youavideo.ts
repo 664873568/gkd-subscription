@@ -40,7 +40,7 @@ export default defineGkdApp({
       key: 1,
       name: '福利中心-每日签到',
       matchRoot: true,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
       rules: [
@@ -59,7 +59,7 @@ export default defineGkdApp({
     //积分任务
     {
       key: 2,
-      name: '积分任务-去完成',
+      name: '积分任务-去完成-浏览App',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -68,7 +68,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           matches: [
-            'View > @View[getChild(0).text!~="购买一次会员|天天看激励视频"][clickable=true] > [text="去完成"]',
+            'View > @View[getChild(0).text~="去.*|打开.*|前往.*"][clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -86,7 +86,6 @@ export default defineGkdApp({
       key: 3,
       name: '积分任务-去完成-分享一个相册',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -94,7 +93,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="购买一次会员|天天看激励视频"][clickable=true] > [text="去完成"]',
+            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*"][clickable=true] > [text="分享一个相册"] +n [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -142,7 +141,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="购买一次会员|天天看激励视频"][clickable=true] > [text="去完成"]',
+            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|分享.*"][clickable=true] > [text="创建一个新相册"] +n [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -185,7 +184,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="购买一次会员|天天看激励视频"][clickable=true] > [text="去完成"]',
+            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册"][clickable=true] > [text="制作并保存「春日」vlog"] +n [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -269,7 +268,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="购买一次会员|天天看激励视频"][clickable=true] > [text="去完成"]',
+            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册|.*vlog"][clickable=true] > [text="制作照片卡点视频"] +n [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -342,7 +341,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="购买一次会员|天天看激励视频"][clickable=true] > [text="去完成"]',
+            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册|制作.*"][clickable=true] > [text="体验智能清理"] +n [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -374,7 +373,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="购买一次会员|天天看激励视频"][clickable=true] > [text="去完成"]',
+            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*"][clickable=true] > [text="老照片修复跨越时空"] +n [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -401,7 +400,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="购买一次会员|天天看激励视频"][clickable=true] > [text="去完成"]',
+            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*|.*时空"][clickable=true] > [text="浏览社区5s"] +n [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -449,7 +448,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="看广告赚积分"] - [desc="礼盒"] < @View[clickable=true] < View - * [text="浏览社区5s"] +n [text="已完成"]',
+            '[text="看广告赚积分"] - [desc="礼盒"] < @View[clickable=true] < View -n * [text="浏览社区5s"] +n [text="已完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -575,7 +574,6 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          action: 'swipe',
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -642,7 +640,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          action: 'swipe',
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
