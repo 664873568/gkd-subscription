@@ -44,11 +44,9 @@ export default defineGkdApp({
           activityIds: ['com.sgcc.wsgw.mainbundle.ElectricTitleActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@[vid="umeng_Weixin"][clickable=true] > [text="微信"]',
-          ],
+          matches: ['@[vid="umeng_Weixin"][clickable=true] > [text="微信"]'],
           activityIds: ['com.sgcc.wsgw.publiclibrary.share.UmengActivity'],
         },
         {
