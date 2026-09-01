@@ -48,7 +48,6 @@ export default defineGkdApp({
       name: '每日任务-领奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
       rules: [
@@ -72,14 +71,16 @@ export default defineGkdApp({
       key: 3,
       name: '每日任务-去完成',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
       rules: [
         {
           key: 0,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
+          excludeMatches: [
+            '@[text="领奖励"][clickable=true]',
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
           actionDelay: 1000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
@@ -222,6 +223,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 3000,
@@ -252,6 +254,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 3000,
@@ -282,6 +285,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
             'LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"] > @[text="去完成"][clickable=true]',
             'LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"] > @[text="领奖励"]',
