@@ -95,7 +95,6 @@ export default defineGkdApp({
       name: '做任务-领奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
@@ -117,15 +116,13 @@ export default defineGkdApp({
       key: 4,
       name: '做任务-去完成-浏览App',
       matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
           excludeMatches: ['@[text="领奖励"][clickable=true] < View <n View'],
-          actionDelay: 1000,
+          actionDelay: 3000,
           matches: [
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
@@ -155,8 +152,6 @@ export default defineGkdApp({
       key: 5,
       name: '做任务-去完成-关注1位主播',
       matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -170,7 +165,6 @@ export default defineGkdApp({
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '@[text="确定"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text*="频道"][vid="message"]',
@@ -183,7 +177,7 @@ export default defineGkdApp({
       key: 6,
       name: '看直播',
       matchRoot: true,
-      matchDelay: 1000,
+      matchDelay: 2000,
       resetMatch: 'activity',
       activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
       rules: [
