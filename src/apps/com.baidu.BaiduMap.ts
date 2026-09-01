@@ -984,7 +984,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          anyMmatches: [
+          anyMatches: [
             '@ImageView < FrameLayout < FrameLayout - * [text="恭喜获得奖励"]',
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text="已完成浏览15秒，提前获得奖励"]',
             //'[getChild(4).text~="已完成浏览[0-9]+秒，提前获得奖励"] +n * @ImageView[index=parent.childCount.minus(1)]',
