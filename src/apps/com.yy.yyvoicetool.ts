@@ -54,7 +54,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '[text="每日任务"] + View >n @[text="领奖励"][clickable=true]',
+            '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
             'ViewFactoryHolder >n LinearLayout[clickable=true] > @[text="领奖励"]',
           ],
         },
@@ -62,7 +62,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
           ],
         },
       ],
@@ -77,10 +77,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@[text="领奖励"][clickable=true]',
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-          ],
+          excludeMatches: ['@[text="领奖励"][clickable=true]'],
           actionDelay: 1000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
@@ -223,7 +220,6 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 3000,
@@ -254,7 +250,6 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 3000,
@@ -285,7 +280,6 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
             'LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"] > @[text="去完成"][clickable=true]',
             'LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"] > @[text="领奖励"]',
