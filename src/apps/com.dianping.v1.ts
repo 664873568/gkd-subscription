@@ -10,8 +10,7 @@ export default defineGkdApp({
       name: '每日签到-立即签到',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
       rules: [
@@ -37,7 +36,7 @@ export default defineGkdApp({
       key: 1,
       name: '每日签到-开宝箱得金币',
       matchRoot: true,
-      matchDelay: 3000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
       rules: [
@@ -45,25 +44,18 @@ export default defineGkdApp({
           action: 'clickCenter',
           excludeMatches: [
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
+            'ImageView[clickable=true] < FrameLayout - FrameLayout >n @FrameLayout[clickable=true] > ImageView',
           ],
           matches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout >n [text="x"]', //开宝箱得金币
           ],
         },
         {
-          matches: [
-            'ImageView[clickable=true] < FrameLayout - FrameLayout >n @FrameLayout[clickable=true] > ImageView', //继续开宝箱集卡
-          ],
-        },
-        {
-          matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
-          ],
-        },
-        {
           anyMatches: [
+            'ImageView[clickable=true] < FrameLayout - FrameLayout >n @FrameLayout[clickable=true] > ImageView', //继续开宝箱集卡
             '@ImageView[clickable=true] < FrameLayout - FrameLayout >n [text="10元免单券"]', //集卡得免单
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout >n [text="10元免单券"]',
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
           ],
         },
       ],
@@ -73,7 +65,7 @@ export default defineGkdApp({
       name: '每日签到-做任务领奖励-浏览完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -94,7 +86,7 @@ export default defineGkdApp({
       key: 3,
       name: '每日签到-返回寻宝-恭喜获得',
       matchRoot: true,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -107,7 +99,7 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           matches: [
-            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout - FrameLayout',
+            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout - FrameLayout',//返回寻宝
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',
@@ -139,13 +131,12 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 5000,
-      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
-          actionDelay: 5000,
           excludeMatches: [
+            '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout >n [text="x"]',
           ],
           matches: [
