@@ -29,7 +29,6 @@ export default defineGkdApp({
       name: '玩转中心',
       matchRoot: true,
       matchDelay: 1000,
-      matchTime: 10000,
       resetMatch: 'activity',
       activityIds: [
         '.liteapp.app.UPLiteAppActivity1',
@@ -63,6 +62,10 @@ export default defineGkdApp({
           key: 3,
           actionDelay: 2000,
           matches: ['AlertDialog > View > [text="知道了"][clickable=true]'],
+        },
+        {
+          key: 4,
+          matches: ['[id="root-router-view"] > View > View > TextView + @TextView[clickable=true]'],//点亮商铺 全国排名赛最高赢300元立减券-立即参加-×
         },
       ],
     },
