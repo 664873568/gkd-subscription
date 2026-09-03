@@ -43,6 +43,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 2,
+      name: '下载汽车之家App',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="YY语音"] >n @TextView[clickable=true]',
+          ],
+          activityIds: ['.BrowserActivity'],
+        },
+      ],
+    },
     //功能应用类
     {
       key: 40,
@@ -55,6 +71,22 @@ export default defineGkdApp({
         {
           matches: [
             '[text="立即添加"] - @[text="取消"][clickable=true] < [vid="buttonPanel"] - * [text="添加“全网热榜”小部件"][vid="tv_widget_dialog_title"]',
+          ],
+          activityIds: ['.BrowserActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '读取或写入剪切板-拒绝',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="读取或写入剪切板"][vid="title"] +n * > @[text="拒绝"][vid="left_button"] + [vid="right_button"][text="允许"]',
           ],
           activityIds: ['.BrowserActivity'],
         },
