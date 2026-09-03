@@ -4,9 +4,26 @@ export default defineGkdApp({
   id: 'com.sankuai.meituan',
   name: '美团',
   groups: [
-    //看视频
+    //赚钱中心
     {
       key: 10,
+      name: '访问APP赚-去完成',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[getChild(1).text="访问APP赚"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
+          ],
+          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+        },
+      ],
+    },
+    //看视频
+    {
+      key: 20,
       name: '看视频-恭喜获得奖励*×',
       matchRoot: true,
       actionMaximum: 1,
@@ -20,7 +37,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 21,
       name: '看视频-去看看',
       matchRoot: true,
       actionMaximum: 1,
@@ -36,7 +53,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 22,
       name: '看视频-点击广告得',
       matchRoot: true,
       actionMaximum: 1,
@@ -50,7 +67,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 23,
       name: '看视频-<+×',
       matchRoot: true,
       actionMaximum: 1,
@@ -65,7 +82,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 24,
       name: '看视频-完成跳转可领取-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -82,16 +99,15 @@ export default defineGkdApp({
     },
     //飞猪旅行-去美团赚20元
     {
-      key: 15,
+      key: 49,
       name: '看视频-任务已完成',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'app',
       rules: [
         {
           action: 'back',
-          actionDelay: 1000,
           matches: ['@[vid="toast_container"] > [text="任务已完成"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
