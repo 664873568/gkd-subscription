@@ -83,14 +83,14 @@ export default defineGkdApp({
           ],
           actionDelay: 1000,
           matches: [
-            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="打开"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]', //浏览App
+            '@[text$="打开"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]', //浏览App
           ],
         },
         {
