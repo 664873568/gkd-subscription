@@ -604,7 +604,7 @@ export default defineGkdApp({
     },
     {
       key: 52,
-      name: '广告-专属定制-×',
+      name: '广告-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -612,7 +612,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@TextView[clickable=true] - * [text="rBwwImpV1naADcCuAAE012gtJK0647"]',
+            '[getChild(1).name$="Image"] + @TextView[clickable=true]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
