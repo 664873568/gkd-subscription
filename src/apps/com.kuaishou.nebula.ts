@@ -8,7 +8,7 @@ export default defineGkdApp({
       key: 0,
       name: '百度网盘-去快手极速版点赞',
       matchRoot: true,
-      matchTime: 1000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -40,13 +40,29 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           matches: [
             '[text="打开推送通知"][vid="title"] +n * >n @[text="忽略"][vid="negative"][clickable=true] +n [text="去打开"][vid="positive"]',
           ],
           activityIds: ['com.yxcorp.gifshow.detail.PhotoDetailActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '版本更新-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[getChild(1).text="版本更新"&&getChild(3).getChild(0).text="免打扰升级"] + [vid="iv_close"][clickable=true]',
+          ],
+          activityIds: ['com.yxcorp.gifshow.HomeActivity'],
         },
       ],
     },
