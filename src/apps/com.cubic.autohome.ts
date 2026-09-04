@@ -7,7 +7,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '首页广告-跳过',
+      name: '开启通知-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
