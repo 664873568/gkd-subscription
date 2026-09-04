@@ -933,7 +933,7 @@ export default defineGkdApp({
     },
     {
       key: 62,
-      name: '好家缴费金-今日签到',
+      name: '好家缴费金-领奖励',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
