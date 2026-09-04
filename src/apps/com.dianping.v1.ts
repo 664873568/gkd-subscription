@@ -99,7 +99,7 @@ export default defineGkdApp({
         {
           action: 'clickCenter',
           matches: [
-            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout - FrameLayout',//返回寻宝
+            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout - FrameLayout', //返回寻宝
           ],
           activityIds: [
             'com.dianping.shopshell.PexusPoiActivity',

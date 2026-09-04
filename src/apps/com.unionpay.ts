@@ -65,7 +65,9 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          matches: ['[id="root-router-view"] > View > View > TextView + @TextView[clickable=true]'],//点亮商铺 全国排名赛最高赢300元立减券-立即参加-×
+          matches: [
+            '[id="root-router-view"] > View > View > TextView + @TextView[clickable=true]',
+          ], //点亮商铺 全国排名赛最高赢300元立减券-立即参加-×
         },
       ],
     },

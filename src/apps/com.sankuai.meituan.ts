@@ -17,7 +17,9 @@ export default defineGkdApp({
           matches: [
             '[getChild(1).text="访问APP赚"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
           ],
-          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
         },
       ],
     },

@@ -611,9 +611,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '[getChild(1).name$="Image"] + @TextView[clickable=true]',
-          ],
+          matches: ['[getChild(1).name$="Image"] + @TextView[clickable=true]'],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
       ],

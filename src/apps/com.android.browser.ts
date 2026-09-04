@@ -52,9 +52,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '[text="YY语音"] >n @TextView[clickable=true]',
-          ],
+          matches: ['[text="YY语音"] >n @TextView[clickable=true]'],
           activityIds: ['.BrowserActivity'],
         },
       ],
