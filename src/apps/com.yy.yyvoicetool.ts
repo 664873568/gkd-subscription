@@ -77,7 +77,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['@[text="领奖励"][clickable=true]'],
+          excludeMatches: [
+            '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
+            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+          ],
           actionDelay: 1000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
@@ -118,6 +121,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 2000,
@@ -152,6 +156,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 2000,
@@ -220,6 +225,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 3000,
@@ -250,6 +256,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 3000,
@@ -280,10 +287,11 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
             'LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"] > @[text="去完成"][clickable=true]',
             'LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"] > @[text="领奖励"]',
-            //'@LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载" || getChild(2).text~="领奖励|去完成"][clickable=true]',
+            //'@LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载" || getChild(2).text~="领奖励|去完成"]',
           ],
           actionDelay: 3000,
           matches: [
@@ -350,7 +358,7 @@ export default defineGkdApp({
           key: 5,
           anyMatches: [
             '[text~="恭喜获得[0-9]+金币"] - @TextView[clickable=true]',
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
           ],
         },
       ],
