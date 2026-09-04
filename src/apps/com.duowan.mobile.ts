@@ -31,9 +31,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          matches: [
-            '@TextView[clickable=true] + View > View > TextView',
-          ],
+          matches: ['@TextView[clickable=true] + View > View > TextView'],
         },
       ],
     },
