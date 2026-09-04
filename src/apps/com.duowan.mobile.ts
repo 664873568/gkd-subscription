@@ -40,7 +40,6 @@ export default defineGkdApp({
       key: 1,
       name: '天天签到赢金币-登录领取',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
@@ -71,7 +70,6 @@ export default defineGkdApp({
       key: 2,
       name: '天天签到赢金币-立即签到',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
@@ -96,7 +94,7 @@ export default defineGkdApp({
       key: 3,
       name: '做任务-领奖励',
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
@@ -118,13 +116,14 @@ export default defineGkdApp({
       key: 4,
       name: '做任务-去完成-浏览App',
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
         {
           key: 0,
           excludeMatches: ['@[text="领奖励"][clickable=true] < View <n View'],
-          actionDelay: 3000,
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
@@ -292,6 +291,23 @@ export default defineGkdApp({
             'com.yy.mobile.ui.common.JsSupportWebAcitivity',
             'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
           ],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 40,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text~="[0-9]"][vid="tvCounter"] - [text="跳过"] < @[vid="llCounter"][clickable=true] +n [text="广告"][vid="tv_adFlag"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.splash.SplashActivity'],
         },
       ],
     },
