@@ -15,20 +15,24 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="提现"] >n @View[clickable=true] > [text="50元"] + [text="今日份数已用完"]',
+            '@View[clickable=true] > [text="50元"] + [text="今日份数已用完"]',
           ],
-          matches: ['[text="提现"] >n @View[clickable=true] > [text="50元"]'],
+          matches: [
+            '@View[clickable=true] > [text="50元"] + [text="连续签到20天"] + [text="条件达成"]',
+          ],
         },
         {
+          preKeys: [0],
           key: 1,
           matches: [
             '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提示"][vid="message"]',
           ],
         },
         {
+          preKeys: [0],
           key: 2,
           matches: [
-            '[text="提现"] >n @TextView[clickable=true] + View > View > TextView',
+            '@TextView[clickable=true] + View > View > TextView',
           ],
         },
       ],
@@ -100,7 +104,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="领奖励"][clickable=true] < View <n View[index=3]'],
+          matches: ['@[text="领奖励"][clickable=true] < View <n View'],
         },
         {
           preKeys: [0],
@@ -152,20 +156,11 @@ export default defineGkdApp({
       key: 5,
       name: '做任务-去完成-关注1位主播',
       matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          excludeMatches: ['@[text="领奖励"][clickable=true] < View <n View'],
-          actionDelay: 1000,
-          action: 'none',
-          matches: [
-            '@[text="去完成"][clickable=true] < View -n [text~="关注1位主播|直播间1次发言"] < View[index=3]',
-          ],
-          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
-        },
-        {
-          key: 1,
           matches: [
             '@[text="确定"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text*="频道"][vid="message"]',
           ],
@@ -177,7 +172,7 @@ export default defineGkdApp({
       key: 6,
       name: '看直播',
       matchRoot: true,
-      matchDelay: 2000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
       rules: [
