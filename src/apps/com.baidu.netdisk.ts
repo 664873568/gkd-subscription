@@ -4,6 +4,78 @@ export default defineGkdApp({
   id: 'com.baidu.netdisk',
   name: '百度网盘',
   groups: [
+    {
+      key: 0,
+      name: '兑换商城-兑换',
+      matchRoot: true,
+      matchtime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="5元京东卡"] +n [text=" 兑换"]',
+            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="10元现金红包"] +n [text=" 兑换"]',
+            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1721908159"][clickable=true] > [text="8点开抢"] + [text="5元京东卡"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          excludeMatches: [
+            '[text~="10元现金红包|5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
+          ],
+          matches: [
+            '[getChild(0).getChild(0).text~="2000金币|99金币"] + [text="立即兑换"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[text~="10元现金红包|5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
+          ],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          matches: [
+            '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '提现-提现至支付宝',
+      matchRoot: true,
+      matchtime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(1).getChild(1).text="提现"] +n @[text~="¥20|¥10"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(1).getChild(1).text="提现"] +n @[text~="¥20|¥10"] +n @TextView[clickable=true] + [text="推荐商品"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[getChild(1).getChild(1).text="提现"] +n * @[text="获取验证码"][clickable=true]',
+          ],
+        },
+      ],
+    },
     //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
     {
       key: 10,
