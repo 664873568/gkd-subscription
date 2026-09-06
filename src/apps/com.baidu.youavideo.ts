@@ -16,8 +16,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '@[text="已兑完"][vid="tv_first_hint"] - [vid="ll_item_point_bg"] > [text="50元"][vid="tv_money"]',
+          ],
           matches: [
-            '@[text="立即兑现"][vid="tv_point_exchange"][clickable=true] - [text="50000积分"][vid="tv_point"]',
+            '@[text="立即兑现"][vid="tv_point_exchange"][clickable=true] -n [text="50元"][vid="tv_money"]',
           ],
         },
         {
@@ -942,10 +945,10 @@ export default defineGkdApp({
     //首页功能类
     {
       key: 400,
-      name: '备份-×', //一键备份|一键开始原画质备份
+      name: '备份', //一键备份|一键开始原画质备份
       matchRoot: true,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           anyMatches: [
@@ -966,16 +969,17 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           matches: [
-            '@[vid="img_close"][clickable=true] -n LinearLayout > [text="立即升级"]',
+            '@[vid="img_close"][clickable=true] -n * > [text="立即升级"][vid="tv_upgrade"][vid="tv_upgrade"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
             '.vip.ui.VipWebActivity',
+            '.operate.ui.view.activity.OperateWithdrawProgressActivity',
           ],
         },
       ],
@@ -986,7 +990,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           action: 'back',
@@ -1004,15 +1008,55 @@ export default defineGkdApp({
     },
     {
       key: 403,
-      name: '立即恢复 极速备份-×',
+      name: '极速备份',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           matches: [
             '[desc="关闭"] < @[vid="iv_refund_sheet_close"][clickable=true] <n * +n [text="立即恢复 极速备份"][vid="tv_refund_sheet_action"]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 404,
+      name: '评价-下次再说',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="你喜欢使用无限空间随心备份吗？"][vid="tv_title"] +n @[text="下次再说"][vid="tv_next_time"][clickable=true]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 405,
+      name: '首页全新视图更清晰-我知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="我知道了"][vid="text_confirm"] -n @[vid="iv_close"][clickable=true] - [vid="hs_root"] [text="首页全新视图更清晰"][vid="tv_title"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
