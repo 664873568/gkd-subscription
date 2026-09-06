@@ -15,6 +15,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '@TextView[clickable=true] + View > View > TextView',
             '@View[clickable=true] > [text="50元"] + [text="今日份数已用完"]',
           ],
           matches: [
@@ -40,6 +41,7 @@ export default defineGkdApp({
       key: 1,
       name: '天天签到赢金币-登录领取',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
@@ -70,6 +72,7 @@ export default defineGkdApp({
       key: 2,
       name: '天天签到赢金币-立即签到',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
@@ -103,7 +106,6 @@ export default defineGkdApp({
           matches: ['@[text="领奖励"][clickable=true] < View <n View'],
         },
         {
-          preKeys: [0],
           key: 1,
           anyMatches: [
             '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
@@ -122,8 +124,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['@[text="领奖励"][clickable=true] < View <n View'],
-          actionDelay: 2000,
+          excludeMatches: [
+            '@[text="领奖励"][clickable=true] < View <n View',
+            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
           matches: [
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
@@ -132,20 +137,21 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提醒"][vid="message"]',
+            '[getChild(1).text="温馨提示"] +n View > [text="取消任务"] + @[text="确认"][clickable=true]',
           ],
         },
         {
           preKeys: [0],
           key: 2,
-          action: 'back',
-          matches: ['@[desc="YY游仓"]'],
+          matches: [
+            '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提醒"][vid="message"]',
+          ],
         },
         {
+          preKeys: [0],
           key: 3,
-          matches: [
-            '@TextView[clickable=true] - [text="前往领取"] -n * [text="任务已完成"]',
-          ],
+          action: 'back',
+          matches: ['@[desc="YY游仓"]'],
         },
       ],
     },
@@ -167,31 +173,104 @@ export default defineGkdApp({
     },
     {
       key: 6,
-      name: '看直播',
+      name: '做任务-去完成-看广告视频领金币',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          excludeMatches: [
+            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
+          ],
+          matches: [
+            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text="看广告视频领金币"]',
+          ],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
+    //看视频-com.qq.e.ads.PortraitADActivity
+    {
+      key: 10,
+      name: '看视频-微信-提前拿奖励',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
-            '[text="做任务赢金币"] >n @View[clickable=true] >n [text~="[0-9]+分钟"]',
+            '[text~=".*[0-9]+ 秒.*"] + [text="提前拿奖励"] + * > @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
-            '@TextView[clickable=true] - [text="知道了"] -n [text="恭喜获得"]',
+            '@ImageView < FrameLayout + FrameLayout >n ImageView + * > [text*="微信"][index=parent.childCount.minus(1)]',
           ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '看视频-奖励将于*秒后发放',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于15秒后发放"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          key: 1,
+          matches: [
+            'View - ImageView - TextView < FrameLayout + WebView',//二级广告页
+          ],
+          activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+        {
+          key: 2,
+          matches: [
+            '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"] < LinearLayout < * -n * > [text="已完成浏览15秒，提前获得奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '看视频-奖励将于+*秒+后发放',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="扭动/点击去玩小游戏提前拿奖"] <n LinearLayout < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="微信"][index=parent.childCount.minus(1)]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     //导流结果弹窗
     {
-      key: 10,
+      key: 38,
       name: '导流结果弹窗-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -210,7 +289,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 39,
       name: '导流结果弹窗-收下并送出',
       matchRoot: true,
       actionMaximum: 1,
