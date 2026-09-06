@@ -375,7 +375,7 @@ export default defineGkdApp({
     },
     //首页广告类
     {
-      key: 40,
+      key: 50,
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
