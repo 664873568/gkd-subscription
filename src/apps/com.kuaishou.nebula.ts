@@ -12,11 +12,13 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           action: 'back',
           matches: ['@[text="与奖品擦肩而过"] +n View [text="重新选择商品"]'],
           activityIds: ['com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity'],
         },
         {
+          key: 1,
           action: 'back',
           matches: [
             '@[desc="查找"][vid="search_btn"] - [desc="返回"][vid="left_btn"]',
@@ -24,11 +26,18 @@ export default defineGkdApp({
           activityIds: ['com.yxcorp.gifshow.detail.PhotoDetailActivity'],
         },
         {
-          matches: ['@[vid="like_icon"][visibleToUser=true]'],
+          key: 2,
+          matches: ['@ImageView[clickable=true] + [text="邀好友得大额红包"]'],
           activityIds: ['com.yxcorp.gifshow.HomeActivity'],
         },
         {
-          matches: ['@ImageView[clickable=true] + [text="邀好友得大额红包"]'],
+          key: 3,
+          matches: ['@ImageView[clickable=true] + [text="恭喜获得免费红包"]'],
+          activityIds: ['com.yxcorp.gifshow.HomeActivity'],
+        },
+        {
+          key: 4,
+          matches: ['@[vid="like_icon"][visibleToUser=true]'],
           activityIds: ['com.yxcorp.gifshow.HomeActivity'],
         },
       ],
