@@ -9,7 +9,6 @@ export default defineGkdApp({
       key: 0,
       name: '签到领钱-签到',
       matchRoot: true,
-      actionMaximum: 1,
       resetMatch: 'activity',
       activityIds: [
         'com.taobao.sns.tms.CommonTMSActivity',
@@ -41,7 +40,6 @@ export default defineGkdApp({
       key: 1,
       name: '签到领钱-浏览任务',
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         'com.taobao.sns.tms.CommonTMSActivity',
@@ -50,15 +48,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
-            'View > @View[(getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210")&&(getChild(2).text!^="已领")] + [text!~="去中国移动逛逛"]',
+            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"&&getChild(2).text!^="已领"] + [text!~="去中国移动逛逛"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 3000,
+          actionDelay: 5000,
           matches: [
             '[vid="left_panel"] > @[desc="返回"][clickable=true] + * [vid="tvTitle"]', //逛大促会场
           ],
@@ -72,7 +69,6 @@ export default defineGkdApp({
         },
         {
           preKeys: [0, 2],
-          actionDelay: 3000,
           key: 3,
           matches: ['@[text="打开"][clickable=true] - [text="取消"]'],
         },
