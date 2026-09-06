@@ -101,7 +101,7 @@ export default defineGkdApp({
     },
     //飞猪旅行-去美团赚20元
     {
-      key: 49,
+      key: 39,
       name: '看视频-任务已完成',
       matchRoot: true,
       actionMaximum: 1,
@@ -112,6 +112,23 @@ export default defineGkdApp({
           action: 'back',
           matches: ['@[vid="toast_container"] > [text="任务已完成"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 40,
+      name: '首页广告-跳过',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="新版本抢先体验"] +n @[text="暂不升级"][vid="btn_cancel"][clickable=true] + [text="立即升级"]',
+          ],
+          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
         },
       ],
     },
