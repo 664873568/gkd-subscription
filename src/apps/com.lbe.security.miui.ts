@@ -13,7 +13,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="拒绝"] <<n * [vid="alertTitle"]'],
+          matches: [
+            '[vid="topPanel"][getChild(1).vid="alertTitle"] +n [vid="buttonPanel"] > [text^="拒绝"]',
+          ],
           activityIds: ['null'],
         },
       ],
