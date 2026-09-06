@@ -1003,6 +1003,26 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 403,
+      name: '立即恢复 极速备份-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[desc="关闭"] < @[vid="iv_refund_sheet_close"][clickable=true] <n * +n [text="立即恢复 极速备份"][vid="tv_refund_sheet_action"]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
       key: 498,
       name: '福利中心',
       matchRoot: true,
