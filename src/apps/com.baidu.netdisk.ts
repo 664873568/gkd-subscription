@@ -8,7 +8,7 @@ export default defineGkdApp({
       key: 0,
       name: '兑换商城-兑换',
       matchRoot: true,
-      matchtime: 10000,
+      matchTime: 10000,
       resetMatch: 'activity',
       activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
@@ -50,7 +50,7 @@ export default defineGkdApp({
       key: 1,
       name: '提现-提现至支付宝',
       matchRoot: true,
-      matchtime: 10000,
+      matchTime: 10000,
       resetMatch: 'activity',
       activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
