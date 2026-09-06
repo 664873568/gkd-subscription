@@ -128,7 +128,9 @@ export default defineGkdApp({
           matches: [
             '[text="新版本抢先体验"] +n @[text="暂不升级"][vid="btn_cancel"][clickable=true] + [text="立即升级"]',
           ],
-          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
+          activityIds: [
+            'com.meituan.android.pt.homepage.activity.MainActivity',
+          ],
         },
       ],
     },

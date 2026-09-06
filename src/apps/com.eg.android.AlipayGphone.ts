@@ -355,7 +355,7 @@ export default defineGkdApp({
         'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
         'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
         'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App03',
-        ],
+      ],
       rules: [
         {
           key: 0,
@@ -406,7 +406,7 @@ export default defineGkdApp({
         'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App01',
         'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App02',
         'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$App03',
-        ],
+      ],
       rules: [
         {
           key: 0,

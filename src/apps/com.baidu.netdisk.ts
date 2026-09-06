@@ -30,7 +30,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[getChild(1).getChild(1).text="提现"] +n * @[text="获取验证码"][clickable=true]',
@@ -64,14 +64,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
@@ -104,14 +104,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[text="10元现金红包"] + @View[clickable=true] > [text="兑换并使用"]',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',

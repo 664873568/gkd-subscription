@@ -231,7 +231,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            'View - ImageView - TextView < FrameLayout + WebView',//二级广告页
+            'View - ImageView - TextView < FrameLayout + WebView', //二级广告页
           ],
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
@@ -259,7 +259,7 @@ export default defineGkdApp({
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="微信"][index=parent.childCount.minus(1)]',
