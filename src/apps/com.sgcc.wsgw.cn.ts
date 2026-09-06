@@ -25,7 +25,7 @@ export default defineGkdApp({
       key: 1,
       name: '每日签到-补签-×',
       matchRoot: true,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -86,7 +86,7 @@ export default defineGkdApp({
       name: '立即查看-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -144,7 +144,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@ImageView < [desc="关闭"]'],
+          matches: ['@ImageView < [desc="关闭"] < ViewGroup <n ViewGroup +n [text="今日不再出现"]'],
           activityIds: ['com.sgcc.wsgw.rnbundle.activity.HomeReactActivity'],
         },
       ],
@@ -158,7 +158,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView < [desc="关闭"]'],
+          matches: ['@ImageView < [desc="关闭"] < ViewGroup'],
           activityIds: [
             'com.htjc.pay.lite.moudle.singleaccountelepay.SingleAccountElePayIndexActivity',
           ],
