@@ -80,7 +80,6 @@ export default defineGkdApp({
             '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
             '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
           ],
-          actionDelay: 1000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
