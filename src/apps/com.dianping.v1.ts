@@ -112,7 +112,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
