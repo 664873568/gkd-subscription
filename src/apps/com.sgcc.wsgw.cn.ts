@@ -144,7 +144,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@ImageView < [desc="关闭"] < ViewGroup <n ViewGroup +n [text="今日不再出现"]'],
+          matches: [
+            '@ImageView < [desc="关闭"] < ViewGroup <n ViewGroup +n [text="今日不再出现"]',
+          ],
           activityIds: ['com.sgcc.wsgw.rnbundle.activity.HomeReactActivity'],
         },
       ],
