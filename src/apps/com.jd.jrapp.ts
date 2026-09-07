@@ -1003,7 +1003,7 @@ export default defineGkdApp({
             '@TextView[clickable=true] + View > [getChild(0).text!~="浏览.*|查看.*"] +2 [text="去完成"]',
             '@TextView[clickable=true] + View > [getChild(0).getChild(0).text!~="浏览.*|查看.*"] + [text="去完成"]',
           ],
-        }
+        },
       ],
     },
     //看视频 赚现金
@@ -1084,7 +1084,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 5000,
           anyMatches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',//浏览免费领礼物-浏览15理财日10秒-浏览向前冲10s
+            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]', //浏览免费领礼物-浏览15理财日10秒-浏览向前冲10s
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] + TextView + [vid="common_webview_navbar_right"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [vid="common_webview_navbar_right"]', //每日都可领京豆-去看看股票投资工具-竞猜足球瓜分百万京豆
           ],
@@ -1095,7 +1095,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 5000,
           matches: [
-            '[text="圈子"] >n @TextView[clickable=true] + TextView[clickable=true]',//浏览基金圈 结交同路人
+            '[text="圈子"] >n @TextView[clickable=true] + TextView[clickable=true]', //浏览基金圈 结交同路人
           ],
           activityIds: ['.bm.common.container.ui.BaseContainerActivity'],
         },
@@ -1103,7 +1103,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           matches: [
-            'View[clickable=true] > @View[clickable=true] > [text="喂食10次"]',//成功喂一次猪
+            'View[clickable=true] > @View[clickable=true] > [text="喂食10次"]', //成功喂一次猪
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -1117,14 +1117,14 @@ export default defineGkdApp({
           preKeys: [0],
           key: 5,
           matches: [
-            '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup',//看收藏大牛学知识
+            '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup', //看收藏大牛学知识
           ],
           activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
         },
         {
           preKeys: [0],
           key: 6,
-          matches: ['@View[clickable=true] > [text="03e6058058b35dde"]'],//养大鹅1分兑好礼
+          matches: ['@View[clickable=true] > [text="03e6058058b35dde"]'], //养大鹅1分兑好礼
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
         {
@@ -1139,7 +1139,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 8,
           matches: [
-            '[text="黄金频道页"] >n @TextView[clickable=true] + [text="139b35d682d5bb6e"]',//逛一逛黄金频道
+            '[text="黄金频道页"] >n @TextView[clickable=true] + [text="139b35d682d5bb6e"]', //逛一逛黄金频道
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -1170,7 +1170,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@View[clickable=true] > [text="ce6aa1713606b4c1"] + [text="加自选"]',
