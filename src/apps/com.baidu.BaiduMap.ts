@@ -44,7 +44,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[getChild(1).text~="第[0-9]+个"] + @View[clickable=true] > [text="待领取"] - View > [text~="[0-9]{3,}"]',
+            '[getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
           ],
         },
         {
@@ -67,9 +67,8 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(1).text~="第[0-9]+个"] + @View[clickable=true] > [text="待领取"] - View > [text~="[0-9]{3,}"]',
+            '[getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
           ],
-          actionDelay: 3000,
           matches: [
             '[id="task-loader"] >n @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
           ],
