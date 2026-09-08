@@ -13,15 +13,8 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: [
-            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text$="QQ阅读"][vid="message"]',
-            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text$="阿里巴巴"][vid="message"]',
-            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text$="飞猪旅行"][vid="message"]',
-            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text$="快影"][vid="message"]',
-            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text$="芒果TV"][vid="message"]',
-            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text$="闲鱼"][vid="message"]',
-            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text$="携程旅行"][vid="message"]',
-            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text$="一淘"][vid="message"]',
+          matches: [
+            '@[text="允许"][clickable=true] - [text="拒绝"] < [vid="buttonPanel"] - * [text~=".*QQ阅读|.*阿里巴巴|.*飞猪旅行|.*快影|.*芒果TV|.*闲鱼|.*携程旅行|.*星图金融|.*一刻相册|.*一淘"][vid="message"]',
           ],
           activityIds: ['.BrowserActivity'],
         },
