@@ -15,7 +15,6 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] + View > View > TextView',
             '@View[clickable=true] > [text="50元"] + [text="今日份数已用完"]',
           ],
           matches: [
@@ -25,13 +24,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提示"][vid="message"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 2,
           matches: ['@TextView[clickable=true] + View > View > TextView'],
         },
       ],
@@ -103,6 +95,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
           matches: ['@[text="领奖励"][clickable=true] < View <n View'],
         },
         {
@@ -129,6 +125,7 @@ export default defineGkdApp({
             '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
+          actionDelay: 1000,
           matches: [
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
@@ -176,13 +173,16 @@ export default defineGkdApp({
       name: '做任务-去完成-看广告视频领金币',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           excludeMatches: [
+            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
+          actionDelay: 1000,
           matches: [
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text="看广告视频领金币"]',
           ],
@@ -231,14 +231,14 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            'View - ImageView - TextView < FrameLayout + WebView', //二级广告页
+            'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
           ],
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
           key: 2,
           matches: [
-            '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"] < LinearLayout < * -n * > [text="已完成浏览15秒，提前获得奖励"]',
+            '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -263,6 +263,39 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="微信"][index=parent.childCount.minus(1)]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '看视频-*秒后点击广告，即可获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).getChild(0).text="点击广告，即可获得奖励"] + * @[text="点击广告拿奖励"]',
+          ],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
+          ],
+          activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          matches: [
+            '@ImageView < FrameLayout - FrameLayout[getChild(0).name$="ImageView"] - FrameLayout > [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
