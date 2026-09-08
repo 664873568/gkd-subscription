@@ -21,6 +21,24 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 40,
+      name: '欢迎使用趣头条-同意',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 5000,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="欢迎使用趣头条"][vid="tv_title"] +n @[text="同意"][vid="tv_positive"][clickable=true] + [text="不同意"][vid="tv_negative"]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
