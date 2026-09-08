@@ -19,7 +19,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            'View[getChild(0).getChild(0).name$="ImageButton"] + * >n @ImageButton[clickable=true]',
+            'View[getChild(0).getChild(0).name$="ImageButton"] - * > View > @ImageButton[clickable=true]',
           ],
         },
       ],
@@ -66,8 +66,8 @@ export default defineGkdApp({
         {
           key: 4,
           matches: [
-            '[id="root-router-view"] > View > View > TextView + @TextView[clickable=true]',
-          ], //点亮商铺 全国排名赛最高赢300元立减券-立即参加-×
+            '[id="root-router-view"] > View > View > TextView + @TextView[clickable=true]', //点亮商铺 全国排名赛最高赢300元立减券-立即参加-×
+          ],
         },
       ],
     },
