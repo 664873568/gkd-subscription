@@ -147,21 +147,8 @@ export default defineGkdApp({
           matches: [
             '@ImageView < [desc="关闭"] < ViewGroup <n ViewGroup +n [text="今日不再出现"]',
           ],
-          activityIds: ['com.sgcc.wsgw.rnbundle.activity.HomeReactActivity'],
-        },
-      ],
-    },
-    {
-      key: 52,
-      name: '首页广告-系统检修升级公告-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView < [desc="关闭"] < ViewGroup'],
           activityIds: [
+            'com.sgcc.wsgw.rnbundle.activity.HomeReactActivity',
             'com.htjc.pay.lite.moudle.singleaccountelepay.SingleAccountElePayIndexActivity',
           ],
         },
