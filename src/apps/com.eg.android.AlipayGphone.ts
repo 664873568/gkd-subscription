@@ -134,7 +134,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //23.07.01-25.06.30蚂蚁投资者教育基地
+    //23.07.01-25.06.30 蚂蚁投资者教育基地
     {
       key: 10,
       name: '蚂蚁投资者教育基地-完成浏览',
@@ -1034,6 +1034,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           anyMatches: [
             '@View[getChild(0).getChild(0).text="0.12元"&&getChild(1).getChild(0).text="现金"]',
             'View > @[text="0.01元"][index=0] + TextView',
