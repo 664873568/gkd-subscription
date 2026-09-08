@@ -366,7 +366,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="，累计待领取"] +n + [text="金币"] + @View[clickable=true] > [text="full.1aa72883"]',
+            '[text="，累计待领取"] +n [text="金币"] + @View[clickable=true] > [text="full.1aa72883"]',
           ],
           activityIds: ['.MainActivity'],
         },
