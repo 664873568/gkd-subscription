@@ -305,7 +305,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="返回领奖"][clickable=true] <<n * - * ViewGroup + ImageView[clickable=true] + ImageView',//京东保
+            '@[text="返回领奖"][clickable=true] <<n * - * ViewGroup + ImageView[clickable=true] + ImageView', //京东保
           ],
           activityIds: ['.bm.common.container.ui.BaseContainerActivity'],
         },
@@ -313,12 +313,12 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           matches: [
-            '[text="返回领奖"] < @View[clickable=false] - * [text="readMissionDown"]',//神域战纪
+            '[text="返回领奖"] < @View[clickable=false] - * [text="readMissionDown"]', //神域战纪
           ],
           activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 3,
           matches: [
             '[text="神域战纪"] >n [id="popupFrame"] >n [text="提示"] + [text="主人 是否退出游戏"] + Button[clickable=true] + @Button[clickable=true] + Button[clickable=true]',
@@ -329,7 +329,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 4,
           matches: [
-            '@View[clickable=true] > [text="03e6058058b35dde"]',//天天来提额
+            '@View[clickable=true] > [text="03e6058058b35dde"]', //天天来提额
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
