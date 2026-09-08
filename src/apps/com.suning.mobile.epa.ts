@@ -65,19 +65,19 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@ImageButton[clickable=true] - [text="仍要放弃"] - [text="继续赚积分"]',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: ['[id="mainViewWrapper"] >n @ImageButton[clickable=true]'],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           actionDelay: 1000,
           matches: ['@ImageButton[clickable=true] < * + * [text="红包签到"]'],
