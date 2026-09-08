@@ -37,7 +37,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
         },
       ],
@@ -61,7 +61,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
         },
       ],
@@ -78,8 +78,9 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
+          actionDelay: 1000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
@@ -119,9 +120,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
+          actionDelay: 1000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text="收藏任意频道"] >n @[text="去完成"][clickable=true]',
           ],
@@ -146,6 +148,7 @@ export default defineGkdApp({
       key: 5,
       name: '每日任务-去完成-访问指定频道',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
@@ -153,9 +156,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
+          actionDelay: 1000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text~="访问指定频道|频道内发言"] >n  @[text="去完成"][clickable=true]',
           ],
@@ -163,45 +167,38 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@[text="确定"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 2,
           actionDelay: 2000,
           matches: [
             'ViewFactoryHolder + @View[clickable=true] > [text="说点什么吧..."]', //点击聊天框
           ],
         },
         {
-          preKeys: [0, 2],
-          key: 3,
+          preKeys: [0, 1],
+          key: 2,
           actionDelay: 2000,
           matches: [
             'ViewFactoryHolder + @View[clickable=true]', //点击表情
           ],
         },
         {
-          preKeys: [0, 2, 3],
-          key: 4,
+          preKeys: [0, 1, 2],
+          key: 3,
           actionDelay: 2000,
           matches: [
             'ViewFactoryHolder +n View[clickable=true] >n View[childCount=48] > @View[clickable=true][index=0]', //选择表情
           ],
         },
         {
-          preKeys: [0, 2, 3, 4],
-          key: 5,
+          preKeys: [0, 1, 2, 3],
+          key: 4,
           actionDelay: 2000,
           matches: [
             'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]', //发送表情
           ],
         },
         {
-          preKeys: [0, 2, 3, 4, 5],
-          key: 6,
+          preKeys: [0, 1, 2, 3, 4],
+          key: 5,
           action: 'back',
           matches: [
             '@ViewFactoryHolder >n [id="root"][clickable=true] > View[clickable=true]',
@@ -220,9 +217,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
+          actionDelay: 1000,
           matches: [
             'LinearLayout[getChild(1).getChild(0).getChild(0).text="完成应用下载"] > @[text="去完成"][clickable=true]',
           ],
@@ -251,9 +249,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
+          actionDelay: 1000,
           matches: [
             'LinearLayout[getChild(1).getChild(0).getChild(0).text="完成应用浏览"] > @[text="去完成"][clickable=true]',
           ],
@@ -282,14 +281,13 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
-            'LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"] > @[text="去完成"][clickable=true]',
-            'LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"] > @[text="领奖励"]',
-            //'@LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载" || getChild(2).text~="领奖励|去完成"]',
+            '@LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"&&getChild(2).text~="领奖励|去完成"][clickable=true]',
           ],
+          actionDelay: 1000,
           matches: [
-            '[text~="看视频最高赚[0-9].[0-9]万金币\\\\（(?:[0-9]|1[0-9]|2[0-4])/25\\\\）"] + @[text="看视频"][clickable=true]',
+            '[text^="看视频最高赚"] + @[text="看视频"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
@@ -343,6 +341,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 4,
+          actionDelay: 1000,
           matches: [
             '[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]',
           ],
@@ -352,25 +351,8 @@ export default defineGkdApp({
           key: 5,
           anyMatches: [
             '[text~="恭喜获得[0-9]+金币"] - @TextView[clickable=true]',
-            '[getChild(0).text="恭喜获得"&&getChild(4).text="我知道了"&&getChild(5).text="去完成"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
-        },
-      ],
-    },
-    //看视频
-    {
-      key: 11,
-      name: '看视频-观看广告*秒获得奖励-关闭',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text="关闭"][clickable=true] -n [text="已获得奖励"]',
-            '@[text="关闭"][clickable=true] -n [text="观看广告获得奖励"]',
-          ],
-          activityIds: ['.MainActivity'],
         },
       ],
     },
@@ -384,7 +366,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="，累计待领取"] + View[getChild(1).text="1"&&getChild(10).text="0"&&getChild(21).text="0"&&getChild(31).text="0"&&getChild(41).text="0"] + [text="/10000"] + [text="金币"] + @View[clickable=true] > [text="full.1aa72883"]',
+            '[text="，累计待领取"] +n + [text="金币"] + @View[clickable=true] > [text="full.1aa72883"]',
           ],
           activityIds: ['.MainActivity'],
         },
