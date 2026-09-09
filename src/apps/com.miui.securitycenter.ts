@@ -9,12 +9,11 @@ export default defineGkdApp({
       name: '请用指纹解锁',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 15000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
-          actionDelay: 16000,
           matches: ['@[text="请用指纹解锁"] - [vid="app_icon"]'],
           activityIds: ['com.miui.applicationlock.AppLockActivity'],
         },
@@ -25,12 +24,11 @@ export default defineGkdApp({
       name: '请用密码或指纹解锁',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 15000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
-          actionDelay: 16000,
           matches: ['@[text="请用密码或指纹解锁"] - [vid="app_icon"]'],
           activityIds: ['com.miui.applicationlock.ConfirmAccessControl'],
         },
@@ -41,12 +39,11 @@ export default defineGkdApp({
       name: '使用密码验证',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 15000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
-          actionDelay: 16000,
           matches: ['@[text="使用密码验证"] <<n * [vid="icon1"]'],
           activityIds: ['com.miui.applicationlock.ConfirmAccessControl'],
         },
@@ -56,6 +53,7 @@ export default defineGkdApp({
       key: 3,
       name: '请用指纹解锁-用于*',
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -73,13 +71,12 @@ export default defineGkdApp({
       name: '请用指纹解锁-用于打开微信',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
+      matchDelay: 15000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'back',
-          actionDelay: 15000,
           matches: [
             '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -102,11 +99,10 @@ export default defineGkdApp({
       name: '启动应用-拒绝',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
+      matchDelay: 15000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 15000,
           matches: [
             '@[text="拒绝"] <n * - * [text="启动应用"][vid="permission_group_title"]',
           ],
@@ -135,11 +131,10 @@ export default defineGkdApp({
       name: '启动应用-本次允许-京东金融',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 2000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
           matches: [
             '@[text="本次允许"] <n * - * [text~="京东金融.*(JoyAI|QQ阅读|京东健康).*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
@@ -152,11 +147,10 @@ export default defineGkdApp({
       name: '启动应用-拒绝-抖音',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 3000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 3000,
           matches: [
             '@[text="拒绝"] <n * - * [text~="抖音.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
@@ -169,11 +163,10 @@ export default defineGkdApp({
       name: '启动应用-拒绝-支付宝',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 3000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 3000,
           matches: [
             '@[text="拒绝"] <n * - * [text~="支付宝.*淘宝.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
@@ -186,7 +179,7 @@ export default defineGkdApp({
       name: '启动应用-拒绝-中国移动',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -203,7 +196,7 @@ export default defineGkdApp({
       name: '获取已安装的应用信息-拒绝',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'app',
       rules: [
         {
@@ -219,7 +212,7 @@ export default defineGkdApp({
       name: '存储空间严重不足-取消',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'app',
       rules: [
         {
