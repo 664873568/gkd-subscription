@@ -27,7 +27,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           anyMatches: [
             '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
-            '@ImageView[clickable=true] - FrameLayout > FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\) "]',
+            'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
           ],
         },
       ],
@@ -41,9 +41,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text="立即领"]',
+          ],
+          actionDelay: 2000,
           action: 'clickCenter',
           matches: [
-            'ImageView[clickable=true] + * FrameLayout[getChild(0).text!~="领奖励"][clickable=true] > [text="去完成"]',
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text="去完成"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
@@ -65,14 +69,17 @@ export default defineGkdApp({
           key: 2,
           action: 'clickCenter',
           matches: [
-            'ImageView[clickable=true] + * FrameLayout[getChild(0).text="领奖励"][clickable=true] > [text="领奖励"]',
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text="立即领"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
           key: 3,
+          excludeMatches: [
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
+          ],
           matches: [
-            '@ImageView[clickable=true] + * FrameLayout[getChild(0).text!~="去完成|领奖励"&&getChild(0).text.length=3][clickable=true] > [text="已完成"]',
+            '@ImageView[clickable=true] + FrameLayout >n ViewGroup >5 FrameLayout[clickable=true] > TextView',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
@@ -90,9 +97,10 @@ export default defineGkdApp({
           action: 'clickCenter',
           excludeMatches: [
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
             '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
-            '@ImageView[clickable=true] + * FrameLayout[getChild(0).text!~="去完成|领奖励"&&getChild(0).text.length=3][clickable=true] > [text="已完成"]',
           ],
+          actionDelay: 2000,
           matches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
           ],
