@@ -13,7 +13,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
             '@[desc="返回"][vid="btn_back"][clickable=true] < [vid="layout_ucwv_back"] + [text="云钻魔法狮"][vid="title"]',
           ],
