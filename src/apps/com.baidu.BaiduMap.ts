@@ -42,6 +42,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '@TextView[clickable=true] < * + * [text="继续看视频领金币"]',
+          ],
           actionDelay: 2000,
           matches: [
             '[getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
@@ -70,7 +73,7 @@ export default defineGkdApp({
             '[getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
           ],
           matches: [
-            '[id="task-loader"] >n @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
+            '@[text="去完成"] -n [text~="[0-9]{3,}"] <n View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] < [id^="J-task-item"] <n [id="task-loader"]',
           ],
         },
         {
@@ -127,7 +130,9 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="task-loader"] >n @View[clickable=true][getChild(0).text!~="去中国移动领话费流量"] > [text~="[0-9]{3,}"] +n [text="去完成"]',
+            '@[text="去完成"] -n [text~="[0-9]{3,}"] <n View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] < [id^="J-task-item"] <n [id="task-loader"]',
+            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]+00 金币"]',
+            '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
           ],
           actionDelay: 3000,
           matches: [
