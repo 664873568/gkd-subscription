@@ -609,6 +609,7 @@ export default defineGkdApp({
             '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
             'ImageView < LinearLayout[clickable=true] < @LinearLayout[clickable=true] - * [text="反馈"] <<n * + * [text=" 立即查看 "]',
             '@ImageView < ViewGroup < ViewGroup < ViewGroup - * [text="点击到落地页或三方APP"] <<n * + * [text="关闭悬浮球可继续浏览应用"]', //京东-惊喜等你拿
+            '@ImageView < ViewGroup - [getChild(0).text="反馈"] <<n * + * [text="点击或上滑打开"] + [getChild(0).text="跳转至详情页或第三方应用"]',//蚂蚁阿福
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
