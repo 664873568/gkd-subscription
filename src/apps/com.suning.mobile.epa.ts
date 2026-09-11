@@ -13,9 +13,12 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageButton[clickable=true] + View[getChild(0).text~="点击.*|[0-9]s后.*"]',
+            '@ImageButton[clickable=true] + View[getChild(0).getChild(0).text~="点击.*|[0-9]s后.*"]',
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+          activityIds: [
+            '.ui.init.SplashActivity',
+            'com.suning.webview.H5SystemBaseActivity',
+          ],
         },
       ],
     },
@@ -28,7 +31,7 @@ export default defineGkdApp({
       rules: [
         {
           excludeMatches: [
-            '@ImageButton[clickable=true] + View[getChild(0).text~="点击.*|[0-9]s后.*"]',
+            '@ImageButton[clickable=true] + View[getChild(0).getChild(0).text~="点击.*|[0-9]s后.*"]',
           ],
           actionDelay: 1000,
           matches: [
@@ -55,7 +58,6 @@ export default defineGkdApp({
           matches: [
             '@View[clickable=true] > View > [getChild(0).getChild(0).text="签到领大额红包"] + View > [text="去完成"]',
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
           preKeys: [0],
