@@ -910,7 +910,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          anyMmatches: [
+          anyMatches: [
             '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][focusable=true]',
             '[text="体验AI拍一拍"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
           ],
