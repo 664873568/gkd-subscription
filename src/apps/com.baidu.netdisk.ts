@@ -201,7 +201,7 @@ export default defineGkdApp({
         {
           key: 1,
           anyMatches: [
-            '@[text="7b144c81c2cb181f"] < View - [getChild(0).text="恭喜获得奖励"] -n [getChild(0).text="限时领取"]',//惊喜福利-立即下载领取
+            '@[text="7b144c81c2cb181f"] < View - [getChild(0).text="恭喜获得奖励"] -n [getChild(0).text="限时领取"]', //惊喜福利-立即下载领取
           ],
         },
         {
@@ -500,7 +500,7 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '@ImageView < FrameLayout <n * < * + * [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]',//免
+            '@ImageView < FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]', //免
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * [text="已完成浏览15秒，提前获得奖励"]',
           ],
         },
@@ -619,22 +619,22 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           matches: [
-            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]',//领取奖励-去看看会员福利日-去看看开学季特惠
+            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
           preKeys: [0],
           key: 2,
-          matches: ['View > View > @[text="是"][clickable=true]'],//每日答题
+          matches: ['View > View > @[text="是"][clickable=true]'], //每日答题
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 3,
-          matches: ['View > View > @[text="我知道了"][clickable=true]'],//每日答题
+          matches: ['View > View > @[text="我知道了"][clickable=true]'], //每日答题
         },
         {
           key: 4,
@@ -732,32 +732,32 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           anyMatches: [
-            'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton',//领取奖励-免费领取网盘SVIP
-            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]',//领取奖励-去看看会员福利日-去翻故事卡领大奖-去看看开学季特惠-领取徐涛独家资料
-            '@[text="lingqujiangli"][clickable=true] - View > [text="task-close"]',//集勋章抽金条手机
-            'View > View > @[text="done"][clickable=true] + [text=" "] + [text="2bd7c5199a3f9703e3ae80849"]',//会员日-任务已完成 点击去领奖
-            '@[vid="left_button"][clickable=true] +2 [text="福利来袭X-永久无限空间限时抢"][vid="middle_title_text"]',//体验一刻相册
-            '[text="lingqujiangli"] < @View[text=""][clickable=true] + [desc="close"]',//去寻道砍树3次
-            '[text="lingqujiangli"] < @View[text=""][clickable=true] - View [text="task-close"]',//奇妙赏
+            'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton', //领取奖励-免费领取网盘SVIP
+            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去翻故事卡领大奖-去看看开学季特惠-领取徐涛独家资料
+            '@[text="lingqujiangli"][clickable=true] - View > [text="task-close"]', //集勋章抽金条手机
+            'View > View > @[text="done"][clickable=true] + [text=" "] + [text="2bd7c5199a3f9703e3ae80849"]', //会员日-任务已完成 点击去领奖
+            '@[vid="left_button"][clickable=true] +2 [text="福利来袭X-永久无限空间限时抢"][vid="middle_title_text"]', //体验一刻相册
+            '[text="lingqujiangli"] < @View[text=""][clickable=true] + [desc="close"]', //去寻道砍树3次
+            '[text="lingqujiangli"] < @View[text=""][clickable=true] - View [text="task-close"]', //奇妙赏
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
           key: 2,
-          matches: ['@[vid="left_button"] <<n * +n * [text="恭喜获得"]'],//小程序点图文领奖-小程序点图文-小程序浏览图文-点2次图文领奖-小程序点2次图文
+          matches: ['@[vid="left_button"] <<n * +n * [text="恭喜获得"]'], //小程序点图文领奖-小程序点图文-小程序浏览图文-点2次图文领奖-小程序点2次图文
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 3,
           position: {
             left: 'width * 0.9083',
             top: 'width * 1.8279',
           },
-          matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'],//去玩游戏合成3次
+          matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'], //去玩游戏合成3次
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
@@ -797,7 +797,7 @@ export default defineGkdApp({
           activityIds: ['.ui.MainActivity'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -840,7 +840,7 @@ export default defineGkdApp({
           activityIds: ['.video.VideoPlayerActivity'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -879,7 +879,7 @@ export default defineGkdApp({
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -948,7 +948,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           action: 'back',
           matches: [
@@ -984,7 +984,7 @@ export default defineGkdApp({
           activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -1075,7 +1075,7 @@ export default defineGkdApp({
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3, 4, 5,7],
+          preKeys: [0, 1, 2, 3, 4, 5, 7],
           key: 7,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -1120,7 +1120,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -1169,7 +1169,7 @@ export default defineGkdApp({
           activityIds: ['.ui.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -1199,7 +1199,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',//浏览书城小说30s
+            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]', //浏览书城小说30s
           ],
           activityIds: ['.bdreader.ui.view.NovelMainActivity'],
         },
@@ -1207,7 +1207,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           matches: [
-            '@TextView[text=""][clickable=true] - TextView[clickable=true] < View -n * [text="游戏中心"]',//去逛逛游戏频道
+            '@TextView[text=""][clickable=true] - TextView[clickable=true] < View -n * [text="游戏中心"]', //去逛逛游戏频道
           ],
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
@@ -1215,7 +1215,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',//浏览短剧30s
+            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]', //浏览短剧30s
           ],
           activityIds: ['.playerlet.ui.ShortPlayServiceActivity'],
         },
@@ -1264,7 +1264,7 @@ export default defineGkdApp({
           activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
-          preKeys: [0, 1, 2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           matches: [
             '@View[text=""][clickable=true] > TextView[clickable=true] + [text="任务完成领奖"]',
