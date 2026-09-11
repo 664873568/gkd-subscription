@@ -4,6 +4,44 @@ export default defineGkdApp({
   id: 'com.sankuai.meituan',
   name: '美团',
   groups: [
+    {
+      key: 1,
+      name: '每日刮刮乐-去完成',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).getChild(1).text^="x"] + @[getChild(0).name$="ImageView"][clickable=true] + ImageView + ImageView',
+          ],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNBaseActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(0).getChild(1).text^="x"] + @ImageView + ImageView',
+          ],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNBaseActivity',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@ImageView - [text="明天不来奖励失效"]',
+          ],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNBaseActivity',
+          ],
+        },
+      ],
+    },
     //赚钱中心
     {
       key: 10,
