@@ -16,6 +16,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '@View[clickable=true] > [text="50元"] + [text="今日份数已用完"]',
+            '@TextView[clickable=true] + View > View > TextView',
           ],
           matches: [
             '@View[clickable=true] > [text="50元"] + [text="连续签到20天"] + [text="条件达成"]',
@@ -172,14 +173,11 @@ export default defineGkdApp({
       key: 6,
       name: '做任务-去完成-看广告视频领金币',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           excludeMatches: [
-            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
           actionDelay: 1000,
@@ -223,13 +221,16 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          anyMatches: [
             '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于15秒后发放"]',
+            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
+            '@[text="扭动/点击去玩小游戏提前拿奖"] <n LinearLayout < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
           key: 1,
+          actionDelay: 15000,
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
           ],
@@ -237,8 +238,10 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          matches: [
+          anyMatches: [
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text="已完成浏览10秒，提前获得奖励"]',
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text^="继续"][index=parent.childCount.minus(1)]',//继续畅玩微信小游戏-继续了解详情
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -246,30 +249,6 @@ export default defineGkdApp({
     },
     {
       key: 12,
-      name: '看视频-奖励将于+*秒+后发放',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="扭动/点击去玩小游戏提前拿奖"] <n LinearLayout < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="微信"][index=parent.childCount.minus(1)]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 13,
       name: '看视频-*秒后点击广告，即可获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -286,6 +265,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 15000,
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
           ],
