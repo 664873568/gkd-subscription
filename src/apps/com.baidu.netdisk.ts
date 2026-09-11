@@ -58,7 +58,7 @@ export default defineGkdApp({
           key: 1,
           excludeMatches: [
             '[text="5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
-            '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
+            '[text="确认兑换"] +n View[clickable=true] > [text="确定"]',
           ],
           matches: [
             '[getChild(0).getChild(0).text="99金币"] + [text="立即兑换"]',
@@ -99,7 +99,7 @@ export default defineGkdApp({
           key: 1,
           excludeMatches: [
             '[text="10元现金红包"] + @View[clickable=true] > [text="兑换并使用"]',
-            '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
+            '[text="确认兑换"] +n View[clickable=true] > [text="确定"]',
           ],
           matches: [
             '[getChild(0).getChild(0).text="2000金币"] + [text="立即兑换"]',
@@ -133,7 +133,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="我要加速领奖"] - ImageView < @RelativeLayout[clickable=true] <n * -n [text$="跳过"]',
+            '[text="跳过"] + * @RelativeLayout[clickable=true] > [text="我要加速领奖"]',
           ],
         },
         {
@@ -339,7 +339,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="web"] + [id="floatingBuyBar"]',
             'View - View - LinearLayout [id="web"] + [id="floatingBuyBar"]',
-            '[id="warp"] > [text="限时特惠"] +n [id="clickArea"]',
+            'WebView > [id="warp"][getChild(childCount.minus(1)).id="clickArea"] + View',
           ],
         },
       ],
@@ -500,11 +500,7 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '@ImageView < FrameLayout <n * < * + * [text="恭喜获得奖励"]',
-          ],
-        },
-        {
-          key: 2,
-          matches: [
+            '@ImageView < FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]',//免
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * [text="已完成浏览15秒，提前获得奖励"]',
           ],
         },
@@ -602,8 +598,52 @@ export default defineGkdApp({
         },
       ],
     },
+    //成长值任务
     {
-      key: 201,
+      key: 206,
+      name: '成长值任务-去完成',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '@[text="领取"][clickable=true]',
+            'View > View > @[text="是"][clickable=true]',
+            'View > View > @[text="我知道了"][clickable=true]',
+          ],
+          matches: [
+            '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys:[0],
+          key: 1,
+          matches: [
+            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]',//领取奖励-去看看会员福利日-去看看开学季特惠
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          matches: ['View > View > @[text="是"][clickable=true]'],//每日答题
+        },
+        {
+          preKeys: [0,2],
+          key: 3,
+          matches: ['View > View > @[text="我知道了"][clickable=true]'],//每日答题
+        },
+        {
+          key: 4,
+          matches: ['@[text="领取"][clickable=true]'],
+        },
+      ],
+    },
+    {
+      key: 207,
       name: '任务中心-开宝箱',
       matchRoot: true,
       matchDelay: 1000,
@@ -631,53 +671,14 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 202,
-      name: '成长值任务-每日答题',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-      rules: [
-        {
-          key: 0,
-          excludeMatches: ['@[text="领取"][clickable=true]'],
-          matches: ['[text="每日答题"] +8 @[text="去完成"][clickable=true]'],
-        },
-        {
-          key: 1,
-          matches: ['@[text="领取"][clickable=true]'],
-        },
-      ],
-    },
-    {
-      key: 203,
-      name: '成长值任务-做广告任务',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-      rules: [
-        {
-          key: 0,
-          excludeMatches: ['[text="做广告任务"] +8 @[text="领取"][clickable=true]'],
-          matches: ['[text="做广告任务"] +8 @[text="去完成"][clickable=true]'],
-        },
-        {
-          key: 1,
-          matches: ['[text="做广告任务"] +8 @[text="领取"][clickable=true]'],
-        },
-      ],
-    },
     //做任务赚积分
     //每日打卡领好礼
     {
-      key: 204,
+      key: 208,
       name: '每日打卡领好礼-去完成',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
         {
           matches: [
@@ -686,7 +687,7 @@ export default defineGkdApp({
           activityIds: [
             '.ui.cloudp2p.RichMediaActivity',
             '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-            ],
+          ],
         },
       ],
     },
@@ -696,10 +697,6 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        '.ui.cloudp2p.RichMediaActivity',
-        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-      ],
       rules: [
         {
           key: 0,
@@ -709,7 +706,13 @@ export default defineGkdApp({
           matches: [
             '[text="日常任务"] + [text^="观看广告视频"] +5 @[text="去完成"][clickable=true]',
           ],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
+      ],
+    },
     //日常任务
     {
       key: 210,
@@ -717,15 +720,15 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        '.ui.cloudp2p.RichMediaActivity',
-        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-      ],
       rules: [
         {
           key: 0,
           matches: [
             '[text="日常任务"] +n TextView[text!~="观看广告视频.*"] +5 @[text="去完成"][clickable=true]',
+          ],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
           ],
         },
         {
@@ -740,6 +743,7 @@ export default defineGkdApp({
             '[text="lingqujiangli"] < @View[text=""][clickable=true] + [desc="close"]',//去寻道砍树3次
             '[text="lingqujiangli"] < @View[text=""][clickable=true] - View [text="task-close"]',//奇妙赏
           ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
           key: 2,
@@ -771,7 +775,10 @@ export default defineGkdApp({
           matches: [
             '[text="最新AI功能"] + [text="云一朵文件智能整理"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -811,7 +818,10 @@ export default defineGkdApp({
           matches: [
             '[text="最新AI功能"] + [text="体验AI笔记"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -825,7 +835,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           matches: [
-            '[text="选视频生成ai笔记"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] -n * @LinearLayout[clickable=true] >n [text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
+            '[getChild(1).getChild(2).text="选视频生成ai笔记"] -n * @LinearLayout[clickable=true] >n [text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
           ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
@@ -854,7 +864,10 @@ export default defineGkdApp({
           matches: [
             '[text="最新AI功能"] + [text^="体验AI"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -889,7 +902,10 @@ export default defineGkdApp({
           matches: [
             '[text="最新AI功能"] + [text="体验AI"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -954,7 +970,10 @@ export default defineGkdApp({
           matches: [
             '[text="最新AI功能"] + [text="体验AI照相馆"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -986,7 +1005,10 @@ export default defineGkdApp({
           matches: [
             '[text="最新AI功能"] + [text="去体验错题收集"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -1074,7 +1096,10 @@ export default defineGkdApp({
           matches: [
             '[text="最新AI功能"] + [text="去体验拍题解题"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -1119,7 +1144,10 @@ export default defineGkdApp({
           matches: [
             '[text="功能任务"] + [text="去刷一刷首页"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -1136,7 +1164,7 @@ export default defineGkdApp({
             duration: 1000,
           },
           matches: [
-            '@[vid="refresh_layout"] > [vid="sticky_nested_layout"] > [vid="stickyContentView"]',
+            '@[vid="home25ai_content"] >n [vid="refresh_layout"] > [vid="sticky_nested_layout"] > [vid="stickyContentView"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
@@ -1162,7 +1190,10 @@ export default defineGkdApp({
           matches: [
             '[text="功能任务"] + TextView +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -1202,7 +1233,10 @@ export default defineGkdApp({
           matches: [
             '[text="功能任务"] + [text="去体验云打印"] +5 @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -1594,6 +1628,8 @@ export default defineGkdApp({
           ],
           activityIds: [
             '.ui.MainActivity',
+            '.ui.cloudp2p.RichMediaActivity',
+            '.aigc.ui.activity.AigcChatActivity',
             '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
           ],
         },
