@@ -22,10 +22,10 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           matches: [
-            'text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
+            '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
           ],
         },
       ],
