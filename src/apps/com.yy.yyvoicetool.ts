@@ -104,7 +104,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           action: 'back',
-          matches: ['@ComposeView > [desc="删除"] + [text="取消"]'], //去搜索热门频道
+          matches: ['@ComposeView >n [desc="删除"] + [text="取消"]'], //去搜索热门频道
         },
       ],
     },
