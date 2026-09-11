@@ -89,7 +89,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 13,
       name: '迅雷-已获得奖励-看广告',
       matchRoot: true,
       actionMaximum: 1,
