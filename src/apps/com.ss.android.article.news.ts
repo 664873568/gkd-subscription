@@ -20,12 +20,15 @@ export default defineGkdApp({
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           matches: [
             '[text="确定要离开？"] +n @[getChild(0).text="仍然离开"][clickable=true] + [getChild(0).text="继续观看"][clickable=true]',
           ],
-          activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity','null'],
+          activityIds: [
+            'com.ss.android.ugc.detail.activity.TikTokActivity',
+            'null',
+          ],
         },
       ],
     },
