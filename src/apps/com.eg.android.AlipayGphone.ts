@@ -342,6 +342,44 @@ export default defineGkdApp({
         },
       ],
     },
+    //25.06.01 菜鸟-每日现金任务
+    {
+      key: 80,
+      name: '菜鸟-每日现金任务',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 1000,
+          anyMatches: [
+            '@View[getChild(0).getChild(0).text="0.12元"&&getChild(1).getChild(0).text="现金"]',
+            'View > @[text="0.01元"][index=0] + TextView',
+          ],
+        },
+        {
+          key: 1,
+          actionDelay: 4000,
+          matches: [
+            '@[desc="返回"][clickable=true] < RelativeLayout <n * - * [text~="前往菜鸟APP|打开淘宝闪购"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          actionDelay: 5000,
+          matches: [
+            '[id$="penetrableLinearLayout_container"] > [id$="relativeLayout_content"] > @[desc="返回"][clickable=true] > [id$="auiconView_backButton"] > [text=""]',
+          ],
+        },
+        {
+          key: 3,
+          matches: ['View > @[text="领奖"] + TextView'],
+        },
+      ],
+    },
     //冲鸭攒话费
     {
       key: 30,
@@ -1020,44 +1058,6 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).text="恭喜获得"] + @[text="关闭"][clickable=true]',
           ],
-        },
-      ],
-    },
-    //菜鸟-每日现金任务
-    {
-      key: 80,
-      name: '菜鸟-每日现金任务',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 1000,
-          anyMatches: [
-            '@View[getChild(0).getChild(0).text="0.12元"&&getChild(1).getChild(0).text="现金"]',
-            'View > @[text="0.01元"][index=0] + TextView',
-          ],
-        },
-        {
-          key: 1,
-          actionDelay: 4000,
-          matches: [
-            '@[desc="返回"][clickable=true] < RelativeLayout <n * - * [text="前往菜鸟APP|打开淘宝闪购"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          actionDelay: 5000,
-          matches: [
-            '[id$="penetrableLinearLayout_container"] > [id$="relativeLayout_content"] > @[desc="返回"][clickable=true] > [id$="auiconView_backButton"] > [text=""]',
-          ],
-        },
-        {
-          key: 3,
-          matches: ['View > @[text="领奖"] + TextView'],
         },
       ],
     },
