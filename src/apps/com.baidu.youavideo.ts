@@ -18,6 +18,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '@[text="已兑完"][vid="tv_first_hint"] - [vid="ll_item_point_bg"] > [text="50元"][vid="tv_money"]',
+            '@[text="确认兑换"][vid="single_confirm_button"][clickable=true] <n [vid="bottom_one_button_layout"] -n * [text="确定要兑换50元现金吗？"][vid="title"]',
           ],
           matches: [
             '@[text="立即兑现"][vid="tv_point_exchange"][clickable=true] -n [text="50元"][vid="tv_money"]',
@@ -94,9 +95,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'View > @View[getChild(0).text~="去.*|打开.*|前往.*"][clickable=true] > [text="去完成"]',
+          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*"][clickable=true] > [text="分享一个相册"] +n [text="去完成"]',
+            'View > @View[getChild(0).text="分享一个相册"][clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -142,9 +146,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|分享.*"][clickable=true] > [text="去完成"]',
+          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|分享.*"][clickable=true] > [text="创建一个新相册"] +n [text="去完成"]',
+            'View > @View[getChild(0).text="创建一个新相册"][clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -185,9 +192,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册"][clickable=true] > [text="去完成"]',
+          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册"][clickable=true] > [text="制作并保存「春日」vlog"] +n [text="去完成"]',
+            'View > @View[getChild(0).text="制作并保存「春日」vlog"][clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -269,9 +279,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册|.*vlog"][clickable=true] > [text="去完成"]',
+          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册|.*vlog"][clickable=true] > [text="制作照片卡点视频"] +n [text="去完成"]',
+            'View > @View[getChild(0).text="制作照片卡点视频"][clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -342,9 +355,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册|制作.*"][clickable=true] > [text="去完成"]',
+          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册|制作.*"][clickable=true] > [text="体验智能清理"] +n [text="去完成"]',
+            'View > @View[getChild(0).text="体验智能清理"][clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -374,9 +390,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*"][clickable=true] > [text="去完成"]',
+          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*"][clickable=true] > [text="老照片修复跨越时空"] +n [text="去完成"]',
+            'View > @View[getChild(0).text="老照片修复跨越时空"][clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -401,9 +420,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*|.*时空"][clickable=true] > [text="去完成"]',
+          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text!~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*|.*时空"][clickable=true] > [text="浏览社区5s"] +n [text="去完成"]',
+            'View > @View[getChild(0).text="浏览社区5s"][clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -945,26 +967,6 @@ export default defineGkdApp({
     //首页功能类
     {
       key: 400,
-      name: '备份', //一键备份|一键开始原画质备份
-      matchRoot: true,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          anyMatches: [
-            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]',
-            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]',
-          ],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 401,
       name: '立即升级',
       matchRoot: true,
       actionMaximum: 1,
@@ -985,7 +987,68 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 401,
+      name: '评价-下次再说',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="你喜欢使用无限空间随心备份吗？"][vid="tv_title"] +n @[text="下次再说"][vid="tv_next_time"][clickable=true]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
       key: 402,
+      name: '首页全新视图更清晰-我知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="我知道了"][vid="text_confirm"] -n @[vid="iv_close"][clickable=true] - [vid="hs_root"] [text="首页全新视图更清晰"][vid="tv_title"]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 403,
+      name: '备份',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          anyMatches: [
+            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]',//一键备份
+            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]',//一键开始原画质备份
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 404,
       name: '开启自动备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -1007,7 +1070,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 403,
+      key: 405,
       name: '极速备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -1027,8 +1090,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 404,
-      name: '评价-下次再说',
+      key: 406,
+      name: '同时开启双重保障-暂不考虑',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1036,27 +1099,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="你喜欢使用无限空间随心备份吗？"][vid="tv_title"] +n @[text="下次再说"][vid="tv_next_time"][clickable=true]',
-          ],
-          activityIds: [
-            '.app.ui.SplashActivity',
-            '.home.view.HomeActivity',
-            '.vip.ui.VipWebActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 405,
-      name: '首页全新视图更清晰-我知道了',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: [
-            '[text="我知道了"][vid="text_confirm"] -n @[vid="iv_close"][clickable=true] - [vid="hs_root"] [text="首页全新视图更清晰"][vid="tv_title"]',
+            '[text="同时开启双重保障"][vid="dialog_title"] +n @[vid="dialog_white_button"][clickable=true] + [text="暂不考虑"][vid="dialog_white_text"] + [vid="dialog_blue_button"] + [text="立即开启"][vid="dialog_blue_text"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
