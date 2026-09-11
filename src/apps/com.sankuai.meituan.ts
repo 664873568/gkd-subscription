@@ -16,9 +16,7 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).getChild(1).text^="x"] + @[getChild(0).name$="ImageView"][clickable=true] + ImageView + ImageView',
           ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNBaseActivity',
-          ],
+          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
         },
         {
           preKeys: [0],
@@ -26,19 +24,13 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).getChild(1).text^="x"] + @ImageView + ImageView',
           ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNBaseActivity',
-          ],
+          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@ImageView - [text="明天不来奖励失效"]',
-          ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNBaseActivity',
-          ],
+          matches: ['@ImageView - [text="明天不来奖励失效"]'],
+          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
         },
       ],
     },
