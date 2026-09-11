@@ -1036,8 +1036,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]',//一键备份
-            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]',//一键开始原画质备份
+            '@[vid="iv_close"][clickable=true] +n [vid="tv_backup"]', //一键备份
+            '@[vid="iv_close"][clickable=true] - [text="选择备份模式"]', //一键开始原画质备份
           ],
           activityIds: [
             '.app.ui.SplashActivity',
