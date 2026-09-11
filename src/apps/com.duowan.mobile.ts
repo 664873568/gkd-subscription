@@ -241,7 +241,7 @@ export default defineGkdApp({
           anyMatches: [
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text="已完成浏览10秒，提前获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text^="继续"][index=parent.childCount.minus(1)]',//继续畅玩微信小游戏-继续了解详情
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text^="继续"][index=parent.childCount.minus(1)]', //继续畅玩微信小游戏-继续了解详情
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
