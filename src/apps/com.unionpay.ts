@@ -41,6 +41,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="root-router-view"] >n @[text="签到成功"][clickable=true]',
             '[id="root-router-view"] >n @[text="去抽奖"][clickable=true]',
+            '[id="root-router-view"] >n @[text="领取"][clickable=true]',
             'Image + * > @[text="去抽奖"][clickable=true] + TextView[clickable=true]',
           ],
         },
