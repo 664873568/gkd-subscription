@@ -10,6 +10,7 @@ export default defineGkdApp({
       name: '每日福利-免费红包',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -32,9 +33,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@[text="去完成"][clickable=true] -2 [text~="看[0-9]+个广告得1个红包 （[0-9]+/[0-9]+）"]',
-            '@[text="继续看"][clickable=true] -2 [text~="看[0-9]+个广告得1个红包 （[0-9]+/[0-9]+）"]',
+          matches: [
+            '@[text~="去完成|继续看"][clickable=true] -2 [text~="看[0-9]+个广告得1个红包 （[0-9]+/[0-9]+）"]',
           ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
@@ -43,9 +43,8 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          anyMatches: [
-            '@ImageView[clickable=true] - [text="广告"] - * [text="已完成任务"]',
-            '@ImageView[clickable=true] - [text="广告"] - * [text="已领取1金币"]',
+          matches: [
+            '@ImageView[clickable=true] - [text="广告"] - * [text~="已完成任务|已领取1金币"]',
           ],
           activityIds: [
             'com.baidu.nadcore.lp.reward.NadRewardVideoActivity',
@@ -74,10 +73,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '@[text~="去完成|继续看"][clickable=true] -2 [text~="看[0-9]+个广告得1个红包 （[0-9]+/[0-9]+）"]',
+          ],
           actionDelay: 1000,
-          anyMatches: [
-            '@[text="去完成"][clickable=true] -2 [text="看[0-9]+个视频得1个红包 （[0-9]+/[0-9]+）"]',
-            '@[text="继续看"][clickable=true] -2 [text~="看[0-9]+个视频得1个红包 （[0-9]+/[0-9]+）"]',
+          matches: [
+            '@[text~="去完成|继续看"][clickable=true] -2 [text~="看[0-9]+个视频得1个红包 （[0-9]+/[0-9]+）"]',
           ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
@@ -85,7 +86,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          action: 'swipe',
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -126,10 +126,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '@[text~="去完成|继续看"][clickable=true] -2 [text~="看[0-9]+个.*得1个红包 （[0-9]+/[0-9]+）"]',
+          ],
           actionDelay: 2000,
-          anyMatches: [
-            '@[text="去完成"][clickable=true] -2 [text="看[0-9]+分钟视频得1个红包"]',
-            '@[text="继续看"][clickable=true] -2 [text="看[0-9]+分钟视频得1个红包"]',
+          matches: [
+            '@[text~="去完成|继续看"][clickable=true] -2 [text="看[0-9]+分钟视频得1个红包"]',
           ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
@@ -137,7 +139,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          action: 'swipe',
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -173,7 +174,7 @@ export default defineGkdApp({
       key: 14,
       name: '每日福利-开红包',
       matchRoot: true,
-      matchDelay: 3000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
@@ -189,6 +190,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '@[text="开心收下"][clickable=true] < * -n * [text="恭喜获得现金红包"]',
           ],
@@ -215,7 +217,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
           matches: ['@FrameLayout[clickable=true] >n [text="领取奖励"]'],
           activityIds: [
             'com.baidu.searchbox.video.feedflow.tab.VideoTabActivity',
@@ -278,7 +279,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '升级-×',
+      name: '立即升级-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -292,30 +293,15 @@ export default defineGkdApp({
     },
     {
       key: 49,
-      name: '广告-×',
+      name: '累计获得-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
+      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: [
-            'ImageView[clickable=true] + [text="累计获得"] +n * > @CheckBox[clickable=true] + [text="不再提示"]',
-          ],
-          activityIds: [
-            'com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@ImageView[clickable=true] + [text="累计获得"] +n * > CheckBox[clickable=true] + [text="不再提示"]',
-          ],
-          activityIds: [
-            'com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity',
-          ],
+          matches: ['@ImageView[clickable=true] + [text="累计获得"]'],
+          activityIds: ['com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity'],
         },
       ],
     },
