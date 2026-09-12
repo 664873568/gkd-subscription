@@ -65,7 +65,7 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '[text="飞猪订酒店 真划算"] >n @[text^="O1CN01rnXVgw22mFh20KuMa"]',//任意点击一个酒店
+            '[text="飞猪订酒店 真划算"] >n @[text^="O1CN01rnXVgw22mFh20KuMa"]', //任意点击一个酒店
           ],
         },
       ],
