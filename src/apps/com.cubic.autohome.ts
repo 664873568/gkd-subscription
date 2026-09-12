@@ -7,6 +7,22 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
+      name: '个人信息保护指引-同意并继续',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="个人信息保护指引"][vid="title"] < [vid="dialog_title_content"] + [vid="btn_layout"] >n @[text="同意并继续"][vid="rightBtn"][clickable=true]',
+          ],
+          activityIds: ['.LogoActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
       name: '开启通知-×',
       matchRoot: true,
       actionMaximum: 1,
