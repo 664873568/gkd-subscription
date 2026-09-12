@@ -18,9 +18,7 @@ export default defineGkdApp({
             '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
             '[text="短信验证码"] + View > View + [text="获取验证码"]',
           ],
-          matches: [
-            '[getChild(0).text="10元话费"] + View > [text="兑换"]',
-          ],
+          matches: ['[getChild(0).text="10元话费"] + View > [text="兑换"]'],
         },
         {
           preKeys: [0],
@@ -30,11 +28,9 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '[text="短信验证码"] + View > View + [text="获取验证码"]',
-          ],
+          matches: ['[text="短信验证码"] + View > View + [text="获取验证码"]'],
         },
       ],
     },
@@ -64,11 +60,9 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '[text="短信验证码"] + View > View + [text="获取验证码"]',
-          ],
+          matches: ['[text="短信验证码"] + View > View + [text="获取验证码"]'],
         },
       ],
     },
