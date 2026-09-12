@@ -53,6 +53,22 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
+            '[text="欢迎使用快手极速版"][vid="title"] +n [vid="button"] > @[text="同意并继续"][vid="positive"][clickable=true]',
+          ],
+          activityIds: ['com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '打开推送通知-忽略',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
             '[text="打开推送通知"][vid="title"] +n * >n @[text="忽略"][vid="negative"][clickable=true] +n [text="去打开"][vid="positive"]',
           ],
           activityIds: ['com.yxcorp.gifshow.detail.PhotoDetailActivity'],
@@ -60,7 +76,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 42,
       name: '版本更新-×',
       matchRoot: true,
       actionMaximum: 1,
