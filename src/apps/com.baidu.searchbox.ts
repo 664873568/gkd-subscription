@@ -65,7 +65,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '升级-关闭',
+      name: '发送通知-不允许',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
