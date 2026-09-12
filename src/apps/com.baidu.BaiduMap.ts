@@ -671,7 +671,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] +n [text="反馈"]',//二级广告页
+            'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] +n [text="反馈"]', //二级广告页
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
