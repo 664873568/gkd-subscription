@@ -18,7 +18,7 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).text="个人信息保护指引"] + LinearLayout > [text="不同意"] + @[text="同意"][clickable=true]',
           ],
-          activityIds: ['com.sup.android.base.MainActivity'],
+          activityIds: ['null'],
         },
       ],
     },
