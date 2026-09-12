@@ -102,6 +102,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 4,
+      name: '天天领现金-一键领取',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          excludeMatches: [
+            '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费"] + View > [text="去完成"]',
+          ],
+          matches: [
+            '[getChild(0).getChild(1).text="天天领现金"] + View > View > @ImageButton[clickable=true]',
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+      ],
+    },
     //首页功能类
     {
       key: 40,
