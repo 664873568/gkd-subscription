@@ -13,6 +13,7 @@ export default defineGkdApp({
       activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
       rules: [
         {
+          key: 0,
           actionDelay: 5000,
           anyMatches: [
             '@[desc="返回"][clickable=true] <<n * - MeasureOnceRelativeLayout2 [text="登录领钱"]',
