@@ -85,6 +85,21 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 400,
+      name: '用户协议及隐私政策-同意并进入',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['[text="用户协议及隐私政策"] +n * @LinearLayout[clickable=true] > [text="同意并进入"]'],
+          activityIds: ['.activity.MainActivity'],
+        },
+      ],
+    },
     //看视频-.commercialization.splash.GeneralAdSplashActivity
     {
       key: 498,
