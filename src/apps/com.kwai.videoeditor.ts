@@ -95,7 +95,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['[text="用户协议及隐私政策"] +n * @LinearLayout[clickable=true] > [text="同意并进入"]'],
+          matches: [
+            '[text="用户协议及隐私政策"] +n * @LinearLayout[clickable=true] > [text="同意并进入"]',
+          ],
           activityIds: ['.activity.MainActivity'],
         },
       ],
