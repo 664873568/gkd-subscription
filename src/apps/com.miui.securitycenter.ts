@@ -4,6 +4,7 @@ export default defineGkdApp({
   id: 'com.miui.securitycenter',
   name: '安全服务/手机管家',
   groups: [
+    //请用指纹解锁
     {
       key: 0,
       name: '请用指纹解锁',
@@ -53,7 +54,25 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '请用指纹解锁-用于打开*',
+      name: '请用指纹解锁-用于打开浏览器',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '[text="用于打开浏览器"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
+          ],
+          activityIds: ['com.miui.applicationlock.AppLockActivity'],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '请用指纹解锁-用于打开小米云服务',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -62,14 +81,32 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '[text~="用于打开小米云服务|用于打开快应用服务框架|用于打开浏览器"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
+            '[text="用于打开小米云服务"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
           activityIds: ['com.miui.applicationlock.AppLockActivity'],
         },
       ],
     },
     {
-      key: 4,
+      key: 5,
+      name: '请用指纹解锁-用于打开快应用服务框架',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 15000,
+          matches: [
+            '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
+          ],
+          activityIds: ['com.miui.applicationlock.AppLockActivity'],
+        },
+      ],
+    },
+    {
+      key: 6,
       name: '请用指纹解锁-用于打开微信',
       matchRoot: true,
       actionMaximum: 1,
@@ -96,8 +133,9 @@ export default defineGkdApp({
         },
       ],
     },
+    //启动应用
     {
-      key: 5,
+      key: 10,
       name: '启动应用-拒绝',
       matchRoot: true,
       actionMaximum: 1,
@@ -114,7 +152,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 11,
       name: '启动应用-拒绝-京东/金融',
       matchRoot: true,
       actionMaximum: 1,
@@ -130,7 +168,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 12,
       name: '启动应用-本次允许-京东金融',
       matchRoot: true,
       actionMaximum: 1,
@@ -147,7 +185,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 13,
       name: '启动应用-拒绝-抖音',
       matchRoot: true,
       actionMaximum: 1,
@@ -164,7 +202,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 9,
+      key: 14,
       name: '启动应用-拒绝-支付宝',
       matchRoot: true,
       actionMaximum: 1,
@@ -181,7 +219,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 10,
+      key: 15,
       name: '启动应用-拒绝-中国移动',
       matchRoot: true,
       actionMaximum: 1,
@@ -197,7 +235,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 16,
       name: '启动应用-拒绝-一刻相册',
       matchRoot: true,
       actionMaximum: 1,
