@@ -562,7 +562,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: ['@View[clickable=true] > [text="back"]'],
         },
@@ -606,7 +606,7 @@ export default defineGkdApp({
           activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionDelay: 60000,
           matches: ['@[text="退出"][clickable=true]'],
@@ -965,11 +965,9 @@ export default defineGkdApp({
           matches: ['@[text~="摇黄金 x[1-9]"][clickable=true]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@[text="开心收下"][clickable=true]',
-          ],
+          matches: ['@[text="开心收下"][clickable=true]'],
         },
       ],
     },
