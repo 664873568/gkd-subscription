@@ -301,7 +301,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@ImageView[clickable=true] + [text="累计获得"]'],
-          activityIds: ['com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity'],
+          activityIds: [
+            'com.baidu.searchbox.home.taskguide.RedPacketTaskGuideActivity',
+          ],
         },
       ],
     },
