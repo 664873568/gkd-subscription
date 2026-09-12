@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '中国电信湖北客服-星币兑好礼',
+      name: '中国电信湖北客服-星币兑好礼-10元话费',
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -16,9 +16,10 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
+            '[text="短信验证码"] + View > View + [text="获取验证码"]',
           ],
           matches: [
-            '[getChild(0).text~="5元翼支付权益金|10元话费"] + View > [text="兑换"]',
+            '[getChild(0).text="10元话费"] + View > [text="兑换"]',
           ],
         },
         {
@@ -26,6 +27,47 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[text="短信验证码"] + View > View + [text="获取验证码"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '中国电信湖北客服-星币兑好礼-5元翼支付权益金',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
+            '[text="短信验证码"] + View > View + [text="获取验证码"]',
+          ],
+          matches: [
+            '[getChild(0).text="5元翼支付权益金"] + View > [text="兑换"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '[text="短信验证码"] + View > View + [text="获取验证码"]',
           ],
         },
       ],
