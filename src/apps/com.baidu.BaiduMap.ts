@@ -179,6 +179,12 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
+            '[id="lottieDom"] > View > @View[clickable=true] > [text="立即翻倍"]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
             '[text="恭喜获得收益翻倍卡"] + [text="明天再来可翻倍今日收益"] +n @View[clickable=true] > [text="明日来翻倍"]',
           ],
         },
@@ -1240,7 +1246,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="立即领取奖励"][clickable=true] <<n * -n * > [text="反馈"] + [id="close_btn"] > [text="跳过"]',
+            '@[text="立即领取奖励"][clickable=true] <<n * -n * > [id="close_btn"] > [text="跳过"] -n [text~="[0-9]+"]',
           ],
         },
         {
