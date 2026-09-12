@@ -73,7 +73,7 @@ export default defineGkdApp({
             '[getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
           ],
           matches: [
-            '@[text="去完成"] -n [text~="[0-9]{3,}"] <n View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] < [id^="J-task-item"] <n [id="task-loader"]',
+            '[id="task-loader"] >n [id^="J-task-item"] > @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
           ],
         },
         {
@@ -196,22 +196,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > View > Image',
-          ],
-          matches: [
-            '[id="lucky-wheel-entry"] > [text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]',
-          ],
-        },
-        {
-          key: 1,
           anyMatches: [
             '[text~="看视频得次数 \\\\([0-9]/10\\\\)"] + [text="完成视频任务得1次抽奖机会"] + @[text="去完成"][clickable=true]',
             '[text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
           ],
         },
         {
-          key: 2,
+          key: 1,
           excludeMatches: [
             '[text~="看视频得次数 \\\\([0-9]/10\\\\)"] + [text="完成视频任务得1次抽奖机会"] + @[text="去完成"][clickable=true]',
             '[text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
@@ -221,7 +212,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
+          key: 2,
           anyMatches: [
             '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="再抽一次"]',
             '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="去做任务赚次数"]',
@@ -242,16 +233,6 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="lucky-wheel-entry"] > [text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]',
-          ],
-          action: 'none',
-          matches: [
-            '[id="J-redPacket"] > [getChild(0).text="开红包领现金"] + [text="大额红包开不停 每个红包都有钱"] + @[text="去完成"][clickable=true]',
-          ],
-        },
-        {
-          key: 1,
-          excludeMatches: [
             '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
           ],
           actionDelay: 3000,
@@ -262,7 +243,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
+          key: 1,
           excludeMatches: [
             '[text="开红包领现金"] >n [text="邀请1位好友"] + @ImageButton[clickable=true]',
             '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
@@ -287,7 +268,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="lucky-wheel-entry"] > [text="天天赢大奖"] +n @[text="去抽奖"][clickable=true]',
+            '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text="免费抽奖"]',
           ],
           actionDelay: 3000,
           matches: [
