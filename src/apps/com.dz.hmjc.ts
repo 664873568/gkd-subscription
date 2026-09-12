@@ -50,7 +50,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '青少年模式',
+      name: '欢迎使用河马剧场-同意',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -58,7 +58,23 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="我知道了"][vid="tv_determine"][clickable=true] -3 [text="青少年模式"][vid="tv_title"]',
+            '[text="欢迎使用河马剧场"][vid="tv_title"] +n [text="不同意"][vid="btn_refuse"] + @[text="同意"][vid="btn_agree"][clickable=true]',
+          ],
+          activityIds: ['com.dz.business.main.ui.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '青少年模式-我知道了',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="青少年模式"][vid="tv_title"] +n @[text="我知道了"][vid="tv_determine"][clickable=true]',
           ],
           activityIds: ['com.dz.business.main.ui.MainActivity'],
         },
