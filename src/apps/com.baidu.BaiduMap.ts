@@ -669,6 +669,16 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
+          matches: [
+            'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] +n [text="反馈"]',//二级广告页
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
+          ],
+        },
+        {
+          key: 1,
           matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
