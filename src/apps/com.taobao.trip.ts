@@ -159,7 +159,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@[vid="sdm_myoffer_btn_close_id"] <<n * -n * [vid="sdm_myoffer_tv_reward_tips_icon_id"] + [text~="剩余 0s"][vid="sdm_myoffer_tv_reward_tips_id"]',
+            '@[vid="sdm_myoffer_btn_countdown_close_id"][clickable=true] < LinearLayout - * [text="已获得奖励"][vid="sdm_myoffer_tv_reward_tips_id"]',
           ],
         },
       ],
