@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     //功能应用类
     {
-      key: 50,
+      key: 40,
       name: '欢迎使用QQ阅读-同意',
       matchRoot: true,
       actionMaximum: 1,
