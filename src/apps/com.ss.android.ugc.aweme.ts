@@ -217,7 +217,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          action: 'swipe',
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -267,6 +266,13 @@ export default defineGkdApp({
         },
         {
           key: 6,
+          matches: [
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView + ViewGroup', //恭喜预约成功×
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          key: 7,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView', //恭喜获得惊喜奖励×
           ],
