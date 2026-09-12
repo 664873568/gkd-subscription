@@ -642,7 +642,7 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '@RelativeLayout[clickable=true] <<n FrameLayout + FrameLayout + FrameLayout',
+            'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
           ],
         },
       ],
