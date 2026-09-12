@@ -48,6 +48,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: ['[text="签到"]'],
           matches: [
             'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"&&getChild(2).text!^="已领"] + [text!~="去中国移动逛逛"]',
           ],
