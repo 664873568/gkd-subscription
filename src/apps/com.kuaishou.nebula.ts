@@ -45,7 +45,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '打开推送通知-忽略',
+      name: '欢迎使用快手极速版-同意并继续',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
