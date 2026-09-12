@@ -580,21 +580,26 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          anyMatches: [
-            '@[text="32b391f8609869b1"]',
-            '@[text=""] - [text="恭喜获得限时奖励"]',
-            '@[text="恭喜获得奖励"] < * + * >n [text="惊喜福利"]',
-            '@[text="继续播放视频内容"] -n * [text="跳两步有机会获得奖励"]',
-            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]', //恭喜获得膨胀优惠券
-            '@[text="7b144c81c2cb181f"] < * - * >n [text="恭喜获得奖励"] + [text="惊喜福利"]',
-            '@[text="7b144c81c2cb181f"] < * - * >n [text~="恭喜获得[0-9]+(\\\\.[0-9]+)?元红包"]',
+          actionDelay: 15000,
+          matches: [
+            'ImageView[clickable=true] + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
           ],
         },
         {
           key: 2,
           anyMatches: [
+            '@[text="32b391f8609869b1"]',
+            '@[text=""] - [text="恭喜获得限时奖励"]',
             '@Image < * +n [text="限时奖励点击领取"]',
+            '@[text="恭喜获得奖励"] < * + * >n [text="惊喜福利"]',
             '@[text="3ca6ab446dec1c57"] < * + * [text="恭喜获得优惠券"]',
+            '@[text="继续播放视频内容"] -n * [text="跳两步有机会获得奖励"]',
+            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]', //恭喜获得膨胀优惠券
+            '@[text="7b144c81c2cb181f"] < * - * >n [text="恭喜获得奖励"] + [text="惊喜福利"]',
+            '@[text="7b144c81c2cb181f"] < * - * >n [text~="恭喜获得[0-9]+(\\\\.[0-9]+)?元红包"]',
           ],
         },
         {
@@ -610,7 +615,7 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionCd: 5000,
+          actionCd: 1000,
           matches: [
             '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] > [id="app"] > @[id="_scrollView"][childCount>1]',
           ],
@@ -620,7 +625,7 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          actionCd: 5000,
+          actionCd: 1000,
           matches: [
             '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] > [id="app"] > [id="_scrollView"][childCount=1] >n @TextView',
           ],
