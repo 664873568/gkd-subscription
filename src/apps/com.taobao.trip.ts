@@ -7,20 +7,6 @@ export default defineGkdApp({
     //天天集能量-.splash.ui.ImageSplashActivity
     {
       key: 0,
-      name: '首页-能量红包',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="能量红包"] <<n * [text="首页"]'],
-          activityIds: ['.home.HomeActivity'],
-        },
-      ],
-    },
-    {
-      key: 1,
       name: '天天集能量-天降惊喜-x',
       matchRoot: true,
       actionMaximum: 1,
@@ -29,61 +15,63 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text^="O1CN016QjBQ71TI0eIdtVRX"] <<n [text="天天集能量"]',
+            '[text="天天集能量"] >n @View[clickable=true] > [text^="O1CN016QjBQ71TI0eIdtVRX"]',
           ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '天天集能量-惊喜任务',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            'View > View > [text="下载并浏览APP10秒得奖励"] + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[text="取消"][clickable=true] + [text="打开"][clickable=true]', //*已安装完成，是否立即打开？
+          ],
+        },
+        {
+          key: 2,
+          matches: ['View > View > @[text="领取奖励"][clickable=true]'],
         },
       ],
     },
     {
       key: 2,
-      name: '天天集能量-取消',
+      name: '天天集能量-看视频领现金',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
       rules: [
         {
+          key: 0,
           matches: [
-            '@[text="取消"][clickable=true] + [text="打开"][clickable=true]',
-          ], //*已安装完成，是否立即打开？
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+            '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册会员领现金|找10次抽奖券|逛中国移动"]',
+          ],
         },
-      ],
-    },
-    {
-      key: 3,
-      name: '天天集能量-领取奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="领取奖励"] <<n [text="天天集能量"]'],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '天天集能量-任意点击一个酒店',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
           action: 'back',
           matches: [
-            '@[text^="O1CN01rnXVgw22mFh20KuMa"] <<n [text="飞猪订酒店 真划算"]',
+            '[text="飞猪订酒店 真划算"] >n @[text^="O1CN01rnXVgw22mFh20KuMa"]',//任意点击一个酒店
           ],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
     },
     {
-      key: 5,
+      key: 7,
       name: '天天集能量-浏览APP返回页',
       matchRoot: true,
       actionMaximum: 1,
@@ -158,15 +146,21 @@ export default defineGkdApp({
       key: 11,
       name: '天天集能量-首页广告-礼包-剩余*s-×',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.smartdigimkt.sdk.basead.ui.ATPortraitActivity'],
       rules: [
         {
+          key: 0,
           matches: [
-            '@[vid="sdm_myoffer_btn_close_id"] <<n * -n * [vid="sdm_myoffer_tv_reward_tips_icon_id"] + [text~="剩余 [0-9]+s"][vid="sdm_myoffer_tv_reward_tips_id"]',
+            '@[text="免看本次广告"][vid="sdm_myoffer_inctask_cta"] <<n * +n * [text~="剩余 [0-9]+s"][vid="sdm_myoffer_tv_reward_tips_id"]',
           ],
-          activityIds: ['com.smartdigimkt.sdk.basead.ui.ATPortraitActivity'],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[vid="sdm_myoffer_btn_close_id"] <<n * -n * [vid="sdm_myoffer_tv_reward_tips_icon_id"] + [text~="剩余 0s"][vid="sdm_myoffer_tv_reward_tips_id"]',
+          ],
         },
       ],
     },
@@ -263,6 +257,58 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 31,
+      name: '看视频-跳过-礼包-*s后可领取奖励',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="我要加速领奖"] <n @RelativeLayout[clickable=true] <n RelativeLayout -n [text="跳过"]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+        {
+          key: 1,
+          matches: [
+            '@ImageView[clickable=true] +n View[clickable=true] + [text="取消下载"]',
+            //'ImageView[clickable=true] +n @View[clickable=true] + [text="取消下载"]',//立即下载
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.BdShellActivity'],
+        },
+        {
+          key: 2,
+          matches: [
+            '[text="确认要放弃本次加速机会吗？"] +n @[text="残忍离开"][clickable=true]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+        {
+          key: 3,
+          matches: [
+            '[text="该视频提到的内容是"] +n RelativeLayout > @[text="番茄音乐（原"][clickable=true]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+        {
+          key: 4,
+          matches: [
+            '@[text="跳过"][clickable=true] <n RelativeLayout >n [text="已领取奖励"]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+        {
+          key: 5,
+          matches: [
+            '@ImageView[clickable=true] - RelativeLayout > RelativeLayout > ImageView + [text="已领取奖励"]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+      ],
+    },
     //看视频-com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity
     {
       key: 40,
@@ -291,12 +337,25 @@ export default defineGkdApp({
           key: 0,
           anyMatches: [
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="立即前往"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="立即前往"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="我要立即领奖"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
         },
         {
           key: 1,
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          anyMatches: [
+            '[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(0).text="惊喜福利"]',
+            '[getChild(1).text="上滑或点击领取"] + [getChild(0).text="恭喜获得限时奖励"] > TextView[index=parent.childCount.minus(1)]',
+          ],
+        },
+        {
+          key: 2,
+          anyMatches: [
+            '@[text$="跳过"] -n [text="奖励已领取"]',
+            '@[text="跳过"] <<n * - * RelativeLayout',
+          ],
         },
       ],
     },
@@ -306,7 +365,6 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
       rules: [
         {
           key: 0,
@@ -314,18 +372,25 @@ export default defineGkdApp({
             '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
           ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
         },
         {
           key: 1,
+          actionDelay: 15000,
           matches: [
-            '@[text="恭喜获得奖励"]',
-            '@[text=""] - [text="恭喜获得限时奖励"]',
-            '@[text="7b144c81c2cb181f"] < * - * [text="恭喜获得奖励"]',
+            'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] +n [text="反馈"]', //二级广告页
           ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Activity'],
         },
         {
           key: 2,
-          action: 'swipe',
+          matches: [
+            '@[text="7b144c81c2cb181f"] < View - [getChild(0).text="恭喜获得奖励"&&getChild(1).text="惊喜福利"] -n [getChild(0).text="限时领取"]',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          key: 3,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -337,28 +402,64 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionCd: 5000,
+          actionCd: 1000,
           matches: [
             '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] >n @[id="_scrollView"][childCount>1]',
           ],
-        },
-        {
-          key: 3,
-          actionCd: 5000,
-          matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] >n [id="_scrollView"][childCount=1] >n @TextView',
-          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
         },
         {
           key: 4,
+          actionCd: 1000,
+          matches: [
+            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] >n [id="_scrollView"][childCount=1] >n @TextView',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          key: 5,
           matches: [
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          key: 6,
+          excludeMatches: [
+            '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
+          ],
+          actionDelay: 1000,
+          matches: [
+            'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
     {
       key: 52,
+      name: '看视频-跳过-回答正确可直接领奖byazt.mw',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 20000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text$="答对直接领奖"] <<n * + * [text="跳过"] -n [text="回答正确可直接领奖"]',
+          ],
+          activityIds: ['com.byazt.mw.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          key: 1,
+          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+        },
+      ],
+    },
+    {
+      key: 53,
       name: '看视频-礼包-*s后可领取奖励byazt.mw',
       matchRoot: true,
       actionMaximum: 1,
@@ -386,7 +487,6 @@ export default defineGkdApp({
           key: 0,
           anyMatches: [
             '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
             '@[text="我要立即领奖"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
           ],
         },
@@ -576,15 +676,14 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text~="点击跳转拿奖励\\([0-9]+s\\)"][clickable=true] <<n * + * [text="立即获取"] <<n * + *[desc="skip_button"] [text="跳过"]',
-            '@[text="点击跳转拿奖励"][clickable=true] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"]',
-            '@[text="点击下载拿奖励"][clickable=true] <<n * + * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"]',
+            '@[text~="点击跳转拿奖励\\([0-9]+s\\)"][clickable=true] <<n * + * [text="立即获取"] <<n * + * [desc="skip_button"] [text="跳过"]',
+            '@[text~="点击跳转拿奖励|点击下载拿奖励"][clickable=true] <<n * + * [getChild(1).text~="看[0-9]+秒可直接拿奖励"] + [desc="skip_button"] [text="跳过"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '@[text="跳过"][clickable=true] <<n * - * [desc="gift_box"]',
+            '[getChild(0).desc="gift_box"] + ViewGroup > [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
           ],
         },
       ],
@@ -672,8 +771,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          anyMatches: [
             '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text~="奖励将于[0-9]+秒后发放"]',
+            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -731,7 +831,8 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 31000,
+          action: 'back',
+          actionDelay: 30000,
           matches: ['@View[clickable=true] < RelativeLayout + ImageView'], //奖励已到账
         },
       ],
@@ -820,51 +921,22 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
           matches: [
             '@[text^="O1CN01TD5wn71Ptmtb9GAxE_"] <<n [vid="poplayer_penetrate_view_id"]',
           ],
           activityIds: ['.home.HomeActivity', '.splash.ui.ImageSplashActivity'],
         },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[text="能量红包"] <<n * [text="首页"]'],
-          activityIds: ['.home.HomeActivity'],
-        },
       ],
     },
     {
       key: 502,
-      name: '首页-能量红包-广告-×',
+      name: '首页-能量红包',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          anyMatches: [
-            '@[id$="ms_skipView"] < [id$="ms_skipView_container"]',
-            '@[vid="splash_biz_skip_ad"] >n [text="跳过广告"][vid="splash_skip_hint_tv"]',
-          ],
-          activityIds: [
-            '.splash.ui.ImageSplashActivity',
-            '.splash.ui.VideoSplashActivity',
-            'com.alipay.mobile.quinox.LauncherActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text^="O1CN01TD5wn71Ptmtb9GAxE"] <<n [vid="poplayer_penetrate_view_id"]',
-          ],
-          activityIds: ['.home.HomeActivity', '.splash.ui.ImageSplashActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
           matches: ['@[text="能量红包"] <<n * [text="首页"]'],
           activityIds: ['.home.HomeActivity'],
         },
