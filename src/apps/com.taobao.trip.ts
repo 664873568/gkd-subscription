@@ -885,7 +885,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[desc="跳过"] <n FrameLayout[clickable=true] - [vid="action_bar_root"]'],
+          matches: [
+            '@[desc="跳过"] <n FrameLayout[clickable=true] - [vid="action_bar_root"]',
+          ],
           activityIds: ['.home.HomeActivity'],
         },
       ],
