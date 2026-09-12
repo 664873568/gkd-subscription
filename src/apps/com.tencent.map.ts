@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     //功能应用类
     {
-      key: 50,
+      key: 40,
       name: '用户协议-同意并继续',
       matchRoot: true,
       actionMaximum: 1,
