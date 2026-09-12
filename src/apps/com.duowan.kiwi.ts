@@ -33,7 +33,9 @@ export default defineGkdApp({
           matches: [
             '@[vid="iv_close"][clickable=true] + [vid="ll_bottom_layout"] > [text="打开推送通知"][vid="push_popup_first_txt"] +n [text="开启通知"][vid="push_popup_confirm_layout"]',
           ],
-          activityIds: ['com.huya.kiwi.crossplatform.common.webview.KiwiOakWebActivity'],
+          activityIds: [
+            'com.huya.kiwi.crossplatform.common.webview.KiwiOakWebActivity',
+          ],
         },
       ],
     },
