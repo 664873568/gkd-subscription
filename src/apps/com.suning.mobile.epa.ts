@@ -114,7 +114,7 @@ export default defineGkdApp({
             '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费"] + View > [text="去完成"]',
           ],
           matches: [
-            '[getChild(0).getChild(1).text="天天领现金"] + View > View > @ImageButton[clickable=true]',
+            '[getChild(0).getChild(1).text="天天领现金"] + View > View > @ImageButton[clickable=true] +n [text~="[0-9]+金币"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
