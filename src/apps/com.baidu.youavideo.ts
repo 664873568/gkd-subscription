@@ -173,7 +173,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 3,
           position: {
-            left: 'width * 0.9247',
+            left: 'width * 0.9300',
             top: 'width * 1.3434',
           },
           actionDelay: 1000,
@@ -247,10 +247,10 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3, 4],
           key: 5,
           position: {
-            left: 'width * 0.8564',
-            top: 'width * 0.1981',
+            left: 'width * 0.8500',
+            top: 'width * 0.2000',
           },
-          actionDelay: 10000,
+          actionDelay: 5000,
           matches: ['@ComposeView'],
           activityIds: [
             'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
@@ -260,10 +260,10 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3, 4, 5],
           key: 6,
           position: {
-            left: 'width * 0.9213',
-            top: 'width * 0.8590',
+            left: 'width * 0.9300',
+            top: 'width * 0.6500',
           },
-          actionDelay: 5000,
+          actionDelay: 1000,
           matches: ['@ScrollView'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
@@ -323,10 +323,10 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3],
           key: 4,
           position: {
-            left: 'width * 0.8564',
-            top: 'width * 0.1981',
+            left: 'width * 0.8500',
+            top: 'width * 0.2000',
           },
-          actionDelay: 10000,
+          actionDelay: 5000,
           matches: ['@ComposeView'],
           activityIds: [
             'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
@@ -336,10 +336,10 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3, 4],
           key: 5,
           position: {
-            left: 'width * 0.9213',
-            top: 'width * 0.8590',
+            left: 'width * 0.9300',
+            top: 'width * 0.8500',
           },
-          actionDelay: 10000,
+          actionDelay: 1000,
           matches: ['@ScrollView'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
@@ -368,15 +368,12 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           position: {
-            left: 'width * 0.9221',
-            top: 'width * 1.8486',
+            left: 'width * 0.9300',
+            top: 'width * 1.8000',
           },
           actionDelay: 5000,
           matches: ['@ComposeView'],
-          activityIds: [
-            '.operate.ui.view.activity.TaskCenterActivity',
-            '.home.view.assistant.activity.CleanUpClusterActivity',
-          ],
+          activityIds: ['.home.view.assistant.activity.CleanUpClusterActivity'],
         },
       ],
     },
@@ -444,9 +441,10 @@ export default defineGkdApp({
       key: 10,
       name: '积分任务-去完成-天天看激励视频',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
       rules: [
         {
           key: 0,
@@ -454,12 +452,10 @@ export default defineGkdApp({
           matches: [
             '[text="去完成"] -n [text="天天看激励视频"] < @View[clickable=true] < View +n * [text="明日再来"]',
           ],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
           key: 1,
-          matches: ['@[text="继续观看"] - [text="下次再来"]'],
-          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+          matches: ['@[text="继续观看"][clickable=true] - [text="下次再来"]'],
         },
       ],
     },
@@ -485,20 +481,14 @@ export default defineGkdApp({
       name: '看视频-跳过-去体验*秒可立即领奖',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@[text="去体验"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="立即前往加速"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="立即前往加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要立即领奖"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要立即领奖"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-            '@[text="我要直接拿奖励"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+          actionDelay: 1000,
+          matches: [
+            '@[text~="去体验|我要加速|立即前往|立即前往加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] + [text="｜跳过"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -508,7 +498,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            'ImageView[clickable=true] + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
+            'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
@@ -516,7 +506,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          matches: ['@[text="｜跳过"] - [text="奖励已领取"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
@@ -528,6 +518,7 @@ export default defineGkdApp({
       name: '看视频-跳过-*s',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: [
         'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -535,28 +526,21 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@[text="点击查看"] <<n * -n * [text$="跳过"] - [text~="[0-9]+s"]',
-            '@[text="我要加速领奖"] <<n * -n * [text$="跳过"] - [text~="[0-9]+s"]',
-            '@[text="我要直接拿奖励"] <<n * +n * [text$="跳过"] - [text~="[0-9]+s"]',
+          actionDelay: 1000,
+          matches: [
+            '@[text~="点击查看|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~="[0-9]+s"] + [text="｜跳过"]',
           ],
         },
         {
           key: 1,
-          matches: [
-            '@[text="恭喜获得神秘惊喜"] <<n * -n * [text$="跳过"] - [text~="[0-9]+s"]',
+          anyMatches: [
+            '@Image < * +n [text="限时奖励点击领取"]',
+            '@[getChild(0).text="3ca6ab446dec1c57"] + [getChild(0).text="恭喜获得优惠券"]',
           ],
         },
         {
           key: 2,
-          anyMatches: [
-            '@Image < * +n [text="限时奖励点击领取"]',
-            '@[text="3ca6ab446dec1c57"] < * + * [text="恭喜获得优惠券"]',
-          ],
-        },
-        {
-          key: 3,
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          matches: ['@[text="｜跳过"] - [text="奖励已领取"]'],
         },
       ],
     },
@@ -565,45 +549,52 @@ export default defineGkdApp({
       name: '看视频-礼包-再逛*秒后可领奖',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 10000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-      ],
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           anyMatches: [
-            '@[text="我要立即领奖"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '@[text="我要减广告时长"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '@View[clickable=true] - [text="reward_pop_get"] <<n * -n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@View[clickable=true] - [text="reward_pop_get"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
         },
         {
           key: 1,
           actionDelay: 15000,
           matches: [
-            'ImageView[clickable=true] + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
+            '@ImageView[clickable=true] < [getChild(1).text="应用详情"] +n [text="立即下载"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+        {
+          key: 2,
+          actionDelay: 15000,
+          matches: [
+            'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
           ],
         },
         {
-          key: 2,
+          key: 3,
           anyMatches: [
-            '@[text="32b391f8609869b1"]',
-            '@[text=""] - [text="恭喜获得限时奖励"]',
-            '@Image < * +n [text="限时奖励点击领取"]',
-            '@[text="恭喜获得奖励"] < * + * >n [text="惊喜福利"]',
-            '@[text="3ca6ab446dec1c57"] < * + * [text="恭喜获得优惠券"]',
-            '@[text="继续播放视频内容"] -n * [text="跳两步有机会获得奖励"]',
-            '@[text="icon-close.e3e3211b"] -n [text="立即暴涨"]', //恭喜获得膨胀优惠券
-            '@[text="7b144c81c2cb181f"] < * - * >n [text="恭喜获得奖励"] + [text="惊喜福利"]',
-            '@[text="7b144c81c2cb181f"] < * - * >n [text~="恭喜获得[0-9]+(\\\\.[0-9]+)?元红包"]',
+            '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(0).text="惊喜福利"]',
+            '@[getChild(0).text="7b144c81c2cb181f"] - [getChild(0).text="恭喜获得奖励"&&getChild(1).text="惊喜福利"] -n [getChild(0).text="限时领取"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
         },
         {
-          key: 3,
+          key: 4,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -617,17 +608,7 @@ export default defineGkdApp({
           },
           actionCd: 1000,
           matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] > [id="app"] > @[id="_scrollView"][childCount>1]',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-        {
-          key: 4,
-          actionCd: 1000,
-          matches: [
-            '[text="需要下滑浏览更多才能领取奖励哦"] < * - [id="root"] > [id="app"] > [id="_scrollView"][childCount=1] >n @TextView',
+            '[getChild(0).text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > [id="app"] > @[id="_scrollView"][childCount>1]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -636,18 +617,33 @@ export default defineGkdApp({
         {
           key: 5,
           matches: [
-            '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
+            '[getChild(0).text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > [id="app"] > [id="_scrollView"][childCount=1] >n @TextView',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
         },
         {
           key: 6,
+          matches: [
+            '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+        {
+          key: 7,
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '[text~="[0-9]+秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
+            '[text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"] + [text~="[0-9]+秒"]',
           ],
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
           ],
         },
       ],
@@ -732,30 +728,10 @@ export default defineGkdApp({
     },
     {
       key: 26,
-      name: '看视频-礼包-×-应用详情+立即下载',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 11000,
-          matches: [
-            '[text="应用详情"] - @ImageView[clickable=true] < * +n [text="立即下载"]',
-          ],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 27,
       name: '看视频-跳过-×-立即领取+立即下载',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -763,21 +739,22 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@Image < View +n [text="立即领取"] [text="恭喜获得奖励"]'],
+          matches: [
+            '@Image < View +n [text="立即领取"] [text="恭喜获得奖励"]',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
-          actionDelay: 11000,
+          actionDelay: 10000,
           matches: [
-            '[text="应用详情"] - @ImageView[clickable=true] < * +n [text="立即下载"]',
+            '@ImageView[clickable=true] < [getChild(1).text="应用详情"] +n [text="立即下载"]',
           ],
         },
       ],
     },
     {
-      key: 28,
+      key: 27,
       name: '看视频-奖励已领取-去领奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -802,26 +779,10 @@ export default defineGkdApp({
     },
     {
       key: 29,
-      name: '看视频-恭喜提前获得奖励-×',
+      name: '看视频-礼包-恭喜提前获得奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="svg%3e"][text="广告"]'],
-          activityIds: [
-            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 30,
-      name: '看视频-礼包-奖励已领取-跳过-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -834,12 +795,12 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text$="跳过"] -n [text="奖励已领取"]'],
+          matches: ['@[text="｜跳过"] -n [text="奖励已领取"]'],
         },
       ],
     },
     {
-      key: 31,
+      key: 30,
       name: '看视频-温馨提示-去领取奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -856,7 +817,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
+      key: 31,
       name: '看视频-限时砍一刀领奖励-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -865,7 +826,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="d93aea9c27398a77"] -n [text="点击宝刀,有机会获得奖励"] <<n * [text$="跳过"]',
+            '@[text="d93aea9c27398a77"] -n [text="点击宝刀,有机会获得奖励"] <<n * [text="｜跳过"]',
           ],
           activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -874,7 +835,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 33,
+      key: 32,
       name: '看视频-广告-反馈 ×',
       matchRoot: true,
       actionMaximum: 1,
@@ -1115,7 +1076,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 498,
+      key: 499,
       name: '福利中心',
       matchRoot: true,
       matchTime: 10000,
@@ -1129,40 +1090,26 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 499,
-      name: '首页广告-跳过-去体验*秒可立即领奖',
-      matchRoot: true,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '@[text="立即前往加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
-          ],
-          activityIds: ['.splash.ui.CoveredSplashAdvertiseActivity'],
-        },
-      ],
-    },
     //首页广告类
     {
       key: 500,
       name: '首页广告-跳过',
       matchRoot: true,
       matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
+            '@[text="跳过"][clickable=true] - * [text="点击跳转至详情页"]',
+            '@[text~="跳过 [0-9]"][clickable=true] + * > [text="点击下载应用"]',
+            '@[text~="[0-9] \\\\| 跳过"][clickable=true] + * [text="点击按钮了解更多"]',
+            '@[text="跳过"][clickable=true] - * [text="上滑屏幕"] + [text="跳转至详情页"]',
+            '@ImageView < ViewGroup < * + * [上滑或点击"] + [text="跳转至详情页或第三方应用"]',
+            '@ImageView < ViewGroup < * - * [text="向上滑动"] + [text="跳转至详情页或第三方应用"]',
+            '@[text~="跳过 [0-9]"][clickable=true] + [getChild(0).text="点击跳转至网页或第三方应用"]',
+            '@FrameLayout[getChild(0).text="跳过"&&getChild(1).text~="[0-9]"] + [getChild(0).text="上滑或点击"] > [text="跳转详情或第三方应用"]',
+            '@[vid="ms_skipView"] + [vid="ms_shakeRoot"] > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
             '[text="反馈"] + @[text~="跳过 [0-9]"][clickable=true] + * > [text="点击跳转至第三方应用或详情页"]',
-            '[text="免广告"][vid="text"] < * - * @[text="跳过"][clickable=true] - * [text="点击跳转至详情页"]',
-            '[text="免广告"][vid="text"] < * - * @[text~="跳过 [0-9]"][clickable=true] + * > [text="点击下载应用"]',
-            '[text="免广告"][vid="text"] < * - * @[text~="[0-9] \\\\| 跳过"][clickable=true] + * [text="点击按钮了解更多"]',
-            '[text="免广告"][vid="text"] < * - * @[text~="跳过 [0-9]"][clickable=true] + * [text="点击跳转至网页或第三方应用"]',
-            '[text="免广告"][vid="text"] < * - * @ImageView < ViewGroup < * + * [text="向上滑动"] + [text="跳转至详情页或第三方应用"]',
-            '[text="免广告"][vid="text"] < * - * [text~="[0-9]"] - @[text="跳过"] < * + * [text="上滑或点击"] + [text="跳转详情或第三方应用"]',
-            '[text="免广告"][vid="text"] < * - * @[vid="ms_skipView"] + [vid="ms_shakeRoot"] > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
-            '[text="免广告"][vid="text"] < * - * > [text="反馈"] + @[text~="跳过 [0-9]"][clickable=true] + * > [text="点击跳转至第三方应用或详情页"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
@@ -1180,15 +1127,15 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[vid="iv_close"] - * >n [vid="jump_btn"]',
-            '@[vid="dialog_home_pop_close_button"][clickable=true] + [vid="img_lottie"]',
-            '@[vid="dialog_home_pop_close_button"][clickable=true] + [vid="img_thumbnail"]',
+            '@[vid="dialog_home_pop_close_button"][clickable=true]',
+            '[getChild(3).vid="jump_btn"] + @[vid="iv_close"][clickable=true]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
             '.vip.ui.VipWebActivity',
             '.splash.ui.CoveredSplashAdvertiseActivity',
+            '.operate.ui.view.activity.TaskCenterActivity',
           ],
         },
       ],
