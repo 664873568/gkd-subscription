@@ -51,69 +51,29 @@ export default defineGkdApp({
       key: 2,
       name: '天天集能量-看视频领现金',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
       rules: [
         {
           key: 0,
+          actionDelay: 3000,
           matches: [
             '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册会员领现金|找10次抽奖券|逛中国移动"]',
           ],
         },
         {
+          key: 1,
+          actionDelay: 3000,
+          matches: [
+            '[vid="fliggyx_navigation_bar_right_layout"] - [vid="fliggyx_navigation_bar_wide_middle"] - [vid="fliggyx_navigation_bar_left_out"] >n @LinearLayout[clickable=true]',//浏览App返回页
+          ],
+        },
+        {
+          key: 2,
           action: 'back',
           matches: [
             '[text="飞猪订酒店 真划算"] >n @[text^="O1CN01rnXVgw22mFh20KuMa"]', //任意点击一个酒店
-          ],
-        },
-      ],
-    },
-    {
-      key: 7,
-      name: '天天集能量-浏览APP返回页',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@ImageView[index=0][childCount=0] < FrameLayout[index=1][childCount=1]',
-          ],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
-        },
-      ],
-    },
-    {
-      key: 8,
-      name: '*已安装完成，是否立即打开？-取消',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="取消"][clickable=true] + [text="打开"]'],
-          activityIds: [
-            'com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '天天集能量-网页无法打开',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView + ImageView + [text="网页无法打开"]'],
-          activityIds: [
-            'com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity',
           ],
         },
       ],
