@@ -16,7 +16,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '@View[clickable=true] > [text="50元"] + [text="今日份数已用完"]',
-            '@TextView[clickable=true] + View > View > TextView',
+            'View > View > @[text="确认提现"][clickable=true]',
           ],
           matches: [
             '@View[clickable=true] > [text="50元"] + [text="连续签到20天"] + [text="条件达成"]',
@@ -25,7 +25,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['@TextView[clickable=true] + View > View > TextView'],
+          matches: ['View > View > @[text="确认提现"][clickable=true]'],
         },
       ],
     },
