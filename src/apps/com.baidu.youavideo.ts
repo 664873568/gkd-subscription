@@ -576,7 +576,7 @@ export default defineGkdApp({
           key: 3,
           anyMatches: [
             '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(0).text="惊喜福利"]',
-            '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]',//恭喜获得奖励-恭喜获得*元红包
+            '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励-恭喜获得*元红包
           ],
         },
         {
