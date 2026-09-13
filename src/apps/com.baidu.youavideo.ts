@@ -739,9 +739,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@Image < View +n [text="立即领取"] [text="恭喜获得奖励"]',
-          ],
+          matches: ['@Image < View +n [text="立即领取"] [text="恭喜获得奖励"]'],
         },
         {
           preKeys: [0],
