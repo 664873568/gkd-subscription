@@ -209,7 +209,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionMaximum: 1,
+          excludeMatches: [
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView + ViewGroup', //恭喜预约成功×
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView', //恭喜获得惊喜奖励×
+          ],
           matches: [
             '@[desc="看视频"] + [desc~="[0-9]+"] + [desc="秒"] + [desc="领"]',
           ],
@@ -261,7 +264,10 @@ export default defineGkdApp({
         },
         {
           key: 5,
-          matches: ['@[desc="立即预约领取"]'],
+          actionMaximum: 1,
+          matches: [
+            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
