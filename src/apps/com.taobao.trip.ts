@@ -66,7 +66,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 3000,
           matches: [
-            '[vid="fliggyx_navigation_bar_right_layout"] - [vid="fliggyx_navigation_bar_wide_middle"] - [vid="fliggyx_navigation_bar_left_out"] >n @LinearLayout[clickable=true]',//浏览App返回页
+            '[vid="fliggyx_navigation_bar_right_layout"] - [vid="fliggyx_navigation_bar_wide_middle"] - [vid="fliggyx_navigation_bar_left_out"] >n @LinearLayout[clickable=true]', //浏览App返回页
           ],
         },
         {
