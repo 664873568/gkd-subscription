@@ -318,7 +318,7 @@ export default defineGkdApp({
         {
           key: 2,
           anyMatches: [
-            '@[text="svg%3e"] <<n * +n * [text="已发放"]'
+            '@[text="svg%3e"] <<n * +n * [text="已发放"]',
             '@RelativeLayout[clickable=true] <<n * + * [text="已发放"]',
           ],
         },
