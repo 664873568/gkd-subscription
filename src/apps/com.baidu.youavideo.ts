@@ -478,7 +478,7 @@ export default defineGkdApp({
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity
     {
       key: 20,
-      name: '看视频-跳过-去体验*秒可立即领奖',
+      name: '看视频-跳过',
       matchRoot: true,
       matchDelay: 1000,
       forcedTime: 10000,
@@ -497,7 +497,6 @@ export default defineGkdApp({
             '@[text~="去体验[0-9]+秒立即领奖"] <<n * [text~="[0-9]s"] + [text="｜跳过"]',
             '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@View[clickable=true] - [text="reward_pop_get"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '[text~="看[0-9]+秒/安装应用立即领奖"] +n @[text="跳过"]',
           ],
         },
         {
@@ -566,7 +565,7 @@ export default defineGkdApp({
     },
     {
       key: 21,
-      name: '看视频-下滑-已发放-*秒',
+      name: '看视频-下滑',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -612,7 +611,7 @@ export default defineGkdApp({
     },
     {
       key: 22,
-      name: '看视频-礼包-领取成功-跳过',
+      name: '看视频-礼包',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -630,6 +629,28 @@ export default defineGkdApp({
     },
     {
       key: 23,
+      name: '看视频-礼包-恭喜提前获得奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          matches: ['@[text="svg%3e"][text="广告"]'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['@[text="｜跳过"] -n [text="奖励已领取"]'],
+        },
+      ],
+    },
+    {
+      key: 24,
       name: '看视频-跳过-×-立即领取+恭喜获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -647,7 +668,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 25,
       name: '看视频-跳过-×-立即领取+立即下载',
       matchRoot: true,
       actionMaximum: 1,
@@ -668,28 +689,6 @@ export default defineGkdApp({
           matches: [
             '@ImageView[clickable=true] < [getChild(1).text="应用详情"] +n [text="立即下载"]',
           ],
-        },
-      ],
-    },
-    {
-      key: 25,
-      name: '看视频-礼包-恭喜提前获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="svg%3e"][text="广告"]'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[text="｜跳过"] -n [text="奖励已领取"]'],
         },
       ],
     },
@@ -730,6 +729,33 @@ export default defineGkdApp({
     },
     {
       key: 28,
+      name: '看视频-跳过-*秒',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text~="试玩[0-9]+秒获得奖励|看[0-9]+秒/安装应用立即领奖"] +n @[text="跳过"]',
+          ],
+          activityIds: [
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[desc="button_container"] > [text="继续试玩"] + @[text="残忍离开"][clickable=true]',
+          ],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    {
+      key: 29,
       name: '看视频-广告-反馈 ×',
       matchRoot: true,
       actionMaximum: 1,
@@ -748,7 +774,7 @@ export default defineGkdApp({
     },
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity
     {
-      key: 29,
+      key: 30,
       name: '看视频-全屏广告-反馈 ×',
       matchRoot: true,
       actionMaximum: 1,
@@ -767,7 +793,7 @@ export default defineGkdApp({
     },
     //看视频-com.wangmai.appsdkdex.WMPortraitActivity
     {
-      key: 30,
+      key: 40,
       name: '看视频-wangmai',
       matchRoot: true,
       actionMaximum: 1,
