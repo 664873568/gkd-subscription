@@ -165,7 +165,6 @@ export default defineGkdApp({
             '@[text~="去体验[0-9]+秒立即领奖"] <<n * [text~="[0-9]s"] + [text="｜跳过"]',
             '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@View[clickable=true] - [text="reward_pop_get"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '[text~="看[0-9]+秒/安装应用立即领奖"] +n @[text="跳过"]',
           ],
         },
         {
@@ -297,6 +296,31 @@ export default defineGkdApp({
             'ImageView < @LinearLayout[clickable=true] -n LinearLayout > [text="领取成功"]',
             'TextView[text="跳过"] < @LinearLayout[clickable=true] -n LinearLayout > [text="领取成功"]',
           ],
+        },
+      ],
+    },
+    {
+      key: 28,
+      name: '看视频-跳过-*秒',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text~="试玩[0-9]+秒获得奖励|看[0-9]+秒/安装应用立即领奖"] +n @[text="跳过"]',
+          ],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[desc="button_container"] > [text="继续试玩"] + @[text="残忍离开"][clickable=true]',
+          ],
+          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
