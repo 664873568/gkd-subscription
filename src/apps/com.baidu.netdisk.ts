@@ -243,7 +243,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="icon-close.e3e3211b"] -n [getChild(0).text="限时领取"]',//恭喜获得优惠券
+            '@[text="icon-close.e3e3211b"] -n [getChild(0).text="限时领取"]', //恭喜获得优惠券
             '@[getChild(0).text="1301a2d542c5e480"] < * + [text="倒计时后将放弃优惠券"]',
             '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励-恭喜获得*元红包
           ],
