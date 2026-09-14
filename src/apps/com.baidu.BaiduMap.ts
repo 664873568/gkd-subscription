@@ -944,7 +944,7 @@ export default defineGkdApp({
     },
     {
       key: 69,
-      name: '看视频-跳过',
+      name: '看视频-跳过qq',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1009,7 +1009,7 @@ export default defineGkdApp({
     },
     {
       key: 82,
-      name: '看视频-跳过-*s后获取奖励',
+      name: '看视频-跳过-*s后获取奖励sigmob',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
