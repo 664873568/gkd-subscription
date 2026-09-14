@@ -42,12 +42,12 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text="立即领"]',
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
           ],
           actionDelay: 2000,
           action: 'clickCenter',
           matches: [
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text="去完成"]',
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="去完成"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
@@ -68,17 +68,17 @@ export default defineGkdApp({
           key: 2,
           action: 'clickCenter',
           matches: [
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text="立即领"]',
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
           key: 3,
           excludeMatches: [
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
+            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
           ],
           matches: [
-            '@ImageView[clickable=true] + FrameLayout >n ViewGroup >5 FrameLayout[clickable=true] > TextView',
+            '@ImageView[clickable=true] + FrameLayout >n ViewGroup >n FrameLayout[clickable=true] > TextView',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
@@ -141,27 +141,6 @@ export default defineGkdApp({
           action: 'clickCenter',
           matches: [
             '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
-          ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
-        },
-      ],
-    },
-    {
-      key: 10,
-      name: '星图金融-返回',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 5000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          excludeMatches: [
-            '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
-            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout >n [text="x"]',
-          ],
-          matches: [
-            '@[desc="back"] <<n * - * FrameLayout[clickable=false] > FrameLayout[index=2] > [text="已领取"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
