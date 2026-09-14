@@ -6,31 +6,17 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '启动应用',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['[text$="正尝试安装应用"] >n @[text="取消"]'],
-          activityIds: ['com.miui.packageInstaller.InstallStart'],
-        },
-      ],
-    },
-    {
-      key: 1,
       name: '频繁安装应用',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
             '@[text="取消"][clickable=true] - [text="验证"] < [vid="buttonPanel"] - * [text$="频繁安装应用"][vid="title"]',
           ],
+          activityIds: ['null'],
         },
       ],
     },
@@ -39,6 +25,7 @@ export default defineGkdApp({
       name: '喜马拉雅-安装应用',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
