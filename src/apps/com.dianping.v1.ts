@@ -52,7 +52,6 @@ export default defineGkdApp({
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
-          preKeys: [0],
           key: 1,
           action: 'clickCenter',
           matches: [
@@ -89,8 +88,11 @@ export default defineGkdApp({
       key: 2,
       name: '每日签到-开宝箱得金币',
       matchRoot: true,
-      actionMaximum: 1,
       resetMatch: 'activity',
+      activityIds: [
+        'com.dianping.nova.picasso.DPPicassoBoxActivity',
+        'com.dianping.shopshell.PexusPoiActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -104,23 +106,16 @@ export default defineGkdApp({
           matches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
-          preKeys: [0],
           key: 1,
           action: 'clickCenter',
           anyMatches: [
             'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
             'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout + [id$="android:id/navigationBarBackground"]', //返回寻宝
           ],
-          activityIds: [
-            'com.dianping.shopshell.PexusPoiActivity',
-            'com.dianping.nova.picasso.DPPicassoBoxActivity',
-          ],
         },
         {
-          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
@@ -128,7 +123,6 @@ export default defineGkdApp({
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout >n [text="10元免单券"]',
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
     },
@@ -142,6 +136,7 @@ export default defineGkdApp({
         {
           excludeMatches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
+            '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
           ],
           action: 'clickCenter',
           matches: [
