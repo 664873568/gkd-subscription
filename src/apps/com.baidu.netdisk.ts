@@ -410,8 +410,7 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 15000,
-          matches: [
-            '@ImageView < FrameLayout + FrameLayout >2 ImageView'], //二级广告页
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'], //二级广告页
         },
         {
           key: 2,
