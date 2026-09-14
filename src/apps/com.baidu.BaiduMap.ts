@@ -331,8 +331,8 @@ export default defineGkdApp({
           key: 2,
           anyMatches: [
             '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励-恭喜获得*元红包
-            '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]',//惊喜福利-限时优惠权益
-            '@TextView <n [getChild(0).text="恭喜获得限时奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]',//限时优惠权益
+            '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //惊喜福利-限时优惠权益
+            '@TextView <n [getChild(0).text="恭喜获得限时奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //限时优惠权益
           ],
         },
         {
@@ -659,9 +659,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
-          matches: [
-            '@[text="跳过"][clickable=true] <<n * [desc="gift_box"]',
-          ],
+          matches: ['@[text="跳过"][clickable=true] <<n * [desc="gift_box"]'],
         },
       ],
     },
@@ -688,9 +686,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '@[text="跳过"][clickable=true] <<n * [desc="gift_box"]',
-          ],
+          matches: ['@[text="跳过"][clickable=true] <<n * [desc="gift_box"]'],
           activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
