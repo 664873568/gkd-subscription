@@ -448,7 +448,7 @@ export default defineGkdApp({
           anyMatches: [
             'ImageView < @ViewGroup <<n * - * [desc="gift_box"]',
             '@ImageView <<n [desc="close_button"] <<n * [desc="gift_box"]',
-            'ImageView < @LinearLayout[clickable=true] - View - LinearLayout > ImageView + [text="领取成功"]',//*s后可领取奖励-×
+            'ImageView < @LinearLayout[clickable=true] - View - LinearLayout > ImageView + [text="领取成功"]', //*s后可领取奖励-×
           ],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
