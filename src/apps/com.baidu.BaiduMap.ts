@@ -582,18 +582,12 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 0,
           anyMatches: [
             '@[text~="去体验[0-9]秒立即领奖"] <n * -n * > [text="上滑或点击领取"]',
-            '@ImageView < ViewGroup < ViewGroup - * [text="反馈"] <<n * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
-            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
-          ],
-        },
-        {
-          key: 1,
-          anyMatches: [
-            '@Image <<n * + [getChild(0).getChild(1).text="广告"] -n * [getChild(0).text="反馈"] + [getChild(0).text="点击取消静音"]',
-            '@ImageView <<n * - [getChild(0).getChild(1).text="广告"] - [getChild(0).getChild(1).getChild(1).text="向上滑动 或 点击"] - * [getChild(0).text="反馈"] + [getChild(0).text="点击取消静音"]',
+            '@ImageView < ViewGroup < ViewGroup -n * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
+            'Image < @View[width<100] < View < View < View -n * [getChild(0).text="反馈"] + * > [text="点击取消静音"]',
+            '@ImageView[width<100] < ViewGroup < ViewGroup < ViewGroup -n * [getChild(0).text="反馈"] + * > [text="点击取消静音"]',
+            '@ImageView[width<100] < ViewGroup < ViewGroup < ViewGroup -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
           ],
         },
       ],
