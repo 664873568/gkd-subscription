@@ -185,7 +185,7 @@ export default defineGkdApp({
             '@[getChild(0).text="3ca6ab446dec1c57"] + [getChild(0).text="恭喜获得优惠券"]',
             '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励-恭喜获得*元红包
             '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //惊喜福利-限时优惠权益
-            '@TextView <n [getChild(0).text="恭喜获得限时奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //限时优惠权益
+            '@TextView - [text="恭喜获得限时奖励"] < * + [getChild(1).getChild(1).text="以实际活动为准"]', //限时优惠权益
           ],
         },
         {
