@@ -311,7 +311,7 @@ export default defineGkdApp({
           actionDelay: 1000,
           anyMatches: [
             '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] + [text="｜跳过"]',
-            '@[text~="点击查看|立即领奖|我要加速领奖"] <<n * -n * [text~="[0-9]+s"] + [text="｜跳过"]',
+            '@[text~="点击查看|立即领奖|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~="[0-9]+s"] + [text="｜跳过"]',
             '@[text~="去体验[0-9]+秒立即领奖"] <<n * [text~="[0-9]s"] + [text="｜跳过"]',
             '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@View[clickable=true] - [text="reward_pop_get"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -322,6 +322,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           anyMatches: [
+            '[text="已领取"] >n @[text="svg+xml;base64"]',
             'View - View - LinearLayout >n WebView > WebView > View',
             '@ImageView[clickable=true] < [getChild(1).text="应用详情"] +n [text="立即下载"]',
             'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
@@ -330,6 +331,8 @@ export default defineGkdApp({
         {
           key: 2,
           anyMatches: [
+            '@Image < * +n [text="限时奖励点击领取"]',
+            '@[getChild(0).text="3ca6ab446dec1c57"] + [getChild(0).text="恭喜获得优惠券"]',
             '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励-恭喜获得*元红包
             '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //惊喜福利-限时优惠权益
             '@TextView <n [getChild(0).text="恭喜获得限时奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //限时优惠权益
@@ -362,18 +365,18 @@ export default defineGkdApp({
         },
         {
           key: 5,
-          matches: [
+          anyMatches: [
             '@[text="｜跳过"] - [text="奖励已领取"]',
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
         },
         {
           key: 6,
-          actionDelay: 1000,
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
           ],
+          actionDelay: 1000,
           matches: [
             'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
           ],
@@ -391,7 +394,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="icon-close.e3e3211b"] -n [text="恭喜获得优惠券"]',
+            '@[text="icon-close.e3e3211b"] -n [getChild(0).text="限时领取"]',//恭喜获得优惠券
+            '@[getChild(0).text="1301a2d542c5e480"] < * + [text="倒计时后将放弃优惠券"]',
             '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励-恭喜获得*元红包
           ],
         },
@@ -427,7 +431,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23,
+      key: 22,
       name: '看视频-礼包-×b1',
       matchRoot: true,
       actionMaximum: 1,
@@ -444,7 +448,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 24,
+      key: 23,
       name: '看视频-礼包-×b2',
       matchRoot: true,
       actionMaximum: 1,
@@ -458,7 +462,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 25,
+      key: 24,
       name: '看视频-限时跳一跳-继续播放视频内容',
       matchRoot: true,
       actionMaximum: 1,
@@ -485,7 +489,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 26,
+      key: 25,
       name: '看视频-跳过 *s',
       matchRoot: true,
       actionMaximum: 1,
@@ -502,7 +506,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 27,
+      key: 26,
       name: '看视频-广告-反馈 ×',
       matchRoot: true,
       actionMaximum: 1,
@@ -567,7 +571,7 @@ export default defineGkdApp({
     },
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity
     {
-      key: 49,
+      key: 40,
       name: '看视频-全屏广告',
       matchRoot: true,
       actionMaximum: 1,
@@ -582,8 +586,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text~="去体验[0-9]秒立即领奖"] <n * -n * > [text="上滑或点击领取"]',
             '@ImageView < ViewGroup < ViewGroup - * [text="反馈"] <<n * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
-            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * + * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
-            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="反馈"] <<n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
           ],
         },
         {
