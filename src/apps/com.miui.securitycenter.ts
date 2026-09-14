@@ -10,11 +10,12 @@ export default defineGkdApp({
       name: '请用指纹解锁',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 15000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
+          actionDelay: 16000,
           matches: ['@[text="请用指纹解锁"] - [vid="app_icon"]'],
           activityIds: ['com.miui.applicationlock.AppLockActivity'],
         },
@@ -30,7 +31,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: ['@[text="请用密码或指纹解锁"] - [vid="app_icon"]'],
           activityIds: ['com.miui.applicationlock.ConfirmAccessControl'],
         },
@@ -46,7 +47,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: ['@[text="使用密码验证"] <<n * [vid="icon1"]'],
           activityIds: ['com.miui.applicationlock.ConfirmAccessControl'],
         },
@@ -97,7 +98,7 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          actionDelay: 15000,
+          actionDelay: 5000,
           matches: [
             '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -116,7 +117,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: [
             '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -143,7 +144,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: [
             '@[text="拒绝"] <n * - * [text="启动应用"][vid="permission_group_title"]',
           ],
@@ -159,10 +160,11 @@ export default defineGkdApp({
       name: '启动应用-拒绝-京东/金融',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 3000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '@[text="拒绝"] <n * - * [text~="京东.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
