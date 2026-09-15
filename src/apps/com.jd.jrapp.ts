@@ -822,6 +822,7 @@ export default defineGkdApp({
           actionDelay: 10000,
           matches: ['@[text="退出"][clickable=true]'],
           activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
+        },
         {
           key: 5,
           matches: [
