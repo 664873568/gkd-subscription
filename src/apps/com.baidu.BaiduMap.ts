@@ -177,6 +177,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
+            '[id="lottieDom"] > View > @View[clickable=true] > [text="立即翻倍"]',
             '[id="reward-info"] > @View[clickable=true] > [text="立即收下"]',
           ],
           matches: [
@@ -456,18 +457,23 @@ export default defineGkdApp({
       key: 22,
       name: '看视频-礼包',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
       rules: [
         {
+          key: 0,
           action: 'back',
           anyMatches: [
             'ImageView < @ViewGroup <<n * - * [desc="gift_box"]',
             '@ImageView <<n [desc="close_button"] <<n * [desc="gift_box"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
             'ImageView < @LinearLayout[clickable=true] - View - LinearLayout > ImageView + [text="领取成功"]', //*s后可领取奖励-×
           ],
-          activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
         },
       ],
     },
@@ -918,7 +924,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView <<4 * - * [text="恭喜获得奖励"]'],
+          matches: ['@ImageView < FrameLayout < * + * > FrameLayout > [text="恭喜获得奖励"]'],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
