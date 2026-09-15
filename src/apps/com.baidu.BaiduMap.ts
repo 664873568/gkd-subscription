@@ -170,7 +170,7 @@ export default defineGkdApp({
       name: '金币任务中心-翻卡-翻',
       matchRoot: true,
       matchDelay: 1000,
-      resetMatch: 'activity',
+      resetMatch: 'match',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
@@ -248,11 +248,24 @@ export default defineGkdApp({
       name: '金币任务中心-开红包领现金-去完成',
       matchRoot: true,
       matchDelay: 1000,
-      resetMatch: 'activity',
+      resetMatch: 'match',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
+            '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
+            '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
+            '[text="成功完成任务"] <n * < * +n @View[clickable=true] > [text="继续开红包"]',
+            '[text="开红包领现金"] >n [text="邀请1位好友"] + @ImageButton[clickable=true]',
+          ],
+          matches: [
+            '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
+          ],
+        },
+        {
+          key: 1,
           excludeMatches: [
             '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
           ],
@@ -260,19 +273,7 @@ export default defineGkdApp({
             '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
             '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
             '[text="成功完成任务"] <n * < * +n @View[clickable=true] > [text="继续开红包"]',
-          ],
-        },
-        {
-          key: 1,
-          excludeMatches: [
-            '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
-            '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
-            '[text="成功完成任务"] <n * < * +n @View[clickable=true] > [text="继续开红包"]',
-            '[text="开红包领现金"] >n [text="邀请1位好友"] + @ImageButton[clickable=true]',
-            '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
-          ],
-          matches: [
-            '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
+            '[getChild(0).getChild(1).text="成功获得现金红包"] +n @View[clickable=true] > [text="开启下一轮"]',
           ],
         },
       ],
@@ -326,7 +327,7 @@ export default defineGkdApp({
           actionDelay: 1000,
           anyMatches: [
             '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] +n [text$="跳过"]',
-            '@[text~="点击查看|立即领奖|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~="[0-9]+s"] + [text="｜跳过"]',
+            '@[text~="点击查看|立即领奖|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~="[0-9]+s"] + [text$="跳过"]',
             '@[text~="去体验[0-9]+秒立即领奖"] <<n * [text~="[0-9]s"] + [text="｜跳过"]',
             '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '@View[clickable=true] - [text="reward_pop_get"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -447,7 +448,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="svg%3e"] <<n * +n * [text="已发放"]',
             '@RelativeLayout[clickable=true] <<n * + * [text="已发放"]',
-            '[id="root"] > [id="app"] >n @[text="svg%3e"] +n [text="搜索"]',
+            '[id="root"] > [id="app"] > View > View > @[text="svg%3e"]',
           ],
         },
       ],
@@ -529,6 +530,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@ImageView < ViewGroup - * > [text="反馈"]',
+            'ImageView < LinearLayout < @LinearLayout[clickable=true] - * > [text="反馈"]',
             '@Image <<n * - * [text="反馈"] <<n * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
             '@ImageView < ViewGroup < ViewGroup < ViewGroup -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
             'ImageView < LinearLayout[clickable=true] < @LinearLayout[clickable=true] - * [text="反馈"] <<n * + * [text=" 立即查看 "]',
@@ -704,30 +706,24 @@ export default defineGkdApp({
     },
     {
       key: 55,
-      name: '看视频-恭喜获得福利',
+      name: '看视频-跳过-立即领取/立即获取',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
       rules: [
         {
-          matches: ['@[text="点击跳转免看广告"] <<n * [text="恭喜获得"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+          key: 0,
+          actionDelay: 5000,
+          matches: [
+            '@[desc="sky_lantern_main"][clickable=true] <<n * [text="跳过"]',
+          ],
         },
-      ],
-    },
-    {
-      key: 56,
-      name: '看视频-跳过-立即领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
-          actionDelay: 2000,
-          matches: ['@[desc="sky_lantern_main"] <<n * [text="跳过"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+          key: 1,
+          matches: [
+            '@[text="点击跳转免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] -n [text^="恭喜获得"]',
+          ],
         },
       ],
     },
