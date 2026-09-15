@@ -924,7 +924,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView < FrameLayout < * + * > FrameLayout > [text="恭喜获得奖励"]'],
+          matches: [
+            '@ImageView < FrameLayout < * + * > FrameLayout > [text="恭喜获得奖励"]',
+          ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],

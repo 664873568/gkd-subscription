@@ -511,9 +511,7 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           actionDelay: 15000,
-          matches: [
-            'View - View - LinearLayout >n WebView > WebView > View',
-          ],
+          matches: ['View - View - LinearLayout >n WebView > WebView > View'],
         },
         {
           key: 3,
