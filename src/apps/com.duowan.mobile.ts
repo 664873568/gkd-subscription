@@ -23,7 +23,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: ['View > View > @[text="确认提现"][clickable=true]'],
         },
@@ -195,20 +194,19 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
           key: 0,
           matches: [
             '[text~=".*[0-9]+ 秒.*"] + [text="提前拿奖励"] + * > @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
           key: 1,
           matches: [
             '@ImageView < FrameLayout + FrameLayout >n ImageView + * > [text*="微信"][index=parent.childCount.minus(1)]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -222,8 +220,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于15秒后发放"]',
-            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
+            '[text^="奖励将于"] < LinearLayout < FrameLayout -n * [text="放弃福利" || text="我要更快拿奖"]',
             '@[text="扭动/点击去玩小游戏提前拿奖"] <n LinearLayout < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
@@ -240,8 +237,7 @@ export default defineGkdApp({
           key: 2,
           anyMatches: [
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text="已完成浏览10秒，提前获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text^="继续"][index=parent.childCount.minus(1)]', //继续畅玩微信小游戏-继续了解详情
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
