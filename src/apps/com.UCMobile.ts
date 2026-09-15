@@ -21,5 +21,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 41,
+      name: '温馨提示-同意并进入',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[getChild(0).text="温馨提示"] + View > @[text="同意并进入"][clickable=true] + [text="退出"]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
   ],
 });
