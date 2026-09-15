@@ -4,10 +4,9 @@ export default defineGkdApp({
   id: 'com.dianping.v1',
   name: '大众点评',
   groups: [
-    //探店寻宝
     {
       key: 0,
-      name: '探店寻宝-立即签到',
+      name: '立即签到',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -16,7 +15,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'clickCenter',
           matches: [
             'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
           ],
@@ -24,7 +22,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'clickCenter',
           anyMatches: [
             '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
             'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
@@ -34,7 +31,23 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '探店寻宝-日常任务-去完成',
+      name: '三餐奖励',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@FrameLayout[clickable=true] > FrameLayout > [text*="餐奖励"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '日常任务-去完成',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -44,8 +57,6 @@ export default defineGkdApp({
           excludeMatches: [
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
           ],
-          actionDelay: 2000,
-          action: 'clickCenter',
           matches: [
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="去完成"]',
           ],
@@ -66,7 +77,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          action: 'clickCenter',
           matches: [
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
           ],
@@ -85,8 +95,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
-      name: '每日签到-开宝箱得金币',
+      key: 3,
+      name: '开宝箱得金币',
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
@@ -96,7 +106,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'clickCenter',
           excludeMatches: [
             'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
@@ -127,8 +136,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
-      name: '每日签到-今日累计奖励-领取',
+      key: 4,
+      name: '今日累计奖励-领取',
       matchRoot: true,
       matchDelay: 3000,
       resetMatch: 'activity',
