@@ -181,9 +181,7 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           actionDelay: 15000,
-          matches: [
-            'View - View - LinearLayout >n WebView > WebView > View',
-          ],
+          matches: ['View - View - LinearLayout >n WebView > WebView > View'],
         },
         {
           key: 3,
@@ -410,7 +408,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',//二级广告页
+            'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View', //二级广告页
           ],
         },
         {
