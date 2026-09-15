@@ -130,7 +130,7 @@ export default defineGkdApp({
             left: 'width * 0.9230',
             top: 'width * 0.1626',
           },
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['@[vid="layout_share_media_channel"]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
         },
@@ -176,7 +176,7 @@ export default defineGkdApp({
             left: 'width * 0.9300',
             top: 'width * 1.3434',
           },
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['@[vid="srv_list"]'],
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
@@ -216,7 +216,6 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           matches: [
-            //'@[text="确认"][vid="tv_select_finish"][clickable=true]'
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
           activityIds: [
@@ -263,7 +262,7 @@ export default defineGkdApp({
             left: 'width * 0.9300',
             top: 'width * 0.6500',
           },
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['@ScrollView'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
@@ -292,7 +291,6 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            //'@[text="确认"][vid="tv_select_finish"][clickable=true]',
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
           activityIds: [
@@ -339,7 +337,7 @@ export default defineGkdApp({
             left: 'width * 0.9300',
             top: 'width * 0.8500',
           },
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: ['@ScrollView'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
@@ -492,7 +490,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           anyMatches: [
-            '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] + [text="｜跳过"]',
+            '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] +n [text=$"跳过"]',
             '@[text~="点击查看|立即领奖|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~="[0-9]+s"] + [text="｜跳过"]',
             '@[text~="去体验[0-9]+秒立即领奖"] <<n * [text~="[0-9]s"] + [text="｜跳过"]',
             '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -504,13 +502,21 @@ export default defineGkdApp({
           actionDelay: 15000,
           anyMatches: [
             '[text="已领取"] >n @[text="svg+xml;base64"]',
-            'View - View - LinearLayout >n WebView > WebView > View',
             '@ImageView[clickable=true] < [getChild(1).text="应用详情"] +n [text="立即下载"]',
-            'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
+            'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',
+            'LinearLayout > FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
           ],
         },
         {
           key: 2,
+          action: 'back',
+          actionDelay: 15000,
+          matches: [
+            'View - View - LinearLayout >n WebView > WebView > View',
+          ],
+        },
+        {
+          key: 3,
           anyMatches: [
             '@Image < * +n [text="限时奖励点击领取"]',
             '@[getChild(0).text="3ca6ab446dec1c57"] + [getChild(0).text="恭喜获得优惠券"]',
@@ -520,7 +526,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
+          key: 4,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -532,26 +538,25 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionCd: 1000,
           matches: [
             '[getChild(0).text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > [id="app"] > @[id="_scrollView"][childCount>1]',
           ],
         },
         {
-          key: 4,
+          key: 5,
           matches: [
             '[getChild(0).text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > [id="app"] > [id="_scrollView"][childCount=1] >n @TextView',
           ],
         },
         {
-          key: 5,
+          key: 6,
           anyMatches: [
-            '@[text="｜跳过"] - [text="奖励已领取"]',
+            '@[text=$"跳过"] -n [text="奖励已领取"]',
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
         },
         {
-          key: 6,
+          key: 7,
           excludeMatches: [
             '[text~="再逛[0-9]+秒后可领奖"] - [text="svg%3e"]',
             '[text~="[0-9]+秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
@@ -1009,9 +1014,9 @@ export default defineGkdApp({
             '@ImageView < ViewGroup < * + * [上滑或点击"] + [text="跳转至详情页或第三方应用"]',
             '@ImageView < ViewGroup < * - * [text="向上滑动"] + [text="跳转至详情页或第三方应用"]',
             '@[text~="跳过 [0-9]"][clickable=true] + [getChild(0).text="点击跳转至网页或第三方应用"]',
-            '@FrameLayout[getChild(0).text="跳过"&&getChild(1).text~="[0-9]"] + [getChild(0).text="上滑或点击"] > [text="跳转详情或第三方应用"]',
             '@[vid="ms_skipView"] + [vid="ms_shakeRoot"] > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
             '[text="反馈"] + @[text~="跳过 [0-9]"][clickable=true] + * > [text="点击跳转至第三方应用或详情页"]',
+            '@[text="跳过"] < FrameLayout[getChild(1).text~="[0-9]"] + [getChild(0).text="上滑或点击"] > [text="跳转详情或第三方应用"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
