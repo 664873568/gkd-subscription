@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     //功能应用类
     {
-      key: 50,
+      key: 40,
       name: '发现新版本-取消',
       matchRoot: true,
       actionMaximum: 1,
