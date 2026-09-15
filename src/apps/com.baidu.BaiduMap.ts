@@ -7,7 +7,7 @@ export default defineGkdApp({
     //金币任务中心-com.baidu.baidumaps.MapsActivity
     //签到*天得*金币[id="J-sign-card"]
     {
-      key: 1,
+      key: 0,
       name: '金币任务中心-签到日历-立即签到',
       matchRoot: true,
       actionMaximum: 1,
@@ -30,13 +30,31 @@ export default defineGkdApp({
         },
       ],
     },
+    //限时任务[id="J-info-flow"]
+    {
+      key: 1,
+      name: '金币任务中心-限时任务-浏览',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
+      rules: [
+        {
+          excludeMatches: [
+            '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
+          ],
+          matches: [
+            '[vid="na_render_layout"] > ViewGroup > [text~="[0-9]{3,}"][vid="rewardAdCoin"] +n @[vid="rewardAdActionBt"][clickable=true]',
+          ],
+        },
+      ],
+    },
     //看视频最高赚99999金币*50[id="J-watchVideo"]
     {
       key: 2,
       name: '金币任务中心-看视频-赚金币',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 20000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
@@ -47,7 +65,7 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '[getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
+            '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
           ],
         },
         {
@@ -58,7 +76,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //再做*个任务。额外得*[id="task-loader"]
+    //再做*个任务，额外得*[id="task-loader"]
     {
       key: 3,
       name: '金币任务中心-浏览App-去完成',
@@ -70,11 +88,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
+            '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
           ],
-          action: 'clickCenter',
           matches: [
-            '[id="task-loader"] >n [id^="J-task-item"] > @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
+            '[id="task-loader"] > [id^="J-task-item"] > @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
           ],
         },
         {
@@ -124,20 +141,18 @@ export default defineGkdApp({
       name: '金币任务中心-免费抽大奖-免费抽奖',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 20000,
-      resetMatch: 'activity',
+      resetMatch: 'match',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
           key: 0,
           excludeMatches: [
-            '@[text="去完成"] -n [text~="[0-9]{3,}"] <n View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] < [id^="J-task-item"] <n [id="task-loader"]',
+            '[id="task-loader"] > [id^="J-task-item"] > @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
             '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]+00 金币"]',
             '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
           ],
-          actionDelay: 3000,
           matches: [
-            '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text="免费抽奖"]',
+            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text="免费抽奖"]',
           ],
         },
         {
@@ -155,16 +170,15 @@ export default defineGkdApp({
       name: '金币任务中心-翻卡-翻',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 20000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
           key: 0,
           excludeMatches: [
-            '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
+            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
+            '[id="reward-info"] > @View[clickable=true] > [text="立即收下"]',
           ],
-          actionDelay: 3000,
           matches: [
             '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > View > Image',
           ],
@@ -198,7 +212,6 @@ export default defineGkdApp({
       name: '金币任务中心-天天赢大奖-去抽奖',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 20000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
@@ -215,6 +228,7 @@ export default defineGkdApp({
             '[text~="看视频得次数 \\\\([0-9]/10\\\\)"] + [text="完成视频任务得1次抽奖机会"] + @[text="去完成"][clickable=true]',
             '[text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
           ],
+          actionDelay: 3000,
           matches: [
             '@View[clickable=true] > View + [text="立刻抽奖"] +n [text~="[1-9][0-9]*"]',
           ],
@@ -234,7 +248,6 @@ export default defineGkdApp({
       name: '金币任务中心-开红包领现金-去完成',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 20000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
@@ -243,7 +256,6 @@ export default defineGkdApp({
           excludeMatches: [
             '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
           ],
-          actionDelay: 3000,
           anyMatches: [
             '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
             '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
@@ -253,10 +265,12 @@ export default defineGkdApp({
         {
           key: 1,
           excludeMatches: [
+            '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
+            '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
+            '[text="成功完成任务"] <n * < * +n @View[clickable=true] > [text="继续开红包"]',
             '[text="开红包领现金"] >n [text="邀请1位好友"] + @ImageButton[clickable=true]',
             '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
           ],
-          actionDelay: 1000,
           matches: [
             '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
           ],
@@ -269,14 +283,13 @@ export default defineGkdApp({
       name: '金币任务中心-开宝箱得金币',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 20000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
           key: 0,
           excludeMatches: [
-            '[text="免费抽大奖"] +n * > @View[clickable=true] >n [text="免费抽奖"]',
+            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
           ],
           actionDelay: 3000,
           matches: [
@@ -312,7 +325,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           anyMatches: [
-            '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] + [text="｜跳过"]',
+            '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] +n [text$="跳过"]',
             '@[text~="点击查看|立即领奖|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~="[0-9]+s"] + [text="｜跳过"]',
             '@[text~="去体验[0-9]+秒立即领奖"] <<n * [text~="[0-9]s"] + [text="｜跳过"]',
             '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -324,13 +337,21 @@ export default defineGkdApp({
           actionDelay: 15000,
           anyMatches: [
             '[text="已领取"] >n @[text="svg+xml;base64"]',
-            'View - View - LinearLayout >n WebView > WebView > View',
             '@ImageView[clickable=true] < [getChild(1).text="应用详情"] +n [text="立即下载"]',
-            'FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
+            'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',
+            'LinearLayout > FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
           ],
         },
         {
           key: 2,
+          action: 'back',
+          actionDelay: 15000,
+          matches: [
+            'View - View - LinearLayout >n WebView > WebView > View',
+          ],
+        },
+        {
+          key: 3,
           anyMatches: [
             '@Image < * +n [text="限时奖励点击领取"]',
             '@[getChild(0).text="3ca6ab446dec1c57"] + [getChild(0).text="恭喜获得优惠券"]',
@@ -340,7 +361,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
+          key: 4,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -352,27 +373,25 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionCd: 1000,
           matches: [
             '[getChild(0).text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > [id="app"] > @[id="_scrollView"][childCount>1]',
           ],
         },
         {
-          key: 4,
-          actionCd: 1000,
+          key: 5,
           matches: [
             '[getChild(0).text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > [id="app"] > [id="_scrollView"][childCount=1] >n @TextView',
           ],
         },
         {
-          key: 5,
+          key: 6,
           anyMatches: [
-            '@[text="｜跳过"] - [text="奖励已领取"]',
+            '@[text$="跳过"] -n [text="奖励已领取"]',
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
         },
         {
-          key: 6,
+          key: 7,
           excludeMatches: [
             '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
             '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
@@ -619,7 +638,6 @@ export default defineGkdApp({
       name: '看视频-跳过-礼包-下载app/看*秒可直接拿奖励',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
       rules: [
@@ -872,11 +890,8 @@ export default defineGkdApp({
         {
           key: 1,
           anyMatches: [
-            '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="立即下载"]',
-            '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="去微信看看"]',
-            //'@ImageView < FrameLayout < FrameLayout + FrameLayout[getChild(2).getChild(1).text="去微信看看"]',
+            '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="立即下载" || text="去微信看看"]',
             '@ImageView < FrameLayout + LinearLayout >n [text="去微信看看"]',
-            //'@ImageView < FrameLayout + LinearLayout[getChild(4).getChild(1).text="去微信看看"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -950,9 +965,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
-            '@[text="跳过"] < LinearLayout < * + * [text="立即下载"]',
-            '[getChild(3).getChild(1).text="立即下载"] - * @[text="跳过"]',
+          matches: [
+            '[getChild(3).getChild(1).text~="立即下载|去微信看看"] - * @[text="跳过"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -1118,7 +1132,7 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            '[getChild(0).getChild(3).text~="立即下载|查看详情"] -n @ImageView[clickable=true] - [text="恭喜获得奖励"]',
+            '[getChild(0).getChild(3).name$="TextView"] -n @ImageView[clickable=true] - [text="恭喜获得奖励"]',
           ],
         },
       ],
