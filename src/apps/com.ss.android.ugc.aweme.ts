@@ -506,9 +506,7 @@ export default defineGkdApp({
           key: 2,
           action: 'clickCenter',
           actionDelay: 5000,
-          matches: [
-            '@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]',
-          ],
+          matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
         },
         {
           preKeys: [0, 1, 2],
@@ -701,7 +699,9 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 3,
           action: 'back',
-          matches: ['[text="车主服务"] >n @ImageButton[clickable=true] + * [text="恭喜完成任务"]'],
+          matches: [
+            '[text="车主服务"] >n @ImageButton[clickable=true] + * [text="恭喜完成任务"]',
+          ],
         },
       ],
     },
