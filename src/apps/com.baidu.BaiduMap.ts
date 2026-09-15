@@ -218,16 +218,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '[text~="看视频得次数 \\\\([0-9]/10\\\\)"] + [text="完成视频任务得1次抽奖机会"] + @[text="去完成"][clickable=true]',
-            '[text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
+          matches: [
+            '[getChild(2).text!~="访问中国移动得1次抽奖机会"] > @[text="去完成"][clickable=true]',
           ],
         },
         {
           key: 1,
           excludeMatches: [
-            '[text~="看视频得次数 \\\\([0-9]/10\\\\)"] + [text="完成视频任务得1次抽奖机会"] + @[text="去完成"][clickable=true]',
-            '[text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
+            '[getChild(2).text!~="访问中国移动得1次抽奖机会"] > @[text="去完成"][clickable=true]',
           ],
           actionDelay: 3000,
           matches: [
@@ -237,6 +235,7 @@ export default defineGkdApp({
         {
           key: 2,
           anyMatches: [
+            '@[desc="关闭"][clickable=true] + [text="恭喜获得现金奖励"] +n [text="再抽一次"]',
             '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="再抽一次"]',
             '@[desc="关闭"][clickable=true] + [text="恭喜获得金币奖励"] +n [text="去做任务赚次数"]',
           ],
