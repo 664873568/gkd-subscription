@@ -812,12 +812,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: [
-            '@FrameLayout[clickable=true] > FrameLayout > FrameLayout + [id*="cj_plugin:id"] > FrameLayout',
-          ],
           action: 'back',
           matches: [
-            '@ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]',
+            'FrameLayout > ViewGroup > ViewGroup - ViewGroup - ViewGroup > ViewGroup + @ViewGroup',
           ],
         },
         {
