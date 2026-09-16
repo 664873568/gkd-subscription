@@ -15,6 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          action: 'clickCenter',
           matches: [
             'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
           ],
@@ -22,6 +23,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
           anyMatches: [
             '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
             'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
@@ -57,6 +59,7 @@ export default defineGkdApp({
           excludeMatches: [
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
           ],
+          action: 'clickCenter',
           matches: [
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="去完成"]',
           ],
@@ -77,6 +80,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          action: 'clickCenter',
           matches: [
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
           ],
@@ -111,6 +115,7 @@ export default defineGkdApp({
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >5 @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
             '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
           ],
+          action: 'clickCenter',
           actionDelay: 2000,
           matches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
