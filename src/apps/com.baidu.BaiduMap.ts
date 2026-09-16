@@ -841,7 +841,6 @@ export default defineGkdApp({
           key: 1,
           anyMatches: [
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout - * [text="恭喜获得奖励"]',
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
           ],
         },
@@ -901,7 +900,7 @@ export default defineGkdApp({
       name: '看视频-广告-×qq',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -915,12 +914,13 @@ export default defineGkdApp({
       name: '看视频-免-恭喜获得奖励-×',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 30000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@ImageView < FrameLayout < * + * > FrameLayout > [text="恭喜获得奖励"]',
+            '@ImageView < FrameLayout <n FrameLayout < FrameLayout - * [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -931,7 +931,7 @@ export default defineGkdApp({
       name: '看视频-我要更快拿奖',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -947,7 +947,7 @@ export default defineGkdApp({
       name: '看视频-打开App体验*秒，即可获得奖励',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1086,8 +1086,10 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 10000,
-          matches: ['@ImageView[clickable=true] <<n * + * [id="ldbody"]'],
+          actionDelay: 15000,
+          matches: [
+            '@ImageView[clickable=true] < RelativeLayout + LinearLayout + LinearLayout <n [id="android:id/action_bar"]',//二级广告页
+          ],
           activityIds: ['com.sigmob.sdk.base.common.AdActivity'],
         },
         {
