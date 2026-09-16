@@ -507,7 +507,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -667,7 +667,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           matches: [
-            '[getChild(0).getChild(0).desc="桌面小组件"] +n View > View > @View[clickable=true] > View > Image',//可领取
+            '[getChild(0).getChild(0).desc="桌面小组件"] +n View > View > @View[clickable=true] > View > Image', //可领取
           ],
         },
         {
@@ -802,27 +802,23 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 3000,
           actionMaximum: 5,
-          matches: [
-            'View > @View[clickable=true] > [text="连喂3次"]',
-          ],
+          matches: ['View > @View[clickable=true] > [text="连喂3次"]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             'View > TextView + [text="明日0点可领，10点之后慢慢减少"] + @TextView[clickable=true]',
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           actionMaximum: 1,
-          matches: [
-            'View > @View[clickable=true] > [text="连喂3次"]',
-          ],
+          matches: ['View > @View[clickable=true] > [text="连喂3次"]'],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           matches: [
             'View > TextView + [text="明日0点可领，10点之后慢慢减少"] + @TextView[clickable=true]',
