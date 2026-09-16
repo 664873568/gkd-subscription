@@ -21,10 +21,10 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
-          matches: [
+          anyMatches: [
             '[text="确定要离开？"] +n @[getChild(0).text="仍然离开"][clickable=true] + [getChild(0).text="继续观看"][clickable=true]',
+            '[text="确定要离开？"] +n @[getChild(0).getChild(0).text="仍然离开"][clickable=true] + [getChild(0).getChild(0).text="继续观看"][clickable=true]',
           ],
         },
       ],
