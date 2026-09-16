@@ -201,7 +201,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            'RelativeLayout > LinearLayout > RelativeLayout > View + @View[clickable=true] + TextView + View',//二级广告页
+            'RelativeLayout > LinearLayout > RelativeLayout > View + @View[clickable=true] + TextView + View', //二级广告页
           ],
           activityIds: ['com.baidu.mobads.sdk.api.AppActivity'],
         },
