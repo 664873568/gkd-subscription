@@ -393,7 +393,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text~="[0-9]"][vid="tvCounter"] - [text="跳过"] < @[vid="llCounter"][clickable=true] +n [text="广告"][vid="tv_adFlag"]',
+            '[text~="[0-9]"][vid="tvCounter"] - [text="跳过"] < @[vid="llCounter"][clickable=true]',
           ],
           activityIds: ['com.yy.mobile.ui.splash.SplashActivity'],
         },
