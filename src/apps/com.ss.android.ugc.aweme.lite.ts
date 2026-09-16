@@ -42,5 +42,22 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 40,
+      name: '个人信息保护指引-同意',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="个人信息保护指引"][vid="title"] < [vid="content_layout"] + * > @[text="同意"][clickable=true] + [text="不同意"]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
   ],
 });
