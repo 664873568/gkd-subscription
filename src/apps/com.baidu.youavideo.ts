@@ -519,7 +519,7 @@ export default defineGkdApp({
             '@Image < * +n [text="限时奖励点击领取"]',
             '@[getChild(0).text="3ca6ab446dec1c57"] + [getChild(0).text="恭喜获得优惠券"]',
             '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励-恭喜获得*元红包
-            '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //惊喜福利-限时优惠权益
+            '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //惊喜福利
             '@TextView - [text="恭喜获得限时奖励"] < * + [getChild(1).getChild(1).text="以实际活动为准"]', //限时优惠权益
           ],
         },
@@ -548,6 +548,7 @@ export default defineGkdApp({
         },
         {
           key: 6,
+          actionDelay: 1000,
           anyMatches: [
             '@[text$="跳过"] -n [text="奖励已领取"]',
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
@@ -1005,15 +1006,12 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="跳过"][clickable=true] - * [text="点击跳转至详情页"]',
-            '@[text~="跳过 [0-9]"][clickable=true] + * > [text="点击下载应用"]',
+            '@[text="跳过"][clickable=true] - * [text$="跳转至详情页"]',
+            '@[text~="跳过 [0-9]"][clickable=true] + * > [text^="点击"]',
             '@[text~="[0-9] \\\\| 跳过"][clickable=true] + * [text="点击按钮了解更多"]',
-            '@[text="跳过"][clickable=true] - * [text="上滑屏幕"] + [text="跳转至详情页"]',
             '@ImageView < ViewGroup < * - * [text="向上滑动"] + [text="跳转至详情页或第三方应用"]',
             '@ImageView < ViewGroup < * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
-            '@[text~="跳过 [0-9]"][clickable=true] + [getChild(0).text="点击跳转至网页或第三方应用"]',
             '@[vid="ms_skipView"] + [vid="ms_shakeRoot"] > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
-            '[text="反馈"] + @[text~="跳过 [0-9]"][clickable=true] + * > [text="点击跳转至第三方应用或详情页"]',
             '@[text="跳过"] < FrameLayout[getChild(1).text~="[0-9]"] + [getChild(0).text="上滑或点击"] > [text="跳转详情或第三方应用"]',
           ],
           activityIds: [
