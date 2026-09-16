@@ -479,7 +479,7 @@ export default defineGkdApp({
       name: '看视频-跳过',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 10000,
+      forcedTime: 100000,
       resetMatch: 'activity',
       activityIds: [
         'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
@@ -490,7 +490,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           anyMatches: [
-            '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] +n [text=$"跳过"]',
+            '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] +n [text$="跳过"]',
             '@[text~="点击查看|立即领奖|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~="[0-9]+s"] + [text="｜跳过"]',
             '@[text~="去体验[0-9]+秒立即领奖"] <<n * [text~="[0-9]s"] + [text="｜跳过"]',
             '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
@@ -549,7 +549,7 @@ export default defineGkdApp({
         {
           key: 6,
           anyMatches: [
-            '@[text=$"跳过"] -n [text="奖励已领取"]',
+            '@[text$="跳过"] -n [text="奖励已领取"]',
             '@RelativeLayout[clickable=true] <<n * + * [text="svg%3e"] + [text="奖励已领取"]',
           ],
         },
@@ -1009,8 +1009,8 @@ export default defineGkdApp({
             '@[text~="跳过 [0-9]"][clickable=true] + * > [text="点击下载应用"]',
             '@[text~="[0-9] \\\\| 跳过"][clickable=true] + * [text="点击按钮了解更多"]',
             '@[text="跳过"][clickable=true] - * [text="上滑屏幕"] + [text="跳转至详情页"]',
-            '@ImageView < ViewGroup < * + * [上滑或点击"] + [text="跳转至详情页或第三方应用"]',
             '@ImageView < ViewGroup < * - * [text="向上滑动"] + [text="跳转至详情页或第三方应用"]',
+            '@ImageView < ViewGroup < * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
             '@[text~="跳过 [0-9]"][clickable=true] + [getChild(0).text="点击跳转至网页或第三方应用"]',
             '@[vid="ms_skipView"] + [vid="ms_shakeRoot"] > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
             '[text="反馈"] + @[text~="跳过 [0-9]"][clickable=true] + * > [text="点击跳转至第三方应用或详情页"]',
