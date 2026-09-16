@@ -237,7 +237,7 @@ export default defineGkdApp({
           activityIds: ['.main.MainActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             '@[text="点击领预约奖励"]',
@@ -246,13 +246,13 @@ export default defineGkdApp({
           activityIds: ['.main.MainActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: ['@[desc="领取金币"] < ViewGroup < ViewGroup'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           matches: [
             '@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]',
@@ -260,7 +260,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1,2,3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           matches: [
             'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',
@@ -269,7 +269,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1,2,3,4,5],
+          preKeys: [0, 1, 2, 3, 4, 5],
           key: 6,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView + ViewGroup', //恭喜预约成功×
@@ -277,7 +277,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1,2,3,4,5,6],
+          preKeys: [0, 1, 2, 3, 4, 5, 6],
           key: 7,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView', //恭喜获得惊喜奖励×
@@ -313,7 +313,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup[childCount=4] > @ViewGroup[index=2] > FrameLayout > View', //选择你的惊喜奖励-选我
@@ -321,7 +321,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > ViewGroup + @ImageView', //金币预约成功-我知道了-×
@@ -500,9 +500,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '@Button[clickable=true] - View > Image',
-          ],
+          matches: ['@Button[clickable=true] - View > Image'],
         },
         {
           preKeys: [0, 1],
