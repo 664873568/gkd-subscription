@@ -1088,7 +1088,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            '@ImageView[clickable=true] < RelativeLayout + LinearLayout + LinearLayout <n [id="android:id/action_bar"]',//二级广告页
+            '@ImageView[clickable=true] < RelativeLayout + LinearLayout + LinearLayout <n [id="android:id/action_bar"]', //二级广告页
           ],
           activityIds: ['com.sigmob.sdk.base.common.AdActivity'],
         },
