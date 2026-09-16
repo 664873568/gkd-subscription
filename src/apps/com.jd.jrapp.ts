@@ -772,7 +772,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          matches: ['View > [text="京东信誉分专属福利"] + @[text="领"][clickable=true]'],
+          matches: [
+            'View > [text="京东信誉分专属福利"] + @[text="领"][clickable=true]',
+          ],
         },
       ],
     },
