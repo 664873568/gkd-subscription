@@ -1127,9 +1127,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[id="app"] > [text="反馈"] -n @TextView[clickable=true]',
-          ],
+          matches: ['[id="app"] > [text="反馈"] -n @TextView[clickable=true]'],
         },
       ],
     },
