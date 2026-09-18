@@ -1227,7 +1227,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 102,
           actionDelay: 5000,
-          matches: ['@View[clickable=true] > [text="03e6058058b35dde"]'],
+          matches: [
+            '@View[clickable=true] > [text="03e6058058b35dde"]',
           ],
         },
         {
