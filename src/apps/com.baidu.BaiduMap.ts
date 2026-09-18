@@ -219,13 +219,13 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[getChild(2).text!~="访问中国移动得1次抽奖机会"] > @[text="去完成"][clickable=true]',
+            'ListView > [getChild(2).text!~="访问中国移动得1次抽奖机会"] > @[text="去完成"][clickable=true]',
           ],
         },
         {
           key: 1,
           excludeMatches: [
-            '[getChild(2).text!~="访问中国移动得1次抽奖机会"] > @[text="去完成"][clickable=true]',
+            'ListView > [getChild(2).text!~="访问中国移动得1次抽奖机会"] > @[text="去完成"][clickable=true]',
           ],
           actionDelay: 3000,
           matches: [
@@ -248,7 +248,8 @@ export default defineGkdApp({
       name: '金币任务中心-开红包领现金-去完成',
       matchRoot: true,
       matchDelay: 1000,
-      resetMatch: 'match',
+      resetMatch: 'activity',
+      forcedTime: 60000,
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
@@ -274,6 +275,7 @@ export default defineGkdApp({
             '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
             '[text="成功完成任务"] <n * < * +n @View[clickable=true] > [text="继续开红包"]',
             '[getChild(0).getChild(1).text="成功获得现金红包"] +n @View[clickable=true] > [text="开启下一轮"]',
+            '[getChild(0).getChild(1).text="成功获得现金红包"] +n @View[clickable=true] > [text="明日再来"]',
           ],
         },
       ],
@@ -1105,6 +1107,52 @@ export default defineGkdApp({
             '[text="反馈"] + @[id="close_btn"][clickable=true] +n * > [text~="马上去看看|进入游戏"]',
           ],
           activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+        },
+      ],
+    },
+    {
+      key: 85,
+      name: '看视频-跳过-<sigmob',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="app"] > [text="反馈"] -n @View[clickable=true] > View > [text=""]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[id="app"] > [text="反馈"] -n @TextView[clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 86,
+      name: '看视频-跳过-×sigmob',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.sigmob.sdk.base.common.PortraitTransparentAdActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="app"] > View > [id="ad_area"] > View > View > @[text="跳过"][id="close_btn"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[id="app"] > View > [id="ad_area"] > [text="反馈"] + @TextView[clickable=true]',
+          ],
         },
       ],
     },
