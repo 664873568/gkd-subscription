@@ -338,7 +338,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -388,7 +388,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -467,7 +467,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action:'clickCenter',
+          action: 'clickCenter',
           matches: [
             '[id="headFloor"] > View > [getChild(1).getChild(0).text="（可抽0次）"] -n View > View > @[text="去提现"]',
           ],
@@ -482,7 +482,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -546,7 +546,7 @@ export default defineGkdApp({
         {
           preKeys: [41],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -590,7 +590,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
       rules: [
         {
-          preKeys: [41,0],
+          preKeys: [41, 0],
           key: 0,
           action: 'longClickCenter',
           actionCd: 500,
@@ -708,9 +708,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          matches: [
-            'View > TextView + View > @[text="领"][clickable=true]',
-          ],
+          matches: ['View > TextView + View > @[text="领"][clickable=true]'],
         },
       ],
     },
@@ -733,7 +731,7 @@ export default defineGkdApp({
         {
           preKeys: [54],
           key: 1,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -817,7 +815,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
       rules: [
         {
-          preKeys: [54,56],
+          preKeys: [54, 56],
           key: 56,
           action: 'longClickCenter',
           actionCd: 500,
@@ -846,7 +844,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           actionDelay: 3000,
           actionMaximum: 5,
@@ -907,7 +905,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -943,7 +941,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1037,7 +1035,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,3],
+          preKeys: [1, 3],
           key: 2,
           matches: ['@[text~="摇黄金 x[2-9]"][clickable=true]'],
         },
@@ -1076,7 +1074,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1141,7 +1139,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           matches: [
             '[text="我的钱"] <<n ViewGroup - @ViewGroup[clickable=true] < * +n * [text="53/53"]',
           ],
@@ -1171,7 +1169,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: ['[text*="浏览"]','[text="返回领奖"]'],
+          excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1227,9 +1225,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 102,
           actionDelay: 5000,
-          matches: [
-            '@View[clickable=true] > [text="03e6058058b35dde"]',
-          ],
+          matches: ['@View[clickable=true] > [text="03e6058058b35dde"]'],
         },
         {
           preKeys: [102],
@@ -1324,7 +1320,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           swipeArg: {
             start: {
