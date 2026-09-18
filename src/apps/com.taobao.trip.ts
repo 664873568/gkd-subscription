@@ -84,7 +84,7 @@ export default defineGkdApp({
       name: '天天集能量-首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -859,7 +859,6 @@ export default defineGkdApp({
       key: 500,
       name: '首页广告-跳过',
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
@@ -897,7 +896,6 @@ export default defineGkdApp({
       name: '首页-能量红包',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
