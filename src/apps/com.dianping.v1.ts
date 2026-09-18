@@ -69,7 +69,7 @@ export default defineGkdApp({
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           action: 'clickCenter',
           matches: [
@@ -126,7 +126,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           action: 'clickCenter',
           anyMatches: [
@@ -135,7 +135,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[1],
+          preKeys: [1],
           key: 2,
           anyMatches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
