@@ -243,15 +243,13 @@ export default defineGkdApp({
         },
         {
           key: 23,
-          excludeMatches: [
-            'View > @[text="领奖"][clickable=true]',
-          ],
+          excludeMatches: ['View > @[text="领奖"][clickable=true]'],
           matches: [
             '[text="恭喜获得浏览奖励"] +n @[text="继续浏览"][clickable=true] + TextView',
           ],
         },
         {
-          preKeys: [22,23],
+          preKeys: [22, 23],
           key: 2,
           excludeMatches: ['[text*="浏览"]', '[text="返回领奖"]'],
           actionDelay: 5000,
@@ -260,14 +258,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [22,23],
+          preKeys: [22, 23],
           key: 3,
           matches: [
             '[text~="返回签到|返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
         },
         {
-          preKeys: [22,23],
+          preKeys: [22, 23],
           key: 4,
           action: 'back',
           matches: [
@@ -275,14 +273,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [22,23],
+          preKeys: [22, 23],
           key: 5,
           matches: [
             '@[text="返回领奖"][clickable=true] <<n * - * ViewGroup + ImageView[clickable=true] + ImageView', //京东保
           ],
         },
         {
-          preKeys: [22,23],
+          preKeys: [22, 23],
           key: 6,
           actionDelay: 5000,
           matches: [
@@ -291,9 +289,7 @@ export default defineGkdApp({
         },
         {
           key: 7,
-          anyMatches: [
-            'View > @[text="领奖"][clickable=true]',
-          ],
+          anyMatches: ['View > @[text="领奖"][clickable=true]'],
         },
       ],
     },
@@ -306,7 +302,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
       rules: [
         {
-          preKeys: [22,23],
+          preKeys: [22, 23],
           key: 0,
           action: 'back',
           matches: [
@@ -332,7 +328,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
       rules: [
         {
-          preKeys: [22,0],
+          preKeys: [22, 0],
           key: 0,
           action: 'longClickCenter',
           actionCd: 500,
@@ -1110,7 +1106,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,1],
+          preKeys: [4, 1],
           key: 1,
           matches: ['@[text~="摇黄金 x[2-9]"][clickable=true]'],
         },
