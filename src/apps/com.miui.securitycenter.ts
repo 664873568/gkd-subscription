@@ -16,7 +16,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 16000,
-          matches: ['@[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]'],
+          matches: [
+            '@[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
+          ],
           activityIds: ['com.miui.applicationlock.AppLockActivity'],
         },
       ],
@@ -32,7 +34,9 @@ export default defineGkdApp({
         {
           action: 'back',
           actionDelay: 16000,
-          matches: ['@[text="请用密码或指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]'],
+          matches: [
+            '@[text="请用密码或指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
+          ],
           activityIds: ['com.miui.applicationlock.ConfirmAccessControl'],
         },
       ],
@@ -175,9 +179,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] < [vid="button_scroll_view"] -n * [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: [
-            'null',
-          ],
+          activityIds: ['null'],
         },
       ],
     },
