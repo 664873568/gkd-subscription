@@ -58,8 +58,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: [
-            '[vid="left_panel"] > @[desc="返回"][clickable=true] + * [vid="tvTitle"]', //逛大促会场
+          anyMatches: [
+            '[vid="left_panel"] > @[desc="返回"][clickable=true]', //逛大促会场
+            '[vid="ly_title_bar_left"] > @[text=""][vid="header_view_left_text_view"][clickable=true]', //超级金币
           ],
         },
         {
