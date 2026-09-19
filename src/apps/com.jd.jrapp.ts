@@ -261,7 +261,8 @@ export default defineGkdApp({
           preKeys: [22, 23],
           key: 4,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
@@ -427,7 +428,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
@@ -492,7 +494,8 @@ export default defineGkdApp({
           preKeys: [1],
           key: 4,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
@@ -646,7 +649,8 @@ export default defineGkdApp({
           preKeys: [40],
           key: 3,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
@@ -876,7 +880,8 @@ export default defineGkdApp({
           preKeys: [54],
           key: 3,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
@@ -1073,7 +1078,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
@@ -1126,7 +1132,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
@@ -1252,7 +1259,8 @@ export default defineGkdApp({
           preKeys: [1],
           key: 4,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
@@ -1399,7 +1407,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           excludeMatches: [
-            '[text*="浏览"]', '[text="返回领奖"]',
+            '[text*="浏览"]',
+            '[text="返回领奖"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           matches: [
