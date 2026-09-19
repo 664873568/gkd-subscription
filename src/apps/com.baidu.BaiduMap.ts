@@ -196,9 +196,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          matches: [
-            '@View[clickable=true] > [text="立即翻倍|立即收下"]',
-          ],
+          matches: ['@View[clickable=true] > [text="立即翻倍|立即收下"]'],
         },
         {
           preKeys: [2],
@@ -334,7 +332,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           actionDelay: 15000,
           anyMatches: [
@@ -345,7 +343,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 2,
           action: 'back',
           actionDelay: 15000,
@@ -788,7 +786,9 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity'],
+      activityIds: [
+        'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
+      ],
       rules: [
         {
           key: 0,
