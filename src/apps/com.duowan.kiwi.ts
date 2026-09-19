@@ -61,11 +61,10 @@ export default defineGkdApp({
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"] <<n [vid="ad_aplash"]'],
+          matches: ['@[text="跳过"][clickable=true]'],
           activityIds: ['.homepage.Homepage'],
         },
       ],
