@@ -477,7 +477,7 @@ export default defineGkdApp({
             '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
-        }
+        },
         {
           preKeys: [1],
           key: 3,
@@ -631,7 +631,7 @@ export default defineGkdApp({
             '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
-        }
+        },
         {
           preKeys: [40],
           key: 2,
@@ -861,7 +861,7 @@ export default defineGkdApp({
             '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
-        }
+        },
         {
           preKeys: [54],
           key: 2,
@@ -1058,7 +1058,7 @@ export default defineGkdApp({
             '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
-        }
+        },
         {
           preKeys: [0],
           key: 2,
@@ -1111,7 +1111,7 @@ export default defineGkdApp({
             '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
-        }
+        },
         {
           preKeys: [0],
           key: 2,
