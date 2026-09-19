@@ -38,22 +38,6 @@ export default defineGkdApp({
     },
     {
       key: 6,
-      name: '浏览完成false',
-      matchRoot: true,
-      actionMaximum: 1,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: [
-            '[text="浏览完成"] < @View[clickable=false] - * [text="ff776b55ee07c915"]',
-          ],
-          activityIds: ['.bm.common.web.ui.WebActivity'],
-        },
-      ],
-    },
-    {
-      key: 6,
       name: 'Button-<',
       matchRoot: true,
       actionMaximum: 1,
@@ -64,6 +48,22 @@ export default defineGkdApp({
           anyMatches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="正在跳转..."]',
             '[id="app"] < [text="商品详情"] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="商品详情"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '浏览完成false',
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          matches: [
+            '[text="浏览完成"] < @View[clickable=false] - * [text="ff776b55ee07c915"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
