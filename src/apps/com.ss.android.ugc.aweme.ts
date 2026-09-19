@@ -216,7 +216,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           swipeArg: {
             start: {
@@ -457,7 +457,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -655,7 +655,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
@@ -856,9 +856,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          matches: [
-            '@ViewGroup > [desc="车险，按钮"] > [desc="车险"]',
-          ],
+          matches: ['@ViewGroup > [desc="车险，按钮"] > [desc="车险"]'],
           activityIds: ['.search.activity.SearchResultActivity'],
         },
         {
