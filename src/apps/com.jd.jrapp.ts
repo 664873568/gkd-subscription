@@ -61,7 +61,7 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 5000,
-          anyMmatches: [
+          anyMatches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="正在跳转..."]',
             '[id="app"] < [text="商品详情"] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="商品详情"]',
           ],
