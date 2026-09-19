@@ -67,6 +67,19 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 2,
+      name: '中国电信湖北客服-广告-×',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[getChild(0).getChild(0).text="广告"] + @Image'],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+        },
+      ],
+    },
+    {
       key: 10,
       name: '迅雷-看广告-领取',
       matchRoot: true,
