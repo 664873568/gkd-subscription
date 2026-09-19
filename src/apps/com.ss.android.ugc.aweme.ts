@@ -9,14 +9,12 @@ export default defineGkdApp({
       key: 0,
       name: '月付金-签到可得',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.bullet.ui.BulletContainerActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="签到可得"]',
           ],
@@ -34,13 +32,11 @@ export default defineGkdApp({
       key: 1,
       name: '月付金-浏览小游戏',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           excludeMatches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="签到可得"]',
             '[text="我的月付金"] >n [text="签到成功 月付金"] +n @ImageButton[clickable=true]',
@@ -63,7 +59,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: ['@ImageView - ViewGroup < ViewGroup - ScrollView'],
           activityIds: [
@@ -76,7 +72,6 @@ export default defineGkdApp({
       key: 2,
       name: '月付金-浏览钱包页面',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -85,7 +80,6 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="浏览小游戏"]',
           ],
-          actionDelay: 2000,
           anyMatches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="浏览钱包页面"]',
             '@[text="去完成"][clickable=true] - View[clickable=true] > [text="查看我的钱包"]',
@@ -109,14 +103,12 @@ export default defineGkdApp({
       key: 3,
       name: '月付金-天天抽大奖',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.bullet.ui.BulletContainerActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           excludeMatches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="浏览钱包页面"]',
           ],
@@ -133,14 +125,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '[text="天天抽大奖"] >n @ImageButton[text="11d4c35793c0e3677e32627055c3741f.png~tplv-49obo7mizy-whq:0:0:q75"][clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           actionDelay: 5000,
           matches: [
@@ -153,7 +145,6 @@ export default defineGkdApp({
       key: 4,
       name: '月付金-浏览天天开宝箱活动',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -162,7 +153,6 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="我的月付金"] >n @View[clickable=true] > [text="浏览钱包页面"]',
           ],
-          actionDelay: 2000,
           matches: [
             '[text="我的月付金"] >n View[index=0] > @[text="去抽奖"][clickable=true] - View[clickable=true] > [text="浏览天天开宝箱活动"]',
           ],
@@ -186,16 +176,27 @@ export default defineGkdApp({
       key: 5,
       name: '月付金-天天抽披哥入场券',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          key: 0,
           matches: [
             '[text="我的月付金"] >n View[index=0] > @[text="去抽奖"][clickable=true] - View[clickable=true] > [text="天天抽披哥入场券"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          action: 'back',
+          matches: [
+            'FrameLayout > FrameLayout > ViewGroup > FrameLayout > ImageView + TextView',
+          ],
+          activityIds: [
+            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+          ],
         },
       ],
     },
@@ -215,7 +216,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 1,
           swipeArg: {
             start: {
@@ -237,7 +238,7 @@ export default defineGkdApp({
           activityIds: ['.main.MainActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           anyMatches: [
             '@[text="点击领预约奖励"]',
@@ -246,13 +247,13 @@ export default defineGkdApp({
           activityIds: ['.main.MainActivity'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: ['@[desc="领取金币"] < ViewGroup < ViewGroup'],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3],
+          preKeys: [3],
           key: 4,
           matches: [
             '@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]',
@@ -260,7 +261,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3, 4],
+          preKeys: [4],
           key: 5,
           matches: [
             'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',
@@ -269,7 +270,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3, 4, 5],
+          preKeys: [5],
           key: 6,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView + ViewGroup', //恭喜预约成功×
@@ -277,7 +278,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3, 4, 5, 6],
+          preKeys: [6],
           key: 7,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView', //恭喜获得惊喜奖励×
@@ -292,41 +293,34 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.bullet.ui.BulletContainerActivity'],
       rules: [
         {
           key: 0,
-          position: {
-            left: 'width * 0.4992',
-            top: 'width * 1.2793',
-          },
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + @ViewGroup[childCount=6][index=1]', //立即领取
+            'HorizontalScrollView > LinearLayout > ViewGroup > @ViewGroup[index=6]', //立即领取
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup[childCount=7] > @ViewGroup[index=6]', //金币领取成功
+            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup[childCount=4] > @ViewGroup[index=2] > FrameLayout > View', //选择你的惊喜奖励-选我
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > ViewGroup + @ImageView', //金币预约成功-我知道了-×
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
     },
@@ -375,7 +369,6 @@ export default defineGkdApp({
       name: '车主服务-指引图',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -394,7 +387,6 @@ export default defineGkdApp({
       name: '车主服务-广告',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -429,7 +421,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: [
             '@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
           ],
@@ -450,6 +441,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           excludeMatches: [
             '@[text="立即领取"] < View <n View -n [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
           ],
@@ -465,7 +457,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -493,6 +485,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="信用卡"]',
           ],
@@ -510,7 +503,7 @@ export default defineGkdApp({
           matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           action: 'clickCenter',
           matches: [
@@ -532,6 +525,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="食安保"]',
           ],
@@ -545,7 +539,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: ['@[text="仍要退出"] + [text="立即收下"]'],
         },
@@ -560,6 +554,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="充值中心"]',
           ],
@@ -594,6 +589,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="我的保障"]',
           ],
@@ -640,6 +636,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="查电费"]',
           ],
@@ -658,7 +655,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 2,
           actionDelay: 5000,
           matches: ['@[desc="返回"] + [text="生活缴费"]'],
@@ -682,6 +679,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="月付金"]',
           ],
@@ -694,14 +692,13 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: ['[text="抖音月付"] >n @[desc="返回"][clickable=true]'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
-          action: 'back',
           matches: [
             '[text="车主服务"] >n @ImageButton[clickable=true] + * [text="恭喜完成任务"]',
           ],
@@ -721,6 +718,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="运费险"]',
           ],
@@ -734,7 +732,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: ['@[text="仍要退出"] + [text="立即收下"]'],
         },
@@ -749,6 +747,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="抽免单"]',
           ],
@@ -779,6 +778,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text="车主服务"] >n @View[clickable=true][index=2] > [text="去懂车帝"]',
           ],
@@ -805,6 +805,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -n [text="从「钱包」访问车主服务"] < View[index=6] -n [text="今日已完成 明日继续"]',
           ],
@@ -818,7 +819,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[text="我知道了"] - [text="AaIe25teg7ljAAAAAElFTkSuQmCC"]',
@@ -835,6 +836,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View[index=8] -n [text="今日已完成 明日继续"]',
           ],
@@ -846,49 +848,32 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'clickCenter',
           matches: [
-            'FrameLayout > ViewGroup > ViewGroup + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup + ViewGroup',
+            '@[desc="返回"][clickable=true] < FrameLayout + [vid="fl_intput_hint_container"]',
           ],
           activityIds: ['.search.activity.SearchResultActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
-            '@ImageButton[clickable=true] - ImageButton <<n * -n * [text="d60d1c8ebb042992a1535132108f5843.png~tplv-49obo7mizy-png75"]',
+            '@ViewGroup > [desc="车险，按钮"] > [desc="车险"]',
           ],
           activityIds: ['.search.activity.SearchResultActivity'],
         },
-      ],
-    },
-    {
-      key: 35,
-      name: '车主服务-搜索「车险」进入频道-返回',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
         {
-          key: 0,
+          preKeys: [2],
+          key: 3,
           matches: [
-            '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View[index=8] -n [text="今日已完成 明日继续"]',
+            'ViewGroup > [desc="功能·抖音钱包·车险"] + [desc="12期免息按钮"] + ViewGroup + @ViewGroup + ViewGroup + ViewGroup',
           ],
-          activityIds: [
-            '.bullet.ui.BulletContainerActivity',
-            '.cjpay.hostimpl.container.CJLiveDummyActivity',
-          ],
+          activityIds: ['.search.activity.SearchResultActivity'],
         },
         {
-          preKeys: [0],
-          key: 1,
-          action: 'clickCenter',
-          actionMaximum: 2,
-          excludeMatches: [
-            'FrameLayout > ViewGroup > ViewGroup + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup + ViewGroup',
-          ],
+          preKeys: [3],
+          key: 4,
           matches: [
-            '@[desc="返回"][clickable=true] < * + * [text="搜索"][desc="搜索"]',
+            '[getChild(1).text="d60d1c8ebb042992a1535132108f5843.png~tplv-49obo7mizy-png75"] +n * ImageButton + @ImageButton[clickable=true]',
           ],
           activityIds: ['.search.activity.SearchResultActivity'],
         },
@@ -981,10 +966,8 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          anyMatches: [
-            '@[desc="芒果TV"] - ImageView < ViewGroup',
-            '@[desc="腾讯视频"] - ImageView < ViewGroup',
-            '@[desc="bilibili"] - ImageView < ViewGroup',
+          matches: [
+            '@[desc~="bilibili|芒果TV|腾讯视频"] - ImageView < ViewGroup',
           ],
           activityIds: [
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
@@ -997,7 +980,7 @@ export default defineGkdApp({
       key: 45,
       name: '赚充值金-天天用好券-浏览好物-返回领取',
       matchRoot: true,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.live.LiveDummyActivity'],
       rules: [
@@ -1018,8 +1001,7 @@ export default defineGkdApp({
       key: 50,
       name: '看视频-任务完成 返回领取',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 40000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1034,8 +1016,7 @@ export default defineGkdApp({
       key: 60,
       name: '手机充值-广告-×',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1076,6 +1057,30 @@ export default defineGkdApp({
     },
     {
       key: 71,
+      name: '我的钱包-积分已到账',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bullet.ui.BulletContainerActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@ImageButton[clickable=true] + [getChild(0).getChild(1).text="新人专享取现优惠"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[desc="返回"][clickable=true] < [id="headerLeftBar"] < [id="full-header"] + [id="JS_PageScroller"] > [id="with-scroll-content"] > View > [text="积分已到账"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 72,
       name: '支付成功',
       matchRoot: true,
       matchDelay: 1000,
@@ -1099,6 +1104,22 @@ export default defineGkdApp({
           matches: [
             '@[text^="nP+4b4Fvph+"] + View >n [text="您有1个奖励待领取"]',
           ],
+        },
+      ],
+    },
+    {
+      key: 73,
+      name: '抖音乘车码开通福利-×',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup + @ImageView + ViewGroup + ViewGroup + [desc="开心收下"]',
+          ],
+          activityIds: ['.live.LiveDummyHybridTransparentActivity'],
         },
       ],
     },
