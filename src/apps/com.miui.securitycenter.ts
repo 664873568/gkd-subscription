@@ -165,7 +165,7 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '启动应用-拒绝',
+      name: '启动应用-拒绝1',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
