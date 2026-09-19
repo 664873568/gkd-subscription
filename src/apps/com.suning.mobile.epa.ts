@@ -12,8 +12,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@ImageButton[clickable=true] + View[getChild(0).getChild(0).text~="点击.*|[0-9]s后.*"]',
+            '@ImageButton[clickable=true] + View[getChild(0).text~="[0-9]s后.*"]',
           ],
           activityIds: [
             '.ui.init.SplashActivity',
@@ -30,17 +31,16 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          excludeMatches: [
-            '@ImageButton[clickable=true] + View[getChild(0).getChild(0).text~="点击.*|[0-9]s后.*"]',
-          ],
+          key: 0,
           matches: [
-            '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费|签到领大额红包|去逛星选商城频道"] + View > [text="去完成"]',
+            '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费"] + View > [text="去完成"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
     },
     {
+      scopeKeys: [1],
       key: 2,
       name: '天天领现金-签到领大额红包',
       matchRoot: true,
@@ -48,15 +48,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: ['com.suning.webview.H5SystemBaseActivity'],
       rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费|签到领大额红包|去逛星选商城频道"] + View > [text="去完成"]',
-          ],
-          matches: [
-            '@View[clickable=true] > View > [getChild(0).getChild(0).text="签到领大额红包"] + View > [text="去完成"]',
-          ],
-        },
         {
           preKeys: [0],
           key: 1,
@@ -66,7 +57,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           action: 'back',
           actionDelay: 2000,
@@ -77,22 +68,13 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [1],
       key: 3,
       name: '天天领现金-去逛星选商城频道',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费|去逛星选商城频道"] + View > [text="去完成"]',
-          ],
-          matches: [
-            '@View[clickable=true] > View > [getChild(0).getChild(0).text="去逛星选商城频道"] + View > [text="去完成"]',
-          ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
-        },
         {
           preKeys: [0],
           key: 1,
