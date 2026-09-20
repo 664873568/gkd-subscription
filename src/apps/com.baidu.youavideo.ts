@@ -127,8 +127,8 @@ export default defineGkdApp({
         {
           key: 4,
           position: {
-            left: 'width * 0.9230',
-            top: 'width * 0.1626',
+            left: 'width * 0.930',
+            top: 'width * 0.850',
           },
           actionDelay: 2000,
           matches: ['@[vid="layout_share_media_channel"]'],
@@ -259,8 +259,8 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3, 4, 5],
           key: 6,
           position: {
-            left: 'width * 0.9300',
-            top: 'width * 0.6500',
+            left: 'width * 0.930',
+            top: 'width * 0.750',
           },
           actionDelay: 2000,
           matches: ['@ScrollView'],
@@ -334,8 +334,8 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3, 4],
           key: 5,
           position: {
-            left: 'width * 0.9300',
-            top: 'width * 0.8500',
+            left: 'width * 0.930',
+            top: 'width * 0.750',
           },
           actionDelay: 2000,
           matches: ['@ScrollView'],
@@ -366,8 +366,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           position: {
-            left: 'width * 0.9300',
-            top: 'width * 1.8000',
+            left: 'width * 0.930',
+            top: 'width * 0.850',
           },
           actionDelay: 5000,
           matches: ['@ComposeView'],
@@ -479,11 +479,11 @@ export default defineGkdApp({
       name: '看视频-跳过',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 100000,
       resetMatch: 'activity',
       activityIds: [
         'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
         'com.bytedance.sdk.openadsdk.core.activity.base.TTWebPageActivity',
+        '.operate.ui.view.activity.TaskCenterActivity',
       ],
       rules: [
         {
@@ -972,6 +972,27 @@ export default defineGkdApp({
         {
           matches: [
             '[text="同时开启双重保障"][vid="dialog_title"] +n @[vid="dialog_white_button"][clickable=true] + [text="暂不考虑"][vid="dialog_white_text"] + [vid="dialog_blue_button"] + [text="立即开启"][vid="dialog_blue_text"]',
+          ],
+          activityIds: [
+            '.app.ui.SplashActivity',
+            '.home.view.HomeActivity',
+            '.vip.ui.VipWebActivity',
+            '.operate.ui.view.activity.TaskCenterActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 407,
+      name: '权限申请-取消',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="取消"][vid="cancel"][clickable=true] + [vid="divider_cancel_ok_line"] + [text="确定"][vid="confirm"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
