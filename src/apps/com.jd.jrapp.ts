@@ -878,7 +878,7 @@ export default defineGkdApp({
           anyMatches: [
             'TextView[clickable=true] - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
             'TextView[clickable=true] - @TextView[clickable=true] < View < View < [id="joyai-root"] < View < [text="JoyAI"] < b40 < [vid="webview"]',
-            '[text="03e60d7044a19393"] - @TextView[clickable=true] < View < View < [id="app"] < WebView < b40 < [vid="webview"]',//浏览财富会员领权益
+            '[text="03e60d7044a19393"] - @TextView[clickable=true] < View < View < [id="app"] < WebView < b40 < [vid="webview"]', //浏览财富会员领权益
           ],
           activityIds: [
             '.bm.common.web.ui.WebActivity',
