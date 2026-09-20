@@ -368,7 +368,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]',//浏览投资日历
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -384,7 +384,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]',//浏览投资日历
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -395,7 +395,7 @@ export default defineGkdApp({
             top: 'width * 0.825',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup',//开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup', //开心收下
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
