@@ -159,7 +159,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
