@@ -212,39 +212,6 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '看视频-奖励将于*秒后发放',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          anyMatches: [
-            '[text^="奖励将于"] < LinearLayout < FrameLayout -n * [text="放弃福利" || text="我要更快拿奖"]',
-            '@[text="扭动/点击去玩小游戏提前拿奖"] <n LinearLayout < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-        {
-          key: 1,
-          actionDelay: 15000,
-          matches: [
-            'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
-          ],
-          activityIds: ['com.qq.e.ads.ADActivity'],
-        },
-        {
-          key: 2,
-          anyMatches: [
-            '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 12,
       name: '看视频-*秒后点击广告，即可获得奖励',
       matchRoot: true,
       actionMaximum: 1,
@@ -253,8 +220,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          anyMatches: [
             '[getChild(0).getChild(0).text="点击广告，即可获得奖励"] + * @[text="点击广告拿奖励"]',
+            '[getChild(0).getChild(0).getChild(0).text="点击广告，即可获得奖励"] + * @[text="点击广告拿奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -271,9 +239,78 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           matches: [
+            '@ImageView < FrameLayout <n * < * - * [text="恭喜获得奖励"]',
             '@ImageView < FrameLayout - FrameLayout[getChild(0).name$="ImageView"] - FrameLayout > [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '看视频-奖励将于*秒后发放',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '@[text="放弃福利"] < FrameLayout <n * < * +n * [text^="奖励将于"]',
+            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text^="奖励将于"]',
+            '@[text="扭动/点击去玩小游戏提前拿奖"] <n LinearLayout < FrameLayout <n * +n * [text^="奖励将于"]',
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
+          ],
+        },
+        {
+          key: 1,
+          actionDelay: 15000,
+          matches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
+          ],
+        },
+        {
+          key: 2,
+          anyMatches: [
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
+            '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
+            '@ImageView < FrameLayout < FrameLayout - LinearLayout > LinearLayout > [text="恭喜获得奖励"]',
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="继续"]',//恭喜获得奖励
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@ImageView < FrameLayout < FrameLayout <n FrameLayout +n * [text="恭喜获得奖励"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '看视频-浏览页面*秒后即可获得奖励',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      rules: [
+        {
+          key: 0,
+          action: 'none',
+          matches: [
+            '[text="浏览页面"] + [text~="[0-9]+"] + [text="秒后即可获得奖励"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
+          ],
         },
       ],
     },
