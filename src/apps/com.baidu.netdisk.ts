@@ -8,30 +8,33 @@ export default defineGkdApp({
       key: 0,
       name: '提现-提现至支付宝',
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '[getChild(1).getChild(1).text="提现"] +n @[text~="¥20|¥10"] +n @TextView[clickable=true] + [text="推荐商品"]',
-            '[getChild(1).getChild(1).text="提现"] +n * @[text="获取验证码"][clickable=true]',
-          ],
           matches: [
-            '[getChild(1).getChild(1).text="提现"] +n @[text~="¥20|¥10"][clickable=true]',
+            '[getChild(0).text="08点明日开抢"&&getChild(1).text="08:00:08"] -n * > @[text="我的红包(元)"][clickable=true]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
+            '[getChild(1).getChild(1).text="提现"] +n @[text~="¥20|¥10"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
             '[getChild(1).getChild(1).text="提现"] +n @[text~="¥20|¥10"] +n @TextView[clickable=true] + [text="推荐商品"]',
           ],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
+          preKeys: [2],
+          key: 3,
           matches: [
             '[getChild(1).getChild(1).text="提现"] +n * @[text="获取验证码"][clickable=true]',
           ],
@@ -42,7 +45,7 @@ export default defineGkdApp({
       key: 1,
       name: '兑换商城-兑换-5元京东卡',
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
@@ -56,23 +59,19 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: [
-            '[text="5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
-            '[text="确认兑换"] +n View[clickable=true] > [text="确定"]',
-          ],
           matches: [
             '[getChild(0).getChild(0).text="99金币"] + [text="立即兑换"]',
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '[text="5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
@@ -84,7 +83,7 @@ export default defineGkdApp({
       key: 2,
       name: '兑换商城-兑换-10元现金红包',
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
@@ -106,14 +105,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '[text="10元现金红包"] + @View[clickable=true] > [text="兑换并使用"]',
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
@@ -173,6 +172,7 @@ export default defineGkdApp({
           anyMatches: [
             '[text="已领取"] >n @[text="svg+xml;base64"]',
             '@ImageView[clickable=true] < [getChild(1).text="应用详情"] +n [text="立即下载"]',
+            'LinearLayout > FrameLayout - RelativeLayout > @TextView[clickable=true] + [text="应用权限"]',
             'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',
             'LinearLayout > FrameLayout - LinearLayout > RelativeLayout > ImageView + @ImageView[clickable=true] + TextView + [text="反馈"]', //二级广告页
           ],
