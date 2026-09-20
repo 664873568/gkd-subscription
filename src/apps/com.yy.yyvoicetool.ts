@@ -253,7 +253,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [6,7],
+      scopeKeys: [6, 7],
       key: 8,
       name: '每日任务-去完成/看视频-noah',
       matchRoot: true,
@@ -273,7 +273,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6,7],
+          preKeys: [6, 7],
           key: 1,
           matches: [
             '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"] +n [vid="noah_reward_cta_tip_container"] > [text="立即点击领取"][vid="noah_reward_cta_tip_tv"]',
@@ -295,18 +295,16 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [6,7],
+      scopeKeys: [6, 7],
       key: 9,
       name: '每日任务-去完成/看视频-mcto',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.mcto.sspsdk.ssp.activity.QyTrueViewActivity',
-      ],
+      activityIds: ['com.mcto.sspsdk.ssp.activity.QyTrueViewActivity'],
       rules: [
         {
-          preKeys: [6,7],
+          preKeys: [6, 7],
           key: 0,
           action: 'none',
           matches: [
