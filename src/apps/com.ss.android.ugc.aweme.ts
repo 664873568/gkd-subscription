@@ -89,10 +89,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 15000,
           action: 'back',
+          actionDelay: 15000,
           anyMatches: [
-            '@FrameLayout[clickable=true] > FrameLayout > FrameLayout + [id*="cj_plugin:id"] > FrameLayout',
+            'FrameLayout < [id*="cj_plugin:id"] - FrameLayout < FrameLayout < FrameLayout',
             '@ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]',
           ],
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
@@ -154,7 +154,7 @@ export default defineGkdApp({
             '[text="我的月付金"] >n @View[clickable=true] > [text="浏览钱包页面"]',
           ],
           matches: [
-            '[text="我的月付金"] >n View[index=0] > @[text="去抽奖"][clickable=true] - View[clickable=true] > [text="浏览天天开宝箱活动"]',
+            '[text="我的月付金"] >n View > @[text="去抽奖"][clickable=true] - View > [text="浏览天天开宝箱活动"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -174,7 +174,7 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '月付金-天天抽披哥入场券',
+      name: '月付金-浏览好物竞拍得月付金',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -182,21 +182,19 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="我的月付金"] >n View[index=0] > @[text="去抽奖"][clickable=true] - View[clickable=true] > [text="天天抽披哥入场券"]',
+            '[text="我的月付金"] >n View > @[text="去拍卖"][clickable=true] - View > [text="浏览好物竞拍得月付金"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           action: 'back',
+          actionDelay: 15000,
           matches: [
-            'FrameLayout > FrameLayout > ViewGroup > FrameLayout > ImageView + TextView',
+            'FrameLayout < [id*="cj_plugin:id"] - FrameLayout < FrameLayout < FrameLayout',
           ],
-          activityIds: [
-            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
-          ],
+          activityIds: ['.live.LiveDummyActivity'],
         },
       ],
     },
@@ -249,14 +247,16 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
-          matches: ['@[desc="领取金币"] < ViewGroup < ViewGroup'],
+          matches: [
+            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="领取金币"]',
+          ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [3],
           key: 4,
           matches: [
-            '@[desc="开心收下"] < ViewGroup -n * > [desc="金币领取成功"]',
+            '[getChild(0).desc="金币领取成功"] +n ViewGroup > @[desc="开心收下"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -265,7 +265,7 @@ export default defineGkdApp({
           key: 5,
           matches: [
             'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',
-            'HorizontalScrollView > LinearLayout > ViewGroup > @ViewGroup > [desc="立即预约领取"]',
+            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -273,7 +273,7 @@ export default defineGkdApp({
           preKeys: [5],
           key: 6,
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView + ViewGroup', //恭喜预约成功×
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView', //恭喜预约成功×
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -297,6 +297,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
+          ],
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > @ViewGroup[index=6]', //立即领取
           ],
@@ -304,6 +307,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
           matches: [
             'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
           ],
@@ -351,14 +355,51 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           action: 'back',
           matches: [
-            '@FrameLayout[clickable=true] > FrameLayout > [id*="cj_plugin:id"] + FrameLayout > ImageView',
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout',
           ],
           activityIds: [
-            '.live.LiveDummyActivity', //券红包
-            '.bullet.ui.BulletContainerActivity', //基金落地页-每周投
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0', //行情
+            '.live.LiveDummyActivity', //逛商城福利
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0', //浏览行情信息
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]',//浏览投资日历
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[desc="关闭"][clickable=true] + [text="先加入自选，行情来了不错过"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]',//浏览投资日历
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          key: 4,
+          position: {
+            left: 'width * 0.500',
+            top: 'width * 0.825',
+          },
+          matches: [
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup',//开心收下
+          ],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
           ],
         },
       ],
@@ -877,6 +918,37 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 35,
+      name: '车主服务-看视频赚能量',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionCd: 3000,
+          matches: [
+            '@[id="root"] > [text="看视频赚"] - View > View > [text~="还剩[0-9]+秒可得奖励"]',
+          ],
+          activityIds: [
+            '.bullet.ui.BulletContainerActivity',
+            '.cjpay.hostimpl.container.CJLiveDummyActivity',
+            '.search.activity.SearchResultActivity',
+          ],
+        },
+      ],
+    },
     //充值中心-充值金
     {
       key: 40,
@@ -1055,25 +1127,47 @@ export default defineGkdApp({
     },
     {
       key: 71,
-      name: '我的钱包-积分已到账',
+      name: '我的钱包-前往抖音月付看看',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.bullet.ui.BulletContainerActivity'],
       rules: [
         {
           key: 0,
+          action: 'clickCenter',
           matches: [
-            '@ImageButton[clickable=true] + [getChild(0).getChild(1).text="新人专享取现优惠"]',
+            '[desc="前往抖音月付看看 滑动浏览30秒 抖币+1000 去看看 按钮"] > ViewGroup',
           ],
+          activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
+            '@ImageButton[clickable=true] + [getChild(0).getChild(1).text="新人专享取现优惠"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
             '@[desc="返回"][clickable=true] < [id="headerLeftBar"] < [id="full-header"] + [id="JS_PageScroller"] > [id="with-scroll-content"] > View > [text="积分已到账"]',
           ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          position: {
+            left: 'width * 0.500',
+            top: 'width * 0.825',
+          },
+          matches: [
+            '@[desc="返回"][clickable=true] < [id="headerLeftBar"] < [id="full-header"] + [id="JS_PageScroller"] > [id="with-scroll-content"] > View > [text="积分已到账"]',
+          ],
+          activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
       ],
     },
