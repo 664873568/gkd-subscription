@@ -1408,12 +1408,12 @@ export default defineGkdApp({
       name: '看视频 赚现金-去完成',
       matchRoot: true,
       resetMatch: 'activity',
-          activityIds: [
-            '.bm.mainbox.main.MainActivity',
-            '.bm.sh.jm.video.ui.VibratoActivity',
-            '.bm.common.web.ui.WebActivity',
-            '.bm.common.container.ui.BaseContainerActivity',
-          ],
+      activityIds: [
+        '.bm.mainbox.main.MainActivity',
+        '.bm.sh.jm.video.ui.VibratoActivity',
+        '.bm.common.web.ui.WebActivity',
+        '.bm.common.container.ui.BaseContainerActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -1465,7 +1465,7 @@ export default defineGkdApp({
           key: 5,
           actionDelay: 5000,
           matches: [
-            'TextView[clickable=true] - @TextView[clickable=true] < View < View < View < [id="app"] <n View < [text="圈子"] < b40 < [vid="webview"]',//浏览基金圈 结交同路人
+            'TextView[clickable=true] - @TextView[clickable=true] < View < View < View < [id="app"] <n View < [text="圈子"] < b40 < [vid="webview"]', //浏览基金圈 结交同路人
           ],
         },
         {
