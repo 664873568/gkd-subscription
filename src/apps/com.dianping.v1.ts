@@ -19,7 +19,7 @@ export default defineGkdApp({
           ],
           action: 'clickCenter',
           anyMatches: [
-            'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
+            '[text="今日签到"] <n @FrameLayout[clickable=true] - FrameLayout > [text*="餐奖励"]',
             'FrameLayout > FrameLayout > FrameLayout > @FrameLayout[clickable=true] > [text="立即签到"]',
           ],
         },
