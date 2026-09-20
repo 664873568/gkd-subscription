@@ -279,7 +279,7 @@ export default defineGkdApp({
             '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
             '@ImageView < FrameLayout < FrameLayout - LinearLayout > LinearLayout > [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="继续"]',//恭喜获得奖励
+            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="继续"]', //恭喜获得奖励
           ],
         },
         {
