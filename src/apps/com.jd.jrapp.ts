@@ -215,7 +215,7 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View[getChild(1).getChild(0).text!~="领.*|.*话费.*|玩.*|.*订单|购券.*|.*卡|去看.*"] > @[text="去完成"][clickable=true]',
+            '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View[getChild(1).getChild(0).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] > @[text="去完成"][clickable=true]',
           ],
         },
         {
@@ -590,6 +590,12 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: ['@[text="开心收下"][clickable=true]'],
+        },
+        {
+          key: 4,
+          matches: [
+            '[id="YLBCon"] - View > View > View > View + TextView + @Image[clickable=true]',
+          ],
         },
       ],
     },
@@ -1256,10 +1262,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['@[text="开心收下"][clickable=true]'],
           actionDelay: 2000,
           matches: [
-            '[getChild(0).text~="摇黄金 x[1-9]"] + @TextView[clickable=true] + TextView',
+            '[id="J_ui-load"] + [id="app"] > View > View > [getChild(0).text~="摇黄金 x[1-9]"] + @TextView[clickable=true] + TextView',
           ],
         },
         {
@@ -1333,14 +1338,18 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6, 1],
+          preKeys: [5, 1],
           key: 1,
-          matches: ['@[text~="摇黄金 x[2-9]"][clickable=true]'],
+          matches: [
+            '[id="J_ui-load"] + [id="app"] > View > View > View > @[text~="摇黄金 x[2-9]"][clickable=true]',
+          ],
         },
         {
           preKeys: [0, 1],
           key: 2,
-          matches: ['@[text="开心收下"][clickable=true]'],
+          matches: [
+            '[getChild(2).getChild(0).text="开心收下"] + @TextView[clickable=true]',
+          ],
         },
       ],
     },
@@ -1534,6 +1543,7 @@ export default defineGkdApp({
       key: 110,
       name: '笔笔返-去完成',
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.common.web.ui.WebActivity',
@@ -1576,6 +1586,32 @@ export default defineGkdApp({
           actionDelay: 5000,
           matches: [
             'TextView[clickable=true] - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
+          ],
+        },
+      ],
+    },
+    //超级指数节
+    //https://lca.jd.com/yx/index-channel/home/
+    {
+      key: 111,
+      name: '超级指数节-抽',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="超级指数节"] >n @TextView[clickable=true] + [text~="剩余次数:[1-9]"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="超级指数节"] > Dialog > View + @TextView[clickable=true]',
           ],
         },
       ],
