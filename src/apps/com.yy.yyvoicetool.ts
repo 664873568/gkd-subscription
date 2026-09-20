@@ -22,7 +22,6 @@ export default defineGkdApp({
       key: 1,
       name: '立即签到',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
@@ -82,7 +81,7 @@ export default defineGkdApp({
           ],
           actionDelay: 1000,
           matches: [
-            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
         },
         {
@@ -96,14 +95,16 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           action: 'back',
+          actionDelay: 1000,
           matches: [
-            '@ViewFactoryHolder >n [id="fun-root"][clickable=true] >n [desc="YY游仓"]', //访问YY游仓
+            'ViewFactoryHolder >n @[id="fun-root"][clickable=true] >n [desc="YY游仓"]', //访问YY游仓
           ],
         },
         {
           preKeys: [0],
           key: 3,
           action: 'back',
+          actionDelay: 1000,
           matches: ['@ComposeView >n [desc="删除"] + [text="取消"]'], //去搜索热门频道
         },
       ],
@@ -112,7 +113,6 @@ export default defineGkdApp({
       key: 4,
       name: '每日任务-去完成-收藏任意频道',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
@@ -121,7 +121,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 1000,
           matches: [
@@ -148,7 +148,6 @@ export default defineGkdApp({
       key: 5,
       name: '每日任务-去完成-访问指定频道',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.MainActivity'],
@@ -157,7 +156,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|访问指定频道|频道内发言|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 1000,
           matches: [
@@ -173,7 +172,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           actionDelay: 2000,
           matches: [
@@ -181,7 +180,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           actionDelay: 2000,
           matches: [
@@ -189,7 +188,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
+          preKeys: [3],
           key: 4,
           actionDelay: 2000,
           matches: [
@@ -197,7 +196,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4],
+          preKeys: [4],
           key: 5,
           action: 'back',
           matches: [
@@ -208,82 +207,42 @@ export default defineGkdApp({
     },
     {
       key: 6,
-      name: '每日任务-去完成-完成应用下载',
+      name: '每日任务-去完成-完成应用下载|完成应用浏览|完成页面浏览',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
+      forcedTime: 60000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
+          key: 6,
           excludeMatches: [
             '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
+            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
           actionDelay: 1000,
           matches: [
-            'LinearLayout[getChild(1).getChild(0).getChild(0).text="完成应用下载"] > @[text="去完成"][clickable=true]',
+            'ViewFactoryHolder > FrameLayout > FrameLayout > FrameLayout > LinearLayout > @[text="去完成"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
-          ],
-          activityIds: [
-            'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
-          ],
         },
       ],
     },
     {
       key: 7,
-      name: '每日任务-去完成-完成应用浏览',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
-          ],
-          actionDelay: 1000,
-          matches: [
-            'LinearLayout[getChild(1).getChild(0).getChild(0).text="完成应用浏览"] > @[text="去完成"][clickable=true]',
-          ],
-          activityIds: ['.MainActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"] +n [vid="noah_reward_cta_tip_container"] > [text="立即点击领取"][vid="noah_reward_cta_tip_tv"]',
-          ],
-          activityIds: [
-            'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 8,
       name: '每日任务-看视频',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
+      forcedTime: 60000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
+          key: 7,
           excludeMatches: [
             '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="打开汽车之家APP|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
-            '@LinearLayout[getChild(1).getChild(0).getChild(0).text~="完成应用浏览|完成应用下载"&&getChild(2).text~="领奖励|去完成"][clickable=true]',
+            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
+            'ViewFactoryHolder > FrameLayout > FrameLayout > FrameLayout > LinearLayout > @[text="去完成" || text="领奖励"][clickable=true]',
           ],
           actionDelay: 1000,
           matches: [
@@ -291,33 +250,40 @@ export default defineGkdApp({
           ],
           activityIds: ['.MainActivity'],
         },
+      ],
+    },
+    {
+      scopeKeys: [6,7],
+      key: 8,
+      name: '每日任务-去完成/看视频-noah',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
+        'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
+      ],
+      rules: [
         {
-          preKeys: [0],
+          preKeys: [6],
+          key: 0,
+          actionDelay: 1000,
+          matches: [
+            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
+          ],
+        },
+        {
+          preKeys: [6,7],
           key: 1,
           matches: [
             '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"] +n [vid="noah_reward_cta_tip_container"] > [text="立即点击领取"][vid="noah_reward_cta_tip_tv"]',
           ],
-          activityIds: [
-            'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
-          ],
         },
-      ],
-    },
-    {
-      key: 9,
-      name: '每日任务-去完成/看视频-奖励已发放',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
         {
           key: 2,
           actionDelay: 3000,
           matches: [
             '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
-          ],
-          activityIds: [
-            'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
           ],
         },
         {
@@ -325,8 +291,33 @@ export default defineGkdApp({
           matches: [
             '@[vid="noah_hc_close_button"][clickable=true] -n [text="奖励已发放"][vid="noah_hc_countdown_view"]',
           ],
-          activityIds: [
-            'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
+        },
+      ],
+    },
+    {
+      scopeKeys: [6,7],
+      key: 9,
+      name: '每日任务-去完成/看视频-mcto',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.mcto.sspsdk.ssp.activity.QyTrueViewActivity',
+      ],
+      rules: [
+        {
+          preKeys: [6,7],
+          key: 0,
+          action: 'none',
+          matches: [
+            '[vid="qy_count_down_btn"] > [text~="[0-9]+秒后可领取奖励"][vid="qy_count_down_desc"] +n @[text="关闭"][vid="qy_count_down_close"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="关闭"][vid="qy_count_down_close"][clickable=true] < [vid="qy_count_down_btn"]',
           ],
         },
       ],
@@ -358,7 +349,7 @@ export default defineGkdApp({
     },
     //看视频
     {
-      key: 12,
+      key: 11,
       name: '进频道-立即领取',
       matchRoot: true,
       matchDelay: 1000,
