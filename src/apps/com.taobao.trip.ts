@@ -301,7 +301,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: [
         'com.byazt.mw.Stub_Standard_Portrait_Activity',
-        'com.byazt.mw.Stub_Standard_Activity'
+        'com.byazt.mw.Stub_Standard_Activity',
         'com.byazt.sr.Stub_Standard_Portrait_Activity',
         'com.byazt.sr.Stub_Standard_Activity',
       ],
