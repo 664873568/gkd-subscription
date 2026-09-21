@@ -40,14 +40,14 @@ export default defineGkdApp({
       key: 6,
       name: 'Button-<',
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
           actionDelay: 5000,
-          anyMatches: [
-            '[text="正在跳转..."] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="正在跳转..."]',
-            '[text="商品详情"] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="商品详情"]',
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="正在跳转..." || text="商品详情"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -63,8 +63,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"] <<n * @View[clickable=true] > [text="dancing"]',
-            '[text="浏览完成"] < @View[clickable=true] - * [text="ff776b55ee07c915"] <<n * [vid="common_webview_navbar_left"] > @Button[clickable=true]',
+            '@[getChild(0).text="浏览完成"][clickable=true] - * [text="ff776b55ee07c915"] <<n * [vid="common_webview_navbar_left"] > @Button[clickable=true]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -96,7 +95,7 @@ export default defineGkdApp({
         {
           action: 'back',
           matches: [
-            '[text="readMissionArrow2"] - [text="继续浏览下一个"] - [text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '[text="readMissionArrow2"] - [text="继续浏览下一个"] - @[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -127,7 +126,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="奖励已到账"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="奖励已到账"] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -229,7 +228,7 @@ export default defineGkdApp({
           preKeys: [22, 23],
           key: 2,
           matches: [
-            '[text~="返回签到|返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text~="返回签到|返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
         },
         {
@@ -259,7 +258,7 @@ export default defineGkdApp({
           preKeys: [22, 23],
           key: 5,
           matches: [
-            '[text="浏览完成"] < @View[clickable=false] - * [text="ff776b55ee07c915"] <<n * [vid="common_webview_navbar_left"] > @Button[clickable=true]',
+            '@[getChild(0).text="浏览完成"][clickable=false] - * [text="ff776b55ee07c915"] <<n * [vid="common_webview_navbar_left"] > @Button[clickable=true]',
           ],
         },
         {
@@ -296,7 +295,7 @@ export default defineGkdApp({
           key: 0,
           action: 'back',
           matches: [
-            '@[getChild(0).text="浏览完成"][clickable=false] - [getChild(1).getChild(0).text="ff776b55ee07c915"]',
+            '@[getChild(0).text="浏览完成"][clickable=false] - * [text="ff776b55ee07c915"]',
           ],
         },
         {
@@ -351,7 +350,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"] <<n * @View[clickable=true] > [text="dancing"]',
+            '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < *  -n * @View[clickable=true] > [text="dancing"]',
           ],
         },
         {
@@ -421,7 +420,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="返回签到"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回签到"[clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.container.ui.BaseContainerActivity'],
         },
@@ -488,8 +487,9 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+          anyMatches: [
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
+            '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < *  -n * @View[clickable=true] > [text="dancing"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -653,7 +653,7 @@ export default defineGkdApp({
           preKeys: [40],
           key: 1,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -897,7 +897,7 @@ export default defineGkdApp({
           preKeys: [54],
           key: 1,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -1097,7 +1097,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -1153,7 +1153,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -1189,18 +1189,11 @@ export default defineGkdApp({
           preKeys: [0],
           key: 4,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]', //浏览储蓄金频道
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 5,
-          matches: [
             '[text*="京东金融"] + View > [text="取消"] + @[text="打开"][clickable=true]', //"京东金融"想要打开"*"-酷我音乐
           ],
         },
         {
-          key: 6,
+          key: 5,
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -1208,7 +1201,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 7,
+          key: 6,
           anyMatches: [
             '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]', //任务已完成 恭喜获得
             '@TextView[clickable=true] - [text="立即领取"] -n [text~="[0-9]个京豆"]', //任务未完成 继续赚奖励
@@ -1283,7 +1276,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
         },
         {
@@ -1439,7 +1432,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
         },
         {
@@ -1565,7 +1558,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
         },
         {
@@ -1698,7 +1691,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '[text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
         },
       ],
