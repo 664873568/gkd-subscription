@@ -105,7 +105,7 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [300,0],
+          preKeys: [300, 0],
           key: 1,
           matches: [
             '@ViewGroup[clickable=true] > [text="未命名"][vid="tv_album_name"]',

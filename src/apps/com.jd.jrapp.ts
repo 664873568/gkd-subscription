@@ -1656,7 +1656,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
@@ -1742,7 +1742,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
@@ -1774,9 +1774,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          matches: [
-            '[id="wrap"] > View > View > View > View > [text="+关注"]',
-          ],
+          matches: ['[id="wrap"] > View > View > View > View > [text="+关注"]'],
         },
         {
           preKeys: [2],

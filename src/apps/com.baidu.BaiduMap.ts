@@ -1035,7 +1035,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          position:{
+          position: {
             left: 'width * 0.305',
             top: 'width * 0.958',
           },
