@@ -1041,7 +1041,7 @@ export default defineGkdApp({
           },
           actionDelay: 30000,
           matches: [
-            '@FrameLayout > RelativeLayout > FrameLayout > LinearLayout > [text="广\n告"]',
+            '@FrameLayout > RelativeLayout > FrameLayout > LinearLayout > [text="广\\n告"]',
           ],
         },
       ],
