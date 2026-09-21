@@ -371,7 +371,7 @@ export default defineGkdApp({
     //23.08.01-29.12.31 签到领现金
     //https://member.jr.jd.com/activity/sign/v5/indexV2.html
     //https://member.jr.jd.com/activity/new-sign-in/home/
-    //连续打卡白拿好礼
+    //26.07.01-26.12.31 打卡拿好礼|连续打卡白拿好礼
     {
       key: 30,
       name: '签到领现金-今日打卡任务-每日点签',
@@ -382,15 +382,16 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          action: 'none',
+          anyMatches: [
             '[id="headFloor"] > View > @View[clickable=true] > [text="去打卡"]',
+            '[id="headFloor"] > View > @[id="lottieRefFloor"][clickable=true] > Image > [text="必得15元现金"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
-            '[text^="今日打卡任务"] +n View > [text="每日点签"] + @[text="点击签到"][clickable=true]',
+            '[text^="今日打卡任务"] +n View > [text^="每日点签"] + @[text="点击签到"][clickable=true]',
           ],
         },
         {
@@ -1619,10 +1620,54 @@ export default defineGkdApp({
         },
       ],
     },
+    //25.03.17-27.04.30 财宝分
+    //https://finshop.jd.com/p/shop/?appId=269cfbad0ed744eeb60816a8a95bca83#/exchange-zone/
+    {
+      key: 120,
+      name: '做任务赚财宝分-浏览',
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="财宝分"] >n [getChild(0).text!~="开.*"] > @Image[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 1,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionCd: 5000,
+          actionMaximum: 3,
+          matches: [
+            '[getChild(0).text="正在浏览"] - [getChild(0).getChild(1).text~="[0-9]+"] < View <n WebView < b40 < [vid="webview"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
+          ],
+        },
+      ],
+    },
     //26.07.01-26.09.30 机构福利-财宝分福利
     //https://show.jd.com/m/De5VMnmwbxY2Pyk3/?pageKey=De5VMnmwbxY2Pyk3
     {
-      key: 120,
+      key: 121,
       name: '做任务赚财宝分-加自选',
       matchRoot: true,
       resetMatch: 'activity',
@@ -1632,7 +1677,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@Image[clickable=true] -n [text="1个财宝分"] - [text^="加自选"] < View',
+            '[text="机构福利"] >n [getChild(0).text^="加自选"] > @Image[clickable=true]',
           ],
         },
         {
@@ -1660,7 +1705,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 121,
+      key: 122,
       name: '做任务赚财宝分-浏览',
       matchRoot: true,
       resetMatch: 'activity',
@@ -1669,11 +1714,11 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@Image[clickable=true] -n [text="1个财宝分"] - [text^="加自选"] < View',
+            '[text="机构福利"] >n [getChild(0).text^="加自选"] > @Image[clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
-            '@Image[clickable=true] -n [text="1个财宝分"] - [text^="浏览"] < View',
+            '[text="机构福利"] >n [getChild(0).text^="浏览"] > @Image[clickable=true]',
           ],
         },
         {
@@ -1691,14 +1736,53 @@ export default defineGkdApp({
             duration: 1000,
           },
           actionCd: 5000,
-          actionMaximum: 5,
-          matches: ['@[vid="web_all"]'],
+          actionMaximum: 3,
+          matches: [
+            '[getChild(0).text="正在浏览"] - [getChild(0).getChild(1).text~="[0-9]+"] < View <n WebView < b40 < [vid="webview"]',
+          ],
         },
         {
-          preKeys: [1],
+          preKeys: [0,1],
           key: 2,
           matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 123,
+      name: '做任务赚财宝分-关注',
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="机构福利"] >n [getChild(0).text^="关注"] > @Image[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[id="wrap"] > View > View > View > View > [text="已关注"]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          matches: [
+            '[id="wrap"] > View > View > View > View > [text="+关注"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
         },
       ],
