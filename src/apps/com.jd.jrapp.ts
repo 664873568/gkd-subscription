@@ -281,9 +281,7 @@ export default defineGkdApp({
           key: 8,
           action: 'back',
           actionDelay: 5000,
-          matches: [
-            '[text="东东爱养宠"] < b40 < [vid="webview"]',
-          ],
+          matches: ['[text="东东爱养宠"] < b40 < [vid="webview"]'],
         },
         {
           key: 9,
