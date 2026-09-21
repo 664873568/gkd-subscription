@@ -277,7 +277,16 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [22, 23],
           key: 8,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '[text="东东爱养宠"] < b40 < [vid="webview"]',
+          ],
+        },
+        {
+          key: 9,
           anyMatches: ['View > @[text="领奖"][clickable=true]'],
         },
       ],
@@ -420,7 +429,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[getChild(0).text="返回签到"[clickable=true] - * [text="readMissionDown"]',
+            '@[getChild(0).text="返回签到"][clickable=true] - * [text="readMissionDown"]',
           ],
           activityIds: ['.bm.common.container.ui.BaseContainerActivity'],
         },
