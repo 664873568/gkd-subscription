@@ -861,15 +861,18 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
+          action: 'clickCenter',
+          anyMatches: [
             'TextView[text~="（[0-9]s）"] + @TextView[clickable=true]', //恭喜获得收蛋奖励-开心收下
+            'View > @View[clickable=true] > View > View > View > View > Image', //立即兑换提额机会
           ],
         },
         {
           preKeys: [1],
           key: 2,
-          matches: [
+          anyMatches: [
             '[id="app"] > View > View > View > @[text="领"][clickable=true]',
+            'View > [text="获得京豆(个)"] +n @View[clickable=true] > [text="参与活动可继续提高额度"]', //没兑出额度别灰心哦-我知道了
           ],
         },
       ],
