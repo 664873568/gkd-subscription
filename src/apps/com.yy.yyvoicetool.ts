@@ -253,7 +253,7 @@ export default defineGkdApp({
           ],
           actionDelay: 1000,
           matches: [
-            '[text^="看视频最高赚"] + @[text="看视频"][clickable=true]',
+            '[text~="看视频最高赚[0-9].[0-9]万金币（(?:[0-9]|1[0-9]|2[0-4])/25）"] + @[text="看视频"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
