@@ -166,17 +166,16 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
-            'ViewFactoryHolder + @View[clickable=true] > [text="说点什么吧..."]', //点击聊天框
+            '[text="提示"] + ImageButton +n [getChild(0).text="取消"] > @[text="确定"][clickable=true]', //确定跳转至新频道?
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0,1],
           key: 2,
           actionDelay: 2000,
           matches: [
-            'ViewFactoryHolder + @View[clickable=true]', //点击表情
+            'ViewFactoryHolder + @View[clickable=true] > [text="说点什么吧..."]', //点击聊天框
           ],
         },
         {
@@ -184,7 +183,7 @@ export default defineGkdApp({
           key: 3,
           actionDelay: 2000,
           matches: [
-            'ViewFactoryHolder +n View[clickable=true] >n View[childCount=48] > @View[clickable=true][index=0]', //选择表情
+            'ViewFactoryHolder + @View[clickable=true]', //点击表情
           ],
         },
         {
@@ -192,12 +191,20 @@ export default defineGkdApp({
           key: 4,
           actionDelay: 2000,
           matches: [
-            'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]', //发送表情
+            'ViewFactoryHolder +n View[clickable=true] >n View[childCount=48] > @View[clickable=true][index=0]', //选择表情
           ],
         },
         {
           preKeys: [4],
           key: 5,
+          actionDelay: 2000,
+          matches: [
+            'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]', //发送表情
+          ],
+        },
+        {
+          preKeys: [5],
+          key: 6,
           action: 'back',
           matches: [
             '@ViewFactoryHolder >n [id="root"][clickable=true] > View[clickable=true]',
