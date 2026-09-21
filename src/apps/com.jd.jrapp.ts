@@ -1624,7 +1624,7 @@ export default defineGkdApp({
     //https://finshop.jd.com/p/shop/?appId=269cfbad0ed744eeb60816a8a95bca83#/exchange-zone/
     {
       key: 120,
-      name: '做任务赚财宝分-浏览',
+      name: '财宝分-浏览',
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
@@ -1668,7 +1668,7 @@ export default defineGkdApp({
     //https://show.jd.com/m/De5VMnmwbxY2Pyk3/?pageKey=De5VMnmwbxY2Pyk3
     {
       key: 121,
-      name: '做任务赚财宝分-加自选',
+      name: '财宝分福利-加自选',
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
@@ -1706,7 +1706,7 @@ export default defineGkdApp({
     },
     {
       key: 122,
-      name: '做任务赚财宝分-浏览',
+      name: '财宝分福利-浏览',
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
@@ -1752,7 +1752,7 @@ export default defineGkdApp({
     },
     {
       key: 123,
-      name: '做任务赚财宝分-关注',
+      name: '财宝分福利-关注',
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
