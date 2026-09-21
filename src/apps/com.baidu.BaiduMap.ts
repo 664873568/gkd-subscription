@@ -170,7 +170,7 @@ export default defineGkdApp({
     //翻卡赢 9999金币[id="J-flip-card"]
     {
       key: 6,
-      name: '金币任务中心-翻卡-翻',
+      name: '金币任务中心-翻卡-翻*倍',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -208,9 +208,30 @@ export default defineGkdApp({
         },
       ],
     },
-    //天天赢大奖[id="lucky-wheel-entry"]
+    //翻 卡赢 1888金币[id="J-flip-card-v2"]
     {
       key: 7,
+      name: '金币任务中心-翻卡-翻',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.baidumaps.MapsActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
+            '@View[clickable=true] > [text="立即翻倍|立即收下"]',
+          ],
+          matches: [
+            '[id="J-flip-card-v2"] > [text="翻 卡赢 1888金币"] +n ListView > @View[clickable=true]',
+          ],
+        },
+      ],
+    },
+    //天天赢大奖[id="lucky-wheel-entry"]
+    {
+      key: 8,
       name: '金币任务中心-天天赢大奖-去抽奖',
       matchRoot: true,
       matchDelay: 1000,
@@ -244,7 +265,7 @@ export default defineGkdApp({
     },
     //开红包领现金[id="J-sign-card"]
     {
-      key: 8,
+      key: 9,
       name: '金币任务中心-开红包领现金-去完成',
       matchRoot: true,
       matchDelay: 1000,
@@ -281,7 +302,7 @@ export default defineGkdApp({
     },
     //开宝箱得金币[id="J-chest-box"]
     {
-      key: 9,
+      key: 10,
       name: '金币任务中心-开宝箱得金币',
       matchRoot: true,
       matchDelay: 1000,
@@ -291,7 +312,8 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
+            '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > [name$="view.View" || text~="翻[0-9]倍"]',
+            '[id="J-flip-card-v2"] > [text="翻 卡赢 1888金币"] +n ListView > @View[clickable=true]',
           ],
           actionDelay: 3000,
           matches: [
@@ -903,15 +925,16 @@ export default defineGkdApp({
       name: '看视频-广告-××',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 60000,
       resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
           key: 0,
           anyMatches: [
             '@ImageView < FrameLayout < FrameLayout + * [text="滑动/点击了解更多"]',
-            '@ImageView < FrameLayout < LinearLayout <<n * +n * [text="滑动/点击了解更多内容"]',
+            '@ImageView < FrameLayout < LinearLayout <n * < * +n * [text="滑动/点击了解更多内容"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
           key: 1,
@@ -919,7 +942,6 @@ export default defineGkdApp({
             '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="立即下载" || text="去微信看看"]',
             '@ImageView < FrameLayout + LinearLayout >n [text="去微信看看"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -1001,12 +1023,34 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.sigmob.sdk.base.common.PortraitAdActivity
+    //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
       key: 80,
-      name: '看视频-跳过-浏览*秒领取奖励',
+      name: '看视频-跳过-奖励已到账-×',
       matchRoot: true,
       actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
+      rules: [
+        {
+          key: 0,
+          position:{
+            left: 'width * 0.305',
+            top: 'width * 0.958',
+          },
+          actionDelay: 30000,
+          matches: [
+            '@FrameLayout > RelativeLayout > FrameLayout > LinearLayout > [text="广\n告"]',
+          ],
+        },
+      ],
+    },
+    //看视频-com.sigmob.sdk.base.common.PortraitAdActivity
+    {
+      key: 90,
+      name: '看视频-跳过-浏览*秒领取奖励',
+      matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
@@ -1031,7 +1075,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 81,
+      key: 91,
       name: '看视频-跳过-*秒sigmob',
       matchRoot: true,
       matchDelay: 1000,
@@ -1051,7 +1095,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 82,
+      key: 92,
       name: '看视频-跳过-*s后获取奖励sigmob',
       matchRoot: true,
       matchDelay: 1000,
@@ -1061,7 +1105,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="跳过"][clickable=true] <n [id="close_btn"] - [text~="已获得奖励|奖励已下发"] -n [text="反馈"]',
+            '[id="app"] > [id="ad_area"] > [getChild(2).text~="已获得奖励|奖励已下发"] > [id="close_btn"] > @[text="跳过"][clickable=true]',
           ],
         },
         {
@@ -1073,7 +1117,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 83,
+      key: 93,
       name: '看视频-跳过-*s后获取奖励-抽奖',
       matchRoot: true,
       actionMaximum: 1,
@@ -1099,18 +1143,21 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 84,
+      key: 94,
       name: '看视频-跳过-*s后可领取奖励-免',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.sigmob.sdk.base.common.PortraitAdActivity',
+        'com.sigmob.sdk.base.common.AdActivity',
+      ],
       rules: [
         {
           key: 0,
           matches: [
             '[text~="立即前往|立即试玩"] <n @View[clickable=true] <<n * -n * > [text="反馈"] + [id="close_btn"] > [text="免"] + [text~="[0-9]+s后可领取奖励"] + [text$="跳过"]',
           ],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
           key: 1,
@@ -1118,26 +1165,23 @@ export default defineGkdApp({
           matches: [
             '@ImageView[clickable=true] < RelativeLayout + LinearLayout + LinearLayout <n [id="android:id/action_bar"]', //二级广告页
           ],
-          activityIds: ['com.sigmob.sdk.base.common.AdActivity'],
         },
         {
           key: 2,
           matches: [
             '@[text$="跳过"][clickable=true] - [text="已获得奖励"] - [text="免"] < [id="close_btn"] - [text="反馈"]',
           ],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
         {
           key: 3,
           matches: [
             '[text="反馈"] + @[id="close_btn"][clickable=true] +n * > [text~="马上去看看|进入游戏"]',
           ],
-          activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
         },
       ],
     },
     {
-      key: 85,
+      key: 95,
       name: '看视频-跳过-<sigmob',
       matchRoot: true,
       matchDelay: 1000,
@@ -1158,12 +1202,16 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 86,
-      name: '看视频-跳过-×sigmob',
+      key: 96,
+      name: '看视频-跳过-sigmob',
       matchRoot: true,
       matchDelay: 1000,
+      forcedTime: 60000,
       resetMatch: 'activity',
-      activityIds: ['com.sigmob.sdk.base.common.PortraitTransparentAdActivity'],
+      activityIds: [
+        'com.sigmob.sdk.base.common.PortraitTransparentAdActivity',
+        'com.sigmob.sdk.base.common.AdActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -1172,8 +1220,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
+          matches: [
+            '@ImageView[clickable=true] < RelativeLayout < [id="android:id/action_bar"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
           matches: [
             '[id="app"] > View > [id="ad_area"] > [text="反馈"] + @TextView[clickable=true]',
           ],
@@ -1182,7 +1236,7 @@ export default defineGkdApp({
     },
     //看视频-com.ubix.ssp.open.comm.UBiXVideoActivity
     {
-      key: 90,
+      key: 100,
       name: '看视频-跳过-点击广告并停留*秒即可获取奖励',
       matchRoot: true,
       matchDelay: 1000,
@@ -1214,7 +1268,7 @@ export default defineGkdApp({
     },
     //看视频-com.windmill.sdk.widget.InterstitialView_*
     {
-      key: 100,
+      key: 110,
       name: '看视频-广告-关闭',
       matchRoot: true,
       matchDelay: 1000,
