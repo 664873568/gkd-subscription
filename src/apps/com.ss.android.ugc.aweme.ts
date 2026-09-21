@@ -301,11 +301,15 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          position: {
+            left: 'width * 0.500',
+            top: 'width * 0.800',
+          },
           excludeMatches: [
             'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
           ],
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup > @ViewGroup[index=6]', //立即领取
+            'HorizontalScrollView > LinearLayout > @ViewGroup[childCount=6][index=1 || index=3]', //立即领取
           ],
         },
         {
