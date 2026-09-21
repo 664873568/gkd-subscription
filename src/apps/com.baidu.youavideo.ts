@@ -32,7 +32,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[text="提现到支付宝"][vid="btn_withdraw"][clickable=true]',
@@ -70,7 +70,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
           matches: [
             'View > @View[getChild(0).text~="去.*|打开.*|前往.*"][clickable=true] > [text="去完成"]',
           ],
@@ -87,6 +86,7 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [300],
       key: 3,
       name: '积分任务-去完成-分享一个相册',
       matchRoot: true,
@@ -105,7 +105,7 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [0],
+          preKeys: [300,0],
           key: 1,
           matches: [
             '@ViewGroup[clickable=true] > [text="未命名"][vid="tv_album_name"]',
@@ -113,13 +113,13 @@ export default defineGkdApp({
           activityIds: ['.home.view.HomeActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: ['@[text="邀请共享"][vid="tv_invite"]'],
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: ['@[text="微信"][vid="share_icon_weixin"]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
@@ -140,7 +140,6 @@ export default defineGkdApp({
       key: 4,
       name: '积分任务-去完成-创建一个新相册',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -162,7 +161,7 @@ export default defineGkdApp({
           activityIds: ['.home.view.HomeActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[text="立即创建"][vid="tv_create_album"][clickable=true]',
@@ -170,7 +169,7 @@ export default defineGkdApp({
           activityIds: ['.cloudalbum.ui.activity.CreateAlbumActivity'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           position: {
             left: 'width * 0.9300',
@@ -186,7 +185,6 @@ export default defineGkdApp({
       key: 5,
       name: '积分任务-去完成-制作并保存「春日」vlog',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -213,7 +211,7 @@ export default defineGkdApp({
           activityIds: ['.aiphoto.ui.home.view.CreativeDetailActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
@@ -223,7 +221,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][clickable=true] > [text="2026年6月28日"][vid="tv_date"]',
@@ -233,7 +231,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
+          preKeys: [3],
           key: 4,
           matches: [
             '[text="已选8个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
@@ -243,7 +241,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4],
+          preKeys: [4],
           key: 5,
           position: {
             left: 'width * 0.8500',
@@ -256,11 +254,11 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4, 5],
+          preKeys: [5],
           key: 6,
           position: {
             left: 'width * 0.930',
-            top: 'width * 0.750',
+            top: 'width * 0.800',
           },
           actionDelay: 2000,
           matches: ['@ScrollView'],
@@ -272,7 +270,6 @@ export default defineGkdApp({
       key: 6,
       name: '积分任务-去完成-制作照片卡点视频',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -298,7 +295,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @[vid="linear_section"][clickable=true][index=0]',
@@ -308,7 +305,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '[text="已选1个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
@@ -318,7 +315,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
+          preKeys: [3],
           key: 4,
           position: {
             left: 'width * 0.8500',
@@ -331,11 +328,11 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4],
+          preKeys: [4],
           key: 5,
           position: {
             left: 'width * 0.930',
-            top: 'width * 0.750',
+            top: 'width * 0.800',
           },
           actionDelay: 2000,
           matches: ['@ScrollView'],
@@ -347,7 +344,6 @@ export default defineGkdApp({
       key: 7,
       name: '积分任务-去完成-体验智能清理',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -379,7 +375,6 @@ export default defineGkdApp({
       key: 8,
       name: '积分任务-去完成-老照片修复跨越时空',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -409,7 +404,6 @@ export default defineGkdApp({
       key: 9,
       name: '积分任务-去完成-浏览社区5s',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -817,10 +811,11 @@ export default defineGkdApp({
       key: 300,
       name: '随心卡会员',
       matchRoot: true,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          key: 300,
           anyMatches: [
             '@TextView[clickable=true] + View >n [text="立即使用"]',
             '@TextView[clickable=true] - View >n [text="立即使用"]',
