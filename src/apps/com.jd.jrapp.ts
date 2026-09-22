@@ -1420,7 +1420,7 @@ export default defineGkdApp({
           ],
           action: 'back',
           actionDelay: 5000,
-          anyMmatches: [
+          anyMatches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
             'TextView - @TextView[clickable=true] < View < View < [id="app"] < WebView < b40 < [vid="webview"]',
             'TextView - @TextView[clickable=true] < View < View < View < [id="app"] <n View < [text="圈子"] < b40 < [vid="webview"]', //浏览基金圈 结交同路人
