@@ -1260,9 +1260,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@TextView[clickable=true] -n [text="5秒更快拿奖励"]',
-          ],
+          matches: ['@TextView[clickable=true] -n [text="5秒更快拿奖励"]'],
         },
         {
           key: 1,
