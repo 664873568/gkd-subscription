@@ -50,7 +50,7 @@ export default defineGkdApp({
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="正在跳转..." || text="商品详情"]',
             'TextView - @TextView[clickable=true] < View < View < [id="joyai-root"] < View < [text="JoyAI"] < b40 < [vid="webview"]',
-            '[text="JoyAI"] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"]',//登录JoyAI并对话
+            '[text="JoyAI"] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"]', //登录JoyAI并对话
             '[text="限时福利"] >n @[text="back"][clickable=true] + [text="限时福利"]', //0.01元得包邮好物
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
