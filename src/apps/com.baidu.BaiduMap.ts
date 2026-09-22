@@ -84,9 +84,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
             '@TextView[clickable=true] -n * [text="恭喜获得任务奖励"]',
+            '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
           ],
+          actionDelay: 2000,
           matches: [
             '[id="task-loader"] > [id^="J-task-item"] > @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
           ],
@@ -159,7 +160,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
           key: 2,
           matches: [
             '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
@@ -221,10 +221,17 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
-            '@View[clickable=true] > [text="立即翻倍|立即收下"]',
+            '[text="运气太棒啦"] +n @[text="领走奖励 结束翻卡"][clickable=true]',
           ],
           matches: [
             '[id="J-flip-card-v2"] > [text="翻 卡赢 1888金币"] +n ListView > @View[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="运气太棒啦"] +n @[text="领走奖励 结束翻卡"][clickable=true]',
           ],
         },
       ],
@@ -240,6 +247,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text~="看视频得次数 \\\\([0-9]/10\\\\)" || text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
           ],
@@ -250,13 +258,14 @@ export default defineGkdApp({
             '[text~="看视频得次数 \\\\([0-9]/10\\\\)" || text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
             '@[desc="关闭"][clickable=true] + [text~="恭喜获得金币奖励|恭喜获得现金奖励"] +n [text~="再抽一次|去做任务赚次数"]',
           ],
-          actionDelay: 3000,
+          actionDelay: 1000,
           matches: [
             '@View[clickable=true] > View + [text="立刻抽奖"] +n [text~="[1-9][0-9]*"]',
           ],
         },
         {
           key: 2,
+          actionDelay: 1000,
           matches: [
             '@[desc="关闭"][clickable=true] + [text~="恭喜获得金币奖励|恭喜获得现金奖励"] +n [text~="再抽一次|去做任务赚次数"]',
           ],
@@ -625,6 +634,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text~="去体验[0-9]秒立即领奖"] <n * -n * > [text="上滑或点击领取"]',
             '@ImageView < ViewGroup < ViewGroup -n * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
+            '@ImageView < ViewGroup <n * < * + * [getChild(0).text="点击打开"] + [text="跳转至详情页或第三方应用"],
             'Image < @View[width<100] < View < View < View -n * [getChild(0).text="反馈"] + * > [text="点击取消静音"]',
             '@ImageView[width<100] < ViewGroup < ViewGroup < ViewGroup -n * [getChild(0).text="反馈"] + * > [text="点击取消静音"]',
             '@ImageView[width<100] < ViewGroup < ViewGroup < ViewGroup -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
@@ -883,8 +893,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          anyMatches: [
+            '[text="放弃福利" || text="我要更快拿奖"] < FrameLayout <n * +n * [text^="奖励将于"]',
             '[text^="奖励将于"] < LinearLayout < FrameLayout -n * [text="放弃福利" || text="我要更快拿奖"]',
+            '[text^="奖励将于"] < LinearLayout < LinearLayout < LinearLayout <n FrameLayout -n * [text="放弃福利" || text="我要更快拿奖"]',
           ],
         },
         {
@@ -939,7 +951,7 @@ export default defineGkdApp({
         {
           key: 1,
           anyMatches: [
-            '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="立即下载" || text="去微信看看"]',
+            '@ImageView < FrameLayout < FrameLayout + FrameLayout >n [text="立即领取" || text="立即下载" || text="去微信看看"]',
             '@ImageView < FrameLayout + LinearLayout >n [text="去微信看看"]',
           ],
         },
@@ -1249,7 +1261,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~="[0-9]秒后自动放弃继续看广告"] - @TextView[clickable=true] -n [text="5秒更快拿奖励"]',
+            '@TextView[clickable=true] -n [text="5秒更快拿奖励"]',
           ],
         },
         {
