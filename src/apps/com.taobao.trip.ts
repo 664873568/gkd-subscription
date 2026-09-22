@@ -614,13 +614,15 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@[text*="微信"][index=parent.childCount.minus(1)] <n * - [text="提前拿奖励"] - [text~="试看[0-9]+ 秒短剧"]',
-            '@[text*="微信"][index=parent.childCount.minus(1)] <n * - [text="提前拿奖励"] - [text~="玩[0-9]+ 秒小游戏"]',
+          matches: [
+            '[text~=".*[0-9]+ 秒.*"] +n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
         {
