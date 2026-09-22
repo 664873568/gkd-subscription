@@ -60,7 +60,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
           ],
         },
       ],
@@ -77,9 +77,9 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[text="每日任务"] +n View > View > @[text="领奖励"][clickable=true]',
-            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
@@ -87,6 +87,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@[text$="打开"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]', //浏览App
           ],
@@ -120,10 +121,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text="收藏任意频道"] >n @[text="去完成"][clickable=true]',
           ],
@@ -131,6 +132,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '[text^="直播间号"] - View[clickable=true] -2 @View[clickable=true][childCount=1] > [text="收藏"]',
           ],
@@ -138,6 +140,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 1000,
           matches: [
             '[text^="直播间号"] - @View[clickable=true] -2 View[clickable=true][childCount=0]',
           ],
@@ -155,10 +158,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="访问指定频道|频道内发言|赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="每日任务"] +n View[getChild(0).getChild(0).text~="访问指定频道|频道内发言"] >n  @[text="去完成"][clickable=true]',
           ],
@@ -206,6 +209,7 @@ export default defineGkdApp({
           preKeys: [5],
           key: 6,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '@ViewFactoryHolder >n [id="root"][clickable=true] > View[clickable=true]',
           ],
@@ -216,22 +220,29 @@ export default defineGkdApp({
       key: 6,
       name: '每日任务-去完成-完成应用下载|完成应用浏览|完成页面浏览',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       forcedTime: 60000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 6,
+          key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
-            'ViewFactoryHolder > FrameLayout > FrameLayout > FrameLayout > LinearLayout > @[text="去完成"][clickable=true]',
+            'ViewFactoryHolder >n LinearLayout > @[text="去完成"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 1000,
+          matches: [
+            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
+          ],
         },
       ],
     },
@@ -239,19 +250,18 @@ export default defineGkdApp({
       key: 7,
       name: '每日任务-看视频',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       forcedTime: 60000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 7,
+          key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
-            'ViewFactoryHolder > FrameLayout > FrameLayout > FrameLayout > LinearLayout > @[text="去完成" || text="领奖励"][clickable=true]',
+            '[text="每日任务"] +n [id="task-ad-slot-103"]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text~="看视频最高赚[0-9].[0-9]万金币（(?:[0-9]|1[0-9]|2[0-4])/25）"] + @[text="看视频"][clickable=true]',
           ],
@@ -260,62 +270,54 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [6, 7],
       key: 8,
-      name: '每日任务-去完成/看视频-noah',
+      name: '每日任务-看视频-领金币',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
-        'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
-      ],
+      activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [6],
           key: 0,
-          actionDelay: 1000,
-          matches: [
-            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
-          ],
+          excludeMatches: ['@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]'],
+          matches: ['[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]'],
         },
         {
-          preKeys: [6, 7],
+          preKeys: [0],
           key: 1,
-          matches: [
-            '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"] +n [vid="noah_reward_cta_tip_container"] > [text="立即点击领取"][vid="noah_reward_cta_tip_tv"]',
-          ],
-        },
-        {
-          key: 2,
-          actionDelay: 3000,
-          matches: [
-            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
-          ],
-        },
-        {
-          key: 3,
-          matches: [
-            '@[vid="noah_hc_close_button"][clickable=true] -n [text="奖励已发放"][vid="noah_hc_countdown_view"]',
-          ],
+          matches: ['@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]'],
         },
       ],
     },
     {
-      scopeKeys: [6, 7],
       key: 9,
-      name: '每日任务-去完成/看视频-mcto',
+      name: '进频道-立即领取',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="，累计待领取"] +n [text="金币"] + @View[clickable=true] > [text="full.1aa72883"]',
+          ],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    //看视频-com.mcto.sspsdk.ssp.activity.QyTrueViewActivity
+    {
+      key: 20,
+      name: '看视频-*秒后可领取奖励mcto',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.mcto.sspsdk.ssp.activity.QyTrueViewActivity'],
       rules: [
         {
-          preKeys: [6, 7],
           key: 0,
           action: 'none',
           matches: [
-            '[vid="qy_count_down_btn"] > [text~="[0-9]+秒后可领取奖励"][vid="qy_count_down_desc"] +n @[text="关闭"][vid="qy_count_down_close"][clickable=true]',
+            '@[text="关闭"][vid="qy_count_down_close"][clickable=true] -n [text~="[0-9]+秒后可领取奖励"][vid="qy_count_down_desc"] < [vid="qy_count_down_btn"]',
           ],
         },
         {
@@ -327,44 +329,54 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity
     {
-      key: 10,
-      name: '每日任务-看视频-领金币',
+      key: 30,
+      name: '看视频-点击跳转后停留*秒立即获奖noah',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.MainActivity'],
+      activityIds: [
+        'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
+        'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
+      ],
       rules: [
         {
-          key: 4,
-          actionDelay: 1000,
+          key: 0,
           matches: [
-            '[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]',
+            '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"]',
           ],
         },
         {
-          preKeys: [4],
-          key: 5,
-          anyMatches: [
-            '[text~="恭喜获得[0-9]+金币"] - @TextView[clickable=true]',
-            '@TextView[clickable=true] - * > [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[vid="noah_hc_close_button"][clickable=true] -n [text="奖励已发放"][vid="noah_hc_countdown_view"]',
           ],
         },
       ],
     },
-    //看视频
     {
-      key: 11,
-      name: '进频道-立即领取',
+      key: 31,
+      name: '看视频-完成两个任务，立即领奖noah',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
+      ],
       rules: [
         {
+          key: 0,
           matches: [
-            '[text="，累计待领取"] +n [text="金币"] + @View[clickable=true] > [text="full.1aa72883"]',
+            '[text~="完成两个任务，立即领奖\\\\n\\\\([0,1]/2\\\\)"][vid="noah_multi_task_progress_text"] < * + * @[text="立即打开"][vid="noah_multi_task_ad1_cta"][clickable=true]',
           ],
-          activityIds: ['.MainActivity'],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[vid="noah_hc_close_button"][clickable=true] <n [vid="noah_hc_countdown_container"] < * < * < * - * [vid="noah_component_30_task_finish"]',//恭喜获得奖励
+          ],
         },
       ],
     },
