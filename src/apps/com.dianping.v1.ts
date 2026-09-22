@@ -17,7 +17,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           anyMatches: [
             'FrameLayout > FrameLayout > FrameLayout > @FrameLayout[clickable=true] > [text="立即签到"]',
-            'FrameLayout > FrameLayout > FrameLayout > @FrameLayout[clickable=true] > FrameLayout > ImageView + FrameLayout > View,
+            'FrameLayout > FrameLayout > FrameLayout > @FrameLayout[clickable=true] > FrameLayout > ImageView + FrameLayout > View',
           ],
         },
         {
