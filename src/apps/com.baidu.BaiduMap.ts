@@ -634,7 +634,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text~="去体验[0-9]秒立即领奖"] <n * -n * > [text="上滑或点击领取"]',
             '@ImageView < ViewGroup < ViewGroup -n * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
-            '@ImageView < ViewGroup <n * < * + * [getChild(0).text="点击打开"] + [text="跳转至详情页或第三方应用"],
+            '@ImageView < ViewGroup <n * < * + * [getChild(0).text="点击打开"] + [text="跳转至详情页或第三方应用"]',
             'Image < @View[width<100] < View < View < View -n * [getChild(0).text="反馈"] + * > [text="点击取消静音"]',
             '@ImageView[width<100] < ViewGroup < ViewGroup < ViewGroup -n * [getChild(0).text="反馈"] + * > [text="点击取消静音"]',
             '@ImageView[width<100] < ViewGroup < ViewGroup < ViewGroup -n * [text="向上滑动 或 点击"] + * > [text="跳转至详情页或第三方应用"]',
