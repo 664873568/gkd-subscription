@@ -14,13 +14,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@FrameLayout[clickable=true] > FrameLayout > [text*="餐奖励"]',
-          ],
           action: 'clickCenter',
           anyMatches: [
-            '[text="今日签到"] <n @FrameLayout[clickable=true] - FrameLayout > [text*="餐奖励"]',
             'FrameLayout > FrameLayout > FrameLayout > @FrameLayout[clickable=true] > [text="立即签到"]',
+            'FrameLayout > FrameLayout > FrameLayout > @FrameLayout[clickable=true] > FrameLayout > ImageView + FrameLayout > View,
           ],
         },
         {
@@ -44,7 +41,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@FrameLayout[clickable=true] > FrameLayout > [text*="餐奖励"]',
+            '@FrameLayout[clickable=true] > [text*="餐奖励"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
