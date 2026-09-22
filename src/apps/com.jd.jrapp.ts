@@ -236,8 +236,7 @@ export default defineGkdApp({
           ],
           action: 'back',
           actionDelay: 5000,
-          matches: [
-          ],
+          matches: [],
         },
         {
           preKeys: [23, 24],
@@ -427,7 +426,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           excludeMatches: [
-            '[text*="浏览"]','[text*="返回"]',
+            '[text*="浏览"]',
+            '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           action: 'back',
@@ -1363,7 +1363,11 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: ['[text*="浏览"]', '[text*="返回"]','[text="金币获取加倍中"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="金币获取加倍中"]',
+          ],
           actionDelay: 5000,
           matches: [
             '[text="我的钱"] <<n ViewGroup - @ViewGroup[clickable=true] < * +n * [text="53/53"]',
