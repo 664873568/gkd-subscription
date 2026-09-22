@@ -10,7 +10,7 @@ export default defineGkdApp({
       key: 0,
       name: '积分提现-立即兑现-50元',
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.operate.ui.view.activity.OperatePointWithdrawActivity'],
       rules: [
@@ -107,6 +107,7 @@ export default defineGkdApp({
         {
           preKeys: [300, 0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@ViewGroup[clickable=true] > [text="未命名"][vid="tv_album_name"]',
           ],
@@ -115,12 +116,14 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 1000,
           matches: ['@[text="邀请共享"][vid="tv_invite"]'],
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 1000,
           matches: ['@[text="微信"][vid="share_icon_weixin"]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
         },
@@ -128,10 +131,10 @@ export default defineGkdApp({
           key: 4,
           position: {
             left: 'width * 0.930',
-            top: 'width * 0.850',
+            top: 'width * 0.900',
           },
-          actionDelay: 2000,
-          matches: ['@[vid="layout_share_media_channel"]'],
+          actionDelay: 1000,
+          matches: ['@[parent=null]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
         },
       ],
@@ -157,12 +160,14 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: ['@[vid="btn_create_album"][clickable=true]'],
           activityIds: ['.home.view.HomeActivity'],
         },
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 1000,
           matches: [
             '@[text="立即创建"][vid="tv_create_album"][clickable=true]',
           ],
@@ -172,11 +177,11 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           position: {
-            left: 'width * 0.9300',
-            top: 'width * 1.3434',
+            left: 'width * 0.930',
+            top: 'width * 0.850',
           },
-          actionDelay: 2000,
-          matches: ['@[vid="srv_list"]'],
+          actionDelay: 1000,
+          matches: ['@[parent=null]'],
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
       ],
@@ -205,6 +210,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[vid="detail_back"] +2 [vid="scroll_content"] >n [text="老照片一键修复"][vid="tv_title"]',
           ],
+          actionDelay: 1000,
           matches: [
             '@[vid="detail_black_icon"][clickable=true] + [text="做同款"][vid="detail_black_icon_text"]',
           ],
@@ -213,6 +219,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
@@ -223,6 +230,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][clickable=true] > [text="2026年6月28日"][vid="tv_date"]',
           ],
@@ -233,6 +241,7 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
+          actionDelay: 1000,
           matches: [
             '[text="已选8个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
           ],
@@ -244,8 +253,8 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           position: {
-            left: 'width * 0.8500',
-            top: 'width * 0.2000',
+            left: 'width * 0.850',
+            top: 'width * 0.200',
           },
           actionDelay: 5000,
           matches: ['@ComposeView'],
@@ -258,10 +267,10 @@ export default defineGkdApp({
           key: 6,
           position: {
             left: 'width * 0.930',
-            top: 'width * 0.800',
+            top: 'width * 0.850',
           },
-          actionDelay: 2000,
-          matches: ['@ScrollView'],
+          actionDelay: 1000,
+          matches: ['@[parent=null]'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
       ],
@@ -287,6 +296,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
@@ -297,6 +307,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @[vid="linear_section"][clickable=true][index=0]',
           ],
@@ -307,6 +318,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 1000,
           matches: [
             '[text="已选1个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
           ],
@@ -318,8 +330,8 @@ export default defineGkdApp({
           preKeys: [3],
           key: 4,
           position: {
-            left: 'width * 0.8500',
-            top: 'width * 0.2000',
+            left: 'width * 0.850',
+            top: 'width * 0.200',
           },
           actionDelay: 5000,
           matches: ['@ComposeView'],
@@ -332,10 +344,10 @@ export default defineGkdApp({
           key: 5,
           position: {
             left: 'width * 0.930',
-            top: 'width * 0.800',
+            top: 'width * 0.850',
           },
-          actionDelay: 2000,
-          matches: ['@ScrollView'],
+          actionDelay: 1000,
+          matches: ['@[parent=null]'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
       ],
@@ -365,8 +377,8 @@ export default defineGkdApp({
             left: 'width * 0.930',
             top: 'width * 0.850',
           },
-          actionDelay: 5000,
-          matches: ['@ComposeView'],
+          actionDelay: 3000,
+          matches: ['@[parent=null]'],
           activityIds: ['.home.view.assistant.activity.CleanUpClusterActivity'],
         },
       ],
@@ -509,6 +521,7 @@ export default defineGkdApp({
         },
         {
           key: 3,
+          actionDelay: 1000,
           anyMatches: [
             '@Image < * +n [text="限时奖励点击领取"]',
             '@[getChild(0).text="3ca6ab446dec1c57"] + [getChild(0).text="恭喜获得优惠券"]',
