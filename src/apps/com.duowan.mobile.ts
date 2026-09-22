@@ -314,6 +314,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionDelay: 2000,
           matches: [
             '@ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
           ],
