@@ -238,6 +238,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 1000,
           anyMatches: [
             '@[text="点击领预约奖励"]',
             'FrameLayout > @ViewGroup[clickable=true] > View + FrameLayout > LinearLayout > ImageView',
@@ -247,6 +248,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 1000,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="领取金币"]',
           ],
@@ -255,7 +257,7 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
-          action: 'clickCenter',
+          actionDelay: 1000,
           matches: [
             '[getChild(0).desc="金币领取成功"] +n ViewGroup > @[desc="开心收下"]',
           ],
@@ -264,7 +266,7 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
-          action: 'clickCenter',
+          actionDelay: 1000,
           matches: [
             'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
@@ -274,7 +276,7 @@ export default defineGkdApp({
         {
           preKeys: [5],
           key: 6,
-          action: 'clickCenter',
+          actionDelay: 1000,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView', //恭喜预约成功×
           ],
@@ -283,7 +285,7 @@ export default defineGkdApp({
         {
           preKeys: [6],
           key: 7,
-          action: 'clickCenter',
+          actionDelay: 1000,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView', //恭喜获得惊喜奖励×
           ],
@@ -301,13 +303,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
+          ],
           position: {
             left: 'width * 0.500',
             top: 'width * 0.800',
           },
-          excludeMatches: [
-            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
-          ],
+          actionDelay: 1000,
           matches: [
             'HorizontalScrollView > LinearLayout > @ViewGroup[childCount=6][index=1 || index=3]', //立即领取
           ],
@@ -315,7 +318,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'clickCenter',
+          actionDelay: 1000,
           matches: [
             'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
           ],
@@ -323,6 +326,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 1000,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup[childCount=4] > @ViewGroup[index=2] > FrameLayout > View', //选择你的惊喜奖励-选我
           ],
@@ -330,6 +334,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 1000,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > ViewGroup + @ImageView', //金币预约成功-我知道了-×
           ],
