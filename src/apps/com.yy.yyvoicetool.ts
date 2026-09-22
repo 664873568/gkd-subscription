@@ -279,8 +279,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]'],
-          matches: ['[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]'],
+          excludeMatches: [
+            '@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]',
+          ],
+          matches: [
+            '[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]',
+          ],
         },
         {
           preKeys: [0],
@@ -375,7 +379,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@[vid="noah_hc_close_button"][clickable=true] <n [vid="noah_hc_countdown_container"] < * < * < * - * [vid="noah_component_30_task_finish"]',//恭喜获得奖励
+            '@[vid="noah_hc_close_button"][clickable=true] <n [vid="noah_hc_countdown_container"] < * < * < * - * [vid="noah_component_30_task_finish"]', //恭喜获得奖励
           ],
         },
       ],
