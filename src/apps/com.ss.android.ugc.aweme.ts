@@ -387,7 +387,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 1,
           matches: [
             'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
@@ -475,9 +475,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           actionDelay: 5000,
-          matches: [
-            '[id="nav-bar"] > @View[clickable=true] > Image',
-          ],
+          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
         },
       ],
     },
@@ -541,9 +539,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: [
-            '[id="nav-bar"] > @View[clickable=true] > Image',
-          ],
+          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
         },
         {
           preKeys: [1],
@@ -603,13 +599,17 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
-          matches: ['[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="月付金"]'],
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="月付金"]',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: ['[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]'],
+          matches: [
+            '[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]',
+          ],
         },
         {
           preKeys: [1],
@@ -731,9 +731,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 5000,
-          matches: [
-            'FrameLayout > ViewGroup > ViewGroup',
-          ],
+          matches: ['FrameLayout > ViewGroup > ViewGroup'],
         },
       ],
     },
@@ -931,14 +929,14 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup',//立即签到
+            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
           ],
         },
         {
           preKeys: [1],
           key: 2,
           matches: [
-            'FrameLayout > ViewGroup > [desc="返回 按钮"]',//×
+            'FrameLayout > ViewGroup > [desc="返回 按钮"]', //×
           ],
         },
       ],
@@ -977,7 +975,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            'FrameLayout > ViewGroup > ViewGroup > ViewGroup > ViewGroup + ScrollView + @ViewGroup',//恭喜获得任务奖励-开心收下-×
+            'FrameLayout > ViewGroup > ViewGroup > ViewGroup > ViewGroup + ScrollView + @ViewGroup', //恭喜获得任务奖励-开心收下-×
           ],
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
