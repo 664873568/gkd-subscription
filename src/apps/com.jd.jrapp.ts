@@ -183,7 +183,7 @@ export default defineGkdApp({
             '[text="恭喜获得浏览奖励"] +n @[text="继续浏览"][clickable=true] + TextView',
           ],
           actionDelay: 2000,
-          anymatches: [
+          anyMatches: [
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View[getChild(1).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] > @[text="去完成"][clickable=true]',
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View[getChild(1).getChild(0).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] > @[text="去完成"][clickable=true]',
           ],
