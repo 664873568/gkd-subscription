@@ -8,9 +8,7 @@ export default defineGkdApp({
       key: 0,
       name: '限时福利-*s后自动看视频',
       matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -18,6 +16,21 @@ export default defineGkdApp({
             '[vid="iv_close"] +n @[text~="[0-9]s后自动看视频"][vid="tv_countdown"][clickable=true] + [vid="ll_bootom"] > [text="直接签到"][vid="tv_sign_derect"]',
           ],
           activityIds: ['com.jifen.qkbase.main.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '限时福利-*s后自动做任务',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[vid="iv_close"] +n @[text~="[0-9]s后自动做任务"][vid="tv_countdown"][clickable=true] + [vid="ll_bootom"] > [text="直接签到"][vid="tv_sign_derect"]',
+          ],
+          activityIds: ['com.jifen.qkbase.web.WebActivity'],
         },
       ],
     },
@@ -45,7 +58,6 @@ export default defineGkdApp({
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
       matchTime: 10000,
       resetMatch: 'activity',
       rules: [
