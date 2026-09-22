@@ -363,20 +363,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'none',
-          anyMatches: [
-            '[id="headFloor"] > View > @View[clickable=true] > [text="去打卡"]',
-            '[id="headFloor"] > View > @[id="lottieRefFloor"][clickable=true] > Image',
-          ],
-        },
-        {
-          key: 1,
           matches: [
             '[text^="今日打卡任务"] +n View > [text^="每日点签"] + @[text="点击签到"][clickable=true]',
           ],
         },
         {
-          key: 2,
+          key: 1,
           excludeMatches: [
             '[text^="今日打卡任务"] +n View > TextView + @[text~="去完成|点击签到"][clickable=true]',
           ],
