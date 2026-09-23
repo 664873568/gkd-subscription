@@ -393,9 +393,9 @@ export default defineGkdApp({
         {
           key: 5,
           excludeMatches: [
-            '[text="去完成"]',
-            '[text="领取"]',
-            '[text="可领取"]',
+            '[id="J_GAME_MARKET_POP_SDK"] >n View > @[text="去完成"][clickable=true]',
+            '[id="J_GAME_MARKET_POP_SDK"] >n @[text="领取"][clickable=true]',
+            '[id="J_GAME_MARKET_POP_SDK"] >n @View[clickable=true] > [text="可领取"]',
           ],
           matches: [
             '[id="J_GAME_MARKET_POP_SDK"] >n @[text="closeButton"][clickable=true]',
