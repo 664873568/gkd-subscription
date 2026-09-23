@@ -875,7 +875,7 @@ export default defineGkdApp({
     {
       scopeKeys: [52],
       key: 53,
-      name: '养大鹅-喂鹅翻倍',
+      name: '养大鹅-喂鹅翻倍奖励',
       fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
