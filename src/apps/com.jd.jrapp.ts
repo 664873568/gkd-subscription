@@ -259,24 +259,13 @@ export default defineGkdApp({
         {
           preKeys: [23, 24],
           key: 6,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
-          ],
-          actionDelay: 5000,
-          matches: [],
-        },
-        {
-          preKeys: [23, 24],
-          key: 7,
           matches: [
             '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup', //京东保
           ],
         },
         {
           preKeys: [23, 24],
-          key: 8,
+          key: 7,
           actionDelay: 5000,
           matches: [
             '@View[clickable=true] > [text="03e6058058b35dde"]', //天天来提额
@@ -284,7 +273,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [23, 24],
-          key: 9,
+          key: 8,
           matches: [
             '[vid="manto_actionbar_option"][clickable=true] + @[vid="manto_actionbar_home"][clickable=true]',
           ],
@@ -294,7 +283,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 10,
+          key: 9,
           anyMatches: [
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View > @[text="领奖"][clickable=true]',
           ],
@@ -828,6 +817,8 @@ export default defineGkdApp({
             '[text="cae179ab557e2b58"] +n [text="签到并喂食"][clickable=true]',
           ],
         },
+      ],
+    },
     {
       key: 51,
       name: '养大鹅-产粮机',
@@ -1107,7 +1098,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 1,
           actionDelay: 2000,
-          actionMaximum: 20,
+          actionMaximum: 6,
           matches: ['View > @View[clickable=true] > [text="连喂3次"]'],
         },
         {
@@ -1121,7 +1112,7 @@ export default defineGkdApp({
           preKeys: [2,3],
           key: 3,
           actionDelay: 2000,
-          actionMaximum: 20,
+          actionMaximum: 5,
           matches: ['View > @View[clickable=true] > [text="连喂3次"]'],
         },
         {
