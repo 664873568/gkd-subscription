@@ -40,7 +40,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@FrameLayout[clickable=true] > [text*="餐奖励"]'],
+          matches: ['@FrameLayout[clickable=true] > [text*="奖励"]'],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
