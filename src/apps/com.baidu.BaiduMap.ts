@@ -1258,13 +1258,14 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@ImageView[clickable=true] < RelativeLayout < [id="android:id/action_bar"]',
+            '[id="app"] > View > [id="ad_area"] > [text="反馈"] + @TextView[clickable=true]',
           ],
         },
         {
+          preKeys: [1],
           key: 2,
           matches: [
-            '[id="app"] > View > [id="ad_area"] > [text="反馈"] + @TextView[clickable=true]',
+            '@ImageView[clickable=true] < RelativeLayout < [id="android:id/action_bar"]',
           ],
         },
       ],
