@@ -316,8 +316,8 @@ export default defineGkdApp({
           ],
           action: 'clickCenter',
           position: {
-            left: 'width * 0.500',
-            top: 'height * 0.800',
+            left: 'width * 0.5',
+            top: 'height * 0.8',
           },
           actionDelay: 1000,
           matches: [
@@ -388,7 +388,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2],
           key: 1,
           matches: [
             'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
@@ -404,13 +403,13 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          key: 3,
+          key: 4,
           position: {
-            left: 'width * 0.500',
-            top: 'height * 0.825',
+            left: 'width * 0.5',
+            top: 'height * 1.16',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup', //开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup', //开心收下-×
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
@@ -499,7 +498,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,2],
           key: 1,
           matches: ['@Button[clickable=true] - View[clickable=true] > Image'],
         },
@@ -732,7 +731,9 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 5000,
-          matches: ['FrameLayout > ViewGroup > ViewGroup'],
+          matches: [
+            'FrameLayout > ViewGroup > ViewGroup - ViewGroup - ViewGroup > ViewGroup + @ViewGroup',
+          ],
         },
       ],
     },
@@ -922,6 +923,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
+          ],
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup',
           ],
@@ -929,6 +933,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
           matches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
           ],
@@ -936,8 +941,12 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          position:{
+            left:'width*0.5',
+            top:'heigth*2.8',
+          },
           matches: [
-            'FrameLayout > ViewGroup > [desc="返回 按钮"]', //×
+            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
           ],
         },
       ],
@@ -965,7 +974,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [1],
+          preKeys: [0,1],
           key: 2,
           matches: [
             '@[desc="返回"][clickable=true] < [id="headerLeftBar"] < [id="full-header"] + [id="JS_PageScroller"] > [id="with-scroll-content"] > View > [text="积分已到账"]',
@@ -975,8 +984,12 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          position:{
+            left:'width*0.5',
+            top:'heigth*1.14',
+          },
           matches: [
-            'FrameLayout > ViewGroup > ViewGroup > ViewGroup > ViewGroup + ScrollView + @ViewGroup', //恭喜获得任务奖励-开心收下-×
+            'FrameLayout > ViewGroup > ViewGroup > @ViewGroup > ViewGroup + ScrollView + ViewGroup', //恭喜获得任务奖励-开心收下-×
           ],
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
