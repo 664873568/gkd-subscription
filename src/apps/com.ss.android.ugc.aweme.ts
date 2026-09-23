@@ -275,7 +275,7 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           actionDelay: 1000,
-          matches: [
+          anyMatches: [
             'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
           ],
@@ -314,13 +314,14 @@ export default defineGkdApp({
           excludeMatches: [
             'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
           ],
+          action: 'clickCenter',
           position: {
             left: 'width * 0.500',
-            top: 'width * 0.800',
+            top: 'height * 0.800',
           },
           actionDelay: 1000,
           matches: [
-            'HorizontalScrollView > LinearLayout > @ViewGroup[childCount=6][index=1 || index=3]', //立即领取
+            '@HorizontalScrollView > LinearLayout > ViewGroup[childCount=6][index=1 || index=3]', //立即领取
           ],
         },
         {
@@ -406,7 +407,7 @@ export default defineGkdApp({
           key: 3,
           position: {
             left: 'width * 0.500',
-            top: 'width * 0.825',
+            top: 'height * 0.825',
           },
           matches: [
             'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup', //开心收下
