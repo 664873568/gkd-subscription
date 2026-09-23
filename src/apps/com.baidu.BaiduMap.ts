@@ -86,6 +86,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
             '[getChild(0).text="恭喜获得任务奖励"] +n @TextView[index=parent.childCount.minus(1)][clickable=true]',
+            '@View[clickable=true] > [text="我知道了"]',
           ],
           actionDelay: 2000,
           matches: [
@@ -1261,7 +1262,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
           key: 2,
           matches: [
             '[id="app"] > View > [id="ad_area"] > [text="反馈"] + @TextView[clickable=true]',
