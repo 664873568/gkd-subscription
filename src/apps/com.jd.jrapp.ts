@@ -11,6 +11,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '京豆秒杀-京豆每日抢',
+      fastQuery: true,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -37,52 +38,70 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
-      name: '浏览App-返回',
+      key: 1,
+      name: '返回-Button',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 60000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="正在跳转..." || text="商品详情"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '返回-逛测财运智能体',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="正在跳转..." || text="商品详情"]',
             'TextView - @TextView[clickable=true] < View < View < [id="joyai-root"] < View < [text="JoyAI"] < b40 < [vid="webview"]',
-            '[text="JoyAI"] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"]', //登录JoyAI并对话
-            '[text="限时福利"] >n @[text="back"][clickable=true] + [text="限时福利"]', //0.01元得包邮好物
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
     {
-      key: 16,
-      name: '彩票券-返回领奖',
+      key: 3,
+      name: '返回-登录JoyAI并对话',
+      fastQuery: true,
       matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 15000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
-            'View - View < [text="彩票券"] >n @TextView[clickable=true]',
+            '[text="JoyAI"] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
     {
-      key: 17,
-      name: '奖励已到账-返回做任务页面',
+      key: 4,
+      name: '返回-0.01元得包邮好物',
+      fastQuery: true,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          action: 'back',
+          actionDelay: 5000,
           matches: [
-            '@[getChild(0).text="奖励已到账"] - * [text="readMissionDown"]',
+            '[text="限时福利"] >n @[text="back"][clickable=true] + [text="限时福利"]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -93,6 +112,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '养猪猪-产粮机',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -108,6 +128,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '养猪猪-桌面组件',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -141,6 +162,7 @@ export default defineGkdApp({
     {
       key: 22,
       name: '养猪猪-阶段奖励',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -168,8 +190,8 @@ export default defineGkdApp({
     {
       key: 23,
       name: '养猪猪-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.common.web.ui.WebActivity',
@@ -179,7 +201,7 @@ export default defineGkdApp({
         {
           key: 23,
           excludeMatches: [
-            'View > @[text="领奖"][clickable=true]',
+            '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View > @[text="领奖"][clickable=true]',
             '[text="恭喜获得浏览奖励"] +n @[text="继续浏览"][clickable=true] + TextView',
           ],
           actionDelay: 2000,
@@ -190,7 +212,9 @@ export default defineGkdApp({
         },
         {
           key: 24,
-          excludeMatches: ['View > @[text="领奖"][clickable=true]'],
+          excludeMatches: [
+            '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View > @[text="领奖"][clickable=true]',
+          ],
           matches: [
             '[text="恭喜获得浏览奖励"] +n @[text="继续浏览"][clickable=true] + TextView',
           ],
@@ -200,21 +224,14 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '@[getChild(0).text~="返回签到|返回领奖"][clickable=true] - * [text="readMissionDown"]',
-            '@[getChild(0).text="浏览完成"][clickable=false] - * [text="ff776b55ee07c915"]',
-            'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
           ],
         },
         {
           preKeys: [23, 24],
           key: 3,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
-          actionDelay: 5000,
+          action: 'back',
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
+            '@[getChild(0).text="浏览完成"][clickable=false] - * [text="ff776b55ee07c915"]',
           ],
         },
         {
@@ -225,20 +242,41 @@ export default defineGkdApp({
             '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
-          action: 'back',
           actionDelay: 5000,
-          matches: [],
+          matches: [
+            'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
+          ],
         },
         {
           preKeys: [23, 24],
           key: 5,
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          actionDelay: 5000,
           matches: [
-            '@[text="返回领奖"][clickable=true] <<n * - * ViewGroup + ImageView[clickable=true] + ImageView', //京东保
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
         },
         {
           preKeys: [23, 24],
           key: 6,
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
+          ],
+          actionDelay: 5000,
+          matches: [],
+        },
+        {
+          preKeys: [23, 24],
+          key: 7,
+          matches: [
+            '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup', //京东保
+          ],
+        },
+        {
+          preKeys: [23, 24],
+          key: 8,
           actionDelay: 5000,
           matches: [
             '@View[clickable=true] > [text="03e6058058b35dde"]', //天天来提额
@@ -246,7 +284,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [23, 24],
-          key: 7,
+          key: 9,
           matches: [
             '[vid="manto_actionbar_option"][clickable=true] + @[vid="manto_actionbar_home"][clickable=true]',
           ],
@@ -256,8 +294,10 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 8,
-          anyMatches: ['View > @[text="领奖"][clickable=true]'],
+          key: 10,
+          anyMatches: [
+            '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View > @[text="领奖"][clickable=true]',
+          ],
         },
       ],
     },
@@ -265,6 +305,7 @@ export default defineGkdApp({
       scopeKeys: [23],
       key: 24,
       name: '养猪猪-去完成-游戏',
+      fastQuery: true,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
@@ -290,6 +331,7 @@ export default defineGkdApp({
       scopeKeys: [23],
       key: 25,
       name: '养猪猪-去完成-击杀1条鱼',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -306,6 +348,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 10000,
           matches: ['@[text="退出"][clickable=true]'],
         },
       ],
@@ -313,6 +356,7 @@ export default defineGkdApp({
     {
       key: 26,
       name: '养猪猪-去完成-做任务得奖励',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -355,11 +399,7 @@ export default defineGkdApp({
         },
         {
           key: 5,
-          excludeMatches: [
-            '[text="去完成"]',
-            '[text="领取"]',
-            '[text="可领取"]',
-          ],
+          excludeMatches: ['[text="去完成"]','[text="领取"]','[text="可领取"]'],
           matches: [
             '[id="J_GAME_MARKET_POP_SDK"] >n @[text="closeButton"][clickable=true]',
           ],
@@ -373,8 +413,8 @@ export default defineGkdApp({
     {
       key: 30,
       name: '签到领现金-赚抽奖次数-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.mainbox.main.MainActivity',
@@ -398,20 +438,25 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          anyMatches: [
+          excludeMatches: [
+            '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < *  -n * @View[clickable=true] > [text="dancing"]',
+          ],
+          matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 3,
+          anyMatches: [
             '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < *  -n * @View[clickable=true] > [text="dancing"]',
             '@[getChild(0).text="浏览完成"][clickable=false] - [getChild(1).getChild(0).text="ff776b55ee07c915"] < View <n View < [text="雀神来也"] < b40 < [vid="webview"] < [vid="web_all"] - * @Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="雀神来也"]',
           ],
         },
         {
           preKeys: [1],
-          key: 3,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          key: 4,
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -419,13 +464,12 @@ export default defineGkdApp({
         },
         {
           preKeys: [1],
-          key: 4,
+          key: 5,
           excludeMatches: [
             '[text*="浏览"]',
             '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
-          action: 'back',
           actionDelay: 5000,
           matches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
@@ -433,7 +477,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [1],
-          key: 5,
+          key: 6,
           action: 'back',
           matches: [
             '[text="继续浏览下一个"] - [text="浏览完成"] < View[clickable=true] - * [text="readMissionDown"]',
@@ -441,14 +485,14 @@ export default defineGkdApp({
         },
         {
           preKeys: [1],
-          key: 6,
+          key: 7,
           matches: [
             '[text="返回签到页"] - [text="浏览完成"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
         },
         {
           preKeys: [1],
-          key: 7,
+          key: 8,
           matches: [
             '@[vid="back_button"][clickable=true] -n * [text="继续做任务"]', //看视频最高赚10元
           ],
@@ -456,7 +500,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [1],
-          key: 8,
+          key: 9,
           actionDelay: 5000,
           matches: [
             '@[vid="manto_actionbar_home"][clickable=true] <<n * - * [text="京民通"]',
@@ -468,6 +512,7 @@ export default defineGkdApp({
     {
       key: 31,
       name: '签到领现金-每日抽提现-立即抽提现',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -513,8 +558,8 @@ export default defineGkdApp({
     {
       key: 32,
       name: '签到领现金-赚更多现金-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.mainbox.main.MainActivity',
@@ -531,11 +576,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -547,6 +588,7 @@ export default defineGkdApp({
     {
       key: 33,
       name: '签到领现金-打卡拿好礼-每日点签',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -575,8 +617,8 @@ export default defineGkdApp({
     {
       key: 34,
       name: '签到领现金-打卡拿好礼-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.mainbox.main.MainActivity',
@@ -597,21 +639,23 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          matches: [
+            '@[getChild(0).text="返回签到"][clickable=true] - * [text="readMissionDown"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
           action: 'back',
           anyMatches: [
-            '@[getChild(0).text="返回签到"][clickable=true] - * [text="readMissionDown"]',
             '@[getChild(0).text="浏览完成"][clickable=false] - * [text="ff776b55ee07c915"]',
             '[text="readMissionArrow2"] - [text="继续浏览下一个"] - [text="返回领奖"] < @View[clickable=true] - * [text="readMissionDown"]',
           ],
         },
         {
           preKeys: [0],
-          key: 2,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          key: 3,
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -619,20 +663,20 @@ export default defineGkdApp({
         },
         {
           preKeys: [0],
-          key: 3,
+          key: 4,
           excludeMatches: [
             '[text*="浏览"]',
             '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
-          action: 'back',
+          actionDelay: 5000,
           matches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
           ],
         },
         {
           preKeys: [0],
-          key: 4,
+          key: 5,
           matches: [
             '@[text="返回领奖"][clickable=true] <<n * -n * [text="省钱"] - * ImageView[clickable=true]',
           ],
@@ -646,9 +690,9 @@ export default defineGkdApp({
     {
       key: 40,
       name: '赚京豆-去完成',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.common.web.ui.WebActivity',
@@ -672,11 +716,7 @@ export default defineGkdApp({
         {
           preKeys: [40],
           key: 2,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -690,7 +730,6 @@ export default defineGkdApp({
             '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
-          action: 'back',
           actionDelay: 5000,
           matches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
@@ -702,6 +741,7 @@ export default defineGkdApp({
       scopeKeys: [40],
       key: 41,
       name: '赚京豆-去完成-做任务-成功喂猪或浇水1次',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -729,6 +769,7 @@ export default defineGkdApp({
       scopeKeys: [40],
       key: 42,
       name: '赚京豆-去完成-做任务-京豆捕鱼｜消耗10%能量值',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -745,7 +786,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 30000,
+          actionDelay: 40000,
           matches: ['@[text="退出"][clickable=true]'],
         },
       ],
@@ -753,6 +794,7 @@ export default defineGkdApp({
     {
       key: 43,
       name: '赚京豆-一键领京豆',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -764,8 +806,8 @@ export default defineGkdApp({
             '@ViewGroup[clickable=true] > ViewGroup > [text="一键领京豆"]',
           ],
           activityIds: [
-            '.bm.common.web.ui.WebActivity',
             '.bm.mainbox.main.MainActivity',
+            '.bm.jrv8.JRCustomDyPageActivity',
           ],
         },
       ],
@@ -774,7 +816,22 @@ export default defineGkdApp({
     //https://u.jr.jd.com/uc-fe-wxgrowing/cloudgoose/index/
     {
       key: 50,
+      name: '养大鹅-签到并喂食',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          matches: [
+            '[text="cae179ab557e2b58"] +n [text="签到并喂食"][clickable=true]',
+          ],
+        },
+    {
+      key: 51,
       name: '养大鹅-产粮机',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -782,20 +839,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          excludeMatches: [
             '[text="cae179ab557e2b58"] +n [text="签到并喂食"][clickable=true]',
           ],
-        },
-        {
-          key: 1,
           actionDelay: 1000,
           matches: [
             '[id="app"] > View > [getChild(0).getChild(0).text="可领取"] - View > @TextView[clickable=true]',
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [0],
+          key: 51,
           matches: [
             '[text~="[0-9]+g"] + View + @TextView[clickable=true]', //恭喜你获得-开心收下
           ],
@@ -803,33 +857,10 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [50],
-      key: 51,
-      name: '养大鹅-桌面组件',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          preKeys: [2],
-          key: 0,
-          actionDelay: 1000,
-          matches: [
-            '[id="app"] > View > View +n View > @View[clickable=true] > [text="可领取"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 51,
-          matches: ['@[text="立即领取"][clickable=true] + TextView'],
-        },
-      ],
-    },
-    {
       scopeKeys: [51],
       key: 52,
-      name: '养大鹅-喂鹅翻倍',
+      name: '养大鹅-桌面组件',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -839,23 +870,22 @@ export default defineGkdApp({
           preKeys: [51],
           key: 0,
           actionDelay: 1000,
-          anyMatches: [
-            '[id="app"] > View > [getChild(0).getChild(0).text="桌面小组件"] +n View > @View[clickable=true] + [text="可领取"]',
+          matches: [
+            '[id="app"] > View > View +n View > @View[clickable=true] > [text="可领取"]',
           ],
         },
         {
           preKeys: [0],
           key: 52,
-          matches: [
-            '[getChild(2).text="明日0点领"] + * @TextView[clickable=true]', //恭喜获得鹅粮奖励-收下喂鹅
-          ],
+          matches: ['@[text="立即领取"][clickable=true] + TextView'],
         },
       ],
     },
     {
       scopeKeys: [52],
       key: 53,
-      name: '养大鹅-天天提额',
+      name: '养大鹅-喂鹅翻倍',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -863,6 +893,33 @@ export default defineGkdApp({
       rules: [
         {
           preKeys: [52],
+          key: 0,
+          actionDelay: 1000,
+          anyMatches: [
+            '[id="app"] > View > [getChild(0).getChild(0).text="桌面小组件"] +n View > @View[clickable=true] + [text="可领取"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 53,
+          matches: [
+            '[getChild(2).text="明日0点领"] + * @TextView[clickable=true]', //恭喜获得鹅粮奖励-收下喂鹅
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys: [53],
+      key: 54,
+      name: '养大鹅-天天提额',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          preKeys: [53],
           key: 0,
           anyMatches: [
             '[id="app"] > View > [getChild(2).text="明日0点领"] -n View > View > @View[clickable=true] > [text="点我收蛋"]',
@@ -881,8 +938,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          anyMatches: [
-            '[id="app"] > View > View > View > @[text="领"][clickable=true]',
+          matches: [
             'View > [text="获得京豆(个)"] +n @View[clickable=true] > [text="参与活动可继续提高额度"]', //没兑出额度别灰心哦-我知道了
           ],
         },
@@ -890,10 +946,10 @@ export default defineGkdApp({
     },
     //做任务 赚鹅粮
     {
-      key: 54,
+      key: 55,
       name: '养大鹅-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.common.web.ui.WebActivity',
@@ -901,9 +957,9 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 54,
+          key: 55,
           excludeMatches: [
-            '@[desc="领奖"][clickable=true] > [text="领奖"]',
+            '[getChild(1).text!~="打.*|.*体验.*|完成.*|去.*|通过.*"] > @[desc="领奖"][clickable=true] > [text="领奖"]',
             '@TextView -2 [text="从京东信誉分频道 进游戏"]',
           ],
           actionDelay: 2000,
@@ -912,35 +968,39 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [54],
+          preKeys: [55],
           key: 1,
-          anyMatches: [
+          excludeMatches: [
+            '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < *  -n * @View[clickable=true] > [text="dancing"]',
+          ],
+          matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
+          ],
+        },
+        {
+          preKeys: [55],
+          key: 2,
+          matches: [
             '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < *  -n * @View[clickable=true] > [text="dancing"]',
           ],
         },
         {
-          preKeys: [54],
-          key: 2,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          preKeys: [55],
+          key: 3,
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
         },
         {
-          preKeys: [54],
-          key: 3,
+          preKeys: [55],
+          key: 4,
           excludeMatches: [
             '[text*="浏览"]',
             '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
-          action: 'back',
           actionDelay: 5000,
           anyMatches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
@@ -948,31 +1008,34 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [54],
-          key: 4,
+          preKeys: [55],
+          key: 5,
           matches: [
-            '@[vid="back_button"][clickable=true] -n * [text="返回领奖"]', //看视频至高领10元
+            '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup', //看视频至高领10元
           ],
           activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
         },
         {
-          key: 5,
-          matches: ['@[desc="领奖"][clickable=true] > [text="领奖"]'],
+          key: 6,
+          matches: [
+            '[getChild(1).text!~="打.*|.*体验.*|完成.*|去.*|通过.*"] > @[desc="领奖"][clickable=true] > [text="领奖"]',
+          ],
         },
       ],
     },
     {
-      scopeKeys: [54],
-      key: 55,
+      scopeKeys: [55],
+      key: 56,
       name: '养大鹅-去完成-从京东信誉分频道进入',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
         {
-          preKeys: [54],
-          key: 55,
+          preKeys: [55],
+          key: 56,
           matches: ['@TextView -2 [text="从京东信誉分频道 进游戏"]'],
         },
         {
@@ -997,17 +1060,18 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [54],
-      key: 56,
+      scopeKeys: [55],
+      key: 57,
       name: '养大鹅-去完成-开炮击杀任意一条鱼',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
       rules: [
         {
-          preKeys: [54, 56],
-          key: 56,
+          preKeys: [55, 57],
+          key: 57,
           action: 'longClickCenter',
           actionCd: 300,
           actionMaximum: 20,
@@ -1022,8 +1086,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 57,
-      name: '养大鹅-喂鹅翻倍-10次',
+      key: 58,
+      name: '养大鹅-喂鹅翻倍',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1032,8 +1097,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@[desc="领奖"][clickable=true] > [text="领奖"]',
-            '[getChild(1).text!~="打.*|.*体验.*|完成.*|去.*|通过.*"] > @[desc="去完成"][clickable=true] > [text="去完成"]',
+            '[getChild(1).text!~="打.*|.*体验.*|完成.*|去.*|通过.*"] > @[desc~="领奖|去完成"][clickable=true]',
           ],
           matches: [
             '[getChild(0).getChild(0).getChild(1).text="打一笔白条≥10元"] + @View[clickable=true]',
@@ -1043,27 +1107,25 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 1,
           actionDelay: 2000,
-          actionMaximum: 6,
+          actionMaximum: 20,
           matches: ['View > @View[clickable=true] > [text="连喂3次"]'],
         },
         {
           preKeys: [1],
           key: 2,
-          actionDelay: 15000,
           matches: [
             'View > TextView + [text="明日0点可领，10点之后慢慢减少"] + @TextView[clickable=true]',
           ],
         },
         {
-          preKeys: [2],
+          preKeys: [2,3],
           key: 3,
           actionDelay: 2000,
-          actionMaximum: 5,
+          actionMaximum: 20,
           matches: ['View > @View[clickable=true] > [text="连喂3次"]'],
         },
         {
           preKeys: [3],
-          actionDelay: 15000,
           key: 4,
           matches: [
             'View > TextView + [text="明日0点可领，10点之后慢慢减少"] + @TextView[clickable=true]',
@@ -1077,6 +1139,7 @@ export default defineGkdApp({
       key: 70,
       name: '天天领红包-×',
       actionMaximum: 1,
+      fastQuery: true,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
@@ -1094,8 +1157,8 @@ export default defineGkdApp({
     {
       key: 71,
       name: '天天领红包-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1115,11 +1178,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1133,7 +1192,6 @@ export default defineGkdApp({
             '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
-          action: 'back',
           actionDelay: 5000,
           matches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
@@ -1148,8 +1206,8 @@ export default defineGkdApp({
     {
       key: 80,
       name: '天天赚京豆-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.common.web.ui.WebActivity',
@@ -1177,11 +1235,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1195,21 +1249,13 @@ export default defineGkdApp({
             '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
-          action: 'back',
           actionDelay: 5000,
           matches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
           ],
         },
         {
-          preKeys: [0],
           key: 4,
-          matches: [
-            '[text*="京东金融"] + View > [text="取消"] + @[text="打开"][clickable=true]', //"京东金融"想要打开"*"-酷我音乐
-          ],
-        },
-        {
-          key: 5,
           anyMatches: [
             '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]', //任务已完成 恭喜获得
             '@TextView[clickable=true] - [text="立即领取"] -n [text~="[0-9]个京豆"]', //任务未完成 继续赚奖励
@@ -1220,6 +1266,7 @@ export default defineGkdApp({
     {
       key: 81,
       name: '天天赚京豆-做任务开福袋-去领取',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1246,6 +1293,7 @@ export default defineGkdApp({
     {
       key: 82,
       name: '天天赚京豆-去完成-浏览App-首页-做任务领京豆',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1286,8 +1334,8 @@ export default defineGkdApp({
     {
       key: 90,
       name: '天天摇黄金-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.common.web.ui.WebActivity',
@@ -1320,11 +1368,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 3,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1360,6 +1404,7 @@ export default defineGkdApp({
       scopeKeys: [90],
       key: 91,
       name: '天天摇黄金',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1394,6 +1439,7 @@ export default defineGkdApp({
     {
       key: 100,
       name: '看视频 赚现金-上滑',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1439,12 +1485,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text*="金币"]',
-            '[text*="继续"]',
-          ],
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text*="金币"]','[text*="继续"]'],
           actionDelay: 5000,
           matches: [
             '[text="我的钱"] <<n ViewGroup - @ViewGroup[clickable=true] < * +n * [text="53/53"]',
@@ -1456,8 +1497,8 @@ export default defineGkdApp({
     {
       key: 101,
       name: '看视频 赚现金-去完成',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.mainbox.main.MainActivity',
@@ -1477,7 +1518,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
           matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
@@ -1485,11 +1525,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1503,7 +1539,6 @@ export default defineGkdApp({
             '[text*="返回"]',
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
-          action: 'back',
           actionDelay: 5000,
           anyMatches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
@@ -1518,20 +1553,13 @@ export default defineGkdApp({
             '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup', //看收藏大牛学知识
           ],
         },
-        {
-          preKeys: [0],
-          key: 5,
-          actionDelay: 5000,
-          matches: [
-            '[text="黄金频道页"] >n @TextView[clickable=true] + [text="139b35d682d5bb6e"]', //逛一逛黄金频道
-          ],
-        },
       ],
     },
     {
       scopeKeys: [101],
       key: 102,
       name: '看视频 赚现金-去完成-养大鹅1分兑好礼',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1547,7 +1575,7 @@ export default defineGkdApp({
           preKeys: [102],
           key: 1,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + ImageView + [vid="common_webview_navbar_right"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
         },
       ],
@@ -1556,6 +1584,7 @@ export default defineGkdApp({
       scopeKeys: [101],
       key: 103,
       name: '看视频 赚现金-去完成-成功喂一次猪',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1587,9 +1616,9 @@ export default defineGkdApp({
     {
       key: 110,
       name: '笔笔返-去完成',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         '.bm.common.web.ui.WebActivity',
@@ -1606,7 +1635,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          action: 'back',
           matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
@@ -1614,11 +1642,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: [
-            '[text*="浏览"]',
-            '[text*="返回"]',
-            '[text="京东验证"]',
-          ],
+          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1650,6 +1674,7 @@ export default defineGkdApp({
     {
       key: 111,
       name: '超级指数节-抽',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1676,8 +1701,8 @@ export default defineGkdApp({
     {
       key: 120,
       name: '财宝分-浏览',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
@@ -1688,7 +1713,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0],
           key: 1,
           swipeArg: {
             start: {
@@ -1701,14 +1726,12 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionCd: 5000,
-          actionMaximum: 3,
           matches: [
-            '[getChild(0).text="正在浏览"] - [getChild(0).getChild(1).text~="[0-9]+"] < View <n WebView < b40 < [vid="webview"]',
+            '[text="正在浏览"] - [getChild(0).getChild(1).text~="[0-9]+"] < View <n WebView < b40 < [vid="webview"]',
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
@@ -1721,6 +1744,7 @@ export default defineGkdApp({
     {
       key: 121,
       name: '财宝分福利-加自选',
+      fastQuery: true,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
@@ -1759,8 +1783,8 @@ export default defineGkdApp({
     {
       key: 122,
       name: '财宝分福利-浏览',
+      fastQuery: true,
       matchRoot: true,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
@@ -1775,7 +1799,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0],
           key: 1,
           swipeArg: {
             start: {
@@ -1788,14 +1812,12 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionCd: 5000,
-          actionMaximum: 3,
           matches: [
-            '[getChild(0).text="正在浏览"] - [getChild(0).getChild(1).text~="[0-9]+"] < View <n WebView < b40 < [vid="webview"]',
+            '[text="正在浏览"] - [getChild(0).getChild(1).text~="[0-9]+"] < View <n WebView < b40 < [vid="webview"]',
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
@@ -1806,6 +1828,7 @@ export default defineGkdApp({
     {
       key: 123,
       name: '财宝分福利-关注',
+      fastQuery: true,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['.bm.common.web.ui.WebActivity'],
@@ -1842,6 +1865,7 @@ export default defineGkdApp({
     {
       key: 400,
       name: '发现新版本-×',
+      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1861,6 +1885,7 @@ export default defineGkdApp({
     {
       key: 401,
       name: '打开通知提醒-×',
+      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
