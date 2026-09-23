@@ -61,7 +61,7 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
+            '[id="J-watchVideo"] >n @[getChild(0).getChild(0).text~="[0-9]{3,}"][clickable=true] + [getChild(1).text="待领取"]',
           ],
         },
         {
@@ -1038,6 +1038,31 @@ export default defineGkdApp({
     //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
       key: 80,
+      name: '看视频-体验APP，提前拿奖励-×',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            'View < LinearLayout < @RelativeLayout[clickable=true] < FrameLayout <n LinearLayout + [text="  广告"]',
+          ],
+        },
+        {
+          key: 1,
+          excludeMatches: [
+            'View < LinearLayout < @RelativeLayout[clickable=true] < FrameLayout <n LinearLayout + [text="  广告"]',
+          ],
+          matches: [
+            '@ImageView[clickable=true] - RelativeLayout > View',//奖励已到账
+          ],
+        },
+      ],
+    },
+    {
+      key: 81,
       name: '看视频-跳过-奖励已到账-×',
       matchRoot: true,
       actionMaximum: 1,
@@ -1048,10 +1073,10 @@ export default defineGkdApp({
         {
           key: 0,
           position: {
-            left: 'width * 0.305',
-            top: 'width * 0.958',
+            left: 'width * 0.321',
+            top: 'width * 0.045',
           },
-          actionDelay: 30000,
+          actionDelay: 61000,
           matches: [
             '@FrameLayout > RelativeLayout > FrameLayout > LinearLayout > [text="广\\n告"]',
           ],
@@ -1260,6 +1285,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           matches: ['@TextView[clickable=true] -n [text="5秒更快拿奖励"]'],
         },
         {
@@ -1270,6 +1296,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          actionDelay: 1000,
           matches: [
             '[getChild(0).getChild(3).name$="TextView"] -n @ImageView[clickable=true] - [text="恭喜获得奖励"]',
           ],
