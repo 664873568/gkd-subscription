@@ -1056,7 +1056,7 @@ export default defineGkdApp({
             'View < LinearLayout < @RelativeLayout[clickable=true] < FrameLayout <n LinearLayout + [text="  广告"]',
           ],
           matches: [
-            '@ImageView[clickable=true] - RelativeLayout > View',//奖励已到账
+            '@ImageView[clickable=true] - RelativeLayout > View', //奖励已到账
           ],
         },
       ],
