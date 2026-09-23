@@ -250,7 +250,11 @@ export default defineGkdApp({
         {
           preKeys: [23, 24],
           key: 5,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -388,7 +392,11 @@ export default defineGkdApp({
         },
         {
           key: 5,
-          excludeMatches: ['[text="去完成"]','[text="领取"]','[text="可领取"]'],
+          excludeMatches: [
+            '[text="去完成"]',
+            '[text="领取"]',
+            '[text="可领取"]',
+          ],
           matches: [
             '[id="J_GAME_MARKET_POP_SDK"] >n @[text="closeButton"][clickable=true]',
           ],
@@ -445,7 +453,11 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 4,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -565,7 +577,11 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -644,7 +660,11 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 3,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -705,7 +725,11 @@ export default defineGkdApp({
         {
           preKeys: [40],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -978,7 +1002,11 @@ export default defineGkdApp({
         {
           preKeys: [55],
           key: 3,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1109,7 +1137,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 3,
           actionDelay: 2000,
           actionMaximum: 5,
@@ -1169,7 +1197,11 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1226,7 +1258,11 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1359,7 +1395,11 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 3,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1476,7 +1516,12 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text*="金币"]','[text*="继续"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text*="金币"]',
+            '[text*="继续"]',
+          ],
           actionDelay: 5000,
           matches: [
             '[text="我的钱"] <<n ViewGroup - @ViewGroup[clickable=true] < * +n * [text="53/53"]',
@@ -1516,7 +1561,11 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
@@ -1633,7 +1682,11 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: ['[text*="浏览"]','[text*="返回"]','[text="京东验证"]'],
+          excludeMatches: [
+            '[text*="浏览"]',
+            '[text*="返回"]',
+            '[text="京东验证"]',
+          ],
           actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
