@@ -84,8 +84,8 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@TextView[clickable=true] -n * [text="恭喜获得任务奖励"]',
             '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
+            '[getChild(0).text="恭喜获得任务奖励"] +n @TextView[index=parent.childCount.minus(1)][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
@@ -103,11 +103,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          matches: ['@TextView[clickable=true] -n * [text="恭喜获得任务奖励"]'],
-        },
-        {
-          key: 3,
-          matches: ['@TextView[clickable=true] <n * +n * [text="我知道了"]'],
+          matches: [
+            '[getChild(0).text="恭喜获得任务奖励"] +n @TextView[index=parent.childCount.minus(1)][clickable=true]',
+          ],
         },
       ],
     },
@@ -122,8 +120,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '[id="J-save-wrap"] > @View[clickable=true] > [text="领取金币"]',
-            '[id="J-reward-list"] >n @[text="点击领取"][clickable=true]',
+            '[id="task-loader"] > [id="J-save-wrap"] > @View[clickable=true] > [text="领取金币"]',
+            '[id="task-loader"] > [id="J-save-wrap"] >n [id="J-reward-list"] >n @[text="点击领取"][clickable=true]',
           ],
         },
         {
