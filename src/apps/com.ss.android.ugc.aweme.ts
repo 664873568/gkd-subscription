@@ -498,7 +498,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 1,
           matches: ['@Button[clickable=true] - View[clickable=true] > Image'],
         },
@@ -941,9 +941,9 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          position:{
-            left:'width*0.5',
-            top:'heigth*2.8',
+          position: {
+            left: 'width*0.5',
+            top: 'heigth*2.8',
           },
           matches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
@@ -974,7 +974,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[desc="返回"][clickable=true] < [id="headerLeftBar"] < [id="full-header"] + [id="JS_PageScroller"] > [id="with-scroll-content"] > View > [text="积分已到账"]',
@@ -984,9 +984,9 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
-          position:{
-            left:'width*0.5',
-            top:'heigth*1.14',
+          position: {
+            left: 'width*0.5',
+            top: 'heigth*1.14',
           },
           matches: [
             'FrameLayout > ViewGroup > ViewGroup > @ViewGroup > ViewGroup + ScrollView + ViewGroup', //恭喜获得任务奖励-开心收下-×
