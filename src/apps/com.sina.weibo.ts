@@ -6,19 +6,15 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '连续签到-任务完成 返回YY',
+      name: '连续签到',
       matchRoot: true,
+      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'app',
-      activityIds: ['.browser.WeiboBrowser'],
       rules: [
         {
-          key: 0,
           matches: ['@TextView[clickable=true] -n [text^="连续签到"]'],
-        },
-        {
-          key: 1,
-          matches: ['@[text="任务完成\\n返回YY"]'],
+          activityIds: ['.browser.WeiboBrowser'],
         },
       ],
     },
@@ -47,6 +43,38 @@ export default defineGkdApp({
             '[text="浏览微博\\n完成任务"] <<n [vid="floating_window"] -2 * @[vid="view_recycler"]',
           ],
           activityIds: ['.MainTabActivity'],
+        },
+      ],
+    },
+    {
+      key: 10,
+      name: 'YY-去微博赚红包',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      activityIds: ['.browser.WeiboBrowser'],
+      rules: [
+        {
+          matches: ['@[text="任务完成\\n返回YY"]'],
+          activityIds: ['.browser.WeiboBrowser'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '星图金融-去微博签到领红包',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '[vid="rlThemeTitleBar"] > @[vid="titleLeft"][clickable=true] + [text="用户任务中心"][vid="titleText"]',
+          ],
+          activityIds: ['.browser.WeiboBrowser'],
         },
       ],
     },
