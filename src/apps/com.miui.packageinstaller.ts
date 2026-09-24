@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '频繁安装应用',
+      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -23,8 +24,8 @@ export default defineGkdApp({
     {
       key: 2,
       name: '喜马拉雅-安装应用',
+      fastQuery: true,
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -49,7 +50,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: ['@[text="完成"][vid="start_button"][clickable=true]'],
           activityIds: [
