@@ -28,9 +28,11 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
-          matches: ['[text="短信验证码"] + View > View + [text="获取验证码"]'],
+          matches: [
+            '[text="短信验证码"] + View > View + [text="获取验证码"]',
+          ],
         },
       ],
     },
@@ -60,9 +62,11 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
-          matches: ['[text="短信验证码"] + View > View + [text="获取验证码"]'],
+          matches: [
+            '[text="短信验证码"] + View > View + [text="获取验证码"]',
+          ],
         },
       ],
     },
@@ -75,6 +79,21 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['[getChild(0).getChild(0).text="广告"] + @Image'],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '中国电信App-广告-×',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[id="launchAppView"] +n View > [text="广告"] +n @Image[index=3] +n [text="7天内不再提示"]',
+          ],
           activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
         },
       ],
