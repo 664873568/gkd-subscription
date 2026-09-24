@@ -642,7 +642,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 34,
+      key: 35,
       name: '签到领现金-打卡拿好礼-去完成',
       matchRoot: true,
       resetMatch: 'activity',
