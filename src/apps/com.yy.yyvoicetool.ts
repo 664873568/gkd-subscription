@@ -270,8 +270,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]'],
-          matches: ['[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]'],
+          excludeMatches: [
+            '@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]',
+          ],
+          matches: [
+            '[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]',
+          ],
         },
         {
           preKeys: [0],
