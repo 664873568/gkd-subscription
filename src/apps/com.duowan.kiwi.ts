@@ -55,6 +55,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 43,
+      name: '升级有礼-×',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="升级有礼"][vid="tv_find_upgrade"] < LinearLayout < [vid="rl_upgrade_top_content"] + @[vid="upgrade_cancel"][clickable=true]',
+          ],
+          activityIds: [
+            'com.huya.kiwi.crossplatform.common.webview.KiwiOakWebActivity',
+          ],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
