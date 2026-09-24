@@ -124,7 +124,7 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '开通消息通知-暂不开通',
+      name: '开启通知-暂不开通',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -132,9 +132,12 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="暂不开通"][vid="new_push_guide_cancel"] <n [vid="new_push_root_view"]',
+            '[text="开启通知"][vid="new_push_guide_open"] + @[text="暂不开通"][vid="new_push_guide_cancel"][clickable=true]',
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+          activityIds: [
+            '.launcher.LauncherActivity',
+            'com.suning.webview.H5SystemBaseActivity',
+          ],
         },
       ],
     },
