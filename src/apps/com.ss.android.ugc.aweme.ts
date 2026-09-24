@@ -791,7 +791,7 @@ export default defineGkdApp({
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
         {
-          preKeys: [1,2,3,4，5，6],
+          preKeys: [1,2,3,4,5,6],
           key: 7,
           name: '访问成功|任务完成|看视频完成',
           action: 'clickCenter',
