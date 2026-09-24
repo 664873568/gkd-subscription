@@ -127,13 +127,16 @@ export default defineGkdApp({
           key: 0,
           anyMatches: [
             '[id="task-loader"] > [id="J-save-wrap"] > @View[clickable=true] > [text="领取金币"]',
-            '[id="task-loader"] > [id="J-save-wrap"] >n [id="J-reward-list"] >n @[text="点击领取"][clickable=true]',
+            '[id="task-loader"] > [id="J-save-wrap"] > View > [id="J-reward-list"] + View > View > @View[clickable=true] > [text="点击领取"]',
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 1,
-          matches: ['@View[clickable=true] > [text="我知道了"]'],
+          anyMatches: [
+            '@View[clickable=true] > [text="我知道了"]',
+            '[getChild(0).getChild(0).text~="恭喜.*完成.*挑战"] +n View > @View[clickable=true] > [text="点击领取"]',
+          ],
         },
       ],
     },
