@@ -37,55 +37,52 @@ export default defineGkdApp({
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
-      ],
-    },
-    {
-      scopeKeys: [1],
-      key: 2,
-      name: '天天领现金-签到领大额红包',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
-      rules: [
         {
           preKeys: [0],
           key: 1,
+          anyMatches: [
+            '[desc="快影"] +n @View[clickable=true] > [text="立即下载App"]',//去快影APP赚奖励
+            '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] >n [id="root"] > @View[clickable=true]',//去虎牙看游戏直播
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+        {
+          key: 2,
+          actionDelay: 3000,
+          anyMatches: [
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] + [vid="title"] + [vid="webview_title_line"]',//去头条极速版赚钱
+            '[vid="layout_header"] > [vid="imageView_backToPreviousPage"] + @[vid="imageView_exitWebView"] + [vid="title"] + [vid="webview_title_line"]',
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 3,
           actionDelay: 2000,
           matches: [
-            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image',
+            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image',//签到领大额红包
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [3],
+          key: 4,
           action: 'back',
           actionDelay: 2000,
           matches: [
             '@ImageButton[clickable=true] < View < View < View + [id="mainViewWrapper"] >n [text~="再赚[0-9]+积分"]',
           ],
         },
-      ],
-    },
-    {
-      scopeKeys: [1],
-      key: 3,
-      name: '天天领现金-去逛星选商城频道',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
         {
           preKeys: [0],
-          key: 1,
+          key: 5,
           actionDelay: 5000,
-          matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'],
+          matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'],//去逛星选商城频道
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
     },
     {
-      key: 4,
+      key: 2,
       name: '天天领现金-一键领取',
       matchRoot: true,
       matchDelay: 1000,
