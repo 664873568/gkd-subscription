@@ -8,7 +8,7 @@ export default defineGkdApp({
       key: 0,
       name: '提现-50元',
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
       rules: [
@@ -33,7 +33,6 @@ export default defineGkdApp({
       key: 1,
       name: '天天签到赢金币-登录领取',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
@@ -41,14 +40,14 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@TextView[clickable=true] - [text="登录领取"][clickable=true] <n * -n * [text="天天签到赢金币！"]',
+            '[getChild(1).text="天天签到赢金币！"] +n * > [text="登录领取"][clickable=true] + @TextView[clickable=true]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            'TextView[clickable=true] - @[text="登录领取"][clickable=true] <n * -n * [text="天天签到赢金币！"]',
+            '[getChild(1).text="天天签到赢金币！"] +n * > @[text="登录领取"][clickable=true] + TextView[clickable=true]',
           ],
         },
         {
@@ -64,7 +63,6 @@ export default defineGkdApp({
       key: 2,
       name: '天天签到赢金币-立即签到',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
@@ -72,14 +70,14 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="立即签到"][clickable=true] -n * > [text="天天签到赢金币！"]',
+            '[getChild(1).text="天天签到赢金币！"] +n @[text="立即签到"][clickable=true]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '@TextView[clickable=true][index=parent.childCount.minus(1)] -n * > [text="天天签到赢金币！"]',
+            '[getChild(1).text="天天签到赢金币！"] +n @TextView[clickable=true][index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -96,6 +94,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '[getChild(1).text="天天签到赢金币！"],
             '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
@@ -238,9 +237,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          matches: [
-            '@ImageView < FrameLayout <n * < * - * [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout - FrameLayout[getChild(0).name$="ImageView"] - FrameLayout > [text="恭喜获得奖励"]',
+          anyMatches: [
+            'ImageView < @FrameLayout <n * < * - * [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout - FrameLayout[getChild(0).name$="ImageView"] - FrameLayout > [text="恭喜获得奖励"]',
           ],
           activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
@@ -281,18 +280,19 @@ export default defineGkdApp({
           ],
           actionDelay: 1000,
           anyMatches: [
-            '@ImageView < FrameLayout  - * [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout - LinearLayout > LinearLayout > [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="继续"]', //恭喜获得奖励
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
+            'ImageView < @FrameLayout  - * [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout <n * < * - * [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout < FrameLayout - LinearLayout > LinearLayout > [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="继续"]', //恭喜获得奖励
+            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
           ],
         },
         {
           preKeys: [2],
           key: 3,
           matches: [
-            '@ImageView < FrameLayout < FrameLayout <n FrameLayout +n * [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout < FrameLayout <n FrameLayout +n * [text="恭喜获得奖励"]',
           ],
         },
       ],
