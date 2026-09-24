@@ -181,6 +181,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          excludeMatches: [
+            '@[text="拒绝"][clickable=true] <n * - * [text~=".*微信.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
+          ],
           actionDelay: 16000,
           matches: [
             '@[text="拒绝"][clickable=true] <n * - * [text="启动应用"][vid="permission_group_title"]',
@@ -204,7 +207,7 @@ export default defineGkdApp({
         {
           actionDelay: 20000,
           matches: [
-            '@[text="拒绝"][clickable=true] <n * - * [text~="微信.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
+            '@[text="拒绝"][clickable=true] <n * - * [text~=".*微信.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
           activityIds: [
             'com.miui.applicationlock.AppLockActivity',
