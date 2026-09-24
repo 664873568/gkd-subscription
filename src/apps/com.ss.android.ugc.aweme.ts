@@ -926,8 +926,9 @@ export default defineGkdApp({
           excludeMatches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
           ],
-          matches: [
+          anyMatches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup',
+            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ViewGroup > ViewGroup > [desc="玩法已升级"] + ViewGroup',
           ],
         },
         {
@@ -961,7 +962,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[desc="前往抖音月付看看 滑动浏览30秒 抖币+1000 去看看 按钮"] > ViewGroup',
+            '[desc~="前往抖音月付看看 滑动浏览30秒 抖币\\\\+[0-9]+ 去看看 按钮"] > ViewGroup',
           ],
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
