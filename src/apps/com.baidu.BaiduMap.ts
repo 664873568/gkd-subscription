@@ -918,14 +918,14 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key:0,
+          key: 0,
           matches: [
-            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',//二级广告页
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
           ],
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
-          key:1,
+          key: 1,
           matches: [
             '@ImageView[clickable=true] -2 ImageView + LinearLayout > [text="恭喜获得奖励！"]',
           ],
