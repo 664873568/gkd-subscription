@@ -6,8 +6,9 @@ export default defineGkdApp({
   groups: [
     //21.12.22开始 抖音月付·月付金
     {
-      key: 0,
+      key: 10,
       name: '月付金-签到可得',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -29,8 +30,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 11,
       name: '月付金-浏览小游戏',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -70,8 +72,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 12,
       name: '月付金-浏览钱包页面',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -102,51 +105,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
-      name: '月付金-天天抽大奖',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bullet.ui.BulletContainerActivity'],
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '@[text="去完成"][clickable=true] - View[clickable=true] > [text="查看我的钱包"]',
-          ],
-          action: 'none',
-          actionDelay: 2000,
-          matches: [
-            '[text="我的月付金"] >n @View[clickable=true] > [text="天天抽大奖"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[text="天天抽大奖"] >n View[clickable=true] > @Button[clickable=true]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '[text="天天抽大奖"] >n @ImageButton[text="11d4c35793c0e3677e32627055c3741f.png~tplv-49obo7mizy-whq:0:0:q75"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          actionDelay: 5000,
-          matches: [
-            '[text="天天抽大奖"] >n View[clickable=true] > @Button[clickable=true]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 4,
+      key: 13,
       name: '月付金-浏览天天开宝箱活动',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -177,8 +138,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 14,
       name: '月付金-浏览好物竞拍得月付金',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -206,10 +168,644 @@ export default defineGkdApp({
         },
       ],
     },
-    //天天预约领金币
+    //26.07.20-26.08.20 理财-发财金
     {
-      key: 10,
+      key: 20,
+      name: '理财-广告',
+      fastQuery: true,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
+        },
+      ],
+    },
+    {
+      key: 21,
+      name: '理财-发财金-签到领',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+      rules: [
+        {
+          key: 0,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.8',
+          },
+          matches: [
+            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView + ViewGroup + ViewGroup + ViewGroup + ImageView',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 1,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.8',
+          },
+          matches: [
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup +n ImageView',//签到领-开心收下
+          ],
+        },
+      ],
+    },
+    {
+      key: 22,
+      name: '理财-*发财金已到账',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          matches: [
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout',
+          ],
+          activityIds: [
+            '.live.LiveDummyActivity', //逛商城福利
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0', //浏览行情信息
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[desc="关闭"][clickable=true] + [text="先加入自选，行情来了不错过"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [0,1,3],
+          key: 4,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.8',
+          },
+          matches: [
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup +n ImageView', //开心收下
+          ],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 23,
+      name: '理财-发财金-抽发财金',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bullet.ui.BulletContainerActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup +n ImageView',
+          ],
+          matches: [
+            'ScrollView > HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup + ImageView + @ViewGroup',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.8',
+          },
+          matches: [
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView',//开心收下
+          ],
+        },
+      ],
+    },
+    //车主服务-车主省钱-领省钱豆兑现金
+    {
+      key: 30,
+      name: '省钱豆-每日签到',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="立即领取"] < View <n View -n [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
+          ],
+        },
+      ],
+    },
+    //浏览赚省钱豆
+    {
+      key: 31,
+      name: '省钱豆-保险商城',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="保险商城"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(1).text="开心收下"] -n View > View > @View[clickable=true] > Image',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          actionDelay: 5000,
+          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
+        },
+      ],
+    },
+    {
+      key: 32,
+      name: '省钱豆-信用卡',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="信用卡"]',
+          ],
+        },
+        {
+          preKeys: [0, 2],
+          key: 1,
+          matches: ['@Button[clickable=true] - View[clickable=true] > Image'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          actionDelay: 5000,
+          matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 33,
+      name: '省钱豆-食安保',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="食安保"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: ['@[text="仍要退出"][clickable=true] + [text="立即收下"]'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            'FrameLayout > ViewGroup > ViewGroup - ViewGroup - ViewGroup > ViewGroup + @ViewGroup',
+          ],
+        },
+      ],
+    },
+    {
+      key: 34,
+      name: '省钱豆-查电费',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="查电费"]',
+          ],
+          activityIds: [
+            '.bullet.ui.BulletContainerActivity',
+            '.cjpay.hostimpl.container.CJLiveDummyActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['[text$="~tplv-20ashz96qn-1"] < * + @Button[desc="关闭"]'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          actionDelay: 5000,
+          matches: ['@[desc="返回"][clickable=true] + [text="生活缴费"]'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 35,
+      name: '省钱豆-月付金',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="月付金"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: [
+            '[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: ['[text="抖音月付"] >n @[desc="返回"][clickable=true]'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: ['@ImageButton[clickable=true] + * [text="恭喜完成任务"]'],
+        },
+      ],
+    },
+    {
+      key: 36,
+      name: '省钱豆-运费险',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="运费险"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: ['@[text="仍要退出"][clickable=true] + [text="立即收下"]'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            'FrameLayout > ViewGroup > ViewGroup - ViewGroup - ViewGroup > ViewGroup + @ViewGroup',
+          ],
+        },
+      ],
+    },
+    {
+      key: 37,
+      name: '省钱豆-抽免单',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="抽免单"]',
+          ],
+          activityIds: [
+            '.bullet.ui.BulletContainerActivity',
+            '.cjpay.hostimpl.container.CJLiveDummyActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: ['[desc="doupay"] - @View[clickable=true] > Image'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+      ],
+    },
+    {
+      key: 38,
+      name: '省钱豆-去懂车帝',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="去懂车帝"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@ImageView[clickable=true] < LinearLayout + [text="懂车帝"]',
+          ],
+        },
+      ],
+    },
+    //更多任务
+    {
+      key: 39,
+      name: '省钱豆-从「钱包」访问车主服务',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="今日已完成 明日继续"] +n [getChild(0).text="从「钱包」访问车主服务"] > @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            'FrameLayout > ViewGroup[index=4] > @ViewGroup',
+          ],
+        },
+      ],
+    },
+    //充值中心-攒充值金兑优惠券
+    {
+      key: 40,
+      name: '充值中心-广告-×',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'FrameLayout[childCount=4] > ViewGroup[index=parent.childCount.minus(1)] > ViewGroup > ViewGroup + ViewGroup',
+          ],
+          activityIds: [
+            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '充值中心-攒充值金',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          name: '攒充值金',
+          action: 'clickCenter',
+          actionDelay: 5000,
+          matches: [
+            'FrameLayout[getChild(0).name$="TextureView"] + ViewGroup > ViewGroup > @ViewGroup[getChild(0).name$="ImageView"] + ViewGroup + ViewGroup',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '天天收集充值金-签到得',
+          action: 'clickCenter',
+          matches: [
+            'ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ViewGroup > ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          name: '签到成功',
+          action: 'clickCenter',
+          matches: [
+            'FrameLayout[getChild(0).name$="TextureView"] + @ImageView + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup',
+          ],
+        },
+      ],
+    },
+    {
+      key: 42,
+      name: '充值中心-攒充值金-赚充值金',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          name: '去访问|去预约|去浏览|去看看',
+          excludeMatches: [
+            'FrameLayout[getChild(0).name$="TextureView"] + @ImageView + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup',
+            'ViewGroup[getChild(1).getChild(0).name$="ScrollView"] + @ViewGroup[getChild(0).name$="ViewGroup"] + ViewGroup[getChild(0).getChild(0).name$="ViewGroup"]',
+          ],
+          action: 'clickCenter',
+          actionDelay: 2000,
+          matches: [
+            'ViewGroup[getChild(1).getChild(0).name$="ScrollView"] + ViewGroup > ViewGroup[index=parent.childCount.minus(1)]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '从商城访问充值中心',
+          action: 'clickCenter',
+          matches: [
+            'FrameLayout > LinearLayout > ViewGroup[childCount=5] > @ViewGroup[index=2][childCount=5]',
+          ],
+          activityIds: ['.main.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          name: '预约下月收集活动',
+          action: 'clickCenter',
+          matches: [
+            '@[desc~="bilibili|芒果TV|腾讯视频"] - ImageView < ViewGroup',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 3,
+          name: '预约影音娱乐1元秒杀',
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            'FrameLayout > @ViewGroup + ViewGroup > ViewGroup > LinearLayout + ViewGroup',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 4,
+          name: '浏览精选好物',
+          matches: [
+            '@[desc="返回"][clickable=true] <<n [id="mix-navbar"] +n * [text="浏览好物"] + [text="返回领取"]',
+          ],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          matches: ['@[text="放弃优惠"] <<n * [desc="返回"]'],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 6,
+          name: '看1次短视频*3',
+          action: 'clickCenter',
+          actionDelay: 1000,
+          matches: ['@ImageView < [desc="任务完成 返回领取，关闭，按钮"]'],
+          activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
+        },
+        {
+          preKeys: [1,2,3,4，5，6],
+          key: 7,
+          name: '访问成功|任务完成|看视频完成',
+          action: 'clickCenter',
+          matches: [
+            'FrameLayout[getChild(0).name$="TextureView"] + @ImageView + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup',
+          ],
+        },
+      ],
+    },
+    //任务中心
+    {
+      key: 50,
       name: '任务中心-天天预约领金币-看视频*秒领',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -302,8 +898,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 51,
       name: '任务中心-天天预约领金币-立即领取',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -350,529 +947,11 @@ export default defineGkdApp({
         },
       ],
     },
-    //26.07.20-26.08.20 理财-发财金
-    {
-      order: 12,
-      key: 12,
-      name: '理财-广告',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
-          activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
-          ],
-        },
-      ],
-    },
-    {
-      order: 13,
-      key: 13,
-      name: '理财-*发财金已到账',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          action: 'back',
-          matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout',
-          ],
-          activityIds: [
-            '.live.LiveDummyActivity', //逛商城福利
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0', //浏览行情信息
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
-          ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '@[desc="关闭"][clickable=true] + [text="先加入自选，行情来了不错过"]',
-          ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
-        },
-        {
-          key: 4,
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 1.16',
-          },
-          matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup', //开心收下-×
-          ],
-          activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
-        },
-      ],
-    },
-    //车主服务-车主省钱-领省钱豆兑现金
-    {
-      key: 20,
-      name: '省钱豆-每日签到',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="立即领取"] < View <n View -n [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
-          ],
-        },
-      ],
-    },
-    //浏览赚省钱豆
-    {
-      key: 21,
-      name: '省钱豆-保险商城',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="保险商城"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[getChild(1).text="开心收下"] -n View > View > @View[clickable=true] > Image',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          actionDelay: 5000,
-          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
-        },
-      ],
-    },
-    {
-      key: 22,
-      name: '省钱豆-信用卡',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="信用卡"]',
-          ],
-        },
-        {
-          preKeys: [0, 2],
-          key: 1,
-          matches: ['@Button[clickable=true] - View[clickable=true] > Image'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 5000,
-          matches: ['@[desc="返回 按钮"] + ViewGroup > [desc="信用卡还款"]'],
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          matches: [
-            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 23,
-      name: '省钱豆-食安保',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="食安保"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 5000,
-          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: ['@[text="仍要退出"][clickable=true] + [text="立即收下"]'],
-        },
-      ],
-    },
-    {
-      key: 24,
-      name: '省钱豆-查电费',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="查电费"]',
-          ],
-          activityIds: [
-            '.bullet.ui.BulletContainerActivity',
-            '.cjpay.hostimpl.container.CJLiveDummyActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['[text$="~tplv-20ashz96qn-1"] < * + @Button[desc="关闭"]'],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 5000,
-          matches: ['@[desc="返回"][clickable=true] + [text="生活缴费"]'],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 25,
-      name: '省钱豆-月付金',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="月付金"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 5000,
-          matches: [
-            '[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: ['[text="抖音月付"] >n @[desc="返回"][clickable=true]'],
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          matches: ['@ImageButton[clickable=true] + * [text="恭喜完成任务"]'],
-        },
-      ],
-    },
-    {
-      key: 26,
-      name: '省钱豆-运费险',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="运费险"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 5000,
-          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: ['@[text="仍要退出"][clickable=true] + [text="立即收下"]'],
-        },
-      ],
-    },
-    {
-      key: 27,
-      name: '省钱豆-抽免单',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="抽免单"]',
-          ],
-          activityIds: [
-            '.bullet.ui.BulletContainerActivity',
-            '.cjpay.hostimpl.container.CJLiveDummyActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 5000,
-          matches: ['[desc="doupay"] - @View[clickable=true] > Image'],
-          activityIds: ['.live.LiveDummyActivity'],
-        },
-      ],
-    },
-    {
-      key: 28,
-      name: '省钱豆-去懂车帝',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text~="浏览赚[0-9]+省钱豆"] + @View[clickable=true] > [text="去懂车帝"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '@ImageView[clickable=true] < LinearLayout + [text="懂车帝"]',
-          ],
-        },
-      ],
-    },
-    //更多任务
-    {
-      key: 29,
-      name: '省钱豆-从「钱包」访问车主服务',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text="今日已完成 明日继续"] +n [getChild(0).text="从「钱包」访问车主服务"] > @[text="去完成"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'back',
-          actionDelay: 5000,
-          matches: [
-            'FrameLayout > ViewGroup > ViewGroup - ViewGroup - ViewGroup > ViewGroup + @ViewGroup',
-          ],
-        },
-      ],
-    },
-    //充值中心-充值金
-    {
-      key: 40,
-      name: '充值中心',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 5000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          anyMatches: [
-            '@ImageView[index=0][childCount=0] < ViewGroup[index=2][childCount=6]',
-            '@ImageView[index=0][childCount=0] < ViewGroup[index=3][childCount=6]',
-          ],
-          activityIds: ['.main.MainActivity'],
-        },
-      ],
-    },
-    {
-      key: 41,
-      name: '赚充值金-更多任务',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 5000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          matches: [
-            '@ViewGroup[childCount=0] < ViewGroup[childCount=2] -n ScrollView',
-          ],
-          activityIds: [
-            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 42,
-      name: '赚充值金-赚充值金',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 2000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=4][childCount=1] - ViewGroup[index=3][childCount=2]',
-          ],
-          activityIds: [
-            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 43,
-      name: '赚充值金-再赚充值金',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          matches: [
-            '@ViewGroup[index=0][childCount=0] < ViewGroup[index=3][childCount=1] -2 [desc$="00"]',
-          ],
-          activityIds: [
-            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
-          ],
-        },
-      ],
-    },
-    //预约影音娱乐1元秒杀
-    {
-      key: 44,
-      name: '赚充值金-娱乐影音',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 5000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          matches: [
-            '@[desc~="bilibili|芒果TV|腾讯视频"] - ImageView < ViewGroup',
-          ],
-          activityIds: [
-            'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
-          ],
-        },
-      ],
-    },
-    //浏览精选好物
-    {
-      key: 45,
-      name: '赚充值金-天天用好券-浏览好物-返回领取',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.live.LiveDummyActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[desc="返回"][clickable=true] <<n [id="mix-navbar"] +n * [text="浏览好物"] + [text="返回领取"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: ['@[text="放弃优惠"] <<n * [desc="返回"]'],
-        },
-      ],
-    },
-    //看视频
-    {
-      key: 46,
-      name: '赚充值金-看视频-任务完成 返回领取',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          matches: ['@ImageView < [desc="任务完成 返回领取，关闭，按钮"]'],
-          activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
-        },
-      ],
-    },
     //手机充值
     {
       key: 60,
       name: '手机充值-广告-×',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -897,6 +976,7 @@ export default defineGkdApp({
     {
       key: 70,
       name: '我的钱包-广告-×',
+      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -916,6 +996,7 @@ export default defineGkdApp({
     {
       key: 71,
       name: '我的钱包-今日签到',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -955,6 +1036,7 @@ export default defineGkdApp({
     {
       key: 72,
       name: '我的钱包-前往抖音月付看看',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -999,6 +1081,7 @@ export default defineGkdApp({
     {
       key: 80,
       name: '支付成功',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1027,6 +1110,7 @@ export default defineGkdApp({
     {
       key: 81,
       name: '抖音乘车码开通福利-×',
+      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
