@@ -16,8 +16,8 @@ export default defineGkdApp({
           key: 0,
           action: 'clickCenter',
           anyMatches: [
-            'FrameLayout > FrameLayout > FrameLayout > @FrameLayout[clickable=true] > [text="立即签到"]',
-            'FrameLayout > FrameLayout > FrameLayout > @FrameLayout[clickable=true] > FrameLayout > ImageView + FrameLayout > View',
+            'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
+            '@FrameLayout[clickable=true] > [text="今日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
           ],
         },
         {
@@ -25,8 +25,8 @@ export default defineGkdApp({
           key: 1,
           action: 'clickCenter',
           anyMatches: [
-            '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
             'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
+            '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
             '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
           ],
         },
