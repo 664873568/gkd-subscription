@@ -8,7 +8,6 @@ export default defineGkdApp({
     {
       key: 10,
       name: '月付金-签到可得',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -32,7 +31,6 @@ export default defineGkdApp({
     {
       key: 11,
       name: '月付金-浏览小游戏',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -74,7 +72,6 @@ export default defineGkdApp({
     {
       key: 12,
       name: '月付金-浏览钱包页面',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -107,7 +104,6 @@ export default defineGkdApp({
     {
       key: 13,
       name: '月付金-浏览天天开宝箱活动',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -140,7 +136,6 @@ export default defineGkdApp({
     {
       key: 14,
       name: '月付金-浏览好物竞拍得月付金',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -172,7 +167,6 @@ export default defineGkdApp({
     {
       key: 20,
       name: '理财-广告',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -189,7 +183,6 @@ export default defineGkdApp({
     {
       key: 21,
       name: '理财-发财金-签到领',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -221,7 +214,6 @@ export default defineGkdApp({
     {
       key: 22,
       name: '理财-*发财金已到账',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -279,7 +271,6 @@ export default defineGkdApp({
     {
       key: 23,
       name: '理财-发财金-抽发财金',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -311,7 +302,6 @@ export default defineGkdApp({
     {
       key: 30,
       name: '省钱豆-每日签到',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -339,7 +329,6 @@ export default defineGkdApp({
     {
       key: 31,
       name: '省钱豆-保险商城',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -373,7 +362,6 @@ export default defineGkdApp({
     {
       key: 32,
       name: '省钱豆-信用卡',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -412,7 +400,6 @@ export default defineGkdApp({
     {
       key: 33,
       name: '省钱豆-食安保',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -453,7 +440,6 @@ export default defineGkdApp({
     {
       key: 34,
       name: '省钱豆-查电费',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -491,7 +477,6 @@ export default defineGkdApp({
     {
       key: 35,
       name: '省钱豆-月付金',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -530,7 +515,6 @@ export default defineGkdApp({
     {
       key: 36,
       name: '省钱豆-运费险',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -571,7 +555,6 @@ export default defineGkdApp({
     {
       key: 37,
       name: '省钱豆-抽免单',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -599,7 +582,6 @@ export default defineGkdApp({
     {
       key: 38,
       name: '省钱豆-去懂车帝',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -627,7 +609,6 @@ export default defineGkdApp({
     {
       key: 39,
       name: '省钱豆-从「钱包」访问车主服务',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -656,7 +637,6 @@ export default defineGkdApp({
     {
       key: 40,
       name: '充值中心-广告-×',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -674,7 +654,6 @@ export default defineGkdApp({
     {
       key: 41,
       name: '充值中心-攒充值金',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -714,7 +693,6 @@ export default defineGkdApp({
     {
       key: 42,
       name: '充值中心-攒充值金-赚充值金',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -803,7 +781,6 @@ export default defineGkdApp({
     {
       key: 50,
       name: '任务中心-天天预约领金币-看视频*秒领',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -898,7 +875,6 @@ export default defineGkdApp({
     {
       key: 51,
       name: '任务中心-天天预约领金币-立即领取',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -949,7 +925,6 @@ export default defineGkdApp({
     {
       key: 60,
       name: '手机充值-广告-×',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -974,7 +949,6 @@ export default defineGkdApp({
     {
       key: 70,
       name: '我的钱包-广告-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -994,7 +968,6 @@ export default defineGkdApp({
     {
       key: 71,
       name: '我的钱包-今日签到',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1034,7 +1007,6 @@ export default defineGkdApp({
     {
       key: 72,
       name: '我的钱包-前往抖音月付看看',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1079,7 +1051,6 @@ export default defineGkdApp({
     {
       key: 80,
       name: '支付成功',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1108,7 +1079,6 @@ export default defineGkdApp({
     {
       key: 81,
       name: '抖音乘车码开通福利-×',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
