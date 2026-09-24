@@ -7,7 +7,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '首页-跳过',
+      name: '个人信息保护政策-同意并继续',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -17,7 +17,7 @@ export default defineGkdApp({
           matches: [
             '[text="个人信息保护政策"][vid="tvTitle"] +n [vid="btnLayout"] > [vid="ll_two_buttons"] > [vid="rightBtnFrame"] > @[text="同意并继续"][vid="tvRightBtn"][clickable=true]',
           ],
-          activityIds: ['com.mgtv.ui.ad.AdSchemaSplashActivity'],
+          activityIds: ['.MainActivity'],
         },
       ],
     },
