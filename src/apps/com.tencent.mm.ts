@@ -30,9 +30,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          matches: [
-            '[text="短信验证码"] + View > View + [text="获取验证码"]',
-          ],
+          matches: ['[text="短信验证码"] + View > View + [text="获取验证码"]'],
         },
       ],
     },
@@ -64,9 +62,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          matches: [
-            '[text="短信验证码"] + View > View + [text="获取验证码"]',
-          ],
+          matches: ['[text="短信验证码"] + View > View + [text="获取验证码"]'],
         },
       ],
     },
