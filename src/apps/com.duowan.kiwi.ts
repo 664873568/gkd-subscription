@@ -79,6 +79,7 @@ export default defineGkdApp({
       name: '首页广告-跳过',
       matchRoot: true,
       actionMaximum: 1,
+      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
