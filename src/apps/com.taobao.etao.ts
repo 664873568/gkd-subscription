@@ -66,17 +66,26 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '[text="超级金币"] < bb < WebView < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 3,
           matches: [
             '[text="下载/打开APP"] < @View[clickable=true] <<n * - * [text="去点淘领红包"][vid="tvTitle"]', //去点淘领红包
           ],
         },
         {
-          preKeys: [0, 2],
-          key: 3,
+          preKeys: [0, 3],
+          key: 4,
           matches: ['@[text="打开"][clickable=true] - [text="取消"]'],
         },
         {
-          key: 4,
+          key: 5,
           actionDelay: 2000,
           matches: [
             '@View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
