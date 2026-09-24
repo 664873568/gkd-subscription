@@ -193,7 +193,7 @@ export default defineGkdApp({
           key: 23,
           excludeMatches: [
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View > @[text="领奖"][clickable=true]',
-            '[text="恭喜获得浏览奖励"] +n @[text="继续浏览"][clickable=true] + TextView',
+            '[text="恭喜获得浏览奖励"] +n [text="继续浏览"] + @TextView[clickable=true]',
           ],
           actionDelay: 2000,
           anyMatches: [
@@ -202,32 +202,23 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 24,
-          excludeMatches: [
-            '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View > @[text="领奖"][clickable=true]',
-          ],
-          matches: [
-            '[text="恭喜获得浏览奖励"] +n @[text="继续浏览"][clickable=true] + TextView',
-          ],
-        },
-        {
-          preKeys: [23, 24],
-          key: 2,
+          preKeys: [23],
+          key: 1,
           matches: [
             '@[getChild(0).text~="返回签到|返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
         },
         {
-          preKeys: [23, 24],
-          key: 3,
+          preKeys: [23],
+          key: 2,
           action: 'back',
           matches: [
             '@[getChild(0).text="浏览完成"][clickable=false] - * [text="ff776b55ee07c915"]',
           ],
         },
         {
-          preKeys: [23, 24],
-          key: 4,
+          preKeys: [23],
+          key: 3,
           excludeMatches: [
             '[text*="浏览"]',
             '[text*="返回"]',
@@ -239,8 +230,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [23, 24],
-          key: 5,
+          preKeys: [23],
+          key: 4,
           excludeMatches: [
             '[text*="浏览"]',
             '[text*="返回"]',
@@ -252,23 +243,23 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [23, 24],
-          key: 6,
+          preKeys: [23],
+          key: 5,
           matches: [
             '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup', //京东保
           ],
         },
         {
-          preKeys: [23, 24],
-          key: 7,
+          preKeys: [23],
+          key: 6,
           actionDelay: 5000,
           matches: [
             '@View[clickable=true] > [text="03e6058058b35dde"]', //天天来提额
           ],
         },
         {
-          preKeys: [23, 24],
-          key: 8,
+          preKeys: [23],
+          key: 7,
           matches: [
             '[vid="manto_actionbar_option"][clickable=true] + @[vid="manto_actionbar_home"][clickable=true]',
           ],
@@ -278,7 +269,16 @@ export default defineGkdApp({
           ],
         },
         {
+          key: 8,
+          matches: [
+            '[text="恭喜获得浏览奖励"] +n [text="继续浏览"] + @TextView[clickable=true]',
+          ],
+        },
+        {
           key: 9,
+          excludeMatches: [
+            '[text="恭喜获得浏览奖励"] +n [text="继续浏览"] + @TextView[clickable=true]',
+          ],
           anyMatches: [
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View > @[text="领奖"][clickable=true]',
           ],
@@ -323,8 +323,8 @@ export default defineGkdApp({
           preKeys: [23, 0],
           key: 0,
           action: 'longClickCenter',
-          actionCd: 500,
-          actionMaximum: 20,
+          actionCd: 300,
+          actionMaximum: 100,
           matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'],
         },
         {
@@ -922,6 +922,7 @@ export default defineGkdApp({
           actionDelay: 1000,
           anyMatches: [
             '[id="app"] > View > [getChild(0).getChild(0).text="桌面小组件"] +n View > @View[clickable=true] + [text="可领取"]',
+            '[id="app"] > View > [getChild(0).getChild(0).desc="桌面小组件"] +n View > View > @View[clickable=true] + [text="可领取"]',
           ],
         },
         {
@@ -947,6 +948,7 @@ export default defineGkdApp({
           key: 0,
           anyMatches: [
             '[id="app"] > View > [getChild(2).text="明日0点领"] -n View > View > @View[clickable=true] > [text="点我收蛋"]',
+            '[id="app"] > View > [getChild(0).getChild(2).text="明日0点领"] -n View > View > View > @View[clickable=true] > [text="点我收蛋"]',
             '[id="app"] > View > [getChild(2).text="明日0点领"] -n View > View > @View[clickable=true] > [text="兑换额度"]',
           ],
         },
@@ -993,9 +995,6 @@ export default defineGkdApp({
         {
           preKeys: [55],
           key: 1,
-          excludeMatches: [
-            '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < *  -n * @View[clickable=true] > [text="dancing"]',
-          ],
           matches: [
             '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
           ],
@@ -1003,13 +1002,6 @@ export default defineGkdApp({
         {
           preKeys: [55],
           key: 2,
-          matches: [
-            '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < *  -n * @View[clickable=true] > [text="dancing"]',
-          ],
-        },
-        {
-          preKeys: [55],
-          key: 3,
           excludeMatches: [
             '[text*="浏览"]',
             '[text*="返回"]',
@@ -1022,7 +1014,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [55],
-          key: 4,
+          key: 3,
           excludeMatches: [
             '[text*="浏览"]',
             '[text*="返回"]',
@@ -1036,14 +1028,14 @@ export default defineGkdApp({
         },
         {
           preKeys: [55],
-          key: 5,
+          key: 4,
           matches: [
             '@[text="返回领奖"][clickable=true] < ViewGroup + ViewGroup + ImageView + ViewGroup', //看视频至高领10元
           ],
           activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
         },
         {
-          key: 6,
+          key: 5,
           matches: [
             '[getChild(1).text!~="打.*|.*体验.*|完成.*|去.*|通过.*"] > @[desc="领奖"][clickable=true] > [text="领奖"]',
           ],
@@ -1099,13 +1091,13 @@ export default defineGkdApp({
           key: 57,
           action: 'longClickCenter',
           actionCd: 300,
-          actionMaximum: 20,
+          actionMaximum: 100,
           matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'],
         },
         {
           preKeys: [56],
           key: 1,
-          actionDelay: 6000,
+          actionDelay: 30000,
           matches: ['@[text="退出"][clickable=true]'],
         },
       ],
