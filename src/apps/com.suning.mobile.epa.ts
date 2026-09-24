@@ -41,8 +41,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '[desc="快影"] +n @View[clickable=true] > [text="立即下载App"]',//去快影APP赚奖励
-            '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] >n [id="root"] > @View[clickable=true]',//去虎牙看游戏直播
+            '[desc="快影"] +n @View[clickable=true] > [text="立即下载App"]', //去快影APP赚奖励
+            '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] >n [id="root"] > @View[clickable=true]', //去虎牙看游戏直播
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -50,7 +50,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 3000,
           anyMatches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] + [vid="title"] + [vid="webview_title_line"]',//去头条极速版赚钱
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] + [vid="title"] + [vid="webview_title_line"]', //去头条极速版赚钱
             '[vid="layout_header"] > [vid="imageView_backToPreviousPage"] + @[vid="imageView_exitWebView"] + [vid="title"] + [vid="webview_title_line"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
@@ -60,7 +60,7 @@ export default defineGkdApp({
           key: 3,
           actionDelay: 2000,
           matches: [
-            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image',//签到领大额红包
+            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image', //签到领大额红包
           ],
         },
         {
@@ -76,7 +76,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 5,
           actionDelay: 5000,
-          matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'],//去逛星选商城频道
+          matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'], //去逛星选商城频道
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
