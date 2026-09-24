@@ -161,6 +161,27 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 10,
+      name: '星图金融-去大众点评赢免单',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          excludeMatches: [
+            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
+            '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
+            '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
+          ],
+          actionDelay: 5000,
+          matches: [
+            '@[getChild(0).desc="back"][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
     //功能应用类
     {
       key: 40,
