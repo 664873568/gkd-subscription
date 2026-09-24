@@ -96,7 +96,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 5000,
           matches: [
             'ViewFactoryHolder >n @[id="fun-root"][clickable=true] >n [desc="YY游仓"]', //访问YY游仓
           ],
@@ -105,7 +105,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 3,
           action: 'back',
-          actionDelay: 1000,
+          actionDelay: 5000,
           matches: ['@ComposeView >n [desc="删除"] + [text="取消"]'], //去搜索热门频道
         },
       ],
@@ -221,7 +221,6 @@ export default defineGkdApp({
       name: '每日任务-去完成-完成应用下载|完成应用浏览|完成页面浏览',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 60000,
       resetMatch: 'activity',
       rules: [
         {
@@ -232,17 +231,9 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            'ViewFactoryHolder >n LinearLayout > @[text="去完成"][clickable=true]',
+            'ViewFactoryHolder >n @LinearLayout[clickable=true] > [text="去完成"]',
           ],
           activityIds: ['.MainActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 1000,
-          matches: [
-            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
-          ],
         },
       ],
     },
@@ -251,7 +242,6 @@ export default defineGkdApp({
       name: '每日任务-看视频',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 60000,
       resetMatch: 'activity',
       rules: [
         {
@@ -259,11 +249,12 @@ export default defineGkdApp({
           excludeMatches: [
             '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
             '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
-            '[text="每日任务"] +n [id="task-ad-slot-103"]',
+            'ViewFactoryHolder >n @LinearLayout[clickable=true] > [text="去完成" || text="领奖励"]',
+            '@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]',
           ],
           actionDelay: 2000,
           matches: [
-            '[text~="看视频最高赚[0-9].[0-9]万金币（(?:[0-9]|1[0-9]|2[0-4])/25）"] + @[text="看视频"][clickable=true]',
+            '[id="mainPanelWrapper"] > [text~="看视频最高赚[0-9].[0-9]万金币（(?:[0-9]|1[0-9]|2[0-4])/25）"] + @[text="看视频"][clickable=true]',
           ],
           activityIds: ['.MainActivity'],
         },
@@ -279,12 +270,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]',
-          ],
-          matches: [
-            '[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]',
-          ],
+          excludeMatches: ['@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]'],
+          matches: ['[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]'],
         },
         {
           preKeys: [0],
@@ -347,15 +334,21 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 3000,
           matches: [
-            '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [text~="点击跳转后停留\\\\n[0-9]秒立即获奖"][vid="noah_reward_click_tips_v2_countdown"]',
+            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
-            '@[vid="noah_hc_close_button"][clickable=true] -n [text="奖励已发放"][vid="noah_hc_countdown_view"]',
+            '@[vid="noah_reward_click_tips_v2_container"][clickable=true] > [vid="noah_reward_click_tips_v2_countdown"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[vid="noah_hc_close_button"][clickable=true] - [vid="noah_hc_countdown_split"] - [text="奖励已发放"][vid="noah_hc_countdown_view"]',
           ],
         },
       ],
