@@ -424,9 +424,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="开心收下"][clickable=true]',
-          ],
+          matches: ['@[text="开心收下"][clickable=true]'],
         },
         {
           key: 1,

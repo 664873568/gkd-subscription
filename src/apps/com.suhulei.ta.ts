@@ -22,9 +22,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[vid="baseLayout"] > @[vid="editText"][clickable=true]',
-          ],
+          matches: ['[vid="baseLayout"] > @[vid="editText"][clickable=true]'],
         },
         {
           preKeys: [1],
