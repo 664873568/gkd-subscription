@@ -71,7 +71,7 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '返回-登录JoyAI并对话',
+      name: '返回-登录JoyAI并对话|去JoyAI APP且当日对话',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
