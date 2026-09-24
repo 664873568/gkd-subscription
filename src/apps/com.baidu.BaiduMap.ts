@@ -9,7 +9,6 @@ export default defineGkdApp({
     {
       key: 0,
       name: '金币任务中心-签到日历-立即签到',
-      fastQuery: true,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
@@ -33,7 +32,6 @@ export default defineGkdApp({
     {
       key: 1,
       name: '金币任务中心-限时任务-浏览',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -50,7 +48,6 @@ export default defineGkdApp({
     {
       key: 2,
       name: '金币任务中心-看视频-赚金币',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -79,7 +76,6 @@ export default defineGkdApp({
     {
       key: 3,
       name: '金币任务中心-浏览App-去完成',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -117,7 +113,6 @@ export default defineGkdApp({
     {
       key: 4,
       name: '金币任务中心-浏览App-已完成-领取金币/点击领取',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -144,7 +139,6 @@ export default defineGkdApp({
     {
       key: 5,
       name: '金币任务中心-免费抽大奖-免费抽奖',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -179,7 +173,6 @@ export default defineGkdApp({
     {
       key: 6,
       name: '金币任务中心-翻卡-翻*倍',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -230,7 +223,6 @@ export default defineGkdApp({
     {
       key: 7,
       name: '金币任务中心-翻卡-翻',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -259,7 +251,6 @@ export default defineGkdApp({
     {
       key: 8,
       name: '金币任务中心-天天赢大奖-去抽奖',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -296,7 +287,6 @@ export default defineGkdApp({
     {
       key: 9,
       name: '金币任务中心-开红包领现金-去完成',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -334,7 +324,6 @@ export default defineGkdApp({
     {
       key: 10,
       name: '金币任务中心-开宝箱得金币',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -364,7 +353,6 @@ export default defineGkdApp({
     {
       key: 20,
       name: '看视频-跳过',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -460,7 +448,6 @@ export default defineGkdApp({
     {
       key: 21,
       name: '看视频-下滑',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -512,7 +499,6 @@ export default defineGkdApp({
     {
       key: 22,
       name: '看视频-礼包',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -537,7 +523,6 @@ export default defineGkdApp({
     {
       key: 23,
       name: '看视频-跳过 *s',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -555,7 +540,6 @@ export default defineGkdApp({
     {
       key: 28,
       name: '看视频-跳过-*秒',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -581,7 +565,6 @@ export default defineGkdApp({
     {
       key: 29,
       name: '看视频-广告-反馈 ×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -606,7 +589,6 @@ export default defineGkdApp({
     {
       key: 30,
       name: '看视频-点击打开-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -621,7 +603,6 @@ export default defineGkdApp({
     {
       key: 31,
       name: '看视频-跳过-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -637,7 +618,6 @@ export default defineGkdApp({
     {
       key: 32,
       name: '看视频-反馈-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -653,7 +633,6 @@ export default defineGkdApp({
     {
       key: 40,
       name: '看视频-全屏广告',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -678,7 +657,6 @@ export default defineGkdApp({
     {
       key: 50,
       name: '看视频--跳过我要免看本次广告',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -693,7 +671,6 @@ export default defineGkdApp({
     {
       key: 51,
       name: '看视频-跳过-点击下载免看广告',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -708,7 +685,6 @@ export default defineGkdApp({
     {
       key: 52,
       name: '看视频-跳过-礼包-下载app/看*秒可直接拿奖励',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -747,7 +723,6 @@ export default defineGkdApp({
     {
       key: 53,
       name: '看视频-礼包-×k',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -762,7 +737,6 @@ export default defineGkdApp({
     {
       key: 54,
       name: '看视频-礼包-跳过',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -777,7 +751,6 @@ export default defineGkdApp({
     {
       key: 55,
       name: '看视频-跳过-立即领取/立即获取',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -801,7 +774,6 @@ export default defineGkdApp({
     {
       key: 57,
       name: '看视频-礼包-免费获取-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -820,7 +792,6 @@ export default defineGkdApp({
     {
       key: 58,
       name: '看视频-礼包-立即获取-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -838,7 +809,6 @@ export default defineGkdApp({
     {
       key: 59,
       name: '看视频-跳过-立即获取-*sKSRV',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -857,7 +827,6 @@ export default defineGkdApp({
     {
       key: 60,
       name: '看视频-跳过-礼包-立即获取-*sKSRLSV',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -885,7 +854,6 @@ export default defineGkdApp({
     {
       key: 70,
       name: '看视频-微信-提前拿奖励',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -914,7 +882,6 @@ export default defineGkdApp({
     {
       key: 71,
       name: '看视频-恭喜获得奖励！-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -939,7 +906,6 @@ export default defineGkdApp({
     {
       key: 72,
       name: '看视频-奖励将于*秒后发放',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -965,7 +931,6 @@ export default defineGkdApp({
     {
       key: 73,
       name: '看视频-点击广告拿奖励',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -990,7 +955,6 @@ export default defineGkdApp({
     {
       key: 74,
       name: '看视频-广告-××',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       forcedTime: 60000,
@@ -1016,7 +980,6 @@ export default defineGkdApp({
     {
       key: 75,
       name: '看视频-广告-×qq',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1031,7 +994,6 @@ export default defineGkdApp({
     {
       key: 76,
       name: '看视频-免-恭喜获得奖励-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1049,7 +1011,6 @@ export default defineGkdApp({
     {
       key: 77,
       name: '看视频-我要更快拿奖',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1066,7 +1027,6 @@ export default defineGkdApp({
     {
       key: 78,
       name: '看视频-打开App体验*秒，即可获得奖励',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1083,7 +1043,6 @@ export default defineGkdApp({
     {
       key: 79,
       name: '看视频-跳过qq',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1100,7 +1059,6 @@ export default defineGkdApp({
     {
       key: 80,
       name: '看视频-体验APP，提前拿奖励-×',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1126,7 +1084,6 @@ export default defineGkdApp({
     {
       key: 81,
       name: '看视频-奖励已到账-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1150,7 +1107,6 @@ export default defineGkdApp({
     {
       key: 90,
       name: '看视频-跳过-浏览*秒领取奖励',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1178,7 +1134,6 @@ export default defineGkdApp({
     {
       key: 91,
       name: '看视频-跳过-*秒sigmob',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1192,14 +1147,15 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: ['@[id="close_btn"][clickable=true] + * [text="点击前往"]'],
+          matches: [
+            '@[id="close_btn"][clickable=true] + * [text~="点击前往|点击领取奖励"]',
+          ],
         },
       ],
     },
     {
       key: 92,
       name: '看视频-跳过-*s后获取奖励sigmob',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1222,7 +1178,6 @@ export default defineGkdApp({
     {
       key: 93,
       name: '看视频-跳过-*s后获取奖励-抽奖',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1249,7 +1204,6 @@ export default defineGkdApp({
     {
       key: 94,
       name: '看视频-跳过-*s后可领取奖励-免',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1288,7 +1242,6 @@ export default defineGkdApp({
     {
       key: 95,
       name: '看视频-跳过-<sigmob',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1310,7 +1263,6 @@ export default defineGkdApp({
     {
       key: 96,
       name: '看视频-跳过-sigmob',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       forcedTime: 60000,
@@ -1345,7 +1297,6 @@ export default defineGkdApp({
     {
       key: 100,
       name: '看视频-点击广告并停留*秒即可获取奖励-×',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1378,7 +1329,6 @@ export default defineGkdApp({
     {
       key: 110,
       name: '看视频-广告-关闭',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1398,7 +1348,6 @@ export default defineGkdApp({
     {
       key: 400,
       name: '隐私保护指引-暂不开启',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1415,7 +1364,6 @@ export default defineGkdApp({
     {
       key: 401,
       name: '开启推送通知-×',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
