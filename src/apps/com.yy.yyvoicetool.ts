@@ -240,6 +240,13 @@ export default defineGkdApp({
           ],
           activityIds: ['.MainActivity'],
         },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
+          ],
+          activityIds: ['com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog'},
       ],
     },
     {
@@ -344,12 +351,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
-          ],
-        },
-        {
-          key: 1,
           excludeMatches: [
             '@[vid="noah_hc_close_button"][clickable=true] - [vid="noah_hc_countdown_split"] - [text="奖励已发放"][vid="noah_hc_countdown_view"]',
             '@[vid="noah_hc_close_button"][clickable=true] < * <n * < * < * -n * [text="恭喜获得奖励"][vid="noah_reward_click_tips_v2_countdown"]',
@@ -359,7 +360,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
+          key: 1,
           anyMatches: [
             '@[vid="noah_hc_close_button"][clickable=true] - [vid="noah_hc_countdown_split"] - [text="奖励已发放"][vid="noah_hc_countdown_view"]',
             '@[vid="noah_hc_close_button"][clickable=true] < * <n * < * < * -n * [text="恭喜获得奖励"][vid="noah_reward_click_tips_v2_countdown"]',
