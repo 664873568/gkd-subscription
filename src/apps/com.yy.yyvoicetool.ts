@@ -271,6 +271,9 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
+            '[text="每日任务"] +n View[getChild(0).getChild(0).text!~="赠送红贝壳礼物"] >n @[text="去完成"][clickable=true]',
+            'ViewFactoryHolder >n @LinearLayout[clickable=true] > [text="去完成" || text="领奖励"]',
             '@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]',
           ],
           matches: [
@@ -370,11 +373,18 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~="完成两个任务，立即领奖\\\\n\\\\([0,1]/2\\\\)"][vid="noah_multi_task_progress_text"] < * + * @[text="立即打开"][vid="noah_multi_task_ad1_cta"][clickable=true]',
+            '[text~="点击或下载后体验[0-9]+秒立即领奖"][vid="noah_multi_task_ad2_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad2_cta"][clickable=true]',
           ],
         },
         {
           key: 1,
+          actionDelay: 1000,
+          matches: [
+            '[text~="点击或下载后体验[0-9]+秒立即领奖"][vid="noah_multi_task_ad1_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad1_cta"][clickable=true]',
+          ],
+        },
+        {
+          key: 2,
           matches: [
             '@[vid="noah_hc_close_button"][clickable=true] <n [vid="noah_hc_countdown_container"] < * < * < * - * [vid="noah_component_30_task_finish"]', //恭喜获得奖励
           ],
