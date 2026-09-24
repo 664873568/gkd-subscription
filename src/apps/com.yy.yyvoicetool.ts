@@ -278,6 +278,7 @@ export default defineGkdApp({
             'ViewFactoryHolder >n @LinearLayout[clickable=true] > [text="去完成" || text="领奖励"]',
             '@TextView[clickable=true] + [text~="恭喜获得[0-9]+金币"]',
           ],
+          actionDelay: 1000,
           matches: [
             '[id="mainPanelWrapper"] > @[text="领金币"][clickable=true]',
           ],
