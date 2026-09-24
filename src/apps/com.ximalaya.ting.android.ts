@@ -1381,8 +1381,8 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: [
-            '[text="跳过广告"] <n [vid="host_splash_skip_layout"] + * @[text="跳过"][clickable=true]',
+          matches: [
+            '@[desc="跳过广告"][clickable=true] <n [vid="host_splash_skip_layout"]',
           ],
           activityIds: [
             '.host.activity.MainActivity',
