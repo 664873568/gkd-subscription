@@ -7,7 +7,6 @@ export default defineGkdApp({
     {
       key: 0,
       name: '频繁安装应用',
-      fastQuery: true,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -24,7 +23,6 @@ export default defineGkdApp({
     {
       key: 2,
       name: '喜马拉雅-安装应用',
-      fastQuery: true,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -32,7 +30,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="允许"][clickable=true] < [vid="buttonPanel"] - ScrollView [text="是否允许「喜马拉雅」安装应用？"][vid="title"]',
+            '@[text="允许"][clickable=true] < [vid="buttonPanel"] - * [text="酷我音乐"][vid="app_title"]',
           ],
           activityIds: [
             'null',
@@ -43,7 +41,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[vid="second_button"] [vid="left_button_info_view"] [text="继续安装"][vid="left_button_msg"]',
+            '@[vid="second_button"][clickable=true] > [vid="left_button_info_view"] > [text="继续安装"][vid="left_button_msg"]',
           ],
           activityIds: [
             'com.miui.packageInstaller.NewInstallerPrepareActivity',
