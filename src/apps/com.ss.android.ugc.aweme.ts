@@ -206,14 +206,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup +n ImageView',//签到领-开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup +n ImageView', //签到领-开心收下
           ],
         },
       ],
@@ -261,7 +261,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0,1,3],
+          preKeys: [0, 1, 3],
           key: 4,
           position: {
             left: 'width * 0.5',
@@ -302,7 +302,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView',//开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView', //开心收下
           ],
         },
       ],
@@ -648,9 +648,7 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           actionDelay: 5000,
-          matches: [
-            'FrameLayout > ViewGroup[index=4] > @ViewGroup',
-          ],
+          matches: ['FrameLayout > ViewGroup[index=4] > @ViewGroup'],
         },
       ],
     },
@@ -791,7 +789,7 @@ export default defineGkdApp({
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
         {
-          preKeys: [1,2,3,4,5,6],
+          preKeys: [1, 2, 3, 4, 5, 6],
           key: 7,
           name: '访问成功|任务完成|看视频完成',
           action: 'clickCenter',
