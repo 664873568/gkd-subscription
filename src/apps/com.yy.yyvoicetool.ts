@@ -246,7 +246,7 @@ export default defineGkdApp({
           matches: [
             '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
           ],
-          activityIds: ['com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog'},
+          activityIds: ['com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog'],
       ],
     },
     {
