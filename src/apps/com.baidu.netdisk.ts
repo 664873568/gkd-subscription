@@ -432,26 +432,33 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          anyMatches: [
             '[getChild(0).text^="奖励将于"] -n * @[text="我要更快拿奖"]',
+            '[text^="奖励将于"] < * < * < * <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
+            '[text^="奖励将于"] < * < * < * <n * -n * @[text="扭动/点击下载或打开第三方应用"]',
           ],
         },
         {
           key: 1,
-          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'], //二级广告页
+          actionDelay: 15000,
+          matches: [
+            '@ImageView - TextView <<n * [id="BlockApp_unique"]',
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
+          ],
         },
         {
           key: 2,
           anyMatches: [
             'ImageView < FrameLayout < @FrameLayout - [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
+            'ImageView < FrameLayout < @FrameLayout - * [text="恭喜获得奖励"]',
+            'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
           ],
         },
       ],
     },
     {
       key: 63,
-      name: '看视频-点击广告，即可获得奖励',
+      name: '看视频-浏览页面*秒后|点击广告，即可获得奖励',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -465,7 +472,9 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: ['@ImageView - * [text="恭喜获得奖励！"]'],
+          matches: [
+            'RelativeLayout > LinearLayout > @ImageView[clickable=true] - * [text="恭喜获得奖励！"]',
+          ],
         },
       ],
     },
