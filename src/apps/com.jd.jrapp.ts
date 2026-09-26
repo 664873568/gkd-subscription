@@ -1022,7 +1022,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',//京东秒杀
+            'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]', //京东秒杀
           ],
         },
         {
