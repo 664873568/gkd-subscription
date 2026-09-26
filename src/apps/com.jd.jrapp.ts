@@ -667,7 +667,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"],
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
             '@[getChild(0).text="返回签到"][clickable=true] - * [text="readMissionDown"]',
             '@[getChild(0).text="返回「打卡拿好礼」"][clickable=true] - * [text="readMissionDown"]',
           ],
