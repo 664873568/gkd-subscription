@@ -794,9 +794,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: [
-            '@[text="跳过"][clickable=true] <<n * [desc="gift_box"]',
-          ],
+          matches: ['@[text="跳过"][clickable=true] <<n * [desc="gift_box"]'],
         },
       ],
     },
