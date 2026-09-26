@@ -163,7 +163,7 @@ export default defineGkdApp({
           activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
         {
-          preKeys: [0, 1，2],
+          preKeys: [0, 1,2],
           key: 3,
           position: {
             left: 'width * 0.5',
@@ -322,7 +322,7 @@ export default defineGkdApp({
           actionDelay: 5000,
           anyMatches: [
             '[id="nav-bar"] > @View[clickable=true] > Image',
-            '[id="nav-bar"] > View > @[desc="关闭页面"][clickable=true],
+            '[id="nav-bar"] > View > @[desc="关闭页面"][clickable=true]',
           ],
         },
       ],
