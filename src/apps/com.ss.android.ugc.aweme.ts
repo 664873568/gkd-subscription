@@ -30,7 +30,7 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '月付金-浏览小游戏',
+      name: '月付金-赚月付金',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -42,15 +42,15 @@ export default defineGkdApp({
             '[text="我的月付金"] >n [text="签到成功 月付金"] +n @ImageButton[clickable=true]',
           ],
           actionDelay: 2000,
-          anyMatches: [
-            '[text="我的月付金"] >n @View[clickable=true] > [text="浏览小游戏"]',
-            '@[text="去看看"][clickable=true] - View[clickable=true] > [text="浏览难不倒你吧小游戏得月付金"]',
+          matches: [
+            '[text="我的月付金"] >n View > View[ getChild(1).name$="TextView"] + TextView[text!~="去打车|买一笔|去上传"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          name: '浏览难不倒你吧小游戏得月付金',
           actionDelay: 15000,
           matches: [
             '@[desc="关闭"] <n ViewGroup - FrameLayout > [desc="游戏中心"]',
@@ -62,66 +62,27 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          name: '退出游戏',
           matches: ['@ImageView - ViewGroup < ViewGroup - ScrollView'],
           activityIds: [
             'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
           ],
         },
-      ],
-    },
-    {
-      key: 12,
-      name: '月付金-浏览钱包页面',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '@[text="去看看"][clickable=true] - View[clickable=true] > [text="浏览难不倒你吧小游戏得月付金"]',
-          ],
-          actionDelay: 2000,
-          anyMatches: [
-            '[text="我的月付金"] >n @View[clickable=true] > [text="浏览钱包页面"]',
-            '@[text="去完成"][clickable=true] - View[clickable=true] > [text="查看我的钱包"]',
-          ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
-        },
         {
           preKeys: [0],
-          key: 1,
+          key: 3,
+          name: '浏览钱包页面',
           action: 'back',
           actionDelay: 15000,
-          anyMatches: [
-            'FrameLayout < [id*="cj_plugin:id"] - FrameLayout < FrameLayout < FrameLayout',
-            '@ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]',
+          matches: [
+            'FrameLayout < [id*="plugin"] - FrameLayout < @FrameLayout < FrameLayout - * ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]',
           ],
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
-      ],
-    },
-    {
-      key: 13,
-      name: '月付金-浏览天天开宝箱活动',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '@[text="去完成"][clickable=true] - View[clickable=true] > [text="查看我的钱包"]',
-          ],
-          actionDelay: 2000,
-          matches: [
-            '[text="我的月付金"] >n View > @[text="去抽奖"][clickable=true] - View > [text="浏览天天开宝箱活动"]',
-          ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
-        },
         {
           preKeys: [0],
-          key: 1,
+          key: 4,
+          name: '浏览天天开宝箱活动',
           actionDelay: 5000,
           action: 'back',
           matches: [
@@ -131,33 +92,14 @@ export default defineGkdApp({
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
           ],
         },
-      ],
-    },
-    {
-      key: 14,
-      name: '月付金-浏览好物竞拍得月付金',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '[text="我的月付金"] >n View > @[text="去抽奖"][clickable=true] - View > [text="浏览天天开宝箱活动"]',
-          ],
-          actionDelay: 2000,
-          matches: [
-            '[text="我的月付金"] >n View > @[text="去拍卖"][clickable=true] - View > [text="浏览好物竞拍得月付金"]',
-          ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
-        },
         {
           preKeys: [0],
-          key: 1,
+          key: 5,
+          name: '月付金-浏览好物竞拍得月付金',
           action: 'back',
           actionDelay: 15000,
           matches: [
-            'FrameLayout < [id*="cj_plugin:id"] - FrameLayout < FrameLayout < FrameLayout',
+            'FrameLayout < [id*="plugin"] - FrameLayout < FrameLayout < FrameLayout',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -182,32 +124,55 @@ export default defineGkdApp({
     },
     {
       key: 21,
-      name: '理财-发财金-签到领',
+      name: '理财-发财金-立即签到',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
       rules: [
         {
           key: 0,
           position: {
-            left: 'width * 0.5',
-            top: 'height * 0.8',
+            left: 'width * 0.835',
+            top: 'height * 0.185',
           },
           matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView + ViewGroup + ViewGroup + ViewGroup + ImageView',
+            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView + ViewGroup + ViewGroup + ViewGroup + ImageView',//立即签到
           ],
+          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
         },
         {
-          preKeys: [0, 1],
           key: 1,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup +n ImageView', //签到领-开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>1] > ImageView', //签到领
           ],
+          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+        },
+        {
+          key: 2,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.43',
+          },
+          matches: [
+            'ScrollView > HorizontalScrollView > @LinearLayout > ViewGroup + ImageView + ImageView', //立即签到
+          ],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
+        },
+        {
+          preKeys: [0, 1，2],
+          key: 3,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.8',
+          },
+          matches: [
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>1] > ImageView', //开心收下
+          ],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
       ],
     },
@@ -245,7 +210,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [2],
+          preKeys: [1,2],
           key: 3,
           matches: [
             'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
@@ -260,7 +225,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup +n ImageView', //开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView', //开心收下
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -352,10 +317,13 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0,1],
           key: 2,
           actionDelay: 5000,
-          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
+          anyMatches: [
+            '[id="nav-bar"] > @View[clickable=true] > Image',
+            '[id="nav-bar"] > View > @[desc="关闭页面"][clickable=true],
+          ],
         },
       ],
     },
@@ -817,7 +785,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          actionDelay: 1000,
+          action: 'clickCenter',
           anyMatches: [
             '@[text="点击领预约奖励"]',
             'FrameLayout > @ViewGroup[clickable=true] > View + FrameLayout > LinearLayout > ImageView',
@@ -827,7 +795,6 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
-          actionDelay: 1000,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="领取金币"]',
           ],
@@ -836,7 +803,6 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
-          actionDelay: 1000,
           matches: [
             '[getChild(0).desc="金币领取成功"] +n ViewGroup > @[desc="开心收下"]',
           ],
@@ -845,26 +811,30 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
-          actionDelay: 1000,
-          anyMatches: [
-            'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',
-            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
+          matches: [
+            'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',//立即预约领金币
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [5],
           key: 6,
-          actionDelay: 1000,
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView', //恭喜预约成功×
+            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [6],
           key: 7,
-          actionDelay: 1000,
+          matches: [
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView', //恭喜预约成功×
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [7],
+          key: 8,
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView', //恭喜获得惊喜奖励×
           ],
@@ -977,6 +947,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
+            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
           ],
           anyMatches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup',
@@ -987,16 +958,17 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'clickCenter',
+          actionDelay: 1000,
           matches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
           ],
         },
         {
           preKeys: [1],
-          key: 2,
+          key: 71,
           position: {
             left: 'width*0.5',
-            top: 'heigth*2.8',
+            top: 'height*2.8',
           },
           matches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
@@ -1005,6 +977,7 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [71],
       key: 72,
       name: '我的钱包-前往抖音月付看看',
       matchRoot: true,
@@ -1012,6 +985,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          preKeys: [71],
           key: 0,
           matches: [
             '[desc~="前往抖音月付看看 滑动浏览30秒 抖币\\\\+[0-9]+ 去看看 按钮"] > ViewGroup',
@@ -1039,7 +1013,7 @@ export default defineGkdApp({
           key: 3,
           position: {
             left: 'width*0.5',
-            top: 'heigth*1.14',
+            top: 'height*1.14',
           },
           matches: [
             'FrameLayout > ViewGroup > ViewGroup > @ViewGroup > ViewGroup + ScrollView + ViewGroup', //恭喜获得任务奖励-开心收下-×
