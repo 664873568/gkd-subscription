@@ -181,7 +181,9 @@ export default defineGkdApp({
             top: 'height * 0.825',
           },
           actionDelay: 1000,
-          matches: ['[vid="ll_scrollView_content"] > [vid="layout_content"] > @[vid="srv_list"]'],
+          matches: [
+            '[vid="ll_scrollView_content"] > [vid="layout_content"] > @[vid="srv_list"]',
+          ],
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
       ],
@@ -252,7 +254,9 @@ export default defineGkdApp({
             left: 'width * 0.86',
             top: 'height * 0.09',
           },
-          matches: ['[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]'],
+          matches: [
+            '[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]',
+          ],
           activityIds: [
             'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
           ],
@@ -265,7 +269,9 @@ export default defineGkdApp({
             top: 'height * 0.725',
           },
           actionDelay: 1000,
-          matches: ['[id="android:id/content"] > ViewGroup > @ScrollView > ViewGroup > [text="再做一个"]'],
+          matches: [
+            '[id="android:id/content"] > ViewGroup > @ScrollView > ViewGroup > [text="再做一个"]',
+          ],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
       ],
@@ -325,7 +331,9 @@ export default defineGkdApp({
             left: 'width * 0.86',
             top: 'height * 0.09',
           },
-          matches: ['[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]'],
+          matches: [
+            '[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]',
+          ],
           activityIds: [
             'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
           ],
@@ -338,7 +346,9 @@ export default defineGkdApp({
             top: 'height * 0.725',
           },
           actionDelay: 1000,
-          matches: ['[id="android:id/content"] > ViewGroup > @ScrollView > ViewGroup > [text="再做一个"]'],
+          matches: [
+            '[id="android:id/content"] > ViewGroup > @ScrollView > ViewGroup > [text="再做一个"]',
+          ],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
       ],
@@ -369,7 +379,9 @@ export default defineGkdApp({
             top: 'height * 0.855',
           },
           actionDelay: 3000,
-          matches: ['ViewGroup < ViewGroup < ComposeView < @[id="android:id/content"]'],
+          matches: [
+            'ViewGroup < ViewGroup < ComposeView < @[id="android:id/content"]',
+          ],
           activityIds: ['.home.view.assistant.activity.CleanUpClusterActivity'],
         },
       ],
