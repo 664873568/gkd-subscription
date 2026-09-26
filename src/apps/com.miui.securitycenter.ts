@@ -14,6 +14,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          excludeMatches: [
+            '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
+          ],
           action: 'back',
           actionDelay: 16000,
           matches: [
