@@ -130,11 +130,11 @@ export default defineGkdApp({
         {
           key: 4,
           position: {
-            left: 'width * 0.930',
-            top: 'width * 0.900',
+            left: 'width * 0.925',
+            top: 'height * 0.9',
           },
           actionDelay: 1000,
-          matches: ['@[parent=null]'],
+          matches: ['[vid="ll_share"] > @[vid="layout_share_media_channel"]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
         },
       ],
@@ -177,11 +177,11 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           position: {
-            left: 'width * 0.930',
-            top: 'width * 0.850',
+            left: 'width * 0.925',
+            top: 'height * 0.825',
           },
           actionDelay: 1000,
-          matches: ['@[parent=null]'],
+          matches: ['[vid="ll_scrollView_content"] > [vid="layout_content"] > @[vid="srv_list"]'],
           activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
         },
       ],
@@ -210,7 +210,6 @@ export default defineGkdApp({
           excludeMatches: [
             '@[vid="detail_back"] +2 [vid="scroll_content"] >n [text="老照片一键修复"][vid="tv_title"]',
           ],
-          actionDelay: 1000,
           matches: [
             '@[vid="detail_black_icon"][clickable=true] + [text="做同款"][vid="detail_black_icon_text"]',
           ],
@@ -219,7 +218,6 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
@@ -230,7 +228,6 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
-          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][clickable=true] > [text="2026年6月28日"][vid="tv_date"]',
           ],
@@ -241,7 +238,6 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
-          actionDelay: 1000,
           matches: [
             '[text="已选8个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
           ],
@@ -253,11 +249,10 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           position: {
-            left: 'width * 0.850',
-            top: 'width * 0.200',
+            left: 'width * 0.86',
+            top: 'height * 0.09',
           },
-          actionDelay: 5000,
-          matches: ['@ComposeView'],
+          matches: ['[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]'],
           activityIds: [
             'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
           ],
@@ -266,11 +261,11 @@ export default defineGkdApp({
           preKeys: [5],
           key: 6,
           position: {
-            left: 'width * 0.930',
-            top: 'width * 0.850',
+            left: 'width * 0.925',
+            top: 'height * 0.725',
           },
           actionDelay: 1000,
-          matches: ['@[parent=null]'],
+          matches: ['[id="android:id/content"] > ViewGroup > @ScrollView > ViewGroup > [text="再做一个"]'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
       ],
@@ -296,7 +291,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
@@ -307,7 +301,6 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @[vid="linear_section"][clickable=true][index=0]',
           ],
@@ -318,7 +311,6 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
-          actionDelay: 1000,
           matches: [
             '[text="已选1个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
           ],
@@ -330,11 +322,10 @@ export default defineGkdApp({
           preKeys: [3],
           key: 4,
           position: {
-            left: 'width * 0.850',
-            top: 'width * 0.200',
+            left: 'width * 0.86',
+            top: 'height * 0.09',
           },
-          actionDelay: 5000,
-          matches: ['@ComposeView'],
+          matches: ['[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]'],
           activityIds: [
             'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
           ],
@@ -343,11 +334,11 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           position: {
-            left: 'width * 0.930',
-            top: 'width * 0.850',
+            left: 'width * 0.925',
+            top: 'height * 0.725',
           },
           actionDelay: 1000,
-          matches: ['@[parent=null]'],
+          matches: ['[id="android:id/content"] > ViewGroup > @ScrollView > ViewGroup > [text="再做一个"]'],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
       ],
@@ -374,11 +365,11 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           position: {
-            left: 'width * 0.930',
-            top: 'width * 0.850',
+            left: 'width * 0.925',
+            top: 'height * 0.855',
           },
           actionDelay: 3000,
-          matches: ['@[parent=null]'],
+          matches: ['ViewGroup < ViewGroup < ComposeView < @[id="android:id/content"]'],
           activityIds: ['.home.view.assistant.activity.CleanUpClusterActivity'],
         },
       ],
@@ -923,6 +914,7 @@ export default defineGkdApp({
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
             '.vip.ui.VipWebActivity',
+            '.operate.ui.view.activity.TaskCenterActivity',
           ],
         },
       ],
@@ -1014,12 +1006,11 @@ export default defineGkdApp({
       key: 499,
       name: '福利中心',
       matchRoot: true,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '@[vid="title_bar_pm_task_center"] - [vid="title_bar_pm_task_center_white"]',
+            '[vid="title_bar_pm_task_center_white"] + @[vid="title_bar_pm_task_center"]',
           ],
           activityIds: ['.home.view.HomeActivity'],
         },
