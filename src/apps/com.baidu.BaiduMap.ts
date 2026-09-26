@@ -232,7 +232,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
-            '[text="运气太棒啦"] +n @[text="领走奖励 结束翻卡"][clickable=true]',
+            '[text^="运气"] +n [text="领走奖励 结束翻卡"][clickable=true] + TextView[clickable=true]',
           ],
           matches: [
             '[id="J-flip-card-v2"] > [text="翻 卡赢 1888金币"] +n ListView > @View[childCount=0][clickable=true]',
@@ -242,7 +242,14 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="运气太棒啦"] +n @[text="领走奖励 结束翻卡"][clickable=true]',
+            '[text="运气太棒啦"] +n @[text="领走奖励 结束翻卡"][clickable=true] + TextView',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="运气一般哦"] +n [text="领走奖励 结束翻卡"] + @TextView[clickable=true]',
           ],
         },
       ],
@@ -656,7 +663,7 @@ export default defineGkdApp({
     //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
     {
       key: 50,
-      name: '看视频--跳过我要免看本次广告',
+      name: '看视频--跳过-我要免看本次广告',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -767,6 +774,28 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '@[text="点击跳转免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] -n [text^="恭喜获得"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 56,
+      name: '看视频-礼包-跳过-立即获取',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="点击或滑动点击下载免看广告"] < @[desc="compliance-easy-playable_scene3_actionBtn"][clickable=true] <<n * [text="跳过"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[text="跳过"][clickable=true] <<n * [desc="gift_box"]',
           ],
         },
       ],
