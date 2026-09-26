@@ -322,12 +322,14 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
       rules: [
         {
-          preKeys: [0,25],
+          preKeys: [0, 25],
           key: 25,
           action: 'longClickCenter',
           actionCd: 200,
           actionMaximum: 100,
-          matches: ['[id="GameCanvas"] < [id="Cocos2dGameContainer"] - [id="J_ui-load"] < View < WebView < b40 < [vid="webview"]'],
+          matches: [
+            '[id="GameCanvas"] < [id="Cocos2dGameContainer"] - [id="J_ui-load"] < View < WebView < b40 < [vid="webview"]',
+          ],
         },
         {
           preKeys: [25],
@@ -817,7 +819,9 @@ export default defineGkdApp({
           action: 'longClickCenter',
           actionCd: 200,
           actionMaximum: 100,
-          matches: ['[id="Cocos2dGameContainer"] - [id="J_ui-load"] < View < WebView < b40 < [vid="webview"]'],
+          matches: [
+            '[id="Cocos2dGameContainer"] - [id="J_ui-load"] < View < WebView < b40 < [vid="webview"]',
+          ],
         },
         {
           preKeys: [0],
@@ -1096,7 +1100,9 @@ export default defineGkdApp({
           action: 'longClickCenter',
           actionCd: 200,
           actionMaximum: 100,
-          matches: ['[id="J_ui-load"] < View < WebView < b40 < [vid="webview"]'],
+          matches: [
+            '[id="J_ui-load"] < View < WebView < b40 < [vid="webview"]',
+          ],
         },
         {
           preKeys: [57],
