@@ -136,9 +136,11 @@ export default defineGkdApp({
             top: 'height * 0.185',
           },
           matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView + ViewGroup + ViewGroup + ViewGroup + ImageView',//立即签到
+            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView + ViewGroup + ViewGroup + ViewGroup + ImageView', //立即签到
           ],
-          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
         },
         {
           key: 1,
@@ -149,7 +151,9 @@ export default defineGkdApp({
           matches: [
             'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>1] > ImageView', //签到领
           ],
-          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity0'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
         },
         {
           key: 2,
@@ -160,10 +164,12 @@ export default defineGkdApp({
           matches: [
             'ScrollView > HorizontalScrollView > @LinearLayout > ViewGroup + ImageView + ImageView', //立即签到
           ],
-          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           position: {
             left: 'width * 0.5',
@@ -172,7 +178,9 @@ export default defineGkdApp({
           matches: [
             'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>1] > ImageView', //开心收下
           ],
-          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
         },
       ],
     },
@@ -210,7 +218,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           matches: [
             'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
@@ -317,7 +325,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           anyMatches: [
@@ -812,7 +820,7 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           matches: [
-            'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',//立即预约领金币
+            'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup', //立即预约领金币
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
