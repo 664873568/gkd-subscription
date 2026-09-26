@@ -555,12 +555,8 @@ export default defineGkdApp({
         },
       ],
     },
-    //任务中心
-    //第一轮：25.09.28-25.12.26
-    //第二轮：25.12.27-26.03.26
-    //第三轮：26.03.27-26.06.24
-    //第四轮：26.06.25-26.09.22
     //任务中心-.ui.cloudp2p.RichMediaActivity
+    //25.09.28-25.12.26 任务中心 90天/轮
     //每日签到
     {
       key: 200,
@@ -598,9 +594,9 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@[text="领取"][clickable=true]',
             'View > View > @[text="是"][clickable=true]',
             'View > View > @[text="我知道了"][clickable=true]',
+            '@[text="领取"][clickable=true]',
           ],
           matches: [
             '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="去完成"][clickable=true]',
@@ -620,7 +616,7 @@ export default defineGkdApp({
           matches: ['View > View > @[text="是"][clickable=true]'], //每日答题
         },
         {
-          preKeys: [0, 2],
+          preKeys: [2],
           key: 3,
           matches: ['View > View > @[text="我知道了"][clickable=true]'], //每日答题
         },
@@ -712,7 +708,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="日常任务"] +n TextView[text!~="观看广告视频.*"] +5 @[text="去完成"][clickable=true]',
+            '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
           ],
           activityIds: [
             '.ui.cloudp2p.RichMediaActivity',
@@ -1082,7 +1078,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="最新AI功能"] + [text="去体验拍题解题"] +5 @[text="去完成"][clickable=true]',
+            '[text="最新AI功能"] + [text="去体验拍题解题"] +6 @[text="去完成"][clickable=true]',
           ],
           activityIds: [
             '.ui.cloudp2p.RichMediaActivity',
