@@ -167,7 +167,7 @@ export default defineGkdApp({
             '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得阶段奖励"] +n @[text="领取并喂食"][clickable=true]',
           ],
           matches: [
-            '[id="J_ui-div"] > [id="app"] >n @View[clickable=true] > [text="可领取"]',
+            '[id="J_ui-div"] > [id="app"] >n View > @View[clickable=true] > [text="可领取"]',
           ],
         },
         {
@@ -384,7 +384,54 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 27,
+      key: 28,
+      name: '养猪猪-红包大挑战',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得奖励"] +n @[text="开心收下"][clickable=true] + TextView',
+          ],
+          matches: [
+            '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > @[text="开心收下"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得奖励"] +n @[text="开心收下"][clickable=true] + TextView',
+          ],
+        },
+        {
+          key: 2,
+          excludeMatches: [
+            '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > @[text="开心收下"][clickable=true]',
+            '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得奖励"] +n @[text="开心收下"][clickable=true] + TextView',
+          ],
+          matches: [
+            '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > [text="可领取"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 3,
+          excludeMatches: [
+            '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > @[text="开心收下"][clickable=true]',
+            '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得奖励"] +n @[text="开心收下"][clickable=true] + TextView',
+            '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > [text="可领取"] + @TextView[clickable=true]',
+          ],
+          matches: [
+            '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > View > @TextView[clickable=true] + [getChild(0).text="开红包抽"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 29,
       name: '养猪猪-赚猪粮-×',
       matchRoot: true,
       matchDelay: 1000,
@@ -932,6 +979,9 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[getChild(2).text="明日0点领"] + * @TextView[clickable=true]', //恭喜获得鹅粮奖励-收下喂鹅
+            'TextView[text~="（[0-9]s）"] + @TextView[clickable=true]', //恭喜获得收蛋奖励-开心收下
+            'View > @View[clickable=true] > View > View > View > View > Image', //立即兑换提额机会
+            'View > [text="获得京豆(个)"] +n @View[clickable=true] > [text="参与活动可继续提高额度"]', //没兑出额度别灰心哦-我知道了
           ],
           anyMatches: [
             '[id="app"] > View > [getChild(2).text="明日0点领"] -n View > View > @View[clickable=true] > [text="点我收蛋"]',
@@ -944,7 +994,7 @@ export default defineGkdApp({
           key: 1,
           anyMatches: [
             'TextView[text~="（[0-9]s）"] + @TextView[clickable=true]', //恭喜获得收蛋奖励-开心收下
-            'View > @View[clickable=true] > View > View > View > View > Image', //立即兑换提额机会
+            '[id="app"] > View > View > [getChild(0).name$="TextView"] + View > Image > @[id="J_airLevel_-"][clickable=true] + [id="J_airLevel_X"]', //恭喜你，成功收满100个蛋-立即兑换提额机会
           ],
         },
         {
