@@ -10,15 +10,24 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.taobao.ltao.maintab.MainFrameActivity'],
       rules: [
         {
+          key: 0,
           action: 'back',
           actionDelay: 5000,
-          actionMaximum: 2,
           matches: [
             '[vid="main_frame_container"] > [vid="id_content"] > [vid="homepage_root_layout"] > [vid="home_swipe_refresh"]',
           ],
-          activityIds: ['com.taobao.ltao.maintab.MainFrameActivity'],
+        },
+        {
+          preKeys:[0,1],
+          key: 1,
+          action: 'back',
+          actionCd: 100,
+          matches: [
+            '[vid="main_frame_container"] > [vid="id_content"] > [vid="homepage_root_layout"] > [vid="home_swipe_refresh"]',
+          ],
         },
       ],
     },
