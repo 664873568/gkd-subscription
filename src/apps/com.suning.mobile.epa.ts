@@ -41,7 +41,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '[getChild(1).text^="快影APP下载"] + [vid="layout_system_webview_frameLayout"] >n @View[clickable=true] > [text="立即下载App"]', //去快影APP赚奖励
+            '[getChild(2).text^="快影APP下载"] + [vid="layout_system_webview_frameLayout"] >n @View[clickable=true] > [text="立即下载App"]', //去快影APP赚奖励
             '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] > @View[clickable=true]', //去虎牙看游戏直播
             '[getChild(2).text="签到领半价洗车"] + [vid="layout_system_webview_frameLayout"] >n @TextView[clickable=true]', //去汽车之家领车币
             '[getChild(2).text="体验丰巢APP比价返现"] + [vid="layout_system_webview_frameLayout"] >n @[id="loadbtn"][clickable=true]', //去丰巢领现金奖励
