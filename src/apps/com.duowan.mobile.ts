@@ -24,9 +24,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: [
-            'View > View > @[text="确认提现"][clickable=true]',
-          ],
+          matches: ['View > View > @[text="确认提现"][clickable=true]'],
         },
       ],
     },
