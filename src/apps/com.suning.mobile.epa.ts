@@ -43,8 +43,8 @@ export default defineGkdApp({
           anyMatches: [
             '[getChild(1).text^="快影APP下载"] + [vid="layout_system_webview_frameLayout"] >n @View[clickable=true] > [text="立即下载App"]', //去快影APP赚奖励
             '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] > @View[clickable=true]', //去虎牙看游戏直播
-            '[getChild(2).text="签到领半价洗车"] + [vid="layout_system_webview_frameLayout"] >n @TextView[clickable=true]',//去汽车之家领车币
-            '[getChild(2).text="体验丰巢APP比价返现"] + [vid="layout_system_webview_frameLayout"] >n @[id="loadbtn"][clickable=true]',//去丰巢领现金奖励
+            '[getChild(2).text="签到领半价洗车"] + [vid="layout_system_webview_frameLayout"] >n @TextView[clickable=true]', //去汽车之家领车币
+            '[getChild(2).text="体验丰巢APP比价返现"] + [vid="layout_system_webview_frameLayout"] >n @[id="loadbtn"][clickable=true]', //去丰巢领现金奖励
           ],
         },
         {
@@ -216,12 +216,12 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 6000,
           anyMatches: [
-            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]',//访问瞳瞳AI
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] + [text="猜涨跌"][vid="title"]',//访问猜涨跌
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] + [text="猜涨跌"][vid="title"]', //访问猜涨跌
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           matches: [
             '[id="app"] +n View > View > @View[clickable=true] > [text="立即领取"]',
@@ -250,7 +250,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,4],
+          preKeys: [0, 4],
           key: 1,
           matches: [
             '[getChild(1).getChild(0).text="短剧"] + View > View > View > @View[clickable=true] > View > [text$="集全"]',
@@ -298,10 +298,10 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 6000,
           anyMatches: [
-            '@ImageButton[clickable=true] < View + [getChild(0).text="红包签到"]',//参与签到赢红包
-            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]',//访问瞳瞳AI
-            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]',//去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',//访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+            '@ImageButton[clickable=true] < View + [getChild(0).text="红包签到"]', //参与签到赢红包
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
+            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
           ],
         },
       ],
