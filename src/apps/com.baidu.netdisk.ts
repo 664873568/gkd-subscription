@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '提现-提现至支付宝',
+      name: '提现-提现至支付宝-20元',
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -39,48 +39,16 @@ export default defineGkdApp({
             '[getChild(1).getChild(1).text="提现"] +n * @[text="获取验证码"][clickable=true]',
           ],
         },
-      ],
-    },
-    {
-      key: 1,
-      name: '兑换商城-兑换-5元京东卡',
-      matchRoot: true,
-      matchTime: 60000,
-      resetMatch: 'activity',
-      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-      rules: [
         {
-          key: 0,
-          anyMatches: [
-            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="5元京东卡"] +n [text=" 兑换"]',
-            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1721908159"][clickable=true] > [text="8点开抢"] + [text="5元京东卡"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
+          key: 4,
           matches: [
-            '[getChild(0).getChild(0).text="99金币"] + [text="立即兑换"]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '[text="5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
-          ],
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          matches: [
-            '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
+            '[text~="￥[0-9].00"] + [text="可提现金额"] + @[text="立即提现"][clickable=true]',
           ],
         },
       ],
     },
     {
-      key: 2,
+      key: 1,
       name: '兑换商城-兑换-10元现金红包',
       matchRoot: true,
       matchTime: 60000,
@@ -109,6 +77,51 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '[text="10元现金红包"] + @View[clickable=true] > [text="兑换并使用"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '兑换商城-兑换-5元京东卡',
+      matchRoot: true,
+      matchTime: 60000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="5元京东卡"] +n [text=" 兑换"]',
+            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1721908159"][clickable=true] > [text="8点开抢"] + [text="5元京东卡"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(0).getChild(0).text="99金币"] + [text="立即兑换"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
           ],
         },
         {
@@ -381,8 +394,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          actionDelay: 1000,
           matches: [
-            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
+            'ImageView < @FrameLayout + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
           ],
         },
       ],
@@ -401,7 +415,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="点击去微信看全文"] < @LinearLayout <<n * - * [text="阅读小说"] + [text="可获得奖励"]',
+            '[text="上滑继续阅读"] <n * -n * [text="阅读小说"] + [text="可获得奖励"]',
           ],
         },
         {
@@ -433,8 +447,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '[getChild(0).text^="奖励将于"] -n * @[text="我要更快拿奖"]',
-            '[text^="奖励将于"] < * < * < * <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
+            '[text^="奖励将于"] < * -n * @[text="我要更快拿奖"]',
+            '[text^="奖励将于"] < * < * < * <n * -n * @[text="我要更快拿奖"]',
             '[text^="奖励将于"] < * < * < * <n * -n * @[text="扭动/点击下载或打开第三方应用"]',
           ],
         },
@@ -579,64 +593,22 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '看视频积分翻倍',
           matches: [
-            '@ImageButton[text="fanbei"][clickable=true] -n [text="qiandao"] - View > [text="c"]', //看视频积分翻倍
+            'ImageButton[text="c"] < View + Image +n @ImageButton[clickable=true]',
           ],
         },
         {
           key: 1,
+          name: '今日积分已翻倍',
           matches: [
-            '@ImageButton[text="c"][clickable=true] < View + [text="qiandao"] +n [text="yifanbei"]', //今日积分已翻倍
+            '@ImageButton[text="c"][clickable=true] < View + Image +n ImageButton',
           ],
         },
       ],
     },
-    //成长值任务
     {
-      key: 206,
-      name: '成长值任务-去完成',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            'View > View > @[text="是"][clickable=true]',
-            'View > View > @[text="我知道了"][clickable=true]',
-            '@[text="领取"][clickable=true]',
-          ],
-          matches: [
-            '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="去完成"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          matches: ['View > View > @[text="是"][clickable=true]'], //每日答题
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          matches: ['View > View > @[text="我知道了"][clickable=true]'], //每日答题
-        },
-        {
-          key: 4,
-          matches: ['@[text="领取"][clickable=true]'],
-        },
-      ],
-    },
-    {
-      key: 207,
+      key: 201,
       name: '任务中心-开宝箱',
       matchRoot: true,
       matchDelay: 1000,
@@ -654,12 +626,34 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          excludeMatches: [
-            '[text="日常任务"] + [text^="观看广告视频"] +5 @[text="去完成"][clickable=true]',
-          ],
-          actionDelay: 1000,
           matches: [
             '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+          ],
+        },
+      ],
+    },
+    //积分领好礼
+    {
+      key: 207,
+      name: '积分领好礼-领取',
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
           ],
         },
       ],
@@ -684,24 +678,51 @@ export default defineGkdApp({
         },
       ],
     },
+    //成长值任务
     {
       key: 209,
-      name: '日常任务-观看广告视频',
+      name: '成长值任务-去完成',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
         {
           key: 0,
           excludeMatches: [
-            '[text="日常任务"] +n TextView[text!~="观看广告视频.*"] +5 @[text="去完成"][clickable=true]',
+            'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
+            'View > TextView[clickable=true] +n @[text~="我知道了|开心收下"][clickable=true]',
+            '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="领取"][clickable=true]',
           ],
           matches: [
-            '[text="日常任务"] + [text^="观看广告视频"] +5 @[text="去完成"][clickable=true]',
+            '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="去完成"][clickable=true]',
           ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          matches: [
+            'View > TextView +n [text="否"] + @[text="是"][clickable=true]', //每日答题
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            'View > TextView[clickable=true] +n @[text~="我知道了|开心收下"][clickable=true]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="领取"][clickable=true]',
           ],
         },
       ],
@@ -713,109 +734,201 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+          ],
+          actionDelay: 2000,
           matches: [
             '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           anyMatches: [
+            'View > View[getChild(0).text="task-close"] + @[text="lingqujiangli"][clickable=true]',//集勋章抽金条手机-去翻故事卡领大奖
+            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]',//领取奖励-去看看会员福利日-去看看开学季特惠-参与活动送万元相机-领取徐涛独家资料
             'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton', //领取奖励-免费领取网盘SVIP
-            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去翻故事卡领大奖-去看看开学季特惠-领取徐涛独家资料
-            '@[text="lingqujiangli"][clickable=true] - View > [text="task-close"]', //集勋章抽金条手机
             'View > View > @[text="done"][clickable=true] + [text=" "] + [text="2bd7c5199a3f9703e3ae80849"]', //会员日-任务已完成 点击去领奖
-            '@[vid="left_button"][clickable=true] +2 [text="福利来袭X-永久无限空间限时抢"][vid="middle_title_text"]', //体验一刻相册
-            '[text="lingqujiangli"] < @View[text=""][clickable=true] + [desc="close"]', //去寻道砍树3次
-            '[text="lingqujiangli"] < @View[text=""][clickable=true] - View [text="task-close"]', //奇妙赏
+            'View > View[clickable=true] > @View[getChild(0).text="wenzihou"][clickable=true] + [desc="close"]', //去寻道砍树3次
+            'View > [getChild(0).text="task-close"] + @[getChild(0).text="lingqujiangli"][clickable=true]', //奇妙赏
           ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-        {
-          key: 2,
-          matches: ['@[vid="left_button"] <<n * +n * [text="恭喜获得"]'], //小程序点图文领奖-小程序点图文-小程序浏览图文-点2次图文领奖-小程序点2次图文
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
           preKeys: [0],
+          key: 2,
+          name: '体验一刻相册',
+          matches: [
+            '@[vid="left_button"][clickable=true] +2 [text="福利来袭X-永久无限空间限时抢"][vid="middle_title_text"]',
+          ],
+        },
+        {
           key: 3,
+          matches: [
+            '@[vid="left_button"] <<n * +n * [text="恭喜获得"]', //小程序点图文领奖-小程序点图文-小程序浏览图文-点2次图文领奖-小程序点2次图文
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '[text="日常任务"] + TextView +5 @[text="领取"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys:[210],
+      key: 211,
+      name: '日常任务-去玩游戏合成3次',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          preKeys: [0],
+          key: 1,
+          name: '允许授权',
+          matches: [
+            '@[text="允许授权"][clickable=true] -n TextView < * <n * <n * < * < [vid="content_webview"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          name: '已完成去领奖',
+          actionDelay: 20000,
           position: {
-            left: 'width * 0.9083',
-            top: 'width * 1.8279',
+            left: 'width * 0.91',
+            top: 'height * 0.86',
           },
-          matches: ['@[id="GameCanvas"] < [id="Cocos2dGameContainer"]'], //去玩游戏合成3次
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+          matches: [
+            'TextView[clickable=true] - TextView <n View - @[id="game"] < * < * < * < [vid="content_webview"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 212,
+      name: '日常任务-观看广告视频',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
+            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+          ],
+          actionDelay: 1000,
+          matches: [
+            '[text="日常任务"] + [text~="观看.*"] +5 @[text="去完成"][clickable=true]',
+          ],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
       ],
     },
     //最新AI功能
     {
       key: 220,
+      name: '最新AI功能-去完成',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
+          ],
+          matches: [
+            '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
+          ],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '[text="最新AI功能"] + TextView +5 @[text="领取"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys:[220],
+      key: 221,
+      name: '最新AI功能-体验AI学习服务',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          preKeys: [0],
+          key: 1,
+          name: '领取奖励',
+          matches: [
+            '@[vid="layout_drag"][clickable=true] > [vid="layout_content"] > [vid="iv_close"] + [vid="gif_lottie_view"] + [vid="tv_title"]',
+          ],
+          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
+        },
+      ],
+    },
+    {
+      scopeKeys:[220],
+      key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
-          matches: [
-            '[text="最新AI功能"] + [text="云一朵文件智能整理"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
-        {
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="点击勾选文件"][vid="tv_tip"] +n @[vid="view_anchor"]',
+            '@[vid="view_anchor"] -n [text="点击勾选文件"][vid="tv_tip"] < ViewGroup < FrameLayout - [vid="fl_main_container"] < [id="android:id/content"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
-            '[text="点击智能整理"][vid="tv_tip"] +n @[vid="view_anchor"]',
+            '@[vid="view_anchor"] -n [text="点击智能整理"][vid="tv_tip"] < ViewGroup < FrameLayout - [vid="fl_main_container"] < [id="android:id/content"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '@[vid="layout_drag"][clickable=true] > [vid="layout_content"] > [vid="iv_close"] + [vid="gif_lottie_view"] + [text="任务完成"][vid="tv_title"]',
           ],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
       ],
     },
     {
-      key: 221,
+      scopeKeys:[220],
+      key: 223,
       name: '最新AI功能-体验AI笔记',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="最新AI功能"] + [text="体验AI笔记"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
         {
           preKeys: [0],
           key: 1,
@@ -825,81 +938,57 @@ export default defineGkdApp({
           activityIds: ['.servicepage.video.ui.VideoServiceActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
-            '[getChild(1).getChild(2).text="选视频生成ai笔记"] -n * @LinearLayout[clickable=true] >n [text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
+            '[getChild(1).getChild(2).text="选视频生成ai笔记"] - ImageView -n * @LinearLayout[clickable=true] > RelativeLayout > [text="笔记"][vid="view_video_content_child_tab_item_layout_text"]',
           ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '@[vid="layout_drag"][clickable=true] > [vid="layout_content"] > [vid="iv_close"] + [vid="gif_lottie_view"] + [text="任务完成"][vid="tv_title"]',
           ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
       ],
     },
     {
-      key: 222,
-      name: '最新AI功能-体验AI*',
+      scopeKeys:[220],
+      key: 224,
+      name: '最新AI功能-浏览试卷中心',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
       rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '[text="最新AI功能"] + [text~="体验AI笔记|体验AI照相馆"] +5 @[text="去完成"][clickable=true]',
-          ],
-          matches: [
-            '[text="最新AI功能"] + [text^="体验AI"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
         {
           preKeys: [0],
           key: 1,
-          anyMatches: [
-            '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][focusable=true]',
-            '[text^="体验AI"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"]',
+          matches: [
+            '[text="点击查看试卷"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [text="搜索试卷"] +n [index=parent.childCount.minus(1)] > @View[index=0][clickable=true]',
           ],
-          activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
+          name: '任务已完成      点击领奖',
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
-          ],
-          activityIds: [
-            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
+            '@[vid="layout_drag"][clickable=true] > [vid="layout_content"] > [vid="iv_close"] + [vid="gif_lottie_view"] + [vid="tv_title"]',
           ],
         },
       ],
     },
     {
-      key: 2222,
-      name: '最新AI功能-体验AI-返回',
+      scopeKeys:[220],
+      key: 225,
+      name: '最新AI功能-体验AI拍一拍',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="最新AI功能"] + [text="体验AI"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
         {
           preKeys: [0],
           key: 1,
@@ -910,7 +999,7 @@ export default defineGkdApp({
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           excludeMatches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -923,7 +1012,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '@[desc="确认退出"][clickable=true] - [desc="再考虑下"] < * - [desc="提示"]',
@@ -933,7 +1022,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
+          preKeys: [3],
           key: 4,
           matches: ['@ImageView[clickable=true] +2 [desc="保存"]'],
           activityIds: [
@@ -941,7 +1030,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4],
+          preKeys: [4],
           key: 5,
           action: 'back',
           matches: [
@@ -952,22 +1041,13 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 223,
+      scopeKeys:[220],
+      key: 226,
       name: '最新AI功能-体验AI照相馆',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="最新AI功能"] + [text="体验AI照相馆"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
         {
           preKeys: [0],
           key: 1,
@@ -977,7 +1057,7 @@ export default defineGkdApp({
           activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -987,22 +1067,13 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 224,
+      scopeKeys:[220],
+      key: 227,
       name: '最新AI功能-去体验错题收集',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="最新AI功能"] + [text="去体验错题收集"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
         {
           preKeys: [0],
           key: 1,
@@ -1012,7 +1083,7 @@ export default defineGkdApp({
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           anyMatches: [
             '[text="4月25日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <<n * + * [text="确定（0/99）"][vid="btn_confirm"]',
@@ -1025,7 +1096,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           anyMatches: [
             '@[text="确定（1/99）"][vid="btn_confirm"][clickable=true]',
@@ -1037,7 +1108,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
+          preKeys: [3],
           key: 4,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * View + ImageView + @ImageView[clickable=true] + ImageView',
@@ -1049,7 +1120,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4],
+          preKeys: [4],
           key: 5,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="已选择 1 道题目"] +n @[desc="录入错题"][clickable=true]',
@@ -1060,7 +1131,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4, 5],
+          preKeys: [5],
           key: 6,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[text="全部保存"][clickable=true]',
@@ -1068,7 +1139,7 @@ export default defineGkdApp({
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3, 4, 5, 7],
+          preKeys: [6],
           key: 7,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -1078,22 +1149,13 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 225,
+      scopeKeys:[220],
+      key: 228,
       name: '最新AI功能-去体验拍题解题',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="最新AI功能"] + [text="去体验拍题解题"] +6 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
         {
           preKeys: [0],
           key: 1,
@@ -1103,7 +1165,7 @@ export default defineGkdApp({
           activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '[text="拍摄题目并解题"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="每次只框一题，识别更准确"] +2 @ImageView[clickable=true]',
@@ -1113,7 +1175,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -1127,21 +1189,72 @@ export default defineGkdApp({
     //功能任务
     {
       key: 230,
-      name: '功能任务-去刷一刷首页',
+      name: '功能任务-去完成',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
+          ],
           matches: [
-            '[text="功能任务"] + [text="去刷一刷首页"] +5 @[text="去完成"][clickable=true]',
+            '[text="功能任务"] + TextView +5 @[text="去完成"][clickable=true]',
           ],
           activityIds: [
             '.ui.cloudp2p.RichMediaActivity',
             '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
           ],
         },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '浏览书城小说30s',
+          matches: [
+            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+          ],
+          activityIds: ['.bdreader.ui.view.NovelMainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          name: '去逛逛游戏频道',
+          matches: [
+            '@TextView[text=""][clickable=true] - TextView[clickable=true] < View -n * [text="游戏中心"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 3,
+          name: '浏览短剧30s',
+          matches: [
+            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+          ],
+          activityIds: ['.playerlet.ui.ShortPlayServiceActivity'],
+        },
+        {
+          key: 4,
+          matches: [
+            '[text="功能任务"] + TextView +5 @[text="领取"][clickable=true]',
+          ],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys:[230],
+      key: 231,
+      name: '功能任务-去刷一刷首页',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.MainActivity'],
+      rules: [
         {
           preKeys: [0],
           key: 1,
@@ -1159,78 +1272,25 @@ export default defineGkdApp({
           matches: [
             '@[vid="home25ai_content"] >n [vid="refresh_layout"] > [vid="sticky_nested_layout"] > [vid="stickyContentView"]',
           ],
-          activityIds: ['.ui.MainActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
-          activityIds: ['.ui.MainActivity'],
         },
       ],
     },
     {
-      key: 231,
-      name: '功能任务-去完成',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="功能任务"] + TextView +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]', //浏览书城小说30s
-          ],
-          activityIds: ['.bdreader.ui.view.NovelMainActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          matches: [
-            '@TextView[text=""][clickable=true] - TextView[clickable=true] < View -n * [text="游戏中心"]', //去逛逛游戏频道
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 3,
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]', //浏览短剧30s
-          ],
-          activityIds: ['.playerlet.ui.ShortPlayServiceActivity'],
-        },
-      ],
-    },
-    {
+      scopeKeys:[230],
       key: 232,
       name: '功能任务-去体验云打印',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
       rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="功能任务"] + [text="去体验云打印"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
-        },
         {
           preKeys: [0],
           key: 1,
@@ -1238,339 +1298,27 @@ export default defineGkdApp({
           matches: [
             '@[text=""][clickable=true] + [id="noticeSwiper"] <<n * + * [text="上传任意文件"]',
           ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[text="未选择任何文件"][clickable=true] - [text="手机相册"] <<n * + * [text="上传任意文件"]',
           ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '@[text="确定"][clickable=true] - [text="预览"] <<n * + * [text="上传任意文件"]',
           ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3],
+          preKeys: [3],
           key: 4,
           matches: [
             '@View[text=""][clickable=true] > TextView[clickable=true] + [text="任务完成领奖"]',
           ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    //26.07.09-29.07.31 集勋章 赢大奖
-    //做任务赢勋章抽大奖
-    {
-      key: 300,
-      name: '好运签日历',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[desc="关闭按钮"] < @View[clickable=true] < * - * [text="sign-shop"]',
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    //工作星球-一键生成PPT
-    {
-      key: 301,
-      name: '工作星球-一键生成PPT',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
-          ],
-          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
-          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
-        },
-      ],
-    },
-    //工作星球-模拟面试练习
-    {
-      key: 302,
-      name: '工作星球-模拟面试练习',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[vid="view_anchor"] + [vid="ll_tip"] > [text="我知道了"][vid="iv_close"]',
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    //工作星球-智能剪辑出片
-    {
-      key: 303,
-      name: '工作星球-智能剪辑出片',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="transBtn"] < View + View >n [desc="关闭按钮"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[vid="send_msg_icon"] <n [vid="genflow_input_container"]',
-          ],
-          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '@[vid="title_quit"][clickable=true] <<n * +n * [text="任务处理中…"][vid="genflow_sub_desc"]',
-          ],
-          activityIds: ['.aigc.ui.activity.AigcChatActivity'],
-        },
-      ],
-    },
-    //学习星球-一键生成笔记
-    {
-      key: 304,
-      name: '学习星球-一键生成笔记',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[vid="cover"] <<n [vid="recent_pager"]'],
-          activityIds: ['.servicepage.video.ui.VideoServiceActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[text="笔记"][vid="view_video_content_child_tab_item_layout_text"] < RelativeLayout < @LinearLayout[clickable=true] <<n * + * [text="我知道了"][vid="iv_close"]',
-          ],
-          activityIds: ['.video.VideoPlayerActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
-          activityIds: ['.video.VideoPlayerActivity'],
-        },
-      ],
-    },
-    //学习星球-纸质资料扫描
-    {
-      key: 305,
-      name: '学习星球-纸质资料扫描',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[vid="rb_camera"] -n * [vid="tv_no_records"]'],
-          activityIds: ['.scan.ui.ScanActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@ImageView[clickable=true] <<n [vid="ocr_title_bar_container"] +n [text="拍摄纸质资料，生成高清电子版"][vid="take_photo_tip"]',
-          ],
-          activityIds: ['.ocr.OCRTakePhotoActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: ['@[vid="iv_back"] + [vid="iv_title"] + [vid="iv_search"]'],
-          activityIds: ['.scan.ui.ScanActivity'],
-        },
-      ],
-    },
-    //学习星球-
-    {
-      key: 306,
-      name: '学习星球-录音',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: ['@[vid="bottom_btn"] < [vid="container_bottom_btn"]'],
-          activityIds: ['.listen.notes.ui.activity.ListenNoteMainActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
-          activityIds: ['.listen.notes.ui.activity.ListenNotesPlayActivity'],
-        },
-      ],
-    },
-    //生活星球-记录成长轨迹
-    {
-      key: 307,
-      name: '生活星球-记录成长轨迹',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@View[clickable=true] + [text="成长轨迹"] <<n * + * [text="我知道了"][vid="iv_close"]',
-          ],
-          activityIds: ['.cloudimage.ui.view.AlbumServiceActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['[text="做同款"] < @View'],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '[text="手动选图"] < @View[clickable=true] -n [text="为你智能匹配相关照片"]',
-          ],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-        {
-          preKeys: [0, 1, 2],
-          key: 3,
-          matches: ['[text="确定"] < @View[clickable=true] - [text="已选5张"]'],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-        {
-          preKeys: [0, 1, 2, 3],
-          key: 4,
-          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-      ],
-    },
-    //生活星球-生成写真照片
-    {
-      key: 308,
-      name: '生活星球-生成写真照片',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="dyr-dt"] < @View <<n [vid="rl_red_bag_root"] + * [text="我知道了"][vid="iv_close"]',
-          ],
-          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
-          activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
-        },
-      ],
-    },
-    //生活星球-新建我的相簿
-    {
-      key: 309,
-      name: '生活星球-新建我的相簿',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@ImageView[clickable=true] - View <<n * + * [vid="photo_books_album"]',
-          ],
-          activityIds: ['.cloudimage.ui.view.AlbumServiceActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['@View[clickable=true] >n [text="新建自定义相簿"]'],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '@[text="立即创建"][clickable=true][focusable=true] -n [text="新建相簿"]',
-          ],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-        {
-          preKeys: [0, 1, 2],
-          key: 3,
-          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="iv_close"]'],
-          activityIds: ['.kmp.bridge.KmpSharedActivity'],
-        },
-      ],
-    },
-    //
-    {
-      key: 310,
-      name: '任务完成获得时光',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[desc="关闭按钮"] < @View[clickable=true] < * - * View[clickable=true] [text="btn"]',
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
-    {
-      key: 311,
-      name: '恭喜你获得',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[desc="关闭按钮"] < @View[clickable=true] < * - * View[clickable=true] [text="prize-btn"]',
-          ],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
         },
       ],
     },
@@ -1646,13 +1394,14 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text="跳过"] + [text~="[0-9]"]',
-            '@[text~="跳过 [0-9]"][clickable=true]',
-            '@[text~="跳过 [0-9]"][vid="countdown"]',
-            '@[text~="[0-9] \\\\| 跳过"][clickable=true]',
+            '@[text="跳过"] + [text~="[0-9]+"]',
+            '@FrameLayout > View + [text="跳过"],
+            '@[text~="跳过 [0-9]+"][clickable=true]',
+            '@[text~="跳过 [0-9]+"][vid="countdown"]',
+            '@[text~="[0-9]+ \\\\| 跳过"][clickable=true]',
             '[vid="fl_ad_container"] >n @View[clickable=true]',
             '@[vid="ms_skipView"] < [vid="ms_skipView_container"]',
-            '@[text~="跳过 [0-9]"][vid="tv_skip"][clickable=true]',
+            '@[text~="跳过 [0-9]+"][vid="tv_skip"][clickable=true]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
           activityIds: ['.ui.MainActivity', '.advertise.ui.SplashAdActivity'],
