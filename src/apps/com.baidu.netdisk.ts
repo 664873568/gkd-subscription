@@ -42,7 +42,14 @@ export default defineGkdApp({
         {
           key: 4,
           matches: [
-            '[text~="￥[0-9].00"] + [text="可提现金额"] + @[text="立即提现"][clickable=true]',
+            '[text="可提现金额"] + @[text="立即提现"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          matches: [
+            '[text="已提交申请"] +n @[text="完成"][clickable=true]',
           ],
         },
       ],
@@ -85,7 +92,14 @@ export default defineGkdApp({
         {
           key: 4,
           matches: [
-            '[text~="￥[0-9].00"] + [text="可提现金额"] + @[text="立即提现"][clickable=true]',
+            '[text="可提现金额"] + @[text="立即提现"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          matches: [
+            '[text="已提交申请"] +n @[text="完成"][clickable=true]',
           ],
         },
       ],
@@ -128,7 +142,14 @@ export default defineGkdApp({
         {
           key: 4,
           matches: [
-            '[text~="￥[0-9].00"] + [text="可提现金额"] + @[text="立即提现"][clickable=true]',
+            '[text="可提现金额"] + @[text="立即提现"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          matches: [
+            '[text="已提交申请"] +n @[text="完成"][clickable=true]',
           ],
         },
       ],
