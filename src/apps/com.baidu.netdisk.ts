@@ -209,7 +209,44 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '兑换商城-兑换-5元京东卡',
+      name: '兑换商城-兑换-5元京东卡-999金币',
+      matchRoot: true,
+      matchTime: 60000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1721908159"][clickable=true] > [text="8点开抢"] + [text="5元京东卡"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(0).getChild(0).text="999金币"] + [text="立即兑换"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 6,
+      name: '兑换商城-兑换-5元京东卡-99金币',
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -219,7 +256,7 @@ export default defineGkdApp({
           key: 0,
           anyMatches: [
             '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="5元京东卡"] +n [text=" 兑换"]',
-            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1721908159"][clickable=true] > [text="8点开抢"] + [text="5元京东卡"]',
+            '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1785406918"][clickable=true] > [text="会员可兑"] + [text="5元京东卡"]',
           ],
         },
         {
@@ -227,6 +264,44 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[getChild(0).getChild(0).text="99金币"] + [text="立即兑换"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="5元京东卡"] + @View[clickable=true] > [text="兑换并使用"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[text="确认兑换"] +n View >n @View[clickable=true] > [text="发送验证码"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 7,
+      name: '兑换商城-兑换-5元京东卡-10金币',
+      matchRoot: true,
+      matchTime: 60000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 0,
+          anyMatches: [
+            '[getChild(0).text="18点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="5元京东卡"] +n [text=" 兑换"]',
+            '[getChild(0).text="18点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1721907899"][clickable=true] > [text="18点秒杀"] + [text="5元京东卡"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(0).getChild(0).text="10金币"] + [text="立即兑换"]',
           ],
         },
         {
