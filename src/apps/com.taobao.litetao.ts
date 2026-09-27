@@ -21,7 +21,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0,1],
+          preKeys: [0, 1],
           key: 1,
           action: 'back',
           actionCd: 100,
