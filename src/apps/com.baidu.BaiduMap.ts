@@ -193,14 +193,14 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="恭喜翻出"] +n [getChild(0).text~="继续翻十位领取|继续翻百位|立即收下"] + @TextView[clickable=true]',
+            '[text="恭喜翻出"] +n @[getChild(0).text~="继续翻十位领取|继续翻百位|立即收下"][clickable=true] + TextView',
           ],
         },
         {
           preKeys: [0],
           key: 2,
           matches: [
-            '[id="lottieDom"] > View > [text="恭喜获得收益翻倍卡"] + [text="明天再来可翻倍今日收益"] +n @View[clickable=true] > [text="明日来翻倍"]',
+            '@TextView[clickable=true] - View > [id="lottieDom"] > View > [text="恭喜获得收益翻倍卡"] + [text="明天再来可翻倍今日收益"] +n View > [text="明日来翻倍"]',
           ],
         },
         {
@@ -233,6 +233,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
             '[text^="运气"] +n [text="领走奖励 结束翻卡"][clickable=true] + TextView[clickable=true]',
+            '[text="已获得翻卡奖励"] + [getChild(3).getChild(1).text="明日继续翻"] + @TextView[clickable=true]',
           ],
           matches: [
             '[id="J-flip-card-v2"] > [text="翻 卡赢 1888金币"] +n ListView > @View[childCount=0][clickable=true]',
@@ -242,14 +243,20 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="运气太棒啦"] +n @[text="领走奖励 结束翻卡"][clickable=true] + TextView',
+            '[text="运气太棒啦"] +n @[text="领走奖励 结束翻卡"][clickable=true] + TextView[clickable=true]',
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0],
           key: 2,
           matches: [
-            '[text="运气一般哦"] +n [text="领走奖励 结束翻卡"] + @TextView[clickable=true]',
+            '[text="运气一般哦"] +n [text="领走奖励 结束翻卡"][clickable=true] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '[text="已获得翻卡奖励"] + [getChild(3).getChild(1).text="明日继续翻"] + @TextView[clickable=true]',
           ],
         },
       ],
@@ -276,14 +283,13 @@ export default defineGkdApp({
             '[text~="看视频得次数 \\\\([0-9]/10\\\\)" || text~="浏览页面得次数 \\\\([0-9]/10\\\\)"] + [text!~="访问中国移动得1次抽奖机会"] + @[text="去完成"][clickable=true]',
             '@[desc="关闭"][clickable=true] + [text~="恭喜获得金币奖励|恭喜获得现金奖励"] +n [text~="再抽一次|去做任务赚次数"]',
           ],
-          actionDelay: 1000,
+          actionDelay: 3000,
           matches: [
             '@View[clickable=true] > View + [text="立刻抽奖"] +n [text~="[1-9][0-9]*"]',
           ],
         },
         {
           key: 2,
-          actionDelay: 1000,
           matches: [
             '@[desc="关闭"][clickable=true] + [text~="恭喜获得金币奖励|恭喜获得现金奖励"] +n [text~="再抽一次|去做任务赚次数"]',
           ],
@@ -353,6 +359,22 @@ export default defineGkdApp({
             '[text~="恭喜获得金币奖励|恭喜获得[0-9]+金币"] < * +n @View[clickable=true] > [text~="再领[0-9]{3,}金币|膨胀到[0-9]{3,}金币"]',
             '@TextView[clickable=true] - View[getChild(0).text~="再领[0-9]{2,}金币"] -n View[getChild(0).text~="恭喜获得[0-9]+金币"]',
           ],
+        },
+      ],
+    },
+    {
+      key: 19,
+      name: '看视频-广告-反馈 ×baidu',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'ImageView < @[desc="top_close_button"][clickable=true] < ViewGroup <n * + * [desc="bottom_actionbar_button"] > [text="立即打开"]',
+          ],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
       ],
     },
@@ -923,6 +945,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@ImageView[clickable=true] -2 ImageView + LinearLayout > [text="恭喜获得奖励！"]',
           ],
@@ -940,10 +963,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
+          matches: [
             '[text="放弃福利" || text="我要更快拿奖"] < FrameLayout <n * +n * [text^="奖励将于"]',
-            '[text^="奖励将于"] < LinearLayout < FrameLayout -n * [text="放弃福利" || text="我要更快拿奖"]',
-            '[text^="奖励将于"] < LinearLayout < LinearLayout < LinearLayout <n FrameLayout -n * [text="放弃福利" || text="我要更快拿奖"]',
           ],
         },
         {
