@@ -753,8 +753,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            'View > View[getChild(0).text="task-close"] + @[text="lingqujiangli"][clickable=true]',//集勋章抽金条手机-去翻故事卡领大奖
-            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]',//领取奖励-去看看会员福利日-去看看开学季特惠-参与活动送万元相机-领取徐涛独家资料
+            'View > View[getChild(0).text="task-close"] + @[text="lingqujiangli"][clickable=true]', //集勋章抽金条手机-去翻故事卡领大奖
+            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠-参与活动送万元相机-领取徐涛独家资料
             'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton', //领取奖励-免费领取网盘SVIP
             'View > View > @[text="done"][clickable=true] + [text=" "] + [text="2bd7c5199a3f9703e3ae80849"]', //会员日-任务已完成 点击去领奖
             'View > View[clickable=true] > @View[getChild(0).text="wenzihou"][clickable=true] + [desc="close"]', //去寻道砍树3次
@@ -784,7 +784,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[210],
+      scopeKeys: [210],
       key: 211,
       name: '日常任务-去玩游戏合成3次',
       matchRoot: true,
@@ -869,7 +869,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[220],
+      scopeKeys: [220],
       key: 221,
       name: '最新AI功能-体验AI学习服务',
       matchRoot: true,
@@ -888,7 +888,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[220],
+      scopeKeys: [220],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       matchRoot: true,
@@ -922,7 +922,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[220],
+      scopeKeys: [220],
       key: 223,
       name: '最新AI功能-体验AI笔记',
       matchRoot: true,
@@ -956,7 +956,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[220],
+      scopeKeys: [220],
       key: 224,
       name: '最新AI功能-浏览试卷中心',
       matchRoot: true,
@@ -982,7 +982,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[220],
+      scopeKeys: [220],
       key: 225,
       name: '最新AI功能-体验AI拍一拍',
       matchRoot: true,
@@ -1041,7 +1041,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[220],
+      scopeKeys: [220],
       key: 226,
       name: '最新AI功能-体验AI照相馆',
       matchRoot: true,
@@ -1067,7 +1067,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[220],
+      scopeKeys: [220],
       key: 227,
       name: '最新AI功能-去体验错题收集',
       matchRoot: true,
@@ -1149,7 +1149,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[220],
+      scopeKeys: [220],
       key: 228,
       name: '最新AI功能-去体验拍题解题',
       matchRoot: true,
@@ -1247,7 +1247,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[230],
+      scopeKeys: [230],
       key: 231,
       name: '功能任务-去刷一刷首页',
       matchRoot: true,
@@ -1283,7 +1283,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys:[230],
+      scopeKeys: [230],
       key: 232,
       name: '功能任务-去体验云打印',
       matchRoot: true,
