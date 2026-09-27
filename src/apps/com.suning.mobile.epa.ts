@@ -29,60 +29,79 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
       rules: [
         {
           key: 0,
           matches: [
             '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费"] + View > [text="去完成"]',
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '[desc="快影"] +n @View[clickable=true] > [text="立即下载App"]', //去快影APP赚奖励
-            '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] >n [id="root"] > @View[clickable=true]', //去虎牙看游戏直播
+            '[getChild(1).text^="快影APP下载"] + [vid="layout_system_webview_frameLayout"] >n @View[clickable=true] > [text="立即下载App"]', //去快影APP赚奖励
+            '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] > @View[clickable=true]', //去虎牙看游戏直播
+            '[getChild(2).text="签到领半价洗车"] + [vid="layout_system_webview_frameLayout"] >n @TextView[clickable=true]',//去汽车之家领车币
+            '[getChild(2).text="体验丰巢APP比价返现"] + [vid="layout_system_webview_frameLayout"] >n @[id="loadbtn"][clickable=true]',//去丰巢领现金奖励
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
         {
           key: 2,
           actionDelay: 3000,
-          anyMatches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] + [vid="title"] + [vid="webview_title_line"]', //去头条极速版赚钱
-            '[vid="layout_header"] > [vid="imageView_backToPreviousPage"] + @[vid="imageView_exitWebView"] + [vid="title"] + [vid="webview_title_line"]',
+          matches: [
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [vid="title"] + [vid="webview_title_line"]',
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
+      ],
+    },
+    {
+      scopeKeys: [1],
+      key: 2,
+      name: '天天领现金-去完成-签到领大额红包',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+      rules: [
         {
           preKeys: [0],
-          key: 3,
+          key: 1,
           actionDelay: 2000,
           matches: [
-            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image', //签到领大额红包
+            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image',
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [1],
+          key: 2,
           action: 'back',
           actionDelay: 2000,
           matches: [
             '@ImageButton[clickable=true] < View < View < View + [id="mainViewWrapper"] >n [text~="再赚[0-9]+积分"]',
           ],
         },
+      ],
+    },
+    {
+      scopeKeys: [1],
+      key: 3,
+      name: '天天领现金-去完成-去逛星选商城频道',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
         {
           preKeys: [0],
-          key: 5,
-          actionDelay: 5000,
-          matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'], //去逛星选商城频道
+          actionDelay: 6000,
+          matches: ['@ImageButton[clickable=true] < View + [text="星选商城"]'],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
     },
     {
-      key: 2,
+      key: 4,
       name: '天天领现金-一键领取',
       matchRoot: true,
       matchDelay: 1000,
@@ -94,6 +113,250 @@ export default defineGkdApp({
           ],
           matches: [
             '[getChild(0).getChild(1).text="天天领现金"] + View > View > @ImageButton[clickable=true] +n [text~="[0-9]+金币"]',
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+      ],
+    },
+    {
+      key: 10,
+      name: '看热点领金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View > View + @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @View[clickable=true] > [text="立即领取"]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="去领取"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '看热点领金币-看视频-赚金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View > View + @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @View[clickable=true] > [text="立即领取"]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="去领取"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '看热点领金币-看资讯-赚金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View > View + @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          actionDelay: 6000,
+          anyMatches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]',//访问瞳瞳AI
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] + [text="猜涨跌"][vid="title"]',//访问猜涨跌
+          ],
+        },
+        {
+          preKeys: [1,2],
+          key: 3,
+          matches: [
+            '[id="app"] +n View > View > @View[clickable=true] > [text="立即领取"]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="去领取"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '看热点领金币-看短剧-赚金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0,4],
+          key: 1,
+          matches: [
+            '[getChild(1).getChild(0).text="短剧"] + View > View > View > @View[clickable=true] > View > [text$="集全"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @View[clickable=true] > [text="立即领取"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View > View + @TextView[clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 14,
+      name: '看热点领金币-日常福利-去完成',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > View > [getChild(0).getChild(0).text!~="体验AI搜索"] + @View[clickable=true] > [text="去完成"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 6000,
+          anyMatches: [
+            '@ImageButton[clickable=true] < View + [getChild(0).text="红包签到"]',//参与签到赢红包
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]',//访问瞳瞳AI
+            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]',//去播客听新闻
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',//访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+          ],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '财顾-领金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.launcher.LauncherActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View > View + @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @View[clickable=true] > [text="立即领取"]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="去领取"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 16,
+      name: '看热点领金币-一键领取',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          excludeMatches: [
+            '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费"] + View > [text="去完成"]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > View > [getChild(0).getChild(0).text!~="体验AI搜索"] + @View[clickable=true] > [text="去完成"]',
+          ],
+          matches: [
+            '[getChild(0).getChild(1).text="看热点领金币"] + View > View > @ImageButton[clickable=true] +n [text~="[0-9]+金币"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -143,12 +406,11 @@ export default defineGkdApp({
       key: 50,
       name: '首页-领现金',
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '@[text="领现金"] - [vid="item_img_container"] > [vid="item_img"]',
+            'LinearLayout > @ViewGroup[clickable=true] > [vid="item_content_container"] > [text="领现金"]',
           ],
           activityIds: ['.launcher.LauncherActivity'],
         },
