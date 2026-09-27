@@ -43,7 +43,7 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '[text="我的月付金"] >n View > View[ getChild(1).name$="TextView"] + TextView[text!~="去打车|买一笔|去上传"]',
+            '[text="我的月付金"] >n View > View[ getChild(1).name$="TextView"] + TextView[text!~="去打车|买一笔|去上传|已完成"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -148,8 +148,9 @@ export default defineGkdApp({
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
-          matches: [
+          anyMatches: [
             'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>1] > ImageView', //签到领
+            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup[childCount>1] > ImageView',
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
@@ -395,16 +396,22 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
+          matches: ['View > @[desc="关闭"][clickable=true] + View > [text="我知道了"]'],
         },
         {
-          preKeys: [1],
+          preKeys: [0,1],
           key: 2,
-          matches: ['@[text="仍要退出"][clickable=true] + [text="立即收下"]'],
+          actionDelay: 5000,
+          matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
         },
         {
           preKeys: [2],
           key: 3,
+          matches: ['@[text="仍要退出"][clickable=true] + [text="立即收下"]'],
+        },
+        {
+          preKeys: [3],
+          key: 4,
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -432,7 +439,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,2],
           key: 1,
           matches: ['[text$="~tplv-20ashz96qn-1"] < * + @Button[desc="关闭"]'],
           activityIds: [
@@ -953,10 +960,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
-            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
-          ],
+          action: 'none',
           anyMatches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup',
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ViewGroup > ViewGroup > [desc="玩法已升级"] + ViewGroup',
