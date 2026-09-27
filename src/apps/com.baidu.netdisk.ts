@@ -1395,7 +1395,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text="跳过"] + [text~="[0-9]+"]',
-            '@FrameLayout > View + [text="跳过"],
+            '@FrameLayout > View + [text="跳过"]',
             '@[text~="跳过 [0-9]+"][clickable=true]',
             '@[text~="跳过 [0-9]+"][vid="countdown"]',
             '@[text~="[0-9]+ \\\\| 跳过"][clickable=true]',
