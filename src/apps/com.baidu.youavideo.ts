@@ -251,8 +251,8 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           position: {
-            left: 'width * 0.86',
-            top: 'height * 0.09',
+            left: 'width * 0.865',
+            top: 'height * 0.085',
           },
           matches: [
             '[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]',
@@ -328,8 +328,8 @@ export default defineGkdApp({
           preKeys: [3],
           key: 4,
           position: {
-            left: 'width * 0.86',
-            top: 'height * 0.09',
+            left: 'width * 0.865',
+            top: 'height * 0.085',
           },
           matches: [
             '[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]',
@@ -375,12 +375,12 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           position: {
-            left: 'width * 0.925',
-            top: 'height * 0.855',
+            left: 'width * 0.93',
+            top: 'height * 0.85',
           },
-          actionDelay: 3000,
+          actionDelay: 2000,
           matches: [
-            'ViewGroup < ViewGroup < ComposeView < @[id="android:id/content"]',
+            '@[id="android:id/content"] > ComposeView > ViewGroup > ViewGroup',
           ],
           activityIds: ['.home.view.assistant.activity.CleanUpClusterActivity'],
         },
