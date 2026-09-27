@@ -396,10 +396,12 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          matches: ['View > @[desc="关闭"][clickable=true] + View > [text="我知道了"]'],
+          matches: [
+            'View > @[desc="关闭"][clickable=true] + View > [text="我知道了"]',
+          ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 5000,
           matches: ['[id="nav-bar"] > @View[clickable=true] > Image'],
@@ -439,7 +441,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 1,
           matches: ['[text$="~tplv-20ashz96qn-1"] < * + @Button[desc="关闭"]'],
           activityIds: [
