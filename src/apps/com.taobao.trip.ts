@@ -60,7 +60,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册会员领现金|找10次抽奖券|逛中国移动"]',
+            '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册.*|.*找10.*|逛中国移动"]',
           ],
         },
         {
