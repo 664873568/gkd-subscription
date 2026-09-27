@@ -92,7 +92,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
           matches: [
             '@[text$="打开"][clickable=true] -n [text="取消"] < * -n ImageButton - [text="提示"]', //浏览App
           ],
@@ -227,6 +226,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        '.MainActivity',
+        'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
+      ],
       rules: [
         {
           key: 0,
@@ -238,16 +241,13 @@ export default defineGkdApp({
           matches: [
             'ViewFactoryHolder >n @LinearLayout[clickable=true] > [text="去完成"]',
           ],
-          activityIds: ['.MainActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 5000,
           matches: [
             '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
-          ],
-          activityIds: [
-            'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
           ],
         },
       ],
