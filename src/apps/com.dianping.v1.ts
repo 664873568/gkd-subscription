@@ -21,7 +21,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           action: 'clickCenter',
           anyMatches: [
@@ -36,11 +35,13 @@ export default defineGkdApp({
       key: 1,
       name: '三餐奖励',
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@FrameLayout[clickable=true] > [text*="奖励"]'],
+          matches: [
+            '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
+          ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
