@@ -24,7 +24,9 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: ['View > View > @[text="确认提现"][clickable=true]'],
+          matches: [
+            'View > View > @[text="确认提现"][clickable=true]',
+          ],
         },
       ],
     },
@@ -163,7 +165,7 @@ export default defineGkdApp({
           matches: [
             '@[text="确定"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text*="频道"][vid="message"]',
           ],
-          activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
+          activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
       ],
     },
