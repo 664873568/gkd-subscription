@@ -7,7 +7,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '允许*发送通知-拒绝',
+      name: '发送通知-拒绝',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,7 +15,23 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="拒绝"][clickable=true] < [vid="buttonPanel"] -n [vid="topPanel"] > [text~="允许“.*”发送通知？"][vid="alertTitle"]',
+            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] -n [vid="topPanel"] > [text*="发送通知"][vid="alertTitle"]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '获取位置信息-拒绝',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] -n [vid="topPanel"] > [text*="获取位置信息"][vid="alertTitle"]',
           ],
           activityIds: ['null'],
         },
