@@ -1094,16 +1094,18 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'clickCenter',
           matches: [
-            '@[vid="view_anchor"] -n [text="点击勾选文件"][vid="tv_tip"] < ViewGroup < FrameLayout - [vid="fl_main_container"] < [id="android:id/content"]',
+            '@[vid="view_anchor"] -n [text="点击勾选文件"][vid="tv_tip"] - [vid="iv_close"] < ViewGroup < FrameLayout - [vid="fl_main_container"] < [id="android:id/content"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
         {
           preKeys: [1],
           key: 2,
+          action: 'clickCenter',
           matches: [
-            '@[vid="view_anchor"] -n [text="点击智能整理"][vid="tv_tip"] < ViewGroup < FrameLayout - [vid="fl_main_container"] < [id="android:id/content"]',
+            '@[vid="view_anchor"] - [vid="iv_close"] -n [text="点击智能整理"][vid="tv_tip"] < ViewGroup < FrameLayout - [vid="fl_main_container"] < [id="android:id/content"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
