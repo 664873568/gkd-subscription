@@ -21,12 +21,12 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           action: 'clickCenter',
           anyMatches: [
             'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
             '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
-            '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
           ],
         },
       ],
@@ -37,12 +37,22 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
       rules: [
         {
+          key: 0,
           matches: [
             '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+        {
+          key: 1,
+          excludeMatches: [
+            '@ImageView[clickable=true] + FrameLayout >n ViewGroup >n FrameLayout[clickable=true] > TextView,
+          ],
+          matches: [
+            '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
+          ],
         },
       ],
     },
@@ -58,7 +68,7 @@ export default defineGkdApp({
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
           ],
           action: 'clickCenter',
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="去完成"]',
           ],
