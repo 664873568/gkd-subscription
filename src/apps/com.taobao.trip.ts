@@ -52,26 +52,36 @@ export default defineGkdApp({
       name: '天天集能量-看视频领现金',
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册.*|.*找10.*|逛中国移动"]',
           ],
         },
         {
+          preKeys: [0],
           key: 1,
+          anyMatches: [
+            '[text^="快影APP下载"] <<n * @View[clickable=true] > [text="立即下载App"]', //浏览App返回页
+            '[text^="盒马"] >n * @[text="打开盒马APP"][clickable=true]',
+            '[text="全民K歌"] >n * TextView +n @TextView[clickable=true]',
+            '[text="全民K歌"] >n * TextView +n @TextView[clickable=true]',
+            '[text^="海量小说"] >n * View > @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 2,
           actionDelay: 3000,
           matches: [
             '[vid="fliggyx_navigation_bar_right_layout"] - [vid="fliggyx_navigation_bar_wide_middle"] - [vid="fliggyx_navigation_bar_left_out"] >n @LinearLayout[clickable=true]', //浏览App返回页
           ],
         },
         {
-          key: 2,
+          key: 3,
           action: 'back',
           matches: [
             '[text="飞猪订酒店 真划算"] >n @[text^="O1CN01rnXVgw22mFh20KuMa"]', //任意点击一个酒店
