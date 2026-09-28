@@ -308,7 +308,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @[vid="linear_section"][clickable=true][index=0]',
+            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][index=0] + @[vid="itemView"][clickable=true]',
           ],
           activityIds: [
             '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
@@ -850,6 +850,42 @@ export default defineGkdApp({
     //首页功能类
     {
       key: 400,
+      name: '个人信息保护指引-同意',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[text="个人信息保护指引"][vid="tv_instruction_for_use"] +n @[text="同意"][vid="bt_agree"][clickable=true]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
+    {
+      key: 401,
+      name: '开启安全备份/开启通知权限-跳过',
+      matchRoot: true,
+      actionMaximum: 2,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          position:{
+            left:'width*0.925',
+            top:'height*0.105',
+          },
+          matches: [
+            'ViewGroup < ViewGroup < ComposeView < FrameLayout < [vid="fl_login"]',
+          ],
+          activityIds: ['.login.view.LoginActivity'],
+        },
+      ],
+    },
+    {
+      key: 402,
       name: '立即升级',
       matchRoot: true,
       actionMaximum: 1,
@@ -870,7 +906,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 401,
+      key: 403,
       name: '评价-下次再说',
       matchRoot: true,
       actionMaximum: 1,
@@ -890,8 +926,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 402,
-      name: '首页全新视图更清晰-我知道了',
+      key: 404,
+      name: '查看已备份老照片/首页全新视图更清晰-我知道了',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -899,18 +935,19 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="我知道了"][vid="text_confirm"] -n @[vid="iv_close"][clickable=true] - [vid="hs_root"] [text="首页全新视图更清晰"][vid="tv_title"]',
+            '@[vid="iv_close"][clickable=true] +n [text="我知道了"][vid="text_confirm"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
             '.vip.ui.VipWebActivity',
+            '.login.view.LoginActivity,
           ],
         },
       ],
     },
     {
-      key: 403,
+      key: 405,
       name: '备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -932,7 +969,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 404,
+      key: 406,
       name: '开启自动备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -954,7 +991,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 405,
+      key: 407,
       name: '极速备份',
       matchRoot: true,
       actionMaximum: 1,
@@ -974,7 +1011,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 406,
+      key: 408,
       name: '同时开启双重保障-暂不考虑',
       matchRoot: true,
       actionMaximum: 1,
@@ -995,7 +1032,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 407,
+      key: 409,
       name: '权限申请-取消',
       matchRoot: true,
       actionMaximum: 1,
@@ -1039,12 +1076,12 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[text="跳过"][clickable=true] - * [text$="跳转至详情页"]',
-            '@[text~="跳过 [0-9]"][clickable=true] + * > [text^="点击"]',
-            '@[text~="[0-9] \\\\| 跳过"][clickable=true] + * [text="点击按钮了解更多"]',
+            '@[text~="跳过 [0-9]+"][clickable=true] + * > [text^="点击"]',
+            '@[text~="[0-9]+ \\\\| 跳过"][clickable=true] + * [text="点击按钮了解更多"]',
             '@ImageView < ViewGroup < * - * [text="向上滑动"] + [text="跳转至详情页或第三方应用"]',
             '@ImageView < ViewGroup < * + * [text="上滑或点击"] + [text="跳转至详情页或第三方应用"]',
             '@[vid="ms_skipView"] + [vid="ms_shakeRoot"] > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
-            '@[text="跳过"] < FrameLayout[getChild(1).text~="[0-9]"] + [getChild(0).text="上滑或点击"] > [text="跳转详情或第三方应用"]',
+            '@[text="跳过"] < FrameLayout[getChild(1).text~="[0-9]+"] + [getChild(0).text="上滑或点击"] > [text="跳转详情或第三方应用"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
