@@ -941,7 +941,7 @@ export default defineGkdApp({
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
             '.vip.ui.VipWebActivity',
-            '.login.view.LoginActivity,
+            '.login.view.LoginActivity',
           ],
         },
       ],
