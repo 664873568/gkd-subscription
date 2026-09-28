@@ -170,7 +170,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,5],
+          preKeys: [2, 5],
           key: 3,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
@@ -231,7 +231,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,4],
+          preKeys: [1, 4],
           key: 2,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
@@ -317,7 +317,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,6],
+          preKeys: [3, 6],
           key: 4,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
