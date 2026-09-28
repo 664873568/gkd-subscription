@@ -170,7 +170,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
+          preKeys: [2,5],
           key: 3,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
@@ -179,6 +179,26 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          actionDelay: 6000,
+          anyMatches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
+            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+          ],
+        },
+        {
+          preKeys: [5],
+          key: 6,
+          excludeMatches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
           matches: [
             '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="查看我的金币"]',
           ],
@@ -211,7 +231,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [1,4],
           key: 2,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
@@ -220,6 +240,26 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          actionDelay: 6000,
+          anyMatches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
+            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          excludeMatches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
           matches: [
             '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="查看我的金币"]',
           ],
@@ -277,7 +317,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3],
+          preKeys: [3,6],
           key: 4,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
@@ -286,6 +326,26 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [5],
+          key: 6,
+          actionDelay: 6000,
+          anyMatches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
+            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+          ],
+        },
+        {
+          preKeys: [6],
+          key: 7,
+          excludeMatches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
           matches: [
             '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="查看我的金币"]',
           ],
@@ -319,6 +379,74 @@ export default defineGkdApp({
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
             '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+          ],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '财顾-领金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          preKeys: [2],
+          key: 0,
+          matches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
+          ],
+          activityIds: ['.launcher.LauncherActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
+          activityIds: ['.launcher.LauncherActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          actionDelay: 6000,
+          anyMatches: [
+            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
+            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+          ],
+          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+        },
+      ],
+    },
+    //金价狂飙 天天攒金
+    {
+      key: 20,
+      name: '金价狂飙 天天攒金',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.suning.webview.H5SystemBaseActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="taskList"] > ListView > @View[clickable=true] > [text="做任务"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          actionDelay: 11000,
+          matches: [
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n TextView[vid="title"]', //浏览定期理财-浏览自选页
           ],
         },
       ],
