@@ -873,9 +873,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          position:{
-            left:'width*0.925',
-            top:'height*0.105',
+          position: {
+            left: 'width*0.925',
+            top: 'height*0.105',
           },
           matches: [
             'ViewGroup < ViewGroup < ComposeView < FrameLayout < [vid="fl_login"]',
