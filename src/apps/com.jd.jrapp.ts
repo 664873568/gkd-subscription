@@ -537,7 +537,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            'TextView - @TextView[clickable=true] < View < View < [id="joyai-root"] < View < [text="JoyAI"] < b40 < [vid="webview"]',//逛测财运智能体
+            'TextView - @TextView[clickable=true] < View < View < [id="joyai-root"] < View < [text="JoyAI"] < b40 < [vid="webview"]', //逛测财运智能体
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
