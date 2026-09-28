@@ -48,7 +48,7 @@ export default defineGkdApp({
         {
           key: 1,
           excludeMatches: [
-            '@ImageView[clickable=true] + FrameLayout >n ViewGroup >n FrameLayout[clickable=true] > TextView,
+            '@ImageView[clickable=true] + FrameLayout >n ViewGroup >n FrameLayout[clickable=true] > TextView',
           ],
           matches: [
             '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
