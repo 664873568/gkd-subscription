@@ -173,41 +173,48 @@ export default defineGkdApp({
           ],
           activityIds: [
             '.live.LiveDummyActivity', //逛商城福利
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0', //浏览行情信息
           ],
         },
         {
           key: 1,
+          matches: [
+            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="关闭"][clickable=true]',
+          ],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0', //浏览行情信息
+          ],
+        },
+        {
+          key: 2,
           matches: [
             'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [1],
-          key: 2,
+          key: 3,
           matches: [
             '@[desc="关闭"][clickable=true] + [text="先加入自选，行情来了不错过"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [1, 2],
-          key: 3,
+          preKeys: [2, 3],
+          key: 4,
           matches: [
             'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1, 3],
-          key: 4,
+          preKeys: [0, 1, 2,4],
+          key: 5,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup', //开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView', //开心收下
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -240,7 +247,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup', //开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView', //开心收下
           ],
         },
       ],
