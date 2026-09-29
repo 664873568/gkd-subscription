@@ -1539,7 +1539,7 @@ export default defineGkdApp({
           matches: [
             '[text="温馨提示"][vid="txt_confirmdialog_title"] < * +n [vid="dialog_footer"] > [text="不同意并退出"][vid="dialog_button_cancel"] + @[text="同意"][vid="dialog_button_confirm"][clickable=true]',
           ],
-          activityIds: ['null],
+          activityIds: ['null'],
         },
       ],
     },
