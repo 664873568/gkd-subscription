@@ -441,7 +441,7 @@ export default defineGkdApp({
     //赚抽奖次数
     {
       key: 30,
-      name: '签到领现金-签到',
+      name: '签到领现金',
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
@@ -456,13 +456,13 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 0,
+          key: 1,
           matches: [
             '[getChild(2).text="7d6bb8a04b362178"] + [getChild(0).text^="签到成功"] > @[text="开心收下"][clickable=true]',
           ],
         },
         {
-          key: 1,
+          key: 2,
           excludeMatches: [
             '@[getChild(0).text^="返回"][clickable=true] - * [text="readMissionDown"]',
           ],
