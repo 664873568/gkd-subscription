@@ -380,9 +380,9 @@ export default defineGkdApp({
             left: 'width * 0.93',
             top: 'height * 0.85',
           },
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
-            '@[id="android:id/content"] > ComposeView > ViewGroup > ViewGroup',
+            'ViewGroup < ViewGroup < ComposeView < @[id="android:id/content"]',
           ],
           activityIds: ['.home.view.assistant.activity.CleanUpClusterActivity'],
         },
