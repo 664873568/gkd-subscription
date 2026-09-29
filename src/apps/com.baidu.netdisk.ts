@@ -1231,7 +1231,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5,6],
+          preKeys: [5, 6],
           key: 7,
           action: 'back',
           matches: [
