@@ -38,10 +38,18 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: [
+          key: 0,
+          matches: [
             '[text="个人信息保护指引"] +n @[text="同意"][clickable=true]',
           ],
           activityIds: ['null'],
+        },
+        {
+          key: 1,
+          matches: [
+            '[text="个人信息保护指引"] +n @FrameLayout[clickable=true] > [text="同意"][desc="同意，按钮"]',
+          ],
+          activityIds: ['.activity.MainActivity'],
         },
       ],
     },
