@@ -1730,6 +1730,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 103,
+          excludeMatches: ['[text~="浏览完成|正在浏览"]'],
           actionDelay: 2000,
           matches: [
             '[id="J_ui-div"] > [id="app"] > View > View > @View[clickable=true] > View > [text="喂食10次"]',
