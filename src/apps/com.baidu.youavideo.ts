@@ -308,7 +308,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][index=0] + @[vid="itemView"][clickable=true]',
+            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][index=0] + [vid="itemView"] > @ImageView[clickable=true]',
           ],
           activityIds: [
             '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
