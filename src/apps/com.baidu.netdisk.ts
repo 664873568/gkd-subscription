@@ -670,6 +670,12 @@ export default defineGkdApp({
             'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
           ],
         },
+        {
+          key: 3,
+          matches: [
+            'ImageView < FrameLayout < @FrameLayout + LinearLayout > FrameLayout > [text="查看详情"]',
+          ],
+        },
       ],
     },
     {
@@ -719,35 +725,6 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 65,
-      name: '看视频-奖励将于*秒后发放-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            'ImageView < FrameLayout < @FrameLayout + * [text="查看详情"]',
-          ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
-        },
-      ],
-    },
-    {
-      key: 66,
-      name: '看视频-新人专享福利-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@ImageView - [text="新人专享福利"]'],
-          activityIds: ['com.qq.e.ads.ADActivity'],
-        },
-      ],
     },
     //看视频-.platform.business.incentive.advertise.ui.AdvertiseActivity
     {
