@@ -121,7 +121,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '[id="task-loader"] > [id="J-save-wrap"] > @View[clickable=true] > [text="领取金币"]',
+            '[id="task-loader"] > [id="J-save-wrap"] > View > [id="J-reward-list"] > View > @[text="点击领取"][clickable=true]',
             '[id="task-loader"] > [id="J-save-wrap"] > View > [id="J-reward-list"] + View > View > @View[clickable=true] > [text="点击领取"]',
           ],
         },
@@ -685,35 +685,7 @@ export default defineGkdApp({
     //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
     {
       key: 50,
-      name: '看视频--跳过-我要免看本次广告',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="我要免看本次广告"] <<n * [text="跳过"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 51,
-      name: '看视频-跳过-点击下载免看广告',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 30000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="点击下载免看广告"] <<n * [text="跳过"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 52,
-      name: '看视频-跳过-礼包-下载app/看*秒可直接拿奖励',
+      name: '看视频-跳过-礼包-下载app/看*秒可直接拿奖励-kwad',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -721,64 +693,62 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@[text="点击下载拿奖励"][clickable=true] <<n * [text="下载app可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"]',
-            '@[text~="点击下载拿奖励|点击跳转拿奖励"][clickable=true] <<n * [text~="看[0-9]+秒可直接拿奖励"] - ImageView < * + [desc="skip_button"] [text="跳过"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'back',
-          actionDelay: 16000,
           matches: [
-            '@[id$="ksad_kwad_web_navi_back"] + [id$="ksad_kwad_web_navi_close"] + [id$="ksad_kwad_titlebar_title"]',
+            '[text="跳过"] < ViewGroup < [desc="skip_button"] - [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] < * < * < * - * @[text="点击下载免看广告" || text="点击下载拿奖励" || text="点击跳转拿奖励" || text="我要免看本次广告"][clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1],
+          key: 1,
+          matches: [
+            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] < ViewGroup - [getChild(0).desc="gift_box"] < * < * < * - * [text="已完成任务"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '看视频-跳过-礼包-立即获取-*s-kwad',
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',],
+      rules: [
+        {
+          key: 0,
+          action: 'none',
+          matches: [
+            '@[getChild(0).getChild(0).text~="[0-9]+"] + * > [getChild(0).getChild(0).text="立即获取"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '[desc="auto_call_view"] > [desc="auto_call_close_button"] > @[text="不用了"][clickable=true]',
+          ],
+        },
+        {
           key: 2,
           matches: [
-            '@[text="残忍离开"] +n [text="留下看看"] <n * -n [text="真的不再看看了吗？"]',
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="免费获取" || text="立即获取"]',
           ],
         },
         {
-          preKeys: [0, 1, 2],
           key: 3,
-          matches: ['@[text="跳过"][clickable=true] <<n * [desc="gift_box"]'],
+          matches: [
+            '@[id$="ksad_end_close_btn"][clickable=true] - [text="免费获取"] < * - * > [id$="ksad_end_reward_icon"]',
+          ],
         },
-      ],
-    },
-    {
-      key: 53,
-      name: '看视频-礼包-×k',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
-          matches: ['ImageView < @ViewGroup <n * + * [desc="gift_box"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+          key: 4,
+          matches: [
+            '[desc="compliance-easy-playable_scene1_maskView"] +n @[desc="compliance-easy-playable_scene1_iconView"][clickable=true]',
+          ],
         },
       ],
     },
     {
-      key: 54,
-      name: '看视频-礼包-跳过',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@[text="跳过"][clickable=true] <<n * [desc="gift_box"]'],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 55,
+      key: 52,
       name: '看视频-跳过-立即领取/立即获取',
       matchRoot: true,
       matchDelay: 1000,
@@ -800,101 +770,56 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity
     {
-      key: 56,
-      name: '看视频-礼包-跳过-立即获取',
+      key: 60,
+      name: '看视频-跳过-礼包-下载app/看*秒可直接拿奖励kwad.Scape',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+      activityIds: ['com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity'],
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           matches: [
-            '[text="点击或滑动点击下载免看广告"] < @[desc="compliance-easy-playable_scene3_actionBtn"][clickable=true] <<n * [text="跳过"]',
+            '[text="跳过"] < ViewGroup < [desc="skip_button"] - [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] < * < * < * - * @[text="点击下载拿奖励" || text="点击跳转拿奖励"][clickable=true]',
           ],
         },
         {
           key: 1,
-          matches: ['@[text="跳过"][clickable=true] <<n * [desc="gift_box"]'],
-        },
-      ],
-    },
-    {
-      key: 57,
-      name: '看视频-礼包-免费获取-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 1000,
-          anyMatches: [
-            '@[id$="ksad_end_close_btn"][clickable=true] - [text="免费获取"] < * - * > [id$="ksad_end_reward_icon"]',
-            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="免费获取"]',
-          ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 58,
-      name: '看视频-礼包-立即获取-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 1000,
           matches: [
-            '@ImageView < ViewGroup < ViewGroup < [desc="close_button"] - [getChild(0).getChild(0).text="立即获取"] < * - [getChild(0).desc="gift_box"]',
+            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] < ViewGroup - [getChild(0).desc="gift_box"] < * < * < * - * [text="已完成任务"]',
           ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
         },
       ],
     },
     {
-      key: 59,
-      name: '看视频-跳过-立即获取-*sKSRV',
+      key: 61,
+      name: '看视频-跳过-礼包-立即获取-*s-kwad.Scape',
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 1000,
-          matches: [
-            '[desc="compliance-easy-playable_scene1_maskView"] +n @[desc="compliance-easy-playable_scene1_iconView"][clickable=true]',
-          ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    //看视频-com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity
-    {
-      key: 60,
-      name: '看视频-跳过-礼包-立即获取-*sKSRLSV',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
-      ],
+      activityIds: ['com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',],
       rules: [
         {
           key: 0,
           action: 'none',
           matches: [
-            '[getChild(0).getChild(0).text~="[0-9]+"] + * > [getChild(0).getChild(0).text="立即获取"] + [desc="skip_button"] > * > [text="跳过"]',
+            '@[getChild(0).getChild(0).text~="[0-9]+"] + * > [getChild(0).getChild(0).text="立即获取"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
           ],
         },
         {
           key: 1,
           matches: [
-            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="免费获取"]',
+            '[desc="auto_call_view"] > [desc="auto_call_close_button"] > @[text="不用了"][clickable=true]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="免费获取" || text="立即获取"]',
           ],
         },
       ],
@@ -963,15 +888,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="放弃福利" || text="我要更快拿奖"] < @FrameLayout <n * +n * [text^="奖励将于"]',
+          actionDelay: 1000,
+          anyMatches: [
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖" || text="放弃福利"]',
           ],
         },
         {
           key: 1,
+          actionDelay: 1000,
           anyMatches: [
             'ImageView < @FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
+            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * [text*="已完成浏览" || text="返回元宝对话"]',
           ],
         },
       ],
