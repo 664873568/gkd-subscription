@@ -451,7 +451,15 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="开心收下1"][clickable=true]'],
+          matches: [
+            '[id="popInner"] > [text="75262d7937b06910"] +n @[text^="领取今日现金"][clickable=true]',
+          ],
+        },
+        {
+          key: 0,
+          matches: [
+            '[getChild(2).text="7d6bb8a04b362178"] + [getChild(0).text^="签到成功"] > @[text="开心收下"][clickable=true]',
+          ],
         },
         {
           key: 1,
@@ -477,6 +485,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '[id="popInner"] > [text="75262d7937b06910"] +n @[text^="领取今日现金"][clickable=true]',
+            '[getChild(2).text="7d6bb8a04b362178"] + [getChild(0).text^="签到成功"] > @[text="开心收下"][clickable=true]',
+          ],
           actionDelay: 2000,
           matches: [
             '[id="taskFloorId"] > [getChild(0).text="赚抽奖次数"] +n [getChild(0).text!~="额外.*|.*话费|.*一笔.*订单.*"] > @[text="去完成"][clickable=true]',
@@ -577,9 +589,10 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="taskFloorId"] > [getChild(0).text="赚抽奖次数"] +n [getChild(0).text!~="额外.*|.*话费|.*一笔.*订单.*"] > @[text="去完成"][clickable=true]',
+            '[id="YLBCon"] - View > View > [text="5ab97cb77eab3155"]',//抽奖中...
+            '[getChild(2).text="7d6bb8a04b362178"] + [getChild(0).text^="账户成功入账"] > @[text="开心收下"][clickable=true]',
             '@[text="close1_6723ec4261"][clickable=true]',
             '@[id="_sign_poo_10_id"][clickable=true]',
-            '@[text="开心收下"][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
@@ -597,9 +610,11 @@ export default defineGkdApp({
           matches: ['@[id="_sign_poo_10_id"][clickable=true]'],
         },
         {
-          preKeys: [2],
+          preKeys: [0,2],
           key: 3,
-          matches: ['@[text="开心收下"][clickable=true]'],
+          matches: [
+            '[getChild(2).text="7d6bb8a04b362178"] + [getChild(0).text^="账户成功入账"] > @[text="开心收下"][clickable=true]',
+          ],
         },
         {
           key: 4,
@@ -992,7 +1007,7 @@ export default defineGkdApp({
           ],
           anyMatches: [
             '[id="app"] > View > [getChild(2).text="明日0点领"] -n View > View > @View[clickable=true] > [text~="点我收蛋|兑换额度"]',
-            '[id="app"] > View > [getChild(0).getChild(2).text="明日0点领"] -n View > View > View > @View[clickable=true] > [text="点我收蛋|兑换额度"]',
+            '[id="app"] > View > [getChild(0).getChild(2).text="明日0点领"] -n View > View > View > @View[clickable=true] > [text~="点我收蛋|兑换额度"]',
           ],
         },
         {
