@@ -932,15 +932,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'none',
-          anyMatches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup',
-            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ViewGroup > ViewGroup > [desc="玩法已升级"] + ViewGroup',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
           action: 'clickCenter',
           actionDelay: 1000,
           matches: [
@@ -948,7 +939,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0],
           key: 71,
           position: {
             left: 'width*0.5',
