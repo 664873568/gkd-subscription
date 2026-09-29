@@ -763,7 +763,7 @@ export default defineGkdApp({
     //每日签到
     {
       key: 200,
-      name: '任务中心-签到成功',
+      name: '任务中心-每日签到',
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
@@ -876,10 +876,10 @@ export default defineGkdApp({
           excludeMatches: [
             'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
             'View > TextView[clickable=true] +n @[text~="我知道了|开心收下"][clickable=true]',
-            '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="领取"][clickable=true]',
+            '[getChild(0).getChild(0).text="任务中心"] +n TextView +8 @[text="领取"][clickable=true]',
           ],
           matches: [
-            '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="去完成"][clickable=true]',
+            '[getChild(0).getChild(0).text="任务中心"] +n [text~="去看看.*|每日答题|做广告任务"] +8 @[text="去完成"][clickable=true]',
           ],
         },
         {
@@ -900,13 +900,25 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            'View > TextView[clickable=true] +n @[text~="我知道了|开心收下"][clickable=true]',
+            'View > @TextView[clickable=true][clickable=true] +n [text~="我知道了|开心收下"]',
           ],
         },
         {
           key: 4,
+          excludeMatches: [
+            'View > @TextView[clickable=true][clickable=true] +n [text~="我知道了|开心收下"]',
+          ],
           matches: [
             '[getChild(0).getChild(0).text="任务中心"] + TextView +8 @[text="领取"][clickable=true]',
+          ],
+        },
+        {
+          key: 5,
+          excludeMatches: [
+            '[getChild(0).getChild(0).text="任务中心"] +n TextView +8 @[text~="领取|去完成"][clickable=true]',
+          ],
+          matches: [
+            '[text~="领取[0-9]+天累计签到奖励"] + View > View > View > @[text="点击领取"][clickable=true]',
           ],
         },
       ],
