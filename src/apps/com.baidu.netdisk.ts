@@ -1023,7 +1023,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           excludeMatches: [
             '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
             '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
@@ -1032,7 +1031,7 @@ export default defineGkdApp({
             '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
             '[text="功能任务"] + TextView +5 @[text="去完成"][clickable=true]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="日常任务"] + [text~="观看.*"] +5 @[text="去完成"][clickable=true]',
           ],
