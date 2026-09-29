@@ -90,7 +90,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+      activityIds: [
+        'com.yy.mobile.ui.common.JsSupportWebAcitivity',
+        'com.qq.e.ads.PortraitADActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -194,7 +197,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -217,6 +223,10 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -224,7 +234,6 @@ export default defineGkdApp({
             '[getChild(0).getChild(0).text="点击广告，即可获得奖励"] + * @[text="点击广告拿奖励"]',
             '[getChild(0).getChild(0).getChild(0).text="点击广告，即可获得奖励"] + * @[text="点击广告拿奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
           preKeys: [0],
@@ -233,7 +242,6 @@ export default defineGkdApp({
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
           ],
-          activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
           preKeys: [0, 1],
@@ -242,7 +250,6 @@ export default defineGkdApp({
             'ImageView < @FrameLayout <n * < * - * [text="恭喜获得奖励"]',
             'ImageView < @FrameLayout - FrameLayout[getChild(0).name$="ImageView"] - FrameLayout > [text="恭喜获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
