@@ -164,7 +164,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [1,4],
           key: 2,
           matches: [
             '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
@@ -201,7 +201,7 @@ export default defineGkdApp({
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
           ],
           matches: [
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="查看我的金币"]',
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
           ],
         },
       ],
@@ -225,7 +225,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,3],
           key: 1,
           matches: [
             '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
@@ -262,7 +262,7 @@ export default defineGkdApp({
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
           ],
           matches: [
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="查看我的金币"]',
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
           ],
         },
       ],
@@ -311,7 +311,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2],
+          preKeys: [1, 2,5],
           key: 3,
           matches: [
             '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
@@ -348,7 +348,7 @@ export default defineGkdApp({
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
           ],
           matches: [
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text="查看我的金币"]',
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
           ],
         },
       ],
