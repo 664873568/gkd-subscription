@@ -1203,7 +1203,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           anyMatches: [
             '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][focusable=true]',
@@ -1362,7 +1362,7 @@ export default defineGkdApp({
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
         {
-          preKeys: [5,6],
+          preKeys: [5, 6],
           key: 7,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
