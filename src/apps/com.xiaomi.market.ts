@@ -46,7 +46,10 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[desc="关闭"][vid="iv_close"]'],
-          activityIds: ['.business_ui.main.MarketTabActivity','.ui.UpdateListActivity',],
+          activityIds: [
+            '.business_ui.main.MarketTabActivity',
+            '.ui.UpdateListActivity',
+          ],
         },
       ],
     },
