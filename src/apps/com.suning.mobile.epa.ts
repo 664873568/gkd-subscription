@@ -33,6 +33,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '@View[clickable=true] > View > [getChild(0).getChild(0).text!~="去中国移动领话费"] + View > [text="去完成"]',
           ],
@@ -42,7 +43,7 @@ export default defineGkdApp({
           key: 1,
           anyMatches: [
             '[getChild(2).text^="快影APP下载"] + [vid="layout_system_webview_frameLayout"] >n @View[clickable=true] > [text="立即下载App"]', //去快影APP赚奖励
-            '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] > @View[clickable=true]', //去虎牙看游戏直播
+            '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] >n [id="root"] > @View[clickable=true]', //去虎牙看游戏直播
             '[getChild(2).text="签到领半价洗车"] + [vid="layout_system_webview_frameLayout"] >n @TextView[clickable=true]', //去汽车之家领车币
             '[getChild(2).text="体验丰巢APP比价返现"] + [vid="layout_system_webview_frameLayout"] >n @[id="loadbtn"][clickable=true]', //去丰巢领现金奖励
           ],
