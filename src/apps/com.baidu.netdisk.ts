@@ -927,7 +927,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
             '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
-            '[text="日常任务"] + TextView +5 @[text="领取"][clickable=true]',
+            'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
@@ -962,8 +962,9 @@ export default defineGkdApp({
         },
         {
           key: 4,
+          actionDelay: 2000,
           matches: [
-            '[text="日常任务"] + TextView +5 @[text="领取"][clickable=true]',
+            'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
         },
       ],
@@ -1009,9 +1010,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           excludeMatches: [
-            '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
+            '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
             '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+            'TextView + TextView +5 @[text="领取"][clickable=true]',
+            '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
+            '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
+            '[text="功能任务"] + TextView +5 @[text="去完成"][clickable=true]',
           ],
           actionDelay: 1000,
           matches: [
@@ -1037,7 +1043,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
             '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
-            '[text="最新AI功能"] + TextView +5 @[text="领取"][clickable=true]',
+            'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
           matches: [
             '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
@@ -1049,9 +1055,9 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
-            '[text="最新AI功能"] + TextView +5 @[text="领取"][clickable=true]',
+            'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
         },
       ],
@@ -1178,6 +1184,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        '.ocr.OCRTakePhotoActivity',
+        '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
+      ],
       rules: [
         {
           preKeys: [0, 1],
@@ -1186,16 +1196,12 @@ export default defineGkdApp({
             '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][focusable=true]',
             '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"][clickable=true]',
           ],
-          activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
         {
           preKeys: [1],
           key: 2,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
-          ],
-          activityIds: [
-            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
           ],
         },
         {
@@ -1208,9 +1214,6 @@ export default defineGkdApp({
           matches: [
             '@ImageView[clickable=true] + [desc="自动消除"] + [desc="手动消除"]',
           ],
-          activityIds: [
-            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
-          ],
         },
         {
           preKeys: [3],
@@ -1218,17 +1221,11 @@ export default defineGkdApp({
           matches: [
             '@[desc="确认退出"][clickable=true] - [desc="再考虑下"] < * - [desc="提示"]',
           ],
-          activityIds: [
-            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
-          ],
         },
         {
           preKeys: [5],
           key: 6,
           matches: ['@ImageView[clickable=true] +2 [desc="保存"]'],
-          activityIds: [
-            '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
-          ],
         },
         {
           preKeys: [5, 6],
@@ -1237,7 +1234,6 @@ export default defineGkdApp({
           matches: [
             '@[vid="ocr_bottom_image"] < [vid="bottom_image_container"]',
           ],
-          activityIds: ['.ocr.OCRTakePhotoActivity'],
         },
       ],
     },
@@ -1400,7 +1396,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
             '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
-            '[text="功能任务"] + TextView +5 @[text="领取"][clickable=true]',
+            'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
@@ -1440,8 +1436,9 @@ export default defineGkdApp({
         },
         {
           key: 4,
+          actionDelay: 2000,
           matches: [
-            '[text="功能任务"] + TextView +5 @[text="领取"][clickable=true]',
+            'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
           activityIds: [
             '.ui.cloudp2p.RichMediaActivity',
