@@ -207,7 +207,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1, 2,4],
+          preKeys: [0, 1, 2, 4],
           key: 5,
           position: {
             left: 'width * 0.5',
@@ -893,7 +893,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,5],
+          preKeys: [3, 5],
           key: 4,
           name: '明天0点可领-返回',
           matches: [

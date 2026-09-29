@@ -164,7 +164,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,4],
+          preKeys: [1, 4],
           key: 2,
           matches: [
             '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
@@ -225,7 +225,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 1,
           matches: [
             '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
@@ -293,7 +293,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 2,
           swipeArg: {
             start: {
@@ -311,7 +311,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2,5],
+          preKeys: [1, 2, 5],
           key: 3,
           matches: [
             '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',

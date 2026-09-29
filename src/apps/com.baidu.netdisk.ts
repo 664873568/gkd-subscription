@@ -976,9 +976,7 @@ export default defineGkdApp({
         {
           key: 4,
           actionDelay: 2000,
-          matches: [
-            'TextView + TextView +5 @[text="领取"][clickable=true]',
-          ],
+          matches: ['TextView + TextView +5 @[text="领取"][clickable=true]'],
         },
       ],
     },
@@ -1068,9 +1066,7 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 2000,
-          matches: [
-            'TextView + TextView +5 @[text="领取"][clickable=true]',
-          ],
+          matches: ['TextView + TextView +5 @[text="领取"][clickable=true]'],
         },
       ],
     },
@@ -1450,9 +1446,7 @@ export default defineGkdApp({
         {
           key: 4,
           actionDelay: 2000,
-          matches: [
-            'TextView + TextView +5 @[text="领取"][clickable=true]',
-          ],
+          matches: ['TextView + TextView +5 @[text="领取"][clickable=true]'],
           activityIds: [
             '.ui.cloudp2p.RichMediaActivity',
             '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
