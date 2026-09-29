@@ -694,7 +694,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="跳过"] < ViewGroup < [desc="skip_button"] - [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] < * < * < * - * @[text="点击下载免看广告" || text="点击下载拿奖励" || text="点击跳转拿奖励" || text="我要免看本次广告"][clickable=true]',
+            '[text="跳过"] < ViewGroup < [desc="skip_button"] - [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] < * < * < * - * @[text="点击下载免看广告" || text="点击下载拿奖励" || text="点击跳转拿奖励"][clickable=true]',
           ],
         },
         {
@@ -718,9 +718,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'none',
           matches: [
-            '@[getChild(0).getChild(0).text~="[0-9]+"] + * > [getChild(0).getChild(0).text="立即获取"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
+            '@[text~="我要免看本次广告|知道了.*"][desc="dialog_action_button"][clickable=true] < * <n * < * < * + * [getChild(0).getChild(0).name~=".*TextView|.*ImageView"] + * > [desc="skip_button"] > ViewGroup > [text="跳过"]',
           ],
         },
         {
@@ -732,17 +731,23 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="免费获取" || text="立即获取"]',
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="免费获取"]',
           ],
         },
         {
           key: 3,
           matches: [
-            '@[id$="ksad_end_close_btn"][clickable=true] - [text="免费获取"] < * - * > [id$="ksad_end_reward_icon"]',
+            '[getChild(0).desc="gift_box"] + * > [getChild(0).getChild(0).text="立即获取"] + [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
           ],
         },
         {
           key: 4,
+          matches: [
+            '@[id$="ksad_end_close_btn"][clickable=true] - [text="免费获取"] < * - * > [id$="ksad_end_reward_icon"]',
+          ],
+        },
+        {
+          key: 5,
           matches: [
             '[desc="compliance-easy-playable_scene1_maskView"] +n @[desc="compliance-easy-playable_scene1_iconView"][clickable=true]',
           ],
