@@ -694,6 +694,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionDelay: 1000,
           matches: [
             'RelativeLayout > LinearLayout > @ImageView[clickable=true] - * [text="恭喜获得奖励！"]',
           ],
@@ -1203,6 +1204,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
+          actionDelay: 2000,
           matches: [
             '@ImageView[clickable=true] + [desc="自动消除"] + [desc="手动消除"]',
           ],
@@ -1229,7 +1231,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6],
+          preKeys: [5,6],
           key: 7,
           action: 'back',
           matches: [
