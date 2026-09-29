@@ -253,7 +253,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="去完成"][clickable=true]'],
+          actionDelay: 2000,
+          matches: [
+            '[text="国庆免费看"] >n TextView +2 @[text="去完成"][clickable=true]',
+          ],
           activityIds: [
             'com.baidu.browser.search.LightSearchActivity',
             'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
@@ -274,7 +277,6 @@ export default defineGkdApp({
       name: '国庆免费看-抽10次',
       matchRoot: true,
       matchDelay: 1000,
-      actionMaximum: 20,
       resetMatch: 'activity',
       activityIds: [
         'com.baidu.browser.search.LightSearchActivity',
@@ -283,7 +285,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['@[text="去完成"][clickable=true]'],
+          excludeMatches: [
+            '[text="国庆免费看"] >n TextView +2 @[text="去完成"][clickable=true]',
+            '@[text="close6"][clickable=true] + [text="draw-card-title-bg"] + [text="获得10张纪念票"]',
+          ],
+          actionDelay: 2000,
           matches: [
             '@View[clickable=true] + [text~="剩余抽纪念票次数：[1-9][0-9]+ 次"]',
           ],
@@ -291,7 +297,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: [
             '@[text="close6"][clickable=true] + [text="draw-card-title-bg"] + [text="获得10张纪念票"]',
           ],
