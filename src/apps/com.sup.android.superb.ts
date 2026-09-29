@@ -14,7 +14,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
             '[getChild(0).text="个人信息保护指引"] + LinearLayout > [text="不同意"] + @[text="同意"][clickable=true]',
           ],
@@ -31,7 +30,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
           matches: [
             '[text="开启推送通知"] +n LinearLayout > @[text="以后再说"][clickable=true] + [text="马上开启"][clickable=true]',
           ],
