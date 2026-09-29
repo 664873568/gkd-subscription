@@ -49,11 +49,11 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            'View[childCount=3] > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
+            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
           ],
           actionDelay: 2000,
           matches: [
-            'View[childCount=2] > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"&&getChild(2).text!^="已领"] + [text!~="去中国移动逛逛"]',
+            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"&&getChild(2).text!^="已领"] + [text!~="去中国移动逛逛"]',
           ],
         },
         {
@@ -90,7 +90,7 @@ export default defineGkdApp({
           key: 5,
           actionDelay: 2000,
           matches: [
-            'View[childCount=3] > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
+            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
           ],
         },
       ],
