@@ -964,14 +964,14 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="放弃福利" || text="我要更快拿奖"] < FrameLayout <n * +n * [text^="奖励将于"]',
+            '[text="放弃福利" || text="我要更快拿奖"] < @FrameLayout <n * +n * [text^="奖励将于"]',
           ],
         },
         {
           key: 1,
           anyMatches: [
-            '@ImageView < FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
+            'ImageView < @FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
           ],
         },
       ],
