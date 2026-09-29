@@ -828,6 +828,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionDelay: 1000,
           matches: [
             '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
           ],
