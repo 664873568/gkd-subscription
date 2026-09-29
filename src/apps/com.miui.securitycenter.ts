@@ -159,6 +159,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 16000,
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] < [vid="button_scroll_view"] -n * [text="启动应用"][vid="permission_group_title"]',
           ],
