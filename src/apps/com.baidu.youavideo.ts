@@ -161,7 +161,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 1000,
-          matches: ['@[vid="btn_create_album"][clickable=true]'],
+          matches: [
+            '[text="云空间相册"][vid="tv_cloud_album"] + @[text="新建"][vid="tv_create_album"][clickable=true]',
+          ],
           activityIds: ['.home.view.HomeActivity'],
         },
         {
