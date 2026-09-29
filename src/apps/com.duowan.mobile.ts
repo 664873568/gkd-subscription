@@ -23,6 +23,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           matches: ['View > View > @[text="确认提现"][clickable=true]'],
         },
@@ -124,7 +125,7 @@ export default defineGkdApp({
             '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
@@ -260,9 +261,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           anyMatches: [
-            '@[text="放弃福利"] < FrameLayout <n * < * +n * [text^="奖励将于"]',
-            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text^="奖励将于"]',
-            '@[text="扭动/点击去玩小游戏提前拿奖"] <n LinearLayout < FrameLayout <n * +n * [text^="奖励将于"]',
+            '[text="放弃福利" || text="我要更快拿奖"] < @FrameLayout <n * +n * [text^="奖励将于"]',
             'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
           ],
         },
@@ -284,7 +283,6 @@ export default defineGkdApp({
             'ImageView < @FrameLayout <n * < * - * [text="恭喜获得奖励"]',
             'ImageView < @FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
             'ImageView < @FrameLayout < FrameLayout - LinearLayout > LinearLayout > [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="继续"]', //恭喜获得奖励
             'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
           ],
         },
