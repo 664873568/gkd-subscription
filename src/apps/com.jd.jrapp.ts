@@ -660,6 +660,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[id="taskFloorId"] > [text="赚更多现金"] +n [getChild(0).text~="逛.*|去.*"] > @[text="去完成"][clickable=true]',
           ],
+          actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="提现"]',
           ],
