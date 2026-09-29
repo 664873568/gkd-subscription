@@ -43,7 +43,7 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '[id="Page_layout_scroll"] >n View > View[ getChild(1).name$="TextView"] + TextView[text!~="去打车|买一笔|去上传|已完成"]',
+            '[id="Page_layout_scroll"] >n View > View[ getChild(4).name$="TextView"] + TextView[text!~="去打车|买一笔|去上传|已完成"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -749,6 +749,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '看视频*秒领',
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > @[desc="看视频"] + [desc~="[0-9]+"] + [desc="秒"] + [desc="领"] + [desc="直接领"]',
           ],
@@ -757,6 +758,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 1,
+          name: '看*秒领预约奖励',
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -779,6 +781,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          name: '点击领预约奖励',
           action: 'clickCenter',
           anyMatches: [
             '@[text="点击领预约奖励"]',
@@ -789,6 +792,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          name: '领取金币',
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="领取金币"]',
           ],
@@ -797,6 +801,7 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
+          name: '开心收下',
           matches: [
             '[getChild(0).desc="金币领取成功"] +n ViewGroup > @[desc="开心收下"]',
           ],
@@ -805,14 +810,16 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
+          name: '立即预约领金币',
           matches: [
-            'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup', //立即预约领金币
+            'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [5],
           key: 6,
+          name: '立即预约领取',
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
           ],
@@ -821,16 +828,18 @@ export default defineGkdApp({
         {
           preKeys: [6],
           key: 7,
+          name: '恭喜预约成功',
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView', //恭喜预约成功×
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [7],
           key: 8,
+          name: '恭喜获得惊喜奖励',
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView', //恭喜获得惊喜奖励×
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -846,41 +855,57 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '立即领取',
           excludeMatches: [
-            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
+            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup',
           ],
           action: 'clickCenter',
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
-          actionDelay: 1000,
           matches: [
-            '@HorizontalScrollView > LinearLayout > ViewGroup[childCount=6][index=1 || index=3]', //立即领取
+            '@HorizontalScrollView > LinearLayout > ViewGroup[childCount=6][index=1 || index=3]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 1000,
+          name: '金币领取成功',
           matches: [
-            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup', //金币领取成功-看广告再赚-开心收下
+            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup',
           ],
         },
         {
           preKeys: [1],
           key: 2,
-          actionDelay: 1000,
+          name: '选择你的惊喜奖励',
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup[childCount=4] > @ViewGroup[index=2] > FrameLayout > View', //选择你的惊喜奖励-选我
+            'HorizontalScrollView > LinearLayout > ViewGroup[childCount=4] > @ViewGroup[index=2] > FrameLayout > View',
           ],
         },
         {
           preKeys: [2],
           key: 3,
-          actionDelay: 1000,
+          name: '金币预约成功',
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > ViewGroup + @ImageView', //金币预约成功-我知道了-×
+            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > ViewGroup + @ImageView',
+          ],
+        },
+        {
+          preKeys: [3，5],
+          key: 4,
+          name: '明天0点可领-返回',
+          matches: [
+            'ViewGroup - ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ViewGroup > [desc="明天0点可领"]',
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          name: '提醒我来领-返回',
+          matches: [
+            'ScrollView > HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > ViewGroup + ImageView',
           ],
         },
       ],
