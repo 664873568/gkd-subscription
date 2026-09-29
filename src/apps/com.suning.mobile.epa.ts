@@ -50,7 +50,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 3000,
+          actionDelay: 5000,
           matches: [
             '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [vid="title"] + [vid="webview_title_line"]',
           ],
@@ -438,13 +438,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
           actionDelay: 11000,
           matches: [
             '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n TextView[vid="title"]', //浏览定期理财-浏览自选页
