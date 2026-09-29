@@ -16,14 +16,14 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="我的月付金"] >n @View[clickable=true] > [text="签到可得"]',
+            '[id="Page_layout_scroll"] >n @View[clickable=true] > [text="签到可得"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="我的月付金"] >n [text="签到成功 月付金"] +n @ImageButton[clickable=true]',
+            '[id="Page_layout_scroll"] >n [text="签到成功 月付金"] +n @ImageButton[clickable=true]',
           ],
         },
       ],
@@ -38,12 +38,12 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="我的月付金"] >n @View[clickable=true] > [text="签到可得"]',
-            '[text="我的月付金"] >n [text="签到成功 月付金"] +n @ImageButton[clickable=true]',
+            '[id="Page_layout_scroll"] >n @View[clickable=true] > [text="签到可得"]',
+            '[id="Page_layout_scroll"] >n [text="签到成功 月付金"] +n @ImageButton[clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
-            '[text="我的月付金"] >n View > View[ getChild(1).name$="TextView"] + TextView[text!~="去打车|买一笔|去上传|已完成"]',
+            '[id="Page_layout_scroll"] >n View > View[ getChild(1).name$="TextView"] + TextView[text!~="去打车|买一笔|去上传|已完成"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -132,33 +132,6 @@ export default defineGkdApp({
         {
           key: 0,
           position: {
-            left: 'width * 0.835',
-            top: 'height * 0.185',
-          },
-          matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView + ViewGroup + ViewGroup + ViewGroup + ImageView', //立即签到
-          ],
-          activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
-          ],
-        },
-        {
-          key: 1,
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 0.8',
-          },
-          anyMatches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>1] > ImageView', //签到领
-            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup[childCount>1] > ImageView',
-          ],
-          activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
-          ],
-        },
-        {
-          key: 2,
-          position: {
             left: 'width * 0.5',
             top: 'height * 0.43',
           },
@@ -170,14 +143,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
-          key: 3,
+          preKeys: [0],
+          key: 1,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>1] > ImageView', //开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>=1] > ViewGroup', //开心收下
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -234,7 +207,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView', //开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup', //开心收下
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -267,7 +240,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView', //开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup', //开心收下
           ],
         },
       ],
@@ -287,7 +260,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="立即领取"] < View <n View -n [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
+            '[getChild(1).text="连续签到领好礼"] + View > @View[clickable=true] > [text="立即领取"]',
           ],
         },
         {
@@ -395,7 +368,6 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
           matches: [
             'View > @[desc="关闭"][clickable=true] + View > [text="我知道了"]',
           ],
@@ -415,7 +387,6 @@ export default defineGkdApp({
           preKeys: [3],
           key: 4,
           action: 'back',
-          actionDelay: 5000,
           matches: [
             'FrameLayout > ViewGroup > ViewGroup - ViewGroup - ViewGroup > ViewGroup + @ViewGroup',
           ],
@@ -482,7 +453,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 5000,
           matches: [
-            '[text="我的月付金"] >n View[clickable=true] > @Button[clickable=true]',
+            '[id="Page_layout_scroll"] > View > View > @Button[clickable=true]',
           ],
         },
         {
@@ -530,7 +501,6 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           action: 'back',
-          actionDelay: 5000,
           matches: [
             'FrameLayout > ViewGroup > ViewGroup - ViewGroup - ViewGroup > ViewGroup + @ViewGroup',
           ],
