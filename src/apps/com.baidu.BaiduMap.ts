@@ -712,7 +712,9 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',],
+      activityIds: [
+        'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -777,7 +779,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity'],
+      activityIds: [
+        'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -801,7 +805,9 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',],
+      activityIds: [
+        'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
+      ],
       rules: [
         {
           key: 0,
