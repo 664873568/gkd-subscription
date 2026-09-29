@@ -194,7 +194,7 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            '@[desc="关闭"][clickable=true] + [text="先加入自选，行情来了不错过"]',
+            '@[desc="关闭"][clickable=true] + [text="先加入自选,行情来了不错过"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -349,7 +349,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
+            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用,确认离开吗"]',
           ],
         },
       ],
@@ -725,7 +725,7 @@ export default defineGkdApp({
           name: '看1次短视频*3',
           action: 'clickCenter',
           actionDelay: 1000,
-          matches: ['@ImageView < [desc="任务完成 返回领取，关闭，按钮"]'],
+          matches: ['@ImageView < [desc="任务完成 返回领取,关闭,按钮"]'],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
         {
@@ -893,7 +893,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3，5],
+          preKeys: [3,5],
           key: 4,
           name: '明天0点可领-返回',
           matches: [
