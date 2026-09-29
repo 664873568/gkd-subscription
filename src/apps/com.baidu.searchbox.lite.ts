@@ -4,12 +4,52 @@ export default defineGkdApp({
   id: 'com.baidu.searchbox.lite',
   name: '百度极速版',
   groups: [
+    //天天赚
+    {
+      key: 0,
+      name: '天天赚-免费红包',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.searchbox.MainActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).text="订阅金币通知"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '[getChild(1).text="恭喜获得"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '[getChild(0).text="打卡白拿20元"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '@TextView[clickable=true] + [text="添加赚钱助手 提醒您每日赚金币"]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '@TextView[clickable=true] + [text="添加赚钱助手 提醒您每日赚金币"]',
+          ],
+        },
+      ],
+    },
     //26.05.25开始 每日福利-每日开红包得奖励
     {
       key: 10,
       name: '每日福利-免费红包',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -25,9 +65,8 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '每日福利-看广告', //*s后可领取奖励
+      name: '每日福利-看广告*个', //*s后可领取奖励
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -44,7 +83,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@ImageView[clickable=true] - [text="广告"] - * [text~="已完成任务|已领取1金币"]',
+            '@ImageView[clickable=true] - [text="广告"] - * [text="已完成任务" || text="已领取1金币"]',
           ],
           activityIds: [
             'com.baidu.nadcore.lp.reward.NadRewardVideoActivity',
@@ -52,7 +91,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '[text="再看一个领取更多福利"][clickable=true] + LinearLayout > FrameLayout > @[text="残忍离开"][clickable=true]',
@@ -85,6 +124,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0,1],
           key: 1,
           swipeArg: {
             start: {
@@ -107,6 +147,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [1],
           key: 2,
           matches: [
             '@ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text="点击领取\\n1个红包"]',
@@ -131,13 +172,14 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '@[text~="去完成|继续看"][clickable=true] -2 [text="看[0-9]+分钟视频得1个红包"]',
+            '@[text~="去完成|继续看"][clickable=true] -2 [text~="看[0-9]+分钟视频得1个红包"]',
           ],
           activityIds: [
             'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
           ],
         },
         {
+          preKeys: [0,1],
           key: 1,
           swipeArg: {
             start: {
@@ -160,6 +202,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [1],
           key: 2,
           matches: [
             '@ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text="点击领取\\n1个红包"]',
@@ -182,7 +225,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['[text="去完成"][clickable=true]'],
+          excludeMatches: [
+            '[text="去完成"][clickable=true]',
+            '@[text="开心收下"][clickable=true] < * -n * [text="恭喜获得现金红包"]',
+          ],
+          actionDelay: 2000,
           matches: [
             '[text="达到20元立即提现"] +n * > @View[clickable=true] + [text="提升幸运"][clickable=true]',
           ],
@@ -190,19 +237,17 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
             '@[text="开心收下"][clickable=true] < * -n * [text="恭喜获得现金红包"]',
           ],
         },
       ],
     },
-    //26.07.23-26.09.11 暑期免费看
+    //26.09.24-26.10.08 国庆免费看
     {
       key: 20,
-      name: '暑期免费看-去完成',
+      name: '国庆免费看-去完成',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -226,7 +271,7 @@ export default defineGkdApp({
     },
     {
       key: 21,
-      name: '暑期免费看-抽10次',
+      name: '国庆免费看-抽10次',
       matchRoot: true,
       matchDelay: 1000,
       actionMaximum: 20,
@@ -238,9 +283,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['[text="去完成"][clickable=true]'],
+          excludeMatches: ['@[text="去完成"][clickable=true]'],
           matches: [
-            '[text~="剩余抽纪念票次数：[1-9][0-9]+ 次"] - @View[clickable=true] > [text="chou10"]',
+            '@View[clickable=true] + [text~="剩余抽纪念票次数：[1-9][0-9]+ 次"]',
           ],
         },
         {
