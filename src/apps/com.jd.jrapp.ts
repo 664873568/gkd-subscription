@@ -589,7 +589,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="taskFloorId"] > [getChild(0).text="赚抽奖次数"] +n [getChild(0).text!~="额外.*|.*话费|.*一笔.*订单.*"] > @[text="去完成"][clickable=true]',
-            '[id="YLBCon"] - View > View > [text="5ab97cb77eab3155"]',//抽奖中...
+            '[id="YLBCon"] - View > View > [text="5ab97cb77eab3155"]', //抽奖中...
             '[getChild(2).text="7d6bb8a04b362178"] + [getChild(0).text^="账户成功入账"] > @[text="开心收下"][clickable=true]',
             '@[text="close1_6723ec4261"][clickable=true]',
             '@[id="_sign_poo_10_id"][clickable=true]',
@@ -610,7 +610,7 @@ export default defineGkdApp({
           matches: ['@[id="_sign_poo_10_id"][clickable=true]'],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 3,
           matches: [
             '[getChild(2).text="7d6bb8a04b362178"] + [getChild(0).text^="账户成功入账"] > @[text="开心收下"][clickable=true]',
