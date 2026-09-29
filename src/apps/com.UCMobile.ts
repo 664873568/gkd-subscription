@@ -33,7 +33,7 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).text="温馨提示"] + View > @[text="同意并进入"][clickable=true] + [text="退出"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['com.uc.browser.InnerUCMobile'],
         },
       ],
     },
