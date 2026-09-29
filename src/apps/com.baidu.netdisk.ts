@@ -725,7 +725,6 @@ export default defineGkdApp({
         },
       ],
     },
-    },
     //看视频-.platform.business.incentive.advertise.ui.AdvertiseActivity
     {
       key: 100,
