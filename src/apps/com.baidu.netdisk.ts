@@ -341,13 +341,20 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="跳过"] + * @RelativeLayout[clickable=true] > [text="我要加速领奖"]',
+            '[text="跳过"] +n * @RelativeLayout[clickable=true] > [text="我要加速领奖"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '[text="跳过"][clickable=true] -n * > @[text="跳过"][clickable=true]',
+            '@[text="跳过"][clickable=true] - RelativeLayout > RelativeLayout > [text="已领取奖励"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@ImageView[clickable=true] - RelativeLayout > RelativeLayout > [text="已领取奖励"]',
           ],
         },
       ],
@@ -642,15 +649,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '[text^="奖励将于"] < * -n * @[text="我要更快拿奖"]',
-            '[text^="奖励将于"] < * < * < * <n * -n * @[text="我要更快拿奖"]',
-            '[text^="奖励将于"] < * < * < * <n * -n * @[text="扭动/点击下载或打开第三方应用"]',
+          actionDelay: 5000,
+          matches: [
+            '[text="放弃福利" || text="我要更快拿奖"] < @FrameLayout <n * +n * [text^="奖励将于"]',
           ],
         },
         {
           key: 1,
-          actionDelay: 15000,
+          actionDelay: 11000,
           matches: [
             '@ImageView - TextView <<n * [id="BlockApp_unique"]',
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
@@ -1000,7 +1006,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           name: '已完成去领奖',
-          actionDelay: 20000,
+          actionDelay: 30000,
           position: {
             left: 'width * 0.91',
             top: 'height * 0.86',
@@ -1523,7 +1529,37 @@ export default defineGkdApp({
     //首页功能类
     {
       key: 400,
-      name: '开启安全备份-暂不开启',
+      name: '温馨提示-同意',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="温馨提示"][vid="txt_confirmdialog_title"] < * +n [vid="dialog_footer"] > [text="不同意并退出"][vid="dialog_button_cancel"] + @[text="同意"][vid="dialog_button_confirm"][clickable=true]',
+          ],
+          activityIds: ['null],
+        },
+      ],
+    },
+    {
+      key: 401,
+      name: '开启通知-暂不开启',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[vid="dialog_close"] +n [vid="dialog_footer"] > @[text="暂不开启"][vid="dialog_button_cancel"][clickable=true] + [text="去开启"][vid="dialog_button_confirm"]',
+          ],
+          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+        },
+      ],
+    },
+    {
+      key: 402,
+      name: '开启备份-暂不开启',
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -1545,7 +1581,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 401,
+      key: 403,
       name: '百度网盘更新啦-下次再说',
       matchRoot: true,
       actionMaximum: 1,
@@ -1566,7 +1602,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 402,
+      key: 404,
       name: '喜欢“百度网盘”吗？-以后再说',
       matchRoot: true,
       actionMaximum: 1,
