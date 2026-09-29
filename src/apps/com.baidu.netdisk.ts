@@ -649,7 +649,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
+          actionDelay: 2000,
           matches: [
             '[text="放弃福利" || text="我要更快拿奖"] < @FrameLayout <n * +n * [text^="奖励将于"]',
           ],
@@ -664,6 +664,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          actionDelay: 1000,
           anyMatches: [
             'ImageView < FrameLayout < @FrameLayout - [text="恭喜获得奖励"]',
             'ImageView < FrameLayout < @FrameLayout - * [text="恭喜获得奖励"]',
@@ -1307,6 +1308,7 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
+          actionDelay: 2000,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * View + ImageView + @ImageView[clickable=true] + ImageView',
           ],
