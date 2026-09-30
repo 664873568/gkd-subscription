@@ -249,7 +249,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="跳过"] + * @RelativeLayout[clickable=true] > [text="我要加速领奖"]',
+            '[text="我要加速领奖"] <n @RelativeLayout[clickable=true] <n * -n [text="跳过"]',
           ],
         },
         {
