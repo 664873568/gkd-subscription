@@ -4,7 +4,7 @@ export default defineGkdApp({
   id: 'com.sgcc.wsgw.cn',
   name: '网上国网',
   groups: [
-    //每日签到 兑好礼
+    //2026.10.16 10:00:00下线 每日签到 兑好礼
     {
       key: 0,
       name: '每日签到-签到成功-×',
