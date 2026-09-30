@@ -8,7 +8,7 @@ export default defineGkdApp({
       key: 0,
       name: '中国电信湖北客服-星币兑好礼-*元话费',
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
       rules: [
@@ -32,13 +32,18 @@ export default defineGkdApp({
           key: 2,
           matches: ['[text="短信验证码"] + View > View + [text="获取验证码"]'],
         },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: ['@Image + Image + [text="恭喜您，兑换成功！"]'],
+        },
       ],
     },
     {
       key: 1,
       name: '中国电信湖北客服-星币兑好礼-*元翼支付权益金',
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
       rules: [
@@ -64,6 +69,11 @@ export default defineGkdApp({
           key: 2,
           matches: ['[text="短信验证码"] + View > View + [text="获取验证码"]'],
         },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: ['@Image + Image + [text="恭喜您，兑换成功！"]'],
+        },
       ],
     },
     {
@@ -80,7 +90,9 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: ['@Image + Image + [text="恭喜您，兑换成功！"]'],
+          name: '签到',
+          actionDelay: 2000,
+          matches: ['[getChild(2).text="5星权益"] + @Image'],
         },
       ],
     },
