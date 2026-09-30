@@ -90,22 +90,18 @@ export default defineGkdApp({
             duration: 200,
           },
           actionCd: 5000,
-          matches: [
-            '@[vid="tv_container_snapshot"] + * [text="上滑继续看视频"]',
+          anyMatches: [
+            '@[vid="tv_container_snapshot"] + * [text="下滑视频"] + ViewGroup > [text="得现金"]',
+            //'@[vid="tv_container_snapshot"] + * [text="1笔奖励已获得"] + ViewGroup + [text="奖励达成"]',
+            //'@[vid="tv_container_snapshot"] + * [getChild(0).text="现金奖励"] + ViewGroup > [text*="看"]',
+            //'@[vid="tv_container_snapshot"] + * [getChild(0).text="得现金"] + ViewGroup > [text="发放中"]',
+            '@[vid="tv_container_snapshot"] + * [getChild(1).getChild(0).text~="上滑[0-9]+次"] + ViewGroup > ViewGroup > [text="得金币"]',
+            //'@[vid="tv_container_snapshot"] + * [getChild(0).getChild(0).text="金币奖励"] + ViewGroup > ViewGroup > [text="发放中"]',
+            //'@[vid="tv_container_snapshot"] + * [text="288"] + [text="已发放"]',
           ],
         },
-      ],
-    },
-    {
-      key: 12,
-      name: '看视频-下滑视频得现金',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
-      rules: [
         {
-          key: 0,
+          key: 2,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -119,36 +115,13 @@ export default defineGkdApp({
           },
           actionCd: 5000,
           anyMatches: [
-            '@[vid="tv_container_snapshot"] + * [text="下滑视频"] + ViewGroup > [text="得现金"]',
-            //'@[vid="tv_container_snapshot"] + * [text="1笔奖励已获得"] + ViewGroup + [text="奖励达成"]',
-            //'@[vid="tv_container_snapshot"] + * [getChild(0).text="现金奖励"] + ViewGroup > [text*="看"]',
-            //'@[vid="tv_container_snapshot"] + * [getChild(0).text="得现金"] + ViewGroup > [text="发放中"]',
-            '@[vid="tv_container_snapshot"] + * [getChild(1).getChild(0).text="上滑1次"] + ViewGroup > ViewGroup > [text="得金币"]',
-            //'@[vid="tv_container_snapshot"] + * [getChild(0).getChild(0).text="金币奖励"] + ViewGroup > ViewGroup > [text="发放中"]',
-            //'@[vid="tv_container_snapshot"] + * [text="288"] + [text="已发放"]',
-          ],
-        },
-        {
-          key: 1,
-          swipeArg: {
-            start: {
-              x: 'screenWidth*0.5',
-              y: 'screenHeight*0.75',
-            },
-            end: {
-              x: 'screenWidth*0.5',
-              y: 'screenHeight*0.25',
-            },
-            duration: 200,
-          },
-          actionCd: 5000,
-          matches: [
             '@[vid="tv_container_snapshot"] + * [text="上滑继续看视频"]',
+            '@[vid="tv_container_snapshot"] + * [vid="msv_mount_download_button"] > [vid="msv_mount_button_card_frame"]',
           ],
         },
         {
           preKeys: [1],
-          key: 2,
+          key: 3,
           action: 'back',
           actionCd: 100,
           matches: [
@@ -158,7 +131,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 12,
       name: '看短剧，额外得金币',
       matchRoot: true,
       matchDelay: 1000,
@@ -178,8 +151,10 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          actionCd: 15000,
-          matches: ['@[vid="tv_container_snapshot"] + * [text="再看\\n1集"]'],
+          actionCd: 65000,
+          matches: [
+            '@[vid="tv_container_snapshot"] + * [getChild(2).getChild(1).text~="再看\\\\n[0-9]+集"] + ViewGroup > ViewGroup > [text^="得"]',
+          ],
         },
         {
           key: 1,
@@ -195,8 +170,9 @@ export default defineGkdApp({
             duration: 200,
           },
           actionCd: 5000,
-          matches: [
+          anyMatches: [
             '@[vid="tv_container_snapshot"] + * [text="上滑继续看视频"]',
+            '@[vid="tv_container_snapshot"] + * [vid="msv_mount_download_button"] > [vid="msv_mount_button_card_frame"]',
           ],
         },
         {
