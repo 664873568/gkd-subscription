@@ -281,6 +281,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          excludeMatches: [
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
+          ],
           actionDelay: 1000,
           anyMatches: [
             'ImageView < @FrameLayout  - * [text="恭喜获得奖励"]',
