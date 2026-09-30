@@ -26,7 +26,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           anyMatches: [
             'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
-            '@ImageView[clickable=true] -n FrameLayout >n [text="额外送你200金币奖励～"]',
+            '@ImageView[clickable=true] -n [getChild(2).getChild(1).getChild(0).text~="额外送你[0-9]00金币奖励～"]',
           ],
         },
       ],
