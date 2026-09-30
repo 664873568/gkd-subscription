@@ -597,6 +597,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[vid="iv_sky_close"][clickable=true]',
             '@[vid="iv_dialog_close_one"][clickable=true]',
+            'AlertDialog >n @TextView[clickable=true] - View > TextView + Image',
           ],
           activityIds: ['.ui.MainActivity'],
         },
@@ -627,7 +628,7 @@ export default defineGkdApp({
         {
           position: {
             left: 'width * 0.0907',
-            top: 'width * 0.0630',
+            top: 'height * 0.0630',
           },
           matches: [
             '[text="立即开启"] - [text="开启系统通知，优惠券活动不错过"] < @View',
