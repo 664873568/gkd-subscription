@@ -44,7 +44,9 @@ export default defineGkdApp({
           matches: [
             '[getChild(1).text="点击合作任务赚金币"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
           ],
-          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
         },
       ],
     },
@@ -145,7 +147,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[1],
+          preKeys: [1],
           key: 2,
           action: 'back',
           actionCd: 100,
@@ -177,9 +179,7 @@ export default defineGkdApp({
             duration: 200,
           },
           actionCd: 15000,
-          matches: [
-            '@[vid="tv_container_snapshot"] + * [text="再看\\n1集"]',
-          ],
+          matches: ['@[vid="tv_container_snapshot"] + * [text="再看\\n1集"]'],
         },
         {
           key: 1,
