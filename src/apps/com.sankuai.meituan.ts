@@ -10,13 +10,13 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
       rules: [
         {
           key: 0,
           matches: [
             '[getChild(0).getChild(1).text^="x"] + @[getChild(0).name$="ImageView"][clickable=true] + ImageView + ImageView',
           ],
-          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
         },
         {
           preKeys: [0],
@@ -24,31 +24,199 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).getChild(1).text^="x"] + @ImageView + ImageView',
           ],
-          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: ['@ImageView - [text="明天不来奖励失效"]'],
-          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
         },
       ],
     },
     //赚钱中心
     {
       key: 10,
-      name: '访问APP赚-去完成',
+      name: '浏览App-去完成',
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '[getChild(1).text="访问APP赚"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
+            '[getChild(1).text="点击合作任务赚金币"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
           ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNStandardActivity',
+          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '看视频赚更多金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
+      rules: [
+        {
+          key: 0,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 200,
+          },
+          actionCd: 15000,
+          matches: [
+            '@[vid="tv_container_snapshot"] + * ViewGroup[childCount=7] >n [text="金币"] + ViewGroup > [text="万"]',
+          ],
+        },
+        {
+          key: 1,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 200,
+          },
+          actionCd: 5000,
+          matches: [
+            '@[vid="tv_container_snapshot"] + * [text="上滑继续看视频"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 12,
+      name: '看视频-下滑视频得现金',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
+      rules: [
+        {
+          key: 0,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 200,
+          },
+          actionCd: 5000,
+          anyMatches: [
+            '@[vid="tv_container_snapshot"] + * [text="下滑视频"] + ViewGroup > [text="得现金"]',
+            //'@[vid="tv_container_snapshot"] + * [text="1笔奖励已获得"] + ViewGroup + [text="奖励达成"]',
+            //'@[vid="tv_container_snapshot"] + * [getChild(0).text="现金奖励"] + ViewGroup > [text*="看"]',
+            //'@[vid="tv_container_snapshot"] + * [getChild(0).text="得现金"] + ViewGroup > [text="发放中"]',
+            '@[vid="tv_container_snapshot"] + * [getChild(1).getChild(0).text="上滑1次"] + ViewGroup > ViewGroup > [text="得金币"]',
+            //'@[vid="tv_container_snapshot"] + * [getChild(0).getChild(0).text="金币奖励"] + ViewGroup > ViewGroup > [text="发放中"]',
+            //'@[vid="tv_container_snapshot"] + * [text="288"] + [text="已发放"]',
+          ],
+        },
+        {
+          key: 1,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 200,
+          },
+          actionCd: 5000,
+          matches: [
+            '@[vid="tv_container_snapshot"] + * [text="上滑继续看视频"]',
+          ],
+        },
+        {
+          preKeys:[1],
+          key: 2,
+          action: 'back',
+          actionCd: 100,
+          matches: [
+            '@[vid="tv_container_snapshot"] + * [getChild(0).text="明天再来"] + ViewGroup > [text="领现金"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '看短剧，额外得金币',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.msv.page.activity.MSVPageActivity'],
+      rules: [
+        {
+          key: 0,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 200,
+          },
+          actionCd: 15000,
+          matches: [
+            '@[vid="tv_container_snapshot"] + * [text="再看\\n1集"]',
+          ],
+        },
+        {
+          key: 1,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 200,
+          },
+          actionCd: 5000,
+          matches: [
+            '@[vid="tv_container_snapshot"] + * [text="上滑继续看视频"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '[vid="tv_container_snapshot"] + * ViewGroup > @ViewGroup[clickable=true] > ViewGroup > [text="立"] + [text="即"] + [text="翻"] + [text="卡"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > [text="一键翻卡"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > [text="继续看剧"]',
           ],
         },
       ],
