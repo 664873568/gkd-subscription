@@ -216,7 +216,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 3,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -251,7 +254,7 @@ export default defineGkdApp({
           key: 6,
           actionDelay: 5000,
           matches: [
-            '[text="游戏大厅"] >n @View[clickable=true] > [text="dancing"]',//逛逛游戏中心
+            '[text="游戏大厅"] >n @View[clickable=true] > [text="dancing"]', //逛逛游戏中心
           ],
         },
         {
@@ -413,7 +416,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 1,
           matches: [
             '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得奖励"] +n @[text="开心收下"][clickable=true] + TextView',
