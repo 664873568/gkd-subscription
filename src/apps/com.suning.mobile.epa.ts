@@ -50,9 +50,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 5000,
+          actionDelay: 3000,
           matches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [vid="title"] + [vid="webview_title_line"]',
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [text~="快影|虎牙|洗车|丰巢"][vid="title"] + [vid="webview_title_line"]',
           ],
         },
       ],
@@ -131,8 +131,8 @@ export default defineGkdApp({
           excludeMatches: [
             '[getChild(0).getChild(1).text="看热点领金币"] +2 View > View > @View[clickable=true] > [text="去完成"]',
             '[getChild(0).getChild(1).text="看热点领金币"] +3 View > View > @View[clickable=true] > [text="去完成"]',
-            '[getChild(0).getChild(1).text="看热点领金币"] +4 View > View > @[text="去看剧"][clickable=true]',
-            '[getChild(0).getChild(1).text="看热点领金币"] +5 View > View > View > @View[clickable=true] > [text="去完成"]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > View > [getChild(0).getChild(0).text!~="体验AI搜索"] + @View[clickable=true] > [text="去完成"]',
           ],
           matches: [
             '[getChild(0).getChild(1).text="看热点领金币"] + View > View > @ImageButton[clickable=true] +n [text~="[0-9]+金币"]',
@@ -191,7 +191,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
           ],
         },
         {
@@ -221,7 +221,7 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +3 View > View > @View[clickable=true] > [text="去完成"]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @View[clickable=true] > [text="去完成"]',
           ],
         },
         {
@@ -252,7 +252,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
           ],
         },
         {
@@ -278,11 +278,11 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +3 View > View > @View[clickable=true] > [text="去完成"]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @View[clickable=true] > [text="去完成"]',
           ],
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +4 View > View > @[text="去看剧"][clickable=true]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
           ],
         },
         {
@@ -338,7 +338,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
           ],
         },
         {
@@ -364,11 +364,11 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +4 View > View > @[text="去看剧"][clickable=true]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +5 View > View > View > @View[clickable=true] > [text="去完成"]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > View > [getChild(0).getChild(0).text!~="体验AI搜索"] + @View[clickable=true] > [text="去完成"]',
           ],
         },
         {
@@ -379,7 +379,7 @@ export default defineGkdApp({
             '@ImageButton[clickable=true] < View + [getChild(0).text="红包签到"]', //参与签到赢红包
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
           ],
         },
       ],
@@ -414,7 +414,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]', //访问猜涨跌-领星钻当钱花-浏览理财页面-浏览基金页面
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
