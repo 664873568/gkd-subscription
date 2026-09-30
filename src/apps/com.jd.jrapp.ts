@@ -216,7 +216,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 3,
-          excludeMatches: ['[text~="浏览完成|正在浏览"]', '[text*="返回"]'],
+          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -249,6 +249,14 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 6,
+          actionDelay: 5000,
+          matches: [
+            '[text="游戏大厅"] >n @View[clickable=true] > [text="dancing"]',//逛逛游戏中心
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 7,
           matches: [
             '[vid="manto_actionbar_option"][clickable=true] + @[vid="manto_actionbar_home"][clickable=true]',
           ],
@@ -258,16 +266,17 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 7,
+          key: 8,
           matches: [
             '[text="恭喜获得浏览奖励"] +n [text="继续浏览"] + @TextView[clickable=true]',
           ],
         },
         {
-          key: 8,
+          key: 9,
           excludeMatches: [
             '[text="恭喜获得浏览奖励"] +n [text="继续浏览"] + @TextView[clickable=true]',
           ],
+          actionDelay: 1000,
           matches: [
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + View > View > View > @[text="领奖"][clickable=true]',
           ],
@@ -404,7 +413,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,2],
           key: 1,
           matches: [
             '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得奖励"] +n @[text="开心收下"][clickable=true] + TextView',
@@ -427,6 +436,7 @@ export default defineGkdApp({
             '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > @[text="开心收下"][clickable=true]',
             '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得奖励"] +n @[text="开心收下"][clickable=true] + TextView',
             '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > [text="可领取"] + @TextView[clickable=true]',
+            '[id="J_ui-div"] + [getChild(0).id="coin-fly-box"] + View >n [text="可领取"] + @View[clickable=true]',
           ],
           matches: [
             '[id="J_ui-div"] + [id="coin-fly-box"] + View >n View > View > @TextView[clickable=true] + [getChild(0).text="开红包抽"]',
