@@ -22,9 +22,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[text="签到成功 月付金"] +n @ImageButton[clickable=true]',
-          ],
+          matches: ['[text="签到成功 月付金"] +n @ImageButton[clickable=true]'],
         },
       ],
     },
@@ -160,7 +158,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           name: '开心收下',
           position: {
@@ -335,7 +333,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           action: 'back',
           matches: [
@@ -843,7 +841,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [4,5],
+          preKeys: [4, 5],
           key: 5,
           name: '立即预约领金币',
           matches: [
@@ -852,7 +850,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [5,6],
+          preKeys: [5, 6],
           key: 6,
           name: '立即预约领取',
           matches: [
