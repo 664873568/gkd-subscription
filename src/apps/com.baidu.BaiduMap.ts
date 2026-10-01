@@ -182,7 +182,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
-            '[text="恭喜翻出"] +n @View[clickable=true] > [text~="继续翻十位领取|继续翻百位|立即收下"]',
+            '[text="恭喜翻出"] +n @[getChild(0).text~="继续翻十位领取|继续翻百位|立即收下"][clickable=true] + TextView',
             '@View[clickable=true] > [text~="立即翻倍|立即收下"]',
           ],
           matches: [
@@ -190,7 +190,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '[text="恭喜翻出"] +n @[getChild(0).text~="继续翻十位领取|继续翻百位|立即收下"][clickable=true] + TextView',
@@ -694,7 +693,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="跳过"] < ViewGroup < [desc="skip_button"] - [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] < * < * < * - * @[text="点击下载免看广告" || text="点击下载拿奖励" || text="点击跳转拿奖励"][clickable=true]',
+            '@[text="点击下载免看广告" || text="点击下载拿奖励" || text="点击跳转拿奖励"][clickable=true] <<n * [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
           ],
         },
         {
@@ -792,7 +791,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 1000,
           matches: [
-            '[text="跳过"] < ViewGroup < [desc="skip_button"] - [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] < * < * < * - * @[text="点击下载拿奖励" || text="点击跳转拿奖励"][clickable=true]',
+            '@[text="点击下载免看广告" || text="点击下载拿奖励" || text="点击跳转拿奖励"][clickable=true] <<n * [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
           ],
         },
         {
