@@ -406,7 +406,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="广告"] + @RelativeLayout[clickable=true] > LinearLayout > [text="跳过"] + [text~="0[0-9]"]',
+            '@RelativeLayout[clickable=true] > LinearLayout > [text~="[0-9]+"] - [text="跳过"]',
           ],
           activityIds: ['com.baidu.searchbox.MainActivity'],
         },
