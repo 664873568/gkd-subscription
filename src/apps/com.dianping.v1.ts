@@ -193,12 +193,15 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          preKeys: [0],
+          key: 0,
           excludeMatches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
             '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
             '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
           ],
           actionDelay: 5000,
+          actionCd: 100,
           matches: [
             '@[getChild(0).desc="back"][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
           ],
