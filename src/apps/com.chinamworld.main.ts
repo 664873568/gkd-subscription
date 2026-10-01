@@ -11,7 +11,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
+      activityIds: [
+        'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -40,7 +42,9 @@ export default defineGkdApp({
           matches: [
             '[id="Normaltask"] > [desc="精选任务楼层"] +n [text~="查看.*|了解.*"] +(1,2,3) View > View > @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
+          activityIds: [
+            'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -48,23 +52,27 @@ export default defineGkdApp({
           matches: [
             '[text="地理位置信息授权"][vid="tv_dlg_title"] +n * > [text="允许"][vid="dlg_right_tv"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[desc~="关闭|返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
         {
           preKeys: [0],
           key: 3,
-          matches: [
-            'Image < @View[clickable=true] + [text="速盈"]',
+          matches: ['Image < @View[clickable=true] + [text="速盈"]'],
+          activityIds: [
+            'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
           ],
-          activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
         },
       ],
     },
@@ -78,7 +86,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="oneKey"][clickable=true]'],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
