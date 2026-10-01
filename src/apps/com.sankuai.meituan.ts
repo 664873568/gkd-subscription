@@ -39,13 +39,22 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
       rules: [
         {
+          key: 0,
+          actionDelay: 2000,
           matches: [
             '[getChild(1).text="点击合作任务赚金币"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
           ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNStandardActivity',
+        },
+        {
+          key: 1,
+          excludeMatches: [
+            '[getChild(1).text="点击合作任务赚金币"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
+          ],
+          matches: [
+            '[getChild(1).text="点击合作任务赚金币"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="立即领取"]',
           ],
         },
       ],
@@ -136,7 +145,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.msv.page.activity.MSVPageActivity'],
+      activityIds: [
+        '.msv.page.activity.MSVPageActivity',
+        'com.meituan.android.pt.homepage.activity.MainActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -189,10 +201,59 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3],
           key: 4,
           matches: [
             '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > [text="继续看剧"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '看短剧-短剧签到',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.msv.page.activity.MSVPageActivity',
+        'com.meituan.android.pt.homepage.activity.MainActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > ViewGroup > ViewGroup > [text="短剧签到"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > ViewGroup > ViewGroup > [text="领取今天看剧补贴"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > ViewGroup > ViewGroup > [text="明天继续领补贴"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 14,
+      name: '添加*到桌面-不感兴趣',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[vid="hot_zone"] > @[vid="button_n"][clickable=true] + FrameLayout > [vid="button_y"]',
+          ],
+          activityIds: [
+            'com.meituan.android.novel.library.page.ad.CommonTaskActivity',
           ],
         },
       ],
@@ -278,12 +339,14 @@ export default defineGkdApp({
       key: 39,
       name: '看视频-任务已完成',
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'app',
       rules: [
         {
+          preKeys: [0],
+          key: 0,
           action: 'back',
+          actionCd: 100,
           matches: ['@[vid="toast_container"] > [text="任务已完成"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
