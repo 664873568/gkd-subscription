@@ -9,6 +9,7 @@ export default defineGkdApp({
       key: 0,
       name: '签到领钱-签到',
       matchRoot: true,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: [
         'com.taobao.sns.tms.CommonTMSActivity',
@@ -40,6 +41,7 @@ export default defineGkdApp({
       key: 1,
       name: '签到领钱-浏览任务',
       matchRoot: true,
+      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: [
         'com.taobao.sns.tms.CommonTMSActivity',
@@ -84,10 +86,19 @@ export default defineGkdApp({
         {
           preKeys: [0, 3],
           key: 4,
-          matches: ['@[text="打开"][clickable=true] - [text="取消"]'],
+          matches: [
+            '[getChild(0).getChild(1).text="提示"] + [getChild(0).getChild(0).getChild(0).text^="正在离开一淘"] + [vid="buttonPanel"] > LinearLayout > @[text="打开"][clickable=true]',
+          ],
         },
         {
           key: 5,
+          actionDelay: 3000,
+          matches: [
+            '[vid="left_panel"] > @[desc="返回"][clickable=true] + LinearLayout > [text="正在跳转"][vid="tvTitle"]',
+          ],
+        },
+        {
+          key: 6,
           actionDelay: 2000,
           matches: [
             'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
@@ -100,8 +111,9 @@ export default defineGkdApp({
       key: 40,
       name: '更新提示',
       matchRoot: true,
-      actionMaximum: 1,
+      forcedTime: 10000,
       matchTime: 10000,
+      actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
