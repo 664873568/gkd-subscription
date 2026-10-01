@@ -29,7 +29,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '[getChild(childCount.minus(1)).text="立即使用"] > @[desc="关闭 按钮"][clickable=true]',
@@ -98,12 +98,16 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: ['ImageButton +n @[text="立即签到"][clickable=true] + TextView'],
+          matches: [
+            'ImageButton +n @[text="立即签到"][clickable=true] + TextView',
+          ],
         },
         {
           preKeys: [1],
           key: 2,
-          matches: ['ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]'],
+          matches: [
+            'ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]',
+          ],
         },
       ],
     },
@@ -123,12 +127,16 @@ export default defineGkdApp({
             'ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]',
             '[id="app"] >n [getChild(0).text="查看奖励"] + @TextView[clickable=true]',
           ],
-          matches: ['[id="app"] > View > View > @View[clickable=true] > [desc="骰子按钮"]'],
+          matches: [
+            '[id="app"] > View > View > @View[clickable=true] > [desc="骰子按钮"]',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['[id="app"] >n [getChild(0).text="查看奖励"] + @TextView[clickable=true]'],
+          matches: [
+            '[id="app"] >n [getChild(0).text="查看奖励"] + @TextView[clickable=true]',
+          ],
         },
       ],
     },
@@ -141,7 +149,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="oneKey"][clickable=true]'],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
