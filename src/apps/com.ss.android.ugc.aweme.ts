@@ -149,6 +149,7 @@ export default defineGkdApp({
             left: 'width * -0.8',
             top: 'height * 0',
           },
+          actionDelay: 2000,
           matches: [
             'ScrollView > HorizontalScrollView > LinearLayout > @ImageView + ViewGroup > ViewGroup',
           ],
@@ -253,7 +254,7 @@ export default defineGkdApp({
             top: 'height * 0.7',
           },
           matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ViewGroup > ViewGroup > ViewGroup',
+            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup[childCount=1] > ViewGroup > ViewGroup > ViewGroup',
           ],
         },
         {
@@ -339,6 +340,13 @@ export default defineGkdApp({
           matches: [
             'FrameLayout > ViewGroup > ViewGroup > ImageView - ViewGroup > @ViewGroup',
           ],
+        },
+        {
+          preKeys: [0, 1, 2],
+          key: 4,
+          action: 'back',
+          actionDelay: 2000,
+          matches: ['FrameLayout > ViewGroup[index=4] > @ViewGroup'],
         },
       ],
     },
@@ -997,8 +1005,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'clickCenter',
-          actionDelay: 1000,
           matches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
           ],
@@ -1010,6 +1016,7 @@ export default defineGkdApp({
             left: 'width*0.5',
             top: 'height*2.8',
           },
+          actionDelay: 2000,
           matches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
           ],
