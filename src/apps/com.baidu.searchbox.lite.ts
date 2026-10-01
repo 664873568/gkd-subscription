@@ -255,7 +255,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="国庆免费看"] >n TextView +2 @[text="去完成"][clickable=true]',
+            '[text="国庆免费看"] >n TextView[text!~="^前往影视频道观看电视剧.*"] +2 @[text="去完成"][clickable=true]',
           ],
           activityIds: [
             'com.baidu.browser.search.LightSearchActivity',
@@ -299,6 +299,44 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '@[text="close6"][clickable=true] + [text="draw-card-title-bg"] + [text="获得10张纪念票"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 22,
+      name: '国庆免费看-领红包',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.baidu.browser.search.LightSearchActivity',
+        'com.baidu.searchbox.lightbrowser.LightBrowserActivityExt1',
+      ],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[text="国庆免费看"] >n TextView +2 @[text="去完成"][clickable=true]',
+            '@[text="close6"][clickable=true] + [text="draw-card-title-bg"] + [text="获得10张纪念票"]',
+          ],
+          actionDelay: 2000,
+          matches: [
+            '[text="国庆免费看"] >n TextView +n View > View > @[text="领现金"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="国庆免费看"] >n TextView +n [text="消耗10张相同纪念票"] +n @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="国庆免费看"] >n TextView + [getChild(0).text$="现金红包"] +n View > @TextView[clickable=true]',
           ],
         },
       ],
