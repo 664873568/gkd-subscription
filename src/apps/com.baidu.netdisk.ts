@@ -1479,7 +1479,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            '[text="浏览15s feed"] <n ViewGroup - [vid="iv_close"] < ViewGroup <n FrameLayout - * @[vid="feed_recommend_list"]',
+            '[text="浏览15s feed"] <n ViewGroup - [vid="iv_close"] < ViewGroup <n FrameLayout - * @[vid="refresh_layout"]',
           ],
         },
         {
