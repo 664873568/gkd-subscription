@@ -1083,7 +1083,7 @@ export default defineGkdApp({
           key: 1,
           name: '领取奖励',
           matches: [
-            '@[vid="layout_drag"][clickable=true] > [vid="layout_content"] > [vid="iv_close"] + [vid="gif_lottie_view"] + [text="任务完成"][vid="tv_title"]',
+            '@[vid="layout_drag"][clickable=true] >n [text="领取奖励][vid="tv_title"]',
           ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
@@ -1180,7 +1180,7 @@ export default defineGkdApp({
           key: 2,
           name: '任务已完成      点击领奖',
           matches: [
-            '@[vid="layout_drag"][clickable=true] > [vid="layout_content"] > [vid="iv_close"] + [vid="gif_lottie_view"] + [text="任务已完成      点击领奖"][vid="tv_title"]',
+            '@[vid="layout_drag"][clickable=true] >n [text="任务已完成      点击领奖"][vid="tv_title"]',
           ],
         },
       ],
@@ -1479,7 +1479,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            '[text="浏览15s feed"] <n ViewGroup - [vid="iv_close"] < ViewGroup <n FrameLayout - * @[vid="home25ai_content"]',
+            '[text="浏览15s feed"] <n ViewGroup - [vid="iv_close"] < ViewGroup <n FrameLayout - * @[vid="feed_recommend_list"],
           ],
         },
         {
