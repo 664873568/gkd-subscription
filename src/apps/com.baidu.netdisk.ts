@@ -1083,7 +1083,7 @@ export default defineGkdApp({
           key: 1,
           name: '领取奖励',
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="领取奖励][vid="tv_title"]',
+            '@[vid="layout_drag"][clickable=true] >n [text="领取奖励"][vid="tv_title"]',
           ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
