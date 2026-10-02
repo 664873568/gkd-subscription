@@ -8,7 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '天天赚-免费红包',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -50,7 +50,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '每日福利-送红包*个',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -69,7 +69,7 @@ export default defineGkdApp({
       key: 11,
       name: '每日福利-看广告*个', //*s后可领取奖励
 
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -113,7 +113,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '每日福利-看视频*个',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -169,7 +169,7 @@ export default defineGkdApp({
     {
       key: 13,
       name: '每日福利-看视频*秒',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -225,7 +225,7 @@ export default defineGkdApp({
     {
       key: 14,
       name: '每日福利-开红包',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -257,7 +257,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '国庆免费看-去完成',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -286,7 +286,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '国庆免费看-抽10次',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -318,7 +318,7 @@ export default defineGkdApp({
     {
       key: 22,
       name: '国庆免费看-领红包',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -358,7 +358,7 @@ export default defineGkdApp({
     {
       key: 30,
       name: '看视频-已获得奖励-×',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -382,7 +382,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '立即升级-×',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -397,7 +397,7 @@ export default defineGkdApp({
     {
       key: 49,
       name: '累计获得-×',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -415,7 +415,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
