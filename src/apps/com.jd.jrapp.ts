@@ -386,7 +386,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           actionDelay: 5000,
           matches: [
             '[text="游戏大厅"] >n @View[clickable=true] > [text="dancing"]',
@@ -702,7 +705,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -790,7 +796,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -1007,7 +1016,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 4,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]','[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -1196,7 +1208,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -1420,7 +1435,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -1444,7 +1462,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [20,29,70],
+      scopeKeys: [20, 29, 70],
       key: 71,
       name: '赚京豆-去完成-做任务-成功喂猪或浇水1次',
       forcedTime: 10000,
@@ -1454,7 +1472,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
         {
-          preKeys: [0,20,29],
+          preKeys: [0, 20, 29],
           key: 1,
           matches: [
             '[id="J_ui-div"] > [id="app"] > View > View > @View[clickable=true] > View > [text="喂食10次"]',
@@ -1463,7 +1481,10 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           matches: [
             '[id="J_ui-div"] > [id="app"] > View > @View[clickable=true] > [text="back"]',
@@ -1556,7 +1577,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -1744,7 +1768,10 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 4,
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]', '[text*="返回"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*"]',
+            '[text*="返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -1997,7 +2024,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [20,29, 121],
+      scopeKeys: [20, 29, 121],
       key: 123,
       name: '看视频 赚现金-去完成-成功喂一次猪',
       forcedTime: 10000,
@@ -2007,7 +2034,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
         {
-          preKeys: [0, 20,29],
+          preKeys: [0, 20, 29],
           key: 1,
           excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*"]'],
           actionDelay: 2000,
