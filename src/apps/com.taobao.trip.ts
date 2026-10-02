@@ -8,8 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '天天集能量-天降惊喜-x',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -26,8 +25,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '天天集能量-惊喜任务',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -54,8 +52,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '天天集能量-看视频领现金',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -100,8 +97,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '天天集能量-首页广告-跳过',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -124,8 +120,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '天天集能量-首页广告-礼包-剩余*s-×',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -155,8 +150,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '看视频-免看本次广告',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -181,8 +175,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '看视频-广告-浏览-×',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -197,8 +190,7 @@ export default defineGkdApp({
     {
       key: 22,
       name: '看视频-广告-跳过',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -218,8 +210,7 @@ export default defineGkdApp({
     {
       key: 30,
       name: '看视频-广告-×',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -257,8 +248,7 @@ export default defineGkdApp({
     {
       key: 31,
       name: '看视频-跳过-礼包-*s后可领取奖励',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -310,8 +300,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '看视频-跳过-*秒后可领取奖励beizi.ad',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -327,8 +316,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '看视频-跳过-byazt.mw',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -425,8 +413,7 @@ export default defineGkdApp({
     {
       key: 51,
       name: '看视频-跳过-回答正确可直接领奖byazt.mw',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -447,8 +434,7 @@ export default defineGkdApp({
     {
       key: 52,
       name: '看视频-礼包-*s后可领取奖励byazt.mw',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -466,8 +452,7 @@ export default defineGkdApp({
     {
       key: 60,
       name: '看视频-跳过-礼包-*s后可领取奖励byazt.sr',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -487,8 +472,7 @@ export default defineGkdApp({
     {
       key: 70,
       name: '看视频-跳过-去体验*秒可立即领奖bsoc',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -518,8 +502,7 @@ export default defineGkdApp({
     {
       key: 71,
       name: '看视频-跳过-礼包-*s后可领取奖励bsoc',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -540,8 +523,7 @@ export default defineGkdApp({
     {
       key: 80,
       name: '看视频-跳过-去体验*秒可立即领奖',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -573,8 +555,7 @@ export default defineGkdApp({
     {
       key: 90,
       name: '看视频-立即领取-跳过',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -592,8 +573,7 @@ export default defineGkdApp({
     {
       key: 91,
       name: '看视频-跳过-立即领取/立即获取',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -615,8 +595,7 @@ export default defineGkdApp({
     {
       key: 92,
       name: '看视频-跳过-礼包-看*秒可直接拿奖励',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -640,8 +619,7 @@ export default defineGkdApp({
     {
       key: 93,
       name: '看视频-礼包-免费获取-×',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -659,8 +637,7 @@ export default defineGkdApp({
     {
       key: 100,
       name: '看视频-微信-提前拿奖励',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -691,8 +668,7 @@ export default defineGkdApp({
     {
       key: 101,
       name: '看视频-微信-阅读小说 可获得奖励',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -725,8 +701,7 @@ export default defineGkdApp({
     {
       key: 102,
       name: '看视频-奖励将于*秒后发放',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       activityIds: [
@@ -757,8 +732,7 @@ export default defineGkdApp({
     {
       key: 103,
       name: '看视频-点击广告，即可获得奖励',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -785,8 +759,7 @@ export default defineGkdApp({
     {
       key: 110,
       name: '看视频-完成APP下载-即可领取奖励',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -810,8 +783,7 @@ export default defineGkdApp({
     {
       key: 120,
       name: '看视频-点击广告并跳转获取奖励',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -833,8 +805,7 @@ export default defineGkdApp({
     {
       key: 400,
       name: '下载并安装-×',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -851,8 +822,7 @@ export default defineGkdApp({
     {
       key: 499,
       name: '首页-引导',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -870,8 +840,7 @@ export default defineGkdApp({
     {
       key: 500,
       name: '首页广告-跳过',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchTime: 20000,
       resetMatch: 'app',
@@ -892,8 +861,7 @@ export default defineGkdApp({
     {
       key: 501,
       name: '首页广告-×',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       matchTime: 20000,
       resetMatch: 'app',
@@ -909,8 +877,7 @@ export default defineGkdApp({
     {
       key: 502,
       name: '首页-能量红包',
-
-      forcedTimd: 10000,
+      forcedTime: 10000,
       matchRoot: true,
       resetMatch: 'activity',
       rules: [
