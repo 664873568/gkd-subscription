@@ -1947,7 +1947,7 @@ export default defineGkdApp({
     },
     //做任务赚金币
     {
-      scopeKeys: [20,29],
+      scopeKeys: [20, 29],
       key: 121,
       name: '看视频 赚现金-去完成',
       forcedTime: 10000,
@@ -1967,7 +1967,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 20,29],
+          preKeys: [0, 20, 29],
           key: 1,
           action: 'back',
           matches: [
