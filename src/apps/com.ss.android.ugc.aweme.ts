@@ -188,9 +188,7 @@ export default defineGkdApp({
           matches: [
             'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout', //逛商城福利
           ],
-          activityIds: [
-            '.live.LiveDummyActivity',
-          ],
+          activityIds: ['.live.LiveDummyActivity'],
         },
         {
           key: 1,
