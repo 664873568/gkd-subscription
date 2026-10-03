@@ -470,7 +470,7 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '开启通知-暂不开通',
+      name: '开启通知-×',
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -478,7 +478,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="开启通知"][vid="new_push_guide_open"] + @[text="暂不开通"][vid="new_push_guide_cancel"][clickable=true]',
+            '[text="开启通知"] +n @TextView[index=parent.childCount.minus(1)][clickable=true]',
           ],
           activityIds: [
             '.launcher.LauncherActivity',
