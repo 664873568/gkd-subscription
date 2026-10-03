@@ -1066,7 +1066,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           name: '已完成去领奖',
           actionDelay: 30000,
@@ -1160,9 +1160,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           name: '领取奖励',
-          matches: [
-            '@[vid="layout_drag"][clickable=true] >n [vid="tv_title"]',
-          ],
+          matches: ['@[vid="layout_drag"][clickable=true] >n [vid="tv_title"]'],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
       ],
@@ -1213,7 +1211,7 @@ export default defineGkdApp({
           activityIds: ['.ui.MainActivity'],
         },
         {
-          preKeys: [2,4],
+          preKeys: [2, 4],
           key: 5,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
@@ -1568,7 +1566,7 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity'],
       rules: [
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           swipeArg: {
             start: {
