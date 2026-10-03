@@ -205,6 +205,7 @@ export default defineGkdApp({
             '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
             '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
           ],
+          action: 'clickCenter',
           actionDelay: 5000,
           matches: [
             '@[getChild(0).desc="back"][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
