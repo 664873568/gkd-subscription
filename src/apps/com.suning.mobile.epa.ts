@@ -50,9 +50,12 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          excludeMatches: [
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
+          ],
           actionDelay: 3000,
           matches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [text~="今日头条.*|UC.*|百度|快手|飞猪|番茄畅听|YY.*|.*APP.*|.*领.*|淘宝.*|.*苏.*|.*酷.*|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"] + [vid="webview_title_line"]',
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="今日头条.*|UC.*|百度|快手|飞猪|番茄畅听|YY.*|.*APP.*|.*领.*|淘宝.*|.*苏.*|.*酷.*|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"],
           ],
         },
       ],
@@ -194,7 +197,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5],
+          preKeys: [3,5],
           key: 6,
           excludeMatches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
@@ -255,7 +258,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4],
+          preKeys: [2,4],
           key: 5,
           excludeMatches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
@@ -317,7 +320,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 6],
+          preKeys: [3],
           key: 4,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
@@ -341,7 +344,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6],
+          preKeys: [4,6],
           key: 7,
           excludeMatches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
@@ -438,7 +441,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 11000,
+          actionDelay: 15000,
           matches: [
             '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n TextView[vid="title"]', //浏览定期理财-浏览自选页
           ],
