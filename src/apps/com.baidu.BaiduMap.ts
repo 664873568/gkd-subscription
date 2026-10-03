@@ -63,7 +63,7 @@ export default defineGkdApp({
             '[vid="na_render_layout"] > ViewGroup > [text~="[0-9]{3,}"][vid="rewardAdCoin"] +n @[vid="rewardAdActionBt"][clickable=true]',
           ],
           actionDelay: 2000,
-          anyMmatches: [
+          anyMatches: [
             '[id="J-watchVideo"] > [text="赚金币"] + @[getChild(0).getChild(0).text~="[0-9]{3,}"&&getChild(1).text="待领取"][clickable=true]',
             '[id="J-watchVideo"] > [text="赚金币"] +n [getChild(1).text~="第[0-9]+个"] + @[getChild(0).getChild(0).text~="[0-9]{3,}"&&getChild(1).text="待领取"][clickable=true]',
           ],
@@ -323,7 +323,6 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      forcedTime: 60000,
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
       rules: [
         {
@@ -891,7 +890,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
@@ -1213,7 +1211,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         'com.sigmob.sdk.base.common.PortraitTransparentAdActivity',
