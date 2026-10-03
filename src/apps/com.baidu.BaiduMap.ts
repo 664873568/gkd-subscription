@@ -9,6 +9,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '金币任务中心-签到日历-立即签到',
+      forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: ['com.baidu.baidumaps.MapsActivity'],
@@ -32,6 +33,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '金币任务中心-限时任务-浏览',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -48,6 +50,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '金币任务中心-看视频-赚金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -60,8 +63,9 @@ export default defineGkdApp({
             '[vid="na_render_layout"] > ViewGroup > [text~="[0-9]{3,}"][vid="rewardAdCoin"] +n @[vid="rewardAdActionBt"][clickable=true]',
           ],
           actionDelay: 2000,
-          matches: [
-            '[id="J-watchVideo"] >n @[getChild(0).getChild(0).text~="[0-9]{3,}"][clickable=true] + [getChild(1).text="待领取"]',
+          anyMmatches: [
+            '[id="J-watchVideo"] > [text="赚金币"] + @[getChild(0).getChild(0).text~="[0-9]{3,}"&&getChild(1).text="待领取"][clickable=true]',
+            '[id="J-watchVideo"] > [text="赚金币"] +n [getChild(1).text~="第[0-9]+个"] + @[getChild(0).getChild(0).text~="[0-9]{3,}"&&getChild(1).text="待领取"][clickable=true]',
           ],
         },
         {
@@ -76,6 +80,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '金币任务中心-浏览App-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -86,7 +91,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
             '[getChild(0).text="恭喜获得任务奖励"] +n @TextView[index=parent.childCount.minus(1)][clickable=true]',
-            '@View[clickable=true] > [text="我知道了"]',
+            '[getChild(0).getChild(0).text="恭喜获得"] +n View > @View[clickable=true] > [text="我知道了"]',
           ],
           actionDelay: 2000,
           matches: [
@@ -113,6 +118,7 @@ export default defineGkdApp({
     {
       key: 4,
       name: '金币任务中心-浏览App-已完成-领取金币/点击领取',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -126,11 +132,17 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0],
           key: 1,
-          anyMatches: [
-            '@View[clickable=true] > [text="我知道了"]',
+          matches: [
             '[getChild(0).getChild(0).text~="恭喜.*完成.*挑战"] +n View > @View[clickable=true] > [text="点击领取"]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          matches: [
+            '[getChild(0).getChild(0).text="恭喜获得"] +n View > @View[clickable=true] > [text="我知道了"]',
           ],
         },
       ],
@@ -139,6 +151,7 @@ export default defineGkdApp({
     {
       key: 5,
       name: '金币任务中心-免费抽大奖-免费抽奖',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -148,9 +161,10 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="task-loader"] > [id^="J-task-item"] > @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
-            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]+00 金币"]',
-            '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
+            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]{3,}+ 金币"]',
+            '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]{1,2} 金币"]',
           ],
+          actionDelay: 2000,
           matches: [
             '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] > View > [text="免费抽奖"]',
           ],
@@ -158,13 +172,13 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]+00 金币"]',
+            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]{3,}+ 金币"]',
           ],
         },
         {
           key: 2,
           matches: [
-            '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]0 金币"]',
+            '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]{1,2} 金币"]',
           ],
         },
       ],
@@ -173,6 +187,7 @@ export default defineGkdApp({
     {
       key: 6,
       name: '金币任务中心-翻卡-翻*倍',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -182,9 +197,12 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
+            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]+ 金币"]',
             '[text="恭喜翻出"] +n @[getChild(0).text~="继续翻十位领取|继续翻百位|立即收下"][clickable=true] + TextView',
+            '@TextView[clickable=true] - View > [id="lottieDom"] > View > [text="恭喜获得收益翻倍卡"] + [text="明天再来可翻倍今日收益"] +n View > [text="明日来翻倍"]',
             '@View[clickable=true] > [text~="立即翻倍|立即收下"]',
           ],
+          actionDelay: 2000,
           matches: [
             '[text="翻多少赚多少"] + [text="翻卡赢 9999金币"] +n @View[clickable=true] > View > Image',
           ],
@@ -222,6 +240,7 @@ export default defineGkdApp({
     {
       key: 7,
       name: '金币任务中心-翻卡-翻',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -231,7 +250,9 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
-            '[text^="运气"] +n [text="领走奖励 结束翻卡"][clickable=true] + TextView[clickable=true]',
+            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]+ 金币"]',
+            '[text="领走奖励 结束翻卡"] - [getChild(0).text="最高可得1888金币"] > @View[clickable=true] > [text="放弃这张 翻更大"]',
+            '[text="翻到炸弹啦"] + @View[clickable=true] > [text~="领取[0-9]+金币"]',
             '[text="已获得翻卡奖励"] + [getChild(3).getChild(1).text="明日继续翻"] + @TextView[clickable=true]',
           ],
           matches: [
@@ -239,17 +260,15 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
-            '[text="运气太棒啦"] +n @[text="领走奖励 结束翻卡"][clickable=true] + TextView[clickable=true]',
+            '[text="领走奖励 结束翻卡"] - [getChild(0).text="最高可得1888金币"] > @View[clickable=true] > [text="放弃这张 翻更大"]',
           ],
         },
         {
-          preKeys: [0],
           key: 2,
           matches: [
-            '[text="运气一般哦"] +n [text="领走奖励 结束翻卡"][clickable=true] + @TextView[clickable=true]',
+            '[text="翻到炸弹啦"] + @View[clickable=true] > [text~="领取[0-9]+金币"]',
           ],
         },
         {
@@ -264,6 +283,7 @@ export default defineGkdApp({
     {
       key: 8,
       name: '金币任务中心-天天赢大奖-去抽奖',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -299,6 +319,7 @@ export default defineGkdApp({
     {
       key: 9,
       name: '金币任务中心-开红包领现金-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -336,6 +357,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '金币任务中心-开宝箱得金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -364,6 +386,7 @@ export default defineGkdApp({
     {
       key: 19,
       name: '看视频-广告-反馈 ×baidu',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -381,6 +404,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '看视频-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -476,6 +500,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '看视频-下滑',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -527,6 +552,7 @@ export default defineGkdApp({
     {
       key: 22,
       name: '看视频-礼包',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -551,6 +577,7 @@ export default defineGkdApp({
     {
       key: 23,
       name: '看视频-跳过 *s',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -568,6 +595,7 @@ export default defineGkdApp({
     {
       key: 28,
       name: '看视频-跳过-*秒',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -593,6 +621,7 @@ export default defineGkdApp({
     {
       key: 29,
       name: '看视频-广告-反馈 ×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -617,6 +646,7 @@ export default defineGkdApp({
     {
       key: 30,
       name: '看视频-点击打开-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -631,6 +661,7 @@ export default defineGkdApp({
     {
       key: 31,
       name: '看视频-跳过-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 40000,
@@ -646,6 +677,7 @@ export default defineGkdApp({
     {
       key: 32,
       name: '看视频-反馈-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -661,6 +693,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '看视频-全屏广告',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -682,43 +715,26 @@ export default defineGkdApp({
       ],
     },
     //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
+    //看视频-com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity
     {
       key: 50,
-      name: '看视频-跳过-礼包-下载app/看*秒可直接拿奖励-kwad',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="点击下载免看广告" || text="点击下载拿奖励" || text="点击跳转拿奖励"][clickable=true] <<n * [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] < ViewGroup - [getChild(0).desc="gift_box"] < * < * < * - * [text="已完成任务"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 51,
-      name: '看视频-跳过-礼包-立即获取-*s-kwad',
+      name: '看视频-跳过-礼包-kwad',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
+        'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
         'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
       ],
       rules: [
         {
           key: 0,
           matches: [
-            '@[text~="我要免看本次广告|知道了.*"][desc="dialog_action_button"][clickable=true] < * <n * < * < * + * [getChild(0).getChild(0).name~=".*TextView|.*ImageView"] + * > [desc="skip_button"] > ViewGroup > [text="跳过"]',
+            '@[text~="点击下载免看广告|点击下载拿奖励.*|点击跳转拿奖励"][clickable=true] <<n * [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
+            '@[text~="我要免看本次广告|知道了.*"][clickable=true] <<n * [getChild(0).getChild(0).name~=".*TextView|.*ImageView"] + ViewGroup > [desc="skip_button"] > ViewGroup > [text="跳过"]',
+            '@[text~="点击下载免看广告|点击下载拿奖励.*|点击跳转拿奖励|我要免看本次广告|知道了.*"][clickable=true] <<n * [desc="skip_button"] > ViewGroup > [text="跳过"]',
           ],
         },
         {
@@ -730,19 +746,20 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="免费获取"]',
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="立即获取" || text="免费获取"]',
           ],
         },
         {
           key: 3,
           matches: [
-            '[getChild(0).desc="gift_box"] + * > [getChild(0).getChild(0).text="立即获取"] + [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
+            '[getChild(0).desc="gift_box"] + ViewGroup > [getChild(0).getChild(0).text~="立即获取|免费获取"] + [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
+            '[text~="已完成任务|恭喜获得奖励"] <<n * [getChild(0).desc="gift_box"] + ViewGroup > [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
           ],
         },
         {
           key: 4,
           matches: [
-            '@[id$="ksad_end_close_btn"][clickable=true] - [text="免费获取"] < * - * > [id$="ksad_end_reward_icon"]',
+            '@[id$="ksad_end_close_btn"][clickable=true] - [text~="立即获取|免费获取"] < * - * > [id$="ksad_end_reward_icon"]',
           ],
         },
         {
@@ -755,7 +772,8 @@ export default defineGkdApp({
     },
     {
       key: 52,
-      name: '看视频-跳过-立即领取/立即获取',
+      name: '看视频-跳过-立即领取/立即获取-kwad',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -776,68 +794,11 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity
-    {
-      key: 60,
-      name: '看视频-跳过-礼包-下载app/看*秒可直接拿奖励kwad.Scape',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 1000,
-          matches: [
-            '@[text="点击下载免看广告" || text="点击下载拿奖励" || text="点击跳转拿奖励"][clickable=true] <<n * [getChild(1).text~="看[0-9]+秒可直接拿奖励|下载app可直接拿奖励"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] < ViewGroup - [getChild(0).desc="gift_box"] < * < * < * - * [text="已完成任务"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 61,
-      name: '看视频-跳过-礼包-立即获取-*s-kwad.Scape',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          action: 'none',
-          matches: [
-            '@[getChild(0).getChild(0).text~="[0-9]+"] + * > [getChild(0).getChild(0).text="立即获取"] + [desc="skip_button"] > ViewGroup > [text="跳过"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '[desc="auto_call_view"] > [desc="auto_call_close_button"] > @[text="不用了"][clickable=true]',
-          ],
-        },
-        {
-          key: 2,
-          matches: [
-            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="免费获取" || text="立即获取"]',
-          ],
-        },
-      ],
-    },
     //看视频-com.qq.e.ads.PortraitADActivity
     {
       key: 70,
       name: '看视频-微信-提前拿奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -866,6 +827,7 @@ export default defineGkdApp({
     {
       key: 71,
       name: '看视频-恭喜获得奖励！-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -891,6 +853,7 @@ export default defineGkdApp({
     {
       key: 72,
       name: '看视频-奖励将于*秒后发放',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -916,6 +879,7 @@ export default defineGkdApp({
     {
       key: 73,
       name: '看视频-点击广告拿奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -940,6 +904,7 @@ export default defineGkdApp({
     {
       key: 74,
       name: '看视频-广告-××',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       forcedTime: 60000,
@@ -965,6 +930,7 @@ export default defineGkdApp({
     {
       key: 75,
       name: '看视频-广告-×qq',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -979,6 +945,7 @@ export default defineGkdApp({
     {
       key: 76,
       name: '看视频-免-恭喜获得奖励-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -996,6 +963,7 @@ export default defineGkdApp({
     {
       key: 77,
       name: '看视频-我要更快拿奖',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1012,6 +980,7 @@ export default defineGkdApp({
     {
       key: 78,
       name: '看视频-打开App体验*秒，即可获得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1028,6 +997,7 @@ export default defineGkdApp({
     {
       key: 79,
       name: '看视频-跳过qq',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1044,6 +1014,7 @@ export default defineGkdApp({
     {
       key: 80,
       name: '看视频-体验APP，提前拿奖励-×',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1069,6 +1040,7 @@ export default defineGkdApp({
     {
       key: 81,
       name: '看视频-奖励已到账-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1092,6 +1064,7 @@ export default defineGkdApp({
     {
       key: 90,
       name: '看视频-跳过-浏览*秒领取奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1119,6 +1092,7 @@ export default defineGkdApp({
     {
       key: 91,
       name: '看视频-跳过-*秒sigmob',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1141,6 +1115,7 @@ export default defineGkdApp({
     {
       key: 92,
       name: '看视频-跳过-*s后获取奖励sigmob',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1163,6 +1138,7 @@ export default defineGkdApp({
     {
       key: 93,
       name: '看视频-跳过-*s后获取奖励-抽奖',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1189,6 +1165,7 @@ export default defineGkdApp({
     {
       key: 94,
       name: '看视频-跳过-*s后可领取奖励-免',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1227,6 +1204,7 @@ export default defineGkdApp({
     {
       key: 95,
       name: '看视频-跳过-<sigmob',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1248,6 +1226,7 @@ export default defineGkdApp({
     {
       key: 96,
       name: '看视频-跳过-sigmob',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       forcedTime: 60000,
@@ -1282,6 +1261,7 @@ export default defineGkdApp({
     {
       key: 100,
       name: '看视频-点击广告并停留*秒即可获取奖励-×',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1314,13 +1294,14 @@ export default defineGkdApp({
     {
       key: 110,
       name: '看视频-广告-关闭',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '@[vid="tobid_interstitial_skip_ll"][clickable=true] > [text="关闭"][vid="tobid_interstitial_skip_text"]',
+            '[vid="tobid_interstitial_sound_and_skip_layout"] > FrameLayout > @[vid="tobid_interstitial_skip_ll"][clickable=true] > [text="关闭"][vid="tobid_interstitial_skip_text"]',
           ],
           activityIds: [
             'com.windmill.sdk.widget.InterstitialView_4012001',
@@ -1333,6 +1314,7 @@ export default defineGkdApp({
     {
       key: 400,
       name: '隐私保护指引-暂不开启',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1349,6 +1331,7 @@ export default defineGkdApp({
     {
       key: 401,
       name: '开启推送通知-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
