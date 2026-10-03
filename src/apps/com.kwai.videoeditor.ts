@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '看视频-全屏广告-×cbrs',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -28,6 +29,7 @@ export default defineGkdApp({
     {
       key: 30,
       name: '看视频-全屏广告-×cbso',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -52,6 +54,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '看视频-全屏广告-×ckkk',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -71,6 +74,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '看视频-全屏广告-×coaa',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -89,6 +93,7 @@ export default defineGkdApp({
     {
       key: 400,
       name: '用户协议及隐私政策-同意并进入',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -106,6 +111,7 @@ export default defineGkdApp({
     {
       key: 498,
       name: '首页广告-跳过csg',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -115,6 +121,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text~="跳过 [0-9]"]',
             '[text~="[0-9]"] - @[text="跳过"] < * +2 ImageView',
+            '@View[clickable=true] - LinearLayout > [text="广告"]',
           ],
           activityIds: ['.commercialization.splash.GeneralAdSplashActivity'],
         },
@@ -123,6 +130,7 @@ export default defineGkdApp({
     {
       key: 499,
       name: '首页广告-×csg',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -140,7 +148,6 @@ export default defineGkdApp({
           ],
           activityIds: [
             '.commercialization.splash.GeneralAdSplashActivity',
-            'null',
           ],
         },
       ],
@@ -149,6 +156,7 @@ export default defineGkdApp({
     {
       key: 500,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
