@@ -83,8 +83,24 @@ export default defineGkdApp({
         },
       ],
     },
+    //热门活动
     {
       key: 10,
+      name: '热门活动-公告-×',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
+          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 11,
       name: '热门活动-签到',
       matchRoot: true,
       matchDelay: 1000,
@@ -112,7 +128,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 12,
       name: '热门活动-抽奖',
       matchRoot: true,
       matchDelay: 1000,
