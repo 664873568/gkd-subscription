@@ -8,7 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '天天赚-免费红包',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -50,12 +50,13 @@ export default defineGkdApp({
     {
       key: 10,
       name: '每日福利-送红包*个',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 2000,
           matches: [
             '@[text="去领取"][clickable=true] -2 [text~="今日送你免费红包 （[0-9]+/[0-9]+）"]',
           ],
@@ -69,7 +70,7 @@ export default defineGkdApp({
       key: 11,
       name: '每日福利-看广告*个', //*s后可领取奖励
 
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -79,6 +80,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text="去领取"][clickable=true] -2 [text~="今日送你免费红包 （[0-9]+/[0-9]+）"]',
           ],
+          actionDelay: 2000,
           matches: [
             '@[text~="去完成|继续看"][clickable=true] -2 [text~="看[0-9]+个广告得1个红包 （[0-9]+/[0-9]+）"]',
           ],
@@ -113,7 +115,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '每日福利-看视频*个',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -123,7 +125,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text~="去完成|继续看"][clickable=true] -2 [text~="看[0-9]+个广告得1个红包 （[0-9]+/[0-9]+）"]',
           ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '@[text~="去完成|继续看"][clickable=true] -2 [text~="看[0-9]+个视频得1个红包 （[0-9]+/[0-9]+）"]',
           ],
@@ -169,7 +171,7 @@ export default defineGkdApp({
     {
       key: 13,
       name: '每日福利-看视频*秒',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -225,7 +227,7 @@ export default defineGkdApp({
     {
       key: 14,
       name: '每日福利-开红包',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -257,7 +259,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '国庆免费看-去完成',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -266,7 +268,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="国庆免费看"] >n TextView[text!~="^前往影视频道观看电视剧.*"] +2 @[text="去完成"][clickable=true]',
+            '[text="国庆免费看"] >n TextView[text!~="前往影视频道观看电视剧.*"] +2 @[text="去完成"][clickable=true]',
           ],
           activityIds: [
             'com.baidu.browser.search.LightSearchActivity',
@@ -286,7 +288,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '国庆免费看-抽10次',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -298,7 +300,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="国庆免费看"] >n TextView +2 @[text="去完成"][clickable=true]',
+            '[text="国庆免费看"] >n TextView[text!~="前往影视频道观看电视剧.*"] +2 @[text="去完成"][clickable=true]',
             '@[text="close6"][clickable=true] + [text="draw-card-title-bg"] + [text="获得10张纪念票"]',
           ],
           actionDelay: 2000,
@@ -318,7 +320,7 @@ export default defineGkdApp({
     {
       key: 22,
       name: '国庆免费看-领红包',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -358,9 +360,8 @@ export default defineGkdApp({
     {
       key: 30,
       name: '看视频-已获得奖励-×',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.nadcore.lp.reward.NadRewardVideoActivity'],
@@ -382,7 +383,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '立即升级-×',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -397,7 +398,7 @@ export default defineGkdApp({
     {
       key: 49,
       name: '累计获得-×',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -415,7 +416,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
