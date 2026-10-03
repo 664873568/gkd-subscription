@@ -52,7 +52,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 3000,
           matches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [text~="快影|虎牙|洗车|丰巢"][vid="title"] + [vid="webview_title_line"]',
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [text~="今日头条.*|UC.*|百度|快手|番茄畅听|.*APP.*|.*领.*|.*苏.*|淘宝.*|.*酷.*|YY直播|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"] + [vid="webview_title_line"]',
           ],
         },
       ],
@@ -129,8 +129,7 @@ export default defineGkdApp({
       rules: [
         {
           excludeMatches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +2 View > View > @View[clickable=true] > [text="去完成"]',
-            '[getChild(0).getChild(1).text="看热点领金币"] +3 View > View > @View[clickable=true] > [text="去完成"]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @View[clickable=true] > [text="去完成"]',
             '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
             '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > View > [getChild(0).getChild(0).text!~="体验AI搜索"] + @View[clickable=true] > [text="去完成"]',
           ],
@@ -221,7 +220,7 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @View[clickable=true] > [text="去完成"]',
+            '[getChild(0).getChild(1).text="看热点领金币"] +3 View > View > @View[clickable=true] > [text="去完成"]',
           ],
         },
         {
@@ -364,6 +363,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
+            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @View[clickable=true] > [text="去完成"]',
             '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
           ],
           actionDelay: 2000,
@@ -507,7 +507,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@[vid="get_coupon_close"][clickable=true] - [vid="get_coupon_btn"]',
             '@[vid="bottom_sale_info_close"][clickable=true] +n [vid="bottom_sale_info_btn"]',
           ],
           activityIds: [
