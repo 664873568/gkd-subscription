@@ -39,6 +39,12 @@ export default defineGkdApp({
             '@TextView[clickable=true] - [getChild(0).text="恭喜获得"] > [text="我知道了"] + [text="去完成"]',
           ],
         },
+        {
+          key: 2,
+          matches: [
+            '@TextView[clickable=true] + [getChild(childCount.minus(1)).text="继续赚金币"]',
+          ],
+        },
       ],
     },
     //每日任务
