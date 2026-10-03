@@ -52,7 +52,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 3000,
           matches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [text~="今日头条.*|UC.*|百度|快手|番茄畅听|.*APP.*|.*领.*|.*苏.*|淘宝.*|.*酷.*|YY直播|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"] + [vid="webview_title_line"]',
+            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"] +n [text~="今日头条.*|UC.*|百度|快手|飞猪|番茄畅听|YY.*|.*APP.*|.*领.*|淘宝.*|.*苏.*|.*酷.*|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"] + [vid="webview_title_line"]',
           ],
         },
       ],
