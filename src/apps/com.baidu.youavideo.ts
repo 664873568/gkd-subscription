@@ -470,7 +470,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      forcedTime: 10000,
       resetMatch: 'activity',
       activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
       rules: [
