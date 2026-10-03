@@ -778,10 +778,10 @@ export default defineGkdApp({
         {
           key: 3,
           anyMatches: [
-            'ImageView < @FrameLayout <n * < * + * [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout < * + * > FrameLayout > [text="恭喜获得奖励"]', //免
+            'ImageView < @FrameLayout <n * <n * +n * [text="恭喜获得奖励"]', //免
+            'ImageView < @FrameLayout < * + * [text="恭喜获得奖励"]', //免
             'ImageView < @FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]', //免
-            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * [text="已完成浏览15秒，提前获得奖励"]',
+            'ImageView < @FrameLayout < * < * <n * -n * [text="已完成浏览15秒，提前获得奖励"]',
           ],
         },
       ],
