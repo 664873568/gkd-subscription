@@ -9,7 +9,7 @@ export default defineGkdApp({
       key: 0,
       name: '签到领钱-签到',
       matchRoot: true,
-      forcedTime: 10000,
+      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         'com.taobao.sns.tms.CommonTMSActivity',
@@ -41,7 +41,7 @@ export default defineGkdApp({
       key: 1,
       name: '签到领钱-浏览任务',
       matchRoot: true,
-      forcedTime: 10000,
+      forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
         'com.taobao.sns.tms.CommonTMSActivity',
@@ -94,7 +94,7 @@ export default defineGkdApp({
           key: 5,
           actionDelay: 3000,
           matches: [
-            '[vid="left_panel"] > @[desc="返回"][clickable=true] + LinearLayout > [text="正在跳转"][vid="tvTitle"]',
+            '@[desc="返回"][clickable=true] < [vid="left_panel"] < [vid="tms_title_bar"]',
           ],
         },
         {
@@ -111,7 +111,7 @@ export default defineGkdApp({
       key: 40,
       name: '更新提示',
       matchRoot: true,
-      forcedTime: 10000,
+      forcedTime: 60000,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
