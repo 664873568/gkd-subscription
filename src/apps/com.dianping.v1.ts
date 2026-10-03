@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '签到领金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -34,6 +35,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '三餐奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -59,6 +61,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '日常任务-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
       rules: [
@@ -111,6 +114,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '开宝箱得金币',
+      forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
@@ -165,8 +169,9 @@ export default defineGkdApp({
     {
       key: 4,
       name: '今日累计奖励-领取',
+      forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 3000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -178,6 +183,7 @@ export default defineGkdApp({
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
           ],
           action: 'clickCenter',
+          actionDelay: 2000,
           matches: [
             '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
           ],
@@ -188,20 +194,18 @@ export default defineGkdApp({
     {
       key: 10,
       name: '星图金融-去大众点评赢免单',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          preKeys: [0],
-          key: 0,
           excludeMatches: [
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
             '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
             '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
           ],
           actionDelay: 5000,
-          actionCd: 100,
           matches: [
             '@[getChild(0).desc="back"][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
           ],
@@ -213,6 +217,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '新版本抢先体验-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
