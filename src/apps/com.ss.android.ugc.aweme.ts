@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '月付金-签到可得',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -29,6 +30,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '月付金-赚月付金',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -107,6 +109,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '理财-广告',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -123,6 +126,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '理财-发财金-立即签到',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -130,6 +134,21 @@ export default defineGkdApp({
         {
           key: 0,
           name: '签到领',
+          position: {
+            left: 'width * -0.8',
+            top: 'height * 0',
+          },
+          actionDelay: 2000,
+          matches: [
+            'ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ImageView +n @ImageView',
+          ],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
+        },
+        {
+          key: 1,
+          name: '立即签到',
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
@@ -142,25 +161,22 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
+          key: 2,
           name: '立即签到',
           position: {
             left: 'width * -0.8',
             top: 'height * 0',
           },
-          actionDelay: 2000,
           matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > ImageView +n @ImageView + ViewGroup + ViewGroup',
+            'ScrollView > HorizontalScrollView > LinearLayout > ImageView +(-n+8) @ImageView',
           ],
           activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
           ],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
+          preKeys: [0, 1,2],
+          key: 3,
           name: '开心收下',
           position: {
             left: 'width * 0.5',
@@ -178,6 +194,7 @@ export default defineGkdApp({
     {
       key: 22,
       name: '理财-*发财金已到账',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -240,6 +257,7 @@ export default defineGkdApp({
     {
       key: 23,
       name: '理财-发财金-抽发财金',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -272,6 +290,7 @@ export default defineGkdApp({
     {
       key: 30,
       name: '省钱豆-每日签到',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -299,6 +318,7 @@ export default defineGkdApp({
     {
       key: 31,
       name: '省钱豆-保险商城',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -351,6 +371,7 @@ export default defineGkdApp({
     {
       key: 32,
       name: '省钱豆-信用卡',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -382,7 +403,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用,确认离开吗"]',
+            '@[desc="残忍离开"] < ViewGroup -n [desc="你有信用卡还款金未使用，确认离开吗"]',
           ],
         },
       ],
@@ -390,6 +411,7 @@ export default defineGkdApp({
     {
       key: 33,
       name: '省钱豆-食安保',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -438,6 +460,7 @@ export default defineGkdApp({
     {
       key: 34,
       name: '省钱豆-查电费',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -476,6 +499,7 @@ export default defineGkdApp({
     {
       key: 35,
       name: '省钱豆-月付金',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -516,6 +540,7 @@ export default defineGkdApp({
     {
       key: 36,
       name: '省钱豆-运费险',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -556,6 +581,7 @@ export default defineGkdApp({
     {
       key: 37,
       name: '省钱豆-抽免单',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -583,6 +609,7 @@ export default defineGkdApp({
     {
       key: 38,
       name: '省钱豆-去懂车帝',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -610,6 +637,7 @@ export default defineGkdApp({
     {
       key: 39,
       name: '省钱豆-从「钱包」访问车主服务',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -638,6 +666,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '充值中心-广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -655,6 +684,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '充值中心-攒充值金',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -694,6 +724,7 @@ export default defineGkdApp({
     {
       key: 42,
       name: '充值中心-攒充值金-赚充值金',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -782,6 +813,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '任务中心-天天预约领金币-看视频*秒领',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -888,6 +920,7 @@ export default defineGkdApp({
     {
       key: 51,
       name: '任务中心-天天预约领金币-立即领取',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -935,15 +968,17 @@ export default defineGkdApp({
         {
           preKeys: [3, 5],
           key: 4,
-          name: '明天0点可领-返回',
+          name: '明天*点可领-返回',
+          action: 'back',
           matches: [
-            'ViewGroup - ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ViewGroup > [desc="明天0点可领"]',
+            'ViewGroup - ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > ViewGroup > [desc~="明天[0-9]+点可领"]',
           ],
         },
         {
           preKeys: [4],
           key: 5,
           name: '提醒我来领-返回',
+          action: 'back',
           matches: [
             'ScrollView > HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > ViewGroup + ImageView',
           ],
@@ -954,6 +989,7 @@ export default defineGkdApp({
     {
       key: 60,
       name: '手机充值-广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -978,6 +1014,7 @@ export default defineGkdApp({
     {
       key: 70,
       name: '我的钱包-广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -997,6 +1034,7 @@ export default defineGkdApp({
     {
       key: 71,
       name: '我的钱包-今日签到',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1026,6 +1064,7 @@ export default defineGkdApp({
       scopeKeys: [71],
       key: 72,
       name: '我的钱包-前往抖音月付看看',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1071,6 +1110,7 @@ export default defineGkdApp({
     {
       key: 80,
       name: '支付成功',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1099,6 +1139,7 @@ export default defineGkdApp({
     {
       key: 81,
       name: '抖音乘车码开通福利-×',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
