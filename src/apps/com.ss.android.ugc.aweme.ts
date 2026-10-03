@@ -151,7 +151,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > @ImageView + ViewGroup > ViewGroup',
+            'ScrollView > HorizontalScrollView > LinearLayout > ImageView +n @ImageView + ViewGroup + ViewGroup',
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
@@ -186,25 +186,25 @@ export default defineGkdApp({
           key: 0,
           action: 'back',
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout',
+            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout', //逛商城福利
           ],
           activityIds: [
-            '.live.LiveDummyActivity', //逛商城福利
+            '.live.LiveDummyActivity',
           ],
         },
         {
           key: 1,
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="关闭"][clickable=true]',
+            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="关闭"][clickable=true]', //浏览行情信息
           ],
           activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0', //浏览行情信息
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
         },
         {
           key: 2,
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
+            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -219,7 +219,7 @@ export default defineGkdApp({
           preKeys: [2, 3],
           key: 4,
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin:id"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
+            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -849,16 +849,17 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [4, 5],
           key: 5,
           name: '立即预约领金币',
+          excludeMatches: [
+            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
+          ],
           matches: [
             'ScrollView + ViewGroup > ViewGroup > FrameLayout + ImageView + ViewGroup + @ViewGroup + ViewGroup',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [5, 6],
           key: 6,
           name: '立即预约领取',
           matches: [
