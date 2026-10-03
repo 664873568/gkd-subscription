@@ -45,6 +45,12 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          matches: [
+            'ImageView < @FrameLayout +n FrameLayout > FrameLayout > [text="立即打开"]',
+          ],
+        },
+        {
+          key: 3,
           matches: ['View > View > @[text="领取奖励"][clickable=true]'],
         },
       ],
