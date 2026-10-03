@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '提现-提现至支付宝-20元',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -53,6 +54,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '提现-提现至支付宝-10元',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -99,6 +101,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '提现-提现至支付宝-3元',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -145,6 +148,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '兑换商城-兑换-10元现金红包',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -182,6 +186,7 @@ export default defineGkdApp({
     {
       key: 4,
       name: '兑换商城-兑换-1元现金红包',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -219,6 +224,7 @@ export default defineGkdApp({
     {
       key: 5,
       name: '兑换商城-兑换-5元京东卡-999金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -256,6 +262,7 @@ export default defineGkdApp({
     {
       key: 6,
       name: '兑换商城-兑换-5元京东卡-99金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -294,6 +301,7 @@ export default defineGkdApp({
     {
       key: 7,
       name: '兑换商城-兑换-5元京东卡-10金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -333,6 +341,7 @@ export default defineGkdApp({
     {
       key: 19,
       name: '看视频-跳过-去体验*秒可立即领奖bms',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -363,6 +372,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '看视频-跳过-去体验*秒可立即领奖',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -455,6 +465,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '看视频-下滑-已发放-*秒',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -498,6 +509,7 @@ export default defineGkdApp({
     {
       key: 22,
       name: '看视频-礼包-跳过-*s后可领取奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -522,6 +534,7 @@ export default defineGkdApp({
     {
       key: 28,
       name: '看视频-跳过-*秒',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -548,6 +561,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '看视频-广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -563,6 +577,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '看视频-礼包-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -579,10 +594,14 @@ export default defineGkdApp({
     {
       key: 60,
       name: '看视频-微信-提前拿奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -607,6 +626,7 @@ export default defineGkdApp({
     {
       key: 61,
       name: '看视频-微信-阅读小说 可获得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -617,19 +637,36 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
           matches: [
-            '[text="上滑继续阅读"] <n * -n * [text="阅读小说"] + [text="可获得奖励"]',
+            '[text="可获得奖励"] - [text="阅读小说"] < * <n * + @RecyclerView >n [text*="继续"]',
           ],
         },
         {
           key: 1,
+          matches: [
+            '[text="可获得奖励"] - [text="阅读小说"] < * <n * +n * @[text="继续体验15秒得奖励"]',
+          ],
+        },
+        {
+          key: 2,
           actionDelay: 15000,
           matches: [
             'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View', //二级广告页
           ],
         },
         {
-          key: 2,
+          key: 3,
           matches: [
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
           ],
@@ -639,6 +676,7 @@ export default defineGkdApp({
     {
       key: 62,
       name: '看视频-奖励将于*秒后发放',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -650,8 +688,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
-          matches: [
-            '[text="放弃福利" || text="我要更快拿奖"] < @FrameLayout <n * +n * [text^="奖励将于"]',
+          anyMmatches: [
+            '@[text~="放弃福利" || text="我要更快拿奖"] < FrameLayout <n * +n * [text^="奖励将于"]',
+            '@[text~="放弃福利" || text="我要更快拿奖"] <n FrameLayout < * < * +n * [text^="奖励将于"]',
           ],
         },
         {
@@ -666,22 +705,24 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 1000,
           anyMatches: [
-            'ImageView < FrameLayout < @FrameLayout - [text="恭喜获得奖励"]',
-            'ImageView < FrameLayout < @FrameLayout - * [text="恭喜获得奖励"]',
-            'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
+            'ImageView < @FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout - ImageView < FrameLayout < * - * [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览"]',
+            'ImageView < @FrameLayout < FrameLayout - LinearLayout > LinearLayout > [text="恭喜获得奖励"]',
           ],
         },
         {
           key: 3,
           matches: [
-            'ImageView < FrameLayout < @FrameLayout + LinearLayout > FrameLayout > [text="查看详情"]',
+            'ImageView < @FrameLayout < FrameLayout + FrameLayout > FrameLayout > [text="查看详情" || text^="扭动或点击"]',
           ],
         },
       ],
     },
     {
       key: 63,
-      name: '看视频-浏览页面*秒后|点击广告，即可获得奖励',
+      name: '看视频-浏览页面|*秒后点击广告，即可获得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -705,24 +746,42 @@ export default defineGkdApp({
     {
       key: 64,
       name: '看视频-打开/完成App，即可获得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
           matches: [
-            '[getChild(0).getChild(0).text$="即可获得奖励"] - * @[text*="第三方应用"][index=parent.childCount.minus(1)]',
+            '[getChild(0).getChild(0).text^="打开App"] - * @[text*="第三方应用"][index=parent.childCount.minus(1)]',
           ],
         },
         {
+          preKeys: [0],
           key: 1,
+          matches: [
+            '[id="forRemHack"] + [id="root"] >n @View[clickable=true] > [text~="安装应用|点击下载"]',
+          ],
+        },
+        {
+          actionDelay: 3000,
+          key: 2,
+          matches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
+          ],
+        },
+        {
+          key: 3,
           anyMatches: [
-            '@ImageView < FrameLayout <n * < * + * [text="恭喜获得奖励"]',
-            '@ImageView < FrameLayout < * + * > FrameLayout > [text="恭喜获得奖励"]', //免
-            '@ImageView < FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]', //免
-            '@ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * [text="已完成浏览15秒，提前获得奖励"]',
+            'ImageView < @FrameLayout <n * < * + * [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout < * + * > FrameLayout > [text="恭喜获得奖励"]', //免
+            'ImageView < @FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]', //免
+            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * [text="已完成浏览15秒，提前获得奖励"]',
           ],
         },
       ],
@@ -731,6 +790,7 @@ export default defineGkdApp({
     {
       key: 100,
       name: '看视频-关闭广告',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -747,6 +807,7 @@ export default defineGkdApp({
     {
       key: 199,
       name: '会员频道-会员等级体系新升级-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -764,6 +825,7 @@ export default defineGkdApp({
     {
       key: 200,
       name: '任务中心-每日签到',
+      forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
@@ -790,6 +852,7 @@ export default defineGkdApp({
     {
       key: 201,
       name: '任务中心-开宝箱',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -820,6 +883,7 @@ export default defineGkdApp({
     {
       key: 207,
       name: '积分领好礼-领取',
+      forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
       activityIds: [
@@ -847,6 +911,7 @@ export default defineGkdApp({
     {
       key: 208,
       name: '每日打卡领好礼-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -866,6 +931,7 @@ export default defineGkdApp({
     {
       key: 209,
       name: '成长值任务-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -927,6 +993,7 @@ export default defineGkdApp({
     {
       key: 210,
       name: '日常任务-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -984,6 +1051,7 @@ export default defineGkdApp({
       scopeKeys: [210],
       key: 211,
       name: '日常任务-去玩游戏合成3次',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -998,7 +1066,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0,1],
           key: 2,
           name: '已完成去领奖',
           actionDelay: 30000,
@@ -1015,6 +1083,7 @@ export default defineGkdApp({
     {
       key: 212,
       name: '日常任务-观看广告视频',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1044,6 +1113,7 @@ export default defineGkdApp({
     {
       key: 220,
       name: '最新AI功能-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1068,12 +1138,20 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: ['TextView + TextView +5 @[text="领取"][clickable=true]'],
         },
+        {
+          key: 2,
+          actionDelay: 10000,
+          matches: [
+            '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @ImageView[clickable=true] < LinearLayout < [vid="ocr_title_bar"]',
+          ],
+        },
       ],
     },
     {
       scopeKeys: [220],
       key: 221,
       name: '最新AI功能-体验AI学习服务',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1083,7 +1161,7 @@ export default defineGkdApp({
           key: 1,
           name: '领取奖励',
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="领取奖励"][vid="tv_title"]',
+            '@[vid="layout_drag"][clickable=true] >n [vid="tv_title"]',
           ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
@@ -1093,6 +1171,7 @@ export default defineGkdApp({
       scopeKeys: [220],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1116,8 +1195,26 @@ export default defineGkdApp({
           activityIds: ['.ui.MainActivity'],
         },
         {
-          preKeys: [2],
+          preKeys: [0],
           key: 3,
+          action: 'clickCenter',
+          matches: [
+            '[text="选择整理任意文件"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [text="Z 侏罗纪：重生"] +n [vid="item_right"] >n @[id="android:id/button1"][clickable=true]',
+          ],
+          activityIds: ['.ui.MainActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 4,
+          action: 'clickCenter',
+          matches: [
+            '[text="选择整理任意文件"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @RelativeLayout[clickable=true] > [text="智能整理"][vid="ui_id_menu_text"]',
+          ],
+          activityIds: ['.ui.MainActivity'],
+        },
+        {
+          preKeys: [2,4],
+          key: 5,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
@@ -1129,6 +1226,7 @@ export default defineGkdApp({
       scopeKeys: [220],
       key: 223,
       name: '最新AI功能-体验AI笔记',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1163,6 +1261,7 @@ export default defineGkdApp({
       scopeKeys: [220],
       key: 224,
       name: '最新AI功能-浏览试卷中心',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1189,6 +1288,7 @@ export default defineGkdApp({
       scopeKeys: [220],
       key: 225,
       name: '最新AI功能-体验AI拍一拍|去水印|变清晰|消除|去手写',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1218,7 +1318,6 @@ export default defineGkdApp({
           excludeMatches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
-          actionDelay: 2000,
           matches: [
             '@ImageView[clickable=true] + [desc="自动消除"] + [desc="手动消除"]',
           ],
@@ -1249,6 +1348,7 @@ export default defineGkdApp({
       scopeKeys: [220],
       key: 226,
       name: '最新AI功能-体验AI照相馆',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1275,6 +1375,7 @@ export default defineGkdApp({
       scopeKeys: [220],
       key: 227,
       name: '最新AI功能-去体验错题收集',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1358,6 +1459,7 @@ export default defineGkdApp({
       scopeKeys: [220],
       key: 228,
       name: '最新AI功能-去体验拍题解题',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1396,6 +1498,7 @@ export default defineGkdApp({
     {
       key: 230,
       name: '功能任务-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1458,13 +1561,14 @@ export default defineGkdApp({
       scopeKeys: [230],
       key: 231,
       name: '功能任务-去刷一刷首页',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.ui.MainActivity'],
       rules: [
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 1,
           swipeArg: {
             start: {
@@ -1477,7 +1581,7 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionDelay: 2000,
+          actionCd: 5000,
           matches: [
             '[text="浏览15s feed"] <n ViewGroup - [vid="iv_close"] < ViewGroup <n FrameLayout - * @[vid="refresh_layout"]',
           ],
@@ -1495,6 +1599,7 @@ export default defineGkdApp({
       scopeKeys: [230],
       key: 232,
       name: '功能任务-去体验云打印',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1546,10 +1651,11 @@ export default defineGkdApp({
         },
       ],
     },
-    //首页功能类
+    //功能应用类
     {
       key: 400,
       name: '温馨提示-同意',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -1565,6 +1671,7 @@ export default defineGkdApp({
     {
       key: 401,
       name: '开启通知-暂不开启',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -1580,6 +1687,7 @@ export default defineGkdApp({
     {
       key: 402,
       name: '开启备份-暂不开启',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -1603,6 +1711,7 @@ export default defineGkdApp({
     {
       key: 403,
       name: '百度网盘更新啦-下次再说',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1624,6 +1733,7 @@ export default defineGkdApp({
     {
       key: 404,
       name: '喜欢“百度网盘”吗？-以后再说',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1642,10 +1752,33 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 405,
+      name: '订阅与共享可以添加到桌面啦-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[vid="add_widget_dialog_close_container"][clickable=true] +n [text="订阅与共享可以添加到桌面啦"][vid="add_widget_dialog_main_title"]',
+          ],
+          activityIds: [
+            '.ui.MainActivity',
+            '.ui.cloudp2p.RichMediaActivity',
+            '.aigc.ui.activity.AigcChatActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 500,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -1670,6 +1803,7 @@ export default defineGkdApp({
     {
       key: 501,
       name: '首页广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
