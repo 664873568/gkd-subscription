@@ -32,6 +32,29 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 1,
+      name: '天天领现金-桌面登录礼',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.meituan.android.knb.core.StandardKnbActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="每日从桌面进入可提现"] +n @[text="提现"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[id="app"] > View > View > @[text="开心收下"][clickable=true] + [desc="关闭"]',
+          ],
+        },
+      ],
+    },
     //赚钱中心
     {
       key: 10,
@@ -334,21 +357,27 @@ export default defineGkdApp({
         },
       ],
     },
-    //飞猪旅行-去美团赚20元
+    //飞猪旅行-去美团赚20元|星图金融-去美团APP看视频
     {
       key: 39,
       name: '看视频-任务已完成',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'app',
+      activityIds: ['.msv.page.activity.MSVPageActivity'],
       rules: [
         {
-          preKeys: [0],
           key: 0,
           action: 'back',
-          actionCd: 100,
           matches: ['@[vid="toast_container"] > [text="任务已完成"]'],
-          activityIds: ['.msv.page.activity.MSVPageActivity'],
+        },
+        {
+          key: 1,
+          action: 'back',
+          actionDelay: 10000,
+          matches: [
+            'ViewPager > FrameLayout > RelativeLayout > RelativeLayout > @[vid="msv_back"][clickable=true]',
+          ],
         },
       ],
     },
