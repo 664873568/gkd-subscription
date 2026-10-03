@@ -31,7 +31,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['[desc="SplashCard"] > @[desc="跳过"][clickable=true]'],
+          anyMatches: [
+            '@[desc="跳过"][clickable=true] <n [desc="SplashCard"] < [id="android:id/content"]',
+            '[desc="跳过"] < @FrameLayout[clickable=true] <n [desc="GdtAdFrame"] < [desc="UniSplashCard"] < [id="android:id/content"]',
+          ],
           activityIds: ['.app.MediaActivity'],
         },
       ],
