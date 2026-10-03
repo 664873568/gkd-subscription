@@ -12,7 +12,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.baidu.searchbox.MainActivity'],
+      activityIds: [
+        'com.baidu.searchbox.MainActivity',
+        'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
+      ],
       rules: [
         {
           key: 0,
