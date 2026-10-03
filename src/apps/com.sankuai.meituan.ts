@@ -33,7 +33,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '天天领现金-桌面登录礼',
       matchRoot: true,
       matchDelay: 1000,
