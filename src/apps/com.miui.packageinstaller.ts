@@ -21,6 +21,23 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 1,
+      name: '百度网盘-禁止安装',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="禁止安装"][clickable=true] <n [vid="buttonPanel"] - * [text="百度网盘"][vid="app_title"]',
+          ],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
+        },
+      ],
+    },
+    {
       key: 2,
       name: '喜马拉雅-安装应用',
       matchRoot: true,
@@ -33,7 +50,6 @@ export default defineGkdApp({
             '@[text="允许"][clickable=true] < [vid="buttonPanel"] - * [text="酷我音乐"][vid="app_title"]',
           ],
           activityIds: [
-            'null',
             'com.miui.packageInstaller.NewInstallerPrepareActivity',
           ],
         },
