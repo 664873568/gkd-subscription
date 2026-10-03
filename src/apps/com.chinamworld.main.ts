@@ -95,7 +95,9 @@ export default defineGkdApp({
           matches: [
             '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
