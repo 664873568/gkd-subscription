@@ -688,7 +688,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
-          anyMmatches: [
+          anyMatches: [
             '@[text~="放弃福利" || text="我要更快拿奖"] < FrameLayout <n * +n * [text^="奖励将于"]',
             '@[text~="放弃福利" || text="我要更快拿奖"] <n FrameLayout < * < * +n * [text^="奖励将于"]',
           ],
