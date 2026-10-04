@@ -133,7 +133,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '签到领',
+          name: '签到领0',
           position: {
             left: 'width * -0.8',
             top: 'height * 0',
@@ -148,7 +148,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          name: '立即签到',
+          name: '立即签到0',
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
