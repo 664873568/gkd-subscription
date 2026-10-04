@@ -456,7 +456,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 5,
           matches: [
             '[id="J_GAME_MARKET_POP_SDK"] >n @View[clickable=true] > [text="可领取"]',
