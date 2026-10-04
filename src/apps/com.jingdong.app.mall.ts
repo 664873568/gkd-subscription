@@ -452,11 +452,11 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text="待领奖"][clickable=true]',
+            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
-            '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text="去完成"][clickable=true]',
+            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="去完成"][clickable=true]',
           ],
           activityIds: [
             'com.jd.lib.ttt.page.TTTMultiPageActivity',
@@ -466,6 +466,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+          ],
           actionDelay: 5000,
           anyMatches: [
             '[id="coupon_modal_content"] > @[id="close_btn"][clickable=true] > View > Image',
@@ -476,6 +479,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+          ],
           actionDelay: 5000,
           matches: ['@[desc="返回"][clickable=true] +n [desc="Top Logo"]'],
           activityIds: [
@@ -486,6 +492,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 3],
           key: 3,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           actionCd: 100,
@@ -498,16 +507,36 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [3],
           key: 4,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.59',
+          },
+          matches: [
+            '[id="J_babelOpt"] + [id="chunk3"] + View[childCount=2]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 5,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
-          matches: ['[text="back"] < @View[clickable=true] <<n WebView < c40'],
+          matches: [
+            '[text="back"] < @View[clickable=true] <<n WebView < c40',
+          ],
           activityIds: ['.WebActivity'],
         },
         {
           preKeys: [0, 1],
-          key: 5,
+          key: 6,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+          ],
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -517,7 +546,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [0],
-          key: 6,
+          key: 7,
           matches: [
             '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
           ],
@@ -527,8 +556,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2],
-          key: 7,
+          key: 8,
           matches: [
             '[text="开心收下"] +n @View[clickable=true] > View > Image',
           ],
@@ -540,7 +568,7 @@ export default defineGkdApp({
         {
           key: 10,
           excludeMatches: [
-            '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text~="去完成|待领奖"][clickable=true]',
+            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text~="去完成|待领奖"][clickable=true]',
           ],
           actionDelay: 5000,
           matches: ['@TextView[clickable=true] + [text="做任务 赚次数"]'],
@@ -590,7 +618,7 @@ export default defineGkdApp({
           preKeys: [3],
           key: 4,
           matches: [
-            '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text="待领奖"][clickable=true]',
+            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
           ],
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
@@ -614,12 +642,16 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+      activityIds: [
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
       rules: [
         {
           key: 1,
-          matches: [
-            '[text="预约成功"] +n @[text="暂不开启"][clickable=true] + [text="去开启"]',
+          anyMatches: [
+            '[text="预约成功"] +n [text="暂不开启"] + @[text="去开启"][clickable=true]',
+            '[getChild(0).text*="去开启吧"] + [getChild(0).text="取消"] > @[text="确定"][clickable=true]',
           ],
         },
         {
@@ -634,6 +666,13 @@ export default defineGkdApp({
           key: 3,
           matches: [
             '[text="返回领奖"] - [text="已完成"] < View < @View[clickable=true] < View - [id="dark-moon-feeds-container"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
           ],
         },
       ],
