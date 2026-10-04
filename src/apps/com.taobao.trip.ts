@@ -40,17 +40,23 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@[text="取消"][clickable=true] + [text="打开"][clickable=true]', //*已安装完成，是否立即打开？
+            'ImageView < FrameLayout + RecyclerView + FrameLayout > FrameLayout > @[text="立即下载"]',
           ],
         },
         {
           key: 2,
           matches: [
-            'ImageView < @FrameLayout +n FrameLayout > FrameLayout > [text="立即打开"]',
+            '@[text="取消"][clickable=true] + [text="打开"][clickable=true]', //*已安装完成，是否立即打开？
           ],
         },
         {
           key: 3,
+          matches: [
+            'ImageView < @FrameLayout + RecyclerView + FrameLayout > FrameLayout > [text="立即打开"]',
+          ],
+        },
+        {
+          key: 4,
           matches: ['View > View > @[text="领取奖励"][clickable=true]'],
         },
       ],
@@ -247,6 +253,12 @@ export default defineGkdApp({
             '@ImageView[clickable=true] - * [text="反馈"] +n * > View[clickable=true]', //去看看
             '@ImageView[clickable=true] - * [text="反馈"] <n * +n  View[clickable=true]', //去看看
             '@ImageView[clickable=true] - * [text="反馈"] <n * + * [text="摇动手机  了解更多"]', //去看看
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '@ImageView[clickable=true] <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
