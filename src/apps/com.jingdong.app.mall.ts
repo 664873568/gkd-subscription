@@ -484,10 +484,11 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0, 1,3],
           key: 3,
           action: 'back',
           actionDelay: 5000,
+          actionCd: 100,
           matches: [
             'WebView < c40 <<n RelativeLayout +n LinearLayout >n @[text="" || desc="返回"][clickable=true]',
           ],
