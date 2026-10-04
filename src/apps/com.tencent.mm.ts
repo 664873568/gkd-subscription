@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '中国电信湖北客服-星币兑好礼-*元话费',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -42,6 +43,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '中国电信湖北客服-星币兑好礼-*元翼支付权益金',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -79,6 +81,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '中国电信湖北客服-广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -91,7 +94,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '签到',
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: ['[getChild(2).text="5星权益"] + @Image'],
         },
       ],
@@ -99,6 +102,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '中国电信App-广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -114,6 +118,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '迅雷-看广告-领取',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -131,9 +136,10 @@ export default defineGkdApp({
     {
       key: 11,
       name: '迅雷-关闭-已获得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 35000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -146,6 +152,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '迅雷-看广告',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
