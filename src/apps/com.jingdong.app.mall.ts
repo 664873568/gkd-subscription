@@ -685,7 +685,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@[desc="秒杀"][clickable=true] > ViewGroup > [text="秒杀"],
+            '@[desc="秒杀"][clickable=true] > ViewGroup > [text="秒杀"]',
           ],
           activityIds: ['.MainFrameActivity'],
         },
