@@ -513,9 +513,7 @@ export default defineGkdApp({
             left: 'width * 0.5',
             top: 'height * 0.59',
           },
-          matches: [
-            '[id="J_babelOpt"] + [id="chunk3"] + View[childCount=2]',
-          ],
+          matches: ['[id="J_babelOpt"] + [id="chunk3"] + View[childCount=2]'],
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
         {
@@ -526,9 +524,7 @@ export default defineGkdApp({
           ],
           action: 'back',
           actionDelay: 5000,
-          matches: [
-            '[text="back"] < @View[clickable=true] <<n WebView < c40',
-          ],
+          matches: ['[text="back"] < @View[clickable=true] <<n WebView < c40'],
           activityIds: ['.WebActivity'],
         },
         {
