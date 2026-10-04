@@ -458,7 +458,10 @@ export default defineGkdApp({
           matches: [
             '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+          activityIds: [
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -528,14 +531,22 @@ export default defineGkdApp({
           matches: [
             '[text="开心收下"] +n @View[clickable=true] > View > Image',
           ],
-          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+          activityIds: [
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+          ],
         },
         {
           key: 10,
           excludeMatches: [
             '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text~="去完成|待领奖"][clickable=true]',
           ],
+          actionDelay: 5000,
           matches: ['@TextView[clickable=true] + [text="做任务 赚次数"]'],
+          activityIds: [
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+          ],
         },
       ],
     },
@@ -656,7 +667,7 @@ export default defineGkdApp({
     //https://pro.m.jd.com/mall/active/43mNbs4F53FUMVin65VHVYYKB94f/index.html
     {
       key: 70,
-      name: '天天领豆',
+      name: '天天领豆-幸运奖励',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -665,17 +676,41 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@View[clickable=true] >n [getChild(10).text="今天"] + [text^="抽3000京豆"]',
+            '@[id="cardViewIcon"] > [text="幸运奖励"] + [getChild(0).text="待领"] + [text="去解锁"]',
           ],
-          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
         {
           preKeys: [0],
           key: 1,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.63',
+          },
+          matches: [
+            '[id="signView_main_portal"] + [id="chunkplaceholder8"] > @TextView',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
           matches: [
             '@[desc="秒杀"][clickable=true] > ViewGroup > [text="秒杀"]',
           ],
           activityIds: ['.MainFrameActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.67',
+          },
+          matches: [
+            '[text="京东秒杀"] >n @[id="J_babelOpt"] + [id="chunk2"] + [id="chunk10"]',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
       ],
     },
