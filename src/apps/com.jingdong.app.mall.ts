@@ -19,7 +19,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ViewGroup[clickable=true] > [desc~="关注[0-9]{2,}"] > [text="关注"]',
+            '@Button[desc^="关注"][clickable=true] > [getChild(0).getChild(0).text~="[0-9]{2,}"] - ViewGroup > [text="关注"]',
           ],
           activityIds: ['.MainFrameActivity'],
         },
