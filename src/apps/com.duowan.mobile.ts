@@ -279,6 +279,12 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          matches: [
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
+          ],
+        },
+        {
+          key: 3,
           excludeMatches: [
             'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
           ],
@@ -292,15 +298,15 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
+          preKeys: [3],
+          key: 4,
           matches: [
             'ImageView < @FrameLayout < FrameLayout <n FrameLayout +n * [text="恭喜获得奖励"]',
           ],
         },
         {
-          preKeys: [2],
-          key: 4,
+          preKeys: [3],
+          key: 5,
           matches: [
             'ImageView < @FrameLayout < FrameLayout + FrameLayout > FrameLayout > LinearLayout > TextView',
           ],
