@@ -15,7 +15,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 4,
-          excludeMatches: ['[text="立即提现"] + [getChild(0).text="请稍候..."]'],
+          excludeMatches: [
+            '[text="立即提现"] + [getChild(0).text="请稍候..."]',
+          ],
           matches: ['[text="可提现金额"] + @[text="立即提现"][clickable=true]'],
         },
         {
@@ -958,7 +960,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,4],
+          preKeys: [2, 4],
           key: 3,
           matches: [
             'View > @TextView[clickable=true][clickable=true] +n [text~="我知道了|开心收下"]',
@@ -1796,7 +1798,11 @@ export default defineGkdApp({
             '@[text~="跳过 [0-9]+"][vid="tv_skip"][clickable=true]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
-          activityIds: ['.ui.Navigate','.ui.MainActivity', '.advertise.ui.SplashAdActivity'],
+          activityIds: [
+            '.ui.Navigate',
+            '.ui.MainActivity',
+            '.advertise.ui.SplashAdActivity',
+          ],
         },
       ],
     },

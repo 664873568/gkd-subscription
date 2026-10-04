@@ -197,7 +197,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,5],
+          preKeys: [3, 5],
           key: 6,
           excludeMatches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
@@ -258,7 +258,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,4],
+          preKeys: [2, 4],
           key: 5,
           excludeMatches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
@@ -344,7 +344,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,6],
+          preKeys: [4, 6],
           key: 7,
           excludeMatches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
