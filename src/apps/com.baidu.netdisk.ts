@@ -718,7 +718,7 @@ export default defineGkdApp({
     },
     {
       key: 63,
-      name: '看视频-浏览页面|*秒后点击广告，即可获得奖励',
+      name: '看视频-浏览页面*秒后|点击广告，即可获得奖励',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -728,7 +728,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="点击广告拿奖励"] <<n * - * [text="点击广告，即可获得奖励"]',
+            '[text="点击广告，即可获得奖励"] < FrameLayout < * + * @[text="点击广告拿奖励"]',
           ],
         },
         {
