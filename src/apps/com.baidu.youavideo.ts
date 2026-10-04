@@ -458,7 +458,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[vid="taskFinishFloatView"] > @FrameLayout[clickable=true] >n [vid="task_buoy_message"]',
+            '[vid="taskFinishFloatView"] > @FrameLayout[clickable=true] >n [vid="buoy_close"] - [vid="buoy_container"] >n [vid="task_buoy_message"]',
           ],
           activityIds: ['.aiphoto.ui.publishwork.view.TopicDetailActivity'],
         },
