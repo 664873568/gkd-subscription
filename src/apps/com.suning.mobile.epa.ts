@@ -51,11 +51,11 @@ export default defineGkdApp({
         {
           key: 2,
           excludeMatches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
+            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true]< [vid="layout_header"]',
           ],
           actionDelay: 3000,
           matches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="今日头条.*|UC.*|百度|快手|飞猪|番茄畅听|YY.*|.*APP.*|.*领.*|淘宝.*|.*苏.*|.*酷.*|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"]',
+            '[text~="今日头条.*|UC.*|百度|快手|飞猪|番茄畅听|YY.*|.*APP.*|.*领.*|淘宝.*|.*苏.*|.*酷.*|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',
           ],
         },
       ],
@@ -193,7 +193,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
+            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true]< [vid="layout_header"]',
           ],
         },
         {
@@ -254,7 +254,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
+            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true]< [vid="layout_header"]',
           ],
         },
         {
@@ -340,7 +340,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
+            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true]< [vid="layout_header"]',
           ],
         },
         {
@@ -382,7 +382,7 @@ export default defineGkdApp({
             '@ImageButton[clickable=true] < View + [getChild(0).text="红包签到"]', //参与签到赢红包
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
+            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true]< [vid="layout_header"]',
           ],
         },
       ],
@@ -417,7 +417,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n [text~="猜涨跌|星灿会员|财富|基金"][vid="title"]',
+            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true]< [vid="layout_header"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -443,7 +443,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            '[vid="layout_header"] > @[vid="imageView_backToPreviousPage"][clickable=true] +n TextView[vid="title"]', //浏览定期理财-浏览自选页
+            'TextView[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',
           ],
         },
       ],
