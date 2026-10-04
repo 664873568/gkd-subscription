@@ -701,8 +701,8 @@ export default defineGkdApp({
           activityIds: ['.MainFrameActivity'],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [2],
+          key: 3,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.67',
