@@ -122,6 +122,7 @@ export default defineGkdApp({
             '@[text~="跳过 [0-9]"]',
             '[text~="[0-9]"] - @[text="跳过"] < * +2 ImageView',
             '@View[clickable=true] - LinearLayout > [text="广告"]',
+            'View < @RelativeLayout + LinearLayout > LinearLayout > [text="摇一摇"] + [text="跳转详情页或第三方应用"]',
           ],
           activityIds: ['.commercialization.splash.GeneralAdSplashActivity'],
         },
