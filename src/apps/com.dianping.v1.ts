@@ -30,30 +30,47 @@ export default defineGkdApp({
             '@ImageView[clickable=true] -n [getChild(2).getChild(1).getChild(0).text~="额外送你[0-9]00金币奖励～"]',
           ],
         },
+        {
+          key: 2,
+          matches: [
+            '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
+          ],
+        },
       ],
     },
     {
       key: 1,
-      name: '三餐奖励',
+      name: '做任务领奖励',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
       rules: [
         {
           key: 0,
-          matches: [
+          excludeMatches: [
+            '@FrameLayout[clickable=true] > [text="今日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
             '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
           ],
+          action: 'clickCenter',
+          actionDelay: 2000,
+          matches: [
+            '@FrameLayout[clickable=true] > TextView - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
+          preKeys: [0],
           key: 1,
-          excludeMatches: [
-            '@ImageView[clickable=true] + FrameLayout >n ViewGroup >n FrameLayout[clickable=true] > TextView',
-          ],
+          action: 'clickCenter',
           matches: [
-            '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
+            '@FrameLayout[clickable=true] > ImageView + ImageView + [text="浏览完成"]',
+          ],
+          activityIds: [
+            'com.dianping.base.web.ui.NovaTitansActivity', //随Visa探英伦风情
+            'com.dianping.nova.picasso.DPPicassoBoxActivity', //浏览免费试频道//浏览当地人推荐榜
+            'com.meituan.android.mrn.container.MRNBaseActivity', //逛精选团购 享超值优惠
+            'com.meituan.android.mrnx.container.MRNXStandardActivity', //逛精选团购 享超值优惠-闪电特惠
           ],
         },
       ],
@@ -71,7 +88,7 @@ export default defineGkdApp({
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
           ],
           action: 'clickCenter',
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="去完成"]',
           ],
