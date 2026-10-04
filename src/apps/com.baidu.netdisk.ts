@@ -6,6 +6,27 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
+      name: '提现-立即提现-完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchTime: 60000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 4,
+          excludeMatches: ['[text="立即提现"] + [getChild(0).text="请稍候..."]'],
+          matches: ['[text="可提现金额"] + @[text="立即提现"][clickable=true]'],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          matches: ['[text="已提交申请"] +n @[text="完成"][clickable=true]'],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '提现-提现至支付宝-20元',
       forcedTime: 60000,
       matchRoot: true,
@@ -40,19 +61,10 @@ export default defineGkdApp({
             '[getChild(1).getChild(1).text="提现"] +n * @[text="获取验证码"][clickable=true]',
           ],
         },
-        {
-          key: 4,
-          matches: ['[text="可提现金额"] + @[text="立即提现"][clickable=true]'],
-        },
-        {
-          preKeys: [4],
-          key: 5,
-          matches: ['[text="已提交申请"] +n @[text="完成"][clickable=true]'],
-        },
       ],
     },
     {
-      key: 1,
+      key: 2,
       name: '提现-提现至支付宝-10元',
       forcedTime: 60000,
       matchRoot: true,
@@ -87,19 +99,10 @@ export default defineGkdApp({
             '[getChild(1).getChild(1).text="提现"] +n * @[text="获取验证码"][clickable=true]',
           ],
         },
-        {
-          key: 4,
-          matches: ['[text="可提现金额"] + @[text="立即提现"][clickable=true]'],
-        },
-        {
-          preKeys: [4],
-          key: 5,
-          matches: ['[text="已提交申请"] +n @[text="完成"][clickable=true]'],
-        },
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '提现-提现至支付宝-3元',
       forcedTime: 60000,
       matchRoot: true,
@@ -134,19 +137,10 @@ export default defineGkdApp({
             '[getChild(1).getChild(1).text="提现"] +n * @[text="获取验证码"][clickable=true]',
           ],
         },
-        {
-          key: 4,
-          matches: ['[text="可提现金额"] + @[text="立即提现"][clickable=true]'],
-        },
-        {
-          preKeys: [4],
-          key: 5,
-          matches: ['[text="已提交申请"] +n @[text="完成"][clickable=true]'],
-        },
       ],
     },
     {
-      key: 3,
+      key: 4,
       name: '兑换商城-兑换-10元现金红包',
       forcedTime: 60000,
       matchRoot: true,
@@ -184,7 +178,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 5,
       name: '兑换商城-兑换-1元现金红包',
       forcedTime: 60000,
       matchRoot: true,
@@ -222,7 +216,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      key: 6,
       name: '兑换商城-兑换-5元京东卡-999金币',
       forcedTime: 60000,
       matchRoot: true,
@@ -260,7 +254,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 7,
       name: '兑换商城-兑换-5元京东卡-99金币',
       forcedTime: 60000,
       matchRoot: true,
@@ -299,7 +293,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 8,
       name: '兑换商城-兑换-5元京东卡-10金币',
       forcedTime: 60000,
       matchRoot: true,
@@ -1698,7 +1692,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '@[text="暂不开启"][vid="dialog_button_cancel"][clickable=true] -n [text="是否开启照片自动备份？"][vid="content_info"]',
@@ -1794,7 +1787,7 @@ export default defineGkdApp({
             '@[text~="跳过 [0-9]+"][vid="tv_skip"][clickable=true]',
             '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
-          activityIds: ['.ui.MainActivity', '.advertise.ui.SplashAdActivity'],
+          activityIds: ['.ui.Navigate','.ui.MainActivity', '.advertise.ui.SplashAdActivity'],
         },
       ],
     },
