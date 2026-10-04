@@ -525,7 +525,10 @@ export default defineGkdApp({
             '@[vid="iv_dialog_close_one"][clickable=true]',
             'AlertDialog >n @TextView[clickable=true] - View > TextView + Image',
           ],
-          activityIds: ['.ui.MainActivity'],
+          activityIds: [
+            '.ui.MainActivity',
+            'com.mpaas.mriver.integration.MriverActivityBase$Main',
+          ],
         },
       ],
     },
