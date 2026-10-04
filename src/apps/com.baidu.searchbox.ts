@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '提现中心-去提现-20',
+      name: '提现中心-去提现-最大金额',
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -24,14 +24,21 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="提现中心"] >n [text="选择提现金额"] +n [text="请选择提现档位"] - * > @View[clickable=true] > [text="20.00"]',
+            '[text="提现中心"] >n [text="选择提现金额"] +n [getChild(0).text="选择提现档位"] > @View[index=parent.childCount.minus(1)][clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '[text="提现中心"] >n [text="选择提现金额"] +n @[text="确认提现"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[text="提现中心"] >n [text="选择提现渠道"] +n @[text="立即提现"][clickable=true]',
           ],
         },
       ],
