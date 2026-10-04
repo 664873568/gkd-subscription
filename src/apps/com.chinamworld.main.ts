@@ -32,7 +32,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           matches: [
-            '[getChild(childCount.minus(1)).text="立即使用"] > @[desc="关闭 按钮"][clickable=true]',
+            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
           ],
         },
       ],
@@ -111,18 +111,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['[id="app"] > View > @TextView[clickable=true] + View'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
           matches: [
             'ImageButton +n @[text="立即签到"][clickable=true] + TextView',
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [0],
+          key: 11,
           matches: [
             'ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]',
           ],
@@ -130,6 +125,7 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [11],
       key: 12,
       name: '热门活动-抽奖',
       matchRoot: true,
@@ -139,6 +135,7 @@ export default defineGkdApp({
       activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
       rules: [
         {
+          preKeys: [11],
           key: 0,
           excludeMatches: [
             'ImageButton +n @[text="立即签到"][clickable=true] + TextView',
