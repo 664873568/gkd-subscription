@@ -496,6 +496,7 @@ export default defineGkdApp({
             '@[text="svg%3e"] <<n * +n * [text="已发放"]',
             '@RelativeLayout[clickable=true] <<n * + * [text="已发放"]',
             '[id="root"] > [id="app"] >n @[text="svg%3e"] +n [text="搜索"]',
+            '[id="root"] > [id="app"] > [id="home-scroll-container"][index=parent.childCount.minus(1)] - View > View > @[text="svg%3e"]',
           ],
         },
       ],
@@ -863,10 +864,10 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 1000,
           excludeMatches: [
             'ImageButton[text="c"][clickable=true] < View + Image +n ImageButton[clickable=true]',
           ],
+          actionDelay: 1000,
           matches: [
             '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
           ],
@@ -957,7 +958,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
+          preKeys: [2,4],
           key: 3,
           matches: [
             'View > @TextView[clickable=true][clickable=true] +n [text~="我知道了|开心收下"]',
@@ -1087,10 +1088,10 @@ export default defineGkdApp({
           excludeMatches: [
             '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
             '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
-            'TextView + TextView +5 @[text="领取"][clickable=true]',
             '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
             '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
             '[text="功能任务"] + TextView +5 @[text="去完成"][clickable=true]',
+            'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
@@ -1116,6 +1117,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
+            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
             '[text="日常任务"] +n TextView[text!~="观看.*|邀请.*"] +5 @[text="去完成"][clickable=true]',
             'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
@@ -1290,23 +1292,30 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0, 1],
+          preKeys: [0],
           key: 1,
           anyMatches: [
-            '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][focusable=true]',
+            '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][clickable=true]',
+            '[vid="cl_ai_photo_studio_guide_root"] > @[vid="iv_close"][clickable=true] + [vid="cl_card"] > [text="去体验"][vid="btn_ok"]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          matches: [
             '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"][clickable=true]',
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [2],
+          key: 3,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
         },
         {
-          preKeys: [1],
-          key: 3,
+          preKeys: [2],
+          key: 4,
           excludeMatches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
@@ -1315,8 +1324,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [4],
+          key: 5,
           matches: [
             '@[desc="确认退出"][clickable=true] - [desc="再考虑下"] < * - [desc="提示"]',
           ],
@@ -1408,7 +1417,6 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
-          actionDelay: 2000,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * View + ImageView + @ImageView[clickable=true] + ImageView',
           ],
@@ -1499,6 +1507,7 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
+            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
             '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
             'TextView + TextView +5 @[text="领取"][clickable=true]',
           ],
