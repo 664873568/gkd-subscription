@@ -50,9 +50,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: [
-            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true]< [vid="layout_header"]',
-          ],
           actionDelay: 3000,
           matches: [
             '[text~="今日头条.*|UC.*|百度|快手|飞猪|番茄畅听|YY.*|.*APP.*|.*领.*|淘宝.*|.*苏.*|.*酷.*|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',
@@ -395,7 +392,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          preKeys: [2],
           key: 0,
           matches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
