@@ -10,6 +10,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '店铺关注',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -27,6 +28,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '店铺关注-取消关注',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -67,38 +69,72 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 9,
+      name: '新品互动-去浏览',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="新品互动"] +n [getChild(0).text!~="购买.*|邀请.*"] > @[text="去浏览"][clickable=true]',
+          ],
+          activityIds: ['.WebActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 16000,
+          matches: [
+            '@[desc="返回"][clickable=true] + View + View',
+          ],
+          activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
+        },
+      ],
+    },
     //京东超市-黑色星期五 4.9抢15枚鸡蛋-周四 20:00/20:30/22:00-周五 10:00/16:00/20:00/22:00
     //https://pro.m.jd.com/mall/active/6g7nXqEqSD9FXFB4cStkfWD47qJ/index.html
     {
-      key: 2,
+      key: 10,
       name: '京东超市-黑色星期五-领券抢',
+      forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       rules: [
         {
           actionCd: 100,
           actionMaximum: 1000,
-          matches: [
+          anyMatches: [
+            '[text="黑色星期五"] >n [text="趣尝鲜五谷鲜鸡蛋15枚"] +n @[text="领券抢"][clickable=true]',
             '[text="黑色星期五"] >n [getChild(1).text="15枚鲜蛋"] + @[text="领券抢"][clickable=true]',
           ],
-          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+          activityIds: [
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+          ],
         },
       ],
     },
     {
-      key: 3,
+      key: 11,
       name: '京东超市-黑色星期五-签到有奖',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
-            '[text="黑色星期五"] >n @[text="签到有奖"][clickable=true]',
+            '[text="黑色星期五"] >n [id="blackFiveSignInFloor"] > @[text^="签到有奖"][clickable=true]',
           ],
         },
         {
@@ -117,8 +153,26 @@ export default defineGkdApp({
     //https://pro.m.jd.com/mall/active/3xhqjGH1wMz5FaMgrfYhR22sFvqz/index.html
     //https://pro.m.jd.com/mall/active/3nh7HzSjYemGqAHSbktTrf8rrH8M/index.html
     {
-      key: 4,
+      key: 20,
+      name: '京东超市-关闭弹窗',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+      rules: [
+        {
+          matches: [
+            '[getChild(childCount.minus(1)).text="京东超市"] + @[getChild(0).text="关闭弹窗"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 21,
       name: '每日签到-汪贝兑换商城-兑换-京东超市卡',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
@@ -140,8 +194,25 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 22,
+      name: '每日签到-签到得卡',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+      rules: [
+        {
+          matches: [
+            '[id="follow-signin-business-floor"] > View > @[text="签到得卡"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 23,
       name: '每日签到-赚更多汪贝',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -218,231 +289,13 @@ export default defineGkdApp({
         },
       ],
     },
-    //互动游戏
-    //https://pro.m.jd.com/mall/active/3fcyrvLZALNPWCEDRvaZJVrzek8v/index.html
-    {
-      key: 30,
-      name: '互动游戏-攒经验',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@TextView[clickable=true] + * View[clickable=true] > [text="明天继续"]',
-          ],
-        },
-        {
-          key: 1,
-          excludeMatches: ['[text="做任务 攒经验"]'],
-          matches: [
-            '[text="互动游戏"] >n [text="赚京豆"] >n [text="攒经验 ›"][clickable=true]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 31,
-      name: '互动游戏-逛一逛-看直播赚钱',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="互动游戏"] >n [text="做任务 攒经验"] + * >n @View[index=0][clickable=true] > View[clickable=true] >n [text="逛一逛"]',
-          ],
-          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          anyMatches: [
-            '[text="粉丝关注任务"] >n @TextView[clickable=true][index=1]',
-            '[text="直播间心愿"] >n @View[clickable=true] > [text="0276048048dc874a"]',
-          ],
-          activityIds: [
-            'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          actionDelay: 5000,
-          matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
-          activityIds: [
-            'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
-          ],
-        },
-      ],
-    },
-    //阅读1本小说赚现金-去东东农场领水果-跟着JOY去旅行-权益中心抽66元红包-扭蛋商店抽50元红包-瓜分千万京豆-下单返红包-挖无门槛红包-每日免费抽红包-玩小游戏领京豆-汪汪庄园升级领京豆-天天刮京豆
-    {
-      key: 32,
-      name: '互动游戏-逛一逛',
-      matchRoot: true,
-      forcedTime: 20000,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          action: 'clickCenter',
-          matches: [
-            '[text="互动游戏"] >n [text="做任务 攒经验"] + * >n @View[index=0][clickable=true] > View[clickable=true] >n [text="逛一逛"]',
-          ],
-          activityIds: [
-            'com.jingdong.manto.ui.MantoActivityUp1',
-            'com.jd.lib.babel.view.activity.BabelActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'clickCenter',
-          matches: [
-            '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]',
-          ],
-          activityIds: [
-            '.personel.FloatViewActivity',
-            'com.jd.lib.babel.view.activity.BabelActivity',
-          ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '[text="互动游戏"] >n @TextView[clickable=true] + * [text="已完成"]',
-          ],
-          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
-        },
-      ],
-    },
-    //向僵尸开炮-串串消除王-AI斗地主-AI掼蛋-三国：冰河时代-百炼英雄
-    {
-      key: 33,
-      name: '互动游戏-逛一逛-游戏',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          action: 'clickCenter',
-          matches: [
-            '[text="互动游戏"] >n [text="做任务 攒经验"] + * >n @View[index=0][clickable=true] > View[clickable=true] >n [text="逛一逛"]',
-          ],
-          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 5000,
-          matches: [
-            '@[desc="关闭"][clickable=true] - [desc="更多"][clickable=true]',
-          ],
-          activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]',
-          ],
-          activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
-        },
-      ],
-    },
-    {
-      key: 34,
-      name: '互动游戏-去完成',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          actionDelay: 1000,
-          action: 'clickCenter',
-          matches: [
-            '[text="互动游戏"] >n [text="做任务 攒经验"] + * >n @View[index=0][clickable=true] > View[clickable=true] >n [text="去完成"]',
-          ],
-          activityIds: [
-            'com.jingdong.manto.ui.MantoActivityUp1',
-            'com.jd.lib.babel.view.activity.BabelActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'clickCenter',
-          matches: [
-            '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]',
-          ],
-          activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '[text="互动游戏"] >n @TextView[clickable=true] + * [text="已完成"]',
-          ],
-          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
-        },
-      ],
-    },
-    {
-      key: 35,
-      name: '互动游戏-领取',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text="互动游戏"] >n [text="赚京豆"] >n [text="全部奖励已解锁"] + * >n @[text="领取"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[text="互动游戏"] >n [text="京豆奖励"] +n @[text="开心收下"][clickable=true]',
-          ],
-        },
-      ],
-    },
-    //天天签到抽奖
+    //25.08.01开始 天天签到抽奖
     //https://pro.m.jd.com/mall/active/4WMAPf9VCBdEE8Rva1AVEPH7CBbj/index.html
     {
       key: 40,
-      name: '天天签到抽奖',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            'FrameLayout > FrameLayout > ViewGroup > @[desc="今日已签到，点击查看活动"][clickable=true] > ImageView + ViewGroup',
-          ],
-          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
-        },
-      ],
-    },
-    {
-      key: 41,
       name: '天天签到抽奖-逛一逛',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -474,35 +327,17 @@ export default defineGkdApp({
     //https://pro.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
     {
       key: 50,
-      name: '天天砸金蛋',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@View[clickable=true] >n [getChild(1).text="今天"] + [text^="抽3000京豆"]',
-          ],
-          activityIds: ['.WebActivity', '.MainFrameActivity'],
-        },
-      ],
-    },
-    {
-      key: 51,
       name: '天天砸金蛋-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'HorizontalScrollView >n RelativeLayout[getChild(0).desc!~="特价, 已选中"]',
-          ],
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
-            'View[getChild(1).text!="健康金限时领(0/1)"] > @[text="去完成"][clickable=true]',
+            '[getChild(0).getChild(0).text="规则"] + View > [getChild(1).name$="TextView"] > @[text="去完成"][clickable=true]',
           ],
           activityIds: ['.WebActivity', '.MainFrameActivity'],
         },
@@ -511,7 +346,7 @@ export default defineGkdApp({
           key: 1,
           action: 'clickCenter',
           matches: [
-            '@RelativeLayout[clickable=true] >n [text="点击立即返回"] - * [text="已完成"]', //浏览页面得京豆-逛秒杀频道 签到领京豆-逛逛频道领好礼(0/12)-逛自营二手 全品类低价捡漏-浏览页面领京豆(0/2)-逛京东校园签到得京豆-转发好友！瓜分拼手气红包
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
           ],
           activityIds: [
             '.personel.FloatViewActivity',
@@ -580,8 +415,10 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 52,
+      scopeKeys: [50],
+      key: 51,
       name: '天天砸金蛋-砸一下',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -590,7 +427,8 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            'View > View + [name$="TextView"] +n @[text="去完成"][clickable=true]',
+            '[getChild(0).getChild(0).text="规则"] + View > [getChild(1).name$="TextView"] > @[text="去完成"][clickable=true]',
+            '@[desc="关闭弹窗" || text="关闭弹窗"][clickable=true] + View > View > View + TextView[clickable=true]',
           ],
           matches: ['@[text~="砸一下\\\\(剩余[0-9]+次\\\\)"][clickable=true]'],
         },
@@ -603,19 +441,418 @@ export default defineGkdApp({
         },
       ],
     },
-    //26.08.20-26.09.16 寻鲜争霸赛 为TA投票
-    //https://pro.m.jd.com/mall/active/UCAYQxqQV3mKZNfu8bG2t8wsYog/index.html
+    //26.03.25-27.03.24 月黑风高-月光宝盒
+    //https://pro.m.jd.com/mall/active/3MwGoRXcgfa3yFYKujMC2AsjmB3h/index.html
     {
-      key: 100,
-      name: '寻鲜争霸赛 为TA投票',
+      key: 60,
+      name: '月光宝盒-去完成',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
-          actionDelay: 1000,
+          excludeMatches: [
+            '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text="待领奖"][clickable=true]',
+          ],
+          actionDelay: 2000,
+          matches: [
+            '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text="去完成"][clickable=true]',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          anyMatches: [
+            '[id="coupon_modal_content"] > @[id="close_btn"][clickable=true] > View > Image',
+            '[id="jx_channel_coupon_modal"] > View > @TextView[index=parent.childCount.minus(1)][clickable=true]',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          actionDelay: 5000,
+          matches: [
+            '@[desc="返回"][clickable=true] +n [desc="Top Logo"]',
+          ],
+          activityIds: [
+            '.WebActivity',
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 3,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            'WebView < c40 <<n RelativeLayout +n LinearLayout >n @[text="" || desc="返回"][clickable=true]',
+          ],
+          activityIds: [
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 4,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '[text="back"] < @View[clickable=true] <<n WebView < c40',
+          ],
+          activityIds: ['.WebActivity'],
+        },
+        {
+          preKeys: [0,1],
+          key: 5,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '@[text="返回按钮"][clickable=true] < View <<n WebView < c40',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 6,
+          matches: [
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+          ],
+          activityIds: [
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+            'com.jd.lib.jshop.jshop.JshopMainShopActivity',
+          ],
+        },
+        {
+          preKeys: [1,2],
+          key: 7,
+          matches: [
+            '[text="开心收下"] +n @View[clickable=true] > View > Image',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+        {
+          key: 10,
+          excludeMatches: [
+            '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text~="去完成|待领奖"][clickable=true]',
+          ],
+          matches: [
+            '@TextView[clickable=true] + [text="做任务 赚次数"]',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys: [60],
+      key: 61,
+      name: '月光宝盒-去完成-从首页访问月黑风高',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          preKeys: [0],
+          key: 1,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.63',
+          },
+          matches: [
+            '[id="J_babelOpt"] + [id="chunk3"] + View[childCount=2]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[desc="月黑风高"][clickable=true] > ViewGroup > [text="月黑风高"]',
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[text="月黑风高"] >n @View[clickable=true] > [text="075e15f06e18eb7f.png!q50"]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '[text="做任务 赚次数"] + View > [getChild(1).name$="TextView"] > @[text="待领奖"][clickable=true]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.6',
+          },
+          matches: [
+            '[id="J_babelOpt"] + [id="chunk3"] + View[childCount=2]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+      ],
+    },
+    {
+      scopeKeys: [60],
+      key: 62,
+      name: '月光宝盒-去完成-预约月黑风高商品',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+      rules: [
+        {
+          key: 1,
+          matches: [
+            '[text="预约成功"] +n @[text="暂不开启"][clickable=true] + [text="去开启"]',
+          ],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 2,
+          matches: [
+            '[text="预约商品"] - [text~="[0-2]/3"] < View < View < View - [id="dark-moon-feeds-container"] >n TextView +n View > TextView + @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[text="返回领奖"] - [text="已完成"] < View < @View[clickable=true] < View - [id="dark-moon-feeds-container"]',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys: [60],
+      key: 63,
+      name: '月光宝盒-立即抽奖',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+      rules: [
+        {
+          preKeys: [10,2],
+          key: 1,
+          matches: [
+            '@View[getChild(0).getChild(2).text~="[1-9][0-9]*"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[getChild(1).getChild(0).text="再抽一次"] + @View[clickable=true] > View > Image',
+          ],
+        },
+      ],
+    },
+    //26.04.01-27.03.31 京东秒杀-天天领豆
+    //https://pro.m.jd.com/mall/active/43mNbs4F53FUMVin65VHVYYKB94f/index.html
+    {
+      key: 70,
+      name: '天天领豆',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@View[clickable=true] >n [getChild(10).text="今天"] + [text^="抽3000京豆"]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[desc="秒杀"][clickable=true] > ViewGroup > [text="秒杀"],
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+      ],
+    },
+    //26.05.14-27.05.13 领券中心-天天领京豆
+    //https://pro.m.jd.com/mall/active/VAjs3vpayA513UwxL5XC4eGBXqY/index.html?babelChannel=ttt128&linkTopTab=best&jumpTab=1&visitScene=page1
+    {
+      key: 80,
+      name: '天天领京豆-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[id="coupon-center-main-panel-"] +n [index=parent.childCount.minus(1)] >n TextView + TextView + @TextView[index=parent.childCount.minus(1)][clickable=true]',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
+        },
+      ],
+    },
+    //26.06.28-27.05.31 互动游戏
+    //https://pro.m.jd.com/mall/active/3fcyrvLZALNPWCEDRvaZJVrzek8v/index.html
+    {
+      key: 90,
+      name: '互动游戏-攒经验',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@TextView[clickable=true] + * View[clickable=true] > [text="明天继续"]',
+          ],
+        },
+        {
+          key: 1,
+          excludeMatches: ['[text="做任务 攒经验"]'],
+          matches: [
+            '[text="互动游戏"] >n [text="赚京豆"] >n [text="攒经验 ›"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 91,
+      name: '互动游戏-逛一逛/去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
+          ],
+          activityIds: [
+            'com.jingdong.manto.ui.MantoActivityUp1',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 5000,
+          matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
+          activityIds: [
+            'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          matches: [
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+          ],
+          activityIds: [
+            '.personel.FloatViewActivity',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+            'com.jd.lib.productdetail.ProductDetailActivity',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 3,
+          excludeMatches: [
+            '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
+          ],
+          matches: [
+            '[text="互动游戏"] >n @TextView[clickable=true] + [getChild(0).text="做任务 攒经验"]',
+          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+        },
+      ],
+    },
+    {
+      scopeKeys: [91],
+      key: 92,
+      name: '互动游戏-逛一逛-游戏',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
+      rules: [
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: [
+            '@[desc="关闭"][clickable=true] - [desc="更多"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 93,
+      name: '互动游戏-领取',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="互动游戏"] >n [text="赚京豆"] >n [text="全部奖励已解锁"] + * >n @[text="领取"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="互动游戏"] >n [text="京豆奖励"] +n @[text="开心收下"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    //26.08.20-26.09.16 寻鲜争霸赛 为TA投票
+    //https://pro.m.jd.com/mall/active/UCAYQxqQV3mKZNfu8bG2t8wsYog/index.html
+    {
+      key: 100,
+      name: '寻鲜争霸赛 为TA投票',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
           matches: [
             '[text="寻鲜争霸赛 为TA投票"] >n @View[clickable=true] > [text="做任务赚人气值"]',
           ],
@@ -624,6 +861,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           anyMatches: [
             '@[text="去完成"][clickable=true] -2 [text^="逛逛大闸蟹"]',
             '@[text="去完成"][clickable=true] -2 [text^="逛逛佳沛"]',
@@ -631,9 +869,9 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
-          actionDelay: 5000,
+          actionDelay: 6000,
           anyMatches: [
             'RelativeLayout > @ImageView[desc="返回"][clickable=true]',
             'ViewGroup > LinearLayout > @TextView[text=""][clickable=true] + ImageView',
@@ -645,7 +883,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '[text="寻鲜争霸赛 为TA投票"] >n @[text="关闭"][clickable=true] -2 View > [text~="恭喜获得[0-9]人气值"]',
@@ -654,10 +892,11 @@ export default defineGkdApp({
         },
       ],
     },
-    //系统应用类
+    //功能应用类
     {
       key: 400,
       name: '去开启通知-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -669,10 +908,10 @@ export default defineGkdApp({
         },
       ],
     },
-    //首页广告类
     {
-      key: 500,
-      name: '首页广告-跳过',
+      key: 401,
+      name: '申请通知权限-取消',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -680,7 +919,25 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="跳过"] < [desc="跳过"][clickable=true] -2 [desc="启动图广告"]',
+            '[text="京东需要申请通知权限"] +n [getChild(1).text="去打开"] > @[text="取消"][clickable=true]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 500,
+      name: '首页广告-跳过',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[desc="跳过"][clickable=true] > [text="跳过"]',
           ],
           activityIds: ['.MainFrameActivity'],
         },
@@ -689,6 +946,7 @@ export default defineGkdApp({
     {
       key: 501,
       name: '首页广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
