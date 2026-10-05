@@ -685,57 +685,77 @@ export default defineGkdApp({
         {
           key: 0,
           name: '奖励将于*秒后发放',
-          actionDelay: 2000,
           matches: [
-            '@[text~="放弃福利" || text="我要更快拿奖"] <<n * [text^="奖励将于"]',
+            '[text~="放弃福利|我要更快拿奖"] <<n * [text^="奖励将于"]',
           ],
         },
         {
           key: 1,
-          actionDelay: 11000,
+          actionDelay: 16000,
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
           ],
         },
         {
           key: 2,
-          name: '点击广告拿奖励',
+          name: '点击广告，即可获得奖励',
           matches: [
-            '@[text="点击广告拿奖励"] <<n * [text="点击广告，即可获得奖励"]',
+            '@[text~="点击广告拿奖励||立即秒杀"] <<n * [text="点击广告，即可获得奖励"]',
           ],
         },
         {
           key: 3,
-          name: '立即秒杀',
-          matches: ['@[text="立即秒杀"] <<n * [text="点击广告，即可获得奖励"]'],
-        },
-        {
-          key: 4,
           name: '打开/完成App，即可获得奖励',
           matches: [
             '[getChild(0).getChild(0).text^="打开App"] - * @[text*="第三方应用"][index=parent.childCount.minus(1)]',
           ],
         },
         {
-          preKeys: [4],
-          key: 5,
+          preKeys: [3],
+          key: 4,
           matches: [
             '[id="forRemHack"] + [id="root"] >n @View[clickable=true] > [text~="安装应用|点击下载"]',
           ],
         },
         {
-          key: 6,
+          key: 5,
+          excludeMatches: [
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
+          ],
           actionDelay: 1000,
           anyMatches: [
-            'ImageView < @FrameLayout <<n * [text="恭喜获得奖励"]', //浏览页面*秒后，即可获得奖励
+            'ImageView < @FrameLayout <<n * [text="恭喜获得奖励"]',
             'ImageView < @FrameLayout <<n * [text*="已完成浏览"]', //已完成浏览15秒，提前获得奖励
-            'RelativeLayout > LinearLayout > @ImageView[clickable=true] - * [text="恭喜获得奖励！"]',
           ],
         },
         {
-          key: 7,
+          key: 6,
           matches: [
-            'ImageView < @FrameLayout < FrameLayout + * [text="查看详情" || text^="扭动或点击"]',
+            'ImageView < @FrameLayout < * + * [text="查看详情" || text^="扭动或点击"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 63,
+      name: '看视频-浏览页面*秒后即可获得奖励',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      rules: [
+        {
+          key: 0,
+          action: 'none',
+          matches: [
+            '[text="浏览页面"] + [text~="[0-9]+"] + [text="秒后即可获得奖励"]',
+          ],
+        },
+        {
+          key: 1,
+          actionDelay: 1000,
+          matches: [
+            'RelativeLayout > LinearLayout > @ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
           ],
         },
       ],
