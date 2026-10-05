@@ -685,9 +685,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '奖励将于*秒后发放',
-          matches: [
-            '[text~="放弃福利|我要更快拿奖"] <<n * [text^="奖励将于"]',
-          ],
+          matches: ['[text~="放弃福利|我要更快拿奖"] <<n * [text^="奖励将于"]'],
         },
         {
           key: 1,
