@@ -730,7 +730,7 @@ export default defineGkdApp({
           actionDelay: 1000,
           anyMatches: [
             'ImageView < @FrameLayout <<n * [text="恭喜获得奖励"]',//浏览页面*秒后，即可获得奖励
-            'ImageView < @FrameLayout <<n * [text*="已完成浏览"]',/已完成浏览15秒，提前获得奖励
+            'ImageView < @FrameLayout <<n * [text*="已完成浏览"]',//已完成浏览15秒，提前获得奖励
             'RelativeLayout > LinearLayout > @ImageView[clickable=true] - * [text="恭喜获得奖励！"]',
           ],
         },
