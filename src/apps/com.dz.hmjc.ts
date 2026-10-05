@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '福利中心-立即签到',
+      forcedTime: 600000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -24,9 +25,9 @@ export default defineGkdApp({
     {
       key: 40,
       name: '欢迎使用河马剧场-同意',
+      forcedTime: 600000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -40,9 +41,9 @@ export default defineGkdApp({
     {
       key: 41,
       name: '青少年模式-我知道了',
+      forcedTime: 600000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -57,9 +58,9 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 600000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
