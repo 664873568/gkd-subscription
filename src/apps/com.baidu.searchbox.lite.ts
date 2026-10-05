@@ -38,13 +38,13 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            '@TextView[clickable=true] + [text="添加赚钱助手 提醒您每日赚金币"]',
+            '[text="添加赚钱助手 提醒您每日赚金币"] - @TextView[clickable=true]',
           ],
         },
         {
           key: 4,
           matches: [
-            '@TextView[clickable=true] + [text="添加赚钱助手 提醒您每日赚金币"]',
+            'View > TextView + View > @TextView[clickable=true] - View > TextView[clickable=true]',
           ],
         },
       ],
@@ -71,8 +71,7 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '每日福利-看广告*个', //*s后可领取奖励
-
+      name: '每日福利-看广告*个',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -80,6 +79,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '*s后可领取奖励',
           excludeMatches: [
             '@[text="去领取"][clickable=true] -2 [text~="今日送你免费红包 （[0-9]+/[0-9]+）"]',
           ],
@@ -151,7 +151,7 @@ export default defineGkdApp({
             duration: 200,
           },
           actionCd: 5000,
-          actionMaximum: 20,
+          actionMaximum: 100,
           matches: [
             '@[vid="video_flow_cmp_list"] <<n * +n * [text~="再看[0-9]+个\\\\n可得红包"]',
           ],
@@ -206,8 +206,8 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          actionCd: 12000,
-          actionMaximum: 20,
+          actionCd: 60000,
+          actionMaximum: 100,
           matches: [
             '@[vid="video_flow_cmp_list"] <<n * +n * [text~="再看[0-9]+秒\\\\n可得红包"]',
           ],
