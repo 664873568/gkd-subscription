@@ -92,7 +92,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: [
         'com.yy.mobile.ui.common.JsSupportWebAcitivity',
-        'com.qq.e.ads.PortraitADActivity',
       ],
       rules: [
         {
@@ -238,7 +237,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
           ],
@@ -255,7 +254,7 @@ export default defineGkdApp({
     },
     {
       key: 12,
-      name: '看视频-奖励将于*秒后发放',
+      name: '看视频-恭喜获得奖励',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -266,49 +265,56 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '奖励将于*秒后发放',
           matches: [
-            '[text="放弃福利" || text="我要更快拿奖"] < @FrameLayout <n * +n * [text^="奖励将于"]',
+            '[text~="放弃福利|我要更快拿奖"] <<n * [text^="奖励将于"]',
           ],
         },
         {
           key: 1,
-          actionDelay: 15000,
+          actionDelay: 16000,
           matches: [
-            'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
           ],
         },
         {
           key: 2,
           matches: [
-            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
           ],
         },
         {
           key: 3,
           excludeMatches: [
-            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * > FrameLayout > @[text="我要更快拿奖"]',
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
+            'ImageView < @FrameLayout < FrameLayout + * [text="点击"] + [text="下载或打开第三方应用"]',
           ],
-          actionDelay: 1000,
           anyMatches: [
-            'ImageView < @FrameLayout  - * [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout <n * < * - * [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout < FrameLayout - [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout < FrameLayout - LinearLayout > LinearLayout > [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * > [text*="已完成浏览" || text*="继续"]',
+            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * [text="点击下载或打开第三方应用"]',
           ],
         },
         {
           preKeys: [3],
           key: 4,
           matches: [
-            'ImageView < @FrameLayout < FrameLayout <n FrameLayout +n * [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout < FrameLayout + * [text="点击"] + [text="下载或打开第三方应用"]',
           ],
         },
         {
-          preKeys: [3],
           key: 5,
+          excludeMatches: [
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
+          ],
+          actionDelay: 1000,
+          anyMatches: [
+            'ImageView < @FrameLayout <<n * [text="恭喜获得奖励"]',
+            'ImageView < @FrameLayout <n * <n * <n * <n * [text*="已完成浏览" || text*="继续"]',
+          ],
+        },
+        {
+          key: 6,
           matches: [
-            'ImageView < @FrameLayout < FrameLayout + FrameLayout > FrameLayout > LinearLayout > TextView',
+            'ImageView < @FrameLayout < * + * [text="查看详情" || text^="扭动或点击"]',
           ],
         },
       ],
@@ -330,9 +336,9 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
-            '@ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
+            'RelativeLayout > LinearLayout > @ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
           ],
         },
       ],
