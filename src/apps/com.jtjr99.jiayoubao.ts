@@ -153,7 +153,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.base.BrowserFullScreen','.base.Browser'],
+      activityIds: ['.base.BrowserFullScreen', '.base.Browser'],
       rules: [
         {
           key: 0,
@@ -168,9 +168,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            '[text="每日答题奖励"] +n @[text^="A"][clickable=true]',
-          ],
+          matches: ['[text="每日答题奖励"] +n @[text^="A"][clickable=true]'],
         },
         {
           preKeys: [1],
@@ -201,7 +199,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.base.BrowserFullScreen','.base.Browser'],
+      activityIds: ['.base.BrowserFullScreen', '.base.Browser'],
       rules: [
         {
           key: 0,

@@ -335,7 +335,7 @@ export default defineGkdApp({
         '.WebActivity',
         '.MainFrameActivity',
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
-          ],
+      ],
       rules: [
         {
           key: 0,
@@ -357,7 +357,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
@@ -378,7 +378,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,4],
+          preKeys: [0, 4],
           key: 4,
           action: 'back',
           actionDelay: 5000,
@@ -505,7 +505,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
@@ -529,7 +529,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 3,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
@@ -540,7 +540,7 @@ export default defineGkdApp({
           activityIds: ['.WebActivity'],
         },
         {
-          preKeys: [0,4],
+          preKeys: [0, 4],
           key: 4,
           action: 'clickCenter',
           matches: [
@@ -681,9 +681,7 @@ export default defineGkdApp({
         {
           preKeys: [9, 2],
           key: 1,
-          matches: [
-            '@View[clickable=true] > View > [text~="[1-9][0-9]*"]',
-          ],
+          matches: ['@View[clickable=true] > View > [text~="[1-9][0-9]*"]'],
         },
         {
           preKeys: [1],
@@ -971,7 +969,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['[text="京东需要申请通知权限"] +n [getChild(1).text="去打开"] > @[text="取消"][clickable=true]'],
+          matches: [
+            '[text="京东需要申请通知权限"] +n [getChild(1).text="去打开"] > @[text="取消"][clickable=true]',
+          ],
           activityIds: ['.MainFrameActivity'],
         },
       ],
