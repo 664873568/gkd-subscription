@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '连续签到',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -21,11 +22,12 @@ export default defineGkdApp({
     {
       key: 1,
       name: '浏览微博 完成任务',
+      forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'swipe',
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -38,7 +40,7 @@ export default defineGkdApp({
             duration: 1000,
           },
           actionMaximum: 3,
-          actionCd: 1000,
+          actionCd: 2000,
           matches: [
             '[text="浏览微博\\n完成任务"] <<n [vid="floating_window"] -2 * @[vid="view_recycler"]',
           ],
@@ -49,6 +51,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: 'YY-去微博赚红包',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -64,6 +67,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '星图金融-去微博签到领红包',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -82,6 +86,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
