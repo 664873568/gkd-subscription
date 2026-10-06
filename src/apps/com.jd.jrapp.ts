@@ -393,7 +393,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           actionMaximum: 10,
           actionCd: 3000,
