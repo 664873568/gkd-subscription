@@ -133,6 +133,21 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '立即签到0',
+          position: {
+            left: 'width * 0.84',
+            top: 'height * 0.18',
+          },
+          actionDelay: 2000,
+          matches: [
+            'FrameLayout + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup[index<13] > ImageView,
+          ],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+          ],
+        },
+        {
+          key: 0,
           name: '签到领0',
           position: {
             left: 'width * -0.8',
@@ -163,6 +178,9 @@ export default defineGkdApp({
         {
           key: 2,
           name: '立即签到',
+          excludeMatches: [
+            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView',
+          ],
           position: {
             left: 'width * -0.8',
             top: 'height * 0',
@@ -1033,6 +1051,29 @@ export default defineGkdApp({
     },
     {
       key: 71,
+      name: '我的钱包-放心借-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          position: {
+            left: 'width*0.5',
+            top: 'height*0.795',
+          },
+          matches: [
+            'LinearLayout > FrameLayout > FrameLayout > FrameLayout > @ViewGroup[index<10] > ImageView',
+          ],
+          activityIds: [
+            '.wallet.ui.WalletActivity',
+            '.cjpay.hostimpl.container.CJLiveDummyActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 72,
       name: '我的钱包-今日签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -1053,7 +1094,7 @@ export default defineGkdApp({
             left: 'width*0.5',
             top: 'height*2.8',
           },
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
             'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
           ],
@@ -1061,8 +1102,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [71],
-      key: 72,
+      key: 73,
       name: '我的钱包-前往抖音月付看看',
       forcedTime: 60000,
       matchRoot: true,
@@ -1070,8 +1110,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          preKeys: [71],
           key: 0,
+          excludeMatches: [
+            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
+          ],
           matches: [
             '[desc~="前往抖音月付看看 滑动浏览30秒 抖币\\\\+[0-9]+ 去看看 按钮"] > ViewGroup',
           ],
