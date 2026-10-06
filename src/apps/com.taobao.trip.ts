@@ -106,7 +106,7 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [31],
-      key: 2,
+      key: 3,
       name: '天天集能量-看视频',
       forcedTime: 60000,
       matchRoot: true,
