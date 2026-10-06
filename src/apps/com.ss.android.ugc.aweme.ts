@@ -140,7 +140,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            'FrameLayout + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup[index<13] > ImageView,
+            'FrameLayout + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup[index<13] > ImageView',
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
