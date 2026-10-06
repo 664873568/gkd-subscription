@@ -7,8 +7,9 @@ export default defineGkdApp({
     {
       key: 0,
       name: '提现中心-去提现-最大金额',
+      forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
+      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['com.baidu.browser.search.LightSearchActivity'],
       rules: [
@@ -43,9 +44,58 @@ export default defineGkdApp({
         },
       ],
     },
+    //天天赚
     {
       key: 1,
+      name: '天天赚-免费红包',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.lightbrowser.ImmerseBrowserActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).text="订阅金币通知"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '[getChild(1).text="恭喜获得"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '[getChild(0).text="打卡白拿20元"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '[text="添加赚钱助手 提醒您每日赚金币"] - @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '[text="天天领现金"] +n [text="去添加"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          key: 5,
+          matches: [
+            'View > TextView + View > @TextView[clickable=true] - View > TextView[clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 38,
       name: '浏览好物-返回领取',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       resetMatch: 'activity',
@@ -57,8 +107,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 39,
       name: '明星列表-完成并进入',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       resetMatch: 'activity',
@@ -73,6 +124,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '发送通知-不允许',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -89,6 +141,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '升级-关闭',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -106,6 +159,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
