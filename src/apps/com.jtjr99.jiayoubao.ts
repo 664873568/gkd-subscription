@@ -91,14 +91,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5],
-          key: 6,
+          preKeys: [6],
+          key: 7,
           matches: [
             '[id="h5-product_mod"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""]',
           ],
         },
         {
-          key: 7,
+          key: 8,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="待领取"]',
           ],
