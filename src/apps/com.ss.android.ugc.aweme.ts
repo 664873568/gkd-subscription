@@ -193,7 +193,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2,3],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           name: '开心收下',
           position: {
