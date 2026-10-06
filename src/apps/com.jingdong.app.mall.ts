@@ -438,7 +438,6 @@ export default defineGkdApp({
           key: 9,
           action: 'back',
           actionDelay: 5000,
-          action: 'back',
           anyMatches: [
             '@ImageView < ViewGroup - ImageView < ViewGroup', //健康金限时领
             '@ImageView < ViewGroup -n ViewGroup < ViewGroup',
