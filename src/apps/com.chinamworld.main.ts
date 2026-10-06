@@ -24,15 +24,23 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
+          matches: [
+            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
           matches: [
             '[desc="签到有礼楼层"] +n @View[clickable=true] > TextView[index=parent.childCount.minus(1)]',
           ],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
+          preKeys: [2],
+          key: 3,
           matches: [
-            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
+            '@[desc="关闭 按钮"][clickable=true] +n [text="立即使用"]',
           ],
         },
       ],
@@ -117,9 +125,16 @@ export default defineGkdApp({
         },
         {
           preKeys: [0],
-          key: 11,
+          key: 1,
           matches: [
             'ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          matches: [
+            'ImageButton +n [text="已领奖"] + @TextView[clickable=true]',
           ],
         },
       ],
@@ -135,7 +150,7 @@ export default defineGkdApp({
       activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
       rules: [
         {
-          preKeys: [11],
+          preKeys: [1],
           key: 0,
           excludeMatches: [
             'ImageButton +n @[text="立即签到"][clickable=true] + TextView',
