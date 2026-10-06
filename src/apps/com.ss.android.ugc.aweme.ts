@@ -133,7 +133,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '立即签到0',
+          name: '立即签到00',
           position: {
             left: 'width * 0.84',
             top: 'height * 0.18',
@@ -147,8 +147,8 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 0,
-          name: '签到领0',
+          key: 1,
+          name: '签到领00',
           position: {
             left: 'width * -0.8',
             top: 'height * 0',
@@ -162,8 +162,8 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
-          name: '立即签到0',
+          key: 2,
+          name: '立即签到01',
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
@@ -176,7 +176,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
+          key: 3,
           name: '立即签到',
           excludeMatches: [
             'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView',
@@ -193,8 +193,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
-          key: 3,
+          preKeys: [0, 1, 2,3],
+          key: 4,
           name: '开心收下',
           position: {
             left: 'width * 0.5',
