@@ -39,9 +39,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
-          matches: [
-            '@[desc="关闭 按钮"][clickable=true] +n [text="立即使用"]',
-          ],
+          matches: ['@[desc="关闭 按钮"][clickable=true] +n [text="立即使用"]'],
         },
       ],
     },
@@ -131,7 +129,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             'ImageButton +n [text="已领奖"] + @TextView[clickable=true]',
