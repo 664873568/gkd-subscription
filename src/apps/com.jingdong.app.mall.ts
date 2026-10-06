@@ -45,23 +45,19 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          position: {
-            left: 'width * 0.0612',
-            top: 'width * 0.1245',
-          },
           matches: [
-            '[text="店铺关注"] >n @[text="已选0个店铺"][clickable=true] + [text="取消关注"]',
+            '[text="店铺关注"] >n [text="取消关注"] - [getChild(1).text="已选0个店铺"] > @CheckBox[clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
-            '[text="店铺关注"] >n [text~="已选[1-9][0-9]*个店铺"] + @[text="取消关注"][clickable=true]',
+            '[text="店铺关注"] >n @[text="取消关注"][clickable=true] - [getChild(1).text~="已选[1-9][0-9]*个店铺"] > CheckBox',
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [2],
           key: 3,
           matches: [
             '[text="店铺关注"] >n [text="取消关注"] +n [text="取消"] + @[text="确定"][clickable=true]',
@@ -321,7 +317,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //26.03.15-27.05.31 天天砸金蛋
+    //26.03.15-27.05.31 9.9包邮-天天砸金蛋
     //https://pro.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
     {
       key: 50,
@@ -337,7 +333,11 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).getChild(0).text="规则"] + View > [getChild(1).name$="TextView"] > @[text="去完成"][clickable=true]',
           ],
-          activityIds: ['.WebActivity', '.MainFrameActivity'],
+          activityIds: [
+            '.WebActivity',
+            '.MainFrameActivity',
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -719,12 +719,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 0.63',
-          },
+          name: '恭喜您获得-去首页领取',
           matches: [
-            '[id="signView_main_portal"] + [id="chunkplaceholder8"] > @TextView',
+            '[id="signView_main_portal"] - * [getChild(2).text="秒后自动关闭"] +n @TextView[clickable=true]',
           ],
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
