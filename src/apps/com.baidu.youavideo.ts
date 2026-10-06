@@ -393,11 +393,8 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          position: {
-            left: 'width * 0.93',
-            top: 'height * 0.85',
-          },
-          actionDelay: 2000,
+          action: 'back',
+          actionDelay: 5000,
           matches: [
             'ViewGroup < ViewGroup < ComposeView < @[id="android:id/content"]',
           ],
@@ -457,6 +454,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 5000,
           matches: [
             '[vid="taskFinishFloatView"] > @FrameLayout[clickable=true] >n [vid="buoy_close"] - [vid="buoy_container"] >n [vid="task_buoy_message"]',
           ],
