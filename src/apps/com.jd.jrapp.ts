@@ -775,7 +775,7 @@ export default defineGkdApp({
           ],
           actionDelay: 5000,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + 提现',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="提现"]',
           ],
         },
       ],
