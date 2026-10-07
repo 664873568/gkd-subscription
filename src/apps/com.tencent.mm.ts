@@ -96,7 +96,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '签到',
-          matches: [
+          excludeMatches: [
             '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(1).text^="消耗星币"] + [getChild(0).text="兑换"]',
           ],
           actionDelay: 3000,
