@@ -648,9 +648,7 @@ export default defineGkdApp({
             left: 'width * 0.5',
             top: 'height * 0.96',
           },
-          matches: [
-            '@[vid="ivLandscapeClose"][clickable=true]',
-          ],
+          matches: ['@[vid="ivLandscapeClose"][clickable=true]'],
           activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
         },
       ],
