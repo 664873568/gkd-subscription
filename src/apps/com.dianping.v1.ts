@@ -32,6 +32,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '三餐奖励',
           matches: [
             '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
           ],
@@ -49,13 +50,12 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@FrameLayout[clickable=true] > [text="今日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
-            '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
+            '@FrameLayout[clickable=true] > [text="今日签到" || text$="奖励"][index=parent.childCount.minus(1)]',
           ],
           action: 'clickCenter',
           actionDelay: 2000,
           matches: [
-            '@FrameLayout[clickable=true] > TextView - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
+            '@FrameLayout[clickable=true] > [text!~="明日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
@@ -221,6 +221,7 @@ export default defineGkdApp({
             '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
             '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
             '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
+            '@FrameLayout[clickable=true] > [text!~="明日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
           ],
           action: 'clickCenter',
           actionDelay: 5000,
