@@ -64,8 +64,10 @@ export default defineGkdApp({
           ],
           actionDelay: 2000,
           anyMatches: [
-            '[id="J-watchVideo"] > [text="赚金币"] + @[getChild(0).getChild(0).text~="[0-9]{3,}"&&getChild(1).text="待领取"][clickable=true]',
-            '[id="J-watchVideo"] > [text="赚金币"] +n [getChild(1).text~="第[0-9]+个"] + @[getChild(0).getChild(0).text~="[0-9]{3,}"&&getChild(1).text="待领取"][clickable=true]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] +n [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{1,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
           ],
         },
         {
@@ -89,7 +91,10 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="J-watchVideo"] >n [getChild(1).text="待领取"] - @View[clickable=true] > [text="待领取"] - View >n [text~="[0-9]{3,}"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] +n [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{1,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
             '[getChild(0).text="恭喜获得任务奖励"] +n @TextView[index=parent.childCount.minus(1)][clickable=true]',
             '[getChild(0).getChild(0).text="恭喜获得"] +n View > @View[clickable=true] > [text="我知道了"]',
           ],
@@ -898,6 +903,7 @@ export default defineGkdApp({
           anyMatches: [
             '@ImageView < FrameLayout < FrameLayout + * [text="滑动/点击了解更多"]',
             '@ImageView < FrameLayout < LinearLayout <n * < * +n * [text="滑动/点击了解更多内容"]',
+            '@ImageView < FrameLayout < LinearLayout <n * < * +n * [text="上滑或点击按钮查看详情"]',
           ],
         },
         {
