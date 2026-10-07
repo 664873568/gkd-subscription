@@ -587,7 +587,7 @@ export default defineGkdApp({
           matches: [
             '@View[childCount=2] - [id="chunk3"] - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
           ],
-          exclueMatches: [
+          excludeMatches: [
             'TextView[clickable=true] - View > @View[clickable=true] > [text="去完成"]',
           ],
         },
@@ -638,7 +638,7 @@ export default defineGkdApp({
           matches: [
             '@View[childCount=2] - [id="chunk3"] - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
           ],
-          exclueMatches: [
+          excludeMatches: [
             '[text="开心收下"] +n @View[clickable=true] > View > Image[text="02760900900ad74e.png!q50"]',
           ],
         },
