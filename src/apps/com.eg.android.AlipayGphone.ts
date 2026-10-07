@@ -1229,16 +1229,18 @@ export default defineGkdApp({
             '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text="下滑寻找可获得更多「扭蛋券」"]',
           ],
           matches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > [id="feeds-area"] > [id^="macy-container"] > View > @View[clickable=true] > [text="点我领奖励"]',
+            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > [id="feeds-area"] > [id^="macy-container"] > View > View[clickable=true] > @[text="点我领奖励"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
+          excludeMatches: [
+            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次抽奖券"]',
+          ],
           anyMatches: [
-            '[desc="返回"] < [id$="h5_tf_nav_ly"]',
-            '[desc="返回"] < [id$="auiconView_backButton"] > [text=""]',
+            '@[desc="返回"][clickable=true] < [id$="h5_tf_nav_ly"]',
+            '@[desc="返回"][clickable=true] > [id$="auiconView_backButton"] > [text=""]',
           ],
         },
         {
@@ -1252,14 +1254,14 @@ export default defineGkdApp({
               x: 'screenWidth*0.5',
               y: 'screenHeight*0.25',
             },
-            duration: 1000,
+            duration: 500,
           },
-          actionMaximum: 10,
+          actionDelay: 1000,
+          actionCd: 3000,
           matches: [
-            '[text="扭一扭兑现金"] >n @[id="feeds"] > [id="feeds-area"] > [id^="macy-container"]',
+            '[getChild(2).id="gashapon_machine_game"] + View > @[id="feeds"] > [id="feeds-area"] > [id^="macy-container"]',
           ],
           excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > [id="feeds-area"] > [id^="macy-container"] > View > @View[clickable=true] > [text="点我领奖励"]',
             '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text="下滑寻找可获得更多「扭蛋券」"]',
           ],
         },
@@ -1280,16 +1282,18 @@ export default defineGkdApp({
             '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
           ],
           matches: [
-            '[id="wishingStar"] +n View > [id="feeds"] > [id^="macy-container"] > View > @View[clickable=true] > [id="feeds-reward-card"] > [text="点我领奖励"]',
+            '[id="wishingStar"] +n View > [id="feeds"] > [id^="macy-container"] > View > View[clickable=true] > View > @[text="点我领奖励"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 5000,
+          excludeMatches: [
+            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次许愿星"]',
+          ],
           anyMatches: [
-            '[desc="返回"] < [id$="h5_tf_nav_ly"]',
-            '[desc="返回"] < [id$="auiconView_backButton"] > [text=""]',
+            '@[desc="返回"][clickable=true] < [id$="h5_tf_nav_ly"]',
+            '@[desc="返回"][clickable=true] > [id$="auiconView_backButton"] > [text=""]',
           ],
         },
         {
@@ -1303,14 +1307,14 @@ export default defineGkdApp({
               x: 'screenWidth*0.5',
               y: 'screenHeight*0.25',
             },
-            duration: 1000,
+            duration: 500,
           },
-          actionMaximum: 10,
+          actionDelay: 1000,
+          actionCd: 3000,
           matches: [
             '[id="wishingStar"] +n View > @[id="feeds"] > [id^="macy-container"]',
           ],
           excludeMatches: [
-            '[id="wishingStar"] +n View > [id="feeds"] > [id^="macy-container"] > View > @View[clickable=true] > [id="feeds-reward-card"] > [text="点我领奖励"]',
             '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
           ],
         },
