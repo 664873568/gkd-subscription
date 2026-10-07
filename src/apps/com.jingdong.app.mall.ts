@@ -245,7 +245,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 3,
           actionDelay: 6000,
           action: 'back',
@@ -320,9 +320,9 @@ export default defineGkdApp({
         '.WebActivity',
         '.MainFrameActivity',
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
-            '.personel.FloatViewActivity',
-            'com.jd.lib.babel.view.activity.BabelActivity',
-            'com.jd.lib.productdetail.ProductDetailActivity',
+        '.personel.FloatViewActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+        'com.jd.lib.productdetail.ProductDetailActivity',
       ],
       rules: [
         {
@@ -374,7 +374,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,5],
+          preKeys: [0, 5],
           key: 5,
           action: 'back',
           actionDelay: 6000,
@@ -384,7 +384,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.Discovery.view.DiscoveryActivity'],
         },
         {
-          preKeys: [0,6],
+          preKeys: [0, 6],
           key: 6,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
@@ -449,7 +449,7 @@ export default defineGkdApp({
           matches: ['@[text~="砸一下\\\\(剩余[0-9]+次\\\\)"][clickable=true]'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           matches: [
             '[desc="关闭弹窗" || text="关闭弹窗"][clickable=true] + View > View > View + @TextView[clickable=true]',
@@ -469,7 +469,7 @@ export default defineGkdApp({
       activityIds: [
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
-            'com.jd.lib.jshop.jshop.JshopMainShopActivity',
+        'com.jd.lib.jshop.jshop.JshopMainShopActivity',
       ],
       rules: [
         {
@@ -499,9 +499,7 @@ export default defineGkdApp({
           ],
           action: 'back',
           actionDelay: 6000,
-          matches: [
-            '@[desc="返回"][clickable=true] +n [desc="Top Logo"]',
-          ],
+          matches: ['@[desc="返回"][clickable=true] +n [desc="Top Logo"]'],
           activityIds: ['.WebActivity'],
         },
         {
@@ -525,9 +523,7 @@ export default defineGkdApp({
           ],
           action: 'back',
           actionDelay: 6000,
-          matches: [
-            '[text="back"] < @View[clickable=true] <<n WebView < c40',
-          ],
+          matches: ['[text="back"] < @View[clickable=true] <<n WebView < c40'],
           activityIds: ['.WebActivity'],
         },
         {
@@ -844,12 +840,10 @@ export default defineGkdApp({
           matches: [
             '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="参加.*|通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
           ],
-          activityIds: [
-            'com.jd.lib.babel.view.activity.BabelActivity',
-          ],
+          activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           action: 'clickCenter',
           matches: [
@@ -862,7 +856,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           action: 'clickCenter',
           matches: [
@@ -871,7 +865,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 3,
           action: 'back',
           actionDelay: 6000,
@@ -881,7 +875,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
         {
-          preKeys: [0,4],
+          preKeys: [0, 4],
           key: 4,
           action: 'back',
           actionDelay: 6000,
@@ -891,7 +885,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,5],
+          preKeys: [0, 5],
           key: 5,
           action: 'back',
           actionDelay: 6000,
