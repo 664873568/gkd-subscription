@@ -33,6 +33,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             'View > View > [text="下载并浏览APP10秒得奖励"] + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
           ],
@@ -74,7 +75,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册.*|.*找10.*|逛中国移动"]',
+            '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册.*|逛中国移动"]',
           ],
         },
         {
@@ -116,9 +117,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          action: 'back',
           actionDelay: 10000,
           matches: [
-            '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < m0 <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text=""][clickable=true] - TextView <n View < View < [id="pcraft-container"] < [id="root"] < WebView < m0 <n WebView <n [vid="trip_pull_container"]',
           ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
@@ -323,6 +325,12 @@ export default defineGkdApp({
           key: 5,
           matches: [
             '@ImageView[clickable=true] - RelativeLayout > RelativeLayout > ImageView + [text="已领取奖励"]',
+          ],
+        },
+        {
+          key: 6,
+          matches: [
+            '@ImageView[clickable=true] - * [text="0s后可领取奖励"]',
           ],
         },
       ],
