@@ -32,6 +32,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
+          excludeMatches: [
+            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
+          ],
           matches: [
             '[desc="签到有礼楼层"] +n @View[clickable=true] > TextView[index=parent.childCount.minus(1)]',
           ],
