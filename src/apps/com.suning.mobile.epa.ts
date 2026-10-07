@@ -310,14 +310,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2,5],
+          preKeys: [1, 2, 5],
           key: 3,
           matches: [
             '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
           ],
         },
         {
-          preKeys: [3,6],
+          preKeys: [3, 6],
           key: 4,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
@@ -372,7 +372,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 1,
           actionDelay: 6000,
           anyMatches: [
@@ -383,7 +383,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,3],
+          preKeys: [1, 3],
           key: 2,
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
@@ -423,7 +423,7 @@ export default defineGkdApp({
           activityIds: ['.launcher.LauncherActivity'],
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 1,
           matches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
@@ -431,7 +431,7 @@ export default defineGkdApp({
           activityIds: ['.launcher.LauncherActivity'],
         },
         {
-          preKeys: [1,4],
+          preKeys: [1, 4],
           key: 2,
           actionDelay: 6000,
           anyMatches: [
