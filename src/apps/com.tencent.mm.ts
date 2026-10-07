@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '中国电信湖北客服-星币兑好礼-*元话费',
+      name: '中国电信湖北客服-星币兑好礼-话费',
       forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
@@ -19,7 +19,9 @@ export default defineGkdApp({
             '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
             '[text="短信验证码"] + View > View + [text="获取验证码"]',
           ],
-          matches: ['[getChild(0).text$="元话费"] + View > [text="兑换"]'],
+          matches: [
+            '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(0).text$="话费"] + [getChild(0).text="兑换"]',
+          ],
         },
         {
           preKeys: [0],
@@ -42,7 +44,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '中国电信湖北客服-星币兑好礼-*元翼支付权益金',
+      name: '中国电信湖北客服-星币兑好礼-翼支付权益金',
       forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
@@ -56,7 +58,7 @@ export default defineGkdApp({
             '[text="短信验证码"] + View > View + [text="获取验证码"]',
           ],
           matches: [
-            '[getChild(0).text$="元翼支付权益金"] + View > [text="兑换"]',
+            '[getChild(2).text="做任务 赚星币"] + View > View > View > [getChild(0).text$="翼支付权益金"] + [getChild(0).text="兑换"]',
           ],
         },
         {
@@ -94,6 +96,9 @@ export default defineGkdApp({
         {
           key: 1,
           name: '签到',
+          matches: [
+            '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(1).text^="消耗星币"] + [getChild(0).text="兑换"]',
+          ],
           actionDelay: 3000,
           matches: ['[getChild(2).text="5星权益"] + @Image'],
         },
