@@ -813,13 +813,13 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 0,
+          key: 1,
           matches: [
             '[text="互动游戏"] >n @TextView[clickable=true] + * View[clickable=true] > [text="明天继续"]',
           ],
         },
         {
-          key: 1,
+          key: 2,
           excludeMatches: [
             '[text="互动游戏"] >n TextView[clickable=true] + * View[clickable=true] > [text~="立即签到|明天继续"]',
             '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="参加.*|通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
