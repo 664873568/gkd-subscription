@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '赚金币-开宝箱得金币',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -22,6 +23,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '赚金币-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -37,6 +39,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '赚金币-看视频再得',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -57,6 +60,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '玩游戏-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -72,6 +76,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '看视频-跳过↑',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -96,6 +101,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '看视频-跳过↓',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -121,6 +127,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '看视频-跳过↓-体验',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -141,6 +148,7 @@ export default defineGkdApp({
     {
       key: 13,
       name: '看视频-跳过-×-应用详情+立即下载',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -161,6 +169,7 @@ export default defineGkdApp({
     {
       key: 14,
       name: '看视频-跳过-继续观看',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -191,6 +200,7 @@ export default defineGkdApp({
     {
       key: 16,
       name: '看视频-去领奖',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -209,6 +219,7 @@ export default defineGkdApp({
     {
       key: 17,
       name: '看视频-去领奖-奖励已领取',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -228,6 +239,7 @@ export default defineGkdApp({
     {
       key: 18,
       name: '看视频-跳过-奖励已领取',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -244,6 +256,7 @@ export default defineGkdApp({
     {
       key: 19,
       name: '看视频-礼包-领取奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -261,6 +274,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '看视频-跳过-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -277,6 +291,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '看视频-继续观看',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -293,6 +308,7 @@ export default defineGkdApp({
     {
       key: 22,
       name: '查看-反馈-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -310,6 +326,7 @@ export default defineGkdApp({
     {
       key: 23,
       name: '反馈-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -328,6 +345,7 @@ export default defineGkdApp({
     {
       key: 24,
       name: '摇一摇或点击查看详情-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -347,6 +365,7 @@ export default defineGkdApp({
     {
       key: 30,
       name: '看视频-跳转快应用-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -358,7 +377,6 @@ export default defineGkdApp({
           matches: ['@ImageView + ImageView +n [text="反馈"]'],
           activityIds: [
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity',
-            'null',
           ],
         },
       ],
@@ -366,6 +384,7 @@ export default defineGkdApp({
     {
       key: 31,
       name: '看视频-广告-<',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -384,6 +403,7 @@ export default defineGkdApp({
     {
       key: 32,
       name: '看视频-广告-<+×1',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -408,6 +428,7 @@ export default defineGkdApp({
     {
       key: 33,
       name: '看视频-广告-<+×2',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -432,6 +453,7 @@ export default defineGkdApp({
     {
       key: 34,
       name: '看视频-网页无法打开',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -451,6 +473,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '新版本上线啦！-下次再说',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -467,6 +490,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '温馨提示-取消',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -483,6 +507,7 @@ export default defineGkdApp({
     {
       key: 42,
       name: '开启消息通知-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -500,6 +525,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -514,6 +540,7 @@ export default defineGkdApp({
     {
       key: 51,
       name: '首页-广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -535,6 +562,7 @@ export default defineGkdApp({
     {
       key: 52,
       name: '广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -549,6 +577,7 @@ export default defineGkdApp({
     {
       key: 53,
       name: '广告-×-开启系统通知',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -569,6 +598,7 @@ export default defineGkdApp({
     {
       key: 54,
       name: '广告-×-9.9元抢',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -589,6 +619,7 @@ export default defineGkdApp({
     {
       key: 55,
       name: '广告-×-支付成功',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -597,6 +628,27 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[vid="ivVerticalClose"][clickable=true]',
+            '@[vid="ivLandscapeClose"][clickable=true]',
+          ],
+          activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
+        },
+      ],
+    },
+    {
+      key: 56,
+      name: '广告-×-手机充值-立即查看,
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.96',
+          },
+          matches: [
             '@[vid="ivLandscapeClose"][clickable=true]',
           ],
           activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
