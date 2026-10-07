@@ -137,8 +137,8 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           position: {
-            left: 'width * 0.5000',
-            top: 'width * 0.0639',
+            left: 'width * 0.5',
+            top: 'height * 0.0639',
           },
           actionDelay: 2000,
           matches: ['[text="黑色星期五"] >n @[id="blackFiveSignInFloor"]'],
@@ -364,7 +364,7 @@ export default defineGkdApp({
           preKeys: [0, 4],
           key: 4,
           action: 'back',
-          actionDelay: 6000,
+          actionDelay: 11000,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
             '@[desc="返回"][clickable=true] +n RelativeLayout > [text="京东健康" || text="签到领现金" || text="看视频赚现金"]',
