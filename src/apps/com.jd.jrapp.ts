@@ -1685,10 +1685,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '去完成/继续完成',
           excludeMatches: [
-            '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]', //任务已完成 恭喜获得
-            '@TextView[clickable=true] - [text="立即领取"] -n [text~="[0-9]个京豆"]', //任务未完成 继续赚奖励
-            '[text="ff0fe9dd65ab466d"] + [getChild(1).text="1个京豆"] > @View[clickable=true] > [text="立即领取"]',//赚京豆-立即领取
+            '@TextView[clickable=true] -n [text~="再领[0-9]个京豆"]',
+            '@TextView[clickable=true] - [text="立即领取"] -n [text~="[0-9]个京豆"]',
+            '[text="ff0fe9dd65ab466d"] + [getChild(1).text="1个京豆"] > @View[clickable=true] > [text="立即领取"]',
           ],
           actionDelay: 2000,
           matches: [
@@ -1747,7 +1748,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 6,
+          key: 7,
           name: '任务已完成-恭喜获得-×',
           matches: [
             '@TextView[clickable=true] <n Dialog <n WebView < b40 < [vid="webview"]',
