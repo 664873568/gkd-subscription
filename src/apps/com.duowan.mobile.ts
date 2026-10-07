@@ -263,8 +263,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '奖励将于*秒后发放',
-          matches: ['[text~="放弃福利|我要更快拿奖"] <<n * [text^="奖励将于"]'],
+          matches: [
+            '@[text~="放弃福利|我要更快拿奖"] <<n * [text^="奖励将于"]',
+          ],
         },
         {
           key: 1,
@@ -302,15 +303,14 @@ export default defineGkdApp({
             'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
           ],
           actionDelay: 1000,
-          anyMatches: [
-            'ImageView < @FrameLayout <<n * [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout <n * <n * <n * <n * [text*="已完成浏览" || text*="继续"]',
+          matches: [
+            'ImageView < @FrameLayout < FrameLayout <<n * [text="恭喜获得奖励" || text*="已完成浏览" || text*="继续"]',
           ],
         },
         {
           key: 6,
           matches: [
-            'ImageView < @FrameLayout < * + * [text="查看详情" || text^="扭动或点击"]',
+            'ImageView < @FrameLayout < FrameLayout < * + * [text="查看详情" || text^="扭动或点击"]',
           ],
         },
       ],
