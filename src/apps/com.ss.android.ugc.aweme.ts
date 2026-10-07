@@ -272,38 +272,6 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 23,
-      name: '理财-发财金-抽发财金',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bullet.ui.BulletContainerActivity'],
-      rules: [
-        {
-          key: 0,
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 0.7',
-          },
-          matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup[childCount=1] > ViewGroup > ViewGroup > ViewGroup',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 0.8',
-          },
-          matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView', //开心收下
-          ],
-        },
-      ],
-    },
     //车主服务-车主省钱-领省钱豆兑现金
     {
       key: 30,
