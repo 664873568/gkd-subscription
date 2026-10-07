@@ -592,7 +592,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           matches: [
             '@[desc="月黑风高"][clickable=true] > ViewGroup > [text="月黑风高"]',
@@ -701,7 +701,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [2,9],
+          preKeys: [2, 9],
           key: 1,
           matches: ['@View[clickable=true] > View > [text~="[1-9][0-9]*"]'],
         },
@@ -872,7 +872,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
         {
-          preKeys: [0, 1,5],
+          preKeys: [0, 1, 5],
           key: 1,
           name: '已完成-点击立即返回',
           action: 'clickCenter',
@@ -954,7 +954,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           actionDelay: 6000,
           matches: [
