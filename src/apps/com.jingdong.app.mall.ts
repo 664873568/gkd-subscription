@@ -531,7 +531,7 @@ export default defineGkdApp({
           activityIds: ['.WebActivity'],
         },
         {
-          key: 8,
+          key: 5,
           action: 'back',
           matches: [
             '@RelativeLayout[clickable=true] - ViewGroup < FrameLayout',
