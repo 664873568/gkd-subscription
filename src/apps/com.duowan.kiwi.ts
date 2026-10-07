@@ -83,7 +83,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="跳过"][clickable=true]'],
+          matches: [
+            '@[text="跳过"][clickable=true] <n FrameLayout < [vid="sdk_splash_ad_container"]',
+          ],
           activityIds: ['.homepage.Homepage'],
         },
       ],
