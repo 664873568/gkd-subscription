@@ -523,7 +523,9 @@ export default defineGkdApp({
           ],
           action: 'back',
           actionDelay: 6000,
-          matches: ['[text="back"] < @View[clickable=true] <<n WebView < c40'],
+          matches: [
+            'Image[text="back"] < @View[clickable=true] <<n WebView < c40',
+          ],
           activityIds: ['.WebActivity'],
         },
         {
@@ -534,9 +536,15 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 8,
+          key: 6,
           matches: [
-            '[text="开心收下"] +n @View[clickable=true] > View > Image',
+            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
+          ],
+        },
+        {
+          key: 7,
+          matches: [
+            '[text="开心收下"] +n @View[clickable=true] > View > Image[text="02760900900ad74e.png!q50"]',
           ],
         },
         {
@@ -565,52 +573,73 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          matches: [
+            'TextView[clickable=true] - View > @View[clickable=true] > [text="去完成"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.63',
           },
           matches: [
-            'c40 > WebView > View > [id="J_babelOpt"] + [id="chunk3"] + View[childCount=2]',
+            '@View[childCount=2] - [id="chunk3"] - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
+          ],
+          exclueMatches: [
+            'TextView[clickable=true] - View > @View[clickable=true] > [text="去完成"]',
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [1,2],
+          key: 3,
           matches: [
             '@[desc="月黑风高"][clickable=true] > ViewGroup > [text="月黑风高"]',
           ],
           activityIds: ['.MainFrameActivity'],
         },
         {
-          preKeys: [2],
-          key: 3,
+          preKeys: [3],
+          key: 4,
           matches: [
             '[text="月黑风高"] >n @View[clickable=true] > [text="075e15f06e18eb7f.png!q50"]',
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [4],
+          key: 5,
           name: '赚次数',
           matches: [
             '[getChild(0).text="03e62ee40ce952ef.png!q50"] +n [text="规则"] + TextView + @TextView[clickable=true]',
           ],
         },
         {
-          key: 5,
+          preKeys: [5],
+          key: 6,
           matches: [
             '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
           ],
         },
         {
-          preKeys: [5],
-          key: 6,
+          preKeys: [6],
+          key: 7,
+          matches: [
+            '[text="开心收下"] +n @View[clickable=true] > View > Image[text="02760900900ad74e.png!q50"]',
+          ],
+        },
+        {
+          preKeys: [6],
+          key: 8,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.6',
           },
           matches: [
-            'c40 > WebView > View > [id="J_babelOpt"] + [id="chunk3"] + View[childCount=2]',
+            '@View[childCount=2] - [id="chunk3"] - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
+          ],
+          exclueMatches: [
+            '[text="开心收下"] +n @View[clickable=true] > View > Image[text="02760900900ad74e.png!q50"]',
           ],
         },
       ],
@@ -672,7 +701,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [9, 2],
+          preKeys: [2,9],
           key: 1,
           matches: ['@View[clickable=true] > View > [text~="[1-9][0-9]*"]'],
         },
@@ -843,8 +872,9 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0, 1,5],
           key: 1,
+          name: '已完成-点击立即返回',
           action: 'clickCenter',
           matches: [
             '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
@@ -877,6 +907,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 4],
           key: 4,
+          name: '关闭直播间',
           action: 'back',
           actionDelay: 6000,
           matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
@@ -887,6 +918,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 5],
           key: 5,
+          name: '去JoyAI抽20元',
           action: 'back',
           actionDelay: 6000,
           matches: [
@@ -896,6 +928,7 @@ export default defineGkdApp({
         },
         {
           key: 6,
+          name: '×',
           excludeMatches: [
             '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="参加.*|通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
           ],
@@ -915,10 +948,13 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jingdong.manto.ui.MantoActivityUp1'],
+      activityIds: [
+        'com.jingdong.manto.ui.MantoActivityUp1',
+        'com.jingdong.manto.ui.MantoActivitySingleProcessUp',
+      ],
       rules: [
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 1,
           actionDelay: 6000,
           matches: [
@@ -955,6 +991,17 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="互动游戏"] >n [text="京豆奖励"] +n @[text="开心收下"][clickable=true]',
+          ],
+        },
+        {
+          key: 2,
+          excludeMatches: [
+            '[text="互动游戏"] >n [text="赚京豆"] >n [text="攒经验 ›"][clickable=true]',
+            '[text="互动游戏"] >n [text="赚京豆"] >n [text="全部奖励已解锁"] + * >n @[text="领取"][clickable=true]',
+          ],
+          actionDelay: 5000,
+          matches: [
+            '@[text="返回"][clickable=true] < View <<n [text="互动游戏"] < c40',
           ],
         },
       ],
