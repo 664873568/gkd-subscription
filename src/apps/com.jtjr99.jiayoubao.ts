@@ -36,6 +36,7 @@ export default defineGkdApp({
             '[text*="签到成功"] + [text$="积分"] + @[text="我知道了"][clickable=true]',
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="待领取"]',
           ],
+          actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="去完成"]',
           ],
@@ -43,6 +44,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text="热门话题"] +n View > View > View > @View[clickable=true] > [desc="点赞"]',
           ],
@@ -50,6 +52,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 2000,
           matches: [
             '[text="热门话题"] +n View > View > View > @View[clickable=true] > [desc="回复"]',
           ],
@@ -57,6 +60,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 2000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] +n [text^="评论"] +n View > @EditText[clickable=true]',
           ],
@@ -68,6 +72,7 @@ export default defineGkdApp({
             left: 'width * 0.53',
             top: 'height * 1.3',
           },
+          actionDelay: 2000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] +n [text^="评论"] +n View > View > @EditText[clickable=true]',
           ],
@@ -79,6 +84,7 @@ export default defineGkdApp({
             left: 'width * 0.25',
             top: 'height * 1.7',
           },
+          actionDelay: 2000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] +n [text^="评论"] +n View > View > @EditText[clickable=true]',
           ],
@@ -86,6 +92,7 @@ export default defineGkdApp({
         {
           preKeys: [5],
           key: 6,
+          actionDelay: 2000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] +n [text^="评论"] +n View > View > [text="666"] +n @[text="发布"][clickable=true]',
           ],
@@ -93,12 +100,14 @@ export default defineGkdApp({
         {
           preKeys: [6],
           key: 7,
+          actionDelay: 2000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""]',
           ],
         },
         {
           key: 8,
+          actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="待领取"]',
           ],
@@ -120,6 +129,7 @@ export default defineGkdApp({
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="去完成"]',
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="待领取"]',
           ],
+          actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="点赞3条"] + [text=" 赚3积分"] + [text="去完成"]',
           ],
@@ -127,6 +137,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text="热门话题"] +n View > View > View > @View[clickable=true] > [desc="点赞"]',
           ],
@@ -134,12 +145,14 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 2000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""]',
           ],
         },
         {
           key: 3,
+          actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="点赞3条"] + [text=" 赚3积分"] + [text="待领取"]',
           ],
@@ -161,6 +174,7 @@ export default defineGkdApp({
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="点赞3条"] + [text=" 赚3积分"] + [text="去完成"]',
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="点赞3条"] + [text=" 赚3积分"] + [text="待领取"]',
           ],
+          actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚2积分"] + [text="去完成"]',
           ],
@@ -168,11 +182,13 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          actionDelay: 2000,
           matches: ['[text="每日答题奖励"] +n @[text^="A"][clickable=true]'],
         },
         {
           preKeys: [1],
           key: 2,
+          actionDelay: 2000,
           matches: [
             '[text="恭喜你答对了"] +n @[text="我知道了"][clickable=true]',
           ],
@@ -180,12 +196,14 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 2000,
           matches: [
             '[vid="iv_back"] < @[vid="view_back"][clickable=true] + [text="涨知识赚积分答题活动"][vid="txt_title"]',
           ],
         },
         {
           key: 4,
+          actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚2积分"] + [text="待领取"]',
           ],
@@ -207,6 +225,7 @@ export default defineGkdApp({
             '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚3积分"] + [text="去完成"]',
             '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚3积分"] + [text="待领取"]',
           ],
+          actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text="参与冲榜赢豪礼活动15s"] + [text=" 赚2积分"] + [text="去完成"]',
           ],
