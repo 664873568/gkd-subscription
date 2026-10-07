@@ -413,7 +413,7 @@ export default defineGkdApp({
           actionDelay: 6000,
           anyMatches: [
             'TextView - @TextView[clickable=true] < View < View < [id="app"] < WebView < c40',
-            '@TextView[clickable=true] < View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40,
+            '@TextView[clickable=true] < View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
           ],
         },
         {
