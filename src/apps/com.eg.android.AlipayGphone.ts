@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '芝麻粒-送你1次免费炼金机会',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -27,6 +28,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '芝麻粒-完成任务',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 70000,
@@ -45,6 +47,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '芝麻粒-广告-查看商品或滑动*秒后可领奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 30000,
@@ -95,6 +98,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '芝麻粒-滑一滑*秒得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 30000,
       resetMatch: 'activity',
@@ -138,6 +142,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '蚂蚁投资者教育基地-完成浏览',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -163,6 +168,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '蚂蚁投资者教育基地-完成答题得300奖学金',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 2000,
@@ -190,6 +196,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '蚂蚁投资者教育基地-完成答题得300奖学金-领取奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -227,6 +234,7 @@ export default defineGkdApp({
     {
       key: 13,
       name: '蚂蚁投资者教育基地-浏览1篇投教精选内容',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -276,6 +284,7 @@ export default defineGkdApp({
     {
       key: 14,
       name: '去看视频30秒领红包-<',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -295,6 +304,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '赚工分-我知道了',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       resetMatch: 'activity',
@@ -312,6 +322,7 @@ export default defineGkdApp({
     {
       key: 21,
       name: '赚工分-去完成-任务完成 返回领奖>',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -346,6 +357,7 @@ export default defineGkdApp({
     {
       key: 80,
       name: '菜鸟-每日现金任务',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -384,6 +396,7 @@ export default defineGkdApp({
     {
       key: 30,
       name: '冲鸭攒话费-签到',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -435,6 +448,7 @@ export default defineGkdApp({
     {
       key: 31,
       name: '冲鸭攒话费-任务-点外卖领红包',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -482,6 +496,7 @@ export default defineGkdApp({
     {
       key: 32,
       name: '冲鸭攒话费-任务-查看3个商品领奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -537,6 +552,7 @@ export default defineGkdApp({
     {
       key: 33,
       name: '冲鸭攒话费-任务-去借呗领*话费红包',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -563,6 +579,7 @@ export default defineGkdApp({
     {
       key: 34,
       name: '冲鸭攒话费-任务',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -603,6 +620,7 @@ export default defineGkdApp({
     {
       key: 35,
       name: '冲鸭攒话费-逛精选好物得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -627,6 +645,7 @@ export default defineGkdApp({
     {
       key: 36,
       name: '冲鸭攒话费-逛*领150元话费',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -659,6 +678,7 @@ export default defineGkdApp({
     {
       key: 37,
       name: '冲鸭攒话费-逛5秒淘宝人生领奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       matchTime: 10000,
@@ -686,6 +706,7 @@ export default defineGkdApp({
     {
       key: 38,
       name: '冲鸭攒话费-任务-换一换',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -729,6 +750,7 @@ export default defineGkdApp({
     {
       key: 39,
       name: '冲鸭攒话费-任务-玩游戏赚现金',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       matchTime: 20000,
@@ -776,6 +798,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '冲鸭攒话费-任务-逛5秒快递包裹游历',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -823,6 +846,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '冲鸭攒话费-任务-逛闲鱼赚支付红包',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -882,6 +906,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '支金豆-去抽签',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -900,6 +925,7 @@ export default defineGkdApp({
     {
       key: 51,
       name: '支金豆-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -936,6 +962,7 @@ export default defineGkdApp({
     {
       key: 60,
       name: '好家缴费金-今日签到',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -952,6 +979,7 @@ export default defineGkdApp({
     {
       key: 61,
       name: '好家缴费金-去完成-任务完成 返回领奖>',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -985,6 +1013,7 @@ export default defineGkdApp({
     {
       key: 62,
       name: '好家缴费金-领奖励',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1004,6 +1033,7 @@ export default defineGkdApp({
     {
       key: 70,
       name: '享清凉一夏-做任务 得抽奖机会',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1039,6 +1069,7 @@ export default defineGkdApp({
     {
       key: 71,
       name: '享清凉一夏-立即抽奖',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -1061,28 +1092,12 @@ export default defineGkdApp({
         },
       ],
     },
-    //浏览App活动
-    {
-      key: 100,
-      name: '飞猪旅行-点一键收下得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['[text="出行券包天天领"] >n @[text="一键收下"]'],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
-        },
-      ],
-    },
     //百度地图-去支付宝浏览图文领奖
     //百度网盘-小程序点图文领奖-去小程序点图文
     {
-      key: 101,
+      key: 100,
       name: '图文广告',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -1132,8 +1147,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 102,
+      key: 101,
       name: '小程序',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 15000,
@@ -1152,8 +1168,9 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 103,
+      key: 102,
       name: '小程序-广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 20000,
@@ -1179,10 +1196,131 @@ export default defineGkdApp({
         },
       ],
     },
+    //其他App活动
+    {
+      key: 200,
+      name: '飞猪旅行-点一键收下得奖励',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['[text="出行券包天天领"] >n @[text="一键收下"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 201,
+      name: '飞猪旅行-找10次抽奖券',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text="下滑寻找可获得更多「扭蛋券」"]',
+          ],
+          matches: [
+            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > [id="feeds-area"] > [id^="macy-container"] > View > @View[clickable=true] > [text="点我领奖励"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          anyMatches: [
+            '[desc="返回"] < [id$="h5_tf_nav_ly"]',
+            '[desc="返回"] < [id$="auiconView_backButton"] > [text=""]',
+          ],
+        },
+        {
+          key: 2,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionMaximum: 10,
+          matches: [
+            '[text="扭一扭兑现金"] >n @[id="feeds"] > [id="feeds-area"] > [id^="macy-container"]',
+          ],
+          excludeMatches: [
+            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > [id="feeds-area"] > [id^="macy-container"] > View > @View[clickable=true] > [text="点我领奖励"]',
+            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text="下滑寻找可获得更多「扭蛋券」"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 202,
+      name: '飞猪旅行-寻找10枚许愿星',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
+          ],
+          matches: [
+            '[id="wishingStar"] +n View > [id="feeds"] > [id^="macy-container"] > View > @View[clickable=true] > [id="feeds-reward-card"] > [text="点我领奖励"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          anyMatches: [
+            '[desc="返回"] < [id$="h5_tf_nav_ly"]',
+            '[desc="返回"] < [id$="auiconView_backButton"] > [text=""]',
+          ],
+        },
+        {
+          key: 2,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionMaximum: 10,
+          matches: [
+            '[id="wishingStar"] +n View > @[id="feeds"] > [id^="macy-container"]',
+          ],
+          excludeMatches: [
+            '[id="wishingStar"] +n View > [id="feeds"] > [id^="macy-container"] > View > @View[clickable=true] > [id="feeds-reward-card"] > [text="点我领奖励"]',
+            '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
+          ],
+        },
+      ],
+    },
     //功能应用类
     {
       key: 400,
       name: '更新提示-取消',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
