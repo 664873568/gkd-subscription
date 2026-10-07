@@ -636,7 +636,7 @@ export default defineGkdApp({
     },
     {
       key: 56,
-      name: '广告-×-手机充值-立即查看,
+      name: '广告-×-手机充值-立即查看',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
