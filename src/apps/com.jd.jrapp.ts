@@ -458,7 +458,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '开心收下',
+          name: '领',
           excludeMatches: [
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + * [text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"][index=1][childCount=0] +n @[text~="领奖|去完成"][clickable=true]',
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + * [getChild(0).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"][index=1][childCount=2] +n @[text~="领奖|去完成"][clickable=true]',
