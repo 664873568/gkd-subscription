@@ -329,9 +329,7 @@ export default defineGkdApp({
         },
         {
           key: 6,
-          matches: [
-            '@ImageView[clickable=true] - * [text="0s后可领取奖励"]',
-          ],
+          matches: ['@ImageView[clickable=true] - * [text="0s后可领取奖励"]'],
         },
       ],
     },
