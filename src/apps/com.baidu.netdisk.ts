@@ -1009,11 +1009,9 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,4],
+          preKeys: [2, 4],
           key: 3,
-          matches: [
-            'View > @View[clickable=true] > [text="lijichoujiang"]',
-          ],
+          matches: ['View > @View[clickable=true] > [text="lijichoujiang"]'],
         },
         {
           preKeys: [3],
