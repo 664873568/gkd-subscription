@@ -228,8 +228,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '[getChild(0).getChild(0).text="点击广告，即可获得奖励"] + * @[text="点击广告拿奖励"]',
-            '[getChild(0).getChild(0).getChild(0).text="点击广告，即可获得奖励"] + * @[text="点击广告拿奖励"]',
+            '[getChild(0).getChild(0).text~="点击广告.*，即可获得奖励"] + * @[text^="点击广告"]',
+            '[getChild(0).getChild(0).getChild(0).text~="点击广告.*，即可获得奖励"] + * @[text^="点击广告"]',
           ],
         },
         {
@@ -310,7 +310,7 @@ export default defineGkdApp({
         {
           key: 6,
           matches: [
-            'ImageView < @FrameLayout < FrameLayout < * + * [text="查看详情" || text^="扭动或点击"]',
+            'ImageView < FrameLayout < @FrameLayout[width=height] <n * [text="查看详情" || text^="扭动或点击" || text="立即打开"]',
           ],
         },
       ],
