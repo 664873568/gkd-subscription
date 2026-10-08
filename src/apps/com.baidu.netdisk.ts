@@ -715,6 +715,7 @@ export default defineGkdApp({
         },
         {
           key: 4,
+          actionDelay: 1000,
           matches: [
             'ImageView < @FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]',
           ],
