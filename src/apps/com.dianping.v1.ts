@@ -33,6 +33,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '三餐奖励',
+          action: 'clickCenter',
           matches: [
             '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
           ],
