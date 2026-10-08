@@ -22,7 +22,7 @@ export default defineGkdApp({
           matches: ['[id="ppage-index-index"] >n @[text="出发寻宝"]'],
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 1,
           matches: [
             '[id="ppage-index-index"] >n Image - [getChild(0).text="发现1个盲盒"] > @[text="立即打开"]',
@@ -46,7 +46,9 @@ export default defineGkdApp({
           matches: [
             '[id$="ic_back_btn"] < LinearLayout < @[id$="back_btn_container"][clickable=true]',
           ],
-          activityIds: ['com.alipay.android.living.activity.LivingDetailActivity'],
+          activityIds: [
+            'com.alipay.android.living.activity.LivingDetailActivity',
+          ],
         },
         {
           preKeys: [3],
@@ -284,7 +286,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           actionCd: 200,
           matches: [
@@ -320,7 +322,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="芝麻粒炼金"] >n [text="次日礼包"] + [getChild(2).text="明日可领取"] > @View[clickable=true] > TextView',
@@ -334,7 +336,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,5],
+          preKeys: [3, 5],
           key: 5,
           action: 'back',
           actionDelay: 5000,
@@ -701,7 +703,9 @@ export default defineGkdApp({
           matches: [
             '[id$="ic_back_btn"] < LinearLayout < @[id$="back_btn_container"][clickable=true]',
           ],
-          activityIds: ['com.alipay.android.living.activity.LivingDetailActivity'],
+          activityIds: [
+            'com.alipay.android.living.activity.LivingDetailActivity',
+          ],
         },
       ],
     },
@@ -1261,7 +1265,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           excludeMatches: [
             '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次抽奖券"]',
@@ -1324,7 +1328,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           excludeMatches: [
             '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次许愿星"]',
