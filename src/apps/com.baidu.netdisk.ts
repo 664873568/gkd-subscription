@@ -1053,7 +1053,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 2,
           name: '已完成去领奖',
           position: {
