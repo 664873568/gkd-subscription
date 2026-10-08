@@ -257,8 +257,9 @@ export default defineGkdApp({
           ],
           action: 'back',
           actionDelay: 5000,
-          matches: [
+          anyMatches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
+            'TextView - @TextView[clickable=true] < View < View < [id="app"] < WebView < b40 < [vid="webview"]', //对口令赢苹果18Pro
           ],
         },
         {
@@ -433,6 +434,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + * [text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"][index=1][childCount=0] +n @[text~="领奖|去完成"][clickable=true]',
             '[getChild(0).getChild(2).text="做任务 赚粮食"] + * [getChild(0).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"][index=1][childCount=2] +n @[text~="领奖|去完成"][clickable=true]',
+            '[id="J_ui-div"] > [id="app"] >n [text="恭喜获得阶段奖励"] +n @[text="领取并喂食"][clickable=true]',
           ],
           matches: [
             '[id="J_ui-div"] > [id="app"] >n View > @View[clickable=true] > [text="可领取"]',
@@ -1269,7 +1271,7 @@ export default defineGkdApp({
             '[getChild(1).text!~="打.*|.*体验.*|完成.*|去.*|通过.*"] > @[desc~="领奖|去完成"][clickable=true]',
           ],
           matches: [
-            '[getChild(0).getChild(0).getChild(1).text="打一笔白条≥10元"] + @View[clickable=true]',
+            '[getChild(2).text="明日0点领"] - View >n View + @View[clickable=true]',
           ],
         },
         {
