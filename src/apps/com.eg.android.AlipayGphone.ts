@@ -370,7 +370,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,2],
           key: 2,
           action: 'back',
           actionDelay: 5000,
@@ -428,9 +428,37 @@ export default defineGkdApp({
       ],
     },
     //26.07.14-26.12.31 支付宝·芝麻信用·京豆夺宝
-    //做任务领支金豆
     {
       key: 45,
+      name: '支金豆-签到领豆',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[getChild(0).getChild(0).id="J_tiny_canvas"] + View > @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.927',
+          },
+          matches: [
+            'View[clickable=true] > @View[clickable=true] >n [id^="_js_tiny_video_wrapper"] > [id^="_js_tiny_video_canvas"]',
+          ],
+        },
+      ],
+    },
+    //做任务领支金豆
+    {
+      key: 46,
       name: '支金豆-去抽签',
       forcedTime: 60000,
       matchRoot: true,
@@ -447,6 +475,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.927',
+          },
           matches: [
             'View[clickable=true] > @View[clickable=true] >n [id^="_js_tiny_video_wrapper"] > [id^="_js_tiny_video_canvas"]',
           ],
@@ -461,7 +493,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 46,
+      key: 47,
       name: '支金豆-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -472,17 +504,68 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="领取"][clickable=true]',
+            '[getChild(1).name$="TextView"] + View > View[clickable=true] > View > @[text="领取"][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
-            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="去完成"][clickable=true]',
+            '[getChild(1).name$="TextView"] + View > View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="去完成"][clickable=true]',
           ],
         },
         {
           key: 1,
           matches: [
-            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="领取"][clickable=true]',
+            '[getChild(1).name$="TextView"] + View > View[clickable=true] > View > @[text="领取"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 48,
+      name: '支金豆-去访问',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[getChild(1).name$="TextView"] + View > View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text~="去完成|领取"][clickable=true]',
+          ],
+          actionDelay: 2000,
+          matches: [
+            '[getChild(1).name$="TextView"] + View > View[clickable=true] > [text="从支付宝首页访问金豆"] +n View > @[text="去访问"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          position: {
+            left: 'width * 0.75',
+            top: 'height * 0.8',
+          },
+          matches: [
+            '[id="exchangeTab"] + @View > View > View + View',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[getChild(0).text="全部"] - RecyclerView > @[id$="usual_item_root"][clickable=true] > [text="金豆夺宝"]',
+          ],
+          activityIds: ['.AlipayLogin'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.927',
+          },
+          matches: [
+            'View[clickable=true] > @View[clickable=true] >n [id^="_js_tiny_video_wrapper"] > [id^="_js_tiny_video_canvas"]',
           ],
         },
       ],
