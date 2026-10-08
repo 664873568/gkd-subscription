@@ -66,7 +66,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
             '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
-            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] +n [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{1,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] +n [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
             '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
           ],
         },
@@ -1016,11 +1016,12 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '奖励已到账-×',
           excludeMatches: [
             'View < LinearLayout < @RelativeLayout[clickable=true] < FrameLayout <n LinearLayout + [text="  广告"]',
           ],
           matches: [
-            '@ImageView[clickable=true] - RelativeLayout > View', //奖励已到账
+            '@ImageView[clickable=true] - RelativeLayout - ImageView - FrameLayout - FrameLayout < RelativeLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
