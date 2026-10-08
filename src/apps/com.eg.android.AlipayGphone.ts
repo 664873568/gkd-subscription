@@ -370,7 +370,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           action: 'back',
           actionDelay: 5000,
@@ -545,9 +545,7 @@ export default defineGkdApp({
             left: 'width * 0.75',
             top: 'height * 0.8',
           },
-          matches: [
-            '[id="exchangeTab"] + @View > View > View + View',
-          ],
+          matches: ['[id="exchangeTab"] + @View > View > View + View'],
         },
         {
           preKeys: [1],
