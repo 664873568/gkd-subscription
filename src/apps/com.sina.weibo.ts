@@ -9,8 +9,6 @@ export default defineGkdApp({
       name: '连续签到',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -39,10 +37,9 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionMaximum: 3,
           actionCd: 2000,
           matches: [
-            '[text="浏览微博\\n完成任务"] <<n [vid="floating_window"] -2 * @[vid="view_recycler"]',
+            '[text="浏览微博\\n完成任务"] <n [vid="root_rl"] <  RelativeLayout < [vid="floating_window"] -n * @[vid="view_recycler"]',
           ],
           activityIds: ['.MainTabActivity'],
         },
@@ -53,7 +50,6 @@ export default defineGkdApp({
       name: 'YY-去微博赚红包',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'app',
       activityIds: ['.browser.WeiboBrowser'],
@@ -69,11 +65,10 @@ export default defineGkdApp({
       name: '星图金融-去微博签到领红包',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
+          excludeMatches: ['@[text="任务完成\\n返回YY"]'],
           actionDelay: 5000,
           matches: [
             '[vid="rlThemeTitleBar"] > @[vid="titleLeft"][clickable=true] + [text="用户任务中心"][vid="titleText"]',
