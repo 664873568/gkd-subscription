@@ -685,7 +685,9 @@ export default defineGkdApp({
         {
           key: 0,
           name: '奖励将于*秒后发放',
-          matches: ['[text~="放弃福利|我要更快拿奖"] <<n * [text^="奖励将于"]'],
+          matches: [
+            '@[text~="我要更快拿奖|放弃福利"] <<n * [text^="奖励将于"]',
+          ],
         },
         {
           key: 1,
@@ -696,38 +698,43 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          name: '点击广告，即可获得奖励',
+          excludeMatches: [
+            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖" || text="放弃福利"]',
+          ],
+          actionDelay: 1000,
           matches: [
-            '@[text~="点击广告拿奖励||立即秒杀"] <<n * [text="点击广告，即可获得奖励"]',
+            'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * <n * [text*="已完成浏览"]', //已完成浏览*秒，提前获得奖励
           ],
         },
         {
           key: 3,
+          name: '点击广告，即可获得奖励',
+          matches: [
+            '@[text~="点击广告拿奖励|立即秒杀"] <<n * [text="点击广告，即可获得奖励"]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            'ImageView < @FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]',
+          ],
+        },
+        {
+          key: 5,
           name: '打开/完成App，即可获得奖励',
           matches: [
             '[getChild(0).getChild(0).text^="打开App"] - * @[text*="第三方应用"][index=parent.childCount.minus(1)]',
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [5],
+          key: 6,
           matches: [
             '[id="forRemHack"] + [id="root"] >n @View[clickable=true] > [text~="安装应用|点击下载"]',
           ],
         },
         {
-          key: 5,
-          excludeMatches: [
-            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
-          ],
-          actionDelay: 1000,
-          anyMatches: [
-            'ImageView < @FrameLayout <<n * [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout <<n * [text*="已完成浏览"]', //已完成浏览15秒，提前获得奖励
-          ],
-        },
-        {
-          key: 6,
+          key: 7,
           matches: [
             'ImageView < @FrameLayout < * + * [text="查看详情" || text^="扭动或点击"]',
           ],
@@ -866,6 +873,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '领取',
           matches: [
             '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
           ],
@@ -873,8 +881,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          name: '恭喜获得-知道了-×',
           matches: [
-            '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
+            '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -1044,12 +1053,16 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0, 1,2],
           key: 2,
           name: '已完成去领奖',
+          position: {
+            left: 'width * 0.91',
+            top: 'height * 0.86',
+          },
           actionDelay: 30000,
           matches: [
-            '@TextView[clickable=true] - TextView - View < View - [id="game"] < [id="app"] < [text="游戏中心"] < WebView < [vid="content_webview"]',
+            '@[id="GameCanvas"] < [id="Cocos2dGameContainer"] < View < View < [id="game"] < [id="app"] < WebView < WebView < [vid="content_webview"]',
           ],
         },
       ],
@@ -1420,6 +1433,7 @@ export default defineGkdApp({
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="已选择 1 道题目"] +n @[desc="录入错题"][clickable=true]',
           ],
           activityIds: [
+            '.kmp.bridge.KmpSharedActivity',
             '.ui.localfile.selectfile.LocalImageSelectActivity',
             'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
           ],
