@@ -300,7 +300,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@ImageView[clickable=true] +n View[clickable=true] + [text="取消下载"]',
+            'ImageView[clickable=true] +n @View[clickable=true] + [text="取消下载"][clickable=true]',
           ],
         },
         {
