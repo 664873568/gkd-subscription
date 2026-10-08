@@ -986,11 +986,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
-            'View > TextView[clickable=true] +n @[text~="我知道了|开心收下"][clickable=true]',
-            '[getChild(0).getChild(0).text="任务中心"] +n TextView +8 @[text="领取"][clickable=true]',
-          ],
           actionDelay: 2000,
           matches: [
             '[id="task-list"] > View > [text="renwu"] +n View >n [getChild(1).text!~="购买SVIP年卡"] > @View[clickable=true] > [text$="quwancbg"]',
