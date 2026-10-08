@@ -380,7 +380,7 @@ export default defineGkdApp({
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main,
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
           ],
         },
       ],
