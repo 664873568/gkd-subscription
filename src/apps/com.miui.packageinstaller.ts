@@ -7,8 +7,8 @@ export default defineGkdApp({
     {
       key: 0,
       name: '频繁安装应用',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -16,13 +16,16 @@ export default defineGkdApp({
           matches: [
             '@[text="取消"][clickable=true] - [text="验证"] < [vid="buttonPanel"] - * [text$="频繁安装应用"][vid="title"]',
           ],
-          activityIds: ['null'],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
         },
       ],
     },
     {
       key: 1,
       name: '百度网盘-禁止安装',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -39,7 +42,28 @@ export default defineGkdApp({
     },
     {
       key: 2,
+      name: '飞猪旅行-禁止安装',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 10000,
+          matches: [
+            '@[text="禁止安装"][clickable=true] <n [vid="buttonPanel"] - * [text="飞猪旅行"][vid="app_title"]',
+          ],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 3,
       name: '喜马拉雅-安装应用',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
