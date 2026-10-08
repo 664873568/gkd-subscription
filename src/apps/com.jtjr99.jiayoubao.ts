@@ -106,7 +106,15 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [7],
           key: 8,
+          actionDelay: 2000,
+          matches: [
+            '[id="h5-product_mod"] > [id="index-container"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""],
+          ],
+        },
+        {
+          key: 9,
           actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="待领取"]',
@@ -126,8 +134,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="去完成"]',
-            '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text="待领取"]',
+            '[id="container"] > [getChild(0).text="每日任务"] +n [text^="评论3条"] + [text=" 赚3积分"] + [text~="去完成|待领取"]',
           ],
           actionDelay: 2000,
           matches: [
@@ -151,7 +158,15 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [2],
           key: 3,
+          actionDelay: 2000,
+          matches: [
+            '[id="h5-product_mod"] > [id="index-container"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""],
+          ],
+        },
+        {
+          key: 4,
           actionDelay: 2000,
           matches: [
             '[id="container"] > [getChild(0).text="每日任务"] +n [text^="点赞3条"] + [text=" 赚3积分"] + [text="待领取"]',
@@ -171,8 +186,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="container"] > [getChild(0).text="每日任务"] +n [text^="点赞3条"] + [text=" 赚3积分"] + [text="去完成"]',
-            '[id="container"] > [getChild(0).text="每日任务"] +n [text^="点赞3条"] + [text=" 赚3积分"] + [text="待领取"]',
+            '[id="container"] > [getChild(0).text="每日任务"] +n [text^="点赞3条"] + [text=" 赚3积分"] + [text~="去完成|待领取"]',
           ],
           actionDelay: 2000,
           matches: [
@@ -222,8 +236,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚3积分"] + [text="去完成"]',
-            '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚3积分"] + [text="待领取"]',
+            '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚3积分"] + [text~="去完成|待领取"]',
           ],
           actionDelay: 2000,
           matches: [
