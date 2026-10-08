@@ -383,8 +383,11 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 3],
           key: 2,
+          excludeMatches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
+          ],
           matches: [
             '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
           ],
@@ -417,6 +420,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
+          ],
           matches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
           ],
