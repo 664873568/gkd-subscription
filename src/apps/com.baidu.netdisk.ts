@@ -665,7 +665,7 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
+            'ImageView < FrameLayout < @FrameLayout[width=height] <n * [text="恭喜已经获得奖励！"]',
           ],
         },
       ],
@@ -699,11 +699,11 @@ export default defineGkdApp({
         {
           key: 2,
           excludeMatches: [
-            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖" || text="放弃福利"]',
+            'ImageView < FrameLayout[width=height] < FrameLayout < LinearLayout <n * <n * @[text="我要更快拿奖" || text="放弃福利"]',
           ],
           actionDelay: 1000,
           matches: [
-            'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * <n * [text*="已完成浏览"]', //已完成浏览*秒，提前获得奖励
+            'ImageView < @FrameLayout[width=height] < FrameLayout < LinearLayout <n * <n * [text*="已完成浏览"]', //已完成浏览*秒，提前获得奖励
           ],
         },
         {
@@ -717,7 +717,7 @@ export default defineGkdApp({
           key: 4,
           actionDelay: 1000,
           matches: [
-            'ImageView < @FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]',
+            'ImageView[index=parent.childCount.minus(1)] < @FrameLayout[width=height] <n * < * <n * [text="恭喜获得奖励"]',
           ],
         },
         {
@@ -737,7 +737,7 @@ export default defineGkdApp({
         {
           key: 7,
           matches: [
-            'ImageView < @FrameLayout < * + * [text="查看详情" || text^="扭动或点击"]',
+            'ImageView < @FrameLayout[width=height] < FrameLayout <n * [text="查看详情" || text="立即下载" || text^="扭动或点击"]',
           ],
         },
       ],
@@ -862,7 +862,7 @@ export default defineGkdApp({
     },
     //积分领好礼
     {
-      key: 207,
+      key: 202,
       name: '积分领好礼-领取',
       forcedTime: 60000,
       matchRoot: true,
@@ -892,7 +892,7 @@ export default defineGkdApp({
     //做任务赚积分
     //每日打卡领好礼
     {
-      key: 208,
+      key: 203,
       name: '每日打卡领好礼-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -912,7 +912,7 @@ export default defineGkdApp({
     },
     //成长值任务
     {
-      key: 209,
+      key: 204,
       name: '成长值任务-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -936,27 +936,27 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠
+            'View > View > @[text="renwudone"][clickable=true] + TextView + ImageButton', //领取奖励-去看看会员福利日-去看看开学季特惠
           ],
         },
         {
           preKeys: [0],
           key: 2,
           matches: [
-            'View > TextView +n [text="否"] + @[text="是"][clickable=true]', //每日答题
+            'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
           ],
         },
         {
           preKeys: [2, 4],
           key: 3,
           matches: [
-            'View > @TextView[clickable=true][clickable=true] +n [text~="我知道了|开心收下"]',
+            'View > @TextView[clickable=true] +n [text~="我知道了|开心收下"][clickable=true]',
           ],
         },
         {
           key: 4,
           excludeMatches: [
-            'View > @TextView[clickable=true][clickable=true] +n [text~="我知道了|开心收下"]',
+            'View > @TextView[clickable=true] +n [text~="我知道了|开心收下"][clickable=true]',
           ],
           actionDelay: 2000,
           matches: [
@@ -970,6 +970,61 @@ export default defineGkdApp({
           ],
           matches: [
             '[text~="领取[0-9]+天累计签到奖励"] + View > View > View > @[text="点击领取"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    //会员福利日
+    {
+      key: 205,
+      name: '会员福利日-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
+            'View > TextView[clickable=true] +n @[text~="我知道了|开心收下"][clickable=true]',
+            '[getChild(0).getChild(0).text="任务中心"] +n TextView +8 @[text="领取"][clickable=true]',
+          ],
+          actionDelay: 2000,
+          matches: [
+            '[id="task-list"] > View > [text="renwu"] +n View >n [getChild(1).text!~="购买SVIP年卡"] > @View[clickable=true] > [text$="quwancbg"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          anyMatches: [
+            '@View[clickable=true] > TextView + [text="已完成点击领奖"]',
+            '@View[clickable=true] > [getChild(0).text="task-close"] + ImageButton[text="done"][clickable=true]',
+          ],
+        },
+        {
+          key: 2,
+          excludeMatches: [
+            '[id="task-list"] > View > [text="renwu"] +n View >n [getChild(1).text!~="购买SVIP年卡"] > @View[clickable=true] > [text$="quwancbg"]',
+          ],
+          matches: [
+            '[id="task-list"] > View > [text="renwu"] + @View[clickable=true] > Image',
+          ],
+        },
+        {
+          preKeys: [2,4],
+          key: 3,
+          matches: [
+            'View > @View[clickable=true] > [text="lijichoujiang"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '@View[clickable=true] - View > ImageButton[clickable=true]',
           ],
         },
       ],
@@ -1496,6 +1551,36 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      scopeKeys: [220],
+      key: 229,
+      name: '最新AI功能-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.ocr.OCRTakePhotoActivity',
+        '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
+      ],
+      rules: [
+        {
+          preKeys: [0],
+          key: 1,
+          anyMatches: [
+            '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][clickable=true]',
+            '[vid="cl_ai_photo_studio_guide_root"] > @[vid="iv_close"][clickable=true] + [vid="cl_card"] > [text="去体验"][vid="btn_ok"]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"][clickable=true]',
+          ],
+        },
     //功能任务
     {
       key: 230,
