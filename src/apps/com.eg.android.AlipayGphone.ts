@@ -4,208 +4,6 @@ export default defineGkdApp({
   id: 'com.eg.android.AlipayGphone',
   name: '支付宝',
   groups: [
-    //芝麻粒
-    {
-      key: 0,
-      name: '芝麻粒-去完成',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[id="zhima-accumulation-daily-task"] > View > View > @View[clickable=true] > [text!~="去租赁下单"] + [text="+"] + [text~="[2-9][0-9]"] + [text="去完成"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          action: 'back',
-          actionDelay: 5000,
-          anyMatches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
-            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
-          ],
-        },
-        {
-          key: 3,
-          excludeMatches: [
-            '[id="zhima-accumulation-daily-task"] > View > View > @View[clickable=true] > [text!~="去租赁下单"] + [text="+"] + [text~="[2-9][0-9]"] + [text="去完成"]',
-          ],
-          matches: [
-            '[id="home-container"] > [text="芝麻粒玩法"] - * @[text="一键收取"][clickable=true]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 1,
-      name: '芝麻粒炼金-炼金',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          name: '恭喜获得-立即使用/去使用',
-          matches: [
-            '[text="芝麻粒炼金"] > [id="app"] + View > Dialog >n @Image[clickable=true]',
-          ],
-        },
-        {
-          preKeys: [0,1],
-          key: 1,
-          actionCd: 200,
-          matches: [
-            '[text="芝麻粒炼金"] > [id="app"] >n @View[clickable=true] > View + [text="每次消耗5粒"] + [text~="[1-9][0-9]*"]',
-          ],
-        },
-        {
-          key: 2,
-          excludeMatches: [
-            '[text="芝麻粒炼金"] >n [getChild(2).text="0"] - View > @View[clickable=true] > View > [text="10"] + [text="粒"]',
-          ],
-          matches: [
-            '[text="芝麻粒炼金"] > [id="app"] > View + @View[clickable=true] > View > [text="100"]',
-          ],
-        },
-      ],
-    },
-    {
-      scopeKeys: [1],
-      key: 2,
-      name: '芝麻粒炼金-次日礼包',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 2,
-          actionDelay: 2000,
-          matches: [
-            '[text="芝麻粒炼金"] >n [getChild(2).text="0"] - View > @View[clickable=true] > View > [text="10"] + [text="粒"]',
-          ],
-        },
-        {
-          preKeys: [0,1,2],
-          key: 3,
-          matches: [
-            '[text="芝麻粒炼金"] >n [text="次日礼包"] + [getChild(2).text="明日可领取"] > @View[clickable=true] > TextView',
-          ],
-        },
-        {
-          preKeys: [3],
-          key: 4,
-          matches: [
-            '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
-          ],
-        },
-        {
-          preKeys: [3,5],
-          key: 5,
-          action: 'back',
-          actionDelay: 5000,
-          anyMatches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
-            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 3,
-      name: '芝麻粒炼金-去完成',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="芝麻粒炼金"] >n [id="accumulateListContainer"] > @View[clickable=true] > [getChild(0).text!~="玩.*|去玩.*"] +n [text~="\\\\+[2-9][0-9]"] +n [text="去完成"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          action: 'back',
-          actionDelay: 5000,
-          anyMatches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
-            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
-          ],
-        },
-        {
-          key: 3,
-          excludeMatches: [
-            '[text="芝麻粒炼金"] >n [id="accumulateListContainer"] > @View[clickable=true] > [getChild(0).text!~="玩.*|去玩.*"] +n [text~="\\\\+[2-9][0-9]"] +n [text="去完成"]',
-          ],
-          matches: [
-            '[text="芝麻粒炼金"] >n @[text="一键收取"][clickable=true]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '芝麻粒-滑一滑*秒得奖励',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          swipeArg: {
-            start: {
-              x: 'screenWidth*0.5',
-              y: 'screenHeight*0.75',
-            },
-            end: {
-              x: 'screenWidth*0.5',
-              y: 'screenHeight*0.25',
-            },
-            duration: 1000,
-          },
-          actionCd: 3000,
-          actionMaximum: 6,
-          matches: [
-            '@[id="app"][clickable=true] <<n * + * [text~="滑一滑[0-9]+秒得奖励"]',
-          ],
-        },
-        {
-          key: 1,
-          excludeMatches: [
-            '@[id="app"][clickable=true] <<n * + * [text~="滑一滑[0-9]+秒得奖励"]',
-          ],
-          matches: ['@[desc="返回"][clickable=true] + * [text="先用后付购物"]'],
-        },
-      ],
-    },
     //23.07.01-25.06.30 蚂蚁投资者教育基地
     {
       key: 10,
@@ -260,7 +58,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 11,
       name: '蚂蚁投资者教育基地-完成答题得300奖学金-领取奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -297,7 +95,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 12,
       name: '蚂蚁投资者教育基地-浏览1篇投教精选内容',
       forcedTime: 60000,
       matchRoot: true,
@@ -387,7 +185,7 @@ export default defineGkdApp({
     },
     //25.06.10开始 菜鸟-每日现金任务
     {
-      key: 80,
+      key: 30,
       name: '菜鸟-每日现金任务',
       forcedTime: 60000,
       matchRoot: true,
@@ -424,9 +222,392 @@ export default defineGkdApp({
         },
       ],
     },
+    //26.04.16-26.12.31 芝麻粒
+    {
+      key: 40,
+      name: '芝麻粒-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="zhima-accumulation-daily-task"] > View > View > @View[clickable=true] > [text!~="去租赁下单"] + [text="+"] + [text~="[2-9][0-9]"] + [text="去完成"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          action: 'back',
+          actionDelay: 5000,
+          anyMatches: [
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
+          ],
+        },
+        {
+          key: 3,
+          excludeMatches: [
+            '[id="zhima-accumulation-daily-task"] > View > View > @View[clickable=true] > [text!~="去租赁下单"] + [text="+"] + [text~="[2-9][0-9]"] + [text="去完成"]',
+          ],
+          matches: [
+            '[id="home-container"] > [text="芝麻粒玩法"] - * @[text="一键收取"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    //26.09.30-26.10.31 芝麻粒
+    {
+      key: 41,
+      name: '芝麻粒炼金-炼金',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '恭喜获得-立即使用/去使用',
+          matches: [
+            '[text="芝麻粒炼金"] > [id="app"] + View > Dialog >n @Image[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 1,
+          actionCd: 200,
+          matches: [
+            '[text="芝麻粒炼金"] > [id="app"] >n @View[clickable=true] > View + [text="每次消耗5粒"] + [text~="[1-9][0-9]*"]',
+          ],
+        },
+        {
+          key: 2,
+          excludeMatches: [
+            '[text="芝麻粒炼金"] >n [getChild(2).text="0"] - View > @View[clickable=true] > View > [text="10"] + [text="粒"]',
+          ],
+          matches: [
+            '[text="芝麻粒炼金"] > [id="app"] > View + @View[clickable=true] > View > [text="100"]',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys: [41],
+      key: 42,
+      name: '芝麻粒炼金-次日礼包',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 2,
+          actionDelay: 2000,
+          matches: [
+            '[text="芝麻粒炼金"] >n [getChild(2).text="0"] - View > @View[clickable=true] > View > [text="10"] + [text="粒"]',
+          ],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 3,
+          matches: [
+            '[text="芝麻粒炼金"] >n [text="次日礼包"] + [getChild(2).text="明日可领取"] > @View[clickable=true] > TextView',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [3,5],
+          key: 5,
+          action: 'back',
+          actionDelay: 5000,
+          anyMatches: [
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 43,
+      name: '芝麻粒炼金-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="芝麻粒炼金"] >n [id="accumulateListContainer"] > @View[clickable=true] > [getChild(0).text!~="玩.*|去玩.*"] +n [text~="\\\\+[2-9][0-9]"] +n [text="去完成"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          action: 'back',
+          actionDelay: 5000,
+          anyMatches: [
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
+          ],
+        },
+        {
+          key: 3,
+          excludeMatches: [
+            '[text="芝麻粒炼金"] >n [id="accumulateListContainer"] > @View[clickable=true] > [getChild(0).text!~="玩.*|去玩.*"] +n [text~="\\\\+[2-9][0-9]"] +n [text="去完成"]',
+          ],
+          matches: [
+            '[text="芝麻粒炼金"] >n @[text="一键收取"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 44,
+      name: '芝麻粒-滑一滑*秒得奖励',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionCd: 3000,
+          actionMaximum: 6,
+          matches: [
+            '@[id="app"][clickable=true] <<n * + * [text~="滑一滑[0-9]+秒得奖励"]',
+          ],
+        },
+        {
+          key: 1,
+          excludeMatches: [
+            '@[id="app"][clickable=true] <<n * + * [text~="滑一滑[0-9]+秒得奖励"]',
+          ],
+          matches: ['@[desc="返回"][clickable=true] + * [text="先用后付购物"]'],
+        },
+      ],
+    },
+    //26.07.14-26.12.31 支付宝·芝麻信用·京豆夺宝
+    //做任务领支金豆
+    {
+      key: 45,
+      name: '支金豆-去抽签',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            'View[clickable=true] > [text="抽今日财运签"] +n View > @[text="去抽签"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'View[clickable=true] > @View[clickable=true] >n [id^="_js_tiny_video_wrapper"] > [id^="_js_tiny_video_canvas"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="营销活动"] + [getChild(0).text="去完成"] + @TextView[clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 46,
+      name: '支金豆-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="领取"][clickable=true]',
+          ],
+          actionDelay: 2000,
+          matches: [
+            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="领取"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    //26.06.01-27.06.30 好家缴费金
+    {
+      key: 50,
+      name: '好家缴费金-今日签到',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: ['@View[clickable=true] > [text="今日签到"]'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '好家缴费金-去完成-任务完成 返回领奖>',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          excludeMatches: ['@View[clickable=true] > [text="今日签到"]'],
+          matches: [
+            '[getChild(0).text^="逛一逛"] +2 [text="去完成"][clickable=true]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          matches: [
+            '[desc*="180020570000041693"] >n [text="悬浮球模版"] > [id="app"] > @TextView[clickable=true]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+          ],
+        },
+      ],
+    },
+    {
+      key: 52,
+      name: '好家缴费金-领奖励',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[getChild(0).text="完成1笔生活缴费"] +4 [text="领奖励"][clickable=true]',
+          ],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
+        },
+      ],
+    },
+    //26.06.01-26.09.30 充值缴费-享清凉一夏
+    {
+      key: 60,
+      name: '享清凉一夏-做任务 得抽奖机会',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: ['View > @[text="领任务"][clickable=true]'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: ['View > @[text="去完成"][clickable=true]'],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          matches: [
+            'FrameLayout > [desc*="180020570000015088"] >n [text="Smallfish App"] > @[id="app"][clickable=true] > TextView',
+          ],
+        },
+      ],
+    },
+    {
+      key: 61,
+      name: '享清凉一夏-立即抽奖',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: ['View > @[text~="领任务|去完成"][clickable=true]'],
+          matches: [
+            '[id="ant-render-id-CPT_6a3de4489f7f618191b3aaae"] > View > View > @View[clickable=true] > TextView',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[getChild(0).text="恭喜获得"] + @[text="关闭"][clickable=true]',
+          ],
+        },
+      ],
+    },
     //冲鸭攒话费
     {
-      key: 30,
+      key: 90,
       name: '冲鸭攒话费-签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -472,7 +653,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 91,
       name: '冲鸭攒话费-任务-点外卖领红包',
       forcedTime: 60000,
       matchRoot: true,
@@ -525,7 +706,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
+      key: 92,
       name: '冲鸭攒话费-任务-查看3个商品领奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -579,7 +760,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 33,
+      key: 93,
       name: '冲鸭攒话费-任务-去借呗领*话费红包',
       forcedTime: 60000,
       matchRoot: true,
@@ -606,7 +787,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 34,
+      key: 94,
       name: '冲鸭攒话费-任务',
       forcedTime: 60000,
       matchRoot: true,
@@ -647,7 +828,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 35,
+      key: 95,
       name: '冲鸭攒话费-逛精选好物得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -670,7 +851,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 36,
+      key: 96,
       name: '冲鸭攒话费-逛*领150元话费',
       forcedTime: 60000,
       matchRoot: true,
@@ -701,7 +882,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 37,
+      key: 97,
       name: '冲鸭攒话费-逛5秒淘宝人生领奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -726,7 +907,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
+      key: 98,
       name: '冲鸭攒话费-任务-换一换',
       forcedTime: 60000,
       matchRoot: true,
@@ -769,7 +950,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 39,
+      key: 99,
       name: '冲鸭攒话费-任务-玩游戏赚现金',
       forcedTime: 60000,
       matchRoot: true,
@@ -803,7 +984,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 40,
+      key: 990,
       name: '冲鸭攒话费-任务-逛5秒快递包裹游历',
       forcedTime: 60000,
       matchRoot: true,
@@ -844,7 +1025,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 991,
       name: '冲鸭攒话费-任务-逛闲鱼赚支付红包',
       forcedTime: 60000,
       matchRoot: true,
@@ -888,185 +1069,6 @@ export default defineGkdApp({
           action: 'back',
           matches: [
             '[id="__react-content"] > [id="page-activity"] >n [id="lotteryComp"]',
-          ],
-        },
-      ],
-    },
-    //26.06.01-27.06.30 好家缴费金
-    {
-      key: 60,
-      name: '好家缴费金-今日签到',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@View[clickable=true] > [text="今日签到"]'],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 61,
-      name: '好家缴费金-去完成-任务完成 返回领奖>',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          excludeMatches: ['@View[clickable=true] > [text="今日签到"]'],
-          matches: [
-            '[getChild(0).text^="逛一逛"] +2 [text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'clickCenter',
-          matches: [
-            '[desc*="180020570000041693"] >n [text="悬浮球模版"] > [id="app"] > @TextView[clickable=true]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
-          ],
-        },
-      ],
-    },
-    {
-      key: 62,
-      name: '好家缴费金-领奖励',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[getChild(0).text="完成1笔生活缴费"] +4 [text="领奖励"][clickable=true]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
-        },
-      ],
-    },
-    //26.06.01-26.09.30 充值缴费-享清凉一夏
-    {
-      key: 70,
-      name: '享清凉一夏-做任务 得抽奖机会',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: ['View > @[text="领任务"][clickable=true]'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: ['View > @[text="去完成"][clickable=true]'],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            'FrameLayout > [desc*="180020570000015088"] >n [text="Smallfish App"] > @[id="app"][clickable=true] > TextView',
-          ],
-        },
-      ],
-    },
-    {
-      key: 71,
-      name: '享清凉一夏-立即抽奖',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          excludeMatches: ['View > @[text~="领任务|去完成"][clickable=true]'],
-          matches: [
-            '[id="ant-render-id-CPT_6a3de4489f7f618191b3aaae"] > View > View > @View[clickable=true] > TextView',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[getChild(0).text="恭喜获得"] + @[text="关闭"][clickable=true]',
-          ],
-        },
-      ],
-    },
-    //京豆夺宝做任务领支金豆
-    {
-      key: 80,
-      name: '支金豆-去抽签',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            'View[clickable=true] > [text="抽今日财运签"] +n View > @[text="去抽签"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            'View[clickable=true] > @View[clickable=true] >n [id^="_js_tiny_video_wrapper"] > [id^="_js_tiny_video_canvas"]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '[text="营销活动"] + [getChild(0).text="去完成"] + @TextView[clickable=true]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 81,
-      name: '支金豆-去完成',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="领取"][clickable=true]',
-          ],
-          actionDelay: 2000,
-          matches: [
-            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="去完成"][clickable=true]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            'View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text="领取"][clickable=true]',
           ],
         },
       ],
