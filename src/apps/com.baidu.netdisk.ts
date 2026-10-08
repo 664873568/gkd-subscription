@@ -1576,6 +1576,8 @@ export default defineGkdApp({
             '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"][clickable=true]',
           ],
         },
+      ],
+    },
     //功能任务
     {
       key: 230,
