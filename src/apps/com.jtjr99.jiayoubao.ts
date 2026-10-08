@@ -110,7 +110,7 @@ export default defineGkdApp({
           key: 8,
           actionDelay: 2000,
           matches: [
-            '[id="h5-product_mod"] > [id="index-container"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""],
+            '[id="h5-product_mod"] > [id="index-container"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""]',
           ],
         },
         {
@@ -162,7 +162,7 @@ export default defineGkdApp({
           key: 3,
           actionDelay: 2000,
           matches: [
-            '[id="h5-product_mod"] > [id="index-container"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""],
+            '[id="h5-product_mod"] > [id="index-container"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""]',
           ],
         },
         {
