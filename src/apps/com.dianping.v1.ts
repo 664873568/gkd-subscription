@@ -86,12 +86,12 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
+            'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text="立即领"]',
           ],
           action: 'clickCenter',
           actionDelay: 2000,
           matches: [
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="去完成"]',
+            'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text="去完成"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
@@ -113,17 +113,17 @@ export default defineGkdApp({
           key: 2,
           action: 'clickCenter',
           matches: [
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text="立即领"]',
+            'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text="立即领"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
         {
           key: 3,
           excludeMatches: [
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
+            'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
           ],
           matches: [
-            '@ImageView[clickable=true] + FrameLayout >n ViewGroup >n FrameLayout[clickable=true] > TextView',
+            '@ImageView[clickable=true] <n FrameLayout <n FrameLayout < FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
