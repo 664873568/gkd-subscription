@@ -116,7 +116,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@ImageView - ImageView < ViewGroup - ScrollView'],
+          matches: [
+            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView',
+          ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
           ],
@@ -140,7 +142,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            'FrameLayout + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup[index=0] > ImageView',
+            'FrameLayout[height=0] + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView[width=height]',
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
@@ -221,14 +223,14 @@ export default defineGkdApp({
           key: 0,
           action: 'back',
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout', //逛商城福利
+            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout', //逛商城福利
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
         {
           key: 1,
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="关闭"][clickable=true]', //浏览行情信息
+            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="关闭"][width=height][clickable=true]', //浏览行情信息
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
@@ -237,28 +239,13 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
+            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][width=height][clickable=true]', //浏览投资日历
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
+          preKeys: [0, 1, 2],
           key: 3,
-          matches: [
-            '@[desc="关闭"][clickable=true] + [text="先加入自选,行情来了不错过"]',
-          ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
-        },
-        {
-          preKeys: [2, 3],
-          key: 4,
-          matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][clickable=true]', //浏览投资日历
-          ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
-        },
-        {
-          preKeys: [0, 1, 2, 4],
-          key: 5,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
@@ -1106,12 +1093,13 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          name: '恭喜获得任务奖励-开心收下-×',
           position: {
             left: 'width*0.5',
-            top: 'height*1.14',
+            top: 'height*0.825',
           },
           matches: [
-            'FrameLayout > ViewGroup > ViewGroup > @ViewGroup > ViewGroup + ScrollView + ViewGroup', //恭喜获得任务奖励-开心收下-×
+            'FrameLayout > ViewGroup > ViewGroup > @ViewGroup > ViewGroup[width=height] + ScrollView + ViewGroup',
           ],
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
