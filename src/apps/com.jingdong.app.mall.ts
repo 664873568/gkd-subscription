@@ -319,8 +319,8 @@ export default defineGkdApp({
       activityIds: [
         '.WebActivity',
         '.MainFrameActivity',
-        'com.jd.lib.ttt.page.TTTMultiPageActivity',
         '.personel.FloatViewActivity',
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
         'com.jd.lib.productdetail.ProductDetailActivity',
       ],
@@ -370,12 +370,23 @@ export default defineGkdApp({
             '@[desc="返回"][clickable=true] +n RelativeLayout > [text="京东健康" || text="签到领现金" || text="看视频赚现金"]',
           ],
           matches: [
-            '@[text="" || desc="返回"][clickable=true] <<n * WebView < c40',
+            '@[text="" || desc="返回" || text="返回按钮"][clickable=true] <<n * WebView < c40',
           ],
         },
         {
           preKeys: [0, 5],
           key: 5,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
+          action: 'back',
+          matches: [
+            '@RelativeLayout[clickable=true] - ViewGroup < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0, 6],
+          key: 6,
           action: 'back',
           actionDelay: 6000,
           matches: [
@@ -384,8 +395,8 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.Discovery.view.DiscoveryActivity'],
         },
         {
-          preKeys: [0, 6],
-          key: 6,
+          preKeys: [0,7],
+          key: 7,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
           ],
@@ -393,18 +404,6 @@ export default defineGkdApp({
           actionDelay: 11000,
           matches: [
             '@View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 7,
-          excludeMatches: [
-            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
-          ],
-          action: 'back',
-          actionDelay: 6000,
-          matches: [
-            'ViewGroup > LinearLayout > @TextView[text=""][clickable=true] + ImageView',
           ],
         },
         {
@@ -418,10 +417,24 @@ export default defineGkdApp({
         },
         {
           key: 9,
+          actionDelay: 6000,
+          matches: [
+            '[text="back"] < @View[clickable=true] < View < [id="app"] < [id="J_ui-div"] +n * [text="此功能需访问京东金融APP"]',
+          ],
+        },
+        {
+          key: 10,
           action: 'back',
           actionDelay: 6000,
           matches: [
             '[text="京东健康APP下载"] >n @[text="back"][clickable=true] + [text="健康好礼限时领"]',
+          ],
+        },
+        {
+          key: 11,
+          actionDelay: 6000,
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text="JoyAI"]',
           ],
         },
       ],
@@ -467,6 +480,7 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
+        '.WebActivity',
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
         'com.jd.lib.jshop.jshop.JshopMainShopActivity',
@@ -500,7 +514,6 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 6000,
           matches: ['@[desc="返回"][clickable=true] +n [desc="Top Logo"]'],
-          activityIds: ['.WebActivity'],
         },
         {
           preKeys: [0, 3],
@@ -526,23 +539,32 @@ export default defineGkdApp({
           matches: [
             'Image[text="back"] < @View[clickable=true] <<n WebView < c40',
           ],
-          activityIds: ['.WebActivity'],
         },
         {
           key: 5,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
           action: 'back',
           matches: [
-            '@RelativeLayout[clickable=true] - ViewGroup < FrameLayout',
+            '@RelativeLayout[clickable=true] - ViewGroup < [id="android:id/content"]',
           ],
         },
         {
           key: 6,
+          actionDelay: 6000,
+          matches: [
+            '[text="back"] < @View[clickable=true] < View < [id="app"] < [id="J_ui-div"] +n * [text="此功能需访问京东金融APP"]',
+          ],
+        },
+        {
+          key: 7,
           matches: [
             '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
           ],
         },
         {
-          key: 7,
+          key: 8,
           matches: [
             '[text="开心收下"] +n @View[clickable=true] > View > Image[text="02760900900ad74e.png!q50"]',
           ],
@@ -665,22 +687,28 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
           key: 2,
+          matches: [
+            '[id="dark-moon-feeds-container"] + View > TextView + View > @[text="跳过"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0, 1,2, 3],
+          key: 3,
           matches: [
             '[text="预约商品"] - [text~="[0-2]/3"] < View < View < View - [id="dark-moon-feeds-container"] >n TextView +n View > TextView + @TextView[clickable=true]',
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
+          preKeys: [3],
+          key: 4,
           matches: [
             '[text="返回领奖"] - [text="已完成"] < View < @View[clickable=true] < View - [id="dark-moon-feeds-container"]',
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [4],
+          key: 5,
           matches: [
             '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
           ],
@@ -789,12 +817,30 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          matches: [
+            '@[id="cardViewIcon"] > [text="幸运奖励"] + [getChild(0).text="待领"] + [text="点击领取"]',
+          ],
+        },
+        {
+          preKeys: [2,3],
+          key: 4,
+          name: '恭喜您获得-开心收下',
+          matches: [
+            '[id="signView_main_portal"] - * [getChild(2).text="秒后自动关闭"] +n @TextView[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [2,3],
+          key: 5,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.67',
           },
           matches: [
             '[text="京东秒杀"] >n @[id="J_babelOpt"] + [id="chunk2"] + [id="chunk10"]',
+          ],
+          excludeMatches: [
+            '[id="signView_main_portal"] - * [getChild(2).text="秒后自动关闭"] +n @TextView[clickable=true]',
           ],
         },
       ],
@@ -888,6 +934,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 2],
           key: 2,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
           action: 'clickCenter',
           matches: [
             '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
@@ -1036,12 +1085,23 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [1, 2],
           key: 2,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
+          action: 'back',
           actionDelay: 6000,
-          anyMatches: [
-            'RelativeLayout > @ImageView[desc="返回"][clickable=true]',
-            'ViewGroup > LinearLayout > @TextView[text=""][clickable=true] + ImageView',
+          actionCd: 100,
+          matches: [
+            '@[text="" || desc="返回" || text="返回按钮"][clickable=true] <<n * WebView < c40',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 3,
+          actionDelay: 6000,
+          matches: [
             'WebView >n [id="J_babelOptPage"] >n @TextView[clickable=true] + View + TextView',
           ],
         },
@@ -1053,7 +1113,102 @@ export default defineGkdApp({
           ],
         },
       ],
+    },,
+    //京东笔笔返
+    //https://ipay.jd.com/pages/bbf/index
+    {
+      key: 210,
+      name: '笔笔返-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.WebActivity',
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+        'com.jd.lib.productdetail.ProductDetailActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[id="bbf-page"] >n [getChild(1).text~="现金0.0[0-9]元"] + View > @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: [
+            '@[getChild(0).text="返回领奖"][clickable=true] - * [text="readMissionDown"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|京东验证"]',
+          ],
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 3,
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|京东验证"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
+          ],
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]',
+          ],
+        },
+        {
+          key: 4,
+          excludeMatches: [
+            '[id="bbf-page"] >n [getChild(1).text~="现金0.0[0-9]元"] + View > @[text="去完成"][clickable=true]',
+          ],
+          actionDelay: 2000,
+          matches: [
+            '[id="bbf-page"] >n @[id^="bubble-ci-"][clickable=true] > View > [text="余额"]',
+          ],
+        },
+        {
+          key: 5,
+          excludeMatches: [
+            '[id="bbf-page"] >n [getChild(1).text~="现金0.0[0-9]元"] + View > @[text="去完成"][clickable=true]',
+            '[id="bbf-page"] >n @[id^="bubble-ci-"][clickable=true] > View > [text="余额"]',
+          ],
+          actionDelay: 5000,
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] < [vid="top_nav_bar"] < [vid="rl_top_nav_bar"] <n [vid="ll_top_nav_bar"] <n [vid="web_show_root"] >n b40 > [text="京东笔笔返"]',
+          ],
+        },
+      ],
     },
+    {
+      key: 211,
+      name: '笔笔返-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'Dialog > [getChild(0).text="今日限时福利"] + @Button[text=""][clickable=true]',
+          ],
+          activityIds: ['.WebActivity'],
+        },
+      ],
+    }
     //功能应用类
     {
       key: 400,
