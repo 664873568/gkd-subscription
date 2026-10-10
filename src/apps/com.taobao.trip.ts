@@ -255,7 +255,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@ImageView[clickable=true] + ImageView + [text="点击或滑动查看奖励"]', //立即领取
+            '@ImageView[width=height][clickable=true] <n * [text~="反馈|立即查看|点击或滑动查看奖励"]',
           ],
         },
         {
@@ -264,17 +264,6 @@ export default defineGkdApp({
           actionDelay: 15000,
           matches: [
             'TextView - @View[clickable=true] <n RelativeLayout < LinearLayout < RelativeLayout < [id="android:id/content"]',
-          ],
-        },
-        {
-          key: 2,
-          anyMatches: [
-            '@ImageView[clickable=true] - [text="反馈"] +n View[clickable=true]', //去看看//精选推荐
-            '@ImageView[clickable=true] - [text="反馈"] -n * View[clickable=true]', //去看看
-            '@ImageView[clickable=true] - [text="反馈"] -n * [text="摇动手机 了解更多"]', //去看看
-            '@ImageView[clickable=true] - * [text="反馈"] +n * > View[clickable=true]', //去看看
-            '@ImageView[clickable=true] - * [text="反馈"] <n * +n  View[clickable=true]', //去看看
-            '@ImageView[clickable=true] - * [text="反馈"] <n * + * [text="摇动手机  了解更多"]', //去看看
           ],
         },
       ],
