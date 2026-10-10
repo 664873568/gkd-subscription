@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '请用指纹解锁',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -29,6 +30,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '请用密码或指纹解锁',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -47,6 +49,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '使用密码验证',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -63,6 +66,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '请用指纹解锁-用于打开浏览器',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -81,6 +85,7 @@ export default defineGkdApp({
     {
       key: 4,
       name: '请用指纹解锁-用于打开小米云服务',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -98,6 +103,7 @@ export default defineGkdApp({
     {
       key: 5,
       name: '请用指纹解锁-用于打开快应用服务框架',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -125,6 +131,7 @@ export default defineGkdApp({
     {
       key: 6,
       name: '请用指纹解锁-用于打开微信',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -153,6 +160,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '启动应用-拒绝null',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -170,6 +178,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '启动应用-拒绝',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -193,6 +202,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '启动应用-拒绝-微信',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -213,6 +223,7 @@ export default defineGkdApp({
     {
       key: 13,
       name: '启动应用-拒绝-京东/金融',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -233,6 +244,7 @@ export default defineGkdApp({
     {
       key: 14,
       name: '启动应用-本次允许-京东金融',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -253,6 +265,7 @@ export default defineGkdApp({
     {
       key: 15,
       name: '启动应用-拒绝-抖音',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -273,6 +286,7 @@ export default defineGkdApp({
     {
       key: 16,
       name: '启动应用-拒绝-支付宝',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -293,6 +307,7 @@ export default defineGkdApp({
     {
       key: 17,
       name: '启动应用-拒绝-中国移动',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       resetMatch: 'activity',
@@ -311,6 +326,7 @@ export default defineGkdApp({
     {
       key: 18,
       name: '启动应用-拒绝-一刻相册',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       resetMatch: 'activity',
@@ -330,6 +346,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '获取已安装的应用信息-拒绝',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
@@ -346,6 +363,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '存储空间严重不足-取消',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
