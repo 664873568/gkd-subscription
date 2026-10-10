@@ -69,16 +69,27 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
           matches: [
-            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"] +n * > Image',
+            '[getChild(1).getChild(0).text="立即使用"] + @ImageButton[clickable=true]',
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0,1],
           key: 2,
-          action: 'back',
-          actionDelay: 2000,
+          matches: [
+            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@ImageButton[clickable=true] - * [text="去抽奖"]',
+          ],
+        },
+        {
+          preKeys: [2,3],
+          key: 4,
           matches: [
             '@ImageButton[clickable=true] < View < View < View + [id="mainViewWrapper"] >n [text~="再赚[0-9]+积分"]',
           ],
@@ -162,47 +173,6 @@ export default defineGkdApp({
             '[getChild(1).text="视频号" || getChild(2).text="视频号"] + * [getChild(1).text="100金币"] + @ImageButton[clickable=true]',
           ],
         },
-        {
-          preKeys: [1, 4],
-          key: 2,
-          matches: [
-            '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
-          ],
-        },
-        {
-          preKeys: [2, 5],
-          key: 3,
-          matches: [
-            '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
-          ],
-        },
-        {
-          preKeys: [3],
-          key: 4,
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [4],
-          key: 5,
-          actionDelay: 6000,
-          anyMatches: [
-            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
-            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',
-          ],
-        },
-        {
-          preKeys: [3],
-          key: 6,
-          excludeMatches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
-          ],
-        },
       ],
     },
     {
@@ -224,44 +194,10 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 3],
+          preKeys: [0],
           key: 1,
           matches: [
-            '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
-          ],
-        },
-        {
-          preKeys: [1, 4],
-          key: 2,
-          matches: [
-            '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
-          ],
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [3],
-          key: 4,
-          actionDelay: 6000,
-          anyMatches: [
-            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
-            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',
-          ],
-        },
-        {
-          preKeys: [2],
-          key: 5,
-          excludeMatches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
+            '[vid="h5_base_layout"] >n [getChild(0).name$="TextView"] + View > @View[clickable=true] > [text="立即领取"]',
           ],
         },
       ],
@@ -306,48 +242,7 @@ export default defineGkdApp({
             duration: 200,
           },
           matches: [
-            '[id="app"] > [id="wrapper"] > @View + View > View > ImageButton[clickable=true] + ImageButton',
-          ],
-        },
-        {
-          preKeys: [1, 2, 5],
-          key: 3,
-          matches: [
-            '[text="恭喜获得"] + [getChild(1).text="金币"] + View > @View[clickable=true] > [text="立即领取"]',
-          ],
-        },
-        {
-          preKeys: [3, 6],
-          key: 4,
-          matches: [
-            '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
-          ],
-        },
-        {
-          preKeys: [4],
-          key: 5,
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [5],
-          key: 6,
-          actionDelay: 6000,
-          anyMatches: [
-            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
-            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',
-          ],
-        },
-        {
-          preKeys: [4],
-          key: 7,
-          excludeMatches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
+            '[vid="h5_base_layout"] >n View > View > @ImageButton[width<height][clickable=true] + ImageButton',
           ],
         },
       ],
@@ -372,7 +267,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 3],
+          preKeys: [0],
           key: 1,
           actionDelay: 6000,
           anyMatches: [
@@ -382,90 +277,62 @@ export default defineGkdApp({
             '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',
           ],
         },
+      ],
+    },
+    {
+      key: 15,
+      name: '立即领取-领金币-去完成',
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.suning.webview.H5SystemBaseActivity',
+        '.launcher.LauncherActivity',
+      ],
+      rules: [
         {
-          key: 2,
+          key: 0,
+          matches: [
+            '[vid="h5_base_layout"] >n [getChild(0).name$="TextView"] + View > @View[clickable=true] > [text="立即领取"]',
+          ],
+        },
+        {
+          key: 1,
           excludeMatches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
             '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
           ],
+          actionDelay: 2000,
           matches: [
-            '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
+            '[vid="h5_base_layout"] >n View > View > @ImageButton[width<height][clickable=true] + ImageButton',
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
+          preKeys: [1],
+          key: 2,
           matches: [
             '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 3,
+          excludeMatches: [
+            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
+          ],
+          matches: [
+            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
           ],
         },
         {
           preKeys: [2],
           key: 4,
-          excludeMatches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 15,
-      name: '财顾-领金币',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
-          ],
-          matches: [
-            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true] + ImageButton',
-          ],
-          activityIds: ['.launcher.LauncherActivity'],
-        },
-        {
-          preKeys: [0, 3],
-          key: 1,
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-          activityIds: ['.launcher.LauncherActivity'],
-        },
-        {
-          preKeys: [1, 4],
-          key: 2,
           actionDelay: 6000,
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
             '[text~="猜涨跌|星灿会员|财富|基金"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',
           ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          matches: [
-            '[vid="h5_base_layout"] >n View > View > @ImageButton[clickable=true] + ImageButton',
-          ],
-          activityIds: ['.launcher.LauncherActivity'],
-        },
-        {
-          preKeys: [3],
-          key: 4,
-          excludeMatches: [
-            '[getChild(1).text="我的金币"] + View > View > View + @[text="去完成"][clickable=true]',
-          ],
-          matches: [
-            '[getChild(1).text="我的金币"] + View > View > @View[clickable=true] > [text~="查看我的金币|去领取"]',
-          ],
-          activityIds: ['.launcher.LauncherActivity'],
         },
       ],
     },
