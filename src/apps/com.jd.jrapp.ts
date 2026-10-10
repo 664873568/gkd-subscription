@@ -2409,6 +2409,25 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 211,
+      name: '笔笔返-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bm.common.web.ui.WebActivity',
+        '.bm.common.container.ui.BaseContainerActivity',
+      ],
+      rules: [
+        {
+          matches: [
+            'Dialog > [getChild(0).text="今日限时福利"] + @Button[text=""][clickable=true]',
+          ],
+        },
+      ],
+    },
     //功能应用类
     {
       key: 400,
