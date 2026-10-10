@@ -2108,7 +2108,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [0],
-          key: 1,
+          key: 2,
           name: '摘到金叶子-×',
           matches: [
             '[text="京9黄金节"] >n [text="换一换"] +n @TextView[clickable=true]',
