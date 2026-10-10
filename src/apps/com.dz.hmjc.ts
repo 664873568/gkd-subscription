@@ -64,7 +64,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text^="跳过"][vid="mh_skip_view"]'],
+          anyMatches: [
+            '@[text^="跳过"][vid="mh_skip_view"]',
+            '@FrameLayout > View + [text="跳过"]',
+          ],
           activityIds: [
             'com.dz.business.main.ui.MainActivity',
             'com.dz.business.splash.ui.HotSplashActivity',
