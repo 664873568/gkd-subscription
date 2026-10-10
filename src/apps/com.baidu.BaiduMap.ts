@@ -802,9 +802,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '[vid="ms_process_bar"] <n * <n * [id="app-tips"]',
-          ],
+          matches: ['[vid="ms_process_bar"] <n * <n * [id="app-tips"]'],
         },
         {
           key: 1,
@@ -814,7 +812,10 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: ['[vid="ms_process_bar"]','[text="恭喜已获得奖励"][id="app-tips"]'],
+          excludeMatches: [
+            '[vid="ms_process_bar"]',
+            '[text="恭喜已获得奖励"][id="app-tips"]',
+          ],
           matches: [
             '[vid="ms_reward_close_button"] < @[vid="ms_reward_close_button_parent"][clickable=true]',
           ],
