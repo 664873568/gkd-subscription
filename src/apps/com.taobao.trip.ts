@@ -686,7 +686,7 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            'ImageView < @FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
+            'ImageView[width=height] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
           ],
         },
       ],
@@ -749,8 +749,9 @@ export default defineGkdApp({
         {
           key: 2,
           anyMatches: [
-            'ImageView < FrameLayout < @FrameLayout < LinearLayout <n * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
-            'ImageView < FrameLayout < @FrameLayout - [text="恭喜获得奖励"] < LinearLayout < * -n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="恭喜获得奖励"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="查看详情"],
           ],
         },
       ],
@@ -776,7 +777,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@ImageView < FrameLayout - FrameLayout - FrameLayout > [text="恭喜获得奖励"]',
+            'ImageView[width=height] < @FrameLayout <n * [text="恭喜获得奖励"]',
           ],
         },
       ],
