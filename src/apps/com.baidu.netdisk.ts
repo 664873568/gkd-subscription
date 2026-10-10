@@ -1158,9 +1158,9 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
-          ],
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -1212,7 +1212,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [220,500],
+      scopeKeys: [220, 500],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       forcedTime: 60000,
@@ -1221,7 +1221,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          preKeys: [0,500],
+          preKeys: [0, 500],
           key: 1,
           action: 'clickCenter',
           matches: [
