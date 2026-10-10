@@ -1208,7 +1208,7 @@ export default defineGkdApp({
           activityIds: ['.WebActivity'],
         },
       ],
-    }
+    },
     //功能应用类
     {
       key: 400,
