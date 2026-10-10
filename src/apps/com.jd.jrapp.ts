@@ -47,7 +47,7 @@ export default defineGkdApp({
     //通用
     {
       key: 10,
-      name: '通用-返回-Button',
+      name: '通用-返回上级页面',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -64,7 +64,7 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '通用-返回-Button',
+      name: '通用-返回-商品详情|正在跳转...',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -73,7 +73,7 @@ export default defineGkdApp({
         {
           actionDelay: 5000,
           matches: [
-            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="正在跳转..." || text="商品详情"]',
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="商品详情" || text="正在跳转..."]',
           ],
           activityIds: ['.bm.common.web.ui.WebActivity'],
         },
@@ -81,7 +81,7 @@ export default defineGkdApp({
     },
     {
       key: 12,
-      name: '通用-返回-登录JoyAI并对话|去JoyAI APP且当日对话',
+      name: '通用-返回-JoyAI',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -98,7 +98,7 @@ export default defineGkdApp({
     },
     {
       key: 13,
-      name: '通用-返回-0.01元得包邮好物',
+      name: '通用-返回-限时福利',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
