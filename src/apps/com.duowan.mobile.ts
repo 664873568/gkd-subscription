@@ -208,7 +208,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@ImageView < FrameLayout + FrameLayout >n ImageView + * > [text*="微信"][index=parent.childCount.minus(1)]',
+            '@ImageView[width=height] < FrameLayout <<n * [text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -243,9 +243,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 1000,
           anyMatches: [
-            'ImageView < @FrameLayout <n * < * - * [text="恭喜获得奖励"]',
-            'ImageView < @FrameLayout - FrameLayout[getChild(0).name$="ImageView"] - FrameLayout > [text="恭喜获得奖励"]',
+            'ImageView[width=height] < @FrameLayout <<n * [text="恭喜获得奖励"]',
           ],
         },
       ],
@@ -277,17 +277,17 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
+            'ImageView[width=height] < FrameLayout < FrameLayout <<n * @[text="我要更快拿奖"]',
           ],
         },
         {
           key: 3,
           excludeMatches: [
-            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
-            'ImageView < @FrameLayout < FrameLayout + * [text="点击"] + [text="下载或打开第三方应用"]',
+            'ImageView[width=height] < FrameLayout < FrameLayout <<n * @[text="我要更快拿奖"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout + * [text="点击"] + [text="下载或打开第三方应用"]',
           ],
           anyMatches: [
-            'ImageView < @FrameLayout < FrameLayout < LinearLayout <n * -n * [text="点击下载或打开第三方应用"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout <<n * [text="点击下载或打开第三方应用"]',
           ],
         },
         {
@@ -300,17 +300,18 @@ export default defineGkdApp({
         {
           key: 5,
           excludeMatches: [
-            'ImageView < FrameLayout < FrameLayout < LinearLayout <n * -n * @[text="我要更快拿奖"]',
+            'ImageView[width=height] < FrameLayout < FrameLayout <<n * @[text="我要更快拿奖"]',
           ],
           actionDelay: 1000,
           matches: [
-            'ImageView < @FrameLayout < FrameLayout <<n * [text="恭喜获得奖励" || text*="已完成浏览" || text*="继续"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout <<n * [text="恭喜获得奖励" || text*="已完成浏览" || text*="继续"]',
           ],
         },
         {
           key: 6,
+          actionDelay: 1000,
           matches: [
-            'ImageView < FrameLayout < @FrameLayout[width=height] <n * [text="查看详情" || text^="扭动或点击" || text="立即打开"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout <<n * [text="查看详情" || text^="扭动或点击" || text="立即打开"]',
           ],
         },
       ],
