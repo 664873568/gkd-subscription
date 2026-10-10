@@ -147,7 +147,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [0, 1],
-          key: 3,
+          key: 4,
           matches: [
             'ImageButton +n [text="已领奖"] + @TextView[clickable=true]',
           ],
