@@ -31,7 +31,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: ['@ViewGroup[clickable=true] > [text="2京豆兑换"]'],
         },
@@ -2128,9 +2128,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '领取',
-          matches: [
-            '[text="京9黄金节"] >n @[text="领取"][clickable=true]',
-          ],
+          matches: ['[text="京9黄金节"] >n @[text="领取"][clickable=true]'],
         },
         {
           preKeys: [0],
