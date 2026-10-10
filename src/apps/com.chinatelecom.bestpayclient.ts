@@ -609,9 +609,7 @@ export default defineGkdApp({
             left: 'width * 0.5',
             top: 'height * 0.96',
           },
-          matches: [
-            'View > TextView + View > @View > View > Image + TextView',
-          ],
+          matches: ['View > TextView + View > @View > View > Image + TextView'],
           activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
         },
       ],
