@@ -132,8 +132,22 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
+          matches: [
+            'ImageButton +n @[text^="已完成 浏览"][clickable=true] + TextView',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            'AlertDialog > [text="领取奖品确认身份信息"] +n [getChild(0).text="取消"] > @[text="立即领取"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 3,
           matches: [
             'ImageButton +n [text="已领奖"] + @TextView[clickable=true]',
           ],
