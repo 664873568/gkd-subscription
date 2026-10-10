@@ -73,7 +73,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '[text="超级金币"] < bb < WebView < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
+            'WebView < bb < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
           ],
         },
         {
