@@ -395,7 +395,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.Discovery.view.DiscoveryActivity'],
         },
         {
-          preKeys: [0,7],
+          preKeys: [0, 7],
           key: 7,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
@@ -693,7 +693,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2, 3],
+          preKeys: [0, 1, 2, 3],
           key: 3,
           matches: [
             '[text="预约商品"] - [text~="[0-2]/3"] < View < View < View - [id="dark-moon-feeds-container"] >n TextView +n View > TextView + @TextView[clickable=true]',
@@ -822,7 +822,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 4,
           name: '恭喜您获得-开心收下',
           matches: [
@@ -830,7 +830,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 5,
           position: {
             left: 'width * 0.5',
