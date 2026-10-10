@@ -751,7 +751,7 @@ export default defineGkdApp({
           anyMatches: [
             'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
             'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="恭喜获得奖励"]',
-            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="查看详情"],
+            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="查看详情"]',
           ],
         },
       ],
