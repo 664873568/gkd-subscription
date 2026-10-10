@@ -794,7 +794,7 @@ export default defineGkdApp({
     //看视频-com.meishu.sdk.activity.MeishuRewardVideoPlayerActivity
     {
       key: 60,
-      name: '看视频-微信-提前拿奖励',
+      name: '看视频-.*-恭喜已获得奖励',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
