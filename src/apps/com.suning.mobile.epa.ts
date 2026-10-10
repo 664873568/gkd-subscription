@@ -74,7 +74,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"]',
@@ -83,12 +83,10 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
-          matches: [
-            '@ImageButton[clickable=true] - * [text="去抽奖"]',
-          ],
+          matches: ['@ImageButton[clickable=true] - * [text="去抽奖"]'],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 4,
           matches: [
             '@ImageButton[clickable=true] < View < View < View + [id="mainViewWrapper"] >n [text~="再赚[0-9]+积分"]',
