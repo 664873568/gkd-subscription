@@ -615,7 +615,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 1000,
           matches: [
-            'ImageView < @FrameLayout + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
+            'ImageView[width=height] < @FrameLayout + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
           ],
         },
       ],
@@ -665,7 +665,7 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            'ImageView < FrameLayout < @FrameLayout[width=height] <n * [text="恭喜已经获得奖励！"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="恭喜已经获得奖励！"]',
           ],
         },
       ],
@@ -699,11 +699,11 @@ export default defineGkdApp({
         {
           key: 2,
           excludeMatches: [
-            'ImageView < FrameLayout[width=height] < FrameLayout < LinearLayout <n * <n * @[text="我要更快拿奖" || text="放弃福利"]',
+            'ImageView[width=height] < FrameLayout < FrameLayout < LinearLayout <n * <n * @[text="我要更快拿奖" || text="放弃福利"]',
           ],
           actionDelay: 1000,
           matches: [
-            'ImageView < @FrameLayout[width=height] < FrameLayout < LinearLayout <n * <n * [text*="已完成浏览"]', //已完成浏览*秒，提前获得奖励
+            'ImageView[width=height] < @FrameLayout < FrameLayout < LinearLayout <n * <n * [text*="已完成浏览"]', //已完成浏览*秒，提前获得奖励
           ],
         },
         {
@@ -717,7 +717,7 @@ export default defineGkdApp({
           key: 4,
           actionDelay: 1000,
           matches: [
-            'ImageView[index=parent.childCount.minus(1)] < @FrameLayout[width=height] <n * < * <n * [text="恭喜获得奖励"]',
+            'ImageView[width=height] < @FrameLayout <<n * [text="恭喜获得奖励"]',
           ],
         },
         {
@@ -737,7 +737,7 @@ export default defineGkdApp({
         {
           key: 7,
           matches: [
-            'ImageView < @FrameLayout[width=height] < FrameLayout <n * [text="查看详情" || text="立即下载" || text^="扭动或点击"]',
+            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="查看详情" || text="立即下载"]',
           ],
         },
       ],
@@ -935,8 +935,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          matches: [
-            'View > View > @[text="renwudone"][clickable=true] + TextView + ImageButton', //领取奖励-去看看会员福利日-去看看开学季特惠
+          anyMatches: [
+            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠
+            'View > View > @ImageButton[width=height][clickable=true] + TextView + ImageButton[width=height]', //任务已完成 点击去领奖-去看看会员福利日
           ],
         },
         {
@@ -1056,8 +1057,8 @@ export default defineGkdApp({
           anyMatches: [
             'View > View[getChild(0).text="task-close"] + @[text="lingqujiangli"][clickable=true]', //集勋章抽金条手机-去翻故事卡领大奖
             'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠-参与活动送万元相机-领取徐涛独家资料
+            'View > View > @ImageButton[width=height][clickable=true] + TextView + ImageButton[width=height]', //任务已完成 点击去领奖-去看看会员福利日
             'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton', //领取奖励-免费领取网盘SVIP
-            'View > View > @[text="done"][clickable=true] + [text=" "] + [text="2bd7c5199a3f9703e3ae80849"]', //会员日-任务已完成 点击去领奖
             '[desc="close"] - @[getChild(0).text="wenzihou"][clickable=true] < View < View - [id="app"] < WebView < WebView < [vid="content_webview"]', //去寻道砍树3次
             'View > [getChild(0).text="task-close"] + @[getChild(0).text="lingqujiangli"][clickable=true]', //奇妙赏
           ],
@@ -1156,6 +1157,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
       rules: [
         {
           key: 0,
@@ -1170,10 +1175,6 @@ export default defineGkdApp({
           ],
           matches: [
             '[text="最新AI功能"] +n TextView[text!~="去领取AI修图券"] +5 @[text="去完成"][clickable=true]',
-          ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
           ],
         },
         {
@@ -1204,14 +1205,14 @@ export default defineGkdApp({
           key: 1,
           name: '领取奖励',
           matches: [
-            '[vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true] - * [text="学习服务页"] < ScrollView < [vid="content_webview"]',
+            '[vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
       ],
     },
     {
-      scopeKeys: [220],
+      scopeKeys: [220,500],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       forcedTime: 60000,
@@ -1220,7 +1221,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          preKeys: [0],
+          preKeys: [0,500],
           key: 1,
           action: 'clickCenter',
           matches: [
@@ -1368,6 +1369,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
+          actionDelay: 5000,
           matches: [
             '@ImageView[clickable=true] + [desc="自动消除"] + [desc="手动消除"]',
           ],
@@ -1552,24 +1554,19 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        '.ocr.OCRTakePhotoActivity',
-        '.scan.ai.camera.ui.classifyscenepage.ScanAiCameraClassifySceneActivity',
-      ],
       rules: [
         {
-          preKeys: [0],
           key: 1,
-          anyMatches: [
-            '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][clickable=true]',
-            '[vid="cl_ai_photo_studio_guide_root"] > @[vid="iv_close"][clickable=true] + [vid="cl_card"] > [text="去体验"][vid="btn_ok"]',
+          action: 'back',
+          actionDelay: 10000,
+          matches: [
+            '[desc="保存"] -n @ImageView[clickable=true] <<n [vid="content_scene"]',
           ],
         },
         {
-          preKeys: [0, 1],
           key: 2,
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 10000,
           matches: [
             '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"][clickable=true]',
           ],
@@ -1609,10 +1606,14 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           name: '浏览书城小说30s',
-          matches: [
+          anyMatches: [
             'ViewGroup > [vid="iv_close"] + ViewGroup > @[vid="gif_lottie_view"][clickable=true] +n [text="任务完成"][vid="tv_title"]',
+            '[vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
           ],
-          activityIds: ['.bdreader.ui.view.NovelMainActivity'],
+          activityIds: [
+            '.bdreader.ui.view.NovelMainActivity',
+            'org.geometerplus.android.fbreader.FBReader',
+          ],
         },
         {
           preKeys: [0],
@@ -1870,6 +1871,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 500,
           anyMatches: [
             '@[text="跳过"] + [text~="[0-9]+"]',
             '@FrameLayout > View + [text="跳过"]',
@@ -1899,6 +1901,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 501,
           matches: ['@[vid="iv_close"] + [vid="cl_content"]'],
           activityIds: ['.ui.MainActivity'],
         },
