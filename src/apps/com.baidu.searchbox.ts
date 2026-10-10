@@ -18,6 +18,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="提现中心"] >n [text="选择提现金额"] +n [text="请选择提现档位"] - * > @View[clickable=true] > [text="20.00"]',
             '[text="提现中心"] >n [text="选择提现金额"] +n @[text="确认提现"][clickable=true]',
+            '[text="提现中心"] >n [text="选择提现渠道"] +n @[text="立即提现"][clickable=true]',
           ],
           matches: ['[text="提现中心"] >n @[text="去提现"][clickable=true]'],
         },
