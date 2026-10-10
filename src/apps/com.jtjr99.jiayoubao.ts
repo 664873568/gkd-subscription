@@ -204,7 +204,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 2000,
           matches: [
-            '[text="恭喜你答对了"] +n @[text="我知道了"][clickable=true]',
+            '[text~="恭喜你答对了|很遗憾答错了"] +n @[text$="知道了"][clickable=true]',
           ],
         },
         {
@@ -236,7 +236,7 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚3积分"] + [text~="去完成|待领取"]',
+            '[id="container"] > [getChild(0).text="每日任务"] +n [text="每日正确答题赢积分"] + [text=" 赚2积分"] + [text~="去完成|待领取"]',
           ],
           actionDelay: 2000,
           matches: [
