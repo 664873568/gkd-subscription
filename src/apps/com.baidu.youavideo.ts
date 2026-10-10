@@ -394,7 +394,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 6000,
           matches: [
             'ViewGroup < ViewGroup < ComposeView < @[id="android:id/content"]',
           ],
