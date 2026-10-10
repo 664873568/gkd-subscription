@@ -585,11 +585,11 @@ export default defineGkdApp({
       rules: [
         {
           position: {
-            left: 'width * 0.0907',
-            top: 'height * 0.0630',
+            left: 'width * 0.094',
+            top: 'height * 0.302',
           },
           matches: [
-            '[text="立即开启"] - [text="开启系统通知，优惠券活动不错过"] < @View',
+            'View > @View > View > [text="开启系统通知，优惠券活动不错过"] + [text="立即开启"]',
           ],
           activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
         },
@@ -610,7 +610,7 @@ export default defineGkdApp({
             top: 'height * 0.96',
           },
           matches: [
-            '[text="使用帮助"] +n View[index=parent.childCount.minus(1)] > View > @View > View > TextView',
+            'View > TextView + View > @View > View > Image + TextView',
           ],
           activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
         },
