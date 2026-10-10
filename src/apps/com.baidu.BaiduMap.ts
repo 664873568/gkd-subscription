@@ -65,7 +65,7 @@ export default defineGkdApp({
           actionDelay: 2000,
           anyMatches: [
             '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
-            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(0).getChild(0).text~="[0-9]{3,}"][index=0] > [text="待领取"]',
             '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] +n [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
             '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
           ],
@@ -166,22 +166,29 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="task-loader"] > [id^="J-task-item"] > @View[getChild(0).text!~="去中国移动领话费流量"][clickable=true] > [text~="[0-9]{3,}"] +n [text="去完成"]',
-            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]{3,}+ 金币"]',
+            '@View[getChild(0).text~="立即领取|赚抽奖次数"][clickable=true] -n [text~=".*[0-9]{3,} 金币.*"]',
+            '@View[getChild(0).text~="再试一次|继续抽奖"][clickable=true] -n [text="cjjinbi"]',
             '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]{1,2} 金币"]',
           ],
           actionDelay: 2000,
           matches: [
-            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] > View > [text="免费抽奖"]',
+            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] > View > [text~="免费抽奖|看视频"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]{3,}+ 金币"]',
+            '@View[getChild(0).text~="立即领取|赚抽奖次数"][clickable=true] -n [text~=".*[0-9]{3,} 金币.*"]',
           ],
         },
         {
           key: 2,
+          matches: [
+            '@View[getChild(0).text~="再试一次|继续抽奖"][clickable=true] -n [text="cjjinbi"]',
+          ],
+        },
+        {
+          key: 3,
           matches: [
             '@TextView[clickable=true] <n * + * [text~="恭喜抽中 [0-9]{1,2} 金币"]',
           ],
@@ -201,8 +208,9 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
-            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]+ 金币"]',
+            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|看视频|抽奖中"]',
+            '@View[getChild(0).text~="立即领取|赚抽奖次数"][clickable=true] -n [text~=".*[0-9]{3,} 金币.*"]',
+            '@View[getChild(0).text~="再试一次|继续抽奖"][clickable=true] -n [text="cjjinbi"]',
             '[text="恭喜翻出"] +n @[getChild(0).text~="继续翻十位领取|继续翻百位|立即收下"][clickable=true] + TextView',
             '@TextView[clickable=true] - View > [id="lottieDom"] > View > [text="恭喜获得收益翻倍卡"] + [text="明天再来可翻倍今日收益"] +n View > [text="明日来翻倍"]',
             '@View[clickable=true] > [text~="立即翻倍|立即收下"]',
@@ -254,8 +262,9 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|抽奖中"]',
-            '@View[getChild(0).text~="立即领取|再试一次"][clickable=true] - [text~="恭喜抽中 [0-9]+ 金币"]',
+            '[id="J-lucky-draw"] > [text="免费抽大奖"] +n View > @View[clickable=true] >n [text~="免费抽奖|看视频|抽奖中"]',
+            '@View[getChild(0).text~="立即领取|赚抽奖次数"][clickable=true] -n [text~=".*[0-9]{3,} 金币.*"]',
+            '@View[getChild(0).text~="再试一次|继续抽奖"][clickable=true] -n [text="cjjinbi"]',
             '[text="领走奖励 结束翻卡"] - [getChild(0).text="最高可得1888金币"] > @View[clickable=true] > [text="放弃这张 翻更大"]',
             '[text="翻到炸弹啦"] + @View[clickable=true] > [text~="领取[0-9]+金币"]',
             '[text="已获得翻卡奖励"] + [getChild(3).getChild(1).text="明日继续翻"] + @TextView[clickable=true]',
@@ -753,7 +762,7 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="立即获取" || text="免费获取"]',
+            'ImageView[width=height] < @ViewGroup[clickable=true] < ViewGroup < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="立即获取" || text="免费获取"]',
           ],
         },
         {
@@ -782,6 +791,36 @@ export default defineGkdApp({
         },
       ],
     },
+    //看视频-com.meishu.sdk.activity.MeishuRewardVideoPlayerActivity
+    {
+      key: 60,
+      name: '看视频-微信-提前拿奖励',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[vid="ms_process_bar"] <n * <n * [id="app-tips"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '[vid="ms_reward_close_button"] < @[vid="ms_reward_close_button_parent"][clickable=true] < * <n * [text="恭喜已获得奖励"][id="app-tips"]',
+          ],
+        },
+        {
+          key: 2,
+          excludeMatches: ['[vid="ms_process_bar"]','[text="恭喜已获得奖励"][id="app-tips"]'],
+          matches: [
+            '[vid="ms_reward_close_button"] < @[vid="ms_reward_close_button_parent"][clickable=true]',
+          ],
+        },
+      ],
+    },
     //看视频-com.qq.e.ads.PortraitADActivity
     {
       key: 70,
@@ -790,25 +829,27 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
+          key: 0,
           matches: [
             '[text~=".*[0-9]+ 秒.*"] + [text="提前拿奖励"] + * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
         {
           key: 1,
           actionDelay: 15000,
           matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'], //二级广告页
-          activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
           key: 2,
           matches: [
             '@ImageView < FrameLayout + FrameLayout >2 ImageView + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -820,13 +861,16 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
           ],
-          activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
           key: 1,
@@ -834,7 +878,6 @@ export default defineGkdApp({
           matches: [
             '@ImageView[clickable=true] -2 ImageView + LinearLayout > [text="恭喜获得奖励！"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -845,7 +888,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -872,7 +918,10 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -896,7 +945,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -923,10 +975,13 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           matches: ['@ImageView < FrameLayout + LinearLayout + ImageView'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -938,13 +993,16 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           anyMatches: [
             '@ImageView < FrameLayout < * + * > FrameLayout > [text="恭喜获得奖励"]',
             '@ImageView < FrameLayout <n FrameLayout < FrameLayout - * [text="恭喜获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -956,12 +1014,15 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           matches: [
             '@[text="我要更快拿奖"] < FrameLayout + LinearLayout > [text="继续看视频"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -973,12 +1034,15 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           matches: [
             '@[text="点击下载或打开第三方应用"] <<n * [text="打开App体验15秒，即可获得奖励"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -989,12 +1053,15 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
       rules: [
         {
           matches: [
             '[getChild(3).getChild(1).text~="立即下载|去微信看看"] - * @[text="跳过"]',
           ],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
@@ -1052,7 +1119,7 @@ export default defineGkdApp({
     //看视频-com.sigmob.sdk.base.common.PortraitAdActivity
     {
       key: 90,
-      name: '看视频-跳过-浏览*秒领取奖励',
+      name: '看视频-跳过-浏览|试玩*秒领取奖励',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1062,7 +1129,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~="立即前往|立即试玩"] < @View[clickable=true] <<n * -n * > [text~="浏览[0-9]+秒领取奖励"] + [id="close_btn"] > [text="跳过"]',
+            '[text~="立即前往|立即试玩"] < @View[clickable=true] <<n * [text~=".*[0-9]+秒领取奖励"] + [id="close_btn"] > [text="跳过"]',
           ],
         },
         {
@@ -1173,7 +1240,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 15000,
           matches: [
-            '@ImageView[clickable=true] < RelativeLayout + LinearLayout + LinearLayout <n [id="android:id/action_bar"]', //二级广告页
+            '@ImageView[width=height][clickable=true] < RelativeLayout + LinearLayout + LinearLayout <n [id="android:id/action_bar"]', //二级广告页
           ],
         },
         {
