@@ -1107,7 +1107,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [2],
-          key: 3,
+          key: 4,
           matches: [
             '[text="寻鲜争霸赛 为TA投票"] >n @[text="关闭"][clickable=true] -2 View > [text~="恭喜获得[0-9]人气值"]',
           ],
