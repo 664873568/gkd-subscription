@@ -1113,7 +1113,7 @@ export default defineGkdApp({
           ],
         },
       ],
-    },,
+    },
     //京东笔笔返
     //https://ipay.jd.com/pages/bbf/index
     {
