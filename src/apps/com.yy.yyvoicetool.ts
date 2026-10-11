@@ -7,20 +7,31 @@ export default defineGkdApp({
     //天天领金币
     {
       key: 0,
-      name: '每天领钱-×',
+      name: '通用',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       resetMatch: 'activity',
+      activityIds: ['.MainActivity'],
       rules: [
         {
+          key: 0,
+          name: '每天领钱-×',
           matches: ['@View - [text$="自动关闭"] - ViewFactoryHolder'],
-          activityIds: ['.MainActivity'],
+        },
+        {
+          key: 1,
+          name: '是否踢出频道-确定',
+          matches: [
+            '@[text="确定"][clickable=true] - [text="取消"] - [getChild(0).text="您已在其他设备频道内，是否踢出频道？"] < View < View < ViewGroup < [id="android:id/content"]',
+          ],
         },
       ],
     },
     {
       key: 1,
       name: '立即签到',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -51,6 +62,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '每日任务-领奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -78,6 +90,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '每日任务-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -123,6 +136,7 @@ export default defineGkdApp({
     {
       key: 4,
       name: '每日任务-去完成-收藏任意频道',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -160,6 +174,7 @@ export default defineGkdApp({
     {
       key: 5,
       name: '每日任务-去完成-访问指定频道',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -229,6 +244,7 @@ export default defineGkdApp({
     {
       key: 6,
       name: '每日任务-去完成-完成应用下载|完成应用浏览|完成页面浏览',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -260,6 +276,7 @@ export default defineGkdApp({
     {
       key: 7,
       name: '每日任务-看视频',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -281,6 +298,7 @@ export default defineGkdApp({
     {
       key: 8,
       name: '每日任务-看视频-领金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -308,6 +326,7 @@ export default defineGkdApp({
     {
       key: 9,
       name: '进频道-立即领取',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -324,6 +343,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '看视频-*秒后可领取奖励mcto',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -349,6 +369,7 @@ export default defineGkdApp({
     {
       key: 30,
       name: '看视频-点击跳转后停留*秒立即获奖noah',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -379,6 +400,7 @@ export default defineGkdApp({
     {
       key: 31,
       name: '看视频-完成两个任务，立即领奖noah',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -413,6 +435,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '版本更新-稍后再说',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -429,6 +452,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '未成年模式-我知道了',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -443,6 +467,7 @@ export default defineGkdApp({
     {
       key: 42,
       name: '开启消息通知-取消',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -460,6 +485,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -474,6 +500,7 @@ export default defineGkdApp({
     {
       key: 51,
       name: '首页广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
