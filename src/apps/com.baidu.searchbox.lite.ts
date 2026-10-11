@@ -192,7 +192,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0, 1,2],
           key: 1,
           swipeArg: {
             start: {
@@ -216,6 +216,17 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          action: 'back',
+          matches: [
+            '[text="看剧赚更多"] < FrameLayout < FrameLayout - FrameLayout > FrameLayout > [text~="再看[0-9]+分钟\\\\n金币翻倍"]',
+          ],
+          activityIds: [
+            'com.baidu.searchbox.video.collectionflow.CollectionFlowActivity',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 3,
           matches: [
             '@ViewGroup[clickable=true] > ViewGroup + ViewGroup > ImageView + [text="点击领取\\n1个红包"]',
           ],
