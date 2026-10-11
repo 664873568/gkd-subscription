@@ -1469,7 +1469,7 @@ export default defineGkdApp({
           preKeys: [3],
           key: 4,
           matches: [
-            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * View + ImageView + @ImageView[clickable=true] + ImageView',
+            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [getChild(0).getChild(0).name$="ImageView"] - [getChild(2).desc="去手写"] > @Switch[clickable=true]',
           ],
           activityIds: [
             '.kmp.bridge.KmpSharedActivity',
@@ -1481,6 +1481,30 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           matches: [
+            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * ImageView + View + @ImageView[clickable=true] + ImageView',
+          ],
+          activityIds: [
+            '.kmp.bridge.KmpSharedActivity',
+            '.ui.localfile.selectfile.LocalImageSelectActivity',
+            'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 6,
+          matches: [
+            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * View + ImageView + @ImageView[clickable=true] + ImageView',
+          ],
+          activityIds: [
+            '.kmp.bridge.KmpSharedActivity',
+            '.ui.localfile.selectfile.LocalImageSelectActivity',
+            'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
+          ],
+        },
+        {
+          preKeys: [5,6],
+          key: 7,
+          matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="已选择 1 道题目"] +n @[desc="录入错题"][clickable=true]',
           ],
           activityIds: [
@@ -1490,16 +1514,16 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5],
-          key: 6,
+          preKeys: [7],
+          key: 8,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[text="全部保存"][clickable=true]',
           ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
         {
-          preKeys: [5, 6],
-          key: 7,
+          preKeys: [7, 8],
+          key: 9,
           matches: [
             '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
           ],
