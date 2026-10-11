@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '提现-50元',
+      forcedTime: 60000,
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
@@ -33,6 +34,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '天天签到赢金币-登录领取',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -63,6 +65,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '天天签到赢金币-立即签到',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -87,6 +90,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '做任务-领奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -113,6 +117,7 @@ export default defineGkdApp({
     {
       key: 4,
       name: '做任务-去完成-浏览App',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -155,6 +160,7 @@ export default defineGkdApp({
     {
       key: 5,
       name: '做任务-去完成-关注1位主播',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -171,6 +177,7 @@ export default defineGkdApp({
     {
       key: 6,
       name: '做任务-去完成-看广告视频领金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -189,8 +196,9 @@ export default defineGkdApp({
     },
     //看视频-com.qq.e.ads.PortraitADActivity
     {
-      key: 10,
+      key: 20,
       name: '看视频-微信-提前拿奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -202,57 +210,21 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~=".*[0-9]+ 秒.*"] + [text="提前拿奖励"] + * > @[text*="微信"][index=parent.childCount.minus(1)]',
+            '[text~=".*[0-9]+ 秒.*"] <n * <n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
         {
           key: 1,
           matches: [
-            '@ImageView[width=height] < FrameLayout <<n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
     },
     {
-      key: 11,
-      name: '看视频-*秒后点击广告，即可获得奖励',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        'com.qq.e.ads.PortraitADActivity',
-        'com.qq.e.ads.ADActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          anyMatches: [
-            '[getChild(0).getChild(0).text~="点击广告.*，即可获得奖励"] + * @[text^="点击广告"]',
-            '[getChild(0).getChild(0).getChild(0).text~="点击广告.*，即可获得奖励"] + * @[text^="点击广告"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 16000,
-          matches: [
-            'View - @ImageView[clickable=true] - TextView < FrameLayout + WebView', //二级广告页
-          ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 1000,
-          anyMatches: [
-            'ImageView[width=height] < @FrameLayout <<n * [text="恭喜获得奖励"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 12,
-      name: '看视频-恭喜获得奖励',
+      key: 21,
+      name: '看视频-微信-阅读小说 可获得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -264,61 +236,111 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text~="放弃福利|我要更快拿奖"] <<n * [text^="奖励将于"]',
+            '[text="可获得奖励"] - [text="阅读小说"] < * <n * + RecyclerView >n @[text*="继续"]',
           ],
         },
         {
           key: 1,
-          actionDelay: 16000,
           matches: [
-            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
+            '[text="可获得奖励"] - [text="阅读小说"] <n * <n * <n * @[text="继续体验15秒得奖励"]',
           ],
         },
         {
           key: 2,
+          actionDelay: 16000,
           matches: [
-            'ImageView[width=height] < FrameLayout < FrameLayout <<n * @[text="我要更快拿奖"]',
+            'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View', //二级广告页
           ],
         },
         {
           key: 3,
-          excludeMatches: [
-            'ImageView[width=height] < FrameLayout < FrameLayout <<n * @[text="我要更快拿奖"]',
-            'ImageView[width=height] < @FrameLayout < FrameLayout + * [text="点击"] + [text="下载或打开第三方应用"]',
-          ],
-          anyMatches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout <<n * [text="点击下载或打开第三方应用"]',
-          ],
-        },
-        {
-          preKeys: [3],
-          key: 4,
           matches: [
-            'ImageView < @FrameLayout < FrameLayout + * [text="点击"] + [text="下载或打开第三方应用"]',
-          ],
-        },
-        {
-          key: 5,
-          excludeMatches: [
-            'ImageView[width=height] < FrameLayout < FrameLayout <<n * @[text="我要更快拿奖"]',
-          ],
-          actionDelay: 1000,
-          matches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout <<n * [text="恭喜获得奖励" || text*="已完成浏览" || text*="继续"]',
-          ],
-        },
-        {
-          key: 6,
-          actionDelay: 1000,
-          matches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout <<n * [text="查看详情" || text^="扭动或点击" || text="立即打开"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="恭喜已经获得奖励！"]',
           ],
         },
       ],
     },
     {
-      key: 13,
+      key: 22,
+      name: '看视频-恭喜获得奖励',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          name: '奖励将于*秒后发放',
+          matches: [
+            '@[text~="我要更快拿奖|放弃福利"] <n * <n * <n * [text^="奖励将于"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '二级广告页-×',
+          actionDelay: 16000,
+          matches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '我要更快拿奖-×',
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * @[text="我要更快拿奖"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '已完成浏览*秒，提前获得奖励',
+          actionDelay: 1000,
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text*="已完成浏览"]',
+          ],
+        },
+        {
+          key: 4,
+          name: '点击广告，即可获得奖励',
+          matches: [
+            '@[text="点击广告拿奖励"] < FrameLayout <n * <n * <n * [text="点击广告，即可获得奖励"]',
+          ],
+        },
+        {
+          key: 5,
+          name: '点击下载或打开第三方应用-×',
+          excludeMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * @[text^="奖励将于"]',
+          ],
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text^="点击" || text$="下载或打开第三方应用"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '恭喜获得奖励-×',
+          actionDelay: 1000,
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="恭喜获得奖励"]',
+          ],
+        },
+        {
+          key: 7,
+          name: '查看详情-×',
+          actionDelay: 1000,
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="查看详情" || text^="扭动或点击" || text="立即打开"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 23,
       name: '看视频-浏览页面*秒后即可获得奖励',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -335,7 +357,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1000,
           matches: [
-            'RelativeLayout > LinearLayout > @ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
+            '@ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
           ],
         },
       ],
@@ -344,6 +366,7 @@ export default defineGkdApp({
     {
       key: 38,
       name: '导流结果弹窗-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -363,6 +386,7 @@ export default defineGkdApp({
     {
       key: 39,
       name: '导流结果弹窗-收下并送出',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -380,6 +404,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '打开通知权限-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -396,6 +421,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '发现新版本-立即下载-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -412,6 +438,7 @@ export default defineGkdApp({
     {
       key: 42,
       name: '未成年模式-知道了',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -428,6 +455,7 @@ export default defineGkdApp({
     {
       key: 43,
       name: '剪切板-不允许',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -449,6 +477,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
