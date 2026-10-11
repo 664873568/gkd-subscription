@@ -55,6 +55,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '[desc="签到有礼楼层"] +n @[desc="立即签到 按钮"][clickable=true]',
+            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
+            '[desc="签到有礼楼层"] +n @View[clickable=true] > TextView[index=parent.childCount.minus(1)]',
+            '@[desc="关闭 按钮"][clickable=true] +n [text="立即使用"]',
+          ],
           matches: [
             '[id="Normaltask"] > [desc="精选任务楼层"] +n [text~="查看.*|了解.*"] +(1,2,3) View > View > @[text="去完成"][clickable=true]',
           ],
@@ -102,6 +108,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
+            '[id="app"] >n View[getChild(0).name$="ImageButton"] + @TextView[clickable=true]',
             '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
           ],
           activityIds: [
