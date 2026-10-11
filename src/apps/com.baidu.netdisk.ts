@@ -602,11 +602,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@[text~="点击广告拿奖励|立即秒杀"] <<n * [text="点击广告，即可获得奖励"]',
-          ],
           matches: [
-            '[text~=".*[0-9]+ 秒.*"] + [text="提前拿奖励"] + * @[text*="微信"][index=parent.childCount.minus(1)]',
+            '[text~=".*[0-9]+ 秒.*"] <n * <n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
         {
@@ -616,12 +613,8 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: [
-            '@[text~="点击广告拿奖励|立即秒杀"] <<n * [text="点击广告，即可获得奖励"]',
-          ],
-          actionDelay: 1000,
           matches: [
-            'ImageView[index=parent.childCount.minus(1)][width=height] < @FrameLayout <n * <n * <n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -657,21 +650,24 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '继续体验15秒得奖励',
           matches: [
-            '[text="可获得奖励"] - [text="阅读小说"] < * <n * +n * @[text="继续体验15秒得奖励"]',
+            '[text="可获得奖励"] - [text="阅读小说"] <n * <n * <n * @[text="继续体验15秒得奖励"]',
           ],
         },
         {
           key: 2,
+          name: '二级广告页',
           actionDelay: 16000,
           matches: [
-            'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View', //二级广告页
+            'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View',
           ],
         },
         {
           key: 3,
+          name: '恭喜已经获得奖励！',
           matches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="恭喜已经获得奖励！"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="恭喜已经获得奖励！"]',
           ],
         },
       ],
@@ -692,65 +688,76 @@ export default defineGkdApp({
           key: 0,
           name: '奖励将于*秒后发放',
           matches: [
-            '@[text~="我要更快拿奖|放弃福利"] <<n * [text^="奖励将于"]',
+            '@[text~="我要更快拿奖|放弃福利"] <n * <n * <n * [text^="奖励将于"]',
           ],
         },
         {
           key: 1,
+          name: '二级广告页-×',
           actionDelay: 16000,
           matches: [
-            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]', //二级广告页
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 2,
-          excludeMatches: [
-            'ImageView[width=height] < FrameLayout < FrameLayout < LinearLayout <n * <n * @[text="我要更快拿奖" || text="放弃福利"]',
-          ],
+          name: '已完成浏览*秒，提前获得奖励-×',
           actionDelay: 1000,
           matches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout < LinearLayout <n * <n * [text*="已完成浏览"]', //已完成浏览*秒，提前获得奖励
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text*="已完成浏览"]',
           ],
         },
         {
           key: 3,
           name: '点击广告，即可获得奖励',
           matches: [
-            '@[text~="点击广告拿奖励|立即秒杀"] <<n * [text="点击广告，即可获得奖励"]',
+            '@[text~="点击广告拿奖励|立即秒杀"] <n * <n * <n * [text="点击广告，即可获得奖励"]',
           ],
         },
         {
           key: 4,
-          name: '放弃直播福利',
+          name: '点击下载或打开第三方应用-×',
+          excludeMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * @[text^="奖励将于"]',
+          ],
           matches: [
-            '@[text="放弃直播福利"] <n FrameLayout <n * [text="恭喜获得奖励"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text^="点击" || text$="下载或打开第三方应用"]',
           ],
         },
         {
           key: 5,
-          actionDelay: 1000,
+          name: '放弃直播福利',
           matches: [
-            'ImageView[index=parent.childCount.minus(1)][width=height] < @FrameLayout <n * <n * <n * [text="恭喜获得奖励"]',
+            '@[text="放弃直播福利"] <n * <n * <n * [text="恭喜获得奖励"]',
           ],
         },
         {
           key: 6,
+          name: '恭喜获得奖励-×',
+          actionDelay: 1000,
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="恭喜获得奖励"]',
+          ],
+        },
+        {
+          key: 7,
           name: '打开/完成App，即可获得奖励',
           matches: [
             '[getChild(0).getChild(0).text^="打开App"] - * @[text*="第三方应用"][index=parent.childCount.minus(1)]',
           ],
         },
         {
-          preKeys: [6],
-          key: 7,
+          preKeys: [7],
+          key: 8,
           matches: [
             '[id="forRemHack"] + [id="root"] >n @View[clickable=true] > [text~="安装应用|点击下载"]',
           ],
         },
         {
           key: 8,
+          name: '查看详情-×',
           matches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="查看详情" || text="立即下载"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="查看详情" || text^="扭动或点击" || text="立即打开"]',
           ],
         },
       ],
@@ -774,7 +781,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1000,
           matches: [
-            'RelativeLayout > LinearLayout > @ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
+            '@ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
           ],
         },
       ],
