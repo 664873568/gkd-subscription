@@ -259,7 +259,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > ViewGroup > ViewGroup > [text="明天继续领补贴"]',
+            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > ViewGroup > [getChild(0).text="明天继续领补贴"]',
           ],
         },
       ],
