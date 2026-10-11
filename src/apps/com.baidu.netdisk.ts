@@ -1225,6 +1225,9 @@ export default defineGkdApp({
           key: 1,
           name: '领取奖励',
           actionDelay: 5000,
+          excludeMatches: [
+            '[text^="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
+          ],
           matches: [
             '[vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
@@ -1281,7 +1284,7 @@ export default defineGkdApp({
           preKeys: [2, 4],
           key: 5,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: ['.aigc.ui.activity.AigcChatActivity'],
         },
@@ -1316,7 +1319,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: ['.video.VideoPlayerActivity'],
         },
@@ -1344,7 +1347,7 @@ export default defineGkdApp({
           key: 2,
           name: '任务已完成      点击领奖',
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务已完成      点击领奖"][vid="tv_title"]',
+            '[text="任务已完成      点击领奖"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
         },
       ],
@@ -1381,14 +1384,14 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
         },
         {
           preKeys: [2],
           key: 4,
           excludeMatches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           actionDelay: 5000,
           matches: [
@@ -1438,7 +1441,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: ['.scan.ui.aiphotostudio.AiPhotoStudioWebViewActivity'],
         },
@@ -1546,7 +1549,7 @@ export default defineGkdApp({
           preKeys: [7, 8],
           key: 9,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
@@ -1583,7 +1586,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: [
             'com.baidu.flutter.netdisk.documentscan.OCRRectifyActivity',
@@ -1674,7 +1677,7 @@ export default defineGkdApp({
           key: 3,
           name: '浏览短剧30s',
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: ['.playerlet.ui.ShortPlayServiceActivity'],
         },
@@ -1722,7 +1725,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '@[vid="layout_drag"][clickable=true] >n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
         },
       ],
