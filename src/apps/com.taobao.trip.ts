@@ -210,13 +210,20 @@ export default defineGkdApp({
       name: '看视频-广告-浏览-×',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.anythink.core.common.inner.ui.ATPortraitActivity'],
       rules: [
         {
+          key: 0,
           matches: ['@[vid="anythink_myoffer_btn_close_id"][clickable=true]'],
-          activityIds: ['com.anythink.core.common.inner.ui.ATPortraitActivity'],
+        },
+        {
+          key: 1,
+          name: '二级广告页',
+          matches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
@@ -680,13 +687,15 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '二级广告页-<',
           actionDelay: 15000,
-          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'], //二级广告页
+          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
         },
         {
           key: 2,
+          name: '恭喜获得奖励-×',
           matches: [
-            'ImageView[width=height] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
+            '[index=parent.childCount.minus(1)][width=height] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -705,19 +714,22 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '阅读小说 可获得奖励',
           matches: [
             '[text="点击去微信看全文"] < @LinearLayout <<n * - * [text="阅读小说"] + [text="可获得奖励"]',
           ],
         },
         {
           key: 1,
+          name: '二级广告页-×',
           actionDelay: 15000,
           matches: [
-            'WebView - FrameLayout > TextView + @ImageView[clickable=true] + View', //二级广告页
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 2,
+          name: '恭喜已经获得奖励！-×',
           matches: [
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
           ],
@@ -737,20 +749,41 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text~="奖励将于[0-9]+秒后发放"]',
-            '@[text="我要更快拿奖"] < FrameLayout <n * +n * [text="奖励将于"] + [text~="[0-9]+"] + [text="秒后发放"]',
+          name: '奖励将于*秒后发放',
+          matches: [
+            '@[text="我要更快拿奖"] < FrameLayout <n * <n * [text^="奖励将于"]',
           ],
         },
         {
           key: 1,
-          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'], //二级广告页
+          name: '二级广告页',
+          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],
         },
         {
           key: 2,
-          anyMatches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text~="已完成浏览[0-9]+秒，提前获得奖励"]',
-            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="恭喜获得奖励"]',
+          name: '已完成浏览',
+          matches: [
+            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text*="已完成浏览"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '点击广告，即可获得奖励',
+          matches: [
+            '@[text="点击广告拿奖励"] <<n * [text="点击广告，即可获得奖励"]',
+          ],
+        },
+        {
+          key: 4,
+          name: '恭喜获得奖励-×',
+          matches: [
+            'ImageView[index=parent.childCount.minus(1)][width=height] < @FrameLayout <n * [text="恭喜获得奖励"]',
+          ],
+        },
+        {
+          key: 5,
+          name: '查看详情',
+          matches: [
             'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="查看详情"]',
           ],
         },
@@ -758,26 +791,24 @@ export default defineGkdApp({
     },
     {
       key: 103,
-      name: '看视频-点击广告，即可获得奖励',
-      forcedTime: 60000,
+      name: '看视频-浏览页面*秒后即可获得奖励',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.qq.e.ads.PortraitADActivity',
-        'com.qq.e.ads.ADActivity',
-      ],
+      activityIds: ['com.qq.e.ads.PortraitADActivity'],
       rules: [
         {
           key: 0,
+          action: 'none',
           matches: [
-            '@[text="点击广告拿奖励"] <<n * - * [text="点击广告，即可获得奖励"]',
+            '[text="浏览页面"] + [text~="[0-9]+"] + [text="秒后即可获得奖励"]',
           ],
         },
         {
           key: 1,
+          actionDelay: 1000,
           matches: [
-            'ImageView[width=height] < @FrameLayout <n * [text="恭喜获得奖励"]',
+            '@ImageView[width=height][clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
           ],
         },
       ],
