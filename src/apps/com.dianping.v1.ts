@@ -179,6 +179,12 @@ export default defineGkdApp({
             '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
             '@ImageView[clickable=true] < FrameLayout - FrameLayout >n [text="10元免单券"]', //集卡得免单
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout >n [text="10元免单券"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
             '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
           ],
         },
