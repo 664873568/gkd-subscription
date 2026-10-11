@@ -150,8 +150,7 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          actionCd: 5000,
-          actionMaximum: 100,
+          actionCd: 15000,
           matches: [
             '@[vid="video_flow_cmp_list"] <<n * +n * [text~="再看[0-9]+个\\\\n可得红包"]',
           ],
@@ -206,8 +205,7 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          actionCd: 60000,
-          actionMaximum: 100,
+          actionCd: 15000,
           matches: [
             '@[vid="video_flow_cmp_list"] <<n * +n * [text~="再看[0-9]+秒\\\\n可得红包"]',
           ],
