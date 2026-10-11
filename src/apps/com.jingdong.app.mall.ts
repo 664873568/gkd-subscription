@@ -362,7 +362,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4,211],
+          preKeys: [0, 4, 211],
           key: 4,
           action: 'back',
           actionDelay: 11000,
@@ -730,7 +730,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [2,3, 9],
+          preKeys: [2, 3, 9],
           key: 1,
           matches: ['@View[clickable=true] > View > [text~="[1-9][0-9]*"]'],
         },
@@ -764,7 +764,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['@View[clickable=true] > View > [text~="[1-9][0-9]*"]'],
+          excludeMatches: [
+            '@View[clickable=true] > View > [text~="[1-9][0-9]*"]',
+          ],
           matches: [
             '[text="逛10秒，开最高188元盲盒礼包！"] + @[text="立即开"][clickable=true]',
           ],
@@ -800,7 +802,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [4,5],
+          preKeys: [4, 5],
           key: 0,
           excludeMatches: ['@View[clickable=true] > View > [text="0*"]'],
           matches: [
@@ -821,7 +823,7 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).text="03e62ee40ce952ef.png!q50"] +n [text="规则"] + TextView + @TextView[clickable=false]',
           ],
-        }
+        },
       ],
     },
     //26.04.01-27.03.31 京东秒杀-天天领豆
