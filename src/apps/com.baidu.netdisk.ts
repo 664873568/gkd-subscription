@@ -754,7 +754,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 8,
+          key: 9,
           name: '查看详情-×',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="查看详情" || text^="扭动或点击" || text="立即打开"]',
@@ -1224,6 +1224,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           name: '领取奖励',
+          actionDelay: 5000,
           matches: [
             '[vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
