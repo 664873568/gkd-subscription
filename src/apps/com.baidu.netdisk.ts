@@ -602,6 +602,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            '@[text~="点击广告拿奖励|立即秒杀"] <<n * [text="点击广告，即可获得奖励"]',
+          ],
           matches: [
             '[text~=".*[0-9]+ 秒.*"] + [text="提前拿奖励"] + * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
@@ -613,9 +616,12 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          excludeMatches: [
+            '@[text~="点击广告拿奖励|立即秒杀"] <<n * [text="点击广告，即可获得奖励"]',
+          ],
           actionDelay: 1000,
           matches: [
-            'ImageView[width=height] < @FrameLayout + * [text*="微信"][index=parent.childCount.minus(1)]', //恭喜获得奖励
+            'ImageView[index=parent.childCount.minus(1)][width=height] < @FrameLayout <n * <n * <n * [text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -715,27 +721,34 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          actionDelay: 1000,
+          name: '放弃直播福利',
           matches: [
-            'ImageView[width=height] < @FrameLayout <<n * [text="恭喜获得奖励"]',
+            '@[text="放弃直播福利"] <n FrameLayout <n * [text="恭喜获得奖励"]',
           ],
         },
         {
           key: 5,
+          actionDelay: 1000,
+          matches: [
+            'ImageView[index=parent.childCount.minus(1)][width=height] < @FrameLayout <n * <n * <n * [text="恭喜获得奖励"]',
+          ],
+        },
+        {
+          key: 6,
           name: '打开/完成App，即可获得奖励',
           matches: [
             '[getChild(0).getChild(0).text^="打开App"] - * @[text*="第三方应用"][index=parent.childCount.minus(1)]',
           ],
         },
         {
-          preKeys: [5],
-          key: 6,
+          preKeys: [6],
+          key: 7,
           matches: [
             '[id="forRemHack"] + [id="root"] >n @View[clickable=true] > [text~="安装应用|点击下载"]',
           ],
         },
         {
-          key: 7,
+          key: 8,
           matches: [
             'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="查看详情" || text="立即下载"]',
           ],
