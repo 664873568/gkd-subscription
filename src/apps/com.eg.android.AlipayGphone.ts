@@ -95,7 +95,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 1,
           matches: [
             '[id="app"] + View > View > TextView + View > View > @TextView[clickable=true]',
@@ -250,9 +250,7 @@ export default defineGkdApp({
             left: 'width * 0.4',
             top: 'height * 0.895',
           },
-          matches: [
-            'Dialog > View > View > View > View + View + TextView',
-          ],
+          matches: ['Dialog > View > View > View > View + View + TextView'],
         },
       ],
     },
@@ -273,14 +271,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           matches: [
             '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           action: 'back',
           actionDelay: 5000,
@@ -343,7 +341,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 3,
           matches: [
             '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
@@ -409,7 +407,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 3,
           action: 'back',
           actionDelay: 5000,
@@ -589,7 +587,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           actionDelay: 5000,
           matches: [
@@ -597,7 +595,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -1463,7 +1461,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,4],
+          preKeys: [3, 4],
           key: 4,
           excludeMatches: [
             '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次许愿星"]',
@@ -1474,7 +1472,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,5],
+          preKeys: [4, 5],
           key: 5,
           action: 'back',
           matches: [
@@ -1549,7 +1547,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,4],
+          preKeys: [3, 4],
           key: 4,
           excludeMatches: [
             '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次许愿星"]',
@@ -1560,7 +1558,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,5],
+          preKeys: [4, 5],
           key: 5,
           action: 'back',
           matches: [
