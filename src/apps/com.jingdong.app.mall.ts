@@ -310,6 +310,7 @@ export default defineGkdApp({
     //26.03.15-27.05.31 便宜包邮-天天砸金蛋
     //https://pro.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
     {
+      scopeKeys: [211],
       key: 50,
       name: '天天砸金蛋-去完成',
       forcedTime: 60000,
@@ -361,7 +362,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4],
+          preKeys: [0, 4,211],
           key: 4,
           action: 'back',
           actionDelay: 11000,
@@ -729,7 +730,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [2, 9],
+          preKeys: [2,3, 9],
           key: 1,
           matches: ['@View[clickable=true] > View > [text~="[1-9][0-9]*"]'],
         },
@@ -738,6 +739,13 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '[getChild(1).getChild(0).text="再抽一次"] + @View[clickable=true] > View > Image',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 3,
+          matches: [
+            '[getChild(childCount.minus(1)).text="开心收下"] + @Button[clickable=true]',
           ],
         },
       ],
@@ -756,7 +764,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: ['@View[clickable=true] > View > [text="0*"]'],
+          excludeMatches: ['@View[clickable=true] > View > [text~="[1-9][0-9]*"]'],
           matches: [
             '[text="逛10秒，开最高188元盲盒礼包！"] + @[text="立即开"][clickable=true]',
           ],
@@ -776,6 +784,44 @@ export default defineGkdApp({
             '[text="任务完成，快去领取盲盒奖励吧！"] + @[text="点击领取"][clickable=true]',
           ],
         },
+      ],
+    },
+    {
+      scopeKeys: [70],
+      key: 65,
+      name: '月光宝盒-京东秒杀',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          preKeys: [4,5],
+          key: 0,
+          excludeMatches: ['@View[clickable=true] > View > [text="0*"]'],
+          matches: [
+            'RecyclerView > @ViewGroup[clickable=true] > [text="月黑风高"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="月黑风高"] >n @View[clickable=true] > [text="075e15f06e18eb7f.png!q50"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          name: '赚次数',
+          matches: [
+            '[getChild(0).text="03e62ee40ce952ef.png!q50"] +n [text="规则"] + TextView + @TextView[clickable=false]',
+          ],
+        }
       ],
     },
     //26.04.01-27.03.31 京东秒杀-天天领豆
@@ -891,8 +937,14 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          matches: [
+            '[text="互动游戏"] >n @TextView[clickable=true] + * View[clickable=true] > [text="我知道了"]',
+          ],
+        },
+        {
+          key: 3,
           excludeMatches: [
-            '[text="互动游戏"] >n TextView[clickable=true] + * View[clickable=true] > [text~="立即签到|明天继续"]',
+            '[text="互动游戏"] >n TextView[clickable=true] + * View[clickable=true] > [text~="立即签到|明天继续|我知道了"]',
             '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="参加.*|通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
           ],
           matches: [
@@ -1202,6 +1254,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          key: 211,
           matches: [
             'Dialog > [getChild(0).text="今日限时福利"] + @Button[text=""][clickable=true]',
           ],
