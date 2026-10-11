@@ -1502,7 +1502,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5,6],
+          preKeys: [5, 6],
           key: 7,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="已选择 1 道题目"] +n @[desc="录入错题"][clickable=true]',
