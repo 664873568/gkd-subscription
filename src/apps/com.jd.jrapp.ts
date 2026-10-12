@@ -2201,7 +2201,7 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
-          name: '恭喜获得-开心收下-×',
+          name: '解锁奖池-立即抽奖-×',
           matches: [
             '[text="京9黄金节"] >n TextView + View > View > TextView + @TextView[clickable=true] + View + TextView[clickable=true] + TextView',
           ],
