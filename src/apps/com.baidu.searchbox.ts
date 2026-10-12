@@ -53,7 +53,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.lightbrowser.ImmerseBrowserActivity'],
+      activityIds: [
+        '.lightbrowser.ImmerseBrowserActivity',
+        '.lightbrowser.ImmerseBrowserSingleTaskActivity',
+      ],
       rules: [
         {
           key: 0,
