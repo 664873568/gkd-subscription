@@ -1441,7 +1441,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 2,
           excludeMatches: [
-            '[id="feeds"] > View > [text^="滑动浏览商品，寻找[0-9]+次"]',
+            '[id="feeds"] > View > [text^="滑动浏览商品，寻找"]',
           ],
           action: 'back',
           actionDelay: 2000,
@@ -1454,7 +1454,7 @@ export default defineGkdApp({
         {
           key: 3,
           excludeMatches: [
-            '[id="feeds"] > View > [text^="滑动浏览商品，寻找[0-9]+次"]',
+            '[id="feeds"] > View > [text^="滑动浏览商品，寻找"]',
           ],
           action: 'back',
           actionDelay: 5000,
@@ -1464,7 +1464,7 @@ export default defineGkdApp({
           preKeys: [3, 4],
           key: 4,
           excludeMatches: [
-            '[id="feeds"] > View > [text^="滑动浏览商品，寻找[0-9]+次"]',
+            '[id="feeds"] > View > [text^="滑动浏览商品，寻找"]',
           ],
           action: 'back',
           actionCd: 100,
