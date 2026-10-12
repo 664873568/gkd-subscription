@@ -924,7 +924,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [0, 3],
-          key: 3,
+          key: 2,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
           ],
@@ -936,7 +936,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
         {
-          key: 4,
+          key: 3,
           action: 'clickCenter',
           matches: [
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text="73d4ea791bcfd553.png!q70"]',
@@ -1091,7 +1091,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [0],
-          key: 1,
+          key: 2,
           matches: [
             '[text="个商品"] -n [text="点"] <<n * View[index=0][childCount=10] > View[index=1] >n @[getChild(0).getChild(0).text="image"][clickable=true]',
           ],
