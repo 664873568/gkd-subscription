@@ -637,7 +637,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text~="点击跳转拿奖励\\([0-9]+s\\)"][clickable=true] <<n * + * [text="立即获取"] <<n * + * [desc="skip_button"] [text="跳过"]',
+            '@[text~="点击跳转拿奖励\\\\([0-9]+s\\\\)"][clickable=true] <<n * + * [text="立即获取"] <<n * + * [desc="skip_button"] [text="跳过"]',
             '@[text~="点击跳转拿奖励|点击下载拿奖励"][clickable=true] <<n * + * [getChild(1).text~="看[0-9]+秒可直接拿奖励"] + [desc="skip_button"] [text="跳过"]',
           ],
         },
