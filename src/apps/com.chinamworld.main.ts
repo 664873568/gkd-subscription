@@ -107,8 +107,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '[id="app"] >n View[getChild(0).name$="ImageButton"] + @TextView[clickable=true]',
+            '[id="app"] >n [text="公告"] + @TextView[clickable=true] +n TextView[clickable=true]',
             '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
           ],
           activityIds: [
