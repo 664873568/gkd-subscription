@@ -1595,13 +1595,12 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [220],
       key: 229,
       name: '最新AI功能-×',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      resetMatch: 'activity',
+      resetMatch: 'match',
       rules: [
         {
           key: 1,
@@ -1616,7 +1615,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 10000,
           matches: [
-            '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"][clickable=true]',
+            '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @ImageView[clickable=true] < LinearLayout < [vid="ocr_title_bar"]',
           ],
         },
       ],
