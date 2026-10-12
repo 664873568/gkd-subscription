@@ -290,7 +290,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="我要加速领奖"] <n @RelativeLayout[clickable=true] <n * <n * [text="跳过"]',
+            '[text="跳过"] <n * @RelativeLayout[clickable=true] > [text="我要加速领奖"]',
           ],
         },
         {
@@ -302,29 +302,23 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            '[text="确认要放弃本次加速机会吗？"] +n @[text="残忍离开"][clickable=true]',
+            '[text="该视频提到的内容是"] +n RelativeLayout > @[text="番茄音乐（原"][clickable=true]',
           ],
         },
         {
           key: 3,
           matches: [
-            '[text="该视频提到的内容是"] +n RelativeLayout > @[text="番茄音乐（原"][clickable=true]',
+            '@[text="跳过"][clickable=true] <n RelativeLayout >n [text="已领取奖励"]',
           ],
         },
         {
           key: 4,
           matches: [
-            '@[text="跳过"][clickable=true] <n RelativeLayout >n [text="已领取奖励"]',
-          ],
-        },
-        {
-          key: 5,
-          matches: [
             '@ImageView[clickable=true] - RelativeLayout > RelativeLayout > ImageView + [text="已领取奖励"]',
           ],
         },
         {
-          key: 6,
+          key: 5,
           matches: ['@ImageView[clickable=true] - * [text="0s后可领取奖励"]'],
         },
       ],
