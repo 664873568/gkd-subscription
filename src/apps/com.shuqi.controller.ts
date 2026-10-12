@@ -32,7 +32,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[id￥="ms_skipView"] + LinearLayout > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
+            '[id$="ms_skipView"] + LinearLayout > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
           ],
           activityIds: ['com.shuqi.home.MainActivity'],
         },
