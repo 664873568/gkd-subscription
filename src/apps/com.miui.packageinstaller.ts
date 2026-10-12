@@ -6,13 +6,14 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '频繁安装应用',
+      name: '频繁安装',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
             '@[text="取消"][clickable=true] - [text="验证"] < [vid="buttonPanel"] - * [text$="频繁安装应用"][vid="title"]',
           ],
@@ -24,15 +25,16 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '百度网盘-禁止安装',
+      name: '禁止安装',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
-            '@[text="禁止安装"][clickable=true] <n [vid="buttonPanel"] - * [text="百度网盘"][vid="app_title"]',
+            '@[text="禁止安装"][clickable=true] - [text="允许"] < [vid="buttonPanel"] - * [vid="app_title"]',
           ],
           activityIds: [
             'com.miui.packageInstaller.NewInstallerPrepareActivity',
@@ -42,7 +44,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '飞猪旅行-禁止安装',
+      name: '允许安装',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -50,28 +52,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 10000,
+          actionDelay: 3000,
           matches: [
-            '@[text="禁止安装"][clickable=true] <n [vid="buttonPanel"] - * [text="飞猪旅行"][vid="app_title"]',
-          ],
-          activityIds: [
-            'com.miui.packageInstaller.NewInstallerPrepareActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 3,
-      name: '喜马拉雅-安装应用',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="允许"][clickable=true] < [vid="buttonPanel"] - * [text="酷我音乐"][vid="app_title"]',
+            '[text="禁止安装"] - @[text="允许"][clickable=true] < [vid="buttonPanel"] - * [text="百度网盘" || text="飞猪旅行" || text="喜马拉雅"][vid="app_title"]',
           ],
           activityIds: [
             'com.miui.packageInstaller.NewInstallerPrepareActivity',
@@ -90,7 +73,9 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          matches: ['@[text="完成"][vid="start_button"][clickable=true]'],
+          matches: [
+            '@[text="完成"][vid="start_button"][clickable=true] + [text="打开"][vid="end_button"]',
+          ],
           activityIds: [
             'com.miui.packageInstaller.ui.normalmode.InstallProgressActivity',
           ],
