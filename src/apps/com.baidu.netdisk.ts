@@ -1654,7 +1654,7 @@ export default defineGkdApp({
           key: 1,
           name: '浏览书城小说30s',
           anyMatches: [
-            'ViewGroup > [vid="iv_close"] + ViewGroup > @[vid="gif_lottie_view"][clickable=true] +n [text="任务完成"][vid="tv_title"]',
+            '[text="任务完成"][vid="tv_title"] -n @[vid="gif_lottie_view"][clickable=true] < ViewGroup - [vid="iv_close"] < ViewGroup',
             '[vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: [
