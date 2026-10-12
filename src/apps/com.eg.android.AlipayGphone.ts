@@ -1398,7 +1398,7 @@ export default defineGkdApp({
     },
     {
       key: 201,
-      name: '飞猪旅行-找10次抽奖券',
+      name: '飞猪旅行-找10次抽奖券/寻找10枚许愿星',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1408,10 +1408,11 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text="下滑寻找可获得更多「扭蛋券」"]',
+            '[id="feeds"] > View > [text^="下滑寻找可获得更多"]',
           ],
-          matches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > [id="feeds-area"] > [id^="macy-container"] > View > View[clickable=true] > @[text="点我领奖励"]',
+          anyMatches: [
+            '[id="feeds"] > [id="feeds-area"] > [id^="macy-container"] > View > View[clickable=true] > @[text="点我领奖励"]',
+            '[id="feeds"] > [id^="macy-container"] > View > View[clickable=true] > View > @[text="点我领奖励"]',
           ],
         },
         {
@@ -1423,23 +1424,24 @@ export default defineGkdApp({
             },
             end: {
               x: 'screenWidth*0.5',
-              y: 'screenHeight*0.25',
+              y: 'screenHeight*0.45',
             },
-            duration: 500,
+            duration: 200,
           },
-          actionCd: 3000,
-          matches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > @[id="feeds"] > [id="feeds-area"] > [id^="macy-container"]',
+          actionCd: 5000,
+          anyMatches: [
+            'View > @[id="feeds"] > [id="feeds-area"] > [id^="macy-container"]',
+            'View > @[id="feeds"] > [id^="macy-container"]',
           ],
           excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text="下滑寻找可获得更多「扭蛋券」"]',
+            '[id="feeds"] > View > [text^="下滑寻找可获得更多"]',
           ],
         },
         {
-          preKeys: [0, 2],
+          preKeys: [0,1, 2],
           key: 2,
           excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次抽奖券"]',
+            '[id="feeds"] > View > [text^="滑动浏览商品，寻找[0-9]+次"]',
           ],
           action: 'back',
           actionDelay: 2000,
@@ -1452,117 +1454,33 @@ export default defineGkdApp({
         {
           key: 3,
           excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次抽奖券"]',
+            '[id="feeds"] > View > [text^="滑动浏览商品，寻找[0-9]+次"]',
           ],
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text="下滑寻找可获得更多「扭蛋券」"]',
+            '[id="feeds"] > View > [text^="下滑寻找可获得更多"]',
           ],
         },
         {
           preKeys: [3, 4],
           key: 4,
           excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次许愿星"]',
+            '[id="feeds"] > View > [text^="滑动浏览商品，寻找[0-9]+次"]',
           ],
           action: 'back',
+          actionCd: 100,
           matches: [
-            '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
+            '[id="feeds"] > View > [text^="下滑寻找可获得更多"]',
           ],
         },
         {
           preKeys: [4, 5],
           key: 5,
           action: 'back',
+          actionCd: 100,
           matches: [
-            '[desc="首页"] < FrameLayout[clickable=true] < TabWidget[id="android:id/tabs"]',
-          ],
-          activityIds: ['.AlipayLogin'],
-        },
-      ],
-    },
-    {
-      key: 202,
-      name: '飞猪旅行-寻找10枚许愿星',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
-          ],
-          matches: [
-            '[id="wishingStar"] +n View > [id="feeds"] > [id^="macy-container"] > View > View[clickable=true] > View > @[text="点我领奖励"]',
-          ],
-        },
-        {
-          key: 1,
-          swipeArg: {
-            start: {
-              x: 'screenWidth*0.5',
-              y: 'screenHeight*0.75',
-            },
-            end: {
-              x: 'screenWidth*0.5',
-              y: 'screenHeight*0.25',
-            },
-            duration: 500,
-          },
-          actionCd: 3000,
-          matches: [
-            '[id="wishingStar"] +n View > @[id="feeds"] > [id^="macy-container"]',
-          ],
-          excludeMatches: [
-            '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
-          ],
-        },
-        {
-          preKeys: [0, 2],
-          key: 2,
-          excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次许愿星"]',
-          ],
-          action: 'back',
-          actionDelay: 2000,
-          anyMatches: [
-            '@[desc="返回"][clickable=true] < [id$="h5_tf_nav_ly"]',
-            '@[desc="返回"][clickable=true] > [id$="auiconView_backButton"] > [text=""]',
-            '[id$="frameLayout_rightButton1"] >n [desc="更多"] +n @[desc="关闭"][clickable=true] > [text=""]',
-          ],
-        },
-        {
-          key: 3,
-          excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次许愿星"]',
-          ],
-          action: 'back',
-          actionDelay: 5000,
-          matches: [
-            '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
-          ],
-        },
-        {
-          preKeys: [3, 4],
-          key: 4,
-          excludeMatches: [
-            '[getChild(2).id="gashapon_machine_game"] + View > [id="feeds"] > View > [text~="滑动浏览商品，寻找[0-9]+次许愿星"]',
-          ],
-          action: 'back',
-          matches: [
-            '[id="wishingStar"] +n View > [id="feeds"] > View > [text="下滑寻找可获得更多许愿星"]',
-          ],
-        },
-        {
-          preKeys: [4, 5],
-          key: 5,
-          action: 'back',
-          matches: [
-            '[desc="首页"] < FrameLayout[clickable=true] < TabWidget[id="android:id/tabs"]',
+            '[vid="launcher_holder"] >n TabWidget[id="android:id/tabs"] > FrameLayout[clickable=true] > [desc="首页"]',
           ],
           activityIds: ['.AlipayLogin'],
         },
