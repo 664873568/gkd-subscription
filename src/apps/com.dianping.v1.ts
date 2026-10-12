@@ -4,9 +4,10 @@ export default defineGkdApp({
   id: 'com.dianping.v1',
   name: '大众点评',
   groups: [
+    //26.01.12起 点金币
     {
       key: 0,
-      name: '签到领金币',
+      name: '点金币-每日签到',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -16,33 +17,23 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'clickCenter',
-          anyMatches: [
-            'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
-            '@FrameLayout[clickable=true] > [text="今日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
+          matches: [
+            'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
-          action: 'clickCenter',
-          anyMatches: [
-            'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
-            '@ImageView[clickable=true] -n [getChild(2).getChild(1).getChild(0).text~="额外送你[0-9]00金币奖励～"]',
-          ],
-        },
-        {
-          key: 2,
           name: '三餐奖励',
           action: 'clickCenter',
           matches: [
-            '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
+            '@FrameLayout[clickable=true] > [text~="今日.*餐奖励"] - FrameLayout > [text="必得"]',
           ],
         },
       ],
     },
     {
       key: 1,
-      name: '做任务领奖励',
+      name: '点金币-做任务领奖励',
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
@@ -51,12 +42,12 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '@FrameLayout[clickable=true] > [text="今日签到" || text$="奖励"][index=parent.childCount.minus(1)]',
+            'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
           ],
           action: 'clickCenter',
           actionDelay: 2000,
           matches: [
-            '@FrameLayout[clickable=true] > [text!~="明日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
+            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
@@ -78,7 +69,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '日常任务-去完成',
+      name: '点金币-做任务领奖励-去完成',
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
@@ -130,8 +121,103 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
-      name: '开宝箱得金币',
+      key: 9,
+      name: '星图金融-去大众点评赢免单',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          excludeMatches: [
+            'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
+            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得"]',
+          ],
+          action: 'clickCenter',
+          actionDelay: 5000,
+          matches: [
+            '@[getChild(0).desc="back"][width=height][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+      ],
+    },
+    //旧版本
+    {
+      key: 10,
+      name: '寻宝活动-签到领金币',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+      rules: [
+        {
+          key: 0,
+          action: 'clickCenter',
+          anyMatches: [
+            'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
+            '@FrameLayout[clickable=true] > [text="今日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          anyMatches: [
+            'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
+            '@ImageView[clickable=true] -n [getChild(2).getChild(1).getChild(0).text~="额外送你[0-9]00金币奖励～"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '三餐奖励',
+          action: 'clickCenter',
+          matches: [
+            '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '寻宝活动-做任务领奖励',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '@FrameLayout[clickable=true] > [text="今日签到" || text$="奖励"][index=parent.childCount.minus(1)]',
+          ],
+          action: 'clickCenter',
+          actionDelay: 2000,
+          matches: [
+            '@FrameLayout[clickable=true] > [text!~="明日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
+          ],
+          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          matches: [
+            '@FrameLayout[clickable=true] > ImageView + ImageView + [text="浏览完成"]',
+          ],
+          activityIds: [
+            'com.dianping.base.web.ui.NovaTitansActivity', //随Visa探英伦风情
+            'com.dianping.nova.picasso.DPPicassoBoxActivity', //浏览免费试频道//浏览当地人推荐榜
+            'com.meituan.android.mrn.container.MRNBaseActivity', //逛精选团购 享超值优惠
+            'com.meituan.android.mrnx.container.MRNXStandardActivity', //逛精选团购 享超值优惠-闪电特惠
+          ],
+        },
+      ],
+    },
+    {
+      key: 13,
+      name: '寻宝活动-开宝箱得金币',
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
@@ -191,8 +277,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
-      name: '今日累计奖励-领取',
+      key: 14,
+      name: '寻宝活动-今日累计奖励-领取',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -210,30 +296,6 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: [
             '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
-          ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
-        },
-      ],
-    },
-    {
-      key: 10,
-      name: '星图金融-去大众点评赢免单',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          excludeMatches: [
-            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
-            '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
-            '[text="做任务领奖励"] + @FrameLayout[clickable=true] > [text="查看更多任务"]',
-            '@FrameLayout[clickable=true] > [text!~="明日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
-          ],
-          action: 'clickCenter',
-          actionDelay: 5000,
-          matches: [
-            '@[getChild(0).desc="back"][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
           ],
           activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
