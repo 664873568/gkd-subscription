@@ -1666,6 +1666,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           name: '去逛逛游戏频道',
+          actionDelay: 30000,
           matches: [
             '@TextView[text=""][clickable=true] - TextView[clickable=true] < View -n * [text="游戏中心"]',
           ],
