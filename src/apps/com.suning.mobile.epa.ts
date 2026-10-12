@@ -272,7 +272,7 @@ export default defineGkdApp({
             '@ImageButton[clickable=true] < View + [getChild(0).text="红包签到"]', //参与签到赢红包
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',//[text~="猜涨跌|星灿会员|财富|基金"]
+            '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]', //[text~="猜涨跌|星灿会员|财富|基金"]
           ],
         },
       ],
@@ -329,7 +329,7 @@ export default defineGkdApp({
           anyMatches: [
             '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
             '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
-            '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]',//[text~="猜涨跌|星灿会员|财富|基金"]
+            '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]', //[text~="猜涨跌|星灿会员|财富|基金"]
           ],
         },
       ],
