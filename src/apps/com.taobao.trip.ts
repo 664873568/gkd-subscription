@@ -853,9 +853,26 @@ export default defineGkdApp({
         },
       ],
     },
-    //首页功能类
+    //功能应用类
     {
       key: 400,
+      name: '温馨提示-同意',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '[vid="privacy_tips_container"] > [text="温馨提示"][vid="privacy_dialog_title"] +n @[text="同意"][vid="btn_privacy_dialog_positive"][clickable=true]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
+    {
+      key: 401,
       name: '下载并安装-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -934,7 +951,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="能量红包"] <<n * [text="首页"]'],
+          matches: [
+            'RecyclerView > FrameLayout > LinearLayout > LinearLayout > @FrameLayout[clickable=true] > [text="能量红包"]',
+          ],
           activityIds: ['.home.HomeActivity'],
         },
       ],
