@@ -603,7 +603,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~=".*[0-9]+ 秒.*"] <n * <n * @[text*="微信"][index=parent.childCount.minus(1)]',
+            '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
         {
@@ -613,8 +613,12 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          excludeMatches: [
+            '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
+          ],
+          actionDelay: 1000,
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -718,7 +722,7 @@ export default defineGkdApp({
           key: 4,
           name: '点击下载或打开第三方应用-×',
           excludeMatches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * @[text^="奖励将于"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * [text^="奖励将于" || text="恭喜获得奖励"]',
           ],
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text^="点击" || text$="下载或打开第三方应用"]',
@@ -957,7 +961,7 @@ export default defineGkdApp({
           key: 1,
           anyMatches: [
             'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠
-            'View > View > @ImageButton[width=height][clickable=true] + TextView + ImageButton[width=height]', //任务已完成 点击去领奖-去看看会员福利日
+            'View > View > @ImageButton[clickable=true] + TextView + ImageButton', //任务已完成 点击去领奖-去看看会员福利日
           ],
         },
         {
@@ -1077,7 +1081,7 @@ export default defineGkdApp({
           anyMatches: [
             'View > View[getChild(0).text="task-close"] + @[text="lingqujiangli"][clickable=true]', //集勋章抽金条手机-去翻故事卡领大奖
             'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠-参与活动送万元相机-领取徐涛独家资料
-            'View > View > @ImageButton[width=height][clickable=true] + TextView + ImageButton[width=height]', //任务已完成 点击去领奖-去看看会员福利日
+            'View > View > @ImageButton[clickable=true] + TextView + ImageButton', //任务已完成 点击去领奖-去看看会员福利日
             'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton', //领取奖励-免费领取网盘SVIP
             '[desc="close"] - @[getChild(0).text="wenzihou"][clickable=true] < View < View - [id="app"] < WebView < WebView < [vid="content_webview"]', //去寻道砍树3次
             'View > [getChild(0).text="task-close"] + @[getChild(0).text="lingqujiangli"][clickable=true]', //奇妙赏
