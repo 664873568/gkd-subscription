@@ -1046,7 +1046,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 1,
           actionDelay: 3000,
           matches: [
@@ -1097,7 +1097,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           name: '点击领取*京豆',
           matches: [
