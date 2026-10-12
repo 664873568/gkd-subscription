@@ -291,7 +291,7 @@ export default defineGkdApp({
           key: 2,
           name: '我要更快拿奖-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * @[text="我要更快拿奖"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * FrameLayout > @[text="我要更快拿奖"]',
           ],
         },
         {
@@ -314,6 +314,7 @@ export default defineGkdApp({
           name: '点击下载或打开第三方应用-×',
           excludeMatches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * @[text^="奖励将于"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * @[text="我要更快拿奖"]',
           ],
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text^="点击" || text$="下载或打开第三方应用"]',
