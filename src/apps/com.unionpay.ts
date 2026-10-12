@@ -7,15 +7,11 @@ export default defineGkdApp({
     {
       key: 0,
       name: 'U惠湖北-×',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
-      activityIds: [
-        '.liteapp.app.UPLiteAppActivity1',
-        '.liteapp.app.UPLiteAppActivity2',
-        '.liteapp.app.UPLiteAppActivity3',
-      ],
+      activityIds: ['.liteapp.app.UPLiteAppActivity'],
       rules: [
         {
           matches: [
@@ -27,14 +23,11 @@ export default defineGkdApp({
     {
       key: 1,
       name: '玩转中心',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        '.liteapp.app.UPLiteAppActivity1',
-        '.liteapp.app.UPLiteAppActivity2',
-        '.liteapp.app.UPLiteAppActivity3',
-      ],
+      activityIds: ['.liteapp.app.UPLiteAppActivity'],
       rules: [
         {
           key: 0,
@@ -68,6 +61,23 @@ export default defineGkdApp({
           key: 4,
           matches: [
             '[id="root-router-view"] > View > View > TextView + @TextView[clickable=true]', //点亮商铺 全国排名赛最高赢300元立减券-立即参加-×
+          ],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 40,
+      name: '用户隐私授权提示-同意',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['.liteapp.app.UPLiteAppActivity'],
+      rules: [
+        {
+          matches: [
+            '[text="用户隐私授权提示"][vid="tv_dialog_title"] < [vid="view_dialog_title_container"] +n [vid="view_dialog_btn_container"] > [text="拒绝"][vid="btn_cancel"] + @[text="同意"][vid="btn_ok"][clickable=true]',
           ],
         },
       ],
