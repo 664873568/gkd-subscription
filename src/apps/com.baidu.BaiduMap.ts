@@ -1021,9 +1021,7 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 1000,
-          matches: [
-            '@ImageView[clickable=true] <n * [text="恭喜获得奖励！"]',
-          ],
+          matches: ['@ImageView[clickable=true] <n * [text="恭喜获得奖励！"]'],
         },
       ],
     },
