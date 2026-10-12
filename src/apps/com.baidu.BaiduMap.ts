@@ -92,8 +92,8 @@ export default defineGkdApp({
           key: 0,
           excludeMatches: [
             '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
-            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
-            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] +n [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{1,}"] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(0).getChild(0).text~="[0-9]{3,}"][index=0] > [text="待领取"]',
+            '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] +n [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
             '[id="J-watchVideo"] > @[text="赚金币"][clickable=true] + View > [getChild(1).text~="第[0-9]+个"] + [getChild(0).getChild(0).text~="[0-9]{3,}"] > [text="待领取"]',
             '[getChild(0).text="恭喜获得任务奖励"] +n @TextView[index=parent.childCount.minus(1)][clickable=true]',
             '[getChild(0).getChild(0).text="恭喜获得"] +n View > @View[clickable=true] > [text="我知道了"]',
