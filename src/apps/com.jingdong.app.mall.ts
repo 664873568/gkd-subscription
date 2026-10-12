@@ -228,7 +228,7 @@ export default defineGkdApp({
           actionMaximum: 2,
           action: 'back',
           matches: [
-            '@View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
+            '@[name$="View" || name$="Button"][clickable=true] < View < View < View < View <n View < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
           ],
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
@@ -404,7 +404,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 11000,
           matches: [
-            '@View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
+            '@[name$="View" || name$="Button"][clickable=true] < View < View < View < View <n View < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
           ],
         },
         {
@@ -433,7 +433,7 @@ export default defineGkdApp({
         },
         {
           key: 11,
-          actionDelay: 6000,
+          action: 'clickCenter',
           matches: [
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text="JoyAI"]',
           ],
@@ -830,7 +830,7 @@ export default defineGkdApp({
     //https://pro.m.jd.com/mall/active/43mNbs4F53FUMVin65VHVYYKB94f/index.html
     {
       key: 70,
-      name: '天天领豆-幸运奖励',
+      name: '京东秒杀-幸运奖励',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -889,6 +889,227 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '[id="signView_main_portal"] - * [getChild(2).text="秒后自动关闭"] +n @TextView[clickable=true]',
+          ],
+        },
+      ],
+    },
+    //https://pro.m.jd.com/mall/active/LXrBwmgGwkJs5GpTLn9qh2vhpeC/index.html
+    {
+      key: 71,
+      name: '天天领豆-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.WebActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          anyMatches: [
+            '[getChild(1).desc="关闭"] > [getChild(1).text!~=".*参与.*|.*通关.*"] > TextView + @Button[desc~=".*去浏览|.*去完成"][clickable=true]',
+            '[getChild(1).text="关闭"] > [getChild(1).text!~=".*参与.*|.*通关.*"] > TextView + @Button[text~=".*去浏览|.*去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 1,
+          action: 'clickCenter',
+          matches: [
+            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+          ],
+        },
+        {
+          preKeys: [0, 3],
+          key: 3,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            '@[desc="返回"][clickable=true] <n RelativeLayout < RelativeLayout[clickable=true]',
+          ],
+          activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
+        },
+        {
+          key: 4,
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text="73d4ea791bcfd553.png!q70"]',
+          ],
+          activityIds: ['.personel.FloatViewActivity'],
+        },
+      ],
+    },
+    {
+      scopeKeys: [71],
+      key: 72,
+      name: '天天领豆-去完成-从我的-京豆访问',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.WebActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          preKeys: [0],
+          key: 1,
+          name: '前往【我的】页面',
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.68',
+          },
+          anyMatches: [
+            '@TextView[clickable=true] + [getChild(1).desc="关闭"] > [getChild(1).desc^="从我的-京豆访问"] > TextView + Button[desc^="从我的-京豆访问"]',
+            '@TextView[clickable=true] + [getChild(1).text="关闭"] > [getChild(1).text^="从我的-京豆访问"] > TextView + Button[text^="从我的-京豆访问"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            'GridView >n ViewGroup > @Button[clickable=true] > ViewGroup > [text="京豆"]',
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+      ],
+    },
+    {
+      scopeKeys: [71],
+      key: 73,
+      name: '天天领豆-去完成-访问互动游戏',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.WebActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          preKeys: [0],
+          key: 1,
+          name: '点击【我的】-互动游戏',
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.65',
+          },
+          matches: [
+            '@TextView[clickable=true] + [getChild(1).text="关闭"] > [getChild(1).text^="访问互动游戏"] > TextView + Button[text^="访问互动游戏"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            'GridView >n ViewGroup > Button > @ViewGroup[clickable=true] > ViewGroup > [text="互动游戏"]',
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '[text="互动游戏"] >n @View[clickable=true] > [text="点击返回"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 74,
+      name: '天天领豆-去刮卡',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.WebActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[getChild(1).desc="关闭"] > View > TextView + @Button[desc$="去浏览"][clickable=true]',
+            '[getChild(1).text="关闭"] > View > TextView + @Button[text$="去浏览"][clickable=true]',
+          ],
+          matches: [
+            '[getChild(1).text="关闭"] > View > TextView + @Button[text$="去刮卡"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0,1,2],
+          key: 1,
+          actionDelay: 3000,
+          matches: [
+            '[text="全部任务"] - @[text="立即刮卡"][clickable=true] - [text="秒杀领豆"] - * Button[text~=".*待刮卡.*"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[text="全部任务"][clickable=true] - [text="做任务解锁刮卡"] - [text="秒杀领豆"] - * Button[text!~=".*待刮卡.*"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 75,
+      name: '天天领豆-点*个商品',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.WebActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[text="全部任务"] - @[text="立即刮卡"][clickable=true] - [text="秒杀领豆"] - * Button[text~=".*待刮卡.*"]',
+          ],
+          matches: [
+            '[text="个商品"] -n [text="点"] <<n * View[index=0][childCount=10] > View[index=0] >n @[getChild(0).getChild(0).text="image"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="个商品"] -n [text="点"] <<n * View[index=1][childCount=10] > View[index=0] >n @[getChild(0).getChild(0).text="image"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="个商品"] -n [text="点"] <<n * View[index=0][childCount=10] > View[index=1] >n @[getChild(0).getChild(0).text="image"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1,2],
+          key: 3,
+          name: '点击领取*京豆',
+          matches: [
+            '[text="京豆"] -n [text="点击领取"] < View < View - [text="图片"]  < View < @View[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          name: '恭喜你获得奖励-我知道了-×',
+          matches: [
+            '@TextView[clickable=true] + [text~="[0-9]+"] + [text="京豆"] + [text="我知道了"]',
           ],
         },
       ],
@@ -1000,6 +1221,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 3],
           key: 3,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
           action: 'back',
           actionDelay: 6000,
           matches: [
