@@ -266,7 +266,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 5000,
+          actionDelay: 3000,
           matches: [
             '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"]',
           ],
