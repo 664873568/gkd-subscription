@@ -1471,7 +1471,7 @@ export default defineGkdApp({
           matches: ['[id="feeds"] > View > [text^="下滑寻找可获得更多"]'],
         },
         {
-          preKeys: [4, 5],
+          preKeys: [3,4, 5],
           key: 5,
           action: 'back',
           actionCd: 100,
