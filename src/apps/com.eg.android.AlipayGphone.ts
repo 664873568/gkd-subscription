@@ -156,7 +156,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          exclueMatches: [
+          excludeMatches: [
             '@[text="我知道了"][clickable=true] <n * + View[clickable=true] > Image',
             '@[name$="View"][clickable=true] < [id="app"] <n [text="悬浮球模版"] < WebView <n [desc*="180020570000041693"] < FrameLayout <n [id="android:id/content"]',
           ],
