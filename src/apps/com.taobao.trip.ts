@@ -750,6 +750,7 @@ export default defineGkdApp({
           actionDelay: 15000,
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
         },
         {
           key: 2,
