@@ -101,7 +101,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="用户协议及隐私政策"] +n * @LinearLayout[clickable=true] > [text="同意并进入"]',
+            '[text~="欢迎使用快影|用户协议及隐私政策"] +n [text="不同意"] - * @LinearLayout[clickable=true] > [text="同意并进入"]',
           ],
           activityIds: ['.activity.MainActivity'],
         },
