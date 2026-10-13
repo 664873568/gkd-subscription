@@ -1631,7 +1631,7 @@ export default defineGkdApp({
     },
     {
       key: 401,
-      name: '编辑首页服务-取消',
+      name: '获取你剪切板的内容-拒绝',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
