@@ -199,8 +199,30 @@ export default defineGkdApp({
       activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
       rules: [
         {
+          key: 0,
           matches: [
             '[id="follow-signin-business-floor"] > View > @[text="签到得卡"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 22,
+          matches: [
+            '[text="每日签到"] >n [text="已连签"] +n @Image[width=height][clickable=true][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 222,
+          position: {
+            left: 'width * 0.935',
+            top: 'height * 0.153',
+          },
+          matches: [
+            'FrameLayout > LinearLayout + @FrameLayout[clickable=true] + View + [id="android:id/navigationBarBackground"]',
+          ],
+          excludeMatches: [
+            '[text="每日签到"] >n [text="已连签"] +n @Image[width=height][clickable=true][clickable=true]',
           ],
         },
       ],
@@ -221,14 +243,13 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 1,
           excludeMatches: ['[text="每日签到"] >n [text="赚更多汪贝"]'],
           actionDelay: 6000,
-          actionMaximum: 2,
           action: 'back',
           matches: [
-            '@[name$="View" || name$="Button"][clickable=true] < View < View < View < View <n View < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
+            'View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
           ],
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
@@ -273,10 +294,10 @@ export default defineGkdApp({
         },
       ],
     },
-    //25.08.01开始 天天签到抽奖
+    //25.08.01开始 京东特价-天天签到抽奖
     //https://pro.m.jd.com/mall/active/4WMAPf9VCBdEE8Rva1AVEPH7CBbj/index.html
     {
-      key: 40,
+      key: 30,
       name: '天天签到抽奖-逛一逛',
       forcedTime: 60000,
       matchRoot: true,
@@ -297,7 +318,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
           ],
           activityIds: [
             '.personel.FloatViewActivity',
@@ -307,10 +328,209 @@ export default defineGkdApp({
         },
       ],
     },
+    //26.01.01-26.12.31 国家补贴×超级补贴-天天领补贴
+    //https://pro.m.jd.com/mall/active/DvFPmKRas9GYjDPZjT9NT14BAv6/index.html
+    //恭喜获得惊喜福利
+    {
+      key: 40,
+      name: '天天领补贴-去完成+京豆',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.personel.FloatViewActivity',
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+        'com.jd.lib.Discovery.view.DiscoveryActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+        'com.jd.lib.productdetail.ProductDetailActivity',
+        'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
+        'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[getChild(0).getChild(1).text="规则"] + View + View > View > @[getChild(1).text!~="分享.*|邀请.*"][clickable=true] > [getChild(1).text~="\\\\+1京豆"] + [text="领取奖励"]',
+            '[text="国家补贴x超级补贴"] >n [text="开心收下"] +n @TextView[clickable=true]',
+          ],
+          actionDelay: 2000,
+          matches: [
+            '[getChild(0).getChild(1).text="规则"] + View + View > View > @[getChild(1).text!~="分享.*|邀请.*"][clickable=true] > [getChild(1).text~="\\\\+1京豆"] + [text="去看看"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
+          ],
+        },
+        {
+          key: 2,
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text~="此功能需访问京东金融APP|健康好礼限时领|图片|省钱中心"]',
+          ],
+        },
+        {
+          preKeys: [0, 3],
+          key: 3,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            '@[desc="返回"][clickable=true] <n RelativeLayout < RelativeLayout[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0, 4],
+          key: 4,
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            'ImageView < @[desc="返回"][clickable=true] + [desc="侧边栏"]',
+          ],
+        },
+        {
+          preKeys: [0, 5],
+          key: 5,
+          name: '逛看病买药频道-×',
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @ViewGroup < ViewGroup - FrameLayout > FrameLayout > ImageView[width=height]',
+          ],
+        },
+        {
+          preKeys: [0,5,6],
+          key: 6,
+          name: '逛看病买药频道-××',
+          action: 'back',
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @ViewGroup < ViewGroup + ViewGroup > ViewGroup + ViewGroup[index=parent.childCount.minus(1)]',
+          ],
+        },
+        {
+          key: 7,
+          matches: [
+            '[getChild(0).getChild(1).text="规则"] + View + View > View > @[getChild(1).text!~="分享.*|邀请.*"][clickable=true] > [getChild(1).text~="\\\\+1京豆"] + [text="领取奖励"]',
+          ],
+        },
+        {
+          key: 8,
+          matches: [
+            '[text="国家补贴x超级补贴"] >n [text="开心收下"] +n @TextView[clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '天天领补贴-去完成+抽奖机会',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.personel.FloatViewActivity',
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+        'com.jd.lib.Discovery.view.DiscoveryActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+        'com.jd.lib.productdetail.ProductDetailActivity',
+        'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
+        'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[getChild(0).getChild(1).text="规则"] + View + View > View > @[getChild(1).text!~="分享.*|邀请.*"][clickable=true] > [getChild(1).text~="\\\\+1京豆"] + [text~="去看看|领取奖励"]',
+            '[text="国家补贴x超级补贴"] >n [text="开心收下"] +n @TextView[clickable=true]',
+            '[getChild(0).getChild(1).text="规则"] + View + View > View > @[getChild(1).text!~="分享.*|邀请.*"][clickable=true] > [getChild(1).text~="\\\\+1次抽奖机会"] + [text="领取奖励"]',
+            '[text="国家补贴x超级补贴"] >n [text="开心收下"] +n @TextView[clickable=true]',
+          ],
+          actionDelay: 2000,
+          matches: [
+            '[getChild(0).getChild(1).text="规则"] + View + View > View > @[getChild(1).text!~="分享.*|邀请.*"][clickable=true] > [getChild(1).text~="\\\\+1次抽奖机会"] + [text="去看看"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
+          ],
+        },
+        {
+          key: 2,
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text~="此功能需访问京东金融APP|健康好礼限时领|图片|省钱中心"]',
+          ],
+        },
+        {
+          preKeys: [0, 3],
+          key: 3,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            '@[desc="返回"][clickable=true] <n RelativeLayout < RelativeLayout[clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0, 4],
+          key: 4,
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            'ImageView < @[desc="返回"][clickable=true] + [desc="侧边栏"]',
+          ],
+        },
+        {
+          preKeys: [0, 5],
+          key: 5,
+          name: '逛看病买药频道-×',
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @ViewGroup < ViewGroup - FrameLayout > FrameLayout > ImageView[width=height]',
+          ],
+        },
+        {
+          preKeys: [0,5,6],
+          key: 6,
+          name: '逛看病买药频道-××',
+          action: 'back',
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @ViewGroup < ViewGroup + ViewGroup > ViewGroup + ViewGroup[index=parent.childCount.minus(1)]',
+          ],
+        },
+        {
+          key: 7,
+          matches: [
+            '[getChild(0).getChild(1).text="规则"] + View + View > View > @[getChild(1).text!~="分享.*|邀请.*"][clickable=true] > [getChild(1).text~="\\\\+1次抽奖机会"] + [text="领取奖励"]',
+          ],
+        },
+        {
+          key: 8,
+          matches: [
+            '[text="国家补贴x超级补贴"] >n [text="去下单"] +n @TextView[clickable=true]',
+          ],
+        },
+      ],
+    },
     //26.03.15-27.05.31 便宜包邮-天天砸金蛋
     //https://pro.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
     {
-      scopeKeys: [211],
+      scopeKeys: [22,211],
       key: 50,
       name: '天天砸金蛋-去完成',
       forcedTime: 60000,
@@ -330,15 +550,15 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(0).text="规则"] + View > [getChild(1).name$="TextView"] > @[text="去完成"][clickable=true]',
+            '[getChild(0).getChild(0).text="规则"] + View > View > TextView +5 @[text="去完成"][clickable=true]',
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 1,
           action: 'clickCenter',
           matches: [
-            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
           ],
         },
         {
@@ -362,7 +582,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4, 211],
+          preKeys: [0, 4, 22,222,211],
           key: 4,
           action: 'back',
           actionDelay: 11000,
@@ -404,16 +624,15 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 11000,
           matches: [
-            '@[name$="View" || name$="Button"][clickable=true] < View < View < View < View <n View < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
+            'View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
           ],
         },
         {
           key: 8,
           action: 'back',
           actionDelay: 6000,
-          anyMatches: [
+          matches: [
             'TextView - @TextView[clickable=true] < View < View < [id="app"] < WebView < c40',
-            '@TextView[clickable=true] < View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
           ],
         },
         {
@@ -457,10 +676,12 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(0).getChild(0).text="规则"] + View > [getChild(1).name$="TextView"] > @[text="去完成"][clickable=true]',
+            '[getChild(0).getChild(0).text="规则"] + View > View > TextView +5 @[text="去完成"][clickable=true]',
             '[desc="关闭弹窗" || text="关闭弹窗"][clickable=true] + View > View > View + @TextView[clickable=true]',
           ],
-          matches: ['@[text~="砸一下\\\\(剩余[0-9]+次\\\\)"][clickable=true]'],
+          matches: [
+            '[getChild(0).getChild(0).text="规则"] + View > View > [text="提醒我每日砸蛋"] +3 @[text~="砸一下\\\\(剩余[0-9]+次\\\\)"][clickable=true]',
+          ],
         },
         {
           preKeys: [0, 1],
@@ -499,26 +720,16 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4],
+          preKeys: [0, 1],
           key: 1,
           action: 'clickCenter',
           matches: [
-            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
           ],
         },
         {
           preKeys: [0, 2],
           key: 2,
-          excludeMatches: [
-            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
-          ],
-          action: 'back',
-          actionDelay: 6000,
-          matches: ['@[desc="返回"][clickable=true] +n [desc="Top Logo"]'],
-        },
-        {
-          preKeys: [0, 3],
-          key: 3,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
           ],
@@ -530,8 +741,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4],
-          key: 4,
+          preKeys: [0, 3],
+          key: 3,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
           ],
@@ -542,6 +753,19 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0, 4],
+          key: 4,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
+          action: 'back',
+          actionDelay: 11000,
+          matches: [
+            'View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
+          ],
+        },
+        {
+          preKeys: [0, 5],
           key: 5,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
@@ -776,7 +1000,7 @@ export default defineGkdApp({
           key: 1,
           action: 'clickCenter',
           matches: [
-            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
           ],
         },
         {
@@ -891,6 +1115,13 @@ export default defineGkdApp({
             '[id="signView_main_portal"] - * [getChild(2).text="秒后自动关闭"] +n @TextView[clickable=true]',
           ],
         },
+        {
+          preKeys: [4,5],
+          key: 6,
+          matches: [
+            '[id="signView_main_portal"] > [id="beanContainer"] > View > [id="secKill_bean_sign_view"] > [id="homeSignButton"]',
+          ],
+        },
       ],
     },
     //https://pro.m.jd.com/mall/active/LXrBwmgGwkJs5GpTLn9qh2vhpeC/index.html
@@ -903,6 +1134,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: [
         '.WebActivity',
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
       ],
       rules: [
@@ -910,8 +1142,9 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           anyMatches: [
-            '[getChild(1).desc="关闭"] > [getChild(1).text!~=".*参与.*|.*通关.*"] > TextView + @Button[desc~=".*去浏览|.*去完成"][clickable=true]',
-            '[getChild(1).text="关闭"] > [getChild(1).text!~=".*参与.*|.*通关.*"] > TextView + @Button[text~=".*去浏览|.*去完成"][clickable=true]',
+            'View > [desc="关闭"] + View > TextView + @Button[desc!~="AI.*|.*已刮卡"][clickable=true]',
+            'View > [text="关闭"] + View > TextView + @Button[text!~="AI.*|.*已刮卡"][clickable=true]',
+            '[text="天天领豆"] >n TextView[clickable=true] + View > [text="浏览页面 刮卡+1次"] + @[text="去浏览"][clickable=true]',
           ],
         },
         {
@@ -919,12 +1152,20 @@ export default defineGkdApp({
           key: 1,
           action: 'clickCenter',
           matches: [
-            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
           ],
         },
         {
-          preKeys: [0, 3],
           key: 2,
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text="73d4ea791bcfd553.png!q70"]',
+          ],
+          activityIds: ['.personel.FloatViewActivity'],
+        },
+        {
+          preKeys: [0, 3],
+          key: 3,
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
           ],
@@ -936,12 +1177,36 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
         {
-          key: 3,
-          action: 'clickCenter',
-          matches: [
-            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text="73d4ea791bcfd553.png!q70"]',
+          preKeys: [0, 4],
+          key: 4,
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
           ],
-          activityIds: ['.personel.FloatViewActivity'],
+          action: 'back',
+          actionDelay: 11000,
+          matches: [
+            'View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < c40',
+          ],
+        },
+        {
+          preKeys: [0, 5],
+          key: 5,
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            'ImageView < @[desc="返回"][clickable=true] + [desc="侧边栏"]',
+          ],
+          activityIds: ['com.jd.lib.Discovery.view.DiscoveryActivity'],
+        },
+        {
+          preKeys: [0, 6],
+          key: 6,
+          name: '特价',
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            'ImageView - @[text=""][clickable=true] < LinearLayout + LinearLayout > LinearLayout > [text=""] + ViewFlipper + LinearLayout',
+          ],
         },
       ],
     },
@@ -1038,25 +1303,51 @@ export default defineGkdApp({
         {
           key: 0,
           excludeMatches: [
-            '[getChild(1).desc="关闭"] > View > TextView + @Button[desc$="去浏览"][clickable=true]',
-            '[getChild(1).text="关闭"] > View > TextView + @Button[text$="去浏览"][clickable=true]',
+            '[getChild(1).desc="关闭"] > [getChild(1).text!~=".*参与.*|.*通关.*"] > TextView + @Button[desc~=".*去浏览|.*去完成"][clickable=true]',
+            '[getChild(1).text="关闭"] > [getChild(1).text!~=".*参与.*|.*通关.*"] > TextView + @Button[text~=".*去浏览|.*去完成"][clickable=true]',
+            '[text="天天领豆"] >n TextView[clickable=true] + View > [text="浏览页面 刮卡+1次"] + @[text="去浏览"][clickable=true]',
+            '@[text="全部任务"][clickable=true] - [text="做任务解锁刮卡"] - [text="秒杀领豆"] - [getChild(0).getChild(0).getChild(0).desc!~="做任务解锁刮卡 AI.*"] >3 Button[desc^="做任务"]',
+            '@[text="全部任务"][clickable=true] - [text="做任务解锁刮卡"] - [text="秒杀领豆"] - [getChild(0).getChild(0).getChild(0).text!~="做任务解锁刮卡 AI.*"] >3 Button[text^="做任务"]',
+            '[text="天天领豆"] >n @TextView[clickable=true] - [text="做任务解锁刮卡"] - TextView - * TextView[text~=".*浏览 刮卡.*"]',
           ],
-          matches: [
+          anyMatches: [
             '[getChild(1).text="关闭"] > View > TextView + @Button[text$="去刮卡"][clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1, 2],
           key: 1,
-          actionDelay: 3000,
-          matches: [
-            '[text="全部任务"] - @[text="立即刮卡"][clickable=true] - [text="秒杀领豆"] - * Button[text~=".*待刮卡.*"]',
+          anyMatches: [
+            '@[text="全部任务"][clickable=true] - [text="做任务解锁刮卡"] - [text="秒杀领豆"] - [getChild(0).getChild(0).getChild(0).desc!~="做任务解锁刮卡 AI.*"] >3 Button[desc^="做任务"]',
+            '@[text="全部任务"][clickable=true] - [text="做任务解锁刮卡"] - [text="秒杀领豆"] - [getChild(0).getChild(0).getChild(0).text!~="做任务解锁刮卡 AI.*"] >3 Button[text^="做任务"]',
+            '[text="天天领豆"] >n @TextView[clickable=true] - [text="做任务解锁刮卡"] - TextView - * TextView[text~=".*浏览 刮卡.*"]',
           ],
         },
         {
           key: 2,
+          excludeMatches: [
+            'View > [text="关闭"] + View > TextView + @Button[text!~="AI.*|.*已刮卡"][clickable=true]',
+            'View > TextView + View > @View[clickable=true] > [text~="[0-9]秒后自动关闭"] + [desc="关闭"]',
+            '[text="天天领豆"] >n @[text="刮下一张"][clickable=true] + [text="稍后再说"]',
+            '@RelativeLayout[clickable=true] >n [text~="继续浏览[0-9]+秒|已完成"]',
+          ],
+          actionDelay: 3000,
+          anyMatches: [
+            '[desc="全部任务"] - @[desc="立即刮卡"][clickable=true] - [desc="秒杀领豆"]',
+            '[text="全部任务"] - @[text="立即刮卡"][clickable=true] - [text="秒杀领豆"]',
+            '[text="天天领豆"] >n TextView - @[text="立即刮卡"][clickable=true] - TextView',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
           matches: [
-            '@[text="全部任务"][clickable=true] - [text="做任务解锁刮卡"] - [text="秒杀领豆"] - * Button[text!~=".*待刮卡.*"]',
+            '[text="天天领豆"] >n @[text="刮下一张"][clickable=true] + [text="稍后再说"]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            'View > TextView + View > @View[clickable=true] > [text~="[0-9]秒后自动关闭"] + [desc="关闭"]',
           ],
         },
       ],
@@ -1198,7 +1489,7 @@ export default defineGkdApp({
           name: '已完成-点击立即返回',
           action: 'clickCenter',
           matches: [
-            '@RelativeLayout[clickable=true] > RelativeLayout > ImageView + LinearLayout > [getChild(0).getChild(0).text="已完成"] + [text="点击立即返回"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
           ],
           activityIds: [
             '.personel.FloatViewActivity',
@@ -1333,11 +1624,91 @@ export default defineGkdApp({
         },
       ],
     },
-    //26.08.20-26.09.16 寻鲜争霸赛 为TA投票
-    //https://pro.m.jd.com/mall/active/UCAYQxqQV3mKZNfu8bG2t8wsYog/index.html
+    //26.08.21-27.05.13 整点秒杀 抢20元金券-天天赚京豆
+    //https://pro.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
     {
       key: 100,
-      name: '寻鲜争霸赛 为TA投票',
+      name: '天天赚京豆-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.personel.FloatViewActivity',
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[getChild(1).getChild(0).text="0276054033614b7c"] + View > View > [text!~="下单抽大奖"] +4 @[text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
+          ],
+        },
+        {
+          key: 2,
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text~="此功能需访问京东金融APP|健康好礼限时领"]',
+          ],
+        },
+        {
+          preKeys: [0, 3],
+          key: 3,
+          name: '逛看病买药频道',
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < ViewGroup < ViewGroup + ViewGroup > ViewGroup + ViewGroup[index=parent.childCount.minus(1)]',
+          ],
+          activityIds: ['com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity'],
+        },
+      ],
+    },
+    {
+      key: 101,
+      name: '天天赚京豆-砸一下',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          excludeMatches: [
+            '[getChild(1).getChild(0).text="0276054033614b7c"] + View > View > [text!~="下单抽大奖"] +4 @[text="去完成"][clickable=true]',
+            '[getChild(1).text="恭喜成功获得"] +n @[getChild(0).text="02760480480fb046"][clickable=true]',
+          ],
+          matches: [
+            '[getChild(1).getChild(0).text="0276054033614b7c"] + View > View > [text="提醒我每日砸蛋"] +3 @[text~="砸一下 \\\\(剩余[1-9][0-9]*次\\\\)"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 1,
+          matches: [
+            '[getChild(1).text="恭喜成功获得"] +n @[getChild(0).text="02760480480fb046"][clickable=true]',
+          ],
+        },
+      ],
+    },
+    //26.09.16-26.10.31 「我AI我家·星主播」
+    //https://pro.m.jd.com/mall/active/2r4H8Y9vqUbjevMFZ1o5ir7XJbEg/index.html
+    {
+      key: 110,
+      name: '「我AI我家·星主播」',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1388,6 +1759,45 @@ export default defineGkdApp({
           key: 4,
           matches: [
             '[text="寻鲜争霸赛 为TA投票"] >n @[text="关闭"][clickable=true] -2 View > [text~="恭喜获得[0-9]人气值"]',
+          ],
+        },
+      ],
+    },
+    //26.10.12-26.11.11 京享红包
+    //https://u.jd.com/FDT8Var
+    {
+      key: 120,
+      name: '京享红包',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id="union-stage-info"] + View > [getChild(0).getChild(0).text="d1f261122d64036d"] > @[getChild(0).text="去完成"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 1,
+          name: '已完成-点击立即返回',
+          action: 'clickCenter',
+          matches: [
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true]',
+          ],
+          activityIds: [
+            '.personel.FloatViewActivity',
+            'com.jd.lib.babel.view.activity.BabelActivity',
+            'com.jd.lib.ttt.page.TTTMultiPageActivity',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '[id="union-stage-info"] > View[clickable=true] > View > View > @[text="4c1b204204e75dd7"]',
           ],
         },
       ],
