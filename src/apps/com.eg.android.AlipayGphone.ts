@@ -438,7 +438,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [5],
-          key: 5,
+          key: 6,
           name: '恭喜你获得1张暴击卡-去使用',
           position: {
             left: 'width * 0.5',
@@ -450,13 +450,13 @@ export default defineGkdApp({
         },
         {
           preKeys: [4],
-          key: 6,
+          key: 7,
           matches: [
             '[text="芝麻粒炼金"] > View > [id="app"] +n View > Dialog >n [text="欢迎回来"] +n @View[clickable=true] > TextView',
           ],
         },
         {
-          key: 7,
+          key: 8,
           excludeMatches: [
             '[text="芝麻粒炼金"] > [id="app"] >n @View[clickable=true] > View + [text="每次消耗5粒"] + [text~="[1-9][0-9]*"]',
           ],
@@ -465,8 +465,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2,3,7,8],
-          key: 8,
+          preKeys: [1, 2,3,8,9],
+          key: 9,
           action: 'back',
           actionDelay: 3000,
           anyMatches: [
