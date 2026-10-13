@@ -56,7 +56,7 @@ export default defineGkdApp({
             '@[desc="关闭"] <n ViewGroup - FrameLayout > [desc="游戏中心"]',
           ],
           activityIds: [
-            'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
+            'com.minigame.merge.miniapphost.placeholder.MiniGameActivity',
           ],
         },
         {
@@ -65,7 +65,7 @@ export default defineGkdApp({
           name: '退出游戏',
           matches: ['@ImageView - ViewGroup < ViewGroup - ScrollView'],
           activityIds: [
-            'com.minigame.merge.miniapphost.placeholder.MiniGameActivity0',
+            'com.minigame.merge.miniapphost.placeholder.MiniGameActivity',
           ],
         },
         {
@@ -120,7 +120,7 @@ export default defineGkdApp({
             '@ImageView[width=height] - ImageView < ViewGroup - ScrollView',
           ],
           activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
           ],
         },
       ],
@@ -140,31 +140,20 @@ export default defineGkdApp({
             left: 'width * 0.84',
             top: 'height * 0.18',
           },
-          actionDelay: 2000,
           matches: [
             'FrameLayout[height=0] + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView[width=height]',
           ],
+          excludeMatches: [
+            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * [desc="更多"] +n @[desc="关闭"][clickable=true]', //浏览行情信息
+            'FrameLayout[height=0] + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView[width=height] +n ImageView[width=height]',//签到领00
+            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[height<0]',//签到领01
+          ],
           activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
           ],
         },
         {
           key: 1,
-          name: '签到领00',
-          position: {
-            left: 'width * -0.8',
-            top: 'height * 0',
-          },
-          actionDelay: 2000,
-          matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > ViewGroup > ImageView +n @ImageView',
-          ],
-          activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
-          ],
-        },
-        {
-          key: 2,
           name: '立即签到01',
           position: {
             left: 'width * 0.5',
@@ -174,36 +163,80 @@ export default defineGkdApp({
             'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>=1] > ViewGroup',
           ],
           activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
+          ],
+        },
+        {
+          key: 2,
+          name: '签到领00',
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.8',
+          },
+          actionDelay: 2000,
+          matches: [
+            'FrameLayout[height=0] + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView[width=height] +n ImageView[width=height]',
+          ],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
           ],
         },
         {
           key: 3,
-          name: '立即签到',
-          excludeMatches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView',
+          name: '签到领01',
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.8',
+          },
+          matches: [
+            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[height<0]',
           ],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
+          ],
+        },
+        {
+          key: 4,
+          name: '立即签到',
           position: {
             left: 'width * -0.8',
             top: 'height * 0',
           },
           matches: [
-            'ScrollView > HorizontalScrollView > LinearLayout > ImageView +(-n+8) @ImageView',
+            'ScrollView > HorizontalScrollView > LinearLayout > ImageView[width=height] +(-n+8) @ImageView[width=height]',
+          ],
+          excludeMatches: [
+            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[width=height]',//签到成功 恭喜获得-开心收下
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
-          key: 4,
-          name: '开心收下',
+          preKeys: [0, 1, 2, 3,4],
+          key: 5,
+          name: '签到成功 恭喜获得-开心收下',
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
+          actionDelay: 2000,
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>=1] > ViewGroup',
+            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[width=height]',
+          ],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
+        },
+        {
+          key: 6,
+          name: '日历权限未开启-去开启',
+          position: {
+            left: 'width * 0.5',
+            top: 'height * 0.575',
+          },
+          matches: [
+            'ScrollView + ViewGroup > ViewGroup + ImageView[width=height]',
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -230,10 +263,10 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="关闭"][width=height][clickable=true]', //浏览行情信息
+            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * [desc="更多"] +n @[desc="关闭"][clickable=true]', //浏览行情信息
           ],
           activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity0',
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
           ],
         },
         {
@@ -251,7 +284,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView', //开心收下
+            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[width=height]', //开心收下
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
