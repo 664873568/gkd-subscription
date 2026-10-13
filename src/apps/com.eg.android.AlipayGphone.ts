@@ -69,7 +69,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,4,5],
+          preKeys: [3, 4, 5],
           key: 6,
           matches: [
             '[id="ppage-index-index"] >n Image - [getChild(0).text="任务完成"] > @[text="收下并继续探险"]',
@@ -200,7 +200,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -374,7 +374,7 @@ export default defineGkdApp({
     },
     //26.09.30-26.10.31 芝麻粒炼金
     {
-      scopeKeys: [400,401],
+      scopeKeys: [400, 401],
       key: 50,
       name: '芝麻粒炼金-炼金',
       forcedTime: 60000,
@@ -429,7 +429,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2,3,4,5,400,401],
+          preKeys: [1, 2, 3, 4, 5, 400, 401],
           key: 5,
           action: 'clickCenter',
           matches: [
@@ -465,7 +465,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2,3,8,9],
+          preKeys: [1, 2, 3, 8, 9],
           key: 9,
           action: 'back',
           actionDelay: 3000,
@@ -647,7 +647,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 3,
           name: '开心收下-×',
           position: {
@@ -840,7 +840,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -1625,7 +1625,9 @@ export default defineGkdApp({
           matches: [
             '[text="完成"] - @[text="取消"][clickable=true] < LinearLayout - * [text="编辑首页服务"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -1642,7 +1644,9 @@ export default defineGkdApp({
           matches: [
             '[text="允许"] - @[text="拒绝"][clickable=true] < LinearLayout - * [text="获取你剪切板的内容"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
@@ -1658,7 +1662,9 @@ export default defineGkdApp({
           matches: [
             '[text="确定"] - @[text="取消"][clickable=true] < * - * [text="更新提示"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
