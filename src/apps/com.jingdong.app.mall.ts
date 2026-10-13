@@ -243,7 +243,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           excludeMatches: ['[text="每日签到"] >n [text="赚更多汪贝"]'],
           actionDelay: 6000,
@@ -406,7 +406,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,5,6],
+          preKeys: [0, 5, 6],
           key: 6,
           name: '逛看病买药频道-××',
           action: 'back',
@@ -505,7 +505,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,5,6],
+          preKeys: [0, 5, 6],
           key: 6,
           name: '逛看病买药频道-××',
           action: 'back',
@@ -530,7 +530,7 @@ export default defineGkdApp({
     //26.03.15-27.05.31 便宜包邮-天天砸金蛋
     //https://pro.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
     {
-      scopeKeys: [22,211],
+      scopeKeys: [22, 211],
       key: 50,
       name: '天天砸金蛋-去完成',
       forcedTime: 60000,
@@ -554,7 +554,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           action: 'clickCenter',
           matches: [
@@ -582,7 +582,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4, 22,222,211],
+          preKeys: [0, 4, 22, 222, 211],
           key: 4,
           action: 'back',
           actionDelay: 11000,
@@ -1116,7 +1116,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,5],
+          preKeys: [4, 5],
           key: 6,
           matches: [
             '[id="signView_main_portal"] > [id="beanContainer"] > View > [id="secKill_bean_sign_view"] > [id="homeSignButton"]',
@@ -1670,7 +1670,9 @@ export default defineGkdApp({
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < ViewGroup < ViewGroup + ViewGroup > ViewGroup + ViewGroup[index=parent.childCount.minus(1)]',
           ],
-          activityIds: ['com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity'],
+          activityIds: [
+            'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
+          ],
         },
       ],
     },
@@ -1681,9 +1683,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.jd.lib.ttt.page.TTTMultiPageActivity',
-      ],
+      activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
       rules: [
         {
           key: 0,
