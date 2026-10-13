@@ -145,8 +145,8 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * [desc="更多"] +n @[desc="关闭"][clickable=true]', //浏览行情信息
-            'FrameLayout[height=0] + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView[width=height] +n ImageView[width=height]',//签到领00
-            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[height<0]',//签到领01
+            'FrameLayout[height=0] + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView[width=height] +n ImageView[width=height]', //签到领00
+            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[height<0]', //签到领01
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
@@ -206,14 +206,14 @@ export default defineGkdApp({
             'ScrollView > HorizontalScrollView > LinearLayout > ImageView[width=height] +(-n+8) @ImageView[width=height]',
           ],
           excludeMatches: [
-            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[width=height]',//签到成功 恭喜获得-开心收下
+            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[width=height]', //签到成功 恭喜获得-开心收下
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
           ],
         },
         {
-          preKeys: [0, 1, 2, 3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           name: '签到成功 恭喜获得-开心收下',
           position: {
