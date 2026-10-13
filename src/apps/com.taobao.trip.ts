@@ -39,9 +39,10 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           matches: [
-            'ImageView < FrameLayout + RecyclerView + FrameLayout > FrameLayout > @[text="立即下载"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout <n * @[text="立即下载" || text="下载应用"]',
           ],
         },
         {
@@ -53,7 +54,7 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            'ImageView < @FrameLayout + RecyclerView + FrameLayout > FrameLayout > [text="立即打开"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text="立即打开"]',
           ],
         },
         {
@@ -73,6 +74,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          excludeMatches: [
+            'View > View > [text="下载并浏览APP10秒得奖励"] + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
+            'View > View > @[text="领取奖励"][clickable=true]',
+          ],
           actionDelay: 2000,
           matches: [
             '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册.*|逛中国移动"]',
@@ -676,7 +681,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~=".*[0-9]+ 秒.*"] +n * @[text*="微信"][index=parent.childCount.minus(1)]',
+            '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
         {
@@ -689,7 +694,7 @@ export default defineGkdApp({
           key: 2,
           name: '恭喜获得奖励-×',
           matches: [
-            '[index=parent.childCount.minus(1)][width=height] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -715,14 +720,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          name: '二级广告页-×',
-          actionDelay: 15000,
-          matches: [
-            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
-          ],
-        },
-        {
-          key: 2,
           name: '恭喜已经获得奖励！-×',
           matches: [
             '@ImageView < FrameLayout < FrameLayout - [text="恭喜已经获得奖励！"]',
@@ -750,14 +747,15 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          name: '二级广告页',
-          matches: ['@ImageView - TextView <<n * [id="BlockApp_unique"]'],
+          actionDelay: 15000,
+          matches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
         },
         {
           key: 2,
           name: '已完成浏览',
           matches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text*="已完成浏览"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text*="已完成浏览"]',
           ],
         },
         {
@@ -771,14 +769,14 @@ export default defineGkdApp({
           key: 4,
           name: '恭喜获得奖励-×',
           matches: [
-            'ImageView[index=parent.childCount.minus(1)][width=height] < @FrameLayout <n * [text="恭喜获得奖励"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text="恭喜获得奖励"]',
           ],
         },
         {
           key: 5,
           name: '查看详情',
           matches: [
-            'ImageView[width=height] < @FrameLayout < FrameLayout <n * [text="查看详情"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * <n * [text="查看详情"]',
           ],
         },
       ],
