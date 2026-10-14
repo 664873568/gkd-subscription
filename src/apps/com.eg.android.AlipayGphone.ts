@@ -238,7 +238,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 3000,
           matches: [
-            '@[desc="返回"][clickable=true] < RelativeLayout <n * - * [text~="前往菜鸟APP|打开淘宝闪购"]',
+            '@[desc="返回"][clickable=true] < RelativeLayout <n * - * [text~=".*菜鸟.*|打开淘宝闪购"]',
           ],
         },
         {
@@ -246,7 +246,7 @@ export default defineGkdApp({
           key: 3,
           actionDelay: 3000,
           matches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true] <n * [text="蚂蚁庄园" || text="支付宝·芭芭农场"]',
           ],
         },
         {
