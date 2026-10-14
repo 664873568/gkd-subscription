@@ -1571,7 +1571,7 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          actionCd: 3000,
+          actionDelay: 3000,
           anyMatches: [
             'View > @[id="feeds"] > [id="feeds-area"] > [id^="macy-container"]',
             'View > @[id="feeds"] > [id^="macy-container"]',
@@ -1601,7 +1601,7 @@ export default defineGkdApp({
           matches: ['[id="feeds"] > View > [text^="下滑寻找可获得更多"]'],
         },
         {
-          preKeys: [3, 4],
+          preKeys: [2,3, 4],
           key: 4,
           action: 'back',
           matches: [
