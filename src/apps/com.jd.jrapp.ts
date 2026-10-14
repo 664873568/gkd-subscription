@@ -95,7 +95,7 @@ export default defineGkdApp({
     {
       scopeKeys: [20,28,30,33,35,40,50,60,70,80,90,100,110,120,130,140,200,210],
       key: 11,
-      name: '通用-返回',
+      name: '通用-返回-scopeKeys',
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
