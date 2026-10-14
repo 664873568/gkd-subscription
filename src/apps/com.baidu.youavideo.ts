@@ -238,7 +238,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3,4],
+          preKeys: [2, 3, 4],
           key: 3,
           swipeArg: {
             start: {
@@ -260,7 +260,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3,4],
+          preKeys: [2, 3, 4],
           key: 4,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][clickable=true] > [text="2026年6月28日"][vid="tv_date"]',
