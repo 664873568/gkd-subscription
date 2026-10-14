@@ -16,14 +16,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '[id="ppage-index-index"] >n Image - [getChild(0).text="发现1个盲盒"] > @[text="立即打开"]',
-            '[id="ppage-index-index"] > View > @View > [getChild(1).text="浏览1篇投教精选内容"] > [text="去完成"]',
-          ],
           matches: ['[id="ppage-index-index"] >n @[text="出发寻宝"]'],
         },
         {
-          preKeys: [0, 4],
           key: 1,
           matches: [
             '[id="ppage-index-index"] >n Image - [getChild(0).text="发现1个盲盒"] > @[text="立即打开"]',
@@ -67,9 +62,11 @@ export default defineGkdApp({
           matches: [
             '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
           ],
+          excludeMatches: [
+            '@[desc="返回"][clickable=true] + * [text="蚂蚁投资者教育基地"]',
+          ],
         },
         {
-          preKeys: [3, 4, 5],
           key: 6,
           matches: [
             '[id="ppage-index-index"] >n Image - [getChild(0).text="任务完成"] > @[text="收下并继续探险"]',
@@ -156,13 +153,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@[text="我知道了"][clickable=true] <n * + View[clickable=true] > Image',
-            '@[name$="View"][clickable=true] < [id="app"] <n [text="悬浮球模版"] < WebView <n [desc*="180020570000041693"] < FrameLayout <n [id="android:id/content"]',
-          ],
           actionDelay: 2000,
           matches: [
             '[text="80q"] +n @[text="去完成"][index=11][clickable=true]',
+          ],
+          excludeMatches: [
+            '@[text="我知道了"][clickable=true] <n * + View[clickable=true] > Image',
+            '@[name$="View"][clickable=true] < [id="app"] <n [text="悬浮球模版"] < WebView <n [desc*="180020570000041693"] < FrameLayout <n [id="android:id/content"]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -197,6 +194,9 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[id="main-map"] +n View > View > [text$="线"] +n View > @Image',
+          ],
+          excludeMatches: [
+            '[text~="得工分|返回>"] - [text*="浏览"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
           ],
         },
         {
@@ -816,12 +816,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          matches: [
+            '[getChild(0).text^="逛一逛"] +2 [text="去完成"][clickable=true]',
+          ],
           excludeMatches: [
             '@View[clickable=true] > [text="今日签到"]',
             '[text~="得工分|返回>"] - [text*="浏览"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
-          ],
-          matches: [
-            '[getChild(0).text^="逛一逛"] +2 [text="去完成"][clickable=true]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -1393,8 +1393,40 @@ export default defineGkdApp({
         },
       ],
     },
+    //薅羊毛 赚话费
     {
       key: 100,
+      name: '广告-查看商品或滑动*秒后可领奖励',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="薅羊毛 赚话费"] >n [text^="饲料"] > @[text~="立翻.*倍 领.*g"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="薅羊毛 赚话费"] >n @[id="feedBubble"][clickable=true] > View > [text="签到奖励"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="薅羊毛 赚话费"] >n @View[clickable=true] > [text="装满啦"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 200,
       name: '广告-查看商品或滑动*秒后可领奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -1432,7 +1464,7 @@ export default defineGkdApp({
     //百度地图-去支付宝浏览图文领奖
     //百度网盘-小程序点图文领奖-去小程序点图文
     {
-      key: 101,
+      key: 201,
       name: '图文广告',
       forcedTime: 60000,
       matchRoot: true,
@@ -1483,7 +1515,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 102,
+      key: 202,
       name: '小程序',
       forcedTime: 60000,
       matchRoot: true,
@@ -1502,7 +1534,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 103,
+      key: 203,
       name: '小程序-广告-跳过',
       forcedTime: 60000,
       matchRoot: true,
@@ -1525,7 +1557,7 @@ export default defineGkdApp({
     },
     //其他App活动
     {
-      key: 200,
+      key: 300,
       name: '飞猪旅行-点一键收下得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -1541,7 +1573,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 201,
+      key: 301,
       name: '飞猪旅行-找10次抽奖券/寻找10枚许愿星',
       forcedTime: 60000,
       matchRoot: true,
