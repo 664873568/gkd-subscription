@@ -1890,13 +1890,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [140],
-          key: 7,
-          matches: [
-            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
-          ],
-        },
-        {
           key: 11,
           name: '×',
           matches: [
