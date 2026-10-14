@@ -93,7 +93,10 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [20,28,30,33,35,40,50,60,70,80,90,100,110,120,130,140,200,210],
+      scopeKeys: [
+        20, 28, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140,
+        200, 210,
+      ],
       key: 11,
       name: '通用-返回-scopeKeys',
       forcedTime: 60000,
@@ -111,7 +114,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0,20,30,40,50,70,80,110,140,200,210],
+          preKeys: [0, 20, 30, 40, 50, 70, 80, 110, 140, 200, 210],
           key: 0,
           action: 'back',
           matches: [
@@ -123,7 +126,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,20,30,40],
+          preKeys: [1, 20, 30, 40],
           key: 1,
           anyMatches: [
             '[getChild(0).text="返回领奖"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < * -n * [text="dancing"] < @View[clickable=true] <<n [vid="webview"]',
@@ -131,7 +134,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,20,30,33,35,40,50,70,80,110,140,200,210],
+          preKeys: [2, 20, 30, 33, 35, 40, 50, 70, 80, 110, 140, 200, 210],
           key: 2,
           action: 'back',
           actionDelay: 5000,
@@ -143,14 +146,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,20,30,35,40,50,70,80,110,200,210],
+          preKeys: [3, 20, 30, 35, 40, 50, 70, 80, 110, 200, 210],
           key: 3,
           action: 'back',
           actionDelay: 5000,
           anyMatches: [
             'TextView - @TextView[clickable=true] < View < View <n View < [id="J_babelOptPage"]', //京东秒杀
             'TextView - @TextView[clickable=true] < View < View < [id="app"] < WebView < b40 < [vid="webview"]', //对口令赢苹果18Pro
-            'View - @TextView[clickable=true] < View <n View < View < [id="app"] < [text="彩票频道"] < b40 < [vid="webview"]',//彩票频道
+            'View - @TextView[clickable=true] < View <n View < View < [id="app"] < [text="彩票频道"] < b40 < [vid="webview"]', //彩票频道
             'TextView - @TextView[clickable=true] < View < View < View < [id="app"] <n View < [text="圈子"] < b40 < [vid="webview"]', //浏览基金圈 结交同路人
             'TextView - @TextView[clickable=true] < View < View < [id="joyai-root"] < View < [text="JoyAI"] < b40 < [vid="webview"]', //逛测财运智能体
             '[text="03e6058058b35dde"] < @View[clickable=true] < View <n View < [id="app"] < View < WebView < b40 < [vid="webview"]', //天天来提额
@@ -161,7 +164,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,20,30,35,40,110],
+          preKeys: [4, 20, 30, 35, 40, 110],
           key: 4,
           action: 'back',
           matches: [
@@ -169,7 +172,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5,35,200],
+          preKeys: [5, 35, 200],
           key: 5,
           action: 'back',
           matches: [
@@ -177,7 +180,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6,30],
+          preKeys: [6, 30],
           key: 6,
           action: 'back',
           actionDelay: 5000,
@@ -588,7 +591,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [70,200],
+      scopeKeys: [70, 200],
       key: 29,
       name: '养猪猪-赚京豆/看视频 赚现金',
       forcedTime: 60000,
@@ -598,12 +601,14 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
         {
-          preKeys: [70,200],
+          preKeys: [70, 200],
           key: 0,
           matches: [
             '[id="J_ui-div"] > [id="app"] > View > View > View > @View[clickable=true] > [text="喂食10次"]',
           ],
-          excludeMatches: ['[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*"]'],
+          excludeMatches: [
+            '[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*"]',
+          ],
         },
         {
           preKeys: [0],
@@ -824,9 +829,7 @@ export default defineGkdApp({
         {
           preKeys: [11],
           key: 12,
-          matches: [
-            '@TextView[clickable=true] + [text="签到领现金"]',
-          ],
+          matches: ['@TextView[clickable=true] + [text="签到领现金"]'],
         },
       ],
     },
@@ -875,7 +878,7 @@ export default defineGkdApp({
           matches: ['@TextView -2 [text="从京东信誉分频道 进游戏"]'],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 1,
           matches: ['@[text="551d38b59d892f29"][clickable=true]'],
         },
@@ -908,7 +911,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 1,
           actionDelay: 2000,
           actionMaximum: 10,
@@ -922,7 +925,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           actionDelay: 5000,
           matches: [
@@ -1544,7 +1547,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [20,28],
+      scopeKeys: [20, 28],
       key: 91,
       name: '互动游戏-<',
       forcedTime: 60000,
@@ -1553,7 +1556,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
         {
-          preKeys: [20,28],
+          preKeys: [20, 28],
           key: 0,
           name: '逛逛游戏中心',
           actionDelay: 5000,
@@ -1576,7 +1579,7 @@ export default defineGkdApp({
     //25.12.30-26.12.31 京豆捕鱼
     //https://u.jr.jd.com/uc-fe-wxgrowing/catch-fish/index/
     {
-      scopeKeys: [20,40,70],
+      scopeKeys: [20, 40, 70],
       key: 100,
       name: '京豆捕鱼-养猪猪/养大鹅/赚京豆',
       forcedTime: 60000,
@@ -1586,7 +1589,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.landscape.WebLandscapeActivity'],
       rules: [
         {
-          preKeys: [0,20,40,70],
+          preKeys: [0, 20, 40, 70],
           key: 0,
           action: 'longClickCenter',
           actionCd: 200,
@@ -1777,9 +1780,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '领取',
-          matches: [
-            '[text="京9黄金节"] >n @[text="领取"][clickable=true]',
-          ],
+          matches: ['[text="京9黄金节"] >n @[text="领取"][clickable=true]'],
           excludeMatches: [
             '[text="京9黄金节"] >n [text="换一换"] +n @TextView[index=parent.childCount.minus(1)][clickable=true]',
             '[text="京9黄金节"] >n [text="先收下了"] + @TextView[clickable=true]',
@@ -1939,7 +1940,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           name: '恭喜获得-×',
           matches: [
