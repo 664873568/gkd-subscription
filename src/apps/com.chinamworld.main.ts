@@ -30,7 +30,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           excludeMatches: [
             '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
