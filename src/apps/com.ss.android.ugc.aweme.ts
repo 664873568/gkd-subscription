@@ -141,7 +141,7 @@ export default defineGkdApp({
             top: 'height * 0.18',
           },
           matches: [
-            'FrameLayout[height=0] + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView[width=height]',
+            'FrameLayout[height=0] + ScrollView > HorizontalScrollView > LinearLayout > @ViewGroup > ImageView[width=height] + ViewGroup[childCount=0]',
           ],
           excludeMatches: [
             'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * [desc="更多"] +n @[desc="关闭"][clickable=true]', //浏览行情信息
@@ -222,7 +222,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[width=height]',
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup[index=0]',
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -279,12 +279,13 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 3,
+          name: '任务完成 恭喜获得-开心收下',
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup > @ViewGroup > ImageView[width=height]', //开心收下
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView[index=0]',
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -921,6 +922,15 @@ export default defineGkdApp({
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
+        {
+          preKeys: [8],
+          key: 9,
+          name: '返回',
+          matches: [
+            '@HorizontalScrollView > LinearLayout > ViewGroup > [desc="直接领"] -n ViewGroup > [desc="看视频"] + [desc~="[0-9]+"] + [desc="秒"] + [desc="领"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
       ],
     },
     {
@@ -942,6 +952,9 @@ export default defineGkdApp({
           matches: [
             '@HorizontalScrollView > LinearLayout > ViewGroup[childCount=6][index=1 || index=3]',
           ],
+          excludeMatches: [
+            'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup',
+          ],
         },
         {
           preKeys: [0],
@@ -949,7 +962,7 @@ export default defineGkdApp({
           name: '金币领取成功',
           position: {
             left: 'width * 0.5',
-            top: 'height * 0.935',
+            top: 'height * 0.555',
           },
           matches: [
             'HorizontalScrollView > LinearLayout[childCount=2] > ViewGroup > ViewGroup > ViewGroup + @ViewGroup + ViewGroup',
@@ -1181,6 +1194,24 @@ export default defineGkdApp({
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup + @ImageView + ViewGroup + ViewGroup + [desc="开心收下"]',
           ],
           activityIds: ['.live.LiveDummyHybridTransparentActivity'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 400,
+      name: '未成年人模式-不再提醒',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[desc="关闭"] - LinearLayout > [text="未成年人模式"] +n LinearLayout > @[text="不再提醒"][clickable=true]',
+          ],
+          activityIds: ['.main.MainActivity'],
         },
       ],
     },
