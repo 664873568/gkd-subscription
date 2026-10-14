@@ -74,7 +74,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '@[text="完成"][vid="start_button"][clickable=true] + [text="打开"][vid="end_button"]',
+            '@[text="完成"][vid="start_button"][clickable=true]',
           ],
           activityIds: [
             'com.miui.packageInstaller.ui.normalmode.InstallProgressActivity',
