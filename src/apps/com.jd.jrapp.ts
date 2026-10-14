@@ -1915,7 +1915,7 @@ export default defineGkdApp({
           key: 0,
           name: '拆红包',
           matches: [
-            'Button < View + @View[clickable=true] > View > [text="拆红包"] + [text~="可拆[0-9]+次"]',
+            'Button < View + @View[clickable=true] > View > [desc="拆红包" || text="拆红包"] + [text~="可拆[0-9]+次"]',
           ],
           excludeMatches: [
             '@[text="03e60180185ad347"][clickable=true] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"]',
