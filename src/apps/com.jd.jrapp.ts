@@ -1746,7 +1746,7 @@ export default defineGkdApp({
     {
       scopeKeys: [20,28],
       key: 91,
-      name: '互动游戏-集电量赚京豆',
+      name: '互动游戏-<',
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
