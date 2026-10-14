@@ -111,7 +111,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0,20,30,40,50,70,80,110,200,210],
+          preKeys: [0,20,30,40,50,70,80,110,140,200,210],
           key: 0,
           action: 'back',
           matches: [
@@ -131,7 +131,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,20,30,33,35,40,50,70,80,110,200,210],
+          preKeys: [2,20,30,33,35,40,50,70,80,110,140,200,210],
           key: 2,
           action: 'back',
           actionDelay: 5000,
@@ -198,206 +198,6 @@ export default defineGkdApp({
           name: '提示-是否退出游戏',
           matches: [
             '[text="提示"] + [text="主人 是否退出游戏"] + Button + @Button[clickable=true] + Button',
-          ],
-        },
-      ],
-    },
-    //26.10.13-26.11.11 打白条 拆1亿个红包
-    //https://show.jd.com/m/pgKmxE6RZ9EV28Qe/?pageKey=pgKmxE6RZ9EV28Qe&channel=btfloor
-    {
-      key: 140,
-      name: '打白条-赚金币',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          key: 140,
-          anyMatches: [
-            '[text="03e60180185ad347"] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"] > [getChild(1).text!~=".*体验.*|完成.*|查看.*"] > @[text="去完成"][clickable=true]',
-            '[text="03e60180185ad347"] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"] > View > @View[clickable=true] > [getChild(childCount.minus(1)).name$="TextView"]',
-          ],
-          excludeMatches: [
-            '@[text="立即开启"][clickable=true] -n TextView[clickable=true] < View',
-          ],
-        },
-        {
-          preKeys: [140],
-          key: 1,
-          matches: [
-            '@[text="立即开启"][clickable=true] -n TextView[clickable=true] < View',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '[text="立即添加"] < @ViewGroup[clickable=true] < ViewGroup -n [text="添加双十一小组件"]',
-          ],
-          activityIds: ['.bm.jrv8.JRCustomDyPickerActivity'],
-        },
-        {
-          preKeys: [140],
-          key: 3,
-          matches: [
-            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [3],
-          key: 4,
-          actionDelay: 2000,
-          matches: [
-            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [4],
-          key: 5,
-          actionDelay: 5000,
-          matches: [
-            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [5],
-          key: 6,
-          actionDelay: 5000,
-          matches: [
-            '@[getChild(0).text="back"][clickable=true] + [text="鹅宝AI"]',
-          ],
-        },
-        {
-          preKeys: [140],
-          key: 3,
-          matches: [
-            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
-          ],
-        },
-        {
-          key: 11,
-          name: '×',
-          matches: [
-            '@[text="03e60180185ad347"][clickable=true] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"]',
-          ],
-          excludeMatches: [
-            '[text="03e60180185ad347"] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"] > [getChild(1).text!~=".*体验.*|完成.*|查看.*"] > @[text="去完成"][clickable=true]',
-            '[text="03e60180185ad347"] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"] > View > @View[clickable=true] > [getChild(childCount.minus(1)).name$="TextView"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 141,
-      name: '打白条-拆红包',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          key: 0,
-          name: '拆红包',
-          matches: [
-            'Button < View + @View[clickable=true] > View > [text="拆红包"] + [text~="可拆[0-9]+次"]',
-          ],
-          excludeMatches: [
-            '@[text="03e60180185ad347"][clickable=true] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"]',
-            '@[text="鹅手指引"][clickable=true] -n Image[clickable=true] < View',
-            '@[text="关闭弹窗"][clickable=true] -n [text="恭喜获得"] < [text="恭喜获得"]',
-            '@[text="关闭弹窗"][clickable=true] -n [text="完成任务得金币！"] < [text="完成任务得金币"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          name: '立即抽奖',
-          matches: [
-            '@[text="鹅手指引"][clickable=true] -n Image[clickable=true] < View',
-          ],
-        },
-        {
-          preKeys: [0,1],
-          key: 2,
-          name: '恭喜获得-×',
-          matches: [
-            '@[text="关闭弹窗"][clickable=true] -n [text="恭喜获得"] < [text="恭喜获得"]',
-          ],
-        },
-        {
-          key: 3,
-          name: '完成任务得奖励-×',
-          matches: [
-            '@[text="关闭弹窗"][clickable=true] -n [text="完成任务得金币！"] < [text="完成任务得金币"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 142,
-      name: '打白条-兑换好礼-限时抢',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="03e60180185ad347"] +n View > View > [text="5000"] + @[text="去兑换"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            'Dialog > [text="关闭弹窗"] - View > @[text="确认兑换"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '@[text="关闭弹窗"][clickable=true] -n [text="兑换成功"] < [text="兑换成功"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 143,
-      name: '打白条-兑换好礼',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[text="03e60180185ad347"] +n View > @[text="去兑换"][clickable=true]',
-          ],
-          excludeMatches: [
-            'Dialog > [text="关闭弹窗"] - View > @[text="确认兑换"][clickable=true]',
-            '@[text="关闭弹窗"][clickable=true] -n [text="兑换成功"] < [text="兑换成功"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            'Dialog > [text="关闭弹窗"] - View > @[text="确认兑换"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '@[text="关闭弹窗"][clickable=true] -n [text="兑换成功"] < [text="兑换成功"]',
           ],
         },
       ],
@@ -2017,6 +1817,206 @@ export default defineGkdApp({
           name: '解锁奖池-立即抽奖-×',
           matches: [
             '[text="京9黄金节"] >n TextView + View > View > TextView + @TextView[clickable=true] + View + TextView[clickable=true] + TextView',
+          ],
+        },
+      ],
+    },
+    //26.10.13-26.11.11 打白条 拆1亿个红包
+    //https://show.jd.com/m/pgKmxE6RZ9EV28Qe/?pageKey=pgKmxE6RZ9EV28Qe&channel=btfloor
+    {
+      key: 140,
+      name: '打白条-赚金币',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 140,
+          anyMatches: [
+            '[text="03e60180185ad347"] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"] > [getChild(1).text!~=".*体验.*|完成.*|查看.*"] > @[text="去完成"][clickable=true]',
+            '[text="03e60180185ad347"] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"] > View > @View[clickable=true] > [getChild(childCount.minus(1)).name$="TextView"]',
+          ],
+          excludeMatches: [
+            '@[text="立即开启"][clickable=true] -n TextView[clickable=true] < View',
+          ],
+        },
+        {
+          preKeys: [140],
+          key: 1,
+          matches: [
+            '@[text="立即开启"][clickable=true] -n TextView[clickable=true] < View',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="立即添加"] < @ViewGroup[clickable=true] < ViewGroup -n [text="添加双十一小组件"]',
+          ],
+          activityIds: ['.bm.jrv8.JRCustomDyPickerActivity'],
+        },
+        {
+          preKeys: [140],
+          key: 3,
+          matches: [
+            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          actionDelay: 2000,
+          matches: [
+            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          actionDelay: 5000,
+          matches: [
+            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [5],
+          key: 6,
+          actionDelay: 5000,
+          matches: [
+            '@[getChild(0).text="back"][clickable=true] + [text="鹅宝AI"]',
+          ],
+        },
+        {
+          preKeys: [140],
+          key: 7,
+          matches: [
+            '[text="内容由 AI 生成，仅供参考"] + View > @View[index=0][clickable=true]',
+          ],
+        },
+        {
+          key: 11,
+          name: '×',
+          matches: [
+            '@[text="03e60180185ad347"][clickable=true] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"]',
+          ],
+          excludeMatches: [
+            '[text="03e60180185ad347"] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"] > [getChild(1).text!~=".*体验.*|完成.*|查看.*"] > @[text="去完成"][clickable=true]',
+            '[text="03e60180185ad347"] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"] > View > @View[clickable=true] > [getChild(childCount.minus(1)).name$="TextView"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 141,
+      name: '打白条-拆红包',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '拆红包',
+          matches: [
+            'Button < View + @View[clickable=true] > View > [text="拆红包"] + [text~="可拆[0-9]+次"]',
+          ],
+          excludeMatches: [
+            '@[text="03e60180185ad347"][clickable=true] +n [getChild(0).desc="访问页面得金币" || getChild(0).text="访问页面得金币"]',
+            '@[text="鹅手指引"][clickable=true] -n Image[clickable=true] < View',
+            '@[text="关闭弹窗"][clickable=true] -n [text="恭喜获得"] < [text="恭喜获得"]',
+            '@[text="关闭弹窗"][clickable=true] -n [text="完成任务得金币！"] < [text="完成任务得金币"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '立即抽奖',
+          matches: [
+            '@[text="鹅手指引"][clickable=true] -n Image[clickable=true] < View',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
+          name: '恭喜获得-×',
+          matches: [
+            '@[text="关闭弹窗"][clickable=true] -n [text="恭喜获得"] < [text="恭喜获得"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '完成任务得奖励-×',
+          matches: [
+            '@[text="关闭弹窗"][clickable=true] -n [text="完成任务得金币！"] < [text="完成任务得金币"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 142,
+      name: '打白条-兑换好礼-限时抢',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="03e60180185ad347"] +n View > View > [text="5000"] + @[text="去兑换"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'Dialog > [text="关闭弹窗"] - View > @[text="确认兑换"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[text="关闭弹窗"][clickable=true] -n [text="兑换成功"] < [text="兑换成功"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 143,
+      name: '打白条-兑换好礼',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="03e60180185ad347"] +n View > @[text="去兑换"][clickable=true]',
+          ],
+          excludeMatches: [
+            'Dialog > [text="关闭弹窗"] - View > @[text="确认兑换"][clickable=true]',
+            '@[text="关闭弹窗"][clickable=true] -n [text="兑换成功"] < [text="兑换成功"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'Dialog > [text="关闭弹窗"] - View > @[text="确认兑换"][clickable=true]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[text="关闭弹窗"][clickable=true] -n [text="兑换成功"] < [text="兑换成功"]',
           ],
         },
       ],
