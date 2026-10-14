@@ -7,7 +7,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 0,
-      name: '登录JoyAI并对话|去JoyAI APP且当日对话',
+      name: 'JoyAI对话',
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
