@@ -177,12 +177,14 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@View[getChild(0).text~="立即领取|赚抽奖次数"][clickable=true] -n [text~=".*[0-9]{3,} 金币.*"]',
           ],
         },
         {
           key: 2,
+          actionDelay: 1000,
           matches: [
             '@View[getChild(0).text~="再试一次|继续抽奖"][clickable=true] -n [text="cjjinbi"]',
           ],
@@ -269,6 +271,7 @@ export default defineGkdApp({
             '[text="翻到炸弹啦"] + @View[clickable=true] > [text~="领取[0-9]+金币"]',
             '[text="已获得翻卡奖励"] + [getChild(3).getChild(1).text="明日继续翻"] + @TextView[clickable=true]',
           ],
+          actionDelay: 2000,
           matches: [
             '[id="J-flip-card-v2"] > [text="翻 卡赢 1888金币"] +n ListView > @View[childCount=0][clickable=true]',
           ],
@@ -792,6 +795,7 @@ export default defineGkdApp({
       ],
     },
     //看视频-com.meishu.sdk.activity.MeishuRewardVideoPlayerActivity
+    //看视频-com.meishu.sdk.activity.SdkInterstitialActivity
     {
       key: 60,
       name: '看视频-.*-恭喜已获得奖励',
@@ -799,6 +803,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.meishu.sdk.activity.MeishuRewardVideoPlayerActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -819,6 +826,22 @@ export default defineGkdApp({
           matches: [
             '[vid="ms_reward_close_button"] < @[vid="ms_reward_close_button_parent"][clickable=true]',
           ],
+        },
+      ],
+    },
+    {
+      key: 61,
+      name: '看视频-摇一摇或点击查看详情-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="ms_activity_sdk_interstitial_cacel"][clickable=true]',
+          ],
+          activityIds: ['com.meishu.sdk.activity.SdkInterstitialActivity'],
         },
       ],
     },
