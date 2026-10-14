@@ -35,7 +35,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > View > [text="下载并浏览APP10秒得奖励"] + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
+            'View > View > TextView + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
           ],
         },
         {
@@ -74,13 +74,15 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > View > [text="下载并浏览APP10秒得奖励"] + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
-            'View > View > @[text="领取奖励"][clickable=true]',
-          ],
           actionDelay: 2000,
           matches: [
             '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册.*|逛中国移动"]',
+          ],
+          excludeMatches: [
+            'View > View > TextView + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout <n * @[text="立即下载" || text="下载应用"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text="立即打开"]',
+            'View > View > @[text="领取奖励"][clickable=true]',
           ],
         },
         {
