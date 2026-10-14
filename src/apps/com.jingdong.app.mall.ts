@@ -64,7 +64,9 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10,12,20,30,40,41,50,60,64,70,80,90,100,110,120,130],
+      scopeKeys: [
+        10, 12, 20, 30, 40, 41, 50, 60, 64, 70, 80, 90, 100, 110, 120, 130,
+      ],
       key: 1,
       name: '通用-返回-scopeKeys',
       forcedTime: 60000,
@@ -88,7 +90,9 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [1,10,20,30,40,41,50,60,64,70,80,90,100,110,120,130],
+          preKeys: [
+            1, 10, 20, 30, 40, 41, 50, 60, 64, 70, 80, 90, 100, 110, 120, 130,
+          ],
           key: 1,
           action: 'back',
           matches: [
@@ -96,7 +100,9 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,10,20,30,40,41,50,60,70,80,90,100,110,120,130],
+          preKeys: [
+            2, 10, 20, 30, 40, 41, 50, 60, 70, 80, 90, 100, 110, 120, 130,
+          ],
           key: 2,
           action: 'back',
           actionDelay: 11000,
@@ -108,7 +114,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,10,40,41,50,70],
+          preKeys: [3, 10, 40, 41, 50, 70],
           key: 3,
           action: 'back',
           actionDelay: 6000,
@@ -117,7 +123,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,10,50,60],
+          preKeys: [4, 10, 50, 60],
           key: 4,
           action: 'back',
           actionDelay: 11000,
@@ -129,7 +135,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5,50,60,90],
+          preKeys: [5, 50, 60, 90],
           key: 5,
           action: 'back',
           matches: [
@@ -140,7 +146,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6,12, 13,50, 60, 110,120, 200],
+          preKeys: [6, 12, 13, 50, 60, 110, 120, 200],
           key: 6,
           action: 'back',
           actionDelay: 11000,
@@ -153,17 +159,15 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [7,90],
+          preKeys: [7, 90],
           key: 7,
           name: '关闭直播间',
           action: 'back',
           actionDelay: 6000,
-          matches: [
-            '@[desc="关闭直播间"][clickable=true] > ImageView',
-          ],
+          matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
         },
         {
-          preKeys: [8,90],
+          preKeys: [8, 90],
           key: 8,
           name: '去JoyAI抽20元',
           action: 'back',
@@ -173,7 +177,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [9,30],
+          preKeys: [9, 30],
           key: 9,
           name: '特价',
           action: 'back',
@@ -183,7 +187,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [10,40,41],
+          preKeys: [10, 40, 41],
           key: 10,
           action: 'back',
           actionDelay: 6000,
@@ -192,7 +196,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [11,40,41,100],
+          preKeys: [11, 40, 41, 100],
           key: 11,
           name: '逛看病买药频道-×',
           action: 'back',
@@ -202,7 +206,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [11,12,40,41,100],
+          preKeys: [11, 12, 40, 41, 100],
           key: 12,
           name: '逛看病买药频道-××',
           action: 'back',
@@ -211,7 +215,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [13,90],
+          preKeys: [13, 90],
           key: 13,
           actionDelay: 6000,
           matches: [
@@ -219,7 +223,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [13,14],
+          preKeys: [13, 14],
           key: 14,
           matches: [
             '@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]',
@@ -253,9 +257,7 @@ export default defineGkdApp({
           key: 11,
           action: 'back',
           actionDelay: 6000,
-          matches: [
-            '@TextView[clickable=true] < LinearLayout < ViewGroup',
-          ],
+          matches: ['@TextView[clickable=true] < LinearLayout < ViewGroup'],
         },
       ],
     },
@@ -935,7 +937,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [60, 1, 2, 3,4],
+          preKeys: [60, 1, 2, 3, 4],
           key: 4,
           matches: [
             '[text="预约商品"] - [text~="[0-2]/3"] < View < View < View - [id="dark-moon-feeds-container"] >n TextView +n View > TextView + @TextView[clickable=true]',
@@ -1384,7 +1386,7 @@ export default defineGkdApp({
       activityIds: [
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
-          ],
+      ],
       rules: [
         {
           key: 130,
