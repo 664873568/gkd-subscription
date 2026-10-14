@@ -122,6 +122,22 @@ export default defineGkdApp({
     },
     {
       key: 10,
+      name: '京东金融',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            'ImageView[desc="￼"] - View >n ScrollView > View > View > View > ImageView[desc="￼"][index=2]',
+          ],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+        },
+      ],
+    },
+    {
+      key: 20,
       name: '迅雷-看广告-领取',
       forcedTime: 60000,
       matchRoot: true,
@@ -139,7 +155,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 21,
       name: '迅雷-关闭-已获得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -155,7 +171,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
+      key: 22,
       name: '迅雷-看广告',
       forcedTime: 60000,
       matchRoot: true,
