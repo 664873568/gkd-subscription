@@ -1396,7 +1396,7 @@ export default defineGkdApp({
     //薅羊毛 赚话费
     {
       key: 100,
-      name: '广告-查看商品或滑动*秒后可领奖励',
+      name: '薅羊毛 赚话费',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
