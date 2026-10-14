@@ -12,7 +12,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+      activityIds: [
+        '.NovaMainActivity',
+        'com.dianping.nova.picasso.DPPicassoBoxActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -49,7 +52,10 @@ export default defineGkdApp({
             'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="可领"]',
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+          activityIds: [
+            '.NovaMainActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -71,7 +77,10 @@ export default defineGkdApp({
           matches: [
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="可领"]',
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+          activityIds: [
+            '.NovaMainActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
         },
       ],
     },
@@ -92,7 +101,10 @@ export default defineGkdApp({
           excludeMatches: [
             'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text="立即领"]',
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+          activityIds: [
+            '.NovaMainActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -114,7 +126,10 @@ export default defineGkdApp({
           matches: [
             'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text="立即领"]',
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+          activityIds: [
+            '.NovaMainActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
         },
         {
           key: 3,
@@ -124,7 +139,10 @@ export default defineGkdApp({
           excludeMatches: [
             'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+          activityIds: [
+            '.NovaMainActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
         },
       ],
     },
@@ -147,7 +165,10 @@ export default defineGkdApp({
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得"]',
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="可领"]',
           ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
+          activityIds: [
+            '.NovaMainActivity',
+            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+          ],
         },
       ],
     },
