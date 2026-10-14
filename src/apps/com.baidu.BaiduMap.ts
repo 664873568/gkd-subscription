@@ -803,9 +803,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.meishu.sdk.activity.MeishuRewardVideoPlayerActivity',
-      ],
+      activityIds: ['com.meishu.sdk.activity.MeishuRewardVideoPlayerActivity'],
       rules: [
         {
           key: 0,
