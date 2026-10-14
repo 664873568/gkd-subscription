@@ -238,9 +238,30 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
+          preKeys: [2,3,4],
           key: 3,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
           actionDelay: 1000,
+          matches: [
+            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @RecyclerView[vid="list"]',
+          ],
+          activityIds: [
+            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
+          ],
+        },
+        {
+          preKeys: [2,3,4],
+          key: 4,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][clickable=true] > [text="2026年6月28日"][vid="tv_date"]',
           ],
@@ -249,8 +270,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [4],
+          key: 5,
           actionDelay: 1000,
           matches: [
             '[text="已选8个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
@@ -260,8 +281,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4],
-          key: 5,
+          preKeys: [5],
+          key: 6,
           position: {
             left: 'width * 0.865',
             top: 'height * 0.085',
@@ -275,8 +296,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5],
-          key: 6,
+          preKeys: [6],
+          key: 7,
           position: {
             left: 'width * 0.925',
             top: 'height * 0.725',
