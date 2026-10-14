@@ -1,7 +1,7 @@
 import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
-  id: 'com.miui.systemAdSolution',
+  id: 'com.miui.personalassistant',
   name: '智能助理',
   groups: [
     {
