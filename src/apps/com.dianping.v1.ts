@@ -153,8 +153,13 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        '.NovaMainActivity',
+        'com.dianping.nova.picasso.DPPicassoBoxActivity',
+      ],
       rules: [
         {
+          key: 0,
           action: 'clickCenter',
           actionDelay: 5000,
           matches: [
@@ -165,9 +170,13 @@ export default defineGkdApp({
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得"]',
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="可领"]',
           ],
-          activityIds: [
-            '.NovaMainActivity',
-            'com.dianping.nova.picasso.DPPicassoBoxActivity',
+        },
+        {
+          preKeys: [0,1],
+          key: 1,
+          action: 'clickCenter',
+          matches: [
+            '@[getChild(0).desc="back"][width=height][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
           ],
         },
       ],
