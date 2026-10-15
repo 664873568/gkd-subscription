@@ -35,7 +35,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > View > TextView + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
+            '@[text~="\\+0.0[0-9]元"][clickable=true] <n View <n View < View[index=parent.childCount.minus(1)]',
           ],
         },
         {
@@ -269,7 +269,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@ImageView[width=height][clickable=true] <n * [text~="反馈|立即查看|点击或滑动查看奖励"]',
+            '@ImageView[width=height][index=parent.childCount.minus(1)][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
