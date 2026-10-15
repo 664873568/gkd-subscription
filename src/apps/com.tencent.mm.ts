@@ -134,9 +134,7 @@ export default defineGkdApp({
           matches: [
             'ImageView[desc="￼"] - View >n ScrollView > View > View > View > ImageView[desc="￼"][index=2]',
           ],
-          excludeMatches: [
-            '[desc="￼"] - @[desc="特价"] - [desc="首页"]',
-          ],
+          excludeMatches: ['[desc="￼"] - @[desc="特价"] - [desc="首页"]'],
         },
         {
           key: 1,
@@ -152,9 +150,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '特价',
-          matches: [
-            'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
-          ],
+          matches: ['ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]'],
         },
       ],
     },
