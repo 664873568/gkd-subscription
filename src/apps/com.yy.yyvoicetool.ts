@@ -251,7 +251,7 @@ export default defineGkdApp({
       activityIds: [
         '.MainActivity',
         'com.noah.adn.huichuan.view.ui.dialog.HcDownLoadDialog',
-        'com.noah.adn.huichuan.webview.BrowserActivity,
+        'com.noah.adn.huichuan.webview.BrowserActivity',
       ],
       rules: [
         {
