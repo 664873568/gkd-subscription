@@ -97,13 +97,6 @@ export default defineGkdApp({
             '[text="薅羊毛 赚话费"] >n [getChild(1).text="薅羊毛赚话费"] +n @[text="立即领取"][clickable=true]',
           ],
         },
-        {
-          preKeys: [4],
-          key: 5,
-          matches: [
-            '[text="薅羊毛 赚话费"] >n [getChild(1).text="薅羊毛赚话费"] +n @[text="立即领取"][clickable=true]',
-          ],
-        },
       ],
     },
     {
@@ -139,26 +132,29 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
+          preKeys: [0],
+          key: 3,
           matches: [
             '[id="shopping-waterfall"] > [id="tabsId"] + View >4 View[index=0] > View[index=1]',
           ],
         },
         {
           preKeys: [0],
-          key: 2,
+          key: 4,
           matches: [
             '[id="shopping-waterfall"] > [id="tabsId"] + View >4 View[index=1] > View[index=1]',
           ],
         },
         {
-          key: 1,
+          preKeys: [0],
+          key: 5,
           matches: [
             '[id="shopping-waterfall"] > [id="tabsId"] + View >4 View[index=0] > View[index=2]',
           ],
         },
         {
-          key: 1,
+          preKeys: [0],
+          key: 6,
           matches: [
             '[text="任务已完成，500饲料已到账"] -n * [id="feedBubble"] +2 View',
           ],
