@@ -230,11 +230,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
             '@[text="拒绝"][clickable=true] <n * - * [text~="京东.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
           activityIds: [
+            'null',
             'com.miui.applicationlock.AppLockActivity',
             'com.miui.wakepath.ui.ConfirmStartActivity',
           ],
@@ -253,9 +254,10 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '@[text="本次允许"][clickable=true] <n * - * [text~="京东金融.*(JoyAI|QQ阅读|京东健康).*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
+            '@[text="本次允许"][clickable=true] <n * - * [text~="京东金融.*(JoyAI|QQ阅读|京东健康|微信).*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
           activityIds: [
+            'null',
             'com.miui.applicationlock.AppLockActivity',
             'com.miui.wakepath.ui.ConfirmStartActivity',
           ],
