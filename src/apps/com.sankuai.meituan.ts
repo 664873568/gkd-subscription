@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '每日刮刮乐-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -35,6 +36,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '天天领现金-桌面登录礼',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -59,6 +61,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '浏览App-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -85,6 +88,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '看视频赚更多金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -165,6 +169,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '看短剧，额外得金币',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -234,6 +239,7 @@ export default defineGkdApp({
     {
       key: 13,
       name: '看短剧-短剧签到',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -267,6 +273,7 @@ export default defineGkdApp({
     {
       key: 14,
       name: '添加*到桌面-不感兴趣',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -285,9 +292,10 @@ export default defineGkdApp({
     {
       key: 20,
       name: '看视频-恭喜获得奖励*×',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
+      actionMaximum: 1,
       resetMatch: 'activity',
       rules: [
         {
@@ -299,9 +307,10 @@ export default defineGkdApp({
     {
       key: 21,
       name: '看视频-去看看',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
+      actionMaximum: 1,
       resetMatch: 'activity',
       rules: [
         {
@@ -315,9 +324,10 @@ export default defineGkdApp({
     {
       key: 22,
       name: '看视频-点击广告得',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
+      actionMaximum: 1,
       resetMatch: 'activity',
       rules: [
         {
@@ -329,9 +339,10 @@ export default defineGkdApp({
     {
       key: 23,
       name: '看视频-<+×',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 15000,
+      actionMaximum: 1,
       resetMatch: 'activity',
       rules: [
         {
@@ -344,9 +355,10 @@ export default defineGkdApp({
     {
       key: 24,
       name: '看视频-完成跳转可领取-×',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 15000,
+      actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
@@ -361,23 +373,43 @@ export default defineGkdApp({
     {
       key: 39,
       name: '看视频-任务已完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'app',
-      activityIds: ['.msv.page.activity.MSVPageActivity'],
       rules: [
         {
           key: 0,
           action: 'back',
           matches: ['@[vid="toast_container"] > [text="任务已完成"]'],
+          activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
         {
           key: 1,
           action: 'back',
-          actionDelay: 10000,
+          actionDelay: 5000,
           matches: [
-            'ViewPager > FrameLayout > RelativeLayout > RelativeLayout > @[vid="msv_back"][clickable=true]',
+            '@[vid="iv_reader_back"][clickable=true] < [vid="scroll_back_view"]',
           ],
+          activityIds: ['com.meituan.android.novel.library.page.reader.ReaderActivity'],
+        },
+        {
+          preKeys: [1,2],
+          key: 2,
+          action: 'back',
+          matches: [
+            '[text="搜索"] <n View < View - @Image <<n [vid="container"] < [vid="msc_root"]',
+          ],
+          activityIds: ['com.meituan.android.novel.library.page.video.stream.NovelVideoActivity'],
+        },
+        {
+          preKeys: [0,2,3],
+          key: 3,
+          action: 'back',
+          matches: [
+            '@[vid="msv_back"][clickable=true] +n [vid="msv_search"]',
+          ],
+          activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
       ],
     },
@@ -385,9 +417,10 @@ export default defineGkdApp({
     {
       key: 40,
       name: '新版本抢先体验-暂不升级',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
+      actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
@@ -404,9 +437,10 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
+      actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
