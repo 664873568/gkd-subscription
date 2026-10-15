@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '任务中心-签到有礼',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -32,11 +33,11 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
-          excludeMatches: [
-            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
-          ],
           matches: [
             '[desc="签到有礼楼层"] +n @View[clickable=true] > TextView[index=parent.childCount.minus(1)]',
+          ],
+          excludeMatches: [
+            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
           ],
         },
         {
@@ -49,20 +50,21 @@ export default defineGkdApp({
     {
       key: 1,
       name: '日常任务-去完成',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          matches: [
+            '[id="Normaltask"] > [desc="精选任务楼层"] +n [text~="查看.*|了解.*"] +(1,2,3) View > View > @[text="去完成"][clickable=true]',
+          ],
           excludeMatches: [
             '[desc="签到有礼楼层"] +n @[desc="立即签到 按钮"][clickable=true]',
             '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
             '[desc="签到有礼楼层"] +n @View[clickable=true] > TextView[index=parent.childCount.minus(1)]',
             '@[desc="关闭 按钮"][clickable=true] +n [text="立即使用"]',
-          ],
-          matches: [
-            '[id="Normaltask"] > [desc="精选任务楼层"] +n [text~="查看.*|了解.*"] +(1,2,3) View > View > @[text="去完成"][clickable=true]',
           ],
           activityIds: [
             'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
@@ -102,6 +104,7 @@ export default defineGkdApp({
     {
       key: 10,
       name: '热门活动-公告-×',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'app',
@@ -121,6 +124,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '热门活动-签到',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -163,25 +167,24 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [11],
       key: 12,
       name: '热门活动-抽奖',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      actionMaximum: 10,
       activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
       rules: [
         {
           preKeys: [1],
           key: 0,
+          matches: [
+            '[id="app"] > View > View > @View[clickable=true] > [desc="骰子按钮"]',
+          ],
           excludeMatches: [
             'ImageButton +n @[text="立即签到"][clickable=true] + TextView',
             'ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]',
             '[id="app"] >n [getChild(0).text="查看奖励"] + @TextView[clickable=true]',
-          ],
-          matches: [
-            '[id="app"] > View > View > @View[clickable=true] > [desc="骰子按钮"]',
           ],
         },
         {
@@ -193,9 +196,28 @@ export default defineGkdApp({
         },
       ],
     },
+    //低碳生活
     {
       key: 20,
+      name: '低碳生活-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
+          ],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 21,
       name: '低碳生活-一键收取',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'app',
@@ -212,6 +234,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
