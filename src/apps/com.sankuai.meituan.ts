@@ -391,24 +391,26 @@ export default defineGkdApp({
           matches: [
             '@[vid="iv_reader_back"][clickable=true] < [vid="scroll_back_view"]',
           ],
-          activityIds: ['com.meituan.android.novel.library.page.reader.ReaderActivity'],
+          activityIds: [
+            'com.meituan.android.novel.library.page.reader.ReaderActivity',
+          ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 2,
           action: 'back',
           matches: [
             '[text="搜索"] <n View < View - @Image <<n [vid="container"] < [vid="msc_root"]',
           ],
-          activityIds: ['com.meituan.android.novel.library.page.video.stream.NovelVideoActivity'],
+          activityIds: [
+            'com.meituan.android.novel.library.page.video.stream.NovelVideoActivity',
+          ],
         },
         {
-          preKeys: [0,2,3],
+          preKeys: [0, 2, 3],
           key: 3,
           action: 'back',
-          matches: [
-            '@[vid="msv_back"][clickable=true] +n [vid="msv_search"]',
-          ],
+          matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
       ],
