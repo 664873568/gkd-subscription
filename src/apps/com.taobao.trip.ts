@@ -35,7 +35,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[text~="\\+0.0[0-9]元"][clickable=true] <n View <n View < View[index=parent.childCount.minus(1)]',
+            '@[text~="\\\\+0.0[0-9]元"][clickable=true] <n View <n View < View[index=parent.childCount.minus(1)]',
           ],
         },
         {
