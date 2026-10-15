@@ -93,13 +93,12 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          matches: [
-            '@[desc="关闭按钮"][clickable=true] - [text=" "]',
-          ],
+          matches: ['@[desc="关闭按钮"][clickable=true] - [text=" "]'],
         },
         {
           preKeys: [
-            0, 1, 10, 20, 30, 40, 41, 50,51, 60, 64, 70, 80, 90, 100, 110, 120, 130,
+            0, 1, 10, 20, 30, 40, 41, 50, 51, 60, 64, 70, 80, 90, 100, 110, 120,
+            130,
           ],
           key: 1,
           action: 'back',
@@ -109,7 +108,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [
-            2, 10, 20, 30, 40, 41, 50,51, 60, 70, 80, 90, 100, 110, 120, 130,
+            2, 10, 20, 30, 40, 41, 50, 51, 60, 70, 80, 90, 100, 110, 120, 130,
           ],
           key: 2,
           action: 'back',
@@ -122,7 +121,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 10, 40, 41, 50,51, 70],
+          preKeys: [3, 10, 40, 41, 50, 51, 70],
           key: 3,
           action: 'back',
           actionDelay: 6000,
@@ -131,7 +130,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4, 10, 50,51, 60],
+          preKeys: [4, 10, 50, 51, 60],
           key: 4,
           action: 'back',
           actionDelay: 11000,
@@ -143,7 +142,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5, 50,51, 60, 90],
+          preKeys: [5, 50, 51, 60, 90],
           key: 5,
           action: 'back',
           matches: [
@@ -154,7 +153,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6, 12, 13, 50,51, 60, 110, 120, 200],
+          preKeys: [6, 12, 13, 50, 51, 60, 110, 120, 200],
           key: 6,
           action: 'back',
           actionDelay: 11000,
