@@ -44,7 +44,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[text="热门话题"] +n View > View > View > @View[clickable=true] > [desc="点赞"]',
           ],
@@ -52,7 +52,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[text="热门话题"] +n View > View > View > @View[clickable=true] > [desc="回复"]',
           ],
@@ -60,7 +60,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] +n [text^="评论"] +n View > @EditText[clickable=true]',
           ],
@@ -92,21 +92,21 @@ export default defineGkdApp({
         {
           preKeys: [5],
           key: 6,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] +n [text^="评论"] +n View > View > [text="666"] +n @[text="发布"][clickable=true]',
           ],
         },
         {
-          preKeys: [6],
+          preKeys: [6,7],
           key: 7,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[id="h5-product_mod"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""]',
           ],
         },
         {
-          preKeys: [7],
+          preKeys: [7,8],
           key: 8,
           actionDelay: 2000,
           matches: [
@@ -144,15 +144,15 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[text="热门话题"] +n View > View > View > @View[clickable=true] > [desc="点赞"]',
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [1,2],
           key: 2,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[id="h5-product_mod"] > [id="index-container"] > [id="header"] > [id="headerNav"] > View > View > @View[clickable=true] > [id="headerLeft"] > [text=""]',
           ],
