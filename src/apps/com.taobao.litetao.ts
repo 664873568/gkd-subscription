@@ -47,5 +47,7 @@ export default defineGkdApp({
           ],
           activityIds: ['com.taobao.themis.container.app.TMSActivity'],
         },
+      ],
+    },
   ],
 });
