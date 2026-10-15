@@ -249,7 +249,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2,3],
+          preKeys: [1, 2, 3],
           key: 3,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
