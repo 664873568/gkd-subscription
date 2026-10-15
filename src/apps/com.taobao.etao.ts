@@ -50,12 +50,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
-          ],
           actionDelay: 2000,
           matches: [
             'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"&&getChild(2).text!^="已领"] + [text!~="去中国移动逛逛"]',
+          ],
+          excludeMatches: [
+            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
           ],
         },
         {
@@ -102,6 +102,46 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: [
             'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '领补贴 得1元现金',
+      matchRoot: true,
+      forcedTime: 60000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.taobao.sns.tms.CommonTMSActivity',
+        '.detailv2.EtaoTTDetailActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[desc="立即领取"] - @ImageView[clickable=true] -n [desc="足迹商品补贴"] <n FrameLayout < [vid="dialog_container"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[desc="领现金"] < @FrameLayout[clickable=true] -n [desc="领两个商品补贴可得"] <n FrameLayout < [vid="dialog_container"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[desc="点我立即到账"] < @FrameLayout[clickable=true] -n [desc="领两个商品补贴可得"] <n FrameLayout < [vid="dialog_container"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@ImageView[clickable=true] -n [desc="现金奖励"] <n LinearLayout <n FrameLayout < [vid="dialog_container"]',
           ],
         },
       ],
