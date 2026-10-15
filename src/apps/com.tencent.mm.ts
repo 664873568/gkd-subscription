@@ -125,14 +125,36 @@ export default defineGkdApp({
       name: '京东金融',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
       rules: [
         {
+          key: 0,
+          name: '频道栏',
           matches: [
             'ImageView[desc="￼"] - View >n ScrollView > View > View > View > ImageView[desc="￼"][index=2]',
           ],
-          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+          excludeMatches: [
+            '[desc="￼"] - @[desc="特价"] - [desc="首页"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '9.9包邮',
+          matches: [
+            'ImageView[desc="￼"] - View >n ScrollView > @ImageView[desc="￼"] + [desc="¥"]',
+          ],
+          excludeMatches: [
+            'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
+            'ImageView[desc="￼"] - View >n ScrollView > View > View > View > ImageView[desc="￼"][index=2]',
+          ],
+        },
+        {
+          key: 2,
+          name: '特价',
+          matches: [
+            'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
+          ],
         },
       ],
     },
