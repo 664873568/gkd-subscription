@@ -227,19 +227,8 @@ export default defineGkdApp({
           activityIds: ['.aiphoto.ui.home.view.CreativeDetailActivity'],
         },
         {
-          preKeys: [1],
+          preKeys: [2, 3],
           key: 2,
-          actionDelay: 1000,
-          matches: [
-            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
-          ],
-          activityIds: [
-            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
-          ],
-        },
-        {
-          preKeys: [2, 3, 4],
-          key: 3,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -253,7 +242,17 @@ export default defineGkdApp({
           },
           actionDelay: 1000,
           matches: [
-            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @RecyclerView[vid="list"]',
+            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @[vid="srv_list"]',
+          ],
+          activityIds: [
+            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
+          ],
+        },
+        {
+          preKeys: [1,2,3],
+          key: 3,
+          matches: [
+            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
           activityIds: [
             '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
