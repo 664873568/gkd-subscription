@@ -108,11 +108,11 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: [
         'com.taobao.android.detail.alittdetail.TTDetailActivity',
-        'com.taobao.themis.container.app.TMSActivity'
+        'com.taobao.themis.container.app.TMSActivity',
       ],
       rules: [
         {
-          preKeys: [1,2,3,4,5],
+          preKeys: [1, 2, 3, 4, 5],
           key: 0,
           matches: [
             '[vid="actionbar_layout"] >n [text="ꁽ"][desc="返回，按钮"]',
