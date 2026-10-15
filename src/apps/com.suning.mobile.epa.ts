@@ -221,7 +221,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           matches: [
             '[getChild(1).getChild(0).text="短剧"] + View > View > View > @View[clickable=true] > View > [text$="集全"]',
@@ -270,7 +270,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [11,12,13,14],
+      scopeKeys: [11, 12, 13, 14],
       key: 15,
       name: '领金币-去完成-立即领取',
       forcedTime: 60000,
@@ -313,7 +313,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,11,12,13,14],
+          preKeys: [4, 11, 12, 13, 14],
           key: 3,
           name: '立即领取',
           matches: [
@@ -321,7 +321,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,14],
+          preKeys: [1, 14],
           key: 4,
           actionDelay: 6000,
           anyMatches: [
