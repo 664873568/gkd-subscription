@@ -126,7 +126,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1, 20, 30, 40, 50, 70, 80, 110,130, 140, 200, 210],
+          preKeys: [0, 1, 20, 30, 40, 50, 70, 80, 110, 130, 140, 200, 210],
           key: 1,
           action: 'back',
           matches: [
