@@ -2124,7 +2124,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="我的钱"] < * < * < * - @ViewGroup[clickable=true] < * +n * [text~="([0-9]|[1-4][0-9]|[5][0-2])/53"]',
+            '[text="我的钱"] < * < * < * - @ViewGroup[clickable=true] < * +n * [text="53/53"]',
           ],
           excludeMatches: [
             '[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|.*继续.*|.*金币获取加倍中.*"]',
