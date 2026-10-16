@@ -217,8 +217,9 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           action: 'back',
-          matches: [
+          anyMatches: [
             '[text="看剧赚更多"] < FrameLayout < FrameLayout - FrameLayout > FrameLayout > [text~="再看[0-9]+分钟\\\\n金币翻倍"]',
+            'View + View + TextureView + FrameLayout > [text~="[0-9]+:[0-9]+"]',
           ],
           activityIds: [
             'com.baidu.searchbox.video.collectionflow.CollectionFlowActivity',
