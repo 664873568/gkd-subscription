@@ -156,7 +156,7 @@ export default defineGkdApp({
         {
           preKeys: [0,1,2,3],
           key: 3,
-          actionDelay: 'back',
+          action: 'back',
           matches: [
             '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
@@ -164,9 +164,9 @@ export default defineGkdApp({
         {
           preKeys: [3,4],
           key: 4,
-          actionDelay: 'back',
+          action: 'back',
           matches: [
-            '[id="android:id/content"] + * [id="android:id/text1"] ',
+            '[id="android:id/content"] + * [id="android:id/text1"]',
           ],
           activityIds: ['.ui.LauncherUI'],
         },
