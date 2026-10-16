@@ -131,6 +131,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '频道栏',
+          actionDelay: 3000,
           matches: [
             'ImageView[desc="￼"] - View >n ScrollView > View > View > View > ImageView[desc="￼"][index=2]',
           ],
@@ -151,6 +152,23 @@ export default defineGkdApp({
           key: 2,
           name: '特价',
           matches: ['ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]'],
+        },
+        {
+          preKeys: [0,1,2,3],
+          key: 3,
+          actionDelay: 'back',
+          matches: [
+            '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [3,4],
+          key: 4,
+          actionDelay: 'back',
+          matches: [
+            '[id="android:id/content"] + * [id="android:id/text1"] ',
+          ],
+          activityIds: ['.ui.LauncherUI'],
         },
       ],
     },
