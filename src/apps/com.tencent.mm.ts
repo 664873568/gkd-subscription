@@ -154,7 +154,7 @@ export default defineGkdApp({
           matches: ['ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]'],
         },
         {
-          preKeys: [0,1,2,3],
+          preKeys: [0, 1, 2, 3],
           key: 3,
           action: 'back',
           matches: [
@@ -162,12 +162,10 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,4],
+          preKeys: [3, 4],
           key: 4,
           action: 'back',
-          matches: [
-            '[id="android:id/content"] + * [id="android:id/text1"]',
-          ],
+          matches: ['[id="android:id/content"] + * [id="android:id/text1"]'],
           activityIds: ['.ui.LauncherUI'],
         },
       ],
