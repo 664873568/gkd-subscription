@@ -7,18 +7,19 @@ export default defineGkdApp({
     //天天集能量-.splash.ui.ImageSplashActivity
     {
       key: 0,
-      name: '天天集能量-天降惊喜-x',
+      name: '天天集能量-天降惊喜',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
       rules: [
         {
+          key: 0,
           matches: [
-            '[text="天天集能量"] >n @View[clickable=true] > [text^="O1CN016QjBQ71TI0eIdtVRX"]',
+            '[text="天天集能量"] >n Button - View > @Button[clickable=true]',
           ],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
     },
@@ -76,10 +77,10 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="天天集能量"] >n View > @View[clickable=true] > [text$="元"] + [text!~="注册.*|逛中国移动"]',
+            '[text="天天集能量"] >n View > @Button[text!~=".*逛中国移动"][width=height][clickable=true]',
           ],
           excludeMatches: [
-            'View > View > TextView + @[text~="\\\\+0.0[0-9]元"][clickable=true]',
+            '@[text~="\\\\+0.0[0-9]元"][clickable=true] <n View <n View < View[index=parent.childCount.minus(1)]',
             'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout <n * @[text="立即下载" || text="下载应用"]',
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text="立即打开"]',
             'View > View > @[text="领取奖励"][clickable=true]',
@@ -89,7 +90,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           anyMatches: [
-            '[text^="快影APP下载"] <<n * @View[clickable=true] > [text="立即下载App"]', //浏览App返回页
+            '[text^="快影APP下载"] <<n * @View[clickable=true] > [text="立即下载App"]',
             '[text^="盒马"] >n * @[text="打开盒马APP"][clickable=true]',
             '[text="全民K歌"] >n * TextView +n @TextView[clickable=true]',
             '[text="全民K歌"] >n * TextView +n @TextView[clickable=true]',
@@ -98,16 +99,18 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 2000,
+          name: '浏览App返回页',
+          actionDelay: 3000,
           matches: [
-            '[vid="fliggyx_navigation_bar_right_layout"] - [vid="fliggyx_navigation_bar_wide_middle"] - [vid="fliggyx_navigation_bar_left_out"] >n @LinearLayout[clickable=true]', //浏览App返回页
+            '[vid="fliggyx_navigation_bar_right_layout"] - [vid="fliggyx_navigation_bar_wide_middle"] - [vid="fliggyx_navigation_bar_left_out"] >n @LinearLayout[clickable=true]',
           ],
         },
         {
           key: 3,
+          name: '任意点击一个酒店-返回',
           action: 'back',
           matches: [
-            '[text="飞猪订酒店 真划算"] >n @[text^="O1CN01rnXVgw22mFh20KuMa"]', //任意点击一个酒店
+            '[text="飞猪订酒店 真划算"] >n @[text^="O1CN01rnXVgw22mFh20KuMa"]',
           ],
         },
       ],
@@ -758,7 +761,7 @@ export default defineGkdApp({
           key: 2,
           name: '已完成浏览',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text*="已完成浏览"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < * <n * <n * <n * [text*="已完成浏览"]',
           ],
         },
         {
