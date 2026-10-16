@@ -96,7 +96,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2, 50, 51, 60, 90],
+          preKeys: [0, 2, 50, 51, 60, 90],
           key: 2,
           name: '已完成 点击立即返回×',
           action: 'back',
@@ -175,7 +175,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [9, 40, 41,50, 51, 60, 90],
+          preKeys: [9, 40, 41, 50, 51, 60, 90],
           key: 9,
           action: 'back',
           actionDelay: 6000,
@@ -223,7 +223,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [13, 14,15],
+          preKeys: [13, 14, 15],
           key: 15,
           name: '游戏-退出游戏',
           matches: [
@@ -251,7 +251,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [16, 17,18, 40, 41, 100],
+          preKeys: [16, 17, 18, 40, 41, 100],
           key: 18,
           name: '逛看病买药频道-××',
           action: 'back',
@@ -1068,7 +1068,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [2,3,13],
+          preKeys: [2, 3, 13],
           key: 1,
           matches: ['@View[clickable=true] > View > [text~="[1-9][0-9]*"]'],
         },
