@@ -52,12 +52,16 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[text="立即签到"] -n [text="每日签到"]'],
+          matches: [
+            '@[text="立即签到"][clickable=true] -n [text="每日签到"] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['@[text="我知道了"] -n [text^="签到成功"]'],
+          matches: [
+            '@[text="我知道了"][clickable=true] -n [text^="签到成功"] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
+          ],
         },
       ],
     },
