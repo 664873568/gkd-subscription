@@ -238,7 +238,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 3000,
           matches: [
-            '@[desc="返回"][clickable=true] < RelativeLayout <n * - * [text~=".*菜鸟.*|打开淘宝闪购"]',
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true] + * [text="菜鸟-果园专属福利页" || text="打开淘宝闪购"]',
           ],
         },
         {
@@ -246,7 +246,7 @@ export default defineGkdApp({
           key: 3,
           actionDelay: 3000,
           matches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true] <n * [text="蚂蚁庄园" || text="支付宝·芭芭农场"]',
+            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true] + * [text="蚂蚁庄园" || text="支付宝·芭芭农场"]',
           ],
         },
         {
@@ -465,7 +465,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2, 3, 8, 9],
+          preKeys: [1, 2, 8],
           key: 9,
           action: 'back',
           actionDelay: 3000,
@@ -514,7 +514,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 3],
+          preKeys: [1],
           key: 3,
           action: 'back',
           actionDelay: 5000,
@@ -549,7 +549,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 2],
+          preKeys: [0],
           key: 2,
           action: 'back',
           actionDelay: 5000,
@@ -560,11 +560,11 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          excludeMatches: [
-            '[text="芝麻粒炼金"] >n [id="accumulateListContainer"] > @View[clickable=true] > [getChild(0).text!~="玩.*|去玩.*"] +n [text~="\\\\+[2-9][0-9]"] +n [text="去完成"]',
-          ],
           matches: [
             '[text="芝麻粒炼金"] >n @[text="一键收取"][clickable=true]',
+          ],
+          excludeMatches: [
+            '[text="芝麻粒炼金"] >n [id="accumulateListContainer"] > @View[clickable=true] > [getChild(0).text!~="玩.*|去玩.*"] +n [text~="\\\\+[2-9][0-9]"] +n [text="去完成"]',
           ],
         },
       ],
