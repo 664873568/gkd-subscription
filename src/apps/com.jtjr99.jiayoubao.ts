@@ -258,7 +258,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -273,26 +272,14 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
           matches: ['@[vid="iv_close"][clickable=true]'],
-          activityIds: ['.module.home.MainTabActivity'],
-        },
-      ],
-    },
-    {
-      key: 52,
-      name: '广告-×',
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: ['@[vid="iv_close"][clickable=true]'],
-          activityIds: ['.module.ucenter.enter.SplashScreenActivity'],
+          activityIds: [
+            '.module.home.MainTabActivity',
+            '.module.ucenter.enter.SplashScreenActivity',
+          ],
         },
       ],
     },
