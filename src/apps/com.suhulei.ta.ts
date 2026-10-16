@@ -20,22 +20,23 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
-          matches: ['[vid="baseLayout"] > @[vid="editText"][clickable=true]'],
+          matches: [
+            '[vid="baseLayout"] > [vid="ivChatLeft"] + @[vid="editText"][clickable=true]',
+          ],
         },
         {
           preKeys: [1],
           key: 2,
           matches: [
-            '[vid="baseLayout"] > [vid="editText"] + @[vid="ivAddHeart"][clickable=true]',
+            '[vid="baseLayout"] > [vid="ivChatLeft"] + [vid="editText"] + @[vid="ivAddHeart"][clickable=true]',
           ],
         },
         {
           preKeys: [2],
           key: 3,
           matches: [
-            '[vid="baseLayout"] > [vid="editText"] + [vid="ivAddHeart"] + @[vid="ivChatRight"][clickable=true]',
+            '[vid="baseLayout"] > [vid="ivChatLeft"] +  [vid="editText"] + [vid="ivAddHeart"] + @[vid="ivChatRight"][clickable=true]',
           ],
         },
       ],
