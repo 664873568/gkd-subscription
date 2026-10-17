@@ -20,7 +20,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'clickCenter',
+          action: 'back',
           anyMatches: [
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text~="JoyAI|此功能需访问京东金融APP|健康好礼限时领|图片|省钱中心|加载页面|73d4ea791bcfd553.png!q70"]',
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [desc="返回"] +n RelativeLayout > [text*="金融" || text="加载页面"]',
@@ -100,8 +100,12 @@ export default defineGkdApp({
           key: 2,
           name: '已完成 点击立即返回×',
           action: 'back',
+          actionDelay: 11000,
           matches: [
             '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
           ],
         },
         {
@@ -205,7 +209,7 @@ export default defineGkdApp({
           matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
         },
         {
-          preKeys: [13, 90],
+          preKeys: [13,14, 90],
           key: 13,
           name: '游戏-关闭',
           actionDelay: 6000,
@@ -217,13 +221,12 @@ export default defineGkdApp({
           preKeys: [13, 14],
           key: 14,
           name: '知道啦',
-          actionDelay: 6000,
           matches: [
             '@[text="知道啦"][clickable=true] - LinearLayout - ImageView - ViewGroup < ViewGroup < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [13, 14, 15],
+          preKeys: [13, 15],
           key: 15,
           name: '游戏-退出游戏',
           matches: [
@@ -243,7 +246,7 @@ export default defineGkdApp({
         {
           preKeys: [17, 40, 41, 100],
           key: 17,
-          name: '逛看病买药频道-×',
+          name: '逛看病买药频道-××',
           action: 'back',
           actionDelay: 6000,
           matches: [
@@ -253,7 +256,7 @@ export default defineGkdApp({
         {
           preKeys: [16, 17, 18, 40, 41, 100],
           key: 18,
-          name: '逛看病买药频道-××',
+          name: '逛看病买药频道-<',
           action: 'back',
           actionDelay: 6000,
           matches: [
