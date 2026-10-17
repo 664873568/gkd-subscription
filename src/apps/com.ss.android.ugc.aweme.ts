@@ -37,13 +37,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '[id="Page_layout_scroll"] >n @View[clickable=true] > [text="签到可得"]',
-            '[text="签到成功 月付金"] +n @ImageButton[clickable=true]',
-          ],
           actionDelay: 2000,
           matches: [
             '[id="Page_layout_scroll"] >n View > View[ getChild(4).name$="TextView"] + TextView[text!~="去打车|买一笔|去上传|已完成"]',
+          ],
+          excludeMatches: [
+            '[id="Page_layout_scroll"] >n @View[clickable=true] > [text="签到可得"]',
+            '[text="签到成功 月付金"] +n @ImageButton[clickable=true]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -75,7 +75,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 15000,
           matches: [
-            'FrameLayout < [id*="plugin"] - FrameLayout < @FrameLayout < FrameLayout - * ViewGroup - ViewGroup < ViewGroup + ViewGroup + ViewGroup[index=2][childCount=0]',
+            '[id*="plugin"] <n FrameLayout < FrameLayout[clickable=true] <n FrameLayout >n @ViewGroup <n ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
@@ -117,7 +117,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView',
+            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup - ScrollView < FrameLayout < FrameLayout < ViewFactoryHolder',
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
@@ -222,7 +222,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ViewGroup[index=0]',
+            'ViewGroup < @ViewGroup < ViewGroup <n ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -254,25 +254,26 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '逛商城福利',
           action: 'back',
           matches: [
-            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout', //逛商城福利
+            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
         {
           key: 1,
+          name: '浏览行情信息',
           matches: [
-            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * [desc="更多"] +n @[desc="关闭"][clickable=true]', //浏览行情信息
+            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * [desc="更多"] +n @[desc="关闭"][clickable=true]',
           ],
-          activityIds: [
-            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
-          ],
+          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity'],
         },
         {
           key: 2,
+          name: '浏览投资日历',
           matches: [
-            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][width=height][clickable=true]', //浏览投资日历
+            'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="返回按钮"][width=height][clickable=true]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -285,11 +286,9 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup > ImageView[index=0]',
+            'ImageView < @ViewGroup < ViewGroup <n ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
       ],
     },
@@ -900,16 +899,16 @@ export default defineGkdApp({
           key: 6,
           name: '立即预约领取',
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="立即预约领取"]',
+            '[desc="立即预约领取"] < @ViewGroup < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [6],
+          preKeys: [5,6],
           key: 7,
           name: '恭喜预约成功',
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ImageView',
+            '@ImageView < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -918,7 +917,7 @@ export default defineGkdApp({
           key: 8,
           name: '恭喜获得惊喜奖励',
           matches: [
-            'HorizontalScrollView > LinearLayout > ViewGroup + ViewGroup > @ImageView + ViewGroup + ImageView',
+            '@ImageView < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -927,7 +926,7 @@ export default defineGkdApp({
           key: 9,
           name: '返回',
           matches: [
-            '@HorizontalScrollView > LinearLayout > ViewGroup > [desc="直接领"] -n ViewGroup > [desc="看视频"] + [desc~="[0-9]+"] + [desc="秒"] + [desc="领"]',
+            '[desc="直接领"] -n [getChild(0).desc="看视频"] - @ViewGroup < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
