@@ -92,7 +92,7 @@ export default defineGkdApp({
           name: '已完成 点击立即返回',
           action: 'back',
           matches: [
-            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - ViewGroup < [id="android:id/content"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] <n [id="android:id/content"]',
           ],
         },
         {
@@ -179,8 +179,17 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [9, 40, 41, 50, 51, 60, 90],
+          preKeys: [9, 40, 41, 50, 51, 70],
           key: 9,
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            '@[desc="返回"][clickable=true] < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout <n FrameLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [10, 40, 41, 50, 51, 60, 90],
+          key: 10,
           action: 'back',
           actionDelay: 6000,
           matches: [
@@ -197,7 +206,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 6000,
           matches: [
-            '@[desc="返回"][clickable=true] < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout <n FrameLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
+            '@[desc="返回"][clickable=true] < RelativeLayout <n RelativeLayout < RelativeLayout < RelativeLayout < LinearLayout <n RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -209,7 +218,7 @@ export default defineGkdApp({
           matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
         },
         {
-          preKeys: [13, 14, 90],
+          preKeys: [13,14, 90],
           key: 13,
           name: '游戏-关闭',
           actionDelay: 6000,
@@ -1546,6 +1555,51 @@ export default defineGkdApp({
           key: 11,
           matches: [
             '[id="union-stage-info"] > View[clickable=true] > View > View > @[text="4c1b204204e75dd7"]',
+          ],
+        },
+      ],
+    },
+    //26.10.12-26.11.11 母婴来了/运动来了
+    //https://u.jd.com/FDT8Var
+    {
+      scopeKeys: [1],
+      key: 140,
+      name: '母婴来了/运动来了-去签到/去浏览',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.WebActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          name: '每日签到',
+          anyMatches: [
+            '@TextView[clickable=true] - TextView < View < View < View < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
+            '@TextView[clickable=true] - TextView < View < View < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
+          ],
+          excludeMmatches: [
+            '@TextView[clickable=true] - TextView <n View < View < View < View <n View -n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
+          ],
+        },
+        {
+          preKeys: [3,11,141],
+          key: 140,
+          anyMatches: [
+            '@TextView[clickable=true] - TextView <n View < View < View < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
+            '@TextView[clickable=true] - TextView < View <n View < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 141,
+          name: '签到成功/今日打卡成功-我知道了-×',
+          matches: [
+            '@TextView[clickable=true] - TextView <n View < View < View < View <n View -n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
+            '@TextView[clickable=true] - View < View < View < View <n View -n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"],
           ],
         },
       ],
