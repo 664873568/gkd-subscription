@@ -60,7 +60,7 @@ export default defineGkdApp({
           key: 5,
           actionDelay: 5000,
           matches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
           excludeMatches: [
             '@[desc="返回"][clickable=true] + * [text="蚂蚁投资者教育基地"]',
@@ -176,6 +176,7 @@ export default defineGkdApp({
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
             'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+            'com.alipay.android.phone.businesscommon.globalsearch.ui.MainSearchActivity',
           ],
         },
       ],
@@ -204,7 +205,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 5000,
           matches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
         },
       ],
@@ -324,13 +325,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'Dialog >n @TextView[clickable=true] - View > Image + [text="开心收下"]',
-            'Dialog >n @TextView[clickable=true] - View > [text="粒"] + TextView',
-          ],
           actionDelay: 2000,
           matches: [
             '[id="zhima-accumulation-daily-task"] > View > View > @View[clickable=true] > [text!~="去租赁下单"] + [text="+"] + [text~="[2-9][0-9]"] + [text="去完成"]',
+          ],
+          excludeMatches: [
+            'Dialog >n @TextView[clickable=true] - View > Image + [text="开心收下"]',
+            'Dialog >n @TextView[clickable=true] - View > [text="粒"] + TextView',
           ],
         },
         {
@@ -345,29 +346,28 @@ export default defineGkdApp({
           preKeys: [0, 2],
           key: 2,
           action: 'back',
-          actionDelay: 3000,
-          anyMatches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
-            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
+          actionDelay: 5000,
+          matches: [
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
         },
         {
           key: 3,
-          excludeMatches: [
-            '[id="zhima-accumulation-daily-task"] > View > View > @View[clickable=true] > [text!~="去租赁下单"] + [text="+"] + [text~="[2-9][0-9]"] + [text="去完成"]',
-          ],
           matches: [
             '[id="home-container"] > [text="芝麻粒玩法"] - * @[text="一键收取"][clickable=true]',
+          ],
+          excludeMatches: [
+            '[id="zhima-accumulation-daily-task"] > View > View > @View[clickable=true] > [text!~="去租赁下单"] + [text="+"] + [text~="[2-9][0-9]"] + [text="去完成"]',
           ],
         },
         {
           key: 4,
+          matches: [
+            'Dialog >n [getChild(0).text="开心收下"] + @TextView[clickable=true]',
+          ],
           excludeMatches: [
             '[id="zhima-accumulation-daily-task"] > View > View > @View[clickable=true] > [text!~="去租赁下单"] + [text="+"] + [text~="[2-9][0-9]"] + [text="去完成"]',
             '[id="home-container"] > [text="芝麻粒玩法"] - * @[text="一键收取"][clickable=true]',
-          ],
-          matches: [
-            'Dialog >n [getChild(0).text="开心收下"] + @TextView[clickable=true]',
           ],
         },
       ],
@@ -385,14 +385,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '[text="芝麻粒炼金"] > [id="app"] +n View > Dialog >n @View[clickable=true] > View > [text="做任务领取"]',
-            '[text="芝麻粒炼金"] > [id="app"] +n View > Dialog >n [text="欢迎回来"] +n @View[clickable=true] > TextView',
-            '[text="芝麻粒炼金"] > [id="app"] +n View > Dialog >n @Image[index=parent.childCount.minus(1)][clickable=true]',
-            '[text="芝麻粒炼金"] > View > [id="app"] +n View > Dialog >n [text="欢迎回来"] +n @View[clickable=true] > TextView',
-            '[text="芝麻粒炼金"] > [id="app"] > View > @Image[index=parent.childCount.minus(1)][clickable=true]',
-            '[text="芝麻粒炼金"] >n [text="次日礼包"] + [getChild(2).text="明日可领取"] > @View[clickable=true] > TextView',
-          ],
           actionDelay: 1000,
           matches: [
             '[text="芝麻粒炼金"] > [id="app"] >n @View[clickable=true] > View + [text="每次消耗5粒"] + [text~="[1-9][0-9]*"]',
@@ -402,6 +394,14 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="芝麻粒炼金"] > [id="app"] +n View > Dialog >n @View[clickable=true] > View > [text="做任务领取"]',
+          ],
+          excludeMatches: [
+            '[text="芝麻粒炼金"] > [id="app"] +n View > Dialog >n @View[clickable=true] > View > [text="做任务领取"]',
+            '[text="芝麻粒炼金"] > [id="app"] +n View > Dialog >n [text="欢迎回来"] +n @View[clickable=true] > TextView',
+            '[text="芝麻粒炼金"] > [id="app"] +n View > Dialog >n @Image[index=parent.childCount.minus(1)][clickable=true]',
+            '[text="芝麻粒炼金"] > View > [id="app"] +n View > Dialog >n [text="欢迎回来"] +n @View[clickable=true] > TextView',
+            '[text="芝麻粒炼金"] > [id="app"] > View > @Image[index=parent.childCount.minus(1)][clickable=true]',
+            '[text="芝麻粒炼金"] >n [text="次日礼包"] + [getChild(2).text="明日可领取"] > @View[clickable=true] > TextView',
           ],
         },
         {
@@ -457,21 +457,20 @@ export default defineGkdApp({
         },
         {
           key: 8,
-          excludeMatches: [
-            '[text="芝麻粒炼金"] > [id="app"] >n @View[clickable=true] > View + [text="每次消耗5粒"] + [text~="[1-9][0-9]*"]',
-          ],
           matches: [
             '[text="芝麻粒炼金"] > [id="app"] > View + @View[clickable=true] > View > [text="100"]',
+          ],
+          excludeMatches: [
+            '[text="芝麻粒炼金"] > [id="app"] >n @View[clickable=true] > View + [text="每次消耗5粒"] + [text~="[1-9][0-9]*"]',
           ],
         },
         {
           preKeys: [1, 2, 8],
           key: 9,
           action: 'back',
-          actionDelay: 3000,
-          anyMatches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
-            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
+          actionDelay: 5000,
+          matches: [
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
         },
       ],
@@ -487,15 +486,15 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="芝麻粒炼金"] >n @View[clickable=true] > View > [text="10"] + [text="粒"]',
+          ],
           excludeMatches: [
             '[text="芝麻粒炼金"] > [id="app"] >n @View[clickable=true] > View + [text="每次消耗5粒"] + [text~="[1-9][0-9]*"]',
             '[text="芝麻粒炼金"] > [id="app"] > View + @View[clickable=true] > View > [text="100"]',
             '[text="芝麻粒炼金"] >n [id="accumulateListContainer"] > @View[clickable=true] > [getChild(0).text!~="玩.*|去玩.*"] +n [text~="\\\\+[2-9][0-9]"] +n [text="去完成"]',
             '[text="芝麻粒炼金"] >n [text="次日礼包"] + [getChild(2).text="明日可领取"] > @View[clickable=true] > TextView',
-          ],
-          actionDelay: 2000,
-          matches: [
-            '[text="芝麻粒炼金"] >n @View[clickable=true] > View > [text="10"] + [text="粒"]',
           ],
         },
         {
@@ -518,9 +517,8 @@ export default defineGkdApp({
           key: 3,
           action: 'back',
           actionDelay: 5000,
-          anyMatches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
-            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
+          matches: [
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
         },
       ],
@@ -553,9 +551,8 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           actionDelay: 5000,
-          anyMatches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
-            '[text=""] < [id$="auiconView_homeButton"] < @[desc="返回首页"][clickable=true]',
+          matches: [
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
         },
         {
@@ -599,10 +596,10 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          matches: ['@[desc="返回"][clickable=true] + * [text="先用后付购物"]'],
           excludeMatches: [
             '@[id="app"][clickable=true] <<n * + * [text~="滑一滑[0-9]+秒得奖励"]',
           ],
-          matches: ['@[desc="返回"][clickable=true] + * [text="先用后付购物"]'],
         },
       ],
     },
@@ -707,13 +704,13 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View[clickable=true] > [text="抽今日财运签"] +n View > @[text="去抽签"][clickable=true]',
-            '[getChild(1).name$="TextView"] + View > View[clickable=true] > View > @[text="领取"][clickable=true]',
-          ],
           actionDelay: 2000,
           matches: [
             '[getChild(1).name$="TextView"] + View > View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text~="去完成|去领取|去访问"][clickable=true]',
+          ],
+          excludeMatches: [
+            'View[clickable=true] > [text="抽今日财运签"] +n View > @[text="去抽签"][clickable=true]',
+            '[getChild(1).name$="TextView"] + View > View[clickable=true] > View > @[text="领取"][clickable=true]',
           ],
         },
         {
@@ -721,7 +718,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 5000,
           matches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
         },
         {
@@ -751,12 +748,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '[getChild(1).name$="TextView"] + View > View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text~="去完成|去领取|去访问|领取"][clickable=true]',
-          ],
           actionDelay: 2000,
           matches: [
             '[getChild(1).name$="TextView"] + View > View[clickable=true] > [text="从支付宝首页访问金豆"] +n View > @[text="去访问"][clickable=true]',
+          ],
+          excludeMatches: [
+            '[getChild(1).name$="TextView"] + View > View[clickable=true] > [text~="坚持.*|抽.*|逛一逛.*|挖一挖.*"] +n View > @[text~="去完成|去领取|去访问|领取"][clickable=true]',
           ],
         },
         {
@@ -813,18 +810,20 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+        'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+      ],
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
-            '[getChild(0).text^="逛一逛"] +2 [text="去完成"][clickable=true]',
+            '@[text="去完成"][clickable=true] -2 [getChild(0).text^="逛一逛"] <n View < [id="app"] < WebView < WebView <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           excludeMatches: [
             '@View[clickable=true] > [text="今日签到"]',
-            '[text~="得工分|返回>"] - [text*="浏览"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+            '[text~="得奖励|得工分|返回>"] - [text*="浏览"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
           ],
         },
         {
@@ -834,20 +833,13 @@ export default defineGkdApp({
           matches: [
             '@TextView[clickable=true] < [id="app"] <n [text="悬浮球模版"] < WebView <n [desc*="180020570000041693"] < FrameLayout <n [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
-          ],
         },
         {
           preKeys: [1, 2],
           key: 2,
           actionDelay: 5000,
           matches: [
-            '[text=""] < [id$="auiconView_backButton"] < @[desc="返回"][clickable=true]',
-          ],
-          activityIds: [
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
         },
       ],
@@ -862,7 +854,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[getChild(0).text="完成1笔生活缴费"] +4 [text="领奖励"][clickable=true]',
+            '@[text="领奖励"][clickable=true] -4 [getChild(0).text="完成1笔生活缴费"] <n View < [id="app"] < WebView < WebView <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -1393,9 +1385,34 @@ export default defineGkdApp({
         },
       ],
     },
-    //薅羊毛 赚话费
+    //打卡*天必得 随机抽取1个奖品
     {
       key: 100,
+      name: '今日打卡任务-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[id*="daily-checkin"] >n @View[clickable=true] > [text="去完成"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[text="薅羊毛 赚话费"] >n @[id="feedBubble"][clickable=true] > View > [text="签到奖励"]',
+          ],
+        },
+      ],
+    },
+    //薅羊毛 赚话费
+    {
+      key: 110,
       name: '薅羊毛 赚话费',
       forcedTime: 60000,
       matchRoot: true,
@@ -1498,7 +1515,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           actionDelay: 5000,
-          matches: ['@[desc="返回"][clickable=true] >n [text=""]'],
+          matches: [
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
+          ],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           ], //二级广告页
@@ -1622,7 +1641,7 @@ export default defineGkdApp({
           actionDelay: 2000,
           anyMatches: [
             '@[desc="返回"][clickable=true] < [id$="h5_tf_nav_ly"]',
-            '@[desc="返回"][clickable=true] > [id$="auiconView_backButton"] > [text=""]',
+            '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
             '[id$="frameLayout_rightButton1"] >n [desc="更多"] +n @[desc="关闭"][clickable=true] > [text=""]',
           ],
         },
