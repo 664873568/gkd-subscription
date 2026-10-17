@@ -6,25 +6,23 @@ export default defineGkdApp({
   groups: [
     //天天集能量-.splash.ui.ImageSplashActivity
     {
-      key: 0,
+      key: 10,
       name: '天天集能量-天降惊喜',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
       activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
       rules: [
         {
-          key: 0,
           matches: [
-            '[text="天天集能量"] >n Button - View > @Button[clickable=true]',
+            '[text="天天集能量"] >n Button[width=height] - View > @Button[clickable=true]',
           ],
         },
       ],
     },
     {
-      key: 1,
+      key: 11,
       name: '天天集能量-惊喜任务',
       forcedTime: 60000,
       matchRoot: true,
@@ -37,6 +35,9 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: [
             '@[text~="\\\\+0.0[0-9]元"][clickable=true] <n View <n View < View[index=parent.childCount.minus(1)]',
+          ],
+          excludeMatches: [
+            '[text="天天集能量"] >n Button[width=height] - View > @Button[clickable=true]',
           ],
         },
         {
@@ -65,11 +66,10 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 12,
       name: '天天集能量-看视频领现金',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
       rules: [
@@ -77,7 +77,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="天天集能量"] >n View > @Button[text!~=".*逛中国移动"][width=height][clickable=true]',
+            '[text="天天集能量"] >n View > @Button[text!~=".*逛中国移动|.*找10次抽奖券"][width=height][clickable=true]',
           ],
           excludeMatches: [
             '@[text~="\\\\+0.0[0-9]元"][clickable=true] <n View <n View < View[index=parent.childCount.minus(1)]',
@@ -100,7 +100,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '浏览App返回页',
-          actionDelay: 3000,
+          actionDelay: 5000,
           matches: [
             '[vid="fliggyx_navigation_bar_right_layout"] - [vid="fliggyx_navigation_bar_wide_middle"] - [vid="fliggyx_navigation_bar_left_out"] >n @LinearLayout[clickable=true]',
           ],
@@ -116,8 +116,28 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [31],
-      key: 3,
+      key: 13,
+      name: '天天集能量-看视频领现金-找10次抽奖券',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+      rules: [
+        {
+          actionDelay: 2000,
+          matches: [
+            '[text="天天集能量"] >n View > @Button[text~=".*找10次抽奖券"][width=height][clickable=true]',
+          ],
+          excludeMatches: [
+            '[text="天天集能量"] >n View > @Button[text!~=".*逛中国移动|.*找10次抽奖券"][width=height][clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys: [41],
+      key: 14,
       name: '天天集能量-看视频',
       forcedTime: 60000,
       matchRoot: true,
@@ -138,7 +158,7 @@ export default defineGkdApp({
     },
     //天天集能量-首页广告
     {
-      key: 10,
+      key: 20,
       name: '天天集能量-首页广告-跳过',
       forcedTime: 60000,
       matchRoot: true,
@@ -161,7 +181,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 21,
       name: '天天集能量-首页广告-礼包-剩余*s-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -191,7 +211,7 @@ export default defineGkdApp({
     },
     //看视频-com.anythink.basead.ui.ATPortraitActivity
     {
-      key: 20,
+      key: 30,
       name: '看视频-免看本次广告',
       forcedTime: 60000,
       matchRoot: true,
@@ -216,7 +236,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 31,
       name: '看视频-广告-浏览-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -238,7 +258,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 32,
       name: '看视频-广告-跳过',
       forcedTime: 60000,
       matchRoot: true,
@@ -258,7 +278,7 @@ export default defineGkdApp({
     },
     //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
     {
-      key: 30,
+      key: 40,
       name: '看视频-广告-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -286,7 +306,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 31,
+      key: 41,
       name: '看视频-跳过-礼包-*s后可领取奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -335,7 +355,7 @@ export default defineGkdApp({
     },
     //看视频-com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity
     {
-      key: 40,
+      key: 50,
       name: '看视频-跳过-*秒后可领取奖励beizi.ad',
       forcedTime: 60000,
       matchRoot: true,
@@ -351,7 +371,7 @@ export default defineGkdApp({
     },
     //看视频-com.byazt.mw.Stub_Standard_Portrait_Activity
     {
-      key: 50,
+      key: 60,
       name: '看视频-跳过-byazt.mw',
       forcedTime: 60000,
       matchRoot: true,
@@ -448,7 +468,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 61,
       name: '看视频-跳过-回答正确可直接领奖byazt.mw',
       forcedTime: 60000,
       matchRoot: true,
@@ -469,7 +489,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 52,
+      key: 62,
       name: '看视频-礼包-*s后可领取奖励byazt.mw',
       forcedTime: 60000,
       matchRoot: true,
@@ -487,7 +507,7 @@ export default defineGkdApp({
     },
     //看视频-com.byazt.sr.Stub_Standard_Portrait_Activity
     {
-      key: 60,
+      key: 70,
       name: '看视频-跳过-礼包-*s后可领取奖励byazt.sr',
       forcedTime: 60000,
       matchRoot: true,
@@ -507,7 +527,7 @@ export default defineGkdApp({
     },
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity
     {
-      key: 70,
+      key: 80,
       name: '看视频-跳过-去体验*秒可立即领奖bsoc',
       forcedTime: 60000,
       matchRoot: true,
@@ -537,7 +557,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 71,
+      key: 81,
       name: '看视频-跳过-礼包-*s后可领取奖励bsoc',
       forcedTime: 60000,
       matchRoot: true,
@@ -558,7 +578,7 @@ export default defineGkdApp({
     },
     //看视频-com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity
     {
-      key: 80,
+      key: 90,
       name: '看视频-跳过-去体验*秒可立即领奖',
       forcedTime: 60000,
       matchRoot: true,
@@ -590,7 +610,7 @@ export default defineGkdApp({
     },
     //看视频-com.kwad.sdk.api.proxy.app.FeedDownloadActivity
     {
-      key: 90,
+      key: 100,
       name: '看视频-立即领取-跳过',
       forcedTime: 60000,
       matchRoot: true,
@@ -608,7 +628,7 @@ export default defineGkdApp({
     },
     //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
     {
-      key: 91,
+      key: 101,
       name: '看视频-跳过-立即领取/立即获取',
       forcedTime: 60000,
       matchRoot: true,
@@ -630,7 +650,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 92,
+      key: 102,
       name: '看视频-跳过-礼包-看*秒可直接拿奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -654,7 +674,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 93,
+      key: 103,
       name: '看视频-礼包-免费获取-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -672,7 +692,7 @@ export default defineGkdApp({
     },
     //看视频-com.qq.e.ads.PortraitADActivity
     {
-      key: 100,
+      key: 110,
       name: '看视频-微信-提前拿奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -705,7 +725,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 101,
+      key: 111,
       name: '看视频-微信-阅读小说 可获得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -733,7 +753,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 102,
+      key: 112,
       name: '看视频-奖励将于*秒后发放',
       forcedTime: 60000,
       matchRoot: true,
@@ -788,7 +808,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 103,
+      key: 113,
       name: '看视频-浏览页面*秒后即可获得奖励',
       matchRoot: true,
       matchDelay: 1000,
@@ -813,7 +833,7 @@ export default defineGkdApp({
     },
     //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
-      key: 110,
+      key: 120,
       name: '看视频-完成APP下载-即可领取奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -837,7 +857,7 @@ export default defineGkdApp({
     },
     //看视频-com.ubix.ssp.open.comm.UBiXVideoActivity
     {
-      key: 120,
+      key: 130,
       name: '看视频-点击广告并跳转获取奖励',
       forcedTime: 60000,
       matchRoot: true,
