@@ -218,7 +218,7 @@ export default defineGkdApp({
           matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
         },
         {
-          preKeys: [13,14, 90],
+          preKeys: [13, 14, 90],
           key: 13,
           name: '游戏-关闭',
           actionDelay: 6000,
@@ -1586,7 +1586,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,11,141],
+          preKeys: [3, 11, 141],
           key: 140,
           anyMatches: [
             '@TextView[clickable=true] - TextView <n View < View < View < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
