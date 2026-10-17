@@ -312,12 +312,13 @@ export default defineGkdApp({
         {
           key: 5,
           name: '点击下载或打开第三方应用-×',
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text^="点击" || text$="下载或打开第三方应用"]',
+          ],
           excludeMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="恭喜获得奖励"]',
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * @[text^="奖励将于"]',
             'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * @[text="我要更快拿奖"]',
-          ],
-          matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text^="点击" || text$="下载或打开第三方应用"]',
           ],
         },
         {
@@ -325,7 +326,7 @@ export default defineGkdApp({
           name: '恭喜获得奖励-×',
           actionDelay: 1000,
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="恭喜获得奖励"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="恭喜获得奖励"]',
           ],
         },
         {
