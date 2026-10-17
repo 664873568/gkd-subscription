@@ -910,7 +910,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -926,8 +925,7 @@ export default defineGkdApp({
       name: '开启安全备份/开启通知权限-跳过',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 2,
-      matchTime: 10000,
+      actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
@@ -948,7 +946,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -970,7 +967,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -991,7 +987,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -1013,7 +1008,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -1036,19 +1030,18 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
           action: 'back',
-          anyMatches: [
-            '[vid="cl_open_auto_backup"] > [vid="cl_open_auto_backup_btn"] > [text="开始安全备份"][vid="tv_open_auto_backup_btn_up"]',
-            '[vid="cl_open_auto_backup"] > [vid="cl_open_auto_backup_btn"] > [text="确认开启备份"][vid="tv_open_auto_backup_btn_up"]',
+          matches: [
+            '[text~="开始安全备份|确认开启备份"][vid="tv_open_auto_backup_btn_up"] < [vid="cl_open_auto_backup_btn"] <n [vid="cl_open_auto_backup"] < ViewGroup < [vid="rl_root"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
             '.vip.ui.VipWebActivity',
+            '.vip.ui.VipPayWebDialogActivity',
           ],
         },
       ],
@@ -1059,7 +1052,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -1080,7 +1072,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -1102,7 +1093,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -1142,7 +1132,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text^="跳过"][clickable=true] <n * [text~="点击.*|.*跳转至详情页"]',
+            '@[text*="跳过"][clickable=true] <n RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < [vid="flash_fragment"]',
             '@[text="跳过"] <n FrameLayout <n * [text^="上滑或点击"] + [text="跳转详情或第三方应用"]',
             '@ImageView < ViewGroup < * <n * [text*="上滑"] + [text="跳转至详情页或第三方应用"]',
             '@[vid="ms_skipView"] + [vid="ms_shakeRoot"] > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
@@ -1163,13 +1153,14 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[vid="dialog_home_pop_close_button"][clickable=true]',
+            '@[vid="dialog_home_pop_close_button"][clickable=true] < LinearLayout < [vid="rl_root"]',
             '[getChild(3).vid="jump_btn"] + @[vid="iv_close"][clickable=true]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
             '.home.view.HomeActivity',
             '.vip.ui.VipWebActivity',
+            '.vip.ui.VipPayWebDialogActivity',
             '.splash.ui.CoveredSplashAdvertiseActivity',
             '.operate.ui.view.activity.TaskCenterActivity',
           ],
