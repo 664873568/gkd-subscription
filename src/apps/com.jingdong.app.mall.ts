@@ -1599,7 +1599,7 @@ export default defineGkdApp({
           name: '签到成功/今日打卡成功-我知道了-×',
           matches: [
             '@TextView[clickable=true] - TextView <n View < View < View < View <n View -n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
-            '@TextView[clickable=true] - View < View < View < View <n View -n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"],
+            '@TextView[clickable=true] - View < View < View < View <n View -n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
           ],
         },
       ],
