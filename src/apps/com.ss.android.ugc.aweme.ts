@@ -267,7 +267,9 @@ export default defineGkdApp({
           matches: [
             'ImageView[width=height] < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * [desc="更多"] +n @[desc="关闭"][clickable=true]',
           ],
-          activityIds: ['com.tt.miniapphost.placeholder.MiniAppHostStackActivity'],
+          activityIds: [
+            'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
+          ],
         },
         {
           key: 2,
@@ -288,7 +290,9 @@ export default defineGkdApp({
           matches: [
             'ImageView < @ViewGroup < ViewGroup <n ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
         },
       ],
     },
@@ -904,7 +908,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [5,6],
+          preKeys: [5, 6],
           key: 7,
           name: '恭喜预约成功',
           matches: [
