@@ -137,29 +137,42 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             'ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]',
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0],
           key: 2,
           matches: [
-            'ImageButton +n @[text^="已完成 浏览"][clickable=true] + TextView',
+            'ImageButton +n @View[clickable=true] > View > [text^="浏览"]',
           ],
         },
         {
           preKeys: [2],
           key: 3,
           matches: [
+            '@[desc~="关闭|返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            'ImageButton +n @[text^="已完成 浏览"][clickable=true] + TextView',
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          matches: [
             'AlertDialog > [text="领取奖品确认身份信息"] +n [getChild(0).text="取消"] > @[text="立即领取"][clickable=true]',
           ],
         },
         {
-          preKeys: [0, 1],
-          key: 4,
+          preKeys: [5],
+          key: 6,
           matches: [
             'ImageButton +n [text="已领奖"] + @TextView[clickable=true]',
           ],
@@ -223,7 +236,12 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="oneKey"][clickable=true]'],
+          matches: [
+            '@[text="oneKey"][clickable=true] <n [id="app"] < WebView < WebView < [vid="web_container"]',
+          ],
+          excludeMatches: [
+            '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
+          ],
           activityIds: [
             'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
           ],
