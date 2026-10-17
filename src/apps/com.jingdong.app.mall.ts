@@ -1581,7 +1581,7 @@ export default defineGkdApp({
             '@TextView[clickable=true] - TextView < View < View < View < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
             '@TextView[clickable=true] - TextView < View < View < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
           ],
-          excludeMmatches: [
+          excludeMatches: [
             '@TextView[clickable=true] - TextView <n View < View < View < View <n View -n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < [name*="core"]',
           ],
         },
