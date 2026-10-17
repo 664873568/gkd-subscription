@@ -120,6 +120,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
+          actionDelay: 5000,
           anyMatches: [
             '[vid="ll_top_nav_bar"] - [vid="web_all"]',
             '@FrameLayout[clickable=true] < [vid="common_webview_navbar_right"] - [vid="common_webview_navbar_left"]',
@@ -204,6 +205,7 @@ export default defineGkdApp({
         {
           preKeys: [20],
           key: 8,
+          actionDelay: 5000,
           matches: [
             '[vid="manto_actionbar_option"][clickable=true] + @[vid="manto_actionbar_home"][clickable=true]',
           ],
