@@ -209,7 +209,7 @@ export default defineGkdApp({
           matches: ['@[desc="关闭直播间"][clickable=true] > ImageView'],
         },
         {
-          preKeys: [13,14, 90],
+          preKeys: [13, 14, 90],
           key: 13,
           name: '游戏-关闭',
           actionDelay: 6000,
