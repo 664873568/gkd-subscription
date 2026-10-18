@@ -31,8 +31,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '恭喜获得-去使用-×',
           matches: [
-            '@Image[text="TB16l86YLb2gK0jSZK9XXaEgFXa-92-92.png_100x100.jpg_"]',
+            '@Image <n View < View <n View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
       ],
@@ -52,10 +53,10 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"&&getChild(2).text!^="已领"] + [text!~="去中国移动逛逛"]',
+            '[text!~="去中国移动逛逛"] - View[getChild(2).text="最高1元"] < @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
           excludeMatches: [
-            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
+            '[text!~="去中国移动逛逛"] - [text="领取"] <n View < @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
         {
@@ -63,7 +64,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 5000,
           anyMatches: [
-            '[vid="left_panel"] > @[desc="返回"][clickable=true]', //逛大促会场
+            '[vid="tvTitle"] < LinearLayout - @[desc="返回"][clickable=true] < [vid="left_panel"]', //逛大促会场
             '[vid="ly_title_bar_left"] > @[text=""][vid="header_view_left_text_view"][clickable=true]', //超级金币
           ],
         },
@@ -73,7 +74,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            'WebView < bb < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
+            'WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
           ],
         },
         {
@@ -101,7 +102,7 @@ export default defineGkdApp({
           key: 6,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text="O1CN01s1PguR1l0l6N6MumX_!!6000000004757-2-tps-211-210"] + [text="领取"] + [text!~="去中国移动逛逛"]',
+            '[text!~="去中国移动逛逛"] - [text="领取"] <n View < @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
       ],
