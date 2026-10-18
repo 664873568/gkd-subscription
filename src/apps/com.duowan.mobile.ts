@@ -15,18 +15,20 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@View[clickable=true] > [text="50元"] + [text="今日份数已用完"]',
-            'View > View > @[text="确认提现"][clickable=true]',
-          ],
           matches: [
-            '@View[clickable=true] > [text="50元"] + [text="连续签到20天"] + [text="条件达成"]',
+            '[text="条件达成"] - [text="连续签到20天"] - [text="50元"] < @View[clickable=true] <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+          ],
+          excludeMatches: [
+            '[text="今日份数已用完"] - [text="50元"] < @View[clickable=true] <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
-          matches: ['View > View > @[text="确认提现"][clickable=true]'],
+          matches: [
+            '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+          ],
         },
       ],
     },
