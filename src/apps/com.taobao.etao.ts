@@ -19,18 +19,11 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            'View > @View[getChild(0).text="O1CN01zgOxbV1KnJSkjY2Fc_!!6000000001208-2-tps-150-150"] + [text="签到"]',
+            '[text="签到"] - View[getChild(2).text="?元"] < @View < View < View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
-          matches: [
-            '@View[getChild(0).text="TB16l86YLb2gK0jSZK9XXaEgFXa-92-92.png_100x100.jpg_"] + [text="领取"] + [text="签到"]',
-          ],
-        },
-        {
-          key: 2,
           name: '恭喜获得-去使用-×',
           matches: [
             '@Image <n View < View <n View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
@@ -80,19 +73,22 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 3,
+          name: '去点淘领红包',
           matches: [
-            '[text="下载/打开APP"] < @View[clickable=true] <<n * - * [text="去点淘领红包"][vid="tvTitle"]', //去点淘领红包
+            '[text="下载/打开APP"] < @View[clickable=true] <n View < View <n View < View < [id="ice-container"] < [text="去点淘领红包"] < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout - [vid="tms_title_bar"]',
           ],
         },
         {
           preKeys: [0, 3],
           key: 4,
+          name: '正在离开一淘，打开',
           matches: [
             '[getChild(0).getChild(1).text="提示"] + [getChild(0).getChild(0).getChild(0).text^="正在离开一淘"] + [vid="buttonPanel"] > LinearLayout > @[text="打开"][clickable=true]',
           ],
         },
         {
           key: 5,
+          name: '返回',
           actionDelay: 3000,
           matches: [
             '@[desc="返回"][clickable=true] < [vid="left_panel"] < [vid="tms_title_bar"]',
@@ -100,6 +96,7 @@ export default defineGkdApp({
         },
         {
           key: 6,
+          name: '领取',
           actionDelay: 2000,
           matches: [
             '[text!~="去中国移动逛逛"] - [text="领取"] <n View < @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
