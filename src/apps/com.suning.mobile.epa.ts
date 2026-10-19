@@ -140,14 +140,17 @@ export default defineGkdApp({
       name: '天天领现金-<',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          actionDelay: 5000,
           matches: [
             '[text="天天领现金"] - @ImageButton[clickable=true] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           excludeMatches: [
+            '[getChild(0).text="去完成"] - [getChild(0).getChild(0).text!~="去中国移动领话费"] < View < @View[clickable=true] <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '[text~="[0-9]+金币"] -n @ImageButton[clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
@@ -187,8 +190,9 @@ export default defineGkdApp({
           key: 1,
           name: '领金币',
           actionDelay: 2000,
-          matches: [
-            '@ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+          anyMatches: [
+            '@ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '@ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
           ],
           excludeMatches: [
             '@ImageButton[clickable=true] <n View < View < View <n View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
