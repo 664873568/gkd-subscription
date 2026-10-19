@@ -34,7 +34,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[text~="\\\\+0.0[0-9]元"][clickable=true] <n View <n View < View[index=parent.childCount.minus(1)]',
+            '@Button[clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < [name*="webkit"] <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
             '[text="天天集能量"] >n Button[width=height] - View > @Button[clickable=true]',
@@ -59,10 +59,6 @@ export default defineGkdApp({
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text="立即打开"]',
           ],
         },
-        {
-          key: 4,
-          matches: ['View > View > @[text="领取奖励"][clickable=true]'],
-        },
       ],
     },
     {
@@ -80,8 +76,7 @@ export default defineGkdApp({
             '@Button[text!~=".*逛中国移动|.*找10次抽奖券"][clickable=true] < View <n View <n [getChild(1).text="规则"] < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < [name*="webkit"] <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@[text~="\\\\+0.0[0-9]元"][clickable=true] <n View <n View < View[index=parent.childCount.minus(1)]',
-            'View > View > @[text="领取奖励"][clickable=true]',
+            '@Button[clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < [name*="webkit"] <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
