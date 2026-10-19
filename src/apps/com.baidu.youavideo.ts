@@ -1132,7 +1132,9 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '@[text*="跳过"][clickable=true] <n FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < [vid="flash_fragment"]',
+            '@[text*="跳过"][clickable=true] <n * [text="点击跳转至第三方应用或详情页"]',
             '@[text="跳过"] <n FrameLayout <n * [text^="上滑或点击"] + [text="跳转详情或第三方应用"]',
             '@ImageView < ViewGroup < * <n * [text*="上滑"] + [text="跳转至详情页或第三方应用"]',
             '@[vid="ms_skipView"] + [vid="ms_shakeRoot"] > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
