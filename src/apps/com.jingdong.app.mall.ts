@@ -209,7 +209,7 @@ export default defineGkdApp({
           activityIds: ['null'],
         },
         {
-          preKeys: [12,13, 90],
+          preKeys: [12, 13, 90],
           key: 13,
           name: '关闭直播间',
           action: 'back',
