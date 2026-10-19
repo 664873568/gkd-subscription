@@ -140,12 +140,12 @@ export default defineGkdApp({
             top: 'height * 0.18',
           },
           matches: [
-            'ImageView <n @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView',//立即签到00
+            'ImageView <n @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //立即签到00
           ],
           excludeMatches: [
             'ImageView < @ViewGroup < ViewGroup <n ViewGroup - ScrollView', //签到领00
             'ImageView -n ImageView < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //签到领01
-            '[id*="cj_plugin"] <n FrameLayout < FrameLayout - * [id="android:id/content"]',//*秒后获得*发财金
+            '[id*="cj_plugin"] <n FrameLayout < FrameLayout - * [id="android:id/content"]', //*秒后获得*发财金
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
@@ -172,7 +172,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>=1] > ViewGroup',//立即签到01
+            'ScrollView + ViewGroup > ViewGroup + ViewGroup > @ViewGroup[childCount>=1] > ViewGroup', //立即签到01
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
@@ -186,7 +186,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            'ImageView -n ImageView < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView',//签到领01
+            'ImageView -n ImageView < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //签到领01
           ],
           activityIds: [
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
@@ -383,9 +383,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 2],
           key: 1,
-          matches: [
-            '@[desc="关闭"][clickable=true] <n View -n [id="root"]',
-          ],
+          matches: ['@[desc="关闭"][clickable=true] <n View -n [id="root"]'],
         },
         {
           preKeys: [0, 1],
