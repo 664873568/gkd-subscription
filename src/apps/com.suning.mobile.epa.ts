@@ -13,9 +13,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          anyMatches: [
-            '@ImageButton[clickable=true] + View[getChild(0).getChild(0).text~="点击.*|[0-9]s后.*"]',
-            '@ImageButton[clickable=true] + View[getChild(0).text~="[0-9]s后.*"]',
+          matches: [
+            '[getChild(0).getChild(0).text~="点击.*|[0-9]s后.*"] - @ImageButton[clickable=true] < View < View <n [id="app"] < View < WebView < WebView < [id="com.suning.mobile.epa:id/layout_system_webview_frameLayout"],
           ],
           activityIds: [
             '.ui.init.SplashActivity',
@@ -70,29 +69,17 @@ export default defineGkdApp({
       activityIds: ['com.suning.webview.H5SystemBaseActivity'],
       rules: [
         {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[getChild(1).getChild(0).text="立即使用"] + @ImageButton[clickable=true]',
-          ],
-        },
-        {
           preKeys: [0, 1],
           key: 2,
           matches: [
-            '@View[clickable=true] > [text~="签到领[0-9]+(积分|元红包)"]',
+            '[text~="签到领[0-9]+(积分|元红包)"] < @View[clickable=true] <n View <n View < [id="mainViewWrapper"] <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
-          matches: ['@ImageButton[clickable=true] - * [text="去抽奖"]'],
-        },
-        {
           preKeys: [2, 3],
-          key: 4,
+          key: 3,
           matches: [
-            '@ImageButton[clickable=true] < View < View < View + [id="mainViewWrapper"] >n [text~="再赚[0-9]+积分"]',
+            '[text~="再赚[0-9]+积分"] < View <n View <n View < [id="mainViewWrapper"] - * @ImageButton[clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
         },
       ],
@@ -118,7 +105,7 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '天天领现金-一键领取',
+      name: '天天/看热点领现金-一键领取',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -130,6 +117,9 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '[getChild(0).text="去完成"] - [getChild(0).getChild(0).text!~="去中国移动领话费"] < View < @View[clickable=true] <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+            '@[text="去看剧"][clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+            '[text="去完成"] < @View[clickable=true] <n View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+            '[text="去完成"] < @View[clickable=true] - [getChild(0).getChild(0).text!~="体验AI搜索"] <n View < View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -194,10 +184,6 @@ export default defineGkdApp({
             '@ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
             '@ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
           ],
-          excludeMatches: [
-            '@ImageButton[clickable=true] <n View < View < View <n View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
-            '@ImageButton[clickable=true] <n View < View < View <n View <n View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
-          ],
         },
         {
           preKeys: [1],
@@ -248,7 +234,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +2 View > View > @View[clickable=true] > [text="去完成"]',
+            '[text="去完成"] < @View[clickable=true] <n View < View[index=2] <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
         },
         {
@@ -273,10 +259,10 @@ export default defineGkdApp({
           key: 12,
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +3 View > View > @View[clickable=true] > [text="去完成"]',
+            '[text="去完成"] < @View[clickable=true] <n View < View[index=3] <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           excludeMatches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +2 View > View > @View[clickable=true] > [text="去完成"]',
+            '[text="去完成"] < @View[clickable=true] <n View < View[index=2] <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
         },
       ],
@@ -294,10 +280,10 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
+            '@[text="去看剧"][clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           excludeMatches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @View[clickable=true] > [text="去完成"]',
+            '[text="去完成"] < @View[clickable=true] <n View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
         },
         {
@@ -322,7 +308,7 @@ export default defineGkdApp({
             duration: 200,
           },
           matches: [
-            '[vid="h5_base_layout"] >n View > View > @ImageButton[width<height][clickable=true] + ImageButton',
+            '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
         },
       ],
@@ -340,33 +326,12 @@ export default defineGkdApp({
           key: 14,
           actionDelay: 2000,
           matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > View > [getChild(0).getChild(0).text!~="体验AI搜索"] + @View[clickable=true] > [text="去完成"]',
+            '[text="去完成"] < @View[clickable=true] - [getChild(0).getChild(0).text!~="体验AI搜索"] <n View < View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           excludeMatches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @View[clickable=true] > [text="去完成"]',
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
+            '@[text="去看剧"][clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+            '[text="去完成"] < @View[clickable=true] <n View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
-        },
-      ],
-    },
-    {
-      key: 11,
-      name: '看热点领金币-一键领取',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] + View > View > @ImageButton[clickable=true] +n [text~="[0-9]+金币"]',
-          ],
-          excludeMatches: [
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @View[clickable=true] > [text="去完成"]',
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > @[text="去看剧"][clickable=true]',
-            '[getChild(0).getChild(1).text="看热点领金币"] +n View > View > View > [getChild(0).getChild(0).text!~="体验AI搜索"] + @View[clickable=true] > [text="去完成"]',
-          ],
-          activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
       ],
     },
