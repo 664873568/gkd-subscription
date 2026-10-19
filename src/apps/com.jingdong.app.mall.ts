@@ -1551,7 +1551,7 @@ export default defineGkdApp({
       activityIds: [
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
-        'com.jd.lib.productdetail.ProductDetailActivity,
+        'com.jd.lib.productdetail.ProductDetailActivity',
       ],
       rules: [
         {
