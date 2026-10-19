@@ -5,7 +5,7 @@ export default defineGkdApp({
   name: '支付宝',
   groups: [
     {
-      scopeKeys: [21,41,52,52,62,71,100],
+      scopeKeys: [21, 41, 52, 52, 62, 71, 100],
       key: 1,
       name: '通用-返回-scopeKeys',
       forcedTime: 60000,
@@ -20,7 +20,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [1,21],
+          preKeys: [1, 21],
           key: 1,
           name: '任务完成 返回领奖>',
           action: 'clickCenter',
@@ -29,7 +29,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,41,51,52],
+          preKeys: [2, 41, 51, 52],
           key: 2,
           name: '已浏览完成 返回>',
           action: 'clickCenter',
@@ -38,7 +38,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,71],
+          preKeys: [3, 71],
           key: 3,
           action: 'clickCenter',
           matches: [
@@ -46,7 +46,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,41,51,52,62,71,100],
+          preKeys: [4, 41, 51, 52, 62, 71, 100],
           key: 4,
           name: '返回>',
           action: 'back',
@@ -188,7 +188,9 @@ export default defineGkdApp({
             '@[text="我知道了"][clickable=true] <n * + View[clickable=true] > Image',
             '@[name$="View"][clickable=true] < [id="app"] <n [text="悬浮球模版"] < WebView <n [desc*="180020570000041693"] < FrameLayout <n [id="android:id/content"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
       ],
     },
