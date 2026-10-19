@@ -30,6 +30,13 @@ export default defineGkdApp({
             '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="提交成功"] - @TextView[clickable=true] < View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+          ],
+        },
       ],
     },
     //做任务·看直播·赚金币
@@ -100,12 +107,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          matches: ['@[text="领奖励"][clickable=true] < View <n View'],
           excludeMatches: [
             '[getChild(1).text="天天签到赢金币！"]',
             '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
-          matches: ['@[text="领奖励"][clickable=true] < View <n View'],
         },
         {
           key: 1,
@@ -127,14 +134,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
+          ],
           excludeMatches: [
             '@[text="领奖励"][clickable=true] < View <n View',
             '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-          ],
-          actionDelay: 2000,
-          matches: [
-            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
         },
         {
@@ -185,12 +192,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          excludeMatches: [
-            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
-          ],
           actionDelay: 1000,
           matches: [
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text="看广告视频领金币"]',
+          ],
+          excludeMatches: [
+            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
