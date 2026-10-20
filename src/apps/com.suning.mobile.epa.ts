@@ -181,8 +181,11 @@ export default defineGkdApp({
           name: '领金币',
           actionDelay: 2000,
           anyMatches: [
-            '@ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '@ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+          ],
+          excludeMatches: [
+            '@ImageButton[clickable=true] <n View < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
         {
@@ -190,6 +193,7 @@ export default defineGkdApp({
           key: 2,
           name: '去完成',
           anyMatches: [
+            '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
@@ -199,22 +203,24 @@ export default defineGkdApp({
           key: 3,
           name: '查看我的金币/去领取',
           anyMatches: [
+            '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View <n View < View <n View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
             '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View <n View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           excludeMatches: [
+            '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
         },
         {
-          preKeys: [2, 14],
+          preKeys: [2, 10],
           key: 4,
           actionDelay: 6000,
           anyMatches: [
-            '@ImageButton[clickable=true] < View + [getChild(0).text="红包签到"]', //参与签到赢红包
-            '[id="app"] > [id="wrapper"] > View > View > @ImageButton[clickable=true]', //访问瞳瞳AI
-            '[id="app"] > [id="wrapper"] > View > @ImageButton[clickable=true] + View > [text="播客"]', //去播客听新闻
+            '@ImageButton[clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //参与签到赢红包
+            '@ImageButton[clickable=true] < View < View < [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]', //访问瞳瞳AI
+            '@ImageButton[clickable=true] < View < [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]', //去播客听新闻
             '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"]', //[text~="猜涨跌|星灿会员|财富|基金"]
           ],
         },
@@ -256,7 +262,6 @@ export default defineGkdApp({
       activityIds: ['com.suning.webview.H5SystemBaseActivity'],
       rules: [
         {
-          key: 12,
           actionDelay: 2000,
           matches: [
             '[text="去完成"] < @View[clickable=true] <n View < View[index=3] <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
@@ -294,8 +299,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 13],
-          key: 13,
+          preKeys: [1, 2],
+          key: 2,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -307,8 +312,9 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          matches: [
-            '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+          anyMatches: [
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
           ],
         },
       ],
@@ -323,7 +329,7 @@ export default defineGkdApp({
       activityIds: ['com.suning.webview.H5SystemBaseActivity'],
       rules: [
         {
-          key: 14,
+          key: 10,
           actionDelay: 2000,
           matches: [
             '[text="去完成"] < @View[clickable=true] - [getChild(0).getChild(0).text!~="体验AI搜索"] <n View < View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
