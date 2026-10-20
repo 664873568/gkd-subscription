@@ -15,12 +15,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          matches: [
+            '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(0).text$="话费"] + [getChild(0).text="兑换"]',
+          ],
           excludeMatches: [
             '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
             '[text="短信验证码"] + View > View + [text="获取验证码"]',
-          ],
-          matches: [
-            '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(0).text$="话费"] + [getChild(0).text="兑换"]',
           ],
         },
         {
@@ -53,12 +53,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          matches: [
+            '[getChild(2).text="做任务 赚星币"] + View > View > View > [getChild(0).text$="翼支付权益金"] + [getChild(0).text="兑换"]',
+          ],
           excludeMatches: [
             '[text="星币兑换温馨提示"] +n View > [text="取消"] + [text="确认兑换"]',
             '[text="短信验证码"] + View > View + [text="获取验证码"]',
-          ],
-          matches: [
-            '[getChild(2).text="做任务 赚星币"] + View > View > View > [getChild(0).text$="翼支付权益金"] + [getChild(0).text="兑换"]',
           ],
         },
         {
@@ -96,11 +96,11 @@ export default defineGkdApp({
         {
           key: 1,
           name: '签到',
+          actionDelay: 3000,
+          matches: ['[getChild(2).text="5星权益"] + @Image'],
           excludeMatches: [
             '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(1).text^="消耗星币"] + [getChild(0).text="兑换"]',
           ],
-          actionDelay: 3000,
-          matches: ['[getChild(2).text="5星权益"] + @Image'],
         },
       ],
     },
@@ -131,34 +131,40 @@ export default defineGkdApp({
         {
           key: 0,
           name: '频道栏',
-          actionDelay: 3000,
+          actionDelay: 5000,
           matches: [
-            'ImageView[desc="￼"] - View >n ScrollView > View > View > View > ImageView[desc="￼"][index=2]',
-          ],
-          excludeMatches: ['[desc="￼"] - @[desc="特价"] - [desc="首页"]'],
-        },
-        {
-          key: 1,
-          name: '9.9包邮',
-          matches: [
-            'ImageView[desc="￼"] - View >n ScrollView > @ImageView[desc="￼"] + [desc="¥"]',
+            '@ImageView[desc="￼"][index=2] <n View < View < View < ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
           ],
           excludeMatches: [
             'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
-            'ImageView[desc="￼"] - View >n ScrollView > View > View > View > ImageView[desc="￼"][index=2]',
+            'ImageView[desc="￼"] - [desc="首页"] - @[desc="特价"] - ImageView[desc="￼"] < View',
+            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '特价',
+          anyMatches: [
+            'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
+            'ImageView[desc="￼"] - [desc="首页"] - @[desc="特价"] - ImageView[desc="￼"] < View',
+          ],
+          excludeMatches: [
+            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
           ],
         },
         {
           key: 2,
-          name: '特价',
-          matches: ['ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]'],
+          name: '9.9包邮',
+          matches: [
+            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
+          ],
         },
         {
           preKeys: [0, 1, 2, 3],
           key: 3,
           action: 'back',
           matches: [
-            '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup < FrameLayout <n FrameLayout < [id="android:id/content"]',
+            '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
