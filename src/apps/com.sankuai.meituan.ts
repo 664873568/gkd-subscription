@@ -375,7 +375,6 @@ export default defineGkdApp({
       name: '看视频-任务已完成',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'app',
       rules: [
         {
@@ -407,7 +406,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 2, 3],
+          preKeys: [0, 1,2, 3],
           key: 3,
           action: 'back',
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
