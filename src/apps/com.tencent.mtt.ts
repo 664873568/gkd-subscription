@@ -8,7 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '立即更新-以后再说',
-      forcedTimd: 60000,
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -24,7 +24,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '设为默认-下次再说',
-      forcedTimd: 60000,
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -41,7 +41,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
-      forcedTimd: 60000,
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -58,7 +58,7 @@ export default defineGkdApp({
     {
       key: 51,
       name: '首页广告-关闭广告',
-      forcedTimd: 60000,
+      forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'app',
       rules: [
