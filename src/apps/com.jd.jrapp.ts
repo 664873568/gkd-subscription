@@ -195,7 +195,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [7,20],
+          preKeys: [7, 20],
           key: 7,
           actionDelay: 5000,
           matches: [
@@ -203,7 +203,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [7,8],
+          preKeys: [7, 8],
           key: 8,
           name: '提示-是否退出游戏',
           matches: [
@@ -1168,7 +1168,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [11,200],
+      scopeKeys: [11, 200],
       key: 49,
       name: '养大鹅-看视频 赚现金',
       forcedTime: 60000,
@@ -1178,7 +1178,7 @@ export default defineGkdApp({
       activityIds: ['.bm.common.web.ui.WebActivity'],
       rules: [
         {
-          preKeys: [5,200],
+          preKeys: [5, 200],
           key: 0,
           action: 'back',
           actionDelay: 5000,
