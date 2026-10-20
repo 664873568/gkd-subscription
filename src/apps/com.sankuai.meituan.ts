@@ -406,7 +406,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2, 3],
+          preKeys: [0, 1, 2, 3],
           key: 3,
           action: 'back',
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
