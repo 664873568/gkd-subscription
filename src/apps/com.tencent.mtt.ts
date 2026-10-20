@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '立即更新-以后再说',
+      forcedTimd: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -23,6 +24,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '设为默认-下次再说',
+      forcedTimd: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -39,6 +41,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTimd: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -47,7 +50,29 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@View[clickable=true] + * + * >n [vid="contentTv"]',
-            '@LinearLayout[clickable=true] > [text="跳过"] + [text~="[0-9]"]',
+            '[text~="[0-9]"] - [text="跳过"] < @LinearLayout[clickable=true]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '首页广告-关闭广告',
+      forcedTimd: 60000,
+      matchRoot: true,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text^="关闭广告"][vid="text_view"] < [vid="mask_root_view"] < [vid="common_close_button"] < @[vid="common_close_container"][clickable=true]',
+          ],
+        },
+        {
+          preKeys:[0],
+          key: 1,
+          matches: [
+            '[vid="foldLayout"] - @[vid="closeIv"][clickable=true] <n [vid="expandLayout"] < [vid="pendantLayout"],
           ],
         },
       ],
