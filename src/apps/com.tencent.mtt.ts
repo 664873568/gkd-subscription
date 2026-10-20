@@ -69,7 +69,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0],
+          preKeys: [0],
           key: 1,
           matches: [
             '[vid="foldLayout"] - @[vid="closeIv"][clickable=true] <n [vid="expandLayout"] < [vid="pendantLayout"]',
