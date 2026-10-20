@@ -15,32 +15,32 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '[text="提现中心"] >n [text="选择提现金额"] +n [text="请选择提现档位"] - * > @View[clickable=true] > [text="20.00"]',
-            '[text="提现中心"] >n [text="选择提现金额"] +n @[text="确认提现"][clickable=true]',
-            '[text="提现中心"] >n [text="选择提现渠道"] +n @[text="立即提现"][clickable=true]',
+          matches: [
+            '@[text="去提现"][clickable=true] <n View <n View <n View < [id="page"] < [id="app"] < [text="提现中心"]',
           ],
-          matches: ['[text="提现中心"] >n @[text="去提现"][clickable=true]'],
+          excludeMatches: [
+            '@TextView[clickable=true] <n View < View < View <n [id="page"] < [id="app"] < [text="提现中心"]',
+          ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="提现中心"] >n [text="选择提现金额"] +n [getChild(0).text="选择提现档位"] > @View[index=parent.childCount.minus(1)][clickable=true]',
+            '[text="请选择提现档位"] - @TextView[clickable=true] <n View < View < View < View <n [id="page"] < [id="app"] < [text="提现中心"]',
           ],
         },
         {
           preKeys: [1],
           key: 2,
           matches: [
-            '[text="提现中心"] >n [text="选择提现金额"] +n @[text="确认提现"][clickable=true]',
+            '@[text="确认提现"][clickable=true] - TextView <n View < View < View < View <n [id="page"] < [id="app"] < [text="提现中心"]',
           ],
         },
         {
           preKeys: [2],
           key: 3,
           matches: [
-            '[text="提现中心"] >n [text="选择提现渠道"] +n @[text="立即提现"][clickable=true]',
+            '@[text="立即提现"][clickable=true] - TextView <n View < View < View < View <n [id="page"] < [id="app"] < [text="提现中心"]',
           ],
         },
       ],
