@@ -1931,8 +1931,8 @@ export default defineGkdApp({
         {
           key: 140,
           anyMatches: [
-            '@[text="去完成"][clickable=true] -4 [text!~=".*体验.*|完成.*|.*券"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-            'TextView[index=parent.childCount.minus(1)] - [text="金币"] < View < @View[clickable=true] < View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -4 [text!~=".*体验.*|完成.*|.*券|添加.*"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
+            'TextView[index=parent.childCount.minus(1)] - Image < View < @View[clickable=true] < View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@[text="立即开启"][clickable=true] -n TextView[clickable=true] < View',
@@ -1944,14 +1944,6 @@ export default defineGkdApp({
           matches: [
             '@[text="立即开启"][clickable=true] -n TextView[clickable=true] < View',
           ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '[text="立即添加"] < @ViewGroup[clickable=true] < ViewGroup -n [text="添加双十一小组件"]',
-          ],
-          activityIds: ['.bm.jrv8.JRCustomDyPickerActivity'],
         },
         {
           preKeys: [140],
@@ -2029,7 +2021,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="去兑换"][clickable=true] - [text="5000"] <n View <n View < View <n View < View < View <n View < WebView < * < [vid="webview"]',
+            '@[text="去兑换"][clickable=true] - [text="5000"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
           ],
         },
         {
