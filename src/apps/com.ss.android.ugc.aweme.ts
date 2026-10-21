@@ -1145,10 +1145,9 @@ export default defineGkdApp({
           activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
-            '@ImageButton[clickable=true] + [getChild(0).getChild(1).text="新人专享取现优惠"]',
+            '@ImageButton[clickable=true] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
