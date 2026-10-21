@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: 'YY-打开今日头条',
+      forcedTime : 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -15,10 +16,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 5000,
-          anyMatches: [
-            '@[desc="返回"][clickable=true] <<n MeasureOnceRelativeLayout2 [text="登录赚钱"]',
-            '@[desc="返回"][clickable=true] <<n * - * MeasureOnceRelativeLayout2[clickable=true] [text="登录赚钱"]',
-          ],
+          matches: ['@[desc="返回"][clickable=true] <<n * [text="登录赚钱"]'],
         },
         {
           key: 1,
@@ -33,6 +31,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '个人信息保护指引-同意',
+      forcedTime : 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'app',
