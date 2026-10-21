@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: 'YY-去头条极速版',
-      forcedTime : 60000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -31,7 +31,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '个人信息保护指引-同意',
-      forcedTime : 60000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'app',
@@ -47,7 +47,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '开启重要资讯通知-暂不开启-×',
-      forcedTime : 60000,
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'app',
@@ -61,7 +61,7 @@ export default defineGkdApp({
     {
       key: 42,
       name: '升级版本-×',
-      forcedTime : 60000,
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 1000,
