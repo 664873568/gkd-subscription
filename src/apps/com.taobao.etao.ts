@@ -46,10 +46,10 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text!~="去中国移动逛逛"] - View[getChild(2).text="最高1元"] < @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
+            '[text!~="去中国移动逛逛"] - View[getChild(2).text="最高1元"] < @View < View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
           excludeMatches: [
-            '[text!~="去中国移动逛逛"] - [text="领取"] <n View < @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
+            '[text!~="去中国移动逛逛"] - [text="领取"] <n @View < View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
         {
@@ -75,7 +75,7 @@ export default defineGkdApp({
           key: 3,
           name: '去点淘领红包',
           matches: [
-            '[text="下载/打开APP"] < @View[clickable=true] <n View < View <n View < View < [id="ice-container"] < [text="去点淘领红包"] < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout - [vid="tms_title_bar"]',
+            '[text="下载/打开APP"] < @View[clickable=true] <n View < View <n View < View < [id="ice-container"] < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout - [vid="tms_title_bar"]',
           ],
         },
         {
@@ -99,7 +99,7 @@ export default defineGkdApp({
           name: '领取',
           actionDelay: 2000,
           matches: [
-            '[text!~="去中国移动逛逛"] - [text="领取"] <n View < @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
+            '[text!~="去中国移动逛逛"] - [text="领取"] <n @View < View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
       ],
@@ -109,6 +109,7 @@ export default defineGkdApp({
       name: '领补贴 得1元现金',
       matchRoot: true,
       forcedTime: 60000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         'com.taobao.sns.tms.CommonTMSActivity',
@@ -118,7 +119,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[desc="立即领取"] - @ImageView[clickable=true] -n [desc="足迹商品补贴"] <n FrameLayout < [vid="dialog_container"]',
+            '[desc="立即领取"] - @ImageView[clickable=true] <n FrameLayout < [vid="dialog_container"]',
           ],
         },
         {
@@ -138,6 +139,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          name: '开心收下',
           matches: [
             '@ImageView[clickable=true] -n [desc="现金奖励"] <n LinearLayout <n FrameLayout < [vid="dialog_container"]',
           ],
