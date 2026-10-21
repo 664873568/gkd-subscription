@@ -82,7 +82,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '中国电信湖北客服-广告-×',
+      name: '中国电信湖北客服',
       forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
@@ -91,6 +91,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '广告-×',
           matches: ['[getChild(0).getChild(0).text="广告"] + @Image'],
         },
         {
@@ -163,6 +164,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3],
           key: 3,
           action: 'back',
+          actionDelay: 5000,
           matches: [
             '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
@@ -171,7 +173,7 @@ export default defineGkdApp({
           preKeys: [3, 4],
           key: 4,
           action: 'back',
-          matches: ['[id="android:id/content"] + * [id="android:id/text1"]'],
+          matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
           activityIds: ['.ui.LauncherUI'],
         },
       ],
@@ -186,10 +188,10 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          excludeMatches: ['@[text="关闭"] <<n * [text="已获得奖励"]'],
           matches: [
             '@[text="领取"] <<n * [text="看广告免费领取迅雷云添加次数"]',
           ],
+          excludeMatches: ['@[text="关闭"] <<n * [text="已获得奖励"]'],
           activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
         },
       ],
