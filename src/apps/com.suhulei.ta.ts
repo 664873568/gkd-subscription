@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: 'JoyAI对话',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -16,27 +17,27 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[vid="baseLayout"] > @[vid="ivChatLeft"][clickable=true] + [text="按住说话"][vid="tvChatFrameDef"]',
+            '[text="按住说话"][vid="tvChatFrameDef"] - @[vid="ivChatLeft"][clickable=true] < [vid="baseLayout"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '[vid="baseLayout"] > [vid="ivChatLeft"] + @[vid="editText"][clickable=true]',
+            '@[vid="editText"][clickable=true] - [vid="ivChatLeft"] < [vid="baseLayout"]',
           ],
         },
         {
           preKeys: [1],
           key: 2,
           matches: [
-            '[vid="baseLayout"] > [vid="ivChatLeft"] + [vid="editText"] + @[vid="ivAddHeart"][clickable=true]',
+            '@[vid="ivAddHeart"][clickable=true] - [vid="editText"] < [vid="baseLayout"]',
           ],
         },
         {
           preKeys: [2],
           key: 3,
           matches: [
-            '[vid="baseLayout"] > [vid="ivChatLeft"] +  [vid="editText"] + [vid="ivAddHeart"] + @[vid="ivChatRight"][clickable=true]',
+            '@[vid="ivChatRight"][clickable=true] - [vid="ivAddHeart"] - [vid="editText"] < [vid="baseLayout"]',
           ],
         },
       ],
