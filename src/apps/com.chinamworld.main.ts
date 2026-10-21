@@ -106,7 +106,6 @@ export default defineGkdApp({
       name: '热门活动-公告-×',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'app',
       rules: [
         {
@@ -152,6 +151,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 5000,
           matches: [
             '@[desc~="关闭|返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
           ],
