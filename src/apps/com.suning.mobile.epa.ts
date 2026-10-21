@@ -186,7 +186,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@ImageButton[clickable=true] <n View < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '@ImageButton[clickable=true] <n View < View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"],
+            '@ImageButton[clickable=true] <n View < View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
         {
