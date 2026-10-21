@@ -247,7 +247,7 @@ export default defineGkdApp({
           name: '*发财金已到账',
           action: 'back',
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - LinearLayout > [id="android:id/content"]',//逛商城福利-浏览行情信息
+            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - LinearLayout > [id="android:id/content"]', //逛商城福利-浏览行情信息
           ],
           activityIds: [
             '.live.LiveDummyActivity',
@@ -282,7 +282,9 @@ export default defineGkdApp({
           matches: [
             'ImageView < @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
         },
       ],
     },
