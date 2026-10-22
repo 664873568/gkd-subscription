@@ -1478,7 +1478,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="点我领奖励"] < @View[clickable=true] <n View <n View <n [id="feeds-area"] <n [id="feeds"] < View <n View < [id="root"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@[text="点我领奖励"] < View[clickable=true] <n View <n View <n [id="feeds-area"] <n [id="feeds"] < View <n View < [id="root"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
             '[text="点我领奖励"] < View < @View[clickable=true] <n View <n [id="feeds"] < View <n View < [id="root"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           excludeMatches: [
