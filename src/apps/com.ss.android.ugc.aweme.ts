@@ -1171,7 +1171,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
           key: 2,
           name: '选择你的惊喜奖励-选我',
           position: {
@@ -1179,7 +1178,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ViewGroup[childCount>4] - ViewGroup[childCount>4] < @ViewGroup  + ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            'ViewGroup[childCount>3] - ViewGroup[childCount>3] < @ViewGroup  + ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
         },
         {
