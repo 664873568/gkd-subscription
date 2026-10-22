@@ -93,7 +93,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [300,500],
+      scopeKeys: [300, 500],
       key: 3,
       name: '积分任务-去完成-分享一个相册',
       forcedTime: 60000,
@@ -113,7 +113,7 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [0,300, 500],
+          preKeys: [0, 300, 500],
           key: 1,
           actionDelay: 1000,
           matches: [
