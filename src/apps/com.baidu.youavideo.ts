@@ -78,7 +78,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text~="去.*|打开.*|前往.*"][clickable=true] > [text="去完成"]',
+            '[text="去完成"] -n [text~="去.*|打开.*|前往.*"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -93,7 +93,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [300],
+      scopeKeys: [300,500],
       key: 3,
       name: '积分任务-去完成-分享一个相册',
       forcedTime: 60000,
@@ -103,17 +103,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > @View[getChild(0).text~="去.*|打开.*|前往.*"][clickable=true] > [text="去完成"]',
-          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text="分享一个相册"][clickable=true] > [text="去完成"]',
+            '[text="去完成"] -n [text="分享一个相册"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text~="去.*|打开.*|前往.*"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [300, 0],
+          preKeys: [0,300, 500],
           key: 1,
           actionDelay: 1000,
           matches: [
@@ -157,12 +157,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|分享.*"][clickable=true] > [text="去完成"]',
-          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text="创建一个新相册"][clickable=true] > [text="去完成"]',
+            '[text="去完成"] -n [text="创建一个新相册"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text~="去.*|打开.*|前往.*|分享.*"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -209,24 +209,25 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册"][clickable=true] > [text="去完成"]',
-          ],
           actionDelay: 2000,
           matches: [
             'View > @View[getChild(0).text="制作并保存「春日」vlog"][clickable=true] > [text="去完成"]',
+            '[text="去完成"] -n [text="制作并保存「春日」vlog"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text~="去.*|打开.*|前往.*|.*相册"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
           preKeys: [0],
           key: 1,
-          excludeMatches: [
-            '@[vid="detail_back"] +2 [vid="scroll_content"] >n [text="老照片一键修复"][vid="tv_title"]',
-          ],
           actionDelay: 1000,
           matches: [
             '@[vid="detail_black_icon"][clickable=true] + [text="做同款"][vid="detail_black_icon_text"]',
+          ],
+          excludeMatches: [
+            '@[vid="detail_back"] +2 [vid="scroll_content"] >n [text="老照片一键修复"][vid="tv_title"]',
           ],
           activityIds: ['.aiphoto.ui.home.view.CreativeDetailActivity'],
         },
@@ -323,12 +324,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册|.*vlog"][clickable=true] > [text="去完成"]',
-          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text="制作照片卡点视频"][clickable=true] > [text="去完成"]',
+            '[text="去完成"] -n [text="制作照片卡点视频"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text~="去.*|打开.*|前往.*|.*相册|.*vlog"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -405,12 +406,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册|制作.*"][clickable=true] > [text="去完成"]',
-          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text="体验智能清理"][clickable=true] > [text="去完成"]',
+            '[text="去完成"] -n [text="体验智能清理"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text~="去.*|打开.*|前往.*|.*相册|制作.*"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -436,12 +437,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*"][clickable=true] > [text="去完成"]',
-          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text="老照片修复跨越时空"][clickable=true] > [text="去完成"]',
+            '[text="去完成"] -n [text="老照片修复跨越时空"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -466,12 +467,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            'View > @View[getChild(0).text~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*|.*时空"][clickable=true] > [text="去完成"]',
-          ],
           actionDelay: 2000,
           matches: [
-            'View > @View[getChild(0).text="浏览社区5s"][clickable=true] > [text="去完成"]',
+            '[text="去完成"] -n [text="浏览社区5s"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text~="去.*|打开.*|前往.*|.*相册|制作.*|体验.*|.*时空"] < @View[clickable=true] < View <n [text="任务中心"] < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -1131,6 +1132,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
+          key: 500,
           anyMatches: [
             '@[text*="跳过"][clickable=true] <n FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < [vid="flash_fragment"]',
