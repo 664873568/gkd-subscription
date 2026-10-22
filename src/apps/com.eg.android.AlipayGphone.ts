@@ -1478,11 +1478,11 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '[text="点我领奖励"] < @View[clickable=true] <n View <n View <n [id="feeds-area"] <n [id="feeds"] < View <n View < [id="root"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@[text="点我领奖励"] < @View[clickable=true] <n View <n View <n [id="feeds-area"] <n [id="feeds"] < View <n View < [id="root"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
             '[text="点我领奖励"] < View < @View[clickable=true] <n View <n [id="feeds"] < View <n View < [id="root"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           excludeMatches: [
-            '[id="feeds"] > View > [text^="下滑寻找可获得更多"]',
+            '[text^="下滑寻找可获得更多"] < View <n [id="feeds"]',
           ],
         },
         {
@@ -1504,7 +1504,7 @@ export default defineGkdApp({
             'View > @[id="feeds"] > [id^="macy-container"]',
           ],
           excludeMatches: [
-            '[id="feeds"] > View > [text^="下滑寻找可获得更多"]',
+            '[text^="下滑寻找可获得更多"] < View <n [id="feeds"]',
           ],
         },
         {
@@ -1518,21 +1518,23 @@ export default defineGkdApp({
             '[id$="frameLayout_rightButton1"] >n [desc="更多"] +n @[desc="关闭"][clickable=true] > [text=""]',
           ],
           excludeMatches: [
-            '[id="feeds"] > View > [text^="滑动浏览商品，寻找"]',
+            '[text^="滑动浏览商品，寻找"] < View <n [id="feeds"]',
           ],
         },
         {
           key: 3,
           action: 'back',
           actionDelay: 5000,
-          matches: ['[id="feeds"] > View > [text^="下滑寻找可获得更多"]'],
+          matches: [
+            '[text^="下滑寻找可获得更多"] < View <n [id="feeds"]',
+          ],
         },
         {
           preKeys: [2, 3, 4],
           key: 4,
           action: 'back',
           matches: [
-            '@[vid="launcher_holder"] >n TabWidget[id="android:id/tabs"] > FrameLayout[clickable=true] > [desc="首页"]',
+            'ImageView < [desc="首页"] < FrameLayout < [id="android:id/tabs"] <n FrameLayout <n [id="android:id/tabhost"] < FrameLayout < FrameLayout < @[vid="launcher_holder"]',
           ],
         },
       ],
