@@ -4,7 +4,6 @@ export default defineGkdApp({
   id: 'com.yy.yyvoicetool',
   name: 'YY语音',
   groups: [
-    //天天领金币
     {
       key: 0,
       name: '通用',
@@ -26,10 +25,18 @@ export default defineGkdApp({
             '@[text="确定"][clickable=true] - [text="取消"] - [getChild(0).text="您已在其他设备频道内，是否踢出频道？"] < View < View < ViewGroup < [id="android:id/content"]',
           ],
         },
+        {
+          key: 2,
+          name: '确定跳转至新频道?-确定',
+          matches: [
+            '@[text="确定"][clickable=true] -n [text="取消"] < View - [getChild(0).text="当前频道已收藏"] - ImageButton - [text="提示"] < View < View <n View < [id="root"]',
+          ],
+        },
       ],
     },
+    //天天领金币
     {
-      key: 1,
+      key: 10,
       name: '立即签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -60,7 +67,7 @@ export default defineGkdApp({
     },
     //每日任务
     {
-      key: 2,
+      key: 11,
       name: '每日任务-领奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -88,7 +95,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
+      key: 12,
       name: '每日任务-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -134,7 +141,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 13,
       name: '每日任务-去完成-收藏任意频道',
       forcedTime: 60000,
       matchRoot: true,
@@ -172,7 +179,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 5,
+      scopeKeys: [0],
+      key: 14,
       name: '每日任务-去完成-访问指定频道',
       forcedTime: 60000,
       matchRoot: true,
@@ -192,49 +200,42 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
+          preKeys: [0, 1,2],
+          key: 11,
+          name: '点击聊天框',
           matches: [
-            '[text="提示"] + ImageButton +n [getChild(0).text="取消"] > @[text="确定"][clickable=true]', //确定跳转至新频道?
+            'ViewFactoryHolder + @View[clickable=true] > [text="说点什么吧..."]',
           ],
         },
         {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 1000,
+          preKeys: [11],
+          key: 12,
+          name: '点击表情',
           matches: [
-            'ViewFactoryHolder + @View[clickable=true] > [text="说点什么吧..."]', //点击聊天框
+            'ViewFactoryHolder + @View[clickable=true]',
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
-          actionDelay: 1000,
+          preKeys: [12],
+          key: 13,
+          name: '选择表情',
           matches: [
-            'ViewFactoryHolder + @View[clickable=true]', //点击表情
+            'ViewFactoryHolder +n View[clickable=true] >n View[childCount=48] > @View[clickable=true][index=0]',
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
-          actionDelay: 1000,
+          preKeys: [13],
+          key: 14,
+          name: '发送表情',
           matches: [
-            'ViewFactoryHolder +n View[clickable=true] >n View[childCount=48] > @View[clickable=true][index=0]', //选择表情
+            'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]',
           ],
         },
         {
-          preKeys: [4],
-          key: 5,
-          actionDelay: 1000,
-          matches: [
-            'ViewFactoryHolder +n @View[clickable=true] > [text="发送"]', //发送表情
-          ],
-        },
-        {
-          preKeys: [5],
-          key: 6,
+          preKeys: [14],
+          key: 15,
+          name: '返回',
           action: 'back',
-          actionDelay: 1000,
           matches: [
             '@ViewFactoryHolder >n [id="root"][clickable=true] > View[clickable=true]',
           ],
@@ -242,7 +243,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 15,
       name: '每日任务-去完成-完成应用下载|完成应用浏览|完成页面浏览',
       forcedTime: 60000,
       matchRoot: true,
@@ -282,7 +283,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
+      key: 16,
       name: '每日任务-看视频',
       forcedTime: 60000,
       matchRoot: true,
@@ -304,7 +305,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 17,
       name: '每日任务-看视频-领金币',
       forcedTime: 60000,
       matchRoot: true,
@@ -332,7 +333,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 9,
+      key: 19,
       name: '进频道-立即领取',
       forcedTime: 60000,
       matchRoot: true,
