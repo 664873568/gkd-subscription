@@ -45,10 +45,12 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
-          matches: [
+          anyMatches: [
+            '[text!~="去中国移动逛逛"] - View[getChild(2).text="最高1元"] < @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
             '[text!~="去中国移动逛逛"] - View[getChild(2).text="最高1元"] < @View < View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
           excludeMatches: [
+            '[text!~="去中国移动逛逛"] - [text="领取"] <n @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
             '[text!~="去中国移动逛逛"] - [text="领取"] <n @View < View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
@@ -99,6 +101,7 @@ export default defineGkdApp({
           name: '领取',
           actionDelay: 2000,
           matches: [
+            '[text!~="去中国移动逛逛"] - [text="领取"] <n @View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
             '[text!~="去中国移动逛逛"] - [text="领取"] <n @View < View <n View <n View < [id="J_u_root"] < View < WebView < [name*="webkit"] < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
