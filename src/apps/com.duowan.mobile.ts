@@ -21,6 +21,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="今日份数已用完"] - [text="50元"] < @View[clickable=true] <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
             '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '[text="提交成功"] - @TextView[clickable=true] < View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
@@ -200,6 +201,23 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
           ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
+        },
+      ],
+    },
+    {
+      key: 9,
+      name: '直播间广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 1000,
+          matches: [
+            '@[id$="scene_gift_pager_close"][clickable=true] - [id$="scene_gift_viewpager"] < RelativeLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
         },
       ],
     },
