@@ -200,7 +200,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 11,
           name: '点击聊天框',
           matches: [
@@ -211,9 +211,7 @@ export default defineGkdApp({
           preKeys: [11],
           key: 12,
           name: '点击表情',
-          matches: [
-            'ViewFactoryHolder + @View[clickable=true]',
-          ],
+          matches: ['ViewFactoryHolder + @View[clickable=true]'],
         },
         {
           preKeys: [12],
