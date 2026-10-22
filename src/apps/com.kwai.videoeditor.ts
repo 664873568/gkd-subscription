@@ -123,6 +123,7 @@ export default defineGkdApp({
             '[text~="[0-9]"] - [text="跳过"] < @View[clickable=true]',
             '@View[clickable=true] - LinearLayout > [text="广告"]',
             'View < @RelativeLayout + LinearLayout > LinearLayout > [text="摇一摇"] + [text="跳转详情页或第三方应用"]',
+            '[text="扭动或点击跳转详情页或第三方应用"] <n LinearLayout < FrameLayout -n @View <n FrameLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: ['.commercialization.splash.GeneralAdSplashActivity'],
         },
