@@ -823,7 +823,7 @@ export default defineGkdApp({
     },
     {
       key: 44,
-      name: '省钱豆-新手引导任务',
+      name: '省钱豆-搜索「车险」进入频道',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
