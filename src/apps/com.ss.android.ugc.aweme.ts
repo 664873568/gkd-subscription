@@ -316,9 +316,181 @@ export default defineGkdApp({
         },
       ],
     },
-    //浏览赚省钱豆
     {
       key: 31,
+      name: '省钱豆-新手引导任务',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+        '.search.activity.SearchResultActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View <n View <n View <n View <n View <n View < View < [id="root"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'ViewGroup - ViewGroup - @ViewGroup - ViewGroup - [desc="12期免息按钮"] < FrameLayout - FrameLayout[width=height] < FrameLayout < LinearLayout < LinearLayout < RecyclerView',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[desc="关闭页面"][clickable=true] <n View <n [id="nav-bar"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@[desc="返回"][clickable=true] < FrameLayout <n RelativeLayout <n RelativeLayout < LinearLayout <n FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '@[text="领取奖励"][clickable=true] -n [text="完成"] < View <n View <n View <n View < View < [id="root"]',
+          ],
+        },
+      ],
+    },
+    //浏览赚*省钱豆
+    {
+      key: 32,
+      name: '省钱豆-查看账单',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.live.LiveDummyActivity',
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="查看账单"] <n @View[clickable=true] <n View -n ImageButton < View <n View < View < [id="root"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 5000,
+          matches: [
+            'Image < @View[clickable=true] < View < [id="JS_PageHeader"] < [id="JS_PageLayout"] < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 33,
+      name: '省钱豆-查电费/看电费账单',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          anyMatches: [
+            '[text="查电费"] <n @View[clickable=true] -n ImageButton < View <n View < View <n [id="root"]',
+            '[text="看电费账单"] <n @View[clickable=true] <n View -n ImageButton < View <n View < View < [id="root"]',
+          ],
+          activityIds: [
+            '.bullet.ui.BulletContainerActivity',
+            '.cjpay.hostimpl.container.CJLiveDummyActivity',
+          ],
+        },
+        {
+          preKeys: [0, 2],
+          key: 1,
+          matches: [
+            '@Button[desc="关闭"][clickable=true] <n View < View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 2,
+          actionDelay: 5000,
+          matches: [
+            '@[desc="返回"][clickable=true] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 34,
+      name: '省钱豆-逛理财福利',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="逛理财福利"] <n @View[clickable=true] <n View -n ImageButton < View <n View < View < [id="root"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          actionDelay: 2000,
+          matches: [
+            '@Button[desc="关闭"][clickable=true] <n View -n [id="root"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 35,
+      name: '省钱豆-逛充值中心',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="逛充值中心"] <n @View[clickable=true] <n View -n ImageButton < View <n View < View < [id="root"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 36,
       name: '省钱豆-保险商城',
       forcedTime: 60000,
       matchRoot: true,
@@ -356,7 +528,7 @@ export default defineGkdApp({
           key: 3,
           action: 'back',
           matches: [
-            'FrameLayout > ViewGroup > ViewGroup > ImageView - ViewGroup > @ViewGroup',
+            '@ViewGroup < ViewGroup < ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -370,7 +542,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 32,
+      key: 37,
       name: '省钱豆-信用卡',
       forcedTime: 60000,
       matchRoot: true,
@@ -411,7 +583,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 33,
+      key: 38,
       name: '省钱豆-食安保',
       forcedTime: 60000,
       matchRoot: true,
@@ -464,49 +636,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 34,
-      name: '省钱豆-查电费',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text="查电费"] <n @View[clickable=true] -n ImageButton < View <n View < View <n [id="root"]',
-          ],
-          activityIds: [
-            '.bullet.ui.BulletContainerActivity',
-            '.cjpay.hostimpl.container.CJLiveDummyActivity',
-          ],
-        },
-        {
-          preKeys: [0, 2],
-          key: 1,
-          matches: [
-            '@Button[desc="关闭"][clickable=true] <n View < View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
-          ],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          actionDelay: 5000,
-          matches: [
-            '@[desc="返回"][clickable=true] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
-          ],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 35,
+      key: 39,
       name: '省钱豆-月付金',
       forcedTime: 60000,
       matchRoot: true,
@@ -548,7 +678,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 36,
+      key: 40,
       name: '省钱豆-运费险',
       forcedTime: 60000,
       matchRoot: true,
@@ -564,6 +694,9 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: [
             '[text="运费险"] <n @View[clickable=true] -n ImageButton < View <n View < View <n [id="root"]',
+          ],
+          excludeMatches: [
+            '[text="恭喜完成任务"] < View <n View < View - @ImageButton[clickable=true] < View < View < View <n View < View <n [id="root"]',
           ],
         },
         {
@@ -593,7 +726,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 37,
+      key: 41,
       name: '省钱豆-抽免单',
       forcedTime: 60000,
       matchRoot: true,
@@ -623,7 +756,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 38,
+      key: 42,
       name: '省钱豆-去懂车帝',
       forcedTime: 60000,
       matchRoot: true,
@@ -644,14 +777,14 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@ImageView[clickable=true] < LinearLayout + [text="懂车帝"]',
+            '@ImageView[clickable=true] < LinearLayout + [text="懂车帝"] <n FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
         },
       ],
     },
     //更多任务
     {
-      key: 39,
+      key: 43,
       name: '省钱豆-从「钱包」访问车主服务',
       forcedTime: 60000,
       matchRoot: true,
@@ -666,7 +799,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] <n [getChild(0).text="从「钱包」访问车主服务"] -n [text="今日已完成 明日继续"] -n ImageButton < View <n View < View <n [id="root"]',
+            '@[text="去完成"][clickable=true] -n [text="从「钱包」访问车主服务"] < View -n [text="今日已完成 明日继续"] <n View <n View < View <n [id="root"]',
           ],
         },
         {
@@ -688,9 +821,58 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 44,
+      name: '省钱豆-新手引导任务',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+        '.search.activity.SearchResultActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View -n [text="今日已完成 明日继续"] <n View <n View <n View < View < [id="root"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            'ViewGroup - ViewGroup - @ViewGroup - ViewGroup - [desc="12期免息按钮"] < FrameLayout - FrameLayout[width=height] < FrameLayout < LinearLayout < LinearLayout < RecyclerView',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[desc="关闭页面"][clickable=true] <n View <n [id="nav-bar"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@[desc="返回"][clickable=true] < FrameLayout <n RelativeLayout <n RelativeLayout < LinearLayout <n FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '@[text="领取奖励"][clickable=true] -n [text="完成"] < View <n View <n View <n View < View < [id="root"]',
+          ],
+        },
+      ],
+    },
     //充值中心-攒充值金兑优惠券
     {
-      key: 40,
+      key: 50,
       name: '充值中心-广告-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -708,7 +890,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 51,
       name: '充值中心-攒充值金',
       forcedTime: 60000,
       matchRoot: true,
@@ -748,7 +930,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 52,
       name: '充值中心-攒充值金-赚充值金',
       forcedTime: 60000,
       matchRoot: true,
@@ -761,14 +943,14 @@ export default defineGkdApp({
         {
           key: 0,
           name: '去访问|去预约|去浏览|去看看',
-          excludeMatches: [
-            'FrameLayout[getChild(0).name$="TextureView"] + @ImageView + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup',
-            'ViewGroup[getChild(1).getChild(0).name$="ScrollView"] + @ViewGroup[getChild(0).name$="ViewGroup"] + ViewGroup[getChild(0).getChild(0).name$="ViewGroup"]',
-          ],
           action: 'clickCenter',
           actionDelay: 2000,
           matches: [
             'ViewGroup[getChild(1).getChild(0).name$="ScrollView"] + ViewGroup > ViewGroup[index=parent.childCount.minus(1)]',
+          ],
+          excludeMatches: [
+            'FrameLayout[getChild(0).name$="TextureView"] + @ImageView + ViewGroup + ViewGroup + ViewGroup > ViewGroup > ViewGroup',
+            'ViewGroup[getChild(1).getChild(0).name$="ScrollView"] + @ViewGroup[getChild(0).name$="ViewGroup"] + ViewGroup[getChild(0).getChild(0).name$="ViewGroup"]',
           ],
         },
         {
@@ -837,7 +1019,7 @@ export default defineGkdApp({
     },
     //任务中心
     {
-      key: 50,
+      key: 60,
       name: '任务中心-天天预约领金币-看视频*秒领',
       forcedTime: 60000,
       matchRoot: true,
@@ -954,7 +1136,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 61,
       name: '任务中心-天天预约领金币-立即领取',
       forcedTime: 60000,
       matchRoot: true,
@@ -1030,7 +1212,7 @@ export default defineGkdApp({
     },
     //手机充值
     {
-      key: 60,
+      key: 70,
       name: '手机充值-广告-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -1055,7 +1237,7 @@ export default defineGkdApp({
     },
     //26.09.01-26.12.31 我的钱包-支付积分
     {
-      key: 70,
+      key: 80,
       name: '我的钱包-广告-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -1075,7 +1257,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 71,
+      key: 81,
       name: '我的钱包-放心借-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -1098,7 +1280,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 72,
+      key: 82,
       name: '我的钱包-今日签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -1127,7 +1309,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 73,
+      key: 83,
       name: '我的钱包-前往抖音月付看看',
       forcedTime: 60000,
       matchRoot: true,
@@ -1175,7 +1357,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 80,
+      key: 90,
       name: '支付成功',
       forcedTime: 60000,
       matchRoot: true,
@@ -1204,7 +1386,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 81,
+      key: 91,
       name: '抖音乘车码开通福利-×',
       forcedTime: 60000,
       matchRoot: true,
