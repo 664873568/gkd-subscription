@@ -34,7 +34,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < [name*="webkit"] <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
             '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
@@ -73,10 +73,10 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@Button[text!~=".*逛中国移动|.*找10次抽奖券"][clickable=true] < View <n View <n [getChild(1).text="规则"] < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < [name*="webkit"] <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*找10次抽奖券|.*猜对价格领奖励"][clickable=true] < View <n View <n [getChild(1).text="规则"] < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < [name*="webkit"] <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
@@ -95,7 +95,7 @@ export default defineGkdApp({
           name: '浏览App返回页',
           actionDelay: 5000,
           matches: [
-            '[vid="fliggyx_navigation_bar_right_layout"] - [vid="fliggyx_navigation_bar_wide_middle"] - [vid="fliggyx_navigation_bar_left_out"] >n @LinearLayout[clickable=true]',
+            '[text=""] < FrameLayout < @LinearLayout[clickable=true] < LinearLayout < FrameLayout < [vid="fliggyx_navigation_bar_left"] < [vid="fliggyx_navigation_bar_left_out"]',
           ],
         },
         {
@@ -120,10 +120,10 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '@Button[text~=".*找10次抽奖券"][clickable=true] < View <n View <n [getChild(1).text="规则"] < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < [name*="webkit"] <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text~=".*找10次抽奖券"][clickable=true] < View <n View <n [getChild(1).text="规则"] < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*找10次抽奖券"][clickable=true] < View <n View <n [getChild(1).text="规则"] < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < [name*="webkit"] <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*找10次抽奖券|.*猜对价格领奖励"][clickable=true] < View <n View <n [getChild(1).text="规则"] < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -143,7 +143,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 10000,
           matches: [
-            '@Button[text=""][clickable=true] - TextView <n View < View < [id="pcraft-container"] < [id="root"] < WebView < m0 <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text=""][clickable=true] - TextView <n View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
