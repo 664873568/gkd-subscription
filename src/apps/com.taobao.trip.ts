@@ -63,6 +63,41 @@ export default defineGkdApp({
     },
     {
       key: 12,
+      name: '天天集能量-惊喜任务-返回',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+          excludeMatches: [
+            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout <n * [text="立即下载" || text="下载应用" || text="下载游戏"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 13,
       name: '天天集能量-看视频领现金',
       forcedTime: 60000,
       matchRoot: true,
@@ -71,11 +106,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
             '@Button[text!~=".*逛中国移动|.*找10次抽奖券|.*猜对价格领奖励"][clickable=true] < View <n View <n [getChild(1).text="规则"] < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
+            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
             '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
@@ -109,7 +145,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 14,
       name: '天天集能量-看视频领现金-找10次抽奖券',
       forcedTime: 60000,
       matchRoot: true,
@@ -130,7 +166,7 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [41],
-      key: 14,
+      key: 15,
       name: '天天集能量-看视频',
       forcedTime: 60000,
       matchRoot: true,
@@ -139,13 +175,41 @@ export default defineGkdApp({
       rules: [
         {
           preKeys: [0],
-          key: 1,
+          key: 15,
           action: 'back',
           actionDelay: 10000,
           matches: [
             '@Button[text=""][clickable=true] - TextView <n View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+        },
+      ],
+    },
+    {
+      key: 16,
+      name: '天天集能量-赚能量抵钱-每日签到',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          actionDelay: 10000,
+          matches: [
+            '@Button[text=""][clickable=true] - TextView <n View < View < [id="pcraft-container"] < View < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 10000,
+          matches: [
+            '[getChild(1).text="做任务赚能量"] - @Button[clickable=true] <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+          ],
         },
       ],
     },
