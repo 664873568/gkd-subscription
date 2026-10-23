@@ -417,7 +417,7 @@ export default defineGkdApp({
           matches: ['@[desc="关闭"][clickable=true] <n View -n [id="root"]'],
         },
         {
-          preKeys: [0, 1,3],
+          preKeys: [0, 1, 3],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -606,7 +606,7 @@ export default defineGkdApp({
           matches: ['@[desc="关闭"][clickable=true] <n View -n [id="root"]'],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 2,
           actionDelay: 5000,
           matches: [
