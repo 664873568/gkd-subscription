@@ -16,7 +16,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 5000,
-          matches: ['@[desc="返回"][clickable=true] <<n * [text="登录赚钱"]'],
+          matches: [
+            '@[desc="返回"][clickable=true] <<n * [text="登录领钱" || text="点击赚钱"]',
+          ],
         },
         {
           key: 1,
