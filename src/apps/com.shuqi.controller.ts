@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '欢迎使用-同意并继续',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -25,16 +26,21 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '[id$="ms_skipView"] + LinearLayout > [text="摇动手机"] + [text="跳转详情页或第三方应用"]',
+            '@[id$="ptgSkipLayout"][clickable=true] > [text="跳过"]',
           ],
-          activityIds: ['com.shuqi.home.MainActivity'],
+          activityIds: [
+            'com.shuqi.home.MainActivity',
+            'com.shuqi.splash.HotSplashActivity',
+          ],
         },
       ],
     },
