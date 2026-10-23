@@ -986,11 +986,14 @@ export default defineGkdApp({
           matches: [
             '@[text="领"][clickable=true] < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
+          excludeMatches: [
+            '@[text="签到并喂食"][clickable=true] <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+          ],
         },
         {
           key: 1,
           matches: [
-            '[text="cae179ab557e2b58"] +n @[text="签到并喂食"][clickable=true]',
+            '@[text="签到并喂食"][clickable=true] <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
         },
       ],
@@ -1013,7 +1016,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text="领"][clickable=true] < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-            '[text="cae179ab557e2b58"] +n [text="签到并喂食"][clickable=true]',
+            '@[text="签到并喂食"][clickable=true] <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
         },
         {
@@ -1046,14 +1049,16 @@ export default defineGkdApp({
           excludeMatches: [
             '@TextView[clickable=true] < View + [getChild(0).getChild(0).text="可领取"] <n View < [id="app"] < View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - View[clickable=true] - [text~="[0-9]+g"] <n View <n View < View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-            '@[text="立即领取"][clickable=true] + TextView',
+            '@[text="立即领取"][clickable=true] < View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
-          name: '立即领取',
-          matches: ['@[text="立即领取"][clickable=true] + TextView'],
+          name: '登录有礼-立即领取',
+          matches: [
+            '@[text="立即领取"][clickable=true] < View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+          ],
         },
       ],
     },
@@ -1076,30 +1081,15 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="可领取"] < @View[clickable=true] < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
             '[text="可领取"] < @View[clickable=true] < View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-            '@[text="立即领取"][clickable=true] + TextView',
+            '@[text="立即领取"][clickable=true] < View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           name: '恭喜获得鹅粮奖励-收下喂鹅-×',
-          matches: [
-            '@TextView[clickable=true] - View[clickable=true] - [text~="\\\\+[0-9]+g"] <n View <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          name: '恭喜获得鹅粮奖励-收下喂鹅-××',
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 0.8',
-          },
-          matches: [
-            '@TextView[clickable=true] - TextView[clickable=true] < View < View < View  < View < View < [id="app"] < View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            '@TextView[clickable=true] - View[clickable=true] - [text~="\\\\+[0-9]+g"] <n View <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+          anyMatches: [
+            '@TextView[clickable=true] - View[clickable=true] <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] - View[clickable=true] <n View <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
         },
       ],
@@ -1123,8 +1113,8 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="可领取"] - @View[clickable=true] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
             '[text="可领取"] - @View[clickable=true] <n View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-            '@TextView[clickable=true] - View[clickable=true] - [text~="\\\\+[0-9]+g"] <n View <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-            '@TextView[clickable=true] - TextView[clickable=true] < View < View < View  < View < View < [id="app"] < View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] - View[clickable=true] <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] - View[clickable=true] <n View <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - TextView[text~="（[0-9]s）"] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
             '@[id="J_airLevel_-"][clickable=true] < Image <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - [getChild(0).text~="获得.*"] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
