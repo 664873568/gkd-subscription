@@ -493,8 +493,8 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="逛理财福利"] <n @View[clickable=true] -- [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
-            '[text="逛理财福利"] <n @View[clickable=true] <n View -- [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
+            '[text="逛理财福利"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
+            '[text="逛理财福利"] <n @View[clickable=true] <n View - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
           ],
         },
         {
