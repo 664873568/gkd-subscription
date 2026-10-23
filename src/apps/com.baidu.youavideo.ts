@@ -96,7 +96,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [2,300, 500],
+      scopeKeys: [2, 300, 500],
       key: 3,
       name: '积分任务-去完成-分享一个相册',
       forcedTime: 60000,
