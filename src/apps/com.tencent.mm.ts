@@ -139,7 +139,6 @@ export default defineGkdApp({
           excludeMatches: [
             'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
             'ImageView[desc="￼"] - [desc="首页"] - @[desc="特价"] - ImageView[desc="￼"] < View',
-            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
           ],
         },
         {
@@ -154,24 +153,17 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0, 1, 2],
           key: 2,
-          name: '9.9包邮',
-          matches: [
-            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
-          ],
-        },
-        {
-          preKeys: [0, 1, 2, 3],
-          key: 3,
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 2000,
           matches: [
             '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [3, 4],
-          key: 4,
+          preKeys: [2, 3],
+          key: 3,
           action: 'back',
           matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
           activityIds: ['.ui.LauncherUI'],
