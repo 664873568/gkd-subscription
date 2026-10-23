@@ -42,7 +42,7 @@ export default defineGkdApp({
     },
     //做任务·看直播·赚金币
     {
-      key: 1,
+      key: 10,
       name: '天天签到赢金币-登录领取',
       forcedTime: 60000,
       matchRoot: true,
@@ -73,7 +73,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
+      key: 11,
       name: '天天签到赢金币-立即签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -84,49 +84,22 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[getChild(1).text="天天签到赢金币！"] +n @[text="立即签到"][clickable=true]',
+            '@[text="立即签到"][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '[getChild(1).text="天天签到赢金币！"] +n @TextView[clickable=true][index=parent.childCount.minus(1)]',
+            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
       ],
     },
     //做任务
     {
-      key: 3,
-      name: '做任务-领奖励',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
-      rules: [
-        {
-          key: 0,
-          matches: ['@[text="领奖励"][clickable=true] < View <n View'],
-          excludeMatches: [
-            '[getChild(1).text="天天签到赢金币！"]',
-            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-          ],
-        },
-        {
-          key: 1,
-          anyMatches: [
-            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '做任务-去完成-浏览App',
+      key: 12,
+      name: '做任务-去完成',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -137,10 +110,11 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
+            '@[text="去完成"][clickable=true] < View -n [text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"] < View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
           excludeMatches: [
-            '@[text="领奖励"][clickable=true] < View <n View',
+            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '@[text="领奖励"][clickable=true] < View <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
             '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
             '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
@@ -165,10 +139,28 @@ export default defineGkdApp({
           action: 'back',
           matches: ['@[desc="YY游仓"]'],
         },
+        {
+          key: 4,
+          matches: [
+            '@[text="领奖励"][clickable=true] < View <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+          ],
+          excludeMatches: [
+            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
+        },
+        {
+          key: 5,
+          anyMatches: [
+            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
+            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          ],
+        },
       ],
     },
     {
-      key: 5,
+      key: 13,
       name: '做任务-去完成-关注1位主播',
       forcedTime: 60000,
       matchRoot: true,
@@ -185,7 +177,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 6,
+      key: 14,
       name: '做任务-去完成-看广告视频领金币',
       forcedTime: 60000,
       matchRoot: true,
@@ -205,7 +197,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 9,
+      key: 19,
       name: '直播间广告-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -316,7 +308,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          name: '我要更快拿奖-×',
+          name: '我要更快拿奖',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * FrameLayout > @[text="我要更快拿奖"]',
           ],
@@ -362,6 +354,10 @@ export default defineGkdApp({
           actionDelay: 1000,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="查看详情" || text^="扭动或点击" || text="立即打开" || text*="继续"]',
+          ],
+          excludeMatches: [
+            '@[text~=".*拿奖|放弃福利"] <n * <n * <n * <n * [text^="奖励将于"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * FrameLayout > @[text="我要更快拿奖"]',
           ],
         },
       ],
