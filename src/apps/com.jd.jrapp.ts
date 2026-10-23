@@ -140,7 +140,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 20,27, 30, 40],
+          preKeys: [2, 20, 27, 30, 40],
           key: 2,
           anyMatches: [
             '[getChild(0).text~="返回领奖|奖励已到账"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < * -n * [text="dancing"] < @View[clickable=true] <<n [vid="webview"]',
@@ -204,7 +204,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,7, 8],
+          preKeys: [2, 7, 8],
           key: 8,
           name: '提示-是否退出游戏',
           matches: [
