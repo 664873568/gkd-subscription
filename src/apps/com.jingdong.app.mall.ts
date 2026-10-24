@@ -54,7 +54,7 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        10, 12, 20, 30, 40, 41, 50, 60, 64, 70, 80, 90, 100, 110, 120, 130,190,
+        10, 12, 20, 30, 40, 41, 50, 60, 64, 70, 80, 90, 100, 110, 120, 130, 190,
       ],
       key: 1,
       name: '通用-返回-scopeKeys',
@@ -209,7 +209,7 @@ export default defineGkdApp({
           activityIds: ['null'],
         },
         {
-          preKeys: [12, 13, 90,190],
+          preKeys: [12, 13, 90, 190],
           key: 13,
           name: '关闭直播间',
           action: 'back',
@@ -1634,7 +1634,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5,8,11],
+          preKeys: [5, 8, 11],
           key: 6,
           name: '关闭23',
           action: 'back',
@@ -1643,14 +1643,12 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5,6,8,11],
+          preKeys: [5, 6, 8, 11],
           key: 7,
           name: '返回23',
           action: 'back',
           actionDelay: 16000,
-          anyMatches: [
-            '@[desc="返回"][clickable=true] +n * [desc="搜索"]',
-          ],
+          anyMatches: ['@[desc="返回"][clickable=true] +n * [desc="搜索"]'],
         },
         {
           preKeys: [7],
