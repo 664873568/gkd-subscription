@@ -49,14 +49,21 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '已安装完成，是否立即打开-取消',
           matches: [
-            '@[text="取消"][clickable=true] + [text="打开"][clickable=true]', //*已安装完成，是否立即打开？
+            '@[text="取消"][clickable=true] < LinearLayout < ScrollView <n LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 3,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text="立即打开"]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '@Button[text="领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -88,8 +95,16 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0],
           key: 2,
+          matches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.qq.e.ads.ADActivity'],
+        },
+        {
+          preKeys: [1,2],
+          key: 3,
           matches: [
             '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
@@ -112,7 +127,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
@@ -860,6 +875,10 @@ export default defineGkdApp({
           name: '查看详情',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * <n * [text="查看详情"]',
+          ],
+          excludeMatches: [
+            '@[text="我要更快拿奖"] < FrameLayout <n * <n * [text^="奖励将于"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text="恭喜获得奖励"]',
           ],
         },
       ],
