@@ -23,8 +23,8 @@ export default defineGkdApp({
         {
           key: 1,
           anyMatches: [
-            '[text="确定要离开？"] +n @[getChild(0).text="仍然离开"][clickable=true] + [getChild(0).text="继续观看"][clickable=true]',
-            '[text="确定要离开？"] +n @[getChild(0).getChild(0).text="仍然离开"][clickable=true] + [getChild(0).getChild(0).text="继续观看"][clickable=true]',
+            '[text="仍然离开"] < @View[clickable=true] <n View < View < View < View < ComposeView < [id="android:id/content"]',
+            '[text="仍然离开"] < View < @View[clickable=true] <n View < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
       ],
