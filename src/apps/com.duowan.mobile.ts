@@ -84,14 +84,14 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="立即签到"][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            'TextView - @[text="立即签到"][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '@TextView[clickable=true] - [text="关注主播赚金币"] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
       ],
@@ -113,10 +113,8 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] < View -n [text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"] < View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
           excludeMatches: [
-            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '@TextView[clickable=true] - [text~="立即签到|关注主播赚金币|马上完成"] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
             '@[text="领奖励"][clickable=true] < View <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
-            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
           ],
         },
         {
@@ -130,14 +128,17 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           matches: [
-            '@[text="打开"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text="提醒"][vid="message"]',
+            '@[text="打开"][vid="btn_ok"][clickable=true] <n LinearLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           preKeys: [0],
           key: 3,
           action: 'back',
-          matches: ['@[desc="YY游仓"]'],
+          actionDelay: 5000,
+          matches: [
+            '@[desc="YY游仓"] < View <n View < View < View < View < [id="fun-root"] < View < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+          ],
         },
         {
           key: 4,
@@ -145,16 +146,13 @@ export default defineGkdApp({
             '@[text="领奖励"][clickable=true] < View <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
           excludeMatches: [
-            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
-            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+            '@TextView[clickable=true] - [text~="立即签到|关注主播赚金币|马上完成"] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
           key: 5,
-          anyMatches: [
-            '@TextView[clickable=true] - [text="马上完成"] -n [text="恭喜获得"]',
-            '@TextView[clickable=true] - * [text="恭喜获得"] +n [text="我知道了"] + [text="去完成"]',
+          matches: [
+            '@TextView[clickable=true] - [text="马上完成"] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
       ],
@@ -170,7 +168,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="确定"][vid="btn_ok"][clickable=true] -n [text="取消"][vid="btn_cancel"] < * -n * [text*="频道"][vid="message"]',
+            '@[text="确定"][vid="btn_ok"][clickable=true] <n LinearLayout <n LinearLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
@@ -187,10 +185,10 @@ export default defineGkdApp({
         {
           actionDelay: 1000,
           matches: [
-            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text="看广告视频领金币"]',
+            '@[text="去完成"][clickable=true] < View -n [text="看广告视频领金币"] < View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
           excludeMatches: [
-            '@[text="去完成"][clickable=true] < View <n View[getChild(0).text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"]',
+            '@[text="去完成"][clickable=true] < View -n [text!~="关注1位主播|直播间1次发言|充值1次|看广告视频领金币|送出0.1元礼物"] < View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
           activityIds: ['com.yy.mobile.ui.common.JsSupportWebAcitivity'],
         },
