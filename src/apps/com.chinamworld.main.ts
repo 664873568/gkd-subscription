@@ -157,7 +157,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,3],
+          preKeys: [0, 3],
           key: 4,
           matches: [
             '@[text^="已完成 浏览"][clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
