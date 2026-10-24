@@ -1712,7 +1712,7 @@ export default defineGkdApp({
           matches: [
             '@[text="去访问"][clickable=true] <n View -n [text="做任务得奖励"] < View < View <n View < View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
           ],
-          exclludeMatches: [
+          excludeMatches: [
             '@[text="签到"][clickable=true] <n View <n View <n View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
             '@TextView[clickable=true] - [getChild(0).text="领取成功，恭喜获得"] < View < View <n View < [text="京东省钱卡"] < *',
             '@[text="领取奖励"][clickable=true] <n View -n [text="做任务得奖励"] < View < View <n View < View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
