@@ -57,7 +57,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '@[text="我知道了"][clickable=true] -n [text^="签到成功"] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
