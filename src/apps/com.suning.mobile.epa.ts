@@ -51,7 +51,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 3000,
+          actionDelay: 5000,
           matches: [
             '[text~="今日头条.*|UC.*|百度|快手|飞猪|番茄畅听|YY.*|.*APP.*|.*领.*|淘宝.*|.*苏.*|.*酷.*|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"] < [vid="h5_base_layout"]',
           ],
@@ -116,7 +116,7 @@ export default defineGkdApp({
             '[text~="[0-9]+金币"] -n @ImageButton[clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           excludeMatches: [
-            '[getChild(0).text="去完成"] - [getChild(0).getChild(0).text!~="去中国移动领话费"] < View < @View[clickable=true] <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+            '[getChild(0).text="去完成"] - [getChild(0).getChild(0).text!~="去中国移动领话费|去星选商城下单"] < View < @View[clickable=true] <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '@[text="去看剧"][clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '[text="去完成"] < @View[clickable=true] <n View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '[text="去完成"] < @View[clickable=true] - [getChild(0).getChild(0).text!~="体验AI搜索"] <n View < View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
@@ -140,7 +140,7 @@ export default defineGkdApp({
             '[text="天天领现金"] - @ImageButton[clickable=true] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           excludeMatches: [
-            '[getChild(0).text="去完成"] - [getChild(0).getChild(0).text!~="去中国移动领话费"] < View < @View[clickable=true] <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+            '[getChild(0).text="去完成"] - [getChild(0).getChild(0).text!~="去中国移动领话费|去星选商城下单"] < View < @View[clickable=true] <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '[text~="[0-9]+金币"] -n @ImageButton[clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
