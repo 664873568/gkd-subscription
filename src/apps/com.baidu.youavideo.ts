@@ -78,7 +78,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="去完成"] -n [text!~="邀请好友激活空间|天天看激励视频"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
+            '[text="去完成"] -n [text!~="邀请.*|购买.*|.*相册|天天.*"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
           ],
           excludeMatches: [
             '@[text="我知道了"][clickable=true] -n [text^="签到成功"] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
@@ -96,7 +96,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [2, 300, 500],
+      scopeKeys: [300, 500],
       key: 3,
       name: '积分任务-去完成-分享一个相册',
       forcedTime: 60000,
@@ -104,6 +104,17 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="去完成"] -n [text="分享一个相册"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text!~="邀请.*|购买.*|.*相册|天天.*"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
+          ],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
         {
           preKeys: [0, 300, 500],
           key: 1,
@@ -137,7 +148,6 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [2],
       key: 4,
       name: '积分任务-去完成-创建一个新相册',
       forcedTime: 60000,
@@ -145,6 +155,17 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '[text="去完成"] -n [text="创建一个新相册"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] -n [text!~="邀请.*|购买.*|创建.*|天天.*"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
+          ],
+          activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
+        },
         {
           preKeys: [0],
           key: 1,
@@ -423,7 +444,7 @@ export default defineGkdApp({
             '[text="去完成"] -n [text="天天看激励视频"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
           ],
           excludeMatches: [
-            '[text="去完成"] -n [text!~="邀请好友激活空间|天天看激励视频"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
+            '[text="去完成"] -n [text!~="邀请.*|购买.*|天天.*"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
           ],
         },
         {
@@ -447,7 +468,7 @@ export default defineGkdApp({
             '[text="看广告赚积分"] - [desc="礼盒"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
           ],
           excludeMatches: [
-            '[text="去完成"] -n [text!~="邀请好友激活空间|天天看激励视频"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
+            '[text="去完成"] -n [text!~="邀请.*|购买.*|天天.*"] < @View[clickable=true] < View <n WebView < WebView < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
