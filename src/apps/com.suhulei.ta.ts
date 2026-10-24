@@ -27,7 +27,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
           key: 2,
           matches: [
             '@[vid="ivAddHeart"][clickable=true] - [vid="editText"] < [vid="baseLayout"]',
