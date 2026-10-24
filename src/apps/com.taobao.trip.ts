@@ -103,7 +103,7 @@ export default defineGkdApp({
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           matches: [
             '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
