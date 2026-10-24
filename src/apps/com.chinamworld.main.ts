@@ -132,20 +132,20 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            'ImageButton +n @[text="立即签到"][clickable=true] + TextView',
+            '@[text="立即签到"][clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           key: 1,
           matches: [
-            'ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - [getChild(0).text~="已连续签到[0-9]天"] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           preKeys: [0],
           key: 2,
           matches: [
-            'ImageButton +n @View[clickable=true] > View > [text^="浏览"]',
+            '[text^="浏览"] < View < @View[clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
@@ -157,24 +157,24 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3],
+          preKeys: [0,3],
           key: 4,
           matches: [
-            'ImageButton +n @[text^="已完成 浏览"][clickable=true] + TextView',
+            '@[text^="已完成 浏览"][clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           preKeys: [4],
           key: 5,
           matches: [
-            'AlertDialog > [text="领取奖品确认身份信息"] +n [getChild(0).text="取消"] > @[text="立即领取"][clickable=true]',
+            '@[text="立即领取"][clickable=true] <n View <n AlertDialog -n [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           preKeys: [5],
           key: 6,
           matches: [
-            'ImageButton +n [text="已领奖"] + @TextView[clickable=true]',
+            '@TextView[clickable=true] - [text="已领奖"] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
       ],
