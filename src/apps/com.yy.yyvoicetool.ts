@@ -191,7 +191,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,13],
+          preKeys: [0, 13],
           key: 1,
           name: '点击聊天框',
           matches: [
