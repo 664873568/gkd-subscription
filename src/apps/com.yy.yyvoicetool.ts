@@ -147,7 +147,7 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] -n [text="收藏任意频道"] < View < View -n [text="每日任务"] < View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
           ],
           excludeMatches: [
-            '@[text=~"去完成|领奖励"][clickable=true] -n [text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] < View < View -n [text="每日任务"] < View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
+            '@[text~="去完成|领奖励"][clickable=true] -n [text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] < View < View -n [text="每日任务"] < View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
             '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
