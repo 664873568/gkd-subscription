@@ -153,14 +153,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,12],
+          preKeys: [0, 1, 12],
           key: 1,
           matches: [
             '[text="收藏"] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [1,12],
+          preKeys: [1, 12],
           key: 2,
           action: 'back',
           actionDelay: 5000,
