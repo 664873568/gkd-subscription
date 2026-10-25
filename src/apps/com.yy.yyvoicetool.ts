@@ -17,14 +17,14 @@ export default defineGkdApp({
           key: 0,
           name: '确定跳转至新频道-确定',
           matches: [
-            '@[text="确定"][clickable=true] -n [text="取消"] < View - [getChild(0).text="当前频道已收藏"] - ImageButton - [text="提示"] < View < View <n View < [id="root"]',
+            '@[text="确定"][clickable=true] <n View <n View < View <n View < [id="root"] < View < [text="任务系统"] < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
           name: '是否踢出频道-确定',
           matches: [
-            '@[text="确定"][clickable=true] - [text="取消"] - [getChild(0).text="您已在其他设备频道内，是否踢出频道？"] < View < View < ViewGroup < [id="android:id/content"]',
+            '@[text="确定"][clickable=true] <n View < View < ViewGroup < [id="android:id/content"]',
           ],
         },
       ],
@@ -132,6 +132,7 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [0],
       key: 12,
       name: '每日任务-去完成-收藏任意频道',
       forcedTime: 60000,
@@ -141,7 +142,7 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          key: 0,
+          key: 12,
           actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -n [text="收藏任意频道"] < View < View -n [text="每日任务"] < View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
@@ -152,14 +153,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,1,12],
           key: 1,
           matches: [
             '[text="收藏"] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1,12],
           key: 2,
           action: 'back',
           actionDelay: 5000,
@@ -210,6 +211,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           name: '选择表情',
+          actionDelay: 2000,
           matches: [
             '@View[clickable=true] < View < View <n View <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
