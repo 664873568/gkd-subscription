@@ -109,6 +109,12 @@ export default defineGkdApp({
             '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
+        {
+          key: 4,
+          matches: [
+            '@Button[text="领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+        },
       ],
     },
     {
