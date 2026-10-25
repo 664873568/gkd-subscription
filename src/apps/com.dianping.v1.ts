@@ -46,7 +46,7 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 2000,
           matches: [
-            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得"]',
+            '[text="必得"] <n FrameLayout < @FrameLayout[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < ViewGroup < RecyclerView <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           excludeMatches: [
             'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
@@ -74,8 +74,9 @@ export default defineGkdApp({
         {
           key: 2,
           action: 'clickCenter',
+          actionDelay: 2000,
           matches: [
-            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="可领"]',
+            '[text="可领"] <n FrameLayout < @FrameLayout[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < ViewGroup < RecyclerView <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: [
             '.NovaMainActivity',
@@ -159,7 +160,6 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 0,
           action: 'clickCenter',
           actionDelay: 5000,
           matches: [
@@ -167,16 +167,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
-            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得"]',
-            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="可领"]',
-          ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 1,
-          action: 'clickCenter',
-          matches: [
-            '@[getChild(0).desc="back"][width=height][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
+            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得" || text="可领"]',
           ],
         },
       ],
