@@ -97,8 +97,8 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        20, 27, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140,141,
-        200, 210,
+        20, 27, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140,
+        141, 200, 210,
       ],
       key: 11,
       name: '通用-返回-scopeKeys',
@@ -128,7 +128,7 @@ export default defineGkdApp({
           activityIds: ['.bm.common.web.ui.WebFreeSizeActivity'],
         },
         {
-          preKeys: [0, 1, 20, 30, 40, 50, 70, 80, 110, 130, 140,141, 200, 210],
+          preKeys: [0, 1, 20, 30, 40, 50, 70, 80, 110, 130, 140, 141, 200, 210],
           key: 1,
           action: 'back',
           matches: [
@@ -140,7 +140,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 20, 27, 30, 40,70],
+          preKeys: [2, 20, 27, 30, 40, 70],
           key: 2,
           anyMatches: [
             '[getChild(0).text~="返回领奖|奖励已到账"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="readMissionDown"] < * -n * [text="dancing"] < @View[clickable=true] <<n [vid="webview"]',
@@ -156,7 +156,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4, 20,27, 30, 33, 35, 40, 50, 70, 80, 110, 140, 200, 210],
+          preKeys: [4, 20, 27, 30, 33, 35, 40, 50, 70, 80, 110, 140, 200, 210],
           key: 4,
           action: 'back',
           actionDelay: 5000,
@@ -386,7 +386,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 1,
           name: '组件登录有礼-领取并喂猪',
           matches: [
@@ -394,7 +394,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           name: '组件登录有礼-领取并喂猪×',
           position: {
