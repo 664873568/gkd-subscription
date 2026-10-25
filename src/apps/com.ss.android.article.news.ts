@@ -15,6 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          action: 'back',
           actionDelay: 5000,
           anyMatches: [
             '@[text~="登录领钱|点击赚钱|登录赚钱"] < FrameLayout <n ViewGroup < ViewGroup < MeasureOnceRelativeLayout2 < MeasureOnceRelativeLayout2 <n [id="android:id/content"]',
@@ -22,7 +23,17 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys:[0,1],
           key: 1,
+          action: 'back',
+          anyMatches: [
+            '@[text~="登录领钱|点击赚钱|登录赚钱"] < FrameLayout <n ViewGroup < ViewGroup < MeasureOnceRelativeLayout2 < MeasureOnceRelativeLayout2 <n [id="android:id/content"]',
+            '@[text~="登录领钱|点击赚钱|登录赚钱"] < View <n View < View < View < View < ComposeView < FrameLayout <n MeasureOnceRelativeLayout2 < FrameLayout < LinearLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys:[0,1],
+          key: 2,
           anyMatches: [
             '[text="仍然离开"] < @View[clickable=true] <n View < View < View < View < ComposeView < [id="android:id/content"]',
             '[text="仍然离开"] < View < @View[clickable=true] <n View < View < View < View < ComposeView < [id="android:id/content"]',
