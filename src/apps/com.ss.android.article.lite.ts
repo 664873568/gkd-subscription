@@ -23,7 +23,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0,1],
+          preKeys: [0, 1],
           key: 1,
           action: 'back',
           anyMatches: [
@@ -32,7 +32,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys:[0,1],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             '[text="仍然离开"] < @View[clickable=true] <n View < View < View < View < ComposeView < [id="android:id/content"]',
