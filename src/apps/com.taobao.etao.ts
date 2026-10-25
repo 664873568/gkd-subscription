@@ -46,8 +46,8 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           anyMatches: [
-            '[text!~="去中国移动逛逛"][index=parent.childCount.minus(1)] - @View < View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
-            '[text!~="去中国移动逛逛"][index=parent.childCount.minus(1)] - @View < View < View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
+            '[text!~="去中国移动逛逛"] - [getChild(2).text="最高1元"] < @View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
+            '[text!~="去中国移动逛逛"] - @[getChild(2).text="最高1元"] < View < View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
           excludeMatches: [
             '[text!~="去中国移动逛逛"] - @[text="领取"] <n View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
@@ -66,30 +66,21 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          action: 'back',
-          actionDelay: 5000,
-          matches: [
-            'WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 3,
           name: '去点淘领红包',
           matches: [
             '[text="下载/打开APP"] < @View[clickable=true] <n View < View <n View < View < [id="ice-container"] < WebView < * < [desc="WVUCWebView"] < RelativeLayout - [vid="tms_title_bar"]',
           ],
         },
         {
-          preKeys: [0, 3],
-          key: 4,
+          preKeys: [0, 2],
+          key: 3,
           name: '正在离开一淘，打开',
           matches: [
             '[getChild(0).getChild(1).text="提示"] + [getChild(0).getChild(0).getChild(0).text^="正在离开一淘"] + [vid="buttonPanel"] > LinearLayout > @[text="打开"][clickable=true]',
           ],
         },
         {
-          key: 5,
+          key: 4,
           name: '返回',
           actionDelay: 3000,
           matches: [
@@ -97,7 +88,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 6,
+          key: 5,
           name: '领取',
           actionDelay: 2000,
           anyMatches: [
