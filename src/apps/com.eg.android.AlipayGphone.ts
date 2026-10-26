@@ -5,7 +5,7 @@ export default defineGkdApp({
   name: '支付宝',
   groups: [
     {
-      scopeKeys: [21, 30,40, 50, 52, 62, 70, 100],
+      scopeKeys: [21, 30, 40, 50, 52, 62, 70, 100],
       key: 1,
       name: '通用-返回-scopeKeys',
       forcedTime: 60000,
@@ -29,7 +29,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 40,50, 51, 52, 400, 401],
+          preKeys: [2, 40, 50, 51, 52, 400, 401],
           key: 2,
           name: '已浏览完成 返回>',
           action: 'clickCenter',
@@ -46,7 +46,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4, 30,40, 50,51, 52, 62, 70, 100],
+          preKeys: [4, 30, 40, 50, 51, 52, 62, 70, 100],
           key: 4,
           name: '返回>',
           action: 'back',
@@ -374,7 +374,7 @@ export default defineGkdApp({
     },
     //26.09.30-26.10.31 芝麻粒炼金
     {
-      scopeKeys: [1,400, 401],
+      scopeKeys: [1, 400, 401],
       key: 50,
       name: '芝麻粒炼金-炼金',
       forcedTime: 60000,
@@ -765,9 +765,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@View[clickable=true] > [text="今日签到"]',
-          ],
+          matches: ['@View[clickable=true] > [text="今日签到"]'],
         },
         {
           key: 70,
@@ -1306,9 +1304,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3],
           key: 4,
           action: 'back',
-          matches: [
-            'View > [id="page-activity"] >n [id="lotteryComp"]',
-          ],
+          matches: ['View > [id="page-activity"] >n [id="lotteryComp"]'],
         },
       ],
     },
@@ -1603,7 +1599,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2,3],
+          preKeys: [0, 1, 2, 3],
           key: 2,
           action: 'back',
           actionDelay: 2000,
