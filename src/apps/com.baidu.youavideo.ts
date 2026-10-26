@@ -137,11 +137,11 @@ export default defineGkdApp({
         {
           key: 4,
           position: {
-            left: 'width * 0.925',
-            top: 'height * 0.9',
+            left: 'width * 0.93',
+            top: 'height * 0.73',
           },
           actionDelay: 2000,
-          matches: ['[vid="ll_share"] > @[vid="layout_share_media_channel"]'],
+          matches: ['@[vid="ll_share"] <n [vid="root_view"] < [id="android:id/content"]'],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
         },
       ],
@@ -227,7 +227,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 4],
+          preKeys: [2, 3],
           key: 3,
           swipeArg: {
             start: {
@@ -240,7 +240,7 @@ export default defineGkdApp({
             },
             duration: 1000,
           },
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @[vid="srv_list"]',
           ],
@@ -249,7 +249,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 4],
+          preKeys: [2,3, 4],
           key: 4,
           actionDelay: 1000,
           matches: [
