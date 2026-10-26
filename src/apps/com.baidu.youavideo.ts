@@ -141,7 +141,9 @@ export default defineGkdApp({
             top: 'height * 0.73',
           },
           actionDelay: 2000,
-          matches: ['@[vid="ll_share"] <n [vid="root_view"] < [id="android:id/content"]'],
+          matches: [
+            '@[vid="ll_share"] <n [vid="root_view"] < [id="android:id/content"]',
+          ],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
         },
       ],
@@ -249,7 +251,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3, 4],
+          preKeys: [2, 3, 4],
           key: 4,
           actionDelay: 1000,
           matches: [
