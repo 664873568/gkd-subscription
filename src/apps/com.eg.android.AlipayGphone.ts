@@ -162,7 +162,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
+      key: 12,
       name: '游戏中心-立即签到',
       forcedTime: 60000,
       matchRoot: true,
