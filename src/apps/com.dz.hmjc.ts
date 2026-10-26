@@ -40,6 +40,22 @@ export default defineGkdApp({
     },
     {
       key: 41,
+      name: '是否允许发送通知-拒绝',
+      forcedTime: 600000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="拒绝"][vid="btn_reject"][clickable=true] -n [text="是否允许“河马剧场”发送通知？"][vid="tv_title"]',
+          ],
+          activityIds: ['com.dz.business.main.ui.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 42,
       name: '青少年模式-我知道了',
       forcedTime: 600000,
       matchRoot: true,
