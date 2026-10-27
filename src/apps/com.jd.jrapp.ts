@@ -97,7 +97,7 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        20,23, 27, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140,
+        20, 23, 27, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140,
         141, 200, 210,
       ],
       key: 11,
@@ -148,7 +148,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 20, 30, 35, 40, 110, 140,200],
+          preKeys: [3, 20, 30, 35, 40, 110, 140, 200],
           key: 3,
           action: 'back',
           matches: [
@@ -156,7 +156,9 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4, 20,23, 27, 30, 33, 35, 40, 50, 70, 80, 110, 140, 200, 210],
+          preKeys: [
+            4, 20, 23, 27, 30, 33, 35, 40, 50, 70, 80, 110, 140, 200, 210,
+          ],
           key: 4,
           action: 'back',
           actionDelay: 5000,
@@ -2173,9 +2175,7 @@ export default defineGkdApp({
         {
           preKeys: [11],
           key: 12,
-          matches: [
-            '@ImageView[clickable=true] <n * [text="53/53"]',
-          ],
+          matches: ['@ImageView[clickable=true] <n * [text="53/53"]'],
         },
       ],
     },
