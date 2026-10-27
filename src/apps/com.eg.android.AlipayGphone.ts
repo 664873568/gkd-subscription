@@ -1644,7 +1644,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="一键收下"] <n [id="index_wrapper"] < [id="app"] < [text="出行券包天天领"] < WebView <n FrameLayout < FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@[text="一键收下"] <n [id="index_wrapper"] < [id="app"] < [text="出行券包天天领"] < WebView <n FrameLayout <n FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
