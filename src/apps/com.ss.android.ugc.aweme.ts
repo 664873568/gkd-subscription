@@ -117,7 +117,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup - ScrollView < FrameLayout < FrameLayout < ViewFactoryHolder',
+            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup - ScrollView < FrameLayout < FrameLayout',
           ],
           activityIds: [
             '.bullet.ui.BulletContainerActivity',
@@ -150,6 +150,7 @@ export default defineGkdApp({
             'ImageView <n @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //立即签到00
           ],
           excludeMatches: [
+            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup - ScrollView < FrameLayout < FrameLayout',
             'ImageView -n ImageView < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //签到领00
             'ImageView[height<0] <n @ViewGroup < ViewGroup <n ViewGroup - ScrollView', //签到领01
             '[id*="cj_plugin"] <n FrameLayout < FrameLayout - * [id="android:id/content"]', //*秒后获得*发财金
@@ -174,6 +175,9 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: [
             'ImageView -n ImageView < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //签到领00
+          ],
+          excludeMatches: [
+            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup - ScrollView < FrameLayout < FrameLayout',
           ],
         },
         {
@@ -240,6 +244,7 @@ export default defineGkdApp({
           activityIds: [
             '.live.LiveDummyActivity',
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
+            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity',
           ],
         },
         {
@@ -285,20 +290,6 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: ['.bullet.ui.BulletContainerActivity'],
       rules: [
-        {
-          key: 0,
-          name: '抽发财金',
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 0.8',
-          },
-          matches: [
-            '@ViewGroup - ImageView <n LinearLayout < HorizontalScrollView < ScrollView',
-          ],
-          excludeMatches: [
-            'ImageView[height>0] <n @ViewGroup < ViewGroup <n ViewGroup - ScrollView',
-          ],
-        },
         {
           key: 1,
           name: '恭喜抽中奖品/任务完成 恭喜获得-开心收下',
@@ -407,14 +398,17 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           anyMatches: [
-            '[text="查看账单"] <n @View[clickable=true] -n ImageButton < View <n View < View < [id="root"]',
-            '[text="查看账单"] <n @View[clickable=true] <n View -n ImageButton < View <n View < View < [id="root"]',
+            '[text="查看账单"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
+            '[text="查看账单"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View <n View < View < [id="root"]',
           ],
         },
         {
           preKeys: [0, 2],
           key: 1,
-          matches: ['@[desc="关闭"][clickable=true] <n View -n [id="root"]'],
+          anyMatches: [
+            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
+            'Image < @View[clickable=true] < View < [id="JS_PageHeader"] < [id="JS_PageLayout"] < [id="root"]',
+          ],
         },
         {
           preKeys: [0, 1, 3],
@@ -447,7 +441,7 @@ export default defineGkdApp({
           anyMatches: [
             '[text="查电费"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View <n [id="root"]',
             '[text="看电费账单"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
-            '[text="看电费账单"] <n @View[clickable=true] <n View - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
+            '[text="看电费账单"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View <n View < View < [id="root"]',
           ],
           activityIds: [
             '.bullet.ui.BulletContainerActivity',
@@ -457,8 +451,9 @@ export default defineGkdApp({
         {
           preKeys: [0, 2],
           key: 1,
-          matches: [
-            '@Button[desc="关闭"][clickable=true] <n View < View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
+          anyMatches: [
+            '@[desc="关闭"][clickable=true] <n View < View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
+            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -492,9 +487,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
-          matches: [
+          anyMatches: [
             '[text="逛理财福利"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
-            '[text="逛理财福利"] <n @View[clickable=true] <n View - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
+            '[text="逛理财福利"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View <n View < View < [id="root"]',
           ],
         },
         {
@@ -502,7 +497,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 2000,
           matches: [
-            '@Button[desc="关闭"][clickable=true] <n View -n [id="root"]',
+            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -524,7 +519,7 @@ export default defineGkdApp({
           actionDelay: 2000,
           anyMatches: [
             '[text="逛充值中心"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
-            '[text="逛充值中心"] <n @View[clickable=true] <n View - [text~="浏览赚.*省钱豆"] <n View <n View < View < [id="root"]',
+            '[text="逛充值中心"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View <n View < View < [id="root"]',
           ],
         },
       ],
@@ -572,7 +567,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [1, 2],
           key: 4,
           action: 'back',
           matches: [
@@ -603,7 +598,10 @@ export default defineGkdApp({
         {
           preKeys: [0, 2],
           key: 1,
-          matches: ['@[desc="关闭"][clickable=true] <n View -n [id="root"]'],
+          anyMatches: [
+            '@[desc="关闭"][clickable=true] <n View < View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
+            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
+          ],
         },
         {
           preKeys: [0, 1, 2],
@@ -645,16 +643,16 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 2000,
-          matches: [
-            '@Button[desc="关闭"][clickable=true] <n View -n [id="root"]',
+          anyMatches: [
+            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
+            '@[desc="关闭"][clickable=true] <n View <n View <n View < View <n [id="root"]',
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0, 1,2],
           key: 2,
           actionDelay: 5000,
-          anyMatches: [
-            '@Button[desc="关闭"][clickable=true] <n View -n [id="root"]',
+          matches: [
             'Image < @View[clickable=true] < [id="nav-bar"] < [id="root"]',
           ],
         },
@@ -666,7 +664,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3],
+          preKeys: [2,3],
           key: 4,
           action: 'back',
           matches: [
@@ -695,22 +693,29 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,2],
           key: 1,
+          matches: [
+            'Image < @View[clickable=true] < View <n View < View <n [id="with-scroll-content"] < [id="JS_PageScroller"] <n [id="Page_layout_scroll"] < [id="root"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
           matches: [
             '@Button[clickable=true] < View < View <n [id="Page_layout_scroll"] < [id="root"]',
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [2],
+          key: 3,
           matches: [
             '@[desc="返回"][clickable=true] < [id="headerLeftBar"] < [id="full-header"] <n [id="Page_layout_scroll"] < [id="root"]',
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
+          preKeys: [3],
+          key: 4,
           matches: [
             '[text="恭喜完成任务"] < View <n View < View - @ImageButton[clickable=true] < View < View < View <n View < View <n [id="root"]',
           ],
@@ -756,7 +761,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
+          preKeys: [1,2],
           key: 3,
           action: 'back',
           matches: [
@@ -810,8 +815,9 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
-          matches: [
+          anyMatches: [
             '[text="去懂车帝"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View <n [id="root"]',
+            '[text="浏览懂车帝"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View <n View < View <n [id="root"]',
           ],
         },
         {
@@ -878,6 +884,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
+            '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View -n [text="今日已完成 明日继续"] <n View <n View < View < [id="root"]',
             '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View -n [text="今日已完成 明日继续"] <n View <n View <n View < View < [id="root"]',
           ],
         },
@@ -896,7 +903,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
+          preKeys: [2,3],
           key: 3,
           matches: [
             '@[desc="返回"][clickable=true] < FrameLayout <n RelativeLayout <n RelativeLayout < LinearLayout <n FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
