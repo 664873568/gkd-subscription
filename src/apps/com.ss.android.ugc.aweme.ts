@@ -649,7 +649,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2],
+          preKeys: [0, 1, 2],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -664,7 +664,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 4,
           action: 'back',
           matches: [
@@ -693,14 +693,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 1,
           matches: [
             'Image < @View[clickable=true] < View <n View < View <n [id="with-scroll-content"] < [id="JS_PageScroller"] <n [id="Page_layout_scroll"] < [id="root"]',
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@Button[clickable=true] < View < View <n [id="Page_layout_scroll"] < [id="root"]',
@@ -761,7 +761,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           action: 'back',
           matches: [
@@ -903,7 +903,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 3,
           matches: [
             '@[desc="返回"][clickable=true] < FrameLayout <n RelativeLayout <n RelativeLayout < LinearLayout <n FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
