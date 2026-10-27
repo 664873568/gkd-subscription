@@ -7,7 +7,7 @@ export default defineGkdApp({
     //26.10.21-26.12.04 每日签到得网盘SVIP月卡
     {
       key: 0,
-      name: '每日签到-立即签到',
+      name: '库库签到活动-立即签到',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -28,12 +28,14 @@ export default defineGkdApp({
         },
       ],
     },
+    //做任务领积分抽好礼
     {
       key: 1,
-      name: '做任务-去完成',
+      name: '库库签到活动-去完成',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
+      actionMaximum: 1,
       resetMatch: 'activity',
       rules: [
         {
@@ -49,7 +51,7 @@ export default defineGkdApp({
     {
       scopeKeys: [1],
       key: 2,
-      name: '做任务-去完成-与库库聊聊热门话题',
+      name: '库库签到活动-去完成-与库库聊聊热门话题',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -77,7 +79,7 @@ export default defineGkdApp({
     {
       scopeKeys: [1],
       key: 3,
-      name: '做任务-去完成-召唤任意专家并发起对话',
+      name: '库库签到活动-去完成-召唤任意专家并发起对话',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -118,7 +120,7 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '去抽奖-立即抽奖',
+      name: '库库签到活动-去抽奖-立即抽奖',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -127,12 +129,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
             '[text~="剩[1-9]次"] < @View[clickable=true] < View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@ImageButton[clickable=true] -n [text!~="邀请.*"] < View <n ListView <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
             'TextView -n @TextView[clickable=true] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
