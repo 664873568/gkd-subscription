@@ -127,6 +127,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '[text~="剩[1-9]次"] < @View[clickable=true] < View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
