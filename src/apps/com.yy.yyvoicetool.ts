@@ -17,7 +17,7 @@ export default defineGkdApp({
           key: 0,
           name: '确定跳转至新频道-确定',
           matches: [
-            '@[text="确定"][clickable=true] <n View <n View < View <n View < [id="root"] < View < [text="任务系统"] < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="确定"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -195,6 +195,7 @@ export default defineGkdApp({
           preKeys: [0, 13],
           key: 1,
           name: '点击聊天框',
+          actionDelay: 1000,
           matches: [
             '[text="说点什么吧..."] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -203,6 +204,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           name: '点击表情',
+          actionDelay: 1000,
           matches: [
             '@View[clickable=true] - ViewFactoryHolder <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -211,7 +213,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           name: '选择表情',
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '@View[clickable=true] < View < View <n View <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -220,6 +222,7 @@ export default defineGkdApp({
           preKeys: [3],
           key: 4,
           name: '发送表情',
+          actionDelay: 1000,
           matches: [
             '[text="发送"] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
