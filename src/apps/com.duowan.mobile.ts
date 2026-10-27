@@ -88,7 +88,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '@TextView[clickable=true] - [text="关注主播赚金币"] <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
