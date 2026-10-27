@@ -278,6 +278,12 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
+            '@[text="领取奖励"][clickable=true] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
             '@[text="立即领"][clickable=true] < View <n View <n View < View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
@@ -286,10 +292,10 @@ export default defineGkdApp({
         },
       ],
     },
-    //天天集能量-首页广告
+    //天天集能量-广告
     {
       key: 20,
-      name: '天天集能量-首页广告-跳过',
+      name: '天天集能量-广告-跳过',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -312,7 +318,7 @@ export default defineGkdApp({
     },
     {
       key: 21,
-      name: '天天集能量-首页广告-礼包-剩余*s-×',
+      name: '天天集能量-广告-礼包-剩余*s-×',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -409,7 +415,7 @@ export default defineGkdApp({
     //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
     {
       key: 40,
-      name: '看视频-广告-×',
+      name: '看视频-广告-×baidu',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -820,9 +826,27 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.qq.e.ads.PortraitADActivity
+    //看视频-com.meishu.sdk.activity.MeishuRewardVideoPlayerActivity
     {
       key: 110,
+      name: '看视频-广告-×meishu',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.meishu.sdk.activity.MeishuRewardVideoPlayerActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            'ImageView < @RelativeLayout[clickable=true] < LinearLayout <n RelativeLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    //看视频-com.qq.e.ads.PortraitADActivity
+    {
+      key: 120,
       name: '看视频-微信-提前拿奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -855,7 +879,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 111,
+      key: 121,
       name: '看视频-微信-阅读小说 可获得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -883,7 +907,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 112,
+      key: 122,
       name: '看视频-奖励将于*秒后发放',
       forcedTime: 60000,
       matchRoot: true,
@@ -942,7 +966,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 113,
+      key: 123,
       name: '看视频-浏览页面*秒后即可获得奖励',
       matchRoot: true,
       matchDelay: 1000,
@@ -967,7 +991,7 @@ export default defineGkdApp({
     },
     //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
-      key: 120,
+      key: 130,
       name: '看视频-完成APP下载-即可领取奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -983,15 +1007,18 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '奖励已到账',
           action: 'back',
           actionDelay: 30000,
-          matches: ['@View[clickable=true] < RelativeLayout + ImageView'], //奖励已到账
+          matches: [
+            '[text="广\n告"] <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
     //看视频-com.ubix.ssp.open.comm.UBiXVideoActivity
     {
-      key: 130,
+      key: 140,
       name: '看视频-点击广告并跳转获取奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -1007,6 +1034,12 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          matches: [
+            '@[text="关闭广告"] -n [text="恭喜获得奖励"] < RelativeLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
           matches: ['@ImageView[clickable=true] - [text="恭喜获得奖励"]'],
         },
       ],
