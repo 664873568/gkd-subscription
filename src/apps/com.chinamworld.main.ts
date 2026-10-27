@@ -19,31 +19,23 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[desc="签到有礼楼层"] +n @[desc="立即签到 按钮"][clickable=true]',
+            '@[desc="立即签到 按钮"][clickable=true] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0, 2],
           key: 1,
+          matches: [
+            'TextView[index=parent.childCount.minus(1)] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+          ],
+        },
+        {
+          preKeys: [0,1],
+          key: 2,
           actionDelay: 2000,
           matches: [
-            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
+            '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '[desc="签到有礼楼层"] +n @View[clickable=true] > TextView[index=parent.childCount.minus(1)]',
-          ],
-          excludeMatches: [
-            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          matches: ['@[desc="关闭 按钮"][clickable=true] +n [text="立即使用"]'],
         },
       ],
     },
@@ -58,13 +50,12 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[id="Normaltask"] > [desc="精选任务楼层"] +n [text~="查看.*|了解.*"] +(1,2,3) View > View > @[text="去完成"][clickable=true]',
+            '@[text="去完成"][clickable=true] < View < View -(1,3) TextView[text~="查看.*|了解.*"] -n [desc="精选任务楼层"] < [id="Normaltask"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
           excludeMatches: [
-            '[desc="签到有礼楼层"] +n @[desc="立即签到 按钮"][clickable=true]',
-            '[getChild(childCount.minus(1)).text="立即使用"] + @[desc="关闭 按钮"][clickable=true]',
-            '[desc="签到有礼楼层"] +n @View[clickable=true] > TextView[index=parent.childCount.minus(1)]',
-            '@[desc="关闭 按钮"][clickable=true] +n [text="立即使用"]',
+            '@[desc="立即签到 按钮"][clickable=true] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            'TextView[index=parent.childCount.minus(1)] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
           activityIds: [
             'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
