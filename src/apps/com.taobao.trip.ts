@@ -468,7 +468,7 @@ export default defineGkdApp({
         {
           key: 2,
           matches: [
-            '[text="该视频提到的内容是"] +n RelativeLayout > @[text="番茄音乐（原"][clickable=true]',
+            '[text="该视频提到的内容是"] +n RelativeLayout > @[text="番茄音乐（原" || text="拼多多"][clickable=true]',
           ],
         },
         {
