@@ -1146,7 +1146,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,210],
+          preKeys: [0, 1, 210],
           key: 1,
           name: '已完成去领奖',
           position: {
@@ -1266,10 +1266,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        '.ui.MainActivity',
-        '.aigc.ui.activity.AigcChatActivity',
-      ],
+      activityIds: ['.ui.MainActivity', '.aigc.ui.activity.AigcChatActivity'],
       rules: [
         {
           preKeys: [220, 500],
@@ -1397,7 +1394,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,220],
+          preKeys: [0, 220],
           key: 1,
           matches: [
             '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[vid="take_ai_photo_button"][clickable=true]',
@@ -1434,7 +1431,7 @@ export default defineGkdApp({
           matches: ['@ImageView[clickable=true] +2 [desc="保存"]'],
         },
         {
-          preKeys: [4, 5,6],
+          preKeys: [4, 5, 6],
           key: 6,
           action: 'back',
           matches: [
@@ -1493,7 +1490,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1, 2],
+          preKeys: [0, 1, 2],
           key: 1,
           swipeArg: {
             start: {
@@ -1512,7 +1509,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           actionDelay: 1000,
           anyMatches: [
