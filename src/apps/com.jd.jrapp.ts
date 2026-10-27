@@ -787,7 +787,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 5000,
           matches: [
-            '@TextView[clickable=true] -n [text="去提现"] <n View +n [getChild(1).getChild(0).text="（可抽0次）"] <n View < [id="headFloor"] <n View < View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] -n [getChild(1).text="去提现"] <n View +n [getChild(1).getChild(0).text="（可抽0次）"] <n View < [id="headFloor"] <n View < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '[text="去打卡"] <n @View[clickable=true] < View + [getChild(3).getChild(1).getChild(0).text="（可抽0次）"] <n [id="headFloor"] <n View < View < WebView < * < [vid="webview"]',
@@ -797,7 +797,7 @@ export default defineGkdApp({
           key: 33,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] -n [text!~="开通.*|首次.*"] < View - [text="赚更多现金"] < [id="taskFloorId"] <n View < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [text!~="开通.*|首次.*"] < View -n [text="赚更多现金"] < [id="taskFloorId"] <n View < View < WebView < * < [vid="webview"]',
           ],
         },
         {
@@ -807,7 +807,7 @@ export default defineGkdApp({
             '@Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="提现"]',
           ],
           excludeMatches: [
-            '@[text="去完成"][clickable=true] -n [text!~="开通.*|首次.*"] < View - [text="赚更多现金"] < [id="taskFloorId"] <n View < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [text!~="开通.*|首次.*"] < View -n [text="赚更多现金"] < [id="taskFloorId"] <n View < View < WebView < * < [vid="webview"]',
           ],
         },
         {
