@@ -344,22 +344,18 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          matches: [
+            '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
+          ],
           excludeMatches: [
-            '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
             '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
             '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
             '[text="成功完成任务"] <n * < * +n @View[clickable=true] > [text="继续开红包"]',
             '[text="开红包领现金"] >n [text="邀请1位好友"] + @ImageButton[clickable=true]',
           ],
-          matches: [
-            '@View[clickable=true] > [text="正在开"] + [text="red-packet-arrow"]',
-          ],
         },
         {
           key: 1,
-          excludeMatches: [
-            '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
-          ],
           anyMatches: [
             '[text="恭喜获得惊喜红包"] <n * < * + * @View[clickable=true] > [text="继续开红包"]',
             '[text="看视频 立得现金"] <n * < * +n @View[clickable=true] > [text="去完成"]',
@@ -1374,6 +1370,22 @@ export default defineGkdApp({
         {
           matches: [
             '@[vid="push_close"][clickable=true] - * > [vid="imgGif"] + * > [text="以后再说"][vid="cancel"] + [text="去开启"][vid="go_setting"]',
+          ],
+          activityIds: ['com.baidu.baidumaps.MapsActivity'],
+        },
+      ],
+    },
+    {
+      key: 499,
+      name: '正在载入',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[vid="bm_progress_container"] > [vid="loading_anim"] + [text="正在载入"][vid="bm_progress_message"]',
           ],
           activityIds: ['com.baidu.baidumaps.MapsActivity'],
         },
