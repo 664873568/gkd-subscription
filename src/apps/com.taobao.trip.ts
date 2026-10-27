@@ -1011,7 +1011,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 30000,
           matches: [
-            '[text="广\n告"] <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout < [id="android:id/content"]',
+            '[text="广\\n告"] <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
