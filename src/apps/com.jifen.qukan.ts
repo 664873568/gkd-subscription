@@ -6,31 +6,16 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '限时福利-*s后自动看视频',
+      name: '限时福利-直接签到-看视频/做任务',
+      forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '[vid="iv_close"] +n @[text~="[0-9]s后自动看视频"][vid="tv_countdown"][clickable=true] + [vid="ll_bootom"] > [text="直接签到"][vid="tv_sign_derect"]',
+            '[text="直接签到"][vid="tv_sign_derect"] < [vid="ll_bootom"] - @[vid="tv_countdown"][clickable=true] <n RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.jifen.qkbase.main.MainActivity'],
-        },
-      ],
-    },
-    {
-      key: 1,
-      name: '限时福利-*s后自动做任务',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[vid="iv_close"] +n @[text~="[0-9]s后自动做任务"][vid="tv_countdown"][clickable=true] + [vid="ll_bootom"] > [text="直接签到"][vid="tv_sign_derect"]',
-          ],
-          activityIds: ['com.jifen.qkbase.web.WebActivity'],
         },
       ],
     },
@@ -38,10 +23,9 @@ export default defineGkdApp({
     {
       key: 40,
       name: '欢迎使用趣头条-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 5000,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -56,9 +40,9 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
