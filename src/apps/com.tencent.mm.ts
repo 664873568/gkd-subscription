@@ -98,7 +98,7 @@ export default defineGkdApp({
           key: 1,
           name: '签到',
           actionDelay: 3000,
-          matches: ['[getChild(2).text="5星权益"] + @Image'],
+          matches: ['@Image <n View < View - [text$="套餐"]'],
           excludeMatches: [
             '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(1).text^="消耗星币"] + [getChild(0).text="兑换"]',
           ],
@@ -132,7 +132,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '频道栏',
-          actionDelay: 5000,
+          actionDelay: 3000,
           matches: [
             '@ImageView[desc="￼"][index=2] <n View < View < View < ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
           ],
