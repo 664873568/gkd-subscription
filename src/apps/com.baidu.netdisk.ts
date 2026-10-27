@@ -707,7 +707,7 @@ export default defineGkdApp({
           key: 3,
           name: '点击广告，即可获得奖励',
           matches: [
-            '@[text~="点击广告拿奖励|立即秒杀"] < FrameLayout < FrameLayout < * < * <n * [text="点击广告，即可获得奖励"]',
+            '[text="点击广告，即可获得奖励"] < FrameLayout < FrameLayout < * <n * @[text="点击广告拿奖励" || text="立即秒杀" || text="点击跳转微信"]',
           ],
         },
         {
@@ -732,7 +732,7 @@ export default defineGkdApp({
           name: '恭喜获得奖励-×',
           actionDelay: 1000,
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout <n * <n * <n * [text="恭喜获得奖励"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout <n * <n * [text="恭喜获得奖励"]',
           ],
         },
         {
@@ -836,14 +836,14 @@ export default defineGkdApp({
           key: 0,
           name: '看视频积分翻倍',
           matches: [
-            'ImageButton[text="c"][clickable=true] < View + Image +n @ImageButton[clickable=true]',
+            '@ImageButton[text="new-sign-pop-btn-double"][clickable=true] <n View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
           ],
         },
         {
           key: 1,
           name: '今日积分已翻倍',
           matches: [
-            '@ImageButton[text="c"][clickable=true] < View + Image +n ImageButton[clickable=true]',
+            '@ImageButton[text="c"][clickable=true] < View +n [text="new-sign-pop-btn-double-suc"] <n View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
           ],
         },
       ],
@@ -863,18 +863,18 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="开宝箱"] - [text="+5积分"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
+            '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
           key: 1,
-          excludeMatches: [
-            'ImageButton[text="c"][clickable=true] < View + Image +n ImageButton[clickable=true]',
-            '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
-          ],
           actionDelay: 1000,
           matches: [
-            '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
+            '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+          ],
+          excludeMatches: [
+            '@ImageButton[text="c"][clickable=true] < View < View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
+            '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
           ],
         },
       ],
@@ -904,6 +904,13 @@ export default defineGkdApp({
           name: '恭喜获得-知道了-×',
           matches: [
             '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]',
+          ],
+        },
+        {
+          key: 2,
+          actionDelay: 2000,
+          matches: [
+            '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
       ],
@@ -943,7 +950,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
             'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
@@ -977,7 +984,7 @@ export default defineGkdApp({
           key: 4,
           actionDelay: 2000,
           matches: [
-            '@[text="领取"][clickable=true] -8 TextView -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text="领取"][clickable=true] -8 TextView -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
             'View > @TextView[clickable=true] +n [text~="我知道了|开心收下"][clickable=true]',
@@ -986,10 +993,10 @@ export default defineGkdApp({
         {
           key: 5,
           matches: [
-            '@[text="点击领取"][clickable=true] < View <n View <n View <n View <n [id="task-system-growth"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text="点击领取"][clickable=true] < View <n View <n View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
-            '@[text~="领取|去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text~="领取|去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1003,11 +1010,11 @@ export default defineGkdApp({
           key: 7,
           actionDelay: 5000,
           matches: [
-            '[text="title"] - @TextView[clickable=true] < View <n View < [id="task-system-growth"] < WebView < ScrollView < [vid="content_webview"]',
+            '[text="title"] - @TextView[clickable=true] < View <n View < [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
-            '@[text~="领取|去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < ScrollView < [vid="content_webview"]',
-            '@[text="点击领取"][clickable=true] < View <n View <n View <n View <n [id="task-system-growth"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text~="领取|去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
+            '@[text="点击领取"][clickable=true] < View <n View <n View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1084,15 +1091,15 @@ export default defineGkdApp({
           key: 210,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] -5 TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
-            'ImageButton[text="c"][clickable=true] < View + Image +n ImageButton[clickable=true]',
-            '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
-            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+            '@ImageButton[text="c"][clickable=true] < View < View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
+            '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
             '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
-            'TextView + TextView +5 @[text="领取"][clickable=true]',
+            '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1119,11 +1126,6 @@ export default defineGkdApp({
           matches: [
             '@[vid="left_button"] <<n * +n * [text="恭喜获得"]', //小程序点图文领奖-小程序点图文-小程序浏览图文-点2次图文领奖-小程序点2次图文
           ],
-        },
-        {
-          key: 4,
-          actionDelay: 2000,
-          matches: ['TextView + TextView +5 @[text="领取"][clickable=true]'],
         },
       ],
     },
@@ -1172,18 +1174,18 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] -5 TextView[text~="观看.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -4 [text="+"] - TextView[text~="观看.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
             'ImageButton[text="c"][clickable=true] < View + Image +n ImageButton[clickable=true]',
-            '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
-            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+            '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
             '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
-            '@[text="去完成"][clickable=true] -5 TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
-            '@[text="去完成"][clickable=true] -5 TextView[text!~="去领取AI修图券"] -n [text="最新AI功能"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
-            '@[text="去完成"][clickable=true] -5 TextView -n [text="功能任务"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
-            'TextView + TextView +5 @[text="领取"][clickable=true]',
+            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -4 [text="+"] - TextView[text!~="去领取AI修图券"] -n [text="最新AI功能"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -4 [text="+"] - TextView -n [text="功能任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
           activityIds: [
             '.ui.cloudp2p.RichMediaActivity',
@@ -1208,25 +1210,20 @@ export default defineGkdApp({
         {
           key: 220,
           matches: [
-            '@[text="去完成"][clickable=true] -5 TextView[text!~="去领取AI修图券"] -n [text="最新AI功能"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -4 [text="+"] - TextView[text!~="去领取AI修图券"] -n [text="最新AI功能"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
-            'ImageButton[text="c"][clickable=true] < View + Image +n ImageButton[clickable=true]',
-            '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
-            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+            '@ImageButton[text="c"][clickable=true] < View < View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
+            '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
             '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
-            '@[text="去完成"][clickable=true] -5 TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
-            'TextView + TextView +5 @[text="领取"][clickable=true]',
+            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
           key: 1,
-          actionDelay: 2000,
-          matches: ['TextView + TextView +5 @[text="领取"][clickable=true]'],
-        },
-        {
-          key: 2,
           actionDelay: 10000,
           matches: [
             '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @ImageView[clickable=true] < LinearLayout < [vid="ocr_title_bar"]',
@@ -1653,16 +1650,16 @@ export default defineGkdApp({
           key: 230,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] -5 TextView -n [text="功能任务"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -4 [text="+"] - TextView -n [text="功能任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
-            'ImageButton[text="c"][clickable=true] < View + Image +n ImageButton[clickable=true]',
-            '[id="task-system-main"] >n @View[clickable=true] >n [text="开宝箱"] + [text="+5积分"]',
-            '[id="task-system-main"] >n @View[clickable=true] > [text~="[0-9]+:[0-9]+后开启点我减[0-9]+分钟"]',
+            '@ImageButton[text="c"][clickable=true] < View < View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
+            '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
             '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
-            '@[text="去完成"][clickable=true] -5 TextView[text!~="去领取AI修图券"] -n [text="最新AI功能"] < View <n View < [id="task-system-main"] < WebView < ScrollView < [vid="content_webview"]',
-            'TextView + TextView +5 @[text="领取"][clickable=true]',
+            '@[text="去完成"][clickable=true] -4 [text="+"] - TextView[text!~="去领取AI修图券"] -n [text="最新AI功能"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1690,11 +1687,6 @@ export default defineGkdApp({
           matches: [
             '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
           ],
-        },
-        {
-          key: 4,
-          actionDelay: 2000,
-          matches: ['TextView + TextView +5 @[text="领取"][clickable=true]'],
         },
       ],
     },
@@ -1786,7 +1778,7 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           matches: [
-            '[text="任务完成领奖"] - TextView < @View[clickable=true] <n [id="main-app"] < [id="app"] < WebView < ScrollView < [vid="content_webview"]',
+            '[text="任务完成领奖"] - TextView < @View[clickable=true] <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
       ],
@@ -1903,6 +1895,28 @@ export default defineGkdApp({
         {
           matches: [
             '@[vid="add_widget_dialog_close_container"][clickable=true] +n [text="订阅与共享可以添加到桌面啦"][vid="add_widget_dialog_main_title"]',
+          ],
+          activityIds: [
+            '.ui.MainActivity',
+            '.ui.cloudp2p.RichMediaActivity',
+            '.aigc.ui.activity.AigcChatActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 406,
+      name: '开启推送提醒-暂不开启',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="暂不开启"][vid="dialog_button_cancel"][clickable=true] <  [vid="dialog_footer"] -n [text="开启推送提醒"][vid="title"]',
           ],
           activityIds: [
             '.ui.MainActivity',
