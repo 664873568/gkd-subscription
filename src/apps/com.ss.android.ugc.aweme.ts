@@ -174,7 +174,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            'ImageView -n ImageView < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //签到领00
+            'ImageView[width=height] -n ImageView < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //签到领00
           ],
           excludeMatches: [
             '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup - ScrollView < FrameLayout < FrameLayout',
@@ -1157,7 +1157,7 @@ export default defineGkdApp({
           key: 7,
           name: '恭喜预约成功',
           matches: [
-            'ImageView - @ImageView < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            'ImageView - @ImageView[width=height] < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -1166,7 +1166,7 @@ export default defineGkdApp({
           key: 8,
           name: '恭喜获得惊喜奖励',
           matches: [
-            'ImageView - ViewGroup - @ImageView < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            'ImageView - ViewGroup - @ImageView[width=height] < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
