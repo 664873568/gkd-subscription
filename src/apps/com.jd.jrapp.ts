@@ -1230,7 +1230,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [4,5],
-          key: 5,
+          key: 6,
           name: '我知道了-×',
           matches: [
             '@TextView[clickable=true] - [getChild(0).text~="获得.*"] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
