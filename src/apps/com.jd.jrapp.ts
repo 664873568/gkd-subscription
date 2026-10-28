@@ -1014,7 +1014,7 @@ export default defineGkdApp({
             '[text="连喂3次"] < @View[clickable=true] <n View <n View < View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
-            '[text="明日0点领"] - @[getChild(0).text~="([3-9].*{2}|.*{4,})g"] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+            '[text="明日0点领"] - @[getChild(0).text~="([3-9][0-9]{2}|[0-9]{4,})g"] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
         },
       ],
@@ -1858,6 +1858,7 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
+          actionDelay: 5000,
           matches: [
             '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
@@ -2076,7 +2077,7 @@ export default defineGkdApp({
           key: 0,
           name: '拆红包',
           matches: [
-            '[text~="可拆.*次"] <n View < @View[clickable=true] <n View <n View <n View < [id="lgFloorWrap"] < [id="lego-app"] < View < WebView < * < [vid="webview"]',
+            '[text~="可拆[1-9]次"] <n View < @View[clickable=true] <n View <n View <n View < [id="lgFloorWrap"] < [id="lego-app"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@ImageButton[text="03e60180185ad347"][clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
@@ -2166,8 +2167,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="去兑换"][clickable=true] - [text~="[3-9].*{3,}"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-            '@[text="去兑换"][clickable=true] - [text~="[3-9].*{3,}"] <n View <n View < View <n View < View < View <n View < WebView < * < [vid="webview"]',
+            '@[text="去兑换"][clickable=true] - [text~="[3-9][0-9]{3,}"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
+            '@[text="去兑换"][clickable=true] - [text~="[3-9][0-9]{3,}"] <n View <n View < View <n View < View < View <n View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@TextView[clickable=true] <n View < [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
@@ -2213,7 +2214,7 @@ export default defineGkdApp({
             '[text="我的钱"] < ViewGroup < ViewGroup < ViewGroup - @ViewGroup[clickable=true] < ViewGroup < * [text="53/53"]',
           ],
           excludeMatches: [
-            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|.*继续.*|.*金币获取加倍中.*"]',
+            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|.*继续.*|金币获取加倍中"]',
           ],
         },
         {
@@ -2268,10 +2269,10 @@ export default defineGkdApp({
           },
           actionCd: 20000,
           matches: [
-            '[text~="(.*|[1-4].*|5[0-2])/53"] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < @[vid="fl_operating_group"]',
+            '[text~="([0-9]|[1-4][0-9]|5[0-2])/53"] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < @[vid="fl_operating_group"]',
           ],
           excludeMatches: [
-            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|.*继续.*|.*金币获取加倍中.*"]',
+            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|.*继续.*|金币获取加倍中"]',
           ],
         },
         {
@@ -2307,7 +2308,7 @@ export default defineGkdApp({
           key: 210,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] < View - [getChild(1).text~="现金.*元"] <n View < View <n View < View <n View <n [id="bbf-page"] < [id="app"] < View < [text="京东笔笔返"] < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] < View - [getChild(1).text~="现金0.0[0-9]元"] <n View < View <n View < View <n View <n [id="bbf-page"] < [id="app"] < View < [text="京东笔笔返"] < * < [vid="webview"]',
           ],
         },
         {
@@ -2317,7 +2318,7 @@ export default defineGkdApp({
             '[text="余额"] <n View <n @[id^="bubble-ci-"][clickable=true] <n View < View <n View <n [id="bbf-page"] < [id="app"] < View < [text="京东笔笔返"] < * < [vid="webview"]',
           ],
           excludeMatches: [
-            '@[text="去完成"][clickable=true] < View - [getChild(1).text~="现金.*元"] <n View < View <n View < View <n View <n [id="bbf-page"] < [id="app"] < View < [text="京东笔笔返"] < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] < View - [getChild(1).text~="现金0.0[0-9]元"] <n View < View <n View < View <n View <n [id="bbf-page"] < [id="app"] < View < [text="京东笔笔返"] < * < [vid="webview"]',
           ],
         },
         {
@@ -2327,7 +2328,7 @@ export default defineGkdApp({
             '[text="京东笔笔返"] < * < [vid="webview"] < [vid="web_all"] + * @Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
           excludeMatches: [
-            '@[text="去完成"][clickable=true] < View - [getChild(1).text~="现金.*元"] <n View < View <n View < View <n View <n [id="bbf-page"] < [id="app"] < View < [text="京东笔笔返"] < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] < View - [getChild(1).text~="现金0.0[0-9]元"] <n View < View <n View < View <n View <n [id="bbf-page"] < [id="app"] < View < [text="京东笔笔返"] < * < [vid="webview"]',
             '[text="余额"] <n View <n @[id^="bubble-ci-"][clickable=true] <n View < View <n View <n [id="bbf-page"] < [id="app"] < View < [text="京东笔笔返"] < * < [vid="webview"]',
           ],
         },
