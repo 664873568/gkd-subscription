@@ -1151,7 +1151,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '兑换额度',
+          name: '点我收蛋',
           actionDelay: 2000,
           anyMatches: [
             '[text="点我收蛋"] < @View[clickable=true] <n View <n View < View < [id="app"] < View < WebView < * < [vid="webview"]',
