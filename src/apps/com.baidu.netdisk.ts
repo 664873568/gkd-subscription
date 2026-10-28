@@ -1609,7 +1609,7 @@ export default defineGkdApp({
       name: '最新AI功能-×',
       forcedTime: 60000,
       matchRoot: true,
-      forcedTime: 10000,
+      matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'match',
       rules: [
