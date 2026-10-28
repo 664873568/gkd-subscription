@@ -684,15 +684,16 @@ export default defineGkdApp({
           key: 0,
           name: '奖励将于*秒后发放',
           matches: [
-            '@[text~="我要更快拿奖|放弃福利"] <n * <n * <n * [text^="奖励将于"]',
+            '@[text~=".*更快拿奖|放弃福利"] <n * <n * <n * [text^="奖励将于"]',
           ],
         },
         {
           key: 1,
           name: '二级广告页-×',
           actionDelay: 16000,
-          matches: [
+          anyMatches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            'View - ProgressBar - @ImageView[clickable=true] - TextView < FrameLayout < LinearLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -750,13 +751,11 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [6],
           key: 9,
           name: '查看详情-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="查看详情" || text^="扭动或点击" || text="立即打开" || text="立即下载"]',
-          ],
-          excludeMatches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * [text^="奖励将于" || text="恭喜获得奖励"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="查看详情" || text^="扭动" || text="立即打开" || text="立即下载"]',
           ],
         },
       ],
@@ -1245,18 +1244,18 @@ export default defineGkdApp({
           key: 0,
           name: '领取奖励',
           actionDelay: 5000,
-          excludeMatches: [
-            '[text^="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
-          ],
           matches: [
             '[vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
+          ],
+          excludeMatches: [
+            '[text^="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
         },
       ],
     },
     {
-      scopeKeys: [220, 500],
+      scopeKeys: [220, 330,500],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       forcedTime: 60000,
@@ -1266,9 +1265,10 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity', '.aigc.ui.activity.AigcChatActivity'],
       rules: [
         {
-          preKeys: [220, 500],
+          preKeys: [220, 300,500],
           key: 0,
           action: 'clickCenter',
+          actionDelay: 3000,
           matches: [
             '@[vid="view_anchor"] -n [text="点击勾选文件"][vid="tv_tip"] - [vid="iv_close"] < ViewGroup < FrameLayout - [vid="fl_main_container"] < [id="android:id/content"]',
           ],
@@ -1609,13 +1609,14 @@ export default defineGkdApp({
       name: '最新AI功能-×',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
+      forcedTime: 10000,
+      actionMaximum: 1,
       resetMatch: 'match',
       rules: [
         {
           key: 1,
           action: 'back',
-          actionDelay: 10000,
+          actionDelay: 5000,
           matches: [
             '[desc="保存"] -n @ImageView[clickable=true] <<n [vid="content_scene"]',
           ],
@@ -1623,7 +1624,7 @@ export default defineGkdApp({
         {
           key: 2,
           action: 'back',
-          actionDelay: 10000,
+          actionDelay: 5000,
           matches: [
             '@ImageView[clickable=true] < LinearLayout < [vid="ocr_title_bar"] < [vid="ocr_title_bar_container"] < [vid="root"]',
           ],
@@ -1670,6 +1671,9 @@ export default defineGkdApp({
             '[text="任务完成"][vid="tv_title"] -n @[vid="gif_lottie_view"][clickable=true] < ViewGroup - [vid="iv_close"] < ViewGroup',
             '[vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
           ],
+          excludeMatches: [
+            '[text~=".*s.*"][vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
+          ],
         },
         {
           preKeys: [230],
@@ -1679,6 +1683,9 @@ export default defineGkdApp({
           matches: [
             '@TextView[clickable=true] - TextView[clickable=true] < View <n WebView < ScrollView < [vid="content_webview"]',
           ],
+          excludeMatches: [
+            '@View[clickable=true] - TextView[clickable=true] < View <n WebView < ScrollView < [vid="content_webview"]',
+          ],
         },
         {
           preKeys: [230],
@@ -1687,11 +1694,14 @@ export default defineGkdApp({
           matches: [
             '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
           ],
+          excludeMatches: [
+            '[text~="浏览.*s短剧"][vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
+          ],
         },
       ],
     },
     {
-      scopeKeys: [230],
+      scopeKeys: [230, 330,500],
       key: 231,
       name: '功能任务-去刷一刷首页',
       forcedTime: 60000,
@@ -1701,7 +1711,7 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity'],
       rules: [
         {
-          preKeys: [230],
+          preKeys: [230, 330,500],
           key: 0,
           swipeArg: {
             start: {
@@ -1723,6 +1733,9 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
+          ],
+          excludeMatches: [
+            '[text~="浏览.*s feed"][vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
           ],
         },
       ],
