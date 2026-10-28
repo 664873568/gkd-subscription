@@ -230,7 +230,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,4],
+          preKeys: [3, 4],
           key: 3,
           swipeArg: {
             start: {
