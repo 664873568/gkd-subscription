@@ -755,7 +755,7 @@ export default defineGkdApp({
           key: 9,
           name: '查看详情-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="查看详情" || text^="扭动" || text="立即打开" || text="立即下载"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="查看详情" || text^="扭动" || text^="立即"]',
           ],
         },
       ],
