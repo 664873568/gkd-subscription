@@ -55,6 +55,9 @@ export default defineGkdApp({
           matches: [
             '[text~="今日头条.*|UC.*|百度|快手|飞猪|番茄畅听|YY.*|.*APP.*|.*领.*|淘宝.*|.*苏.*|.*酷.*|闲鱼.*|美团|QQ音乐|微博.*|.*任务.*|.*虎牙|一刻相册.*"][vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"] < [vid="h5_base_layout"]',
           ],
+          excludeMatches: [
+            '[text="天天领现金"] - @ImageButton[clickable=true] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+          ],
         },
       ],
     },
@@ -205,7 +208,7 @@ export default defineGkdApp({
           name: '查看我的金币/去领取',
           anyMatches: [
             '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '[text~="查看我的金币|去领取"] < @View[clickable=true] < View < View < View <n View < View <n View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+            '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
             '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
           excludeMatches: [
@@ -224,6 +227,15 @@ export default defineGkdApp({
             '@ImageButton[clickable=true] < View < [id="wrapper"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //去播客听新闻
             '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"] < [vid="h5_base_layout"]', //[text~="猜涨跌|星灿会员|财富|基金"]
             '@ImageButton[clickable=true] < View < View < View < [id="home-page"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //逛星选商城页面
+          ],
+          excludeMatches: [
+            'Image[width=height] < View < @View[clickable=true] <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '[text="立即领取"] < @View[clickable=true] <n View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '[text="立即领取"] < @View[clickable=true] <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+            '@ImageButton[clickable=true] <n View < View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            '@ImageButton[clickable=true] <n View < View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
       ],
