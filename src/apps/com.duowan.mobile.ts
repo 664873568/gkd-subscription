@@ -332,9 +332,7 @@ export default defineGkdApp({
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text^="点击" || text$="下载或打开第三方应用"]',
           ],
           excludeMatches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="恭喜获得奖励"]',
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * @[text^="奖励将于"]',
-            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * @[text="我要更快拿奖"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * [text^="奖励将于" || text="恭喜获得奖励" || text="我要更快拿奖"]',
           ],
         },
         {
@@ -353,8 +351,7 @@ export default defineGkdApp({
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="查看详情" || text^="扭动或点击" || text="立即打开" || text*="继续"]',
           ],
           excludeMatches: [
-            '@[text~=".*拿奖|放弃福利"] <n * <n * <n * <n * [text^="奖励将于"]',
-            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * FrameLayout > @[text="我要更快拿奖"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * [text^="奖励将于" || text="恭喜获得奖励" || text="我要更快拿奖"]',
           ],
         },
       ],
