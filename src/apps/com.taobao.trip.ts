@@ -22,7 +22,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //天天集能量-.splash.ui.ImageSplashActivity
+    //22.06.21-27.09.30 天天集能量-.splash.ui.ImageSplashActivity
     {
       key: 10,
       name: '天天集能量-天降惊喜',
@@ -149,7 +149,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 3000,
           matches: [
-            '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*玩乐游记|.*猜对价格领奖励"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*玩乐游记|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
             '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
@@ -188,10 +188,10 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '@Button[text~=".*抽奖券|.*玩乐游记"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text~=".*抽奖券|.*玩乐游记"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*玩乐游记|.*猜对价格领奖励"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*玩乐游记|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -208,10 +208,10 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '@Button[text~=".*许愿星"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text~=".*许愿星"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*许愿星|.*猜对价格领奖励"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*许愿星|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -227,11 +227,11 @@ export default defineGkdApp({
       rules: [
         {
           preKeys: [0],
-          key: 15,
+          key: 16,
           action: 'back',
           actionDelay: 10000,
           matches: [
-            '@Button[text=""][clickable=true] - TextView <n View < View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
@@ -239,7 +239,7 @@ export default defineGkdApp({
     },
     {
       key: 17,
-      name: '天天集能量-赚能量抵钱-每日签到',
+      name: '天天集能量-赚能量抵钱',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -248,22 +248,36 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '今日签到',
           actionDelay: 2000,
           matches: [
             '@Button[text$="今日签到"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
           key: 1,
+          name: '赚更多能量',
+          actionDelay: 5000,
+          matches: [
+            'View[index=parent.childCount.minus(1)] - @Button[clickable=true] <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+          excludeMatches: [
+            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '[getChild(1).text="做任务赚能量"] - @Button[clickable=true] <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '×',
           actionDelay: 5000,
           matches: [
             '[getChild(1).text="做任务赚能量"] - @Button[clickable=true] <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -1061,6 +1075,13 @@ export default defineGkdApp({
         {
           key: 2,
           matches: ['@ImageView[clickable=true] - [text="恭喜获得奖励"]'],
+        },
+        {
+          key: 3,
+          action: 'none',
+          matches: [
+            '@ImageView[clickable=true] - [text$="秒后获取奖励"] < RelativeLayout < LinearLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
