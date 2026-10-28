@@ -389,7 +389,6 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
-        '.live.LiveDummyActivity',
         '.bullet.ui.BulletContainerActivity',
         '.cjpay.hostimpl.container.CJLiveDummyActivity',
       ],
@@ -405,9 +404,8 @@ export default defineGkdApp({
         {
           preKeys: [0, 2],
           key: 1,
-          anyMatches: [
+          matches: [
             '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
-            'Image < @View[clickable=true] < View < [id="JS_PageHeader"] < [id="JS_PageLayout"] < [id="root"]',
           ],
         },
         {
@@ -480,6 +478,7 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
+        '.live.LiveDummyActivity',
         '.bullet.ui.BulletContainerActivity',
         '.cjpay.hostimpl.container.CJLiveDummyActivity',
       ],
@@ -495,9 +494,16 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
-          actionDelay: 2000,
+          actionDelay: 5000,
           matches: [
-            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
+            'Image < @View[clickable=true] < View < [id="JS_PageHeader"] < [id="JS_PageLayout"] < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[text="我知道了"][clickable=true] <n View <n View <n View < WebView < WebView < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -883,7 +889,7 @@ export default defineGkdApp({
         {
           key: 0,
           actionDelay: 2000,
-          matches: [
+          anyMatches: [
             '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View -n [text="今日已完成 明日继续"] <n View <n View < View < [id="root"]',
             '@[text="去完成"][clickable=true] -n [text="搜索「车险」进入频道"] < View -n [text="今日已完成 明日继续"] <n View <n View <n View < View < [id="root"]',
           ],
@@ -1361,6 +1367,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        '.bullet.ui.BulletContainerActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -1370,14 +1380,12 @@ export default defineGkdApp({
           matches: [
             '[desc~="前往抖音月付看看 滑动浏览30秒 抖币\\\\+[0-9]+ 去看看 按钮"] > ViewGroup',
           ],
-          activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
         {
           key: 1,
           matches: [
             '@ImageButton[clickable=true] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0, 1],
@@ -1385,7 +1393,6 @@ export default defineGkdApp({
           matches: [
             '@[desc="返回"][clickable=true] < [id="headerLeftBar"] < [id="full-header"] + [id="JS_PageScroller"] > [id="with-scroll-content"] > View > [text="积分已到账"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [2],
@@ -1398,7 +1405,6 @@ export default defineGkdApp({
           matches: [
             'FrameLayout > ViewGroup > ViewGroup > @ViewGroup > ViewGroup[width=height] + ScrollView + ViewGroup',
           ],
-          activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
         },
       ],
     },
@@ -1414,7 +1420,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@ImageButton[clickable=true] < View +2 * [text="0a4743e049dbbda4e58e6fdc8fab9e7a.png~tplv-49obo7mizy-75compress"]', //去升级
+            '@ImageButton[clickable=true] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
