@@ -47,11 +47,11 @@ export default defineGkdApp({
       name: '个人信息保护指引-同意',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
+      actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: [
+          matches: [
             '[text="个人信息保护指引"] +n @[text="同意"][clickable=true]',
           ],
           activityIds: ['null'],
@@ -63,11 +63,11 @@ export default defineGkdApp({
       name: '开启重要资讯通知-暂不开启-×',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
+      actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: ['@ImageView - ViewGroup < ViewGroup'],
+          matches: ['@ImageView - ViewGroup < ViewGroup'],
           activityIds: ['.activity.SplashActivity'],
         },
       ],
@@ -78,7 +78,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -94,6 +93,23 @@ export default defineGkdApp({
             'MeasureOnceRelativeLayout2[clickable=true] -2 * [index=0][childCount=2] @[desc="返回"] ',
           ],
           activityIds: ['com.ss.android.ugc.detail.activity.TikTokActivity'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 50,
+      name: '首页广告-跳过',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="跳过"][vid="splash_skip_text"][clickable=true] <n [vid="splash_video_cover"] <n FrameLayout < [vid="splash_content"] <n LinearLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.yxcorp.gifshow.HomeActivity'],
         },
       ],
     },
