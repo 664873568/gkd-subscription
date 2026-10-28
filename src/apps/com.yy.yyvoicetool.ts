@@ -165,7 +165,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '[text^="直播间号"] - @View[clickable=true] - View - View[clickable=true][childCount=0] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '[text^="直播间号"] - @View[clickable=true] - View[clickable=true] - View[clickable=true][childCount=0] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -233,7 +233,7 @@ export default defineGkdApp({
           name: '返回',
           action: 'back',
           matches: [
-            '[text^="直播间号"] - @View[clickable=true] - View - View[clickable=true][childCount=0] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '[text^="直播间号"] - @View[clickable=true] - View[clickable=true] - View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -521,9 +521,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@View - [text$="自动关闭"] - ImageView < View < View < View < ViewGroup < [id="android:id/content"]',
+            '@View - [text$="自动关闭"] <n View < View < View < ViewGroup < [id="android:id/content"]',
           ],
-          activityIds: ['.MainActivity'],
+          activityIds: ['.MainActivity','null'],
         },
       ],
     },
