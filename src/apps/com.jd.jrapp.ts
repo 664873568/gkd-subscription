@@ -1192,7 +1192,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           name: '兑换额度',
           actionDelay: 2000,
@@ -1229,7 +1229,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4,5],
+          preKeys: [4, 5],
           key: 6,
           name: '我知道了-×',
           matches: [
