@@ -523,7 +523,7 @@ export default defineGkdApp({
           matches: [
             '@View - [text$="自动关闭"] <n View < View < View < ViewGroup < [id="android:id/content"]',
           ],
-          activityIds: ['.MainActivity','null'],
+          activityIds: ['.MainActivity', 'null'],
         },
       ],
     },
