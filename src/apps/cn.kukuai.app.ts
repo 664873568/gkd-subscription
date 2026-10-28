@@ -35,7 +35,7 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      actionMaximum: 1,
+      actionMaximum: 2,
       resetMatch: 'activity',
       rules: [
         {
@@ -43,6 +43,9 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: [
             '@ImageButton[clickable=true] -n [text!~="邀请.*"] < View <n ListView <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text~="剩[1-9]次"] < @View[clickable=true] < View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
           activityIds: ['.MainActivity'],
         },
@@ -62,8 +65,9 @@ export default defineGkdApp({
           preKeys: [0],
           key: 11,
           actionDelay: 2000,
-          matches: [
+          anyMatches: [
             '[desc="发送"] < @View[clickable=true] <n View < View <n View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
+            '@View[clickable=true] - [getChild(0).text="今日推荐"] < View <n ScrollView < View < View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
         {
@@ -157,6 +161,9 @@ export default defineGkdApp({
           key: 3,
           matches: [
             '[text~="立即抽奖剩余0次"] -n @TextView[clickable=true] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@TextView[clickable=true] -n [text^="恭喜您获得"] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
       ],
