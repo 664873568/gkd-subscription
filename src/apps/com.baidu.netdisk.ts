@@ -1255,7 +1255,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [220, 330,500],
+      scopeKeys: [220, 330, 500],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       forcedTime: 60000,
@@ -1265,7 +1265,7 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity', '.aigc.ui.activity.AigcChatActivity'],
       rules: [
         {
-          preKeys: [220, 300,500],
+          preKeys: [220, 300, 500],
           key: 0,
           action: 'clickCenter',
           actionDelay: 3000,
@@ -1701,7 +1701,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [230, 330,500],
+      scopeKeys: [230, 330, 500],
       key: 231,
       name: '功能任务-去刷一刷首页',
       forcedTime: 60000,
@@ -1711,7 +1711,7 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity'],
       rules: [
         {
-          preKeys: [230, 330,500],
+          preKeys: [230, 330, 500],
           key: 0,
           swipeArg: {
             start: {
