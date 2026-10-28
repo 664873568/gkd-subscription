@@ -103,7 +103,7 @@ export default defineGkdApp({
           key: 2,
           name: '已完成 点击立即返回×',
           action: 'back',
-          actionDelay: 11000,
+          actionDelay: 20000,
           matches: [
             '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
           ],
@@ -117,7 +117,7 @@ export default defineGkdApp({
           ],
           key: 3,
           action: 'back',
-          actionDelay: 11000,
+          actionDelay: 20000,
           matches: [
             '@[desc="返回"][clickable=true] <n RelativeLayout < RelativeLayout[clickable=true]',
           ],
@@ -130,7 +130,7 @@ export default defineGkdApp({
           preKeys: [4, 10, 50, 51, 60],
           key: 4,
           action: 'back',
-          actionDelay: 11000,
+          actionDelay: 20000,
           matches: [
             '@View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
@@ -920,27 +920,27 @@ export default defineGkdApp({
       rules: [
         {
           key: 60,
-          excludeMatches: [
-            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
-            '[text="开心收下"] +n @View[clickable=true] > View > Image[text="02760900900ad74e.png!q50"]',
-            'TextView[clickable=true] - View > @View[clickable=true] > [text="去完成"]',
-          ],
           actionDelay: 2000,
           matches: [
-            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="去完成"][clickable=true]',
+            '@[text="去完成"][clickable=true] <n [getChild(1).text!~="邀请.*"] <n View - [text="做任务 赚次数"] <n View < View < View < View <n [id^="bab_aid"] < WebView < *',
+          ],
+          excludeMatches: [
+            '@[text="待领奖"][clickable=true] <n [getChild(1).text!~="邀请.*"] <n View - [text="做任务 赚次数"] <n View < View < View < View <n [id^="bab_aid"] < WebView < *',
+            '@View[clickable=true] -n [text="开心收下"] <n View < View <n View <n [id^="bab_aid"] < WebView < *',
+            'TextView[clickable=true] - View > @View[clickable=true] > [text="去完成"]',
           ],
         },
         {
           key: 11,
           matches: [
-            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text="待领奖"][clickable=true]',
+            '@[text="待领奖"][clickable=true] <n [getChild(1).text!~="邀请.*"] <n View - [text="做任务 赚次数"] <n View < View < View < View <n [id^="bab_aid"] < WebView < *',
           ],
         },
         {
           preKeys: [11],
           key: 12,
           matches: [
-            '[text="开心收下"] +n @View[clickable=true] > View > Image[text="02760900900ad74e.png!q50"]',
+            '@View[clickable=true] -n [text="开心收下"] <n View < View <n View <n [id^="bab_aid"] < WebView < *',
           ],
         },
         {
@@ -955,16 +955,18 @@ export default defineGkdApp({
             '@View[childCount=2] - [id="chunk3"] - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
           excludeMatches: [
-            '[text="开心收下"] +n @View[clickable=true] > View > Image[text="02760900900ad74e.png!q50"]',
+            '@View[clickable=true] -n [text="开心收下"] <n View < View <n View <n [id^="bab_aid"] < WebView < *',
           ],
         },
         {
           key: 14,
-          excludeMatches: [
-            '[text="做任务 赚次数"] + View > [getChild(1).text!~="邀请.*"] > @[text~="去完成|待领奖"][clickable=true]',
-          ],
           actionDelay: 5000,
-          matches: ['@TextView[clickable=true] + [text="做任务 赚次数"]'],
+          matches: [
+            '[text="做任务 赚次数"] - @TextView[clickable=true] < View < View < View < View <n [id^="bab_aid"] < WebView < *',
+          ],
+          excludeMatches: [
+            '@[text~="去完成|待领奖"][clickable=true] <n [getChild(1).text!~="邀请.*"] <n View - [text="做任务 赚次数"] <n View < View < View < View <n [id^="bab_aid"] < WebView < *',
+          ],
         },
       ],
     },
