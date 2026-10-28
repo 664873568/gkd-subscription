@@ -23,18 +23,20 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 2],
           key: 1,
+          name: '待领',
           matches: [
-            'TextView[index=parent.childCount.minus(1)] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@View[clickable=true] -n [desc="签到有礼楼层"] < View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+          ],
+          excludeMatches: [
+            '@[desc="关闭 按钮"][clickable=true] < View < View < View <n View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
         },
         {
-          preKeys: [0, 1],
           key: 2,
-          actionDelay: 2000,
+          name: '×',
           matches: [
-            '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@[desc="关闭 按钮"][clickable=true] < View < View < View <n View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
         },
       ],
