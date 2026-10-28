@@ -149,6 +149,7 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [300, 500],
       key: 4,
       name: '积分任务-去完成-创建一个新相册',
       forcedTime: 60000,
@@ -168,7 +169,7 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [0],
+          preKeys: [0, 300, 500],
           key: 1,
           matches: [
             '[text="云空间相册"][vid="tv_cloud_album"] + @[text="新建"][vid="tv_create_album"][clickable=true]',
@@ -187,8 +188,8 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           position: {
-            left: 'width * 0.925',
-            top: 'height * 0.825',
+            left: 'width * 0.93',
+            top: 'height * 0.8',
           },
           actionDelay: 2000,
           matches: [
@@ -229,7 +230,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 3],
+          preKeys: [3,4],
           key: 3,
           swipeArg: {
             start: {
@@ -253,7 +254,6 @@ export default defineGkdApp({
         {
           preKeys: [2, 3, 4],
           key: 4,
-          actionDelay: 1000,
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][clickable=true] > [text="2026年6月28日"][vid="tv_date"]',
           ],
@@ -289,8 +289,8 @@ export default defineGkdApp({
           preKeys: [6],
           key: 7,
           position: {
-            left: 'width * 0.925',
-            top: 'height * 0.725',
+            left: 'width * 0.93',
+            top: 'height * 0.8',
           },
           actionDelay: 2000,
           matches: [
@@ -357,8 +357,8 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           position: {
-            left: 'width * 0.925',
-            top: 'height * 0.725',
+            left: 'width * 0.93',
+            top: 'height * 0.8',
           },
           actionDelay: 2000,
           matches: [
