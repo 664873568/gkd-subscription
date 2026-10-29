@@ -117,7 +117,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup - ScrollView < FrameLayout < FrameLayout',
+            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup < FrameLayout < FrameLayout < ViewFactoryHolder',
           ],
           activityIds: [
             '.bullet.ui.BulletContainerActivity',
@@ -236,10 +236,19 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '逛商城福利-×',
+          action: 'back',
+          matches: [
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+        {
+          key: 1,
           name: '*发财金已到账',
           action: 'back',
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - LinearLayout > [id="android:id/content"]', //逛商城福利-浏览行情信息
+            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - LinearLayout >n [id="android:id/content"]', //逛商城福利-浏览行情信息
           ],
           activityIds: [
             '.live.LiveDummyActivity',
@@ -248,7 +257,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
+          key: 2,
           name: '浏览投资日历',
           matches: [
             'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - * @[desc="返回按钮"] <n View < View < [id="app"]',
@@ -256,8 +265,8 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [2],
+          key: 3,
           name: '"一键添加自选-×',
           matches: [
             '[text="一键添加自选"] <n View -n @[desc="关闭"][clickable=true] < View <n View -n [id="app"]',
@@ -265,8 +274,8 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [0, 1, 2],
-          key: 3,
+          preKeys: [1, 2,3],
+          key: 4,
           name: '任务完成 恭喜获得-开心收下',
           position: {
             left: 'width * 0.5',
@@ -1235,7 +1244,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
+          preKeys: [2,3],
           key: 3,
           name: '金币预约成功-我知道了-×',
           matches: [
@@ -1457,6 +1466,23 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 400,
+      name: '个人信息保护指引-同意',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="同意"][clickable=true] <n LinearLayout - [getChild(0).text="个人信息保护指引"][vid="content_layout"] < LinearLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
+    {
+      key: 401,
       name: '未成年人模式-不再提醒',
       forcedTime: 60000,
       matchRoot: true,
