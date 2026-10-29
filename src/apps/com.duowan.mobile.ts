@@ -265,13 +265,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          actionDelay: 16000,
-          matches: [
-            'LinearLayout > FrameLayout + FrameLayout > FrameLayout > WebView - FrameLayout > TextView + @ImageView[clickable=true] + View', //二级广告页
-          ],
-        },
-        {
-          key: 3,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="恭喜已经获得奖励！"]',
           ],
@@ -301,8 +294,9 @@ export default defineGkdApp({
           key: 1,
           name: '二级广告页-×',
           actionDelay: 16000,
-          matches: [
+          anyMatches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            'View - ProgressBar - @ImageView[clickable=true] - TextView < FrameLayout < LinearLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
