@@ -274,7 +274,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [1, 2,3],
+          preKeys: [1, 2, 3],
           key: 4,
           name: '任务完成 恭喜获得-开心收下',
           position: {
@@ -1244,7 +1244,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 3,
           name: '金币预约成功-我知道了-×',
           matches: [
