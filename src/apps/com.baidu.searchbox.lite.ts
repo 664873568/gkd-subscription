@@ -395,6 +395,21 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
+      name: '发送通知-不允许',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: ['@[text="不允许"][clickable=true] -n [text="“百度极速版”想给你发送通知"]'],
+          activityIds: ['com.baidu.searchbox.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
       name: '立即升级-×',
       forcedTime: 60000,
       matchRoot: true,
