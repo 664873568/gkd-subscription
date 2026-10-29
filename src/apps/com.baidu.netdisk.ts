@@ -683,6 +683,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '奖励将于*秒后发放',
+          actionDelay: 1000,
           matches: [
             '@[text~=".*更快拿奖|放弃福利"] <n * <n * <n * [text^="奖励将于"]',
           ],
@@ -715,10 +716,10 @@ export default defineGkdApp({
           key: 4,
           name: '点击下载或打开第三方应用-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text^="点击" || text$="下载或打开第三方应用"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * [text^="点击" || text$="下载或打开第三方应用"]',
           ],
           excludeMatches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text*="已完成浏览" || text^="奖励将于" || text="恭喜获得奖励"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * [text$="即可获得奖励" || text*="已完成浏览" || text^="奖励将于" || text="恭喜获得奖励"]',
           ],
         },
         {
@@ -1002,7 +1003,7 @@ export default defineGkdApp({
           preKeys: [5],
           key: 6,
           matches: [
-            '@TextView[clickable=true] - [text="reward-pop-title"] < View < View < View <n WebView < ScrollView < [vid="content_webview"]',
+            '@TextView[clickable=true] - [text="reward-pop-title"] < View < View < View <n WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1255,7 +1256,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [220, 330, 500],
+      scopeKeys: [220, 500],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       forcedTime: 60000,
@@ -1265,7 +1266,7 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity', '.aigc.ui.activity.AigcChatActivity'],
       rules: [
         {
-          preKeys: [220, 300, 500],
+          preKeys: [220, 500],
           key: 0,
           action: 'clickCenter',
           actionDelay: 3000,
@@ -1385,10 +1386,10 @@ export default defineGkdApp({
         {
           preKeys: [220],
           key: 0,
-          anyMatches: [
-            '[text="立即拍摄"][vid="button_online_large_sample_take_shot"][clickable=true]',
-            '[vid="cl_ai_photo_studio_guide_root"] > @[vid="iv_close"][clickable=true] + [vid="cl_card"] > [text="去体验"][vid="btn_ok"]',
+          matches: [
+            '[text="去体验"][vid="btn_ok"] <n [vid="cl_card"] - @[vid="iv_close"][clickable=true] < [vid="cl_ai_photo_studio_guide_root"] < [id="android:id/content"]',
           ],
+          activityIds: ['null'],
         },
         {
           preKeys: [0, 220],
@@ -1667,8 +1668,7 @@ export default defineGkdApp({
           preKeys: [230],
           key: 1,
           name: '浏览书城小说30s',
-          anyMatches: [
-            '[text="任务完成"][vid="tv_title"] -n @[vid="gif_lottie_view"][clickable=true] < ViewGroup - [vid="iv_close"] < ViewGroup',
+          matches: [
             '[vid="tv_title"] <n [vid="layout_content"] <n ViewGroup <n @[vid="layout_drag"][clickable=true]',
           ],
           excludeMatches: [
@@ -1679,12 +1679,11 @@ export default defineGkdApp({
           preKeys: [230],
           key: 2,
           name: '去逛逛游戏频道',
-          actionDelay: 30000,
           matches: [
-            '@TextView[clickable=true] - TextView[clickable=true] < View <n WebView < ScrollView < [vid="content_webview"]',
+            '@TextView[clickable=true] - TextView[clickable=true] < View <n WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
-            '@View[clickable=true] - TextView[clickable=true] < View <n WebView < ScrollView < [vid="content_webview"]',
+            '@View[clickable=true] - TextView[clickable=true] < View <n WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1701,7 +1700,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [230, 330, 500],
+      scopeKeys: [230, 500],
       key: 231,
       name: '功能任务-去刷一刷首页',
       forcedTime: 60000,
@@ -1711,7 +1710,7 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity'],
       rules: [
         {
-          preKeys: [230, 330, 500],
+          preKeys: [230, 500],
           key: 0,
           swipeArg: {
             start: {
@@ -1955,13 +1954,13 @@ export default defineGkdApp({
           anyMatches: [
             '@[text="跳过"] + [text~="[0-9]+"]',
             '@FrameLayout > View + [text="跳过"]',
-            '@[text~="跳过 [0-9]+"][clickable=true]',
-            '@[text~="跳过 [0-9]+"][vid="countdown"]',
-            '@[text~="[0-9]+ \\\\| 跳过"][clickable=true]',
+            '@[text*="跳过"][clickable=true] <n RelativeLayout < [vid="content"]',
+            '@[text*="跳过"][vid="countdown"]',
+            '@[text*="跳过"][clickable=true]',
             '[vid="fl_ad_container"] >n @View[clickable=true]',
             '@[vid="ms_skipView"] < [vid="ms_skipView_container"]',
-            '@[text~="跳过 [0-9]+"][vid="tv_skip"][clickable=true]',
-            '@[text="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
+            '@[text*="跳过"][vid="tv_skip"][clickable=true]',
+            '@[text*="跳过"] <n FrameLayout < [vid="content"] < FrameLayout < LinearLayout + View',
           ],
           activityIds: [
             '.ui.Navigate',
