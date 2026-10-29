@@ -7,7 +7,25 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
+      name: '欢迎使用快手-同意并继续',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="同意并继续"][vid="positive"][clickable=true] < [vid="button"] -n [text="欢迎使用快手"][vid="title"]',
+          ],
+          activityIds: ['com.yxcorp.gifshow.HomeActivity'],
+        },
+      ],
+    },
+    {
+      key: 41,
       name: '服务条款和隐私保护提示-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -25,6 +43,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
