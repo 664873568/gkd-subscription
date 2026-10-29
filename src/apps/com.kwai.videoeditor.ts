@@ -11,7 +11,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -32,7 +31,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -57,7 +55,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -77,7 +74,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
       resetMatch: 'activity',
       rules: [
         {
@@ -96,7 +92,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
@@ -114,7 +109,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
       resetMatch: 'app',
       rules: [
         {
@@ -135,7 +129,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 20000,
       resetMatch: 'app',
       rules: [
         {
@@ -159,11 +152,26 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
           matches: ['@[text~="跳过 [0-9]"]'],
+          activityIds: ['.activity.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 500,
+      name: '首页广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@ImageView[clickable=true] - LinearLayout < LinearLayout < RelativeLayout < [id="android:id/content"]',
+          ],
           activityIds: ['.activity.MainActivity'],
         },
       ],
