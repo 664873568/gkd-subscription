@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            'View[getChild(0).getChild(0).name$="ImageButton"] - * > View > @ImageButton[clickable=true]',
+            '@ImageButton[clickable=true] < View < View - View < View < View < View <n [id="app"] < WebView < WebView < [vid="view_content_container"]',
           ],
         },
       ],
