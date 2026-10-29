@@ -161,6 +161,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 49,
+      name: '一淘-跳过',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text^="去百亿补贴完成任务"][clickable=true] <n View < View < View < [id="root"] < View < WebView < * <n WebView < RelativeLayout - [vid="tms_title_bar"]',
+          ],
+          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
