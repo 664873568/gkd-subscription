@@ -403,7 +403,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[text="不允许"][clickable=true] -n [text="“百度极速版”想给你发送通知"]'],
+          matches: [
+            '@[text="不允许"][clickable=true] -n [text="“百度极速版”想给你发送通知"]',
+          ],
           activityIds: ['com.baidu.searchbox.MainActivity'],
         },
       ],
