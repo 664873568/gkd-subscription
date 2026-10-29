@@ -468,7 +468,7 @@ export default defineGkdApp({
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 4,
           action: 'back',
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
