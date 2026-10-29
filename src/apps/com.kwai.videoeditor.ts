@@ -161,7 +161,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 500,
+      key: 501,
       name: '首页广告-×',
       forcedTime: 60000,
       matchRoot: true,
