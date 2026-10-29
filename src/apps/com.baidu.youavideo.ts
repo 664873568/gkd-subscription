@@ -95,7 +95,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [300, 500],
+      scopeKeys: [300, 301,  500],
       key: 3,
       name: '积分任务-去完成-分享一个相册',
       forcedTime: 60000,
@@ -115,7 +115,7 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [0, 300, 500],
+          preKeys: [0, 300, 301,  500],
           key: 1,
           matches: [
             '@ViewGroup[clickable=true] > [text="未命名"][vid="tv_album_name"]',
@@ -149,7 +149,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [300, 500],
+      scopeKeys: [300, 301,  500],
       key: 4,
       name: '积分任务-去完成-创建一个新相册',
       forcedTime: 60000,
@@ -169,7 +169,7 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [0, 300, 500],
+          preKeys: [0, 300, 301, 500],
           key: 1,
           matches: [
             '[text="云空间相册"][vid="tv_cloud_album"] + @[text="新建"][vid="tv_create_album"][clickable=true]',
@@ -230,7 +230,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 4],
+          preKeys: [2,3, 4],
           key: 3,
           swipeArg: {
             start: {
@@ -245,7 +245,7 @@ export default defineGkdApp({
           },
           actionDelay: 3000,
           matches: [
-            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @[vid="srv_list"]',
+            '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="srv_list"] >n @[vid="list"]',
           ],
           activityIds: [
             '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
