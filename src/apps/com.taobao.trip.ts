@@ -80,7 +80,6 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          actionDelay: 2000,
           matches: [
             '@Button[text="领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
@@ -116,21 +115,30 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
+          actionDelay: 11000,
+          matches: [
+            'View - TextView - @View[clickable=true] - View < RelativeLayout < LinearLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.AppActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 3,
+          actionDelay: 11000,
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
-          preKeys: [1, 2],
-          key: 3,
+          preKeys: [1],
+          key: 4,
           matches: [
             '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
-          key: 4,
-          actionDelay: 2000,
+          key: 5,
           matches: [
             '@Button[text="领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
@@ -147,7 +155,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
+          actionDelay: 2000,
           matches: [
             '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*玩乐游记|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
@@ -167,7 +175,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,2],
           key: 2,
           name: '任意点击一个酒店',
           matches: [
@@ -267,17 +275,6 @@ export default defineGkdApp({
           excludeMatches: [
             '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
             '[getChild(1).text="做任务赚能量"] - @Button[clickable=true] <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-        },
-        {
-          key: 2,
-          name: '×',
-          actionDelay: 5000,
-          matches: [
-            '[getChild(1).text="做任务赚能量"] - @Button[clickable=true] <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-          excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -1069,7 +1066,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@[text="关闭广告"] -n [text="恭喜获得奖励"] < RelativeLayout < LinearLayout < [id="android:id/content"]',
+            '@[text$="广告"] -n [text="恭喜获得奖励"] < RelativeLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
