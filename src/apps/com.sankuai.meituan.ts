@@ -71,16 +71,16 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[getChild(1).text="点击合作任务赚金币"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
+            '[text="去完成"] < ViewGroup <n ViewGroup  < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="点击合作任务赚金币"]',
           ],
         },
         {
           key: 1,
-          excludeMatches: [
-            '[getChild(1).text="点击合作任务赚金币"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="去完成"]',
-          ],
           matches: [
-            '[getChild(1).text="点击合作任务赚金币"] + ViewGroup > @ViewGroup[clickable=true] > ViewGroup > ViewGroup + ViewGroup > [text="立即领取"]',
+            '[text="立即领取"] < ViewGroup <n ViewGroup  < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="点击合作任务赚金币"]',
+          ],
+          excludeMatches: [
+            '[text="去完成"] < ViewGroup <n ViewGroup  < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="点击合作任务赚金币"]',
           ],
         },
       ],
@@ -288,6 +288,61 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 19,
+      name: '提现-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="去完成"] < @ViewGroup[clickable=true] -n [text="逛专区任务"] <n ViewGroup < ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+          ],
+          excludeMatches: [
+            '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup < ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+            '[text="去打开APP，返回赚现金"] < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
+          ],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
+        },
+        {
+          key: 1,
+          actionDelay: 2000,
+          matches: [
+            '[text="去打开APP，返回赚现金"] < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
+          ],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
+        },
+        {
+          key: 2,
+          actionDelay: 5000,
+          matches: [
+            'ImageView < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
+          ],
+          excludeMatches: [
+            '[text="去打开APP，返回赚现金"] < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
+          ],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup < ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+          ],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
+        },
+      ],
+    },
     //看视频
     {
       key: 20,
@@ -406,8 +461,15 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
           key: 3,
+          matches: [
+            '@[vid="msv_back"][clickable=true] < RelativeLayout < RelativeLayout - * ImageView < @ViewGroup[clickable=true]  + [text="连续签到"]',
+          ],
+          activityIds: ['.msv.page.activity.MSVPageActivity'],
+        },
+        {
+          preKeys: [0, 1, 2, 3,4],
+          key: 4,
           action: 'back',
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
@@ -417,6 +479,25 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
+      name: '发送通知-下次再说',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="下次再说"][vid="later"][clickable=true] -n [text="美团 App 想给你发送通知"] <n LinearLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: [
+            'com.meituan.android.pt.homepage.activity.MainActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 41,
       name: '新版本抢先体验-暂不升级',
       forcedTime: 60000,
       matchRoot: true,
