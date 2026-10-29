@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '百度网盘-去快手极速版点赞',
+      forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -14,7 +15,9 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          matches: ['@[text="与奖品擦肩而过"] +n View [text="重新选择商品"]'],
+          matches: [
+            '@[text="与奖品擦肩而过"] <n View < View < View <n View < View <n View < [text="快手"] < WebView < [vid="webView"]',
+          ],
           activityIds: ['com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity'],
         },
         {
@@ -46,6 +49,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '欢迎使用快手极速版-同意并继续',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -53,15 +57,19 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="欢迎使用快手极速版"][vid="title"] +n [vid="button"] > @[text="同意并继续"][vid="positive"][clickable=true]',
+            '@[text="同意并继续"][vid="positive"][clickable=true] < [vid="button"] -n [text="欢迎使用快手极速版"][vid="title"]',
           ],
-          activityIds: ['com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity'],
+          activityIds: [
+            'com.yxcorp.gifshow.HomeActivity',
+            'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+          ],
         },
       ],
     },
     {
       key: 41,
       name: '打开推送通知-忽略',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -78,6 +86,7 @@ export default defineGkdApp({
     {
       key: 42,
       name: '版本更新-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
