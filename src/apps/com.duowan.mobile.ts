@@ -488,6 +488,29 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 44,
+      name: '开启悬浮小窗功能-暂不开启',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['null'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="暂不开启"][vid="btn_cancel"][clickable=true] < LinearLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="关闭"][vid="btn_cancel"][clickable=true] < LinearLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
