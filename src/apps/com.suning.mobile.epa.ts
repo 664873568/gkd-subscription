@@ -122,7 +122,7 @@ export default defineGkdApp({
             '[getChild(0).text="去完成"] - [getChild(0).getChild(0).text!~="去中国移动领话费|去星选商城下单"] < View < @View[clickable=true] <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '@[text="去看剧"][clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '[text="去完成"] < @View[clickable=true] <n View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
-            '[text="去完成"] < @View[clickable=true] - [getChild(0).getChild(0).text!~="体验AI搜索"] <n View < View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+            '[text="去完成"] < @View[clickable=true] - [getChild(0).getChild(0).text!~="体验AI搜索"] < View <n View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           activityIds: ['com.suning.webview.H5SystemBaseActivity'],
         },
@@ -435,6 +435,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[vid="get_coupon_close"][clickable=true] - [vid="get_coupon_btn"]',
             '@[vid="bottom_sale_info_close"][clickable=true] +n [vid="bottom_sale_info_btn"]',
+            '@[vid="sale_info_close"][clickable=true] < RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: [
             '.launcher.LauncherActivity',
