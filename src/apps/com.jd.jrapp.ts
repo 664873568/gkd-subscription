@@ -708,8 +708,8 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           anyMatches: [
-            '[text~="（可抽[1-9]+次）"] < @[id="lottieButton"][clickable=true] <n [id="lottieButton"] <n View <n [id="headFloor"] <n View < View < WebView < * < [vid="webview"]',
-            '[text~="（可抽[1-9]+次）"] < @[id="lottieButton"][clickable=true] <n [id="lottieButton"] <n View < [id="headFloor"] <n View < View < View < WebView < * < [vid="webview"]',
+            '[text~="（可抽[1-9][0-9]*次）"] < @[id="lottieButton"][clickable=true] <n [id="lottieButton"] <n View <n [id="headFloor"] <n View < View < WebView < * < [vid="webview"]',
+            '[text~="（可抽[1-9][0-9]*次）"] < @[id="lottieButton"][clickable=true] <n [id="lottieButton"] <n View < [id="headFloor"] <n View < View < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@[text="去完成"][clickable=true] -n [text!~="额外.*|.*话费|.*一笔.*订单.*"] < View -n [getChild(0).text="赚抽奖次数"] < [id="taskFloorId"] <n View < View < WebView < * < [vid="webview"]',
