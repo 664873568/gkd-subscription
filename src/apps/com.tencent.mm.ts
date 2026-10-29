@@ -153,8 +153,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
           key: 2,
+          matches: [
+            '[desc="去首页逛逛"] - [desc="活动陆续开放中"] <n View < ScrollView < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
+          ],
+        },
+        {
+          preKeys: [0, 1, 2,3],
+          key: 3,
           action: 'back',
           actionDelay: 2000,
           matches: [
@@ -162,8 +168,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 3],
-          key: 3,
+          preKeys: [3, 4],
+          key: 4,
           action: 'back',
           matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
           activityIds: ['.ui.LauncherUI'],
