@@ -175,7 +175,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 2,
           name: '任意点击一个酒店',
           matches: [
