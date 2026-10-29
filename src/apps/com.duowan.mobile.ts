@@ -53,18 +53,17 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[getChild(1).text="天天签到赢金币！"] +n * > [text="登录领取"][clickable=true] + @TextView[clickable=true]',
+            '@[text="登录后大量金币天天领"] < View[clickable=true] < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
-            '[getChild(1).text="天天签到赢金币！"] +n * > @[text="登录领取"][clickable=true] + TextView[clickable=true]',
+            '@[text="登录领取"][clickable=true] <n View <n View <n View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
             '@[text="同意并登录"][clickable=true] -n [text="温馨提示"]',
@@ -226,13 +225,16 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~=".*[0-9]+ 秒.*"] <n * <n * @[text*="微信"][index=parent.childCount.minus(1)]',
+            '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
         {
           key: 1,
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
+          ],
+          excludeMatches: [
+            '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
