@@ -295,18 +295,16 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
       rules: [
         {
           key: 0,
           matches: [
-            '[text="去完成"] < @ViewGroup[clickable=true] -n [text="逛专区任务"] <n ViewGroup < ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+            '[text="去完成"] < @ViewGroup[clickable=true] -n [text="逛专区任务"] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
           ],
           excludeMatches: [
-            '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup < ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+            '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
             '[text="去打开APP，返回赚现金"] < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
-          ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNStandardActivity',
           ],
         },
         {
@@ -314,9 +312,6 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: [
             '[text="去打开APP，返回赚现金"] < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
-          ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNStandardActivity',
           ],
         },
         {
@@ -328,17 +323,11 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="去打开APP，返回赚现金"] < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
           ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNStandardActivity',
-          ],
         },
         {
           key: 3,
           matches: [
-            '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup < ViewGroup < ScrollView -n [text="日常任务加速提现"]',
-          ],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNStandardActivity',
+            '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
           ],
         },
       ],
