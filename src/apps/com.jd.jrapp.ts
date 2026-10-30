@@ -169,6 +169,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           anyMatches: [
+            '@TextView[clickable=true] < View -n [id="app"] < WebView < * < [vid="webview"]', //黄金频道页
             'TextView - @TextView[clickable=true] < View < View < [id="app"] < WebView < * < [vid="webview"]', //对口令赢苹果18Pro
             'View - @TextView[clickable=true] < View <n View < View < [id="app"] < WebView < * < [vid="webview"]', //彩票频道
             'TextView - @TextView[clickable=true] < View < View < View < [id="app"] <n View < WebView < * < [vid="webview"]', //浏览基金圈 结交同路人
