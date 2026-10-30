@@ -9,7 +9,6 @@ export default defineGkdApp({
       name: '百度网盘-去快手极速版点赞',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -40,7 +39,20 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          matches: ['@[vid="like_icon"][visibleToUser=true]'],
+          action: 'back',
+          matches: [
+            '[text="点击进入直播间"] < LinearLayout <n ViewGroup < FrameLayout < ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < [vid="nasa_groot_view_pager"]',
+          ],
+          activityIds: ['com.yxcorp.gifshow.HomeActivity'],
+        }
+        {
+          key: 5,
+          matches: [
+            '@[vid="like_icon"][visibleToUser=true] - [desc^="未点赞"] < [vid="like_button"] <n LinearLayout <n [vid="slide_v2_content_layout"] <n [vid="root"]',
+          ],
+          excludeMatches: [
+            '[text="点击进入直播间"] < LinearLayout <n ViewGroup < FrameLayout < ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < [vid="nasa_groot_view_pager"]',
+          ],
           activityIds: ['com.yxcorp.gifshow.HomeActivity'],
         },
       ],
