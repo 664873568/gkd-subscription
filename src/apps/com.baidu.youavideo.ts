@@ -11,18 +11,18 @@ export default defineGkdApp({
       name: '积分提现-立即兑现-50元',
       forcedTime: 60000,
       matchRoot: true,
-      matchTime: 60000,
       resetMatch: 'activity',
       activityIds: ['.operate.ui.view.activity.OperatePointWithdrawActivity'],
       rules: [
         {
           key: 0,
-          excludeMatches: [
-            '@[text="已兑完"][vid="tv_first_hint"] - [vid="ll_item_point_bg"] > [text="50元"][vid="tv_money"]',
-            '@[text="确认兑换"][vid="single_confirm_button"][clickable=true] <n [vid="bottom_one_button_layout"] -n * [text="确定要兑换50元现金吗？"][vid="title"]',
-          ],
           matches: [
             '@[text="立即兑现"][vid="tv_point_exchange"][clickable=true] -n [text="50元"][vid="tv_money"]',
+          ],
+          excludeMatches: [
+            '[text~="[1-4][0-9]{4}|[0-9]{1,4}"] - [text="我的积分"]',
+            '[text="50元"][vid="tv_money"] < LinearLayout + [text="已兑完"][vid="tv_first_hint"]',
+            '@[text="确认兑换"][vid="single_confirm_button"][clickable=true] <n [vid="bottom_one_button_layout"] -n * [text="确定要兑换50元现金吗？"][vid="title"]',
           ],
         },
         {
@@ -36,7 +36,19 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '@[text="提现到支付宝"][vid="btn_withdraw"][clickable=true]',
+            '@[text="立即绑定支付宝"][vid="tv_bind_alipay"][clickable=true] <n LinearLayout + [text="提现到支付宝"][vid="btn_withdraw"]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            '[text="解除绑定"][vid="tv_unbind"] <n LinearLayout + @[text="提现到支付宝"][vid="btn_withdraw"][clickable=true]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            '@[text="完成"][vid="tv_withdraw_finish"][clickable=true] <n RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
