@@ -117,7 +117,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup < FrameLayout < FrameLayout < ViewFactoryHolder',
+            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup <n FrameLayout < FrameLayout < ViewFactoryHolder',
           ],
           activityIds: [
             '.bullet.ui.BulletContainerActivity',
@@ -423,6 +423,9 @@ export default defineGkdApp({
           actionDelay: 5000,
           matches: [
             '@[desc="返回 按钮"] < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[desc="残忍离开"] < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -907,7 +910,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            'ViewGroup - ViewGroup - @ViewGroup - ViewGroup - [desc="12期免息按钮"] < FrameLayout - FrameLayout[width=height] < FrameLayout < LinearLayout < LinearLayout < RecyclerView',
+            'ViewGroup - ViewGroup - @ViewGroup - ViewGroup - [desc="12期免息按钮"] < FrameLayout - FrameLayout[width=height] < FrameLayout < LinearLayout < LinearLayout <n RecyclerView',
           ],
         },
         {
