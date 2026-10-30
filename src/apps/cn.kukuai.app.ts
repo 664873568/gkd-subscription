@@ -23,7 +23,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@[desc="去领取"][clickable=true] <n View < View <n View <n View < View <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
+            '@[desc="领取"][clickable=true] <n View < View <n View <n View < View <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
       ],
@@ -151,7 +151,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
           key: 2,
           matches: [
             '@TextView[clickable=true] -n [text^="恭喜您获得"] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
