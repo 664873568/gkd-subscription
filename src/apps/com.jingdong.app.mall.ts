@@ -54,7 +54,7 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        10, 12, 20, 30, 40, 41, 50, 60, 64, 70, 80, 90, 100, 110, 120, 130, 190,
+        10, 12, 20, 30, 40, 50, 51, 60, 70, 74, 80, 90, 100, 110, 120, 130, 140, 150,
       ],
       key: 1,
       name: '通用-返回-scopeKeys',
@@ -88,8 +88,8 @@ export default defineGkdApp({
         },
         {
           preKeys: [
-            0, 1, 10, 20, 30, 40, 41, 50, 51, 60, 64, 70, 80, 90, 100, 110, 120,
-            130,
+            0, 1, 10, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 120, 130, 140,
+            150,
           ],
           key: 1,
           name: '已完成 点击立即返回',
@@ -99,7 +99,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 2, 50, 51, 60, 90],
+          preKeys: [0, 2, 60, 61, 70, 100],
           key: 2,
           name: '已完成 点击立即返回×',
           action: 'back',
@@ -113,7 +113,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [
-            3, 10, 20, 30, 40, 41, 50, 51, 60, 70, 80, 90, 100, 110, 120, 130,
+            3, 10, 20, 30, 40, 50, 51, 60, 61, 70, 80, 90, 100, 120, 130, 140, 150,
           ],
           key: 3,
           action: 'back',
@@ -127,7 +127,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4, 10, 50, 51, 60],
+          preKeys: [4, 10, 60, 61, 70, 110],
           key: 4,
           action: 'back',
           actionDelay: 20000,
@@ -140,7 +140,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5, 90],
+          preKeys: [5, 100],
           key: 5,
           name: '去JoyAI抽20元',
           action: 'back',
@@ -150,7 +150,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6, 100],
+          preKeys: [6, 120],
           key: 6,
           name: '笔笔返现',
           action: 'back',
@@ -160,7 +160,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [7, 12, 13, 50, 51, 60, 110, 120, 200],
+          preKeys: [7, 12, 13, 60, 61, 70, 130, 140, 200],
           key: 7,
           action: 'back',
           actionDelay: 6000,
@@ -169,7 +169,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [8, 30, 190],
+          preKeys: [8, 30, 40],
           key: 8,
           action: 'back',
           actionDelay: 11000,
@@ -182,7 +182,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [9, 40, 41, 50, 51, 60, 70, 90, 190],
+          preKeys: [9, 40, 50, 51, 60, 61, 70, 80, 100, 110],
           key: 9,
           action: 'back',
           actionDelay: 11000,
@@ -198,7 +198,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [12, 90],
+          preKeys: [12, 100],
           key: 12,
           name: '建议开启边看边听-暂不开启',
           action: 'back',
@@ -209,7 +209,7 @@ export default defineGkdApp({
           activityIds: ['null'],
         },
         {
-          preKeys: [12, 13, 90, 190],
+          preKeys: [12, 13, 40, 100, 110],
           key: 13,
           name: '关闭直播间',
           action: 'back',
@@ -219,7 +219,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [14, 15, 90],
+          preKeys: [14, 15, 100],
           key: 14,
           name: '游戏-关闭',
           actionDelay: 6000,
@@ -244,7 +244,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [17, 40, 41, 100],
+          preKeys: [17, 50, 51, 120],
           key: 17,
           name: '逛看病买药频道-×',
           action: 'back',
@@ -254,7 +254,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [18, 40, 41, 100],
+          preKeys: [18, 50, 51, 120],
           key: 18,
           name: '逛看病买药频道-××',
           action: 'back',
@@ -264,7 +264,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [16, 18, 19, 40, 41, 100],
+          preKeys: [16, 18, 19, 50, 51, 120],
           key: 19,
           name: '逛看病买药频道-<',
           action: 'back',
@@ -707,11 +707,73 @@ export default defineGkdApp({
         },
       ],
     },
+    //25.12.05-26.03.31 京东省钱卡
+    //https://mcard.jd.com/?cardIdEnc=_vxHkMHQS98=&channel=202512051713
+    {
+      key: 40,
+      name: '京东省钱卡做任务得奖励-去访问',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.WebActivity'],
+      rules: [
+        {
+          key: 40,
+          matches: [
+            '@[text="去访问"][clickable=true] <n View -n [text="做任务得奖励"] < View < View <n View < View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
+          ],
+          excludeMatches: [
+            '@[text="签到"][clickable=true] <n View <n View <n View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
+            '@TextView[clickable=true] - [getChild(0).text="领取成功，恭喜获得"] < View < View <n View < [text="京东省钱卡"] < *',
+            '@[text="领取奖励"][clickable=true] <n View -n [text="做任务得奖励"] < View < View <n View < View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
+            '@Image[clickable=true] -n [text="奖励已领取"] < View < View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
+          ],
+        },
+        {
+          key: 11,
+          matches: [
+            '@[text="领取奖励"][clickable=true] <n View -n [text="做任务得奖励"] < View < View <n View < View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
+          ],
+        },
+        {
+          preKeys: [11],
+          key: 12,
+          matches: [
+            '@Image[clickable=true] -n [text="奖励已领取"] < View < View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
+          ],
+        },
+      ],
+    },
+    {
+      key: 41,
+      name: '京东省钱卡-签到',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="签到"][clickable=true] <n View <n View <n View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@TextView[clickable=true] - [getChild(0).text="领取成功，恭喜获得"] < View < View <n View < [text="京东省钱卡"] < *',
+          ],
+        },
+      ],
+    },
     //26.01.01-26.12.31 国家补贴×超级补贴-天天领补贴
     //https://pro.m.jd.com/mall/active/DvFPmKRas9GYjDPZjT9NT14BAv6/index.html
     //恭喜获得惊喜福利
     {
-      key: 40,
+      key: 50,
       name: '天天领补贴-去完成+京豆',
       forcedTime: 60000,
       matchRoot: true,
@@ -723,7 +785,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 40,
+          key: 50,
           actionDelay: 2000,
           matches: [
             '[text~="去看看|去完成"] - [getChild(1).text*="京豆"] - [text!~="分享.*|邀请.*"] <n @View[clickable=true] <n View < View <n View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < [text="国家补贴x超级补贴"] < *',
@@ -761,7 +823,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 51,
       name: '天天领补贴-去完成+抽奖机会',
       forcedTime: 60000,
       matchRoot: true,
@@ -773,7 +835,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 41,
+          key: 51,
           actionDelay: 2000,
           matches: [
             '[text="领取奖励"] - [getChild(1).text*="抽奖机会"] - [text!~="分享.*|邀请.*"] <n @View[clickable=true] <n View < View <n View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < [text="国家补贴x超级补贴"] < *',
@@ -816,7 +878,7 @@ export default defineGkdApp({
     //26.03.15-27.05.31 便宜包邮-天天砸金蛋
     //https://pro.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
     {
-      key: 50,
+      key: 60,
       name: '天天砸金蛋-去完成+京豆',
       forcedTime: 60000,
       matchRoot: true,
@@ -824,7 +886,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 50,
+          key: 60,
           actionDelay: 2000,
           matches: [
             '[getChild(0).getChild(0).text="规则"] + View > View > [text*="京豆"] + @[text="去完成"][clickable=true]',
@@ -838,7 +900,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 51,
+      key: 61,
       name: '天天砸金蛋-去完成+砸蛋机会',
       forcedTime: 60000,
       matchRoot: true,
@@ -846,7 +908,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 51,
+          key: 61,
           actionDelay: 2000,
           matches: [
             '[getChild(0).getChild(0).text="规则"] + View > View > [text*="砸蛋机会"] + @[text="去完成"][clickable=true]',
@@ -863,7 +925,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 52,
+      key: 62,
       name: '天天砸金蛋-砸一下',
       forcedTime: 60000,
       matchRoot: true,
@@ -907,7 +969,7 @@ export default defineGkdApp({
     //26.03.25-27.03.24 月黑风高-月光宝盒
     //https://pro.m.jd.com/mall/active/3MwGoRXcgfa3yFYKujMC2AsjmB3h/index.html
     {
-      key: 60,
+      key: 70,
       name: '月光宝盒-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -919,7 +981,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 60,
+          key: 70,
           actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] <n [getChild(1).text!~="邀请.*"] <n View - [text="做任务 赚次数"] <n View < View < View < View <n [id^="bab_aid"] < WebView < *',
@@ -971,8 +1033,8 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [60],
-      key: 61,
+      scopeKeys: [70],
+      key: 71,
       name: '月光宝盒-去完成-从首页访问月黑风高',
       forcedTime: 60000,
       matchRoot: true,
@@ -984,14 +1046,14 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [60],
+          preKeys: [70],
           key: 1,
           matches: [
             'TextView[clickable=true] - View > @View[clickable=true] > [text="去完成"]',
           ],
         },
         {
-          preKeys: [60],
+          preKeys: [70],
           key: 2,
           position: {
             left: 'width * 0.5',
@@ -1030,8 +1092,8 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [60],
-      key: 62,
+      scopeKeys: [70],
+      key: 72,
       name: '月光宝盒-去完成-预约月黑风高商品',
       forcedTime: 60000,
       matchRoot: true,
@@ -1077,8 +1139,8 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [60],
-      key: 63,
+      scopeKeys: [70],
+      key: 73,
       name: '月光宝盒-立即抽奖',
       forcedTime: 60000,
       matchRoot: true,
@@ -1111,7 +1173,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 64,
+      key: 74,
       name: '月光宝盒-盲盒礼包',
       forcedTime: 60000,
       matchRoot: true,
@@ -1123,7 +1185,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 64,
+          key: 74,
           excludeMatches: [
             '@View[clickable=true] > View > [text~="[1-9][0-9]*"]',
           ],
@@ -1139,50 +1201,12 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      scopeKeys: [70],
-      key: 65,
-      name: '月光宝盒-京东秒杀',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        'com.jd.lib.ttt.page.TTTMultiPageActivity',
-        'com.jd.lib.babel.view.activity.BabelActivity',
-      ],
-      rules: [
-        {
-          preKeys: [4, 5],
-          key: 0,
-          excludeMatches: ['@View[clickable=true] > View > [text="0*"]'],
-          matches: [
-            'RecyclerView > @ViewGroup[clickable=true] > [text="月黑风高"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[text="月黑风高"] >n @View[clickable=true] > [text="075e15f06e18eb7f.png!q50"]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          name: '赚次数',
-          matches: [
-            '[getChild(0).text="03e62ee40ce952ef.png!q50"] +n [text="规则"] + TextView + @TextView[clickable=false]',
-          ],
-        },
-      ],
-    },
     //26.04.01-27.03.31 京东秒杀-幸运奖励
     //https://pro.m.jd.com/mall/active/Md9FMi1pJXg2q7qc8CmE9FNYDS4/index.html
     //https://pro.m.jd.com/mall/active/43mNbs4F53FUMVin65VHVYYKB94f/index.html
     //https://pro.m.jd.com/mall/active/z9JX362NWYGwm6TwWpaQ5UBnWW9/index.html
     {
-      key: 70,
+      key: 80,
       name: '京东秒杀-幸运奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -1255,7 +1279,7 @@ export default defineGkdApp({
     //26.05.14-27.05.13 领券中心-天天领京豆
     //https://pro.m.jd.com/mall/active/VAjs3vpayA513UwxL5XC4eGBXqY/index.html?babelChannel=ttt128&linkTopTab=best&jumpTab=1&visitScene=page1
     {
-      key: 80,
+      key: 90,
       name: '天天领京豆-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -1276,7 +1300,7 @@ export default defineGkdApp({
     //26.06.28-27.05.31 互动游戏
     //https://pro.m.jd.com/mall/active/3fcyrvLZALNPWCEDRvaZJVrzek8v/index.html
     {
-      key: 90,
+      key: 100,
       name: '互动游戏-逛一逛/去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -1285,29 +1309,29 @@ export default defineGkdApp({
       activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
       rules: [
         {
-          key: 90,
-          excludeMatches: [
-            '[text="互动游戏"] >n TextView[clickable=true] + * View[clickable=true] > [text~="立即签到|明天继续|我知道了"]',
-          ],
+          key: 100,
           actionDelay: 2000,
           matches: [
             '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="参加.*|通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
           ],
+          excludeMatches: [
+            '[text="互动游戏"] >n TextView[clickable=true] + * View[clickable=true] > [text~="立即签到|明天继续|我知道了"]',
+          ],
         },
         {
           key: 11,
-          excludeMatches: [
-            '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="参加.*|通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
-          ],
-          actionDelay: 3000,
+          actionDelay: 5000,
           matches: [
             '[text="互动游戏"] >n @TextView[clickable=true] + [getChild(0).text="做任务 攒经验"]',
+          ],
+          excludeMatches: [
+            '[text="互动游戏"] >n [text="做任务 攒经验"] + * [getChild(2).text!~="参加.*|通过.*|升级.*|击败.*"] > @View[clickable=true] > [text~="逛一逛|去完成"]',
           ],
         },
       ],
     },
     {
-      key: 91,
+      key: 101,
       name: '互动游戏-立即签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -1353,7 +1377,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 92,
+      key: 102,
       name: '互动游戏-领取',
       forcedTime: 60000,
       matchRoot: true,
@@ -1388,10 +1412,33 @@ export default defineGkdApp({
         },
       ],
     },
+    //26.08.20-27.08.18 权益中心-签到开盲盒
+    //https://pro.m.jd.com/mall/active/34bpxyqcsNkowPnSfyhS1c11qwga/index.html
+    {
+      key: 110,
+      name: '签到开盲盒-去浏览',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          key: 110,
+          actionDelay: 2000,
+          matches: [
+            '@[text$="去浏览"][clickable=true] <n View < View <n View <n Dialog < Dialog <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+          ],
+        },
+      ],
+    },
     //26.08.21-27.05.13 整点秒杀 抢20元金券-天天赚京豆
     //https://pro.m.jd.com/mall/active/3iXU1kvcZaGz6Xf9L3cJ9aCS6ShN/index.html
     {
-      key: 100,
+      key: 120,
       name: '天天赚京豆-去完成+京豆',
       forcedTime: 60000,
       matchRoot: true,
@@ -1403,7 +1450,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 100,
+          key: 120,
           actionDelay: 2000,
           matches: [
             '[getChild(1).getChild(0).text="0276054033614b7c"] + View > View > [text!~="下单抽大奖|逛京东快递频道"] +2 [text!~=".*砸金蛋机会"] +2 @[text="去完成"][clickable=true]',
@@ -1412,7 +1459,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 101,
+      key: 121,
       name: '天天赚京豆-去完成+砸金蛋机会',
       forcedTime: 60000,
       matchRoot: true,
@@ -1424,7 +1471,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 101,
+          key: 121,
           actionDelay: 2000,
           matches: [
             '[getChild(1).getChild(0).text="0276054033614b7c"] + View > View > [text!~="下单抽大奖|逛京东快递频道"] +2 [text~=".*砸金蛋机会"] +2 @[text="去完成"][clickable=true]',
@@ -1436,7 +1483,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 102,
+      key: 122,
       name: '天天赚京豆-砸一下',
       forcedTime: 60000,
       matchRoot: true,
@@ -1478,7 +1525,7 @@ export default defineGkdApp({
     //26.09.01-26.09.10 京东新品-重磅新品月
     //https://pro.m.jd.com/mall/active/3CSJigaYv3gZC6tRkd3eyUhKfhyc/index.html
     {
-      key: 110,
+      key: 130,
       name: '新品互动-去浏览',
       forcedTime: 60000,
       matchRoot: true,
@@ -1488,7 +1535,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 110,
+          key: 130,
           matches: [
             '[text="新品互动"] +n [getChild(0).text!~="购买.*|邀请.*"] > @[text="去浏览"][clickable=true]',
           ],
@@ -1499,7 +1546,7 @@ export default defineGkdApp({
     //26.09.16-26.10.31 「我AI我家·星主播」
     //https://pro.m.jd.com/mall/active/2r4H8Y9vqUbjevMFZ1o5ir7XJbEg/index.html
     {
-      key: 120,
+      key: 140,
       name: '「我AI我家·星主播」',
       forcedTime: 60000,
       matchRoot: true,
@@ -1518,7 +1565,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [0],
-          key: 120,
+          key: 140,
           actionDelay: 2000,
           anyMatches: [
             '@[text="去完成"][clickable=true] -2 [text^="逛逛大闸蟹"]',
@@ -1526,7 +1573,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [120],
+          preKeys: [140],
           key: 11,
           actionDelay: 6000,
           matches: [
@@ -1544,7 +1591,7 @@ export default defineGkdApp({
     //26.10.12-26.11.11 京享红包
     //https://u.jd.com/FDT8Var
     {
-      key: 130,
+      key: 150,
       name: '京享红包',
       forcedTime: 60000,
       matchRoot: true,
@@ -1557,7 +1604,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 130,
+          key: 150,
           matches: [
             '[text="去完成"] < @View[clickable=true] <n View <n View <n View <n View < View < [id="union-coupon-sdk"] < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
@@ -1573,7 +1620,7 @@ export default defineGkdApp({
     //26.10.15-26.11.30 运动来了
     //https://pro.m.jd.com/mall/active/4HkMAa7oyscSYsMxqGN8hX91jq1T/index.html
     {
-      key: 140,
+      key: 160,
       name: '运动来了-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -1584,42 +1631,51 @@ export default defineGkdApp({
         'com.jd.lib.babel.view.activity.BabelActivity',
         'com.jd.lib.jshop.jshop.JshopMainShopActivity',
         'com.jd.lib.productdetail.ProductDetailActivity',
+        'com.jd.lib.search.view.Activity.SearchActivity',
       ],
       rules: [
         {
           key: 0,
+          name: '运动来了',
+          matches: [
+            '[desc="删除"] + ViewGroup > @FrameLayout[clickable=true] > FrameLayout > [text="运动来了"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
           name: '立即打卡',
           matches: [
             '@[desc="打卡互动完成15天打卡可领取1000京豆立即打卡"][clickable=true] <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
+          preKeys: [1],
+          key: 2,
           name: '每日签到',
           matches: [
             '@TextView[clickable=true] - TextView < View[index=0] <n View < View <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [2],
+          key: 3,
           name: '签到成功-我知道了-×',
           matches: [
             '@TextView[clickable=true] - TextView < View < View < View < View <n View <n [id^="bab_aid"] < WebView < *',
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
+          preKeys: [3],
+          key: 4,
           name: '浏览1',
           matches: [
             '@TextView[clickable=false] - TextView < View[index=1] <n View < View <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [4],
+          key: 5,
           name: '返回1',
           action: 'back',
           actionDelay: 16000,
@@ -1628,16 +1684,16 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4],
-          key: 5,
+          preKeys: [5],
+          key: 6,
           name: '浏览2',
           matches: [
             '@TextView[clickable=false] - TextView < View[index=2] <n View < View <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
         {
-          preKeys: [5, 8, 11],
-          key: 6,
+          preKeys: [6, 9, 12],
+          key: 7,
           name: '关闭23',
           action: 'back',
           anyMatches: [
@@ -1645,32 +1701,32 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5, 6, 8, 11],
-          key: 7,
+          preKeys: [6, 7, 9, 12],
+          key: 8,
           name: '返回23',
           action: 'back',
           actionDelay: 16000,
           anyMatches: ['@[desc="返回"][clickable=true] +n * [desc="搜索"]'],
         },
         {
-          preKeys: [7],
-          key: 8,
+          preKeys: [8],
+          key: 9,
           name: '浏览3',
           matches: [
             '@TextView[clickable=false] - TextView < View[index=2] <n View < View <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
         {
-          preKeys: [7],
-          key: 9,
+          preKeys: [8],
+          key: 10,
           name: '浏览4',
           matches: [
             '@TextView[clickable=false] - TextView < View[index=2] <n View < View <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
         {
-          preKeys: [9],
-          key: 10,
+          preKeys: [10],
+          key: 11,
           name: '返回4',
           action: 'back',
           actionDelay: 16000,
@@ -1679,81 +1735,19 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [10],
-          key: 11,
+          preKeys: [11],
+          key: 12,
           name: '浏览5',
           matches: [
             '@TextView[clickable=false] - TextView < View[index=2] <n View < View <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
         {
-          preKeys: [11],
-          key: 12,
+          preKeys: [12],
+          key: 13,
           name: '今日打卡成功-我知道了-×',
           matches: [
             '@TextView[clickable=true] - View < View < View < View <n View <n [id^="bab_aid"] < WebView < *',
-          ],
-        },
-      ],
-    },
-    //25.12.05-26.03.31 京东省钱卡
-    //https://mcard.jd.com/?cardIdEnc=_vxHkMHQS98=&channel=202512051713
-    {
-      key: 190,
-      name: '京东省钱卡做任务得奖励-去访问',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.WebActivity'],
-      rules: [
-        {
-          key: 190,
-          matches: [
-            '@[text="去访问"][clickable=true] <n View -n [text="做任务得奖励"] < View < View <n View < View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
-          ],
-          excludeMatches: [
-            '@[text="签到"][clickable=true] <n View <n View <n View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
-            '@TextView[clickable=true] - [getChild(0).text="领取成功，恭喜获得"] < View < View <n View < [text="京东省钱卡"] < *',
-            '@[text="领取奖励"][clickable=true] <n View -n [text="做任务得奖励"] < View < View <n View < View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
-            '@Image[clickable=true] -n [text="奖励已领取"] < View < View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
-          ],
-        },
-        {
-          key: 11,
-          matches: [
-            '@[text="领取奖励"][clickable=true] <n View -n [text="做任务得奖励"] < View < View <n View < View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
-          ],
-        },
-        {
-          preKeys: [11],
-          key: 12,
-          matches: [
-            '@Image[clickable=true] -n [text="奖励已领取"] < View < View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
-          ],
-        },
-      ],
-    },
-    {
-      key: 191,
-      name: '京东省钱卡-签到',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.WebActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="签到"][clickable=true] <n View <n View <n View <n View <n [id="sskTopContentId"] < [id="root"] <n View < [text="京东省钱卡"] < *',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@TextView[clickable=true] - [getChild(0).text="领取成功，恭喜获得"] < View < View <n View < [text="京东省钱卡"] < *',
           ],
         },
       ],
@@ -1883,7 +1877,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@[desc="跳过"][clickable=true] > [text="跳过"]'],
+          matches: [
+            '@[text="跳过"] < [desc="跳过"][clickable=true] <n RelativeLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
           activityIds: ['.MainFrameActivity'],
         },
       ],
