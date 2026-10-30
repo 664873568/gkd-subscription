@@ -678,6 +678,7 @@ export default defineGkdApp({
       activityIds: [
         'com.qq.e.ads.PortraitADActivity',
         'com.qq.e.ads.ADActivity',
+        '.advertise.ui.SplashAdActivity',
       ],
       rules: [
         {
@@ -1620,7 +1621,7 @@ export default defineGkdApp({
       name: '最新AI功能-×',
       forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -1632,7 +1633,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2，220],
+          preKeys: [2,220],
           key: 2,
           action: 'back',
           actionDelay: 5000,
