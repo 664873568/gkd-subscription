@@ -535,7 +535,9 @@ export default defineGkdApp({
         {
           key: 0,
           name: '*秒后可领取奖励/观看*秒广告领取奖励',
-          matches: ['@[text="残忍离开"][clickable=true] <n LinearLayout <n RelativeLayout < [id="android:id/content"]'],
+          matches: [
+            '@[text="残忍离开"][clickable=true] <n LinearLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
         },
         {
           key: 1,
