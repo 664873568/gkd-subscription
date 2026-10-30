@@ -1074,6 +1074,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 209,
+      name: '已安装完成，是否立即打开-取消',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="取消"][clickable=true] < LinearLayout < ScrollView -n * [id="android:id/message"]',
+          ],
+          activityIds: ['null'],
+        },
+      ],
+    },
     //日常任务
     {
       key: 210,
@@ -1097,21 +1113,23 @@ export default defineGkdApp({
             '@ImageButton[text="c"][clickable=true] < View < View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
             '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
-            '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
+            '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]',
             '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
             '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text="close"] < @View[clickable=true] < View < View <n WebView < WebView < [vid="content_webview"]',
           ],
         },
         {
           preKeys: [210],
           key: 1,
+          name: '领取奖励/任务已完成 点击去领奖',
           anyMatches: [
-            'View > View[getChild(0).text="task-close"] + @[text="lingqujiangli"][clickable=true]', //集勋章抽金条手机-去翻故事卡领大奖
-            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠-参与活动送万元相机-领取徐涛独家资料
-            'View > View > @ImageButton[clickable=true] + TextView + ImageButton', //任务已完成 点击去领奖-去看看会员福利日
-            'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton', //领取奖励-免费领取网盘SVIP
-            '[desc="close"] - @[getChild(0).text="wenzihou"][clickable=true] < View < View - [id="app"] < WebView < WebView < [vid="content_webview"]', //去寻道砍树3次
-            'View > [getChild(0).text="task-close"] + @[getChild(0).text="lingqujiangli"][clickable=true]', //奇妙赏
+            'View > View[getChild(0).text="task-close"] + @[text="lingqujiangli"][clickable=true]',
+            'View > View[clickable=true] > TextView + @ImageButton[clickable=true]',
+            'View > View > @ImageButton[clickable=true] + TextView + ImageButton',
+            'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton',
+            '[desc="close"] - @[getChild(0).text="wenzihou"][clickable=true] < View < View - [id="app"] < WebView < WebView < [vid="content_webview"]',
+            'View > [getChild(0).text="task-close"] + @[getChild(0).text="lingqujiangli"][clickable=true]',
           ],
         },
         {
@@ -1123,8 +1141,9 @@ export default defineGkdApp({
         },
         {
           key: 3,
+          name: '去登陆网盘pc端',
           matches: [
-            '@[vid="left_button"] <<n * +n * [text="恭喜获得"]', //小程序点图文领奖-小程序点图文-小程序浏览图文-点2次图文领奖-小程序点2次图文
+            '@TextView[clickable=true] - TextView < View -n [getChild(0).text="close"] < View < View <n WebView < WebView < [vid="content_webview"]',
           ],
         },
       ],
@@ -1488,7 +1507,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [0,1,2],
           key: 1,
           swipeArg: {
             start: {
@@ -1507,9 +1526,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0,1,2],
           key: 2,
-          actionDelay: 1000,
           anyMatches: [
             '[text~="4月25日|2025年12月27日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <n [vid="image_recycler_view"] <n * [text="确定（0/99）"][vid="btn_confirm"]',
             '[text="已选：0/99"][vid="select_count_text"] < [vid="bottom_bar"] - [vid="fragment_container"] >n [vid="grid_item_layout"][index=1] >n @[vid="imageview_checkbox"]',
@@ -1526,7 +1544,6 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 4,
-          actionDelay: 2000,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [getChild(0).getChild(0).name$="ImageView"] - [getChild(2).desc="去手写"] > @Switch[clickable=true]',
           ],
@@ -1541,13 +1558,12 @@ export default defineGkdApp({
         {
           preKeys: [3],
           key: 6,
-          actionDelay: 2000,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * View + ImageView + @ImageView[clickable=true] + ImageView',
           ],
         },
         {
-          preKeys: [6],
+          preKeys: [5,6],
           key: 7,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="已选择 1 道题目"] +n @[desc="录入错题"][clickable=true]',
@@ -1556,13 +1572,6 @@ export default defineGkdApp({
         {
           preKeys: [7],
           key: 8,
-          matches: [
-            '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @[text="全部保存"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [7, 8],
-          key: 9,
           matches: [
             '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
@@ -1606,13 +1615,13 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [220],
       key: 229,
       name: '最新AI功能-×',
       forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
-      actionMaximum: 1,
-      resetMatch: 'match',
+      resetMatch: 'activity',
       rules: [
         {
           key: 1,
@@ -1623,6 +1632,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [2，220],
           key: 2,
           action: 'back',
           actionDelay: 5000,
