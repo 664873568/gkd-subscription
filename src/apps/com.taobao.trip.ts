@@ -113,7 +113,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 2,
           actionDelay: 11000,
           matches: [
@@ -225,28 +224,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [41],
       key: 16,
-      name: '天天集能量-看视频',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          preKeys: [0],
-          key: 16,
-          action: 'back',
-          actionDelay: 10000,
-          matches: [
-            '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
-        },
-      ],
-    },
-    {
-      key: 17,
       name: '天天集能量-赚能量抵钱',
       forcedTime: 60000,
       matchRoot: true,
@@ -280,7 +258,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 18,
+      key: 17,
       name: '天天集能量-赚能量抵钱-做任务赚能量',
       forcedTime: 60000,
       matchRoot: true,
@@ -320,6 +298,24 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text~=".*能量|领取奖励"][clickable=true] -2 [text!~="逛中国移动|去猜价格并返回猜价页"] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
+        },
+      ],
+    },
+    {
+      key: 19,
+      name: '天天集能量-看视频',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 10000,
+          matches: [
+            '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
     },
@@ -518,21 +514,32 @@ export default defineGkdApp({
           key: 5,
           matches: ['@ImageView[clickable=true] - * [text="0s后可领取奖励"]'],
         },
+        {
+          key: 6,
+          matches: [
+            'TextView - @ImageView[clickable=true] <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+        },
       ],
     },
     //看视频-com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity
     {
       key: 50,
-      name: '看视频-跳过-*秒后可领取奖励beizi.ad',
+      name: '看视频-关闭',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 20000,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
       rules: [
         {
+          key: 0,
+          name: '*秒后可领取奖励/观看*秒广告领取奖励',
+          matches: ['@[text="残忍离开"][clickable=true] <n LinearLayout <n RelativeLayout < [id="android:id/content"]'],
+        },
+        {
+          key: 1,
           matches: ['@[text="已经获得奖励 ｜ 关闭"][clickable=true]'],
-          activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
         },
       ],
     },
@@ -828,8 +835,8 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text~="点击跳转拿奖励\\\\([0-9]+s\\\\)"][clickable=true] <<n * + * [text="立即获取"] <<n * + * [desc="skip_button"] [text="跳过"]',
-            '@[text~="点击跳转拿奖励|点击下载拿奖励"][clickable=true] <<n * + * [getChild(1).text~="看[0-9]+秒可直接拿奖励"] + [desc="skip_button"] [text="跳过"]',
+            '@[text~="点击跳转拿奖励.*"][clickable=true] <<n * + * [text="立即获取"] <<n * + * [desc="skip_button"] [text="跳过"]',
+            '@[text~="点击跳转拿奖励|点击下载拿奖励"][clickable=true] <<n * + * [getChild(1).text~="看.*秒可直接拿奖励"] + [desc="skip_button"] [text="跳过"]',
           ],
         },
         {
@@ -952,7 +959,7 @@ export default defineGkdApp({
           key: 0,
           name: '奖励将于*秒后发放',
           matches: [
-            '@[text="我要更快拿奖"] < FrameLayout <n * <n * [text^="奖励将于"]',
+            '@[text~=".*更快拿奖"] < FrameLayout <n * <n * [text^="奖励将于"]',
           ],
         },
         {
