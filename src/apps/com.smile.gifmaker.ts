@@ -50,7 +50,9 @@ export default defineGkdApp({
           matches: [
             '@[text="跳过"][vid="splash_skip_text"][clickable=true] <n [vid="splash_video_cover"] <n FrameLayout < [vid="splash_content"]',
           ],
-          activityIds: ['com.kuaishou.commercial.splash.v3.view.SplashV3Activity'],
+          activityIds: [
+            'com.kuaishou.commercial.splash.v3.view.SplashV3Activity',
+          ],
         },
       ],
     },
