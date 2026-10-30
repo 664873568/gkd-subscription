@@ -234,8 +234,6 @@ export default defineGkdApp({
             '[text="立即领取"] < @View[clickable=true] <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
             'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
             'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
-            '@ImageButton[clickable=true] <n View < View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
-            '@ImageButton[clickable=true] <n View < View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
       ],
