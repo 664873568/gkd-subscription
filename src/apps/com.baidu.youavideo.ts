@@ -138,7 +138,7 @@ export default defineGkdApp({
           key: 4,
           position: {
             left: 'width * 0.93',
-            top: 'height * 0.73',
+            top: 'height * 0.76',
           },
           actionDelay: 2000,
           matches: [
@@ -1102,8 +1102,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[vid="dialog_home_pop_close_button"][clickable=true] < LinearLayout < [vid="rl_root"]',
-            '[getChild(3).vid="jump_btn"] + @[vid="iv_close"][clickable=true]',
+            '@[vid="close"][clickable=true] <n LinearLayoutCompat < [vid="rl_root"] < [id="android:id/content"]',
+            '@[vid="dialog_home_pop_close_button"][clickable=true] < LinearLayout < [vid="rl_root"] < [id="android:id/content"]',
           ],
           activityIds: [
             '.app.ui.SplashActivity',
