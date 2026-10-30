@@ -1508,7 +1508,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 1,
           swipeArg: {
             start: {
@@ -1527,7 +1527,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,2],
+          preKeys: [0, 1, 2],
           key: 2,
           anyMatches: [
             '[text~="4月25日|2025年12月27日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <n [vid="image_recycler_view"] <n * [text="确定（0/99）"][vid="btn_confirm"]',
@@ -1564,7 +1564,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5,6],
+          preKeys: [5, 6],
           key: 7,
           matches: [
             '[text="拍摄错题并录入"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [desc="已选择 1 道题目"] +n @[desc="录入错题"][clickable=true]',
@@ -1633,7 +1633,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,220],
+          preKeys: [2, 220],
           key: 2,
           action: 'back',
           actionDelay: 5000,
