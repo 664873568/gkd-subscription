@@ -44,7 +44,7 @@ export default defineGkdApp({
             '[text="点击进入直播间"] < LinearLayout <n ViewGroup < FrameLayout < ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < [vid="nasa_groot_view_pager"]',
           ],
           activityIds: ['com.yxcorp.gifshow.HomeActivity'],
-        }
+        },
         {
           key: 5,
           matches: [
