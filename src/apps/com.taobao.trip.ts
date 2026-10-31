@@ -109,7 +109,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '@ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout <n * [text="立即下载" || text="下载应用" || text="下载游戏"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text="立即下载" || text="下载应用" || text="下载游戏"]',
           ],
         },
         {
@@ -149,6 +149,7 @@ export default defineGkdApp({
       name: '天天集能量-看视频领现金',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
       rules: [
@@ -171,6 +172,7 @@ export default defineGkdApp({
             '[text="立即下载App"] < @View[clickable=true] <n View < View < [text="快影APP下载-快手官方视频剪辑神器"] < * <n WebView <n [vid="trip_pull_container"]',
             '@[text="打开盒马APP"][clickable=true] < View < [id="app"] < [text="盒马，鲜美生活"] < * <n WebView <n [vid="trip_pull_container"]',
             '@TextView[clickable=true] <n View < [id="app"] < View < [text="全民K歌"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@[text="快速进入"][clickable=true] < View <n [id="login"] < View < [text="登录"] < View <n View <n View < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
@@ -454,16 +456,22 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@ImageView[width=height][index=parent.childCount.minus(1)][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
-          ],
-        },
-        {
-          key: 1,
           name: '二级广告页',
           actionDelay: 15000,
           matches: [
             'TextView - @View[clickable=true] <n RelativeLayout < LinearLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@ImageView[clickable=true] - [text="反馈"] <n RelativeLayout < RelativeLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@ImageView[width=height][index=parent.childCount.minus(1)][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
