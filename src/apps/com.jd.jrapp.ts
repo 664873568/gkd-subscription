@@ -59,11 +59,20 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '[name$="View"][index=parent.childCount.minus(1)] < [text~="正在跳转...|商品详情|京东打开中"] < * < [vid="webview"] < [vid="web_all"] <n * @Button[clickable=true] < [vid="common_webview_navbar_left"]',
+            '[name$="View"][index=parent.childCount.minus(1)] < [text~="正在跳转...|商品详情"] < * < [vid="webview"] < [vid="web_all"] <n * @Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
         },
         {
           key: 1,
+          name: '继续逛逛',
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '[id="imk2TipsWraper"] <n WebView < * < [vid="webview"] < [vid="web_all"] <n * @Button[clickable=true] < [vid="common_webview_navbar_left"]',
+          ],
+        },
+        {
+          key: 2,
           name: 'JoyAI对话',
           action: 'back',
           actionDelay: 5000,
@@ -72,7 +81,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
+          key: 3,
           name: '京东健康-限时福利',
           action: 'back',
           actionDelay: 5000,
@@ -81,7 +90,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
+          key: 4,
           action: 'back',
           matches: [
             '@[getChild(0).text="返回上级页面"][clickable=true] - [getChild(0).getChild(1).getChild(0).text="abnormal"]',
@@ -2051,7 +2060,7 @@ export default defineGkdApp({
             '[text~="可拆[1-9]次"] <n View < @View[clickable=true] <n View <n View <n View < [id="lgFloorWrap"] < [id="lego-app"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
-            '@ImageButton[text="03e60180185ad347"][clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
+            '@[text="03e60180185ad347"][clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
             '@Button[clickable=true] -n Image[clickable=true] < View <n View < View <n View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - View - Image < [name$="Dialog"] <n View <n View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - TextView[clickable=true] <n [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
@@ -2069,6 +2078,9 @@ export default defineGkdApp({
           name: '立即抽奖',
           matches: [
             '@Button[clickable=true] -n Image[clickable=true] < View <n View < View <n View < WebView < * < [vid="webview"]',
+          ],
+          excludeMatches: [
+            '@[text="03e60180185ad347"][clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
           ],
         },
         {
