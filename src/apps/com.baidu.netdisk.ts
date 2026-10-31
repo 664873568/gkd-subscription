@@ -578,7 +578,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+      activityIds: [
+        'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
+      ],
       rules: [
         {
           key: 0,
