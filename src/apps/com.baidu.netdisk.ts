@@ -556,7 +556,7 @@ export default defineGkdApp({
     },
     //看视频-com.byazt.ff.Stub_Standard_Portrait_Activity
     {
-      key: 40,
+      key: 30,
       name: '看视频-广告-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -567,6 +567,45 @@ export default defineGkdApp({
         {
           matches: ['@Image < [id="694d63"] < [id="ef6da1"]'],
           activityIds: ['com.byazt.ff.Stub_Standard_Portrait_Activity'],
+        },
+      ],
+    },
+    //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity
+    {
+      key: 40,
+      name: '看视频-上滑-<',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity'],
+      rules: [
+        {
+          key: 0,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionCd: 3000,
+          matches: [
+            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            'View - @[text="svg%3e"] < View <n View < [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
