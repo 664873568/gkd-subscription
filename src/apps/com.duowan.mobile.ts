@@ -209,9 +209,26 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.qq.e.ads.PortraitADActivity
+    //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
     {
       key: 20,
+      name: '看视频-反馈-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@ImageView[clickable=true] - [text="反馈"] <n RelativeLayout < RelativeLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+        },
+      ],
+    },
+    //看视频-com.qq.e.ads.PortraitADActivity
+    {
+      key: 30,
       name: '看视频-微信-提前拿奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -240,7 +257,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 31,
       name: '看视频-微信-阅读小说 可获得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -272,7 +289,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 32,
       name: '看视频-恭喜获得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -287,7 +304,7 @@ export default defineGkdApp({
           key: 0,
           name: '奖励将于*秒后发放',
           matches: [
-            '@[text~=".*拿奖|放弃福利"] <n * <n * <n * <n * [text^="奖励将于"]',
+            '@[text~=".*拿奖|放弃福利.*"] <n * <n * <n * <n * [text^="奖励将于"]',
           ],
         },
         {
@@ -344,7 +361,7 @@ export default defineGkdApp({
           name: '提前获得奖励-恭喜获得奖励-×',
           actionDelay: 1000,
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="查看详情" || text^="扭动" || text^="立即" || text*="继续"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text="查看详情" || text^="扭动" || text^="立即" || text*="继续"]',
           ],
           excludeMatches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * [text^="奖励将于" || text="恭喜获得奖励" || text="我要更快拿奖"]',
@@ -353,7 +370,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 23,
+      key: 33,
       name: '看视频-浏览页面*秒后即可获得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -379,7 +396,7 @@ export default defineGkdApp({
     },
     //导流结果弹窗
     {
-      key: 38,
+      key: 398,
       name: '导流结果弹窗-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -399,7 +416,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 39,
+      key: 399,
       name: '导流结果弹窗-收下并送出',
       forcedTime: 60000,
       matchRoot: true,
@@ -417,7 +434,7 @@ export default defineGkdApp({
     },
     //功能应用类
     {
-      key: 40,
+      key: 400,
       name: '打开通知权限-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -434,7 +451,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 41,
+      key: 401,
       name: '发现新版本-立即下载-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -451,7 +468,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 42,
+      key: 402,
       name: '未成年模式-知道了',
       forcedTime: 60000,
       matchRoot: true,
@@ -468,7 +485,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 43,
+      key: 403,
       name: '剪切板-不允许',
       forcedTime: 60000,
       matchRoot: true,
@@ -489,7 +506,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 44,
+      key: 404,
       name: '开启悬浮小窗功能-暂不开启',
       forcedTime: 60000,
       matchRoot: true,
@@ -513,7 +530,7 @@ export default defineGkdApp({
     },
     //首页广告类
     {
-      key: 50,
+      key: 500,
       name: '首页广告-跳过',
       forcedTime: 60000,
       matchRoot: true,
