@@ -2308,9 +2308,7 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          matches: [
-            '@[vid="recycler_view"] >n [text="上滑继续看视频"]',
-          ],
+          matches: ['@[vid="recycler_view"] >n [text="上滑继续看视频"]'],
           excludeMatches: [
             'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|.*继续.*|金币获取加倍中"]',
           ],
