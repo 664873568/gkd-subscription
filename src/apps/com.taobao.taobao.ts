@@ -166,15 +166,31 @@ export default defineGkdApp({
       name: '一淘-跳过',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
+      matchDelay: 1000,
+      resetMatch: 'activity',
       rules: [
         {
+          key: 0,
           matches: [
             '@[text^="去百亿补贴完成任务"][clickable=true] <n View < View < View < [id="root"] < View < WebView < * <n WebView < RelativeLayout - [vid="tms_title_bar"]',
           ],
           activityIds: ['com.taobao.themis.container.app.TMSActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[desc="百亿补贴"] < LinearLayout <n @[desc="百亿补贴"][clickable=true] < [desc="百亿补贴"]',
+          ],
+          activityIds: ['com.taobao.tao.TBMainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 2,
+          matches: [
+            'FrameLayout - @FrameLayout - FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RecyclerView < FrameLayout <n ViewPager <n ViewGroup < LinearLayout < FrameLayout < ViewPager < FrameLayout <n [vid="home_swipe_refresh"]',
+          ],
+          activityIds: ['com.taobao.tao.TBMainActivity'],
         },
       ],
     },
@@ -190,15 +206,15 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[desc="关闭按钮"][clickable=true] - [vid="poplayer_native_state_id"]',
+            '@[vid="ll_close"][clickable=true] > [text="跳过"][vid="tv_close"] + [text~="[0-9]"][vid="tv_countdown"]',
           ],
-          activityIds: ['com.taobao.tao.welcome.Welcome'],
+          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
         },
       ],
     },
     {
       key: 51,
-      name: '广告-跳过',
+      name: '首页广告-×',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
@@ -207,9 +223,12 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="ll_close"][clickable=true] > [text="跳过"][vid="tv_close"] + [text~="[0-9]"][vid="tv_countdown"]',
+            '@[desc="关闭按钮"][clickable=true] - [vid="poplayer_native_state_id"] < [vid="poplayer_native_state_center_layout_frame_id"]',
           ],
-          activityIds: ['com.taobao.themis.container.app.TMSActivity'],
+          activityIds: [
+            'com.taobao.tao.welcome.Welcome',
+            'com.taobao.tao.TBMainActivity',
+          ],
         },
       ],
     },
