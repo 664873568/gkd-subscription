@@ -5,7 +5,7 @@ export default defineGkdApp({
   name: '美团',
   groups: [
     {
-      key: 1,
+      key: 0,
       name: '每日幸运号',
       forcedTime: 60000,
       matchRoot: true,
