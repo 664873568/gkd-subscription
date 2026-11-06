@@ -12,9 +12,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
-      ],
+      activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
       rules: [
         {
           key: 0,
@@ -29,14 +27,14 @@ export default defineGkdApp({
             '@View[clickable=true] -n [desc="签到有礼楼层"] < View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
           excludeMatches: [
-            '@[desc="关闭 按钮"][clickable=true] < View < View < View <n View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
         },
         {
           key: 2,
-          name: '×',
+          name: '签到成功-立即使用-×',
           matches: [
-            '@[desc="关闭 按钮"][clickable=true] < View < View < View <n View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
         },
       ],
@@ -52,43 +50,67 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="去完成"][clickable=true] < View < View -(1,3) TextView[text~="查看.*|了解.*"] -n [desc="精选任务楼层"] < [id="Normaltask"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@[text="去完成"][clickable=true] < View < View -(4-n) TextView[text~="参与.*|查看.*|了解.*"] -n [desc="精选任务楼层"] < [id="Normaltask"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
           excludeMatches: [
             '@[desc="立即签到 按钮"][clickable=true] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
             'TextView[index=parent.childCount.minus(1)] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
             '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
-          activityIds: [
-            'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
-          ],
+          activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="地理位置信息授权"][vid="tv_dlg_title"] +n * > [text="允许"][vid="dlg_right_tv"]',
+            '@[desc="关闭 按钮"][clickable=true] - [text="去完成"] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [1],
           key: 2,
           matches: [
-            '@[desc~="关闭|返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
-          ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+            '@[text="同意协议并授权"][clickable=true] <n View < View < [id="app"] < WebView < WebView < [vid="web_container"] + * [text="联合会员授权"][vid="web_title"]',
           ],
         },
         {
           preKeys: [0],
           key: 3,
+          matches: [
+            '[text="地理位置信息授权"][vid="tv_dlg_title"] +n * > [text="允许"][vid="dlg_right_tv"]',
+          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 4,
           matches: ['Image < @View[clickable=true] + [text="速盈"]'],
-          activityIds: [
-            'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+          activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
+        },
+        {
+          preKeys: [1, 2,3,4],
+          key: 5,
+          actionDelay: 5000,
+          matches: [
+            '@[desc~="关闭|返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
+          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '惠消费 开好礼',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+      rules: [
+        {
+          matches: [
+            '@TextView[clickable=true] -n [text^="您还有1次开奖机会"] <n View < View <n View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
       ],
@@ -99,7 +121,7 @@ export default defineGkdApp({
       name: '热门活动-公告-×',
       forcedTime: 60000,
       matchRoot: true,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           anyMatches: [
@@ -107,9 +129,7 @@ export default defineGkdApp({
             '[id="app"] >n [text="公告"] + @TextView[clickable=true] +n TextView[clickable=true]',
             '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
         },
       ],
     },
@@ -214,9 +234,7 @@ export default defineGkdApp({
           matches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
         },
       ],
     },
@@ -235,9 +253,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
         },
       ],
     },
