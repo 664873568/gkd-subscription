@@ -17,7 +17,7 @@ export default defineGkdApp({
           matches: [
             '[text="个人信息保护指引"] +n * [text="同意"][clickable=true]',
           ],
-          activityIds: ['com.dragon.read.pages.splash.SplashActivity','null'],
+          activityIds: ['com.dragon.read.pages.splash.SplashActivity', 'null'],
         },
       ],
     },
