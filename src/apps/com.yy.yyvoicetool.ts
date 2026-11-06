@@ -53,12 +53,6 @@ export default defineGkdApp({
             '@TextView[clickable=true] - View < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
-        {
-          key: 2,
-          matches: [
-            '@TextView[clickable=true] + [getChild(childCount.minus(1)).text="继续赚金币"]',
-          ],
-        },
       ],
     },
     //每日任务
@@ -83,6 +77,7 @@ export default defineGkdApp({
             '@[text$="打开"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
             '@[text="领奖励"][clickable=true] <n View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
             '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[desc="Image Asset 13"] <n View < View <n View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -122,7 +117,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text="立即签到"][clickable=true] <n View < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
             '@[text$="打开"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -130,7 +125,7 @@ export default defineGkdApp({
           key: 5,
           name: '恭喜获得',
           matches: [
-            '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -154,7 +149,7 @@ export default defineGkdApp({
             '@[text="确定"][clickable=true] <n View <n View < View <n View < [id="root"]',
             '@[text="确定"][clickable=true] <n View < View < ViewGroup < [id="android:id/content"]',
             '@[text~="去完成|领奖励"][clickable=true] -n [text!~="访问指定频道|频道内发言|收藏任意频道|赠送红贝壳礼物"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
-            '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -195,14 +190,14 @@ export default defineGkdApp({
             '@[text="确定"][clickable=true] <n View <n View < View <n View < [id="root"]',
             '@[text="确定"][clickable=true] <n View < View < ViewGroup < [id="android:id/content"]',
             '@[text~="去完成|领奖励"][clickable=true] -n [text!~="访问指定频道|频道内发言|赠送红贝壳礼物"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
-            '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           preKeys: [0, 13],
           key: 1,
           name: '点击聊天框',
-          actionDelay: 1000,
+          actionDelay: 2000,
           matches: [
             '[text="说点什么吧..."] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -266,7 +261,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text~="去完成|领奖励"][clickable=true] -n [text!~="赠送红贝壳礼物"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
-            '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -293,7 +288,7 @@ export default defineGkdApp({
           preKeys: [3],
           key: 4,
           matches: [
-            '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -310,7 +305,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[text="看视频"][clickable=true] <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
+            '@[text="看视频"][clickable=true] <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text~="去完成|领奖励"] <n LinearLayout < FrameLayout <n FrameLayout < FrameLayout < ViewFactoryHolder <n View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
@@ -322,7 +317,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@[text="领金币"][clickable=true] <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
+            '@[text="领金币"][clickable=true] <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             'Button -n @TextView[clickable=true] < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
@@ -347,7 +342,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="，累计待领取"] +n [text="金币"] + @View[clickable=true] > [text="full.1aa72883"]',
+            '[text="full.1aa72883"] <n @View[clickable=true] <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
           activityIds: ['.MainActivity'],
         },
