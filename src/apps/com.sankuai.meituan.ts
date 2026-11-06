@@ -500,7 +500,7 @@ export default defineGkdApp({
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3, 4，5],
+          preKeys: [0, 1, 2, 3, 4, 5],
           key: 5,
           action: 'back',
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
