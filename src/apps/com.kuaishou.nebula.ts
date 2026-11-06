@@ -15,7 +15,7 @@ export default defineGkdApp({
           key: 0,
           action: 'back',
           matches: [
-            '@[text="与奖品擦肩而过"] <n View < View < View <n View < View <n View < [text="快手"] < WebView < [vid="webView"]',
+            '@[text="与奖品擦肩而过"] <n View < View < View <n View < View <n View < WebView < WebView < [vid="webView"]',
           ],
           activityIds: ['com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity'],
         },
