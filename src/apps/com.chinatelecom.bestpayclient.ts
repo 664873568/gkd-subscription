@@ -535,7 +535,7 @@ export default defineGkdApp({
           matches: [
             '@[text^="跳过"][vid="tv_ad_skip"][clickable=true] <n ViewGroup < RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['.ui.MainActivity','null'],
+          activityIds: ['.ui.MainActivity', 'null'],
         },
       ],
     },
