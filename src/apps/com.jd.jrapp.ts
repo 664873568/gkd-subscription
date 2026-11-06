@@ -523,6 +523,7 @@ export default defineGkdApp({
             '@View[clickable=true] - [text="可领取"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
+            '@[text="开心收下"][clickable=true] < View <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
             '@[text="开心收下"][clickable=true] < View < View <n View < View <n View <n View < View <n View < WebView < * < [vid="webview"]',
             '@[text="开心收下"][clickable=true] <n View <n View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
@@ -544,6 +545,7 @@ export default defineGkdApp({
             '[getChild(0).text="开红包抽"] - @TextView[clickable=true] < View <n View < View < View <n View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
+            '@[text="开心收下"][clickable=true] < View <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
             '@[text="开心收下"][clickable=true] < View < View <n View < View <n View <n View < View <n View < WebView < * < [vid="webview"]',
             '@View[clickable=true] - [text="可领取"] <n View <n View <n View < View <n View < WebView < * < [vid="webview"]',
             '@View[clickable=true] - [text="可领取"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
