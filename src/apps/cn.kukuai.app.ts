@@ -23,7 +23,13 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@[desc="领取"][clickable=true] <n View < View <n View <n View < View <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
+            '[desc="领取"] <n View < @View[clickable=true] <n View <n View < View <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[desc="关闭"][clickable=true] - [getChild(2).text="我知道了"] < View < View < View < View < View <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
       ],
@@ -35,7 +41,7 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      actionMaximum: 2,
+      actionMaximum: 4,
       resetMatch: 'activity',
       rules: [
         {
@@ -64,7 +70,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 11,
-          actionDelay: 2000,
+          actionDelay: 1000,
           anyMatches: [
             '[desc="发送"] < @View[clickable=true] <n View < View <n View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
             '@View[clickable=true] - [getChild(0).text="今日推荐"] < View <n ScrollView < View < View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
@@ -93,6 +99,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 11,
+          actionDelay: 1000,
           matches: [
             '@View[clickable=true] < View < View <n View < View < View < View < ComposeView < [id="android:id/content"]',
           ],
@@ -100,6 +107,7 @@ export default defineGkdApp({
         {
           preKeys: [11],
           key: 12,
+          actionDelay: 1000,
           matches: [
             '[text="召唤科研专家"] < @View[clickable=true] < View <n View < View < View < View < ComposeView < [id="android:id/content"]',
           ],
@@ -107,7 +115,7 @@ export default defineGkdApp({
         {
           preKeys: [12],
           key: 13,
-          actionDelay: 2000,
+          actionDelay: 1000,
           matches: [
             '[desc="发送"] < @View[clickable=true] <n View < View <n View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
           ],
@@ -133,7 +141,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
+          actionDelay: 2000,
           matches: [
             '[text~="剩[1-9]次"] < @View[clickable=true] < View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
@@ -167,6 +175,30 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 9,
+      name: '你希望我帮你做什么-跳过',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text="跳过"] < @View[clickable=true] -n [text="你希望我帮你做什么?"] <n View < View < View < View < ViewGroup < [id="android:id/content"]',
+          ],
+          activityIds: ['.MainActivity'],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[desc="领积分"] < @View[clickable=true] < View <n View < View <n View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
     //功能应用类
     {
       key: 40,
@@ -187,7 +219,7 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '你希望我帮你做什么-跳过',
+      name: '立即升级-×',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
@@ -195,18 +227,10 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          key: 0,
           matches: [
-            '[text="跳过"] < @View[clickable=true] -n [text="你希望我帮你做什么?"] <n View < View < View < View < ViewGroup < [id="android:id/content"]',
+            '@[desc="关闭"][clickable=true] -n [getChild(2).getChild(0).getChild(0).text="立即升级"] < View < View < View < ViewGroup < [id="android:id/content"]',
           ],
           activityIds: ['.MainActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '[desc="领积分"] < @View[clickable=true] < View <n View < View <n View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
-          ],
         },
       ],
     },
