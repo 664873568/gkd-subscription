@@ -1063,7 +1063,7 @@ export default defineGkdApp({
           name: '可领取',
           actionDelay: 2000,
           matches: [
-            '@TextView[clickable=true] < View < View < [id="app"] < View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] +n [getChild(1).getChild(0).text="连喂3次"] <n View < View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@[text="领"][clickable=true] < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
