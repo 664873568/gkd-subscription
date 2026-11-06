@@ -47,6 +47,12 @@ export default defineGkdApp({
             'View > TextView + View > @TextView[clickable=true] - View > TextView[clickable=true]',
           ],
         },
+        {
+          key: 5,
+          matches: [
+            '@TextView[clickable=true] - [text="直接领取"] - [text="看广告 领双倍"]',
+          ],
+        },
       ],
     },
     //26.05.25开始 每日福利-每日开红包得奖励
