@@ -6,6 +6,31 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
+      name: '每日幸运号',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '恭喜获得幸运奖-开心收下-×',
+          matches: [
+            '@ImageView - ImageView - ViewGroup > [getChild(2).text~=".*金币已到账"] + [text="本期一等奖号码"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '幸运号领取成功-我知道了-×',
+          matches: [
+            'ImageView < @ViewGroup[clickable=true] - ViewGroup - ViewGroup - [text="等待开奖 拿188元现金"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
       name: '每日刮刮乐-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -303,8 +328,9 @@ export default defineGkdApp({
             '[text="去完成"] < @ViewGroup[clickable=true] -n [text="逛专区任务"] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
           ],
           excludeMatches: [
+            'ImageView < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
             '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
-            '[text="去打开APP，返回赚现金"] < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
+            'ImageView < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="已领取过"]',
           ],
         },
         {
@@ -326,8 +352,18 @@ export default defineGkdApp({
         },
         {
           key: 3,
+          actionDelay: 2000,
           matches: [
             '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+          ],
+          excludeMatches: [
+            'ImageView < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="已领取过"]',
+          ],
+        },
+        {
+          key: 4,
+          matches: [
+            'ImageView < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="已领取过"]',
           ],
         },
       ],
@@ -457,8 +493,15 @@ export default defineGkdApp({
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3, 4],
           key: 4,
+          matches: [
+            'ImageView < @ViewGroup[clickable=true] + ImageView + [text="无套路 一次性到账"] + ViewGroup + ViewGroup > [text="选一个免费拿"]',
+          ],
+          activityIds: ['.msv.page.activity.MSVPageActivity'],
+        },
+        {
+          preKeys: [0, 1, 2, 3, 4，5],
+          key: 5,
           action: 'back',
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
