@@ -12,7 +12,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
+      activityIds: [
+        'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -57,7 +59,9 @@ export default defineGkdApp({
             'TextView[index=parent.childCount.minus(1)] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
             '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
-          activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
+          activityIds: [
+            'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -65,7 +69,9 @@ export default defineGkdApp({
           matches: [
             '@[desc="关闭 按钮"][clickable=true] - [text="去完成"] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
         {
           preKeys: [1],
@@ -80,22 +86,28 @@ export default defineGkdApp({
           matches: [
             '[text="地理位置信息授权"][vid="tv_dlg_title"] +n * > [text="允许"][vid="dlg_right_tv"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
         {
           preKeys: [0],
           key: 4,
           matches: ['Image < @View[clickable=true] + [text="速盈"]'],
-          activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
+          activityIds: [
+            'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+          ],
         },
         {
-          preKeys: [1, 2,3,4],
+          preKeys: [1, 2, 3, 4],
           key: 5,
           actionDelay: 5000,
           matches: [
             '@[desc~="关闭|返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
@@ -129,7 +141,9 @@ export default defineGkdApp({
             '[id="app"] >n [text="公告"] + @TextView[clickable=true] +n TextView[clickable=true]',
             '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
@@ -234,7 +248,9 @@ export default defineGkdApp({
           matches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
@@ -253,7 +269,9 @@ export default defineGkdApp({
           excludeMatches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
