@@ -9,6 +9,7 @@ export default defineGkdApp({
       key: 0,
       name: '签到领钱-签到',
       matchRoot: true,
+      fastQuery: true,
       forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
@@ -35,6 +36,7 @@ export default defineGkdApp({
       key: 1,
       name: '签到领钱-浏览任务',
       matchRoot: true,
+      fastQuery: true,
       forcedTime: 60000,
       resetMatch: 'activity',
       activityIds: [
@@ -46,7 +48,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           anyMatches: [
-            '[text!~="去中国移动逛逛"] - [getChild(2).text="最高1元"] < @View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
+            '[text!~="去中国移动逛逛"] - @[getChild(2).text="最高1元"] < View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
             '[text!~="去中国移动逛逛"] - @[getChild(2).text="最高1元"] < View < View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
           excludeMatches: [
@@ -58,8 +60,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           actionDelay: 5000,
-          anyMatches: [
-            '[vid="tvTitle"] < LinearLayout - @[desc="返回"][clickable=true] < [vid="left_panel"]', //逛大促会场
+          matches: [
             '[vid="ly_title_bar_left"] > @[text=""][vid="header_view_left_text_view"][clickable=true]', //超级金币
           ],
         },
@@ -100,8 +101,41 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '领补贴 得1元现金',
+      name: '领补贴 得1元现金-顶部',
       matchRoot: true,
+      fastQuery: true,
+      forcedTime: 60000,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.detailv2.EtaoTTDetailActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[vid="tt_detail_inside_top_view"][clickable=true] < [vid="tt_detail_inside_root"] <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '[desc="立即到账"] - ImageView - @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < [vid="dialog_container"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[desc="开心收下"] - ImageView - @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < [vid="dialog_container"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '领补贴 得1元现金-底部',
+      matchRoot: true,
+      fastQuery: true,
       forcedTime: 60000,
       matchDelay: 1000,
       resetMatch: 'activity',
@@ -145,6 +179,7 @@ export default defineGkdApp({
       key: 40,
       name: '更新提示',
       matchRoot: true,
+      fastQuery: true,
       forcedTime: 60000,
       matchTime: 10000,
       actionMaximum: 1,
