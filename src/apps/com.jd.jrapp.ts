@@ -1176,37 +1176,22 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [1],
           key: 2,
-          name: '恭喜获得收蛋奖励-开心收下-××',
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 0.75',
-          },
-          actionDelay: 1000,
-          matches: [
-            'TextView[clickable=true] - @TextView[clickable=true] < View < View < View < View < View < [id="app"] < View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            '@TextView[clickable=true] - TextView[text~="（.*s）"] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [1, 2],
-          key: 3,
           name: '兑换额度',
-          actionDelay: 2000,
+          actionDelay: 3000,
           anyMatches: [
             '[text="兑换额度"] < @View[clickable=true] <n View <n View < View < [id="app"] < View < WebView < * < [vid="webview"]',
             '[text="兑换额度"] < @View[clickable=true] <n View <n View <n View < View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@[id="J_airLevel_-"][clickable=true] < Image <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] - [getChild(0).text~="获得.*"] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [2],
+          key: 3,
           name: '恭喜你，成功收满100个蛋-立即兑换提额机会',
           matches: [
             '@[id="J_airLevel_-"][clickable=true] < Image <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
@@ -1214,23 +1199,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [3],
-          key: 5,
-          name: '恭喜你，成功收满100个蛋-立即兑换提额机会v',
-          position: {
-            left: 'width * 0.5',
-            top: 'height * 0.8',
-          },
-          actionDelay: 1000,
-          matches: [
-            'TextView[clickable=true] - @TextView[clickable=true] < View < View < View < View < View < [id="app"] < View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            '@[id="J_airLevel_-"][clickable=true] < Image <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [4, 5],
-          key: 6,
+          key: 4,
           name: '我知道了-×',
           matches: [
             '@TextView[clickable=true] - [getChild(0).text~="获得.*"] <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
@@ -1852,13 +1821,15 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] -2 [getChild(0).text!~="攒入.*|首绑.*|开通.*|开启.*"] <n View <n View < View <n View < [id="app"] <n WebView < * < [vid="webview"]',
             '@[text="去完成"][clickable=true] - [getChild(0).getChild(0).text!~="攒入.*|首绑.*|开通.*|开启.*"] <n View <n View < View <n View < [id="app"] <n View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - [getChild(2).getChild(0).text="开心收下"] < View <n View <n View < [id="app"] <n View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] - [getChild(2).getChild(0).text="开心收下"] < View <n View < View <n View < [id="app"] <n View < WebView < * < [vid="webview"]',
           ],
         },
         {
           preKeys: [1],
           key: 2,
-          matches: [
+          anyMatches: [
             '@TextView[clickable=true] - [getChild(2).getChild(0).text="开心收下"] < View <n View <n View < [id="app"] <n View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] - [getChild(2).getChild(0).text="开心收下"] < View <n View < View <n View < [id="app"] <n View < WebView < * < [vid="webview"]',
           ],
         },
         {
@@ -1872,6 +1843,7 @@ export default defineGkdApp({
             '@[text~="摇黄金 x[1-9]"][clickable=true] < View <n View <n View < [id="app"] <n WebView < * < [vid="webview"]',
             '@[text~="摇黄金 x[1-9]"][clickable=true] < View <n View <n View < [id="app"] <n View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - [getChild(2).getChild(0).text="开心收下"] < View <n View <n View < [id="app"] <n View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] - [getChild(2).getChild(0).text="开心收下"] < View <n View < View <n View < [id="app"] <n View < WebView < * < [vid="webview"]',
           ],
         },
         {
