@@ -77,6 +77,24 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 40,
+      name: '选择通知类型-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[vid="bt_cancel"][clickable=true] <n FrameLayout < [vid="vg_bottom"] < [vid="vg_all"] < [id="android:id/content"]',
+          ],
+          activityIds: ['.notifyguidev2.NotifyGuideV2Activity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
@@ -88,9 +106,8 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          anyMatches: [
-            '@[text="跳过"] < * - [text="广告"]',
-            '@[text="跳过"] < * - * > [text="广告"]',
+          matches: [
+            '@[text="跳过"] < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['.browser.WeiboBrowser', 'null'],
         },
