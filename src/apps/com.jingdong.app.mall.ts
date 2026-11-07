@@ -201,7 +201,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [12, 40, 100, 110,120],
+          preKeys: [12, 40, 100, 110, 120],
           key: 12,
           name: '建议开启边看边听-暂不开启',
           action: 'back',
@@ -212,7 +212,7 @@ export default defineGkdApp({
           activityIds: ['null'],
         },
         {
-          preKeys: [12, 13, 40, 100, 110,120],
+          preKeys: [12, 13, 40, 100, 110, 120],
           key: 13,
           name: '关闭直播间',
           action: 'back',
