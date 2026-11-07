@@ -1196,7 +1196,7 @@ export default defineGkdApp({
         {
           preKeys: [5, 6],
           key: 8,
-          name: '恭喜预约成功',
+          name: '恭喜预约成功-×',
           position: {
             left: 'width * 0.91',
             top: 'height * 0.13',
