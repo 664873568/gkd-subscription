@@ -97,9 +97,9 @@ export default defineGkdApp({
         {
           key: 1,
           name: '签到',
-          actionDelay: 3000,
           matches: ['@Image <n View < View - [text$="套餐"]'],
           excludeMatches: [
+            '[getChild(0).getChild(0).text="广告"] + @Image',
             '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(1).text^="消耗星币"] + [getChild(0).text="兑换"]',
           ],
         },
@@ -153,14 +153,8 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0, 1, 2],
           key: 2,
-          matches: [
-            '[desc="去首页逛逛"] - [desc="活动陆续开放中"] <n View < ScrollView < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
-          ],
-        },
-        {
-          preKeys: [0, 1, 2, 3],
-          key: 3,
           action: 'back',
           actionDelay: 2000,
           matches: [
@@ -168,9 +162,17 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 4],
+          key: 3,
+          actionDelay: 2000,
+          matches: [
+            '[desc="去首页逛逛"] - [desc="活动陆续开放中"] <n View < ScrollView < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
+          ],
+        },
+        {
+          preKeys: [2, 3, 4],
           key: 4,
           action: 'back',
+          actionDelay: 1000,
           matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
           activityIds: ['.ui.LauncherUI'],
         },
