@@ -9,13 +9,14 @@ export default defineGkdApp({
       name: '百度网盘-去快手极速版点赞',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
           action: 'back',
           matches: [
-            '@[text="与奖品擦肩而过"] <n View < View < View <n View < View <n View < WebView < WebView < [vid="webView"]',
+            '[text="与奖品擦肩而过"] - @View[clickable=true] < View < View < View <n View < View <n View < WebView < WebView < [vid="webView"]',
           ],
           activityIds: ['com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity'],
         },
