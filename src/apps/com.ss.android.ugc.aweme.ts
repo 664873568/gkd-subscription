@@ -425,7 +425,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1,2, 3],
+          preKeys: [0, 1, 2, 3],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -1207,7 +1207,7 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [7,8],
+          preKeys: [7, 8],
           key: 9,
           name: '恭喜获得惊喜奖励',
           matches: [
