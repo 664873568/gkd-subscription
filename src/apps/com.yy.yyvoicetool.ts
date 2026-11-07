@@ -345,7 +345,7 @@ export default defineGkdApp({
             '[text="full.1aa72883"] <n @View[clickable=true] <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < View < View < ViewGroup < [id="android:id/content"]',
             '[text="full.1aa72883"] <n @View[clickable=true] <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['.MainActivity','null'],
+          activityIds: ['.MainActivity', 'null'],
         },
       ],
     },
