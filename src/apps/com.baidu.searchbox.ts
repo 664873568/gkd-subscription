@@ -154,8 +154,8 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           position: {
-            left: 'width * 0.5',
-            top: 'height * 0.735',
+            left: 'width * 0.868',
+            top: 'height * 0.131',
           },
           actionDelay: 5000,
           matches: [
