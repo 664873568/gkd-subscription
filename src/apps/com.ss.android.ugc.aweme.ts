@@ -144,10 +144,10 @@ export default defineGkdApp({
           key: 0,
           position: {
             left: 'width * 0.84',
-            top: 'height * 0.18',
+            top: 'height * 0.25',
           },
           matches: [
-            'ImageView <n @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //立即签到00
+            'ImageView[width=height] < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView', //立即签到00
           ],
           excludeMatches: [
             '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup - ScrollView < FrameLayout < FrameLayout',
@@ -198,7 +198,7 @@ export default defineGkdApp({
             top: 'height * 0',
           },
           matches: [
-            '@ImageView -n ImageView - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
+            '@ImageView[width=height] -n ImageView - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             'ViewGroup <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
@@ -299,6 +299,13 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: ['.bullet.ui.BulletContainerActivity'],
       rules: [
+        {
+          key: 0,
+          name: '抽发财金',
+          matches: [
+            '@ViewGroup[childCount=0] - ImageView <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < LinearLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
         {
           key: 1,
           name: '恭喜抽中奖品/任务完成 恭喜获得-开心收下',
@@ -418,21 +425,21 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 3],
+          preKeys: [0, 1,2, 3],
           key: 2,
           actionDelay: 5000,
           matches: [
             '@[desc="返回 按钮"] < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@[desc="残忍离开"] < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '@[desc="残忍离开"] < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           preKeys: [2],
           key: 3,
           matches: [
-            '@[desc="残忍离开"] < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '@[desc="残忍离开"] < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -516,6 +523,13 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '@[text="我知道了"][clickable=true] <n View <n View <n View < WebView < WebView < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 3,
+          matches: [
+            '@[text="离开"][clickable=true] <n View < AlertDialog < View <n View < WebView < WebView < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -1163,7 +1177,7 @@ export default defineGkdApp({
           key: 6,
           name: '立即预约领取',
           matches: [
-            '[desc="立即预约领取"] < @ViewGroup < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            '@[desc="立即预约领取"] < ViewGroup <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           excludeMatches: [
             '@ViewGroup - ViewGroup - ImageView <n ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
@@ -1180,17 +1194,30 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [7],
+          preKeys: [5, 6],
           key: 8,
-          name: '恭喜获得惊喜奖励',
+          name: '恭喜预约成功',
+          position: {
+            left: 'width * 0.91',
+            top: 'height * 0.13',
+          },
           matches: [
-            'ImageView - ViewGroup - @ImageView[width=height] < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            'ViewGroup < ViewGroup < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [8],
+          preKeys: [7,8],
           key: 9,
+          name: '恭喜获得惊喜奖励',
+          matches: [
+            'ViewGroup - @ImageView[width=height] < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+          ],
+          activityIds: ['.bullet.ui.BulletContainerActivity'],
+        },
+        {
+          preKeys: [9],
+          key: 10,
           name: '返回',
           action: 'back',
           matches: [
