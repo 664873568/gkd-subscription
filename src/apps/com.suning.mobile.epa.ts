@@ -13,8 +13,9 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: [
-            '[getChild(0).getChild(0).text~="点击.*|[0-9]s后.*"] - @ImageButton[clickable=true] < View < View <n [id="app"] < View < WebView < WebView < [id="com.suning.mobile.epa:id/layout_system_webview_frameLayout"]',
+          anyMatches: [
+            '[text~="点击.*|[0-9]s后.*"] < View - @ImageButton[clickable=true] < View < View <n [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+            '[text~="点击.*|[0-9]s后.*"] < View < View - @ImageButton[clickable=true] < View < View <n [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
           activityIds: [
             '.ui.init.SplashActivity',
