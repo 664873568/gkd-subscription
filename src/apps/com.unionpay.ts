@@ -42,7 +42,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text~="剩余 [1-9]次 抽奖机会"][clickable=true] <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
