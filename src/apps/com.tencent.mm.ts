@@ -153,8 +153,15 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
           key: 2,
+          actionDelay: 2000,
+          matches: [
+            '[desc="去首页逛逛"] - [desc="活动陆续开放中"] <n View < ScrollView < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
+          ],
+        },
+        {
+          preKeys: [0, 1, 2,3],
+          key: 3,
           action: 'back',
           actionDelay: 2000,
           matches: [
@@ -162,14 +169,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
-          actionDelay: 2000,
-          matches: [
-            '[desc="去首页逛逛"] - [desc="活动陆续开放中"] <n View < ScrollView < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
-          ],
-        },
-        {
-          preKeys: [2, 3, 4],
+          preKeys: [3, 4],
           key: 4,
           action: 'back',
           actionDelay: 1000,
