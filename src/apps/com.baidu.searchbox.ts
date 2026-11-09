@@ -98,23 +98,7 @@ export default defineGkdApp({
     },
     //搜有红包
     {
-      key: 37,
-      name: '搜有红包-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '[text="去完成领金币"] <n View - [getChild(0).text="送你大量金币"] < View < View - @TextView[clickable=true]',
-          ],
-          activityIds: ['com.baidu.browser.search.LightSearchActivity'],
-        },
-      ],
-    },
-    {
-      key: 38,
+      key: 20,
       name: '搜有红包',
       forcedTime: 60000,
       matchRoot: true,
@@ -155,7 +139,7 @@ export default defineGkdApp({
           key: 3,
           position: {
             left: 'width * 0.868',
-            top: 'height * 0.131',
+            top: 'height * 0.114',
           },
           actionDelay: 5000,
           matches: [
@@ -165,6 +149,22 @@ export default defineGkdApp({
             '[text="立即领取"] < @View[clickable=true] <n View < View < View - TextView[clickable=true]',
             '[text="去看视频"] < View < View[clickable=true] <n View <n View - @TextView[clickable=true]',
           ],
+        },
+      ],
+    },
+    {
+      key: 21,
+      name: '搜有红包-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '[text="去完成领金币"] <n View - [getChild(0).text="送你大量金币"] < View < View - @TextView[clickable=true]',
+          ],
+          activityIds: ['com.baidu.browser.search.LightSearchActivity'],
         },
       ],
     },
