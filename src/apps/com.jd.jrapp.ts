@@ -368,8 +368,8 @@ export default defineGkdApp({
           key: 11,
           name: '免费抽奖',
           anyMatches: [
-            '@[text="免费抽奖x1"][clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@[text="免费抽奖x1"][clickable=true] <n View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="免费抽奖x1"][clickable=true] < View <n View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
         },
         {
@@ -504,7 +504,7 @@ export default defineGkdApp({
           name: '开心收下',
           anyMatches: [
             '@[text="开心收下"][clickable=true] < View <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-            '@[text="开心收下"][clickable=true] < View < View <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
+            '@[text="开心收下"][clickable=true] < View < View <n View <n View <n View <n View < View <n View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@[text="开心收下"][clickable=true] <n View <n View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -519,7 +519,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text="开心收下"][clickable=true] < View <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-            '@[text="开心收下"][clickable=true] < View < View <n View < View <n View <n View < View <n View < WebView < * < [vid="webview"]',
+            '@[text="开心收下"][clickable=true] < View < View <n View <n View <n View <n View < View <n View < WebView < * < [vid="webview"]',
             '@[text="开心收下"][clickable=true] <n View <n View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
         },
@@ -541,7 +541,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text="开心收下"][clickable=true] < View <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-            '@[text="开心收下"][clickable=true] < View < View <n View < View <n View <n View < View <n View < WebView < * < [vid="webview"]',
+            '@[text="开心收下"][clickable=true] < View < View <n View <n View <n View <n View < View <n View < WebView < * < [vid="webview"]',
             '@View[clickable=true] - [text="可领取"] <n View <n View <n View < View <n View < WebView < * < [vid="webview"]',
             '@View[clickable=true] - [text="可领取"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
             '@[text="开心收下"][clickable=true] <n View <n View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -2072,7 +2072,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text="03e60180185ad347"][clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
-            '@Button[clickable=true] -n Image[clickable=true] < View <n View < View <n View < WebView < * < [vid="webview"]',
+            '@Button[clickable=true] -n [name*="Image"][clickable=true] < View <n View < View <n View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - View - Image < [name$="Dialog"] <n View <n View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - TextView[clickable=true] <n [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
           ],
@@ -2088,7 +2088,7 @@ export default defineGkdApp({
           key: 2,
           name: '立即抽奖',
           matches: [
-            '@Button[clickable=true] -n Image[clickable=true] < View <n View < View <n View < WebView < * < [vid="webview"]',
+            '@Button[clickable=true] -n [name*="Image"][clickable=true] < View <n View < View <n View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@[text="03e60180185ad347"][clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
@@ -2256,12 +2256,13 @@ export default defineGkdApp({
             },
             duration: 200,
           },
+          actionDelay: 2000,
           actionCd: 20000,
           matches: [
             '[text~="([0-9]|[1-4][0-9]|5[0-2])/53"] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < @[vid="fl_operating_group"]',
           ],
           excludeMatches: [
-            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|.*继续.*|金币获取加倍中"]',
+            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|金币获取加倍中"]',
           ],
         },
         {
@@ -2279,7 +2280,7 @@ export default defineGkdApp({
           },
           matches: ['@[vid="recycler_view"] >n [text="上滑继续看视频"]'],
           excludeMatches: [
-            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|.*继续.*|金币获取加倍中"]',
+            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|金币获取加倍中"]',
           ],
         },
       ],
