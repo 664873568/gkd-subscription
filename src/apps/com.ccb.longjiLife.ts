@@ -28,7 +28,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 2,
           actionDelay: 11000,
           matches: [
