@@ -9,7 +9,8 @@ export default defineGkdApp({
       name: '连续签到',
       forcedTime: 60000,
       matchRoot: true,
-      resetMatch: 'app',
+      actionMaximum: 1,
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@TextView[clickable=true] -n [text^="连续签到"]'],
@@ -50,8 +51,8 @@ export default defineGkdApp({
       name: 'YY-去微博赚红包',
       forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
-      resetMatch: 'app',
+      actionMaximum: 1,
+      resetMatch: 'activity',
       activityIds: ['.browser.WeiboBrowser'],
       rules: [
         {
@@ -65,7 +66,8 @@ export default defineGkdApp({
       name: '星图金融-去微博签到领红包',
       forcedTime: 60000,
       matchRoot: true,
-      resetMatch: 'app',
+      actionMaximum: 1,
+      resetMatch: 'activity',
       rules: [
         {
           excludeMatches: ['@[text="任务完成\\n返回YY"]'],
@@ -109,7 +111,7 @@ export default defineGkdApp({
           matches: [
             '@[text="跳过"] < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['.browser.WeiboBrowser', 'null'],
+          activityIds: ['.browser.WeiboBrowser','.MainTabActivity', 'null'],
         },
       ],
     },
