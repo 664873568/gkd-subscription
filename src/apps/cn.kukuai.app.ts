@@ -152,14 +152,14 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 1,
           matches: [
             '@[text~="立即抽奖剩余[1-9]次"][clickable=true] <n View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@TextView[clickable=true] -n [text^="恭喜您获得"] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
