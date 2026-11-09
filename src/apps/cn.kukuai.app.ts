@@ -52,6 +52,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '[text~="剩[1-9]次"] < @View[clickable=true] < View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
+            'TextView -n @TextView[clickable=true] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
           activityIds: ['.MainActivity'],
         },
