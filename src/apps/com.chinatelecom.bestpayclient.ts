@@ -603,7 +603,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -611,7 +610,10 @@ export default defineGkdApp({
             left: 'width * 0.5',
             top: 'height * 0.96',
           },
-          matches: ['View > TextView + View > @View > View > Image + TextView'],
+          anyMatches: [
+            'TextView < View < @View < View - TextView < View <n View < WebView < WebView <n FrameLayout < [vid="mr_pc_container"]',
+            'TextView < View < @View < View - TextView < View <n View < View < WebView < WebView <n FrameLayout < [vid="mr_pc_container"]',
+          ],
           activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$Main'],
         },
       ],
