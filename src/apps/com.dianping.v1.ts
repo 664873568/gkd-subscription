@@ -46,9 +46,10 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 2000,
           matches: [
-            '[text="必得"] <n FrameLayout < @FrameLayout[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < ViewGroup < RecyclerView <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
+            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得"]',
           ],
           excludeMatches: [
+            '@ImageView[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
             'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="可领"]',
           ],
@@ -76,7 +77,10 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 2000,
           matches: [
-            '[text="可领"] <n FrameLayout < @FrameLayout[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < ViewGroup < RecyclerView <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
+            '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="可领"]',
+          ],
+          excludeMatches: [
+            '@ImageView[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: [
             '.NovaMainActivity',
@@ -97,10 +101,10 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 2000,
           matches: [
-            'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text="去完成"]',
+            '[text="去完成"] < @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           excludeMatches: [
-            'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text="立即领"]',
+            '[text="立即领"] < @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: [
             '.NovaMainActivity',
@@ -125,7 +129,7 @@ export default defineGkdApp({
           key: 2,
           action: 'clickCenter',
           matches: [
-            'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text="立即领"]',
+            '[text="立即领"] < @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: [
             '.NovaMainActivity',
@@ -135,10 +139,10 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            '@ImageView[clickable=true] <n FrameLayout <n FrameLayout < FrameLayout < [vid="picasso_view"]',
+            '@ImageView[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           excludeMatches: [
-            'ImageView[clickable=true] + FrameLayout >n RecyclerView > ViewGroup >n ImageView + [getChild(0).getChild(0).text!~="今天邀请好友助力"] + @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
+            '[text~="去完成|立即领"] < @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: [
             '.NovaMainActivity',
@@ -148,7 +152,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 9,
+      key: 39,
       name: '星图金融-去大众点评赢免单',
       forcedTime: 60000,
       matchRoot: true,
@@ -163,171 +167,12 @@ export default defineGkdApp({
           action: 'clickCenter',
           actionDelay: 5000,
           matches: [
-            '@[getChild(0).desc="back"][width=height][clickable=true] + [getChild(0).getChild(0).desc="menu"]',
+            '[desc="back"] < @FrameLayout[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           excludeMatches: [
             'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得" || text="可领"]',
           ],
-        },
-      ],
-    },
-    //旧版本
-    {
-      key: 10,
-      name: '寻宝活动-签到领金币',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
-      rules: [
-        {
-          key: 0,
-          action: 'clickCenter',
-          anyMatches: [
-            'ImageView[clickable=true] - FrameLayout > @FrameLayout[clickable=true] > ImageView',
-            '@FrameLayout[clickable=true] > [text="今日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'clickCenter',
-          anyMatches: [
-            'FrameLayout[getChild(0).name$="ImageView"] + FrameLayout > @FrameLayout[clickable=true] >n [text~="\\\\([0-9]s\\\\)"]',
-            '@ImageView[clickable=true] -n [getChild(2).getChild(1).getChild(0).text~="额外送你[0-9]00金币奖励～"]',
-          ],
-        },
-        {
-          key: 2,
-          name: '三餐奖励',
-          action: 'clickCenter',
-          matches: [
-            '@FrameLayout[clickable=true] > [text*="奖励"][index=parent.childCount.minus(1)]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 11,
-      name: '寻宝活动-做任务领奖励',
-      forcedTime: 60000,
-      matchRoot: true,
-      resetMatch: 'activity',
-      activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
-      rules: [
-        {
-          key: 0,
-          action: 'clickCenter',
-          actionDelay: 2000,
-          matches: [
-            '@FrameLayout[clickable=true] > [text!~="明日签到"] - FrameLayout > ImageView + [text~="[0-9]+"] + [text="最高"]',
-          ],
-          excludeMatches: [
-            '@FrameLayout[clickable=true] > [text="今日签到" || text$="奖励"][index=parent.childCount.minus(1)]',
-          ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'clickCenter',
-          matches: [
-            '@FrameLayout[clickable=true] > ImageView + ImageView + [text="浏览完成"]',
-          ],
-          activityIds: [
-            'com.dianping.base.web.ui.NovaTitansActivity', //随Visa探英伦风情
-            'com.dianping.nova.picasso.DPPicassoBoxActivity', //浏览免费试频道//浏览当地人推荐榜
-            'com.meituan.android.mrn.container.MRNBaseActivity', //逛精选团购 享超值优惠
-            'com.meituan.android.mrnx.container.MRNXStandardActivity', //逛精选团购 享超值优惠-闪电特惠
-          ],
-        },
-      ],
-    },
-    {
-      key: 13,
-      name: '寻宝活动-开宝箱得金币',
-      forcedTime: 60000,
-      matchRoot: true,
-      resetMatch: 'activity',
-      activityIds: [
-        'com.dianping.nova.picasso.DPPicassoBoxActivity',
-        'com.dianping.shopshell.PexusPoiActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          action: 'clickCenter',
-          actionDelay: 2000,
-          matches: [
-            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
-          ],
-          excludeMatches: [
-            'ViewGroup >n FrameLayout[clickable=true] > [text="去完成"]',
-            'ImageView[clickable=true] + FrameLayout >n ViewGroup >n @FrameLayout[clickable=true] > [text~="去完成|立即领"]',
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout >n [text="10元免单券"]', //集卡得免单
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout >n [text="10元免单券"]',
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          action: 'clickCenter',
-          matches: [
-            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < * - * [text="恭喜获得"] + [text="100点金币"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          action: 'clickCenter',
-          matches: [
-            'ImageView - ImageView < FrameLayout < @FrameLayout[clickable=true] < FrameLayout < FrameLayout + [id$="android:id/navigationBarBackground"]', //返回寻宝
-          ],
-        },
-        {
-          preKeys: [1, 2],
-          key: 3,
-          anyMatches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout >n [text="10元免单券"]', //集卡得免单
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout >n [text="10元免单券"]',
-          ],
-        },
-        {
-          preKeys: [3],
-          key: 4,
-          matches: [
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
-          ],
-        },
-      ],
-    },
-    {
-      key: 14,
-      name: '寻宝活动-今日累计奖励-领取',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'clickCenter',
-          actionDelay: 2000,
-          matches: [
-            '[text="今日累计奖励"] < * < * + * @FrameLayout[clickable=true] > [text="领取"]',
-          ],
-          excludeMatches: [
-            '@FrameLayout[clickable=true] > ImageView + ImageView + FrameLayout > [text="x"]', //开宝箱得金币
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout[getChild(1).getChild(0).clickable=true] - FrameLayout > ImageView', //继续开宝箱集卡
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout >n [text="10元免单券"]', //集卡得免单
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView < FrameLayout -2 FrameLayout >n [text="10元免单券"]',
-            '@ImageView[clickable=true] < FrameLayout - FrameLayout > ImageView[clickable=true] < FrameLayout - FrameLayout[clickable=false] >n ImageView', //查看附近的店
-          ],
-          activityIds: ['com.dianping.nova.picasso.DPPicassoBoxActivity'],
         },
       ],
     },
