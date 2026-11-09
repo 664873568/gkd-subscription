@@ -12,9 +12,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
-      ],
+      activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
       rules: [
         {
           key: 0,
@@ -42,12 +40,44 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [20],
       key: 1,
+      name: '任务中心-签到有礼-补签',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+        'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="去看看"][clickable=true] -n [text="您还没有补签卡"] < View < View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+          ],
+        },
+        {
+          preKeys: [20],
+          key: 1,
+          matches: [
+            '@[desc="返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 2,
       name: '日常任务-去完成',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+        'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -59,18 +89,12 @@ export default defineGkdApp({
             'TextView[index=parent.childCount.minus(1)] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
             '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
-          activityIds: [
-            'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
-          ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
             '@[desc="关闭 按钮"][clickable=true] - [text="去完成"] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
-          ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
           ],
         },
         {
@@ -86,17 +110,11 @@ export default defineGkdApp({
           matches: [
             '[text="地理位置信息授权"][vid="tv_dlg_title"] +n * > [text="允许"][vid="dlg_right_tv"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
         },
         {
           preKeys: [0],
           key: 4,
           matches: ['Image < @View[clickable=true] + [text="速盈"]'],
-          activityIds: [
-            'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
-          ],
         },
         {
           preKeys: [1, 2, 3, 4],
@@ -105,14 +123,11 @@ export default defineGkdApp({
           matches: [
             '@[desc~="关闭|返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
         },
       ],
     },
     {
-      key: 2,
+      key: 3,
       name: '惠消费 开好礼',
       forcedTime: 60000,
       matchRoot: true,
@@ -130,25 +145,6 @@ export default defineGkdApp({
     //热门活动
     {
       key: 10,
-      name: '热门活动-公告-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            '[id="app"] >n View[getChild(0).name$="ImageButton"] + @TextView[clickable=true]',
-            '[id="app"] >n [text="公告"] + @TextView[clickable=true] +n TextView[clickable=true]',
-            '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
-          ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 11,
       name: '热门活动-签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -207,6 +203,23 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 11,
+      name: '热门活动-公告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      rules: [
+        {
+          anyMatches: [
+            '[id="app"] >n View[getChild(0).name$="ImageButton"] + @TextView[clickable=true]',
+            '[id="app"] >n [text="公告"] + @TextView[clickable=true] +n TextView[clickable=true]',
+            '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
+          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+        },
+      ],
+    },
+    {
       key: 12,
       name: '热门活动-抽奖',
       forcedTime: 60000,
@@ -239,39 +252,37 @@ export default defineGkdApp({
     //低碳生活
     {
       key: 20,
-      name: '低碳生活-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: [
-            '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
-          ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 21,
       name: '低碳生活-一键收取',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
+          key: 20,
           matches: [
             '@[text="oneKey"][clickable=true] <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
           excludeMatches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+        },
+      ],
+    },
+    {
+      key: 21,
+      name: '低碳生活-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
         },
       ],
     },
