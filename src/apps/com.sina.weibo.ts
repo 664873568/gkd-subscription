@@ -111,7 +111,7 @@ export default defineGkdApp({
           matches: [
             '@[text="跳过"] < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['.browser.WeiboBrowser','.MainTabActivity', 'null'],
+          activityIds: ['.browser.WeiboBrowser', '.MainTabActivity', 'null'],
         },
       ],
     },
