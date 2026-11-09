@@ -331,8 +331,9 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 3],
+          preKeys: [0],
           key: 3,
+          action: 'back',
           matches: [
             'WebView[vid="system_webview_sdk"][index=0][childCount=0][clickable=true] < FrameLayout < [vid="h5_base_layout"]',
           ],
