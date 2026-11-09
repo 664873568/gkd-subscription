@@ -248,7 +248,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text*="微信"][index=parent.childCount.minus(1)]',
           ],
           excludeMatches: [
             '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
@@ -303,6 +303,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '奖励将于*秒后发放',
+          actionDelay: 1000,
           matches: [
             '@[text~=".*拿奖|放弃福利.*"] <n * <n * <n * <n * [text^="奖励将于"]',
           ],
@@ -319,6 +320,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '我要更快拿奖',
+          actionDelay: 1000,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * FrameLayout > @[text="我要更快拿奖"]',
           ],
@@ -326,7 +328,6 @@ export default defineGkdApp({
         {
           key: 3,
           name: '已完成浏览*秒，提前获得奖励',
-          actionDelay: 1000,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text*="已完成浏览"]',
           ],
@@ -340,9 +341,9 @@ export default defineGkdApp({
         },
         {
           key: 5,
-          name: '点击下载或打开第三方应用-×',
+          name: '*点击下载或打开*-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text^="点击" || text$="下载或打开第三方应用"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text*="点击" || text*="打开"]',
           ],
           excludeMatches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < FrameLayout < FrameLayout <n * <n * <n * [text^="奖励将于" || text="恭喜获得奖励" || text="我要更快拿奖"]',
@@ -351,7 +352,6 @@ export default defineGkdApp({
         {
           key: 6,
           name: '恭喜获得奖励-×',
-          actionDelay: 1000,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text="恭喜获得奖励"]',
           ],
