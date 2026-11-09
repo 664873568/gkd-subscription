@@ -98,9 +98,10 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '去苏宁易购领云钻',
           actionDelay: 3000,
           matches: [
-            '@[vid="title_bar_left_img"][clickable=true] + [text="下载中间页 : 苏宁易购手机版"][vid="title_bar_tv"]', //去苏宁易购领云钻
+            '[text="下载中间页 : 苏宁易购手机版"][vid="title_bar_tv"] - @[vid="title_bar_left_img"][clickable=true] < [vid="title_bar_normal_root"]',
           ],
           activityIds: ['.web.WebActivity'],
         },
@@ -148,13 +149,9 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          position: {
-            left: 'width * 0.93',
-            top: 'height * 0.76',
-          },
           actionDelay: 2000,
           matches: [
-            '@[vid="ll_share"] <n [vid="root_view"] < [id="android:id/content"]',
+            '@[vid="iv_close"] <n FrameLayout < [vid="ll_share"] <n [vid="root_view"] < [id="android:id/content"]',
           ],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
         },
@@ -200,7 +197,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           position: {
-            left: 'width * 0.93',
+            left: 'width * 0.925',
             top: 'height * 0.8',
           },
           actionDelay: 2000,
@@ -300,13 +297,9 @@ export default defineGkdApp({
         {
           preKeys: [6],
           key: 7,
-          position: {
-            left: 'width * 0.93',
-            top: 'height * 0.8',
-          },
           actionDelay: 2000,
           matches: [
-            '[id="android:id/content"] > ViewGroup > @ScrollView > ViewGroup > [text="再做一个"]',
+            '@[vid="title_bar_right_img"][clickable=true] -n [vid="title_bar_left_img"] < [vid="title_bar_normal_root"]',
           ],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
@@ -368,13 +361,9 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
-          position: {
-            left: 'width * 0.93',
-            top: 'height * 0.8',
-          },
           actionDelay: 2000,
           matches: [
-            '[id="android:id/content"] > ViewGroup > @ScrollView > ViewGroup > [text="再做一个"]',
+            '@[vid="title_bar_right_img"][clickable=true] -n [vid="title_bar_left_img"] < [vid="title_bar_normal_root"]',
           ],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
@@ -1096,6 +1085,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text*="跳过"][clickable=true] <n FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n FrameLayout < FrameLayout < [vid="flash_fragment"]',
+            '@[text="跳过"] < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < [vid="flash_fragment"]',
           ],
           activityIds: [
@@ -1114,6 +1104,7 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
+            '@[vid="iv_close"] <n FrameLayout < [vid="rl_root"] < [id="android:id/content"]',
             '@[vid="close"][clickable=true] <n LinearLayoutCompat < [vid="rl_root"] < [id="android:id/content"]',
             '@[vid="dialog_home_pop_close_button"][clickable=true] < LinearLayout < [vid="rl_root"] < [id="android:id/content"]',
           ],
