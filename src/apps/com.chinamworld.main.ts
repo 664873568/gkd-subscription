@@ -12,7 +12,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity'],
+      activityIds: [
+        'com.nantian.iBank.ui.activity.container.ProgramSingleWindowActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -215,7 +217,9 @@ export default defineGkdApp({
             '[id="app"] >n [text="公告"] + @TextView[clickable=true] +n TextView[clickable=true]',
             '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
@@ -266,7 +270,9 @@ export default defineGkdApp({
           excludeMatches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
@@ -282,7 +288,9 @@ export default defineGkdApp({
           matches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
