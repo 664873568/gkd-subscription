@@ -153,7 +153,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="财顾"][vid="tab_name"] <n [vid="normal_tab"] < @[vid="tab4"][clickable=true] <n [vid="tab_container"] < [vid="home_tab_layout"] <n [vid="layout_base"]',
+            '[vid="tab_name"] <n [vid="normal_tab"] < @[vid="tab4"][clickable=true] <n [vid="tab_container"] < [vid="home_tab_layout"] <n [vid="layout_base"]',
           ],
           activityIds: ['.launcher.LauncherActivity'],
         },
@@ -199,7 +199,7 @@ export default defineGkdApp({
           name: '去完成',
           anyMatches: [
             '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
@@ -209,12 +209,12 @@ export default defineGkdApp({
           name: '查看我的金币/去领取',
           anyMatches: [
             '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
           excludeMatches: [
             '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
