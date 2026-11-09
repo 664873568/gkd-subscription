@@ -27,6 +27,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [1],
           key: 2,
           matches: [
             '@[desc="关闭"][clickable=true] - [getChild(2).text="我知道了"] < View < View < View < View < View <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
@@ -45,7 +46,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 0,
+          key: 1,
           actionDelay: 2000,
           matches: [
             '@ImageButton[clickable=true] -n [text!~="邀请.*"] < View <n ListView <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
@@ -69,7 +70,7 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [0],
+          preKeys: [1],
           key: 11,
           actionDelay: 1000,
           anyMatches: [
@@ -98,7 +99,7 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [0],
+          preKeys: [1],
           key: 11,
           actionDelay: 1000,
           matches: [
@@ -151,27 +152,24 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0,2],
           key: 1,
           matches: [
             '@[text~="立即抽奖剩余[1-9]次"][clickable=true] <n View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
-          excludeMatches: [
-            '@TextView[clickable=true] -n [text^="恭喜您获得"] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
-          ],
         },
         {
+          preKeys: [0,1],
           key: 2,
           matches: [
             '@TextView[clickable=true] -n [text^="恭喜您获得"] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
         {
+          preKeys: [2],
           key: 3,
           matches: [
             '[text~="立即抽奖剩余0次"] -n @TextView[clickable=true] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
-          ],
-          excludeMatches: [
-            '@TextView[clickable=true] -n [text^="恭喜您获得"] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
         },
       ],
