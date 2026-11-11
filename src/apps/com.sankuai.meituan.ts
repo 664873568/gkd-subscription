@@ -297,6 +297,23 @@ export default defineGkdApp({
     },
     {
       key: 14,
+      name: '打卡领金币',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          name: '补贴到账-恭喜获得-×',
+          matches: [
+            '@ImageView - ImageView < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+        },
+      ],
+    },
+    {
+      key: 18,
       name: '添加*到桌面-不感兴趣',
       forcedTime: 60000,
       matchRoot: true,
@@ -307,9 +324,7 @@ export default defineGkdApp({
           matches: [
             '[vid="hot_zone"] > @[vid="button_n"][clickable=true] + FrameLayout > [vid="button_y"]',
           ],
-          activityIds: [
-            'com.meituan.android.novel.library.page.ad.CommonTaskActivity',
-          ],
+          activityIds: ['com.meituan.android.novel.library.page.ad.CommonTaskActivity'],
         },
       ],
     },
@@ -324,12 +339,14 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          anyMatches: [
             '[text="去完成"] < @ViewGroup[clickable=true] -n [text="逛专区任务"] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+            '[text="去完成"] < @ViewGroup[clickable=true] < ViewGroup -n [text="逛专区任务"] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
           ],
           excludeMatches: [
             'ImageView < @ViewGroup[clickable=true] -n [text="完成任务可领"]',
             '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+            '[text="可领取"] < @ViewGroup[clickable=true] < ViewGroup <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
             'ImageView < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="已领取过"]',
           ],
         },
@@ -353,8 +370,9 @@ export default defineGkdApp({
         {
           key: 3,
           actionDelay: 2000,
-          matches: [
+          anyMatches: [
             '[text="可领取"] < @ViewGroup[clickable=true] <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
+            '[text="可领取"] < @ViewGroup[clickable=true] < ViewGroup <n ViewGroup <n ViewGroup < ScrollView -n [text="日常任务加速提现"]',
           ],
           excludeMatches: [
             'ImageView < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="已领取过"]',
@@ -395,9 +413,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="去看看"] <<n * [text="广告"]'],
-          activityIds: [
-            'com.meituan.android.mrn.container.MRNStandardActivity',
-          ],
+          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
         },
       ],
     },
@@ -470,9 +486,7 @@ export default defineGkdApp({
           matches: [
             '@[vid="iv_reader_back"][clickable=true] < [vid="scroll_back_view"]',
           ],
-          activityIds: [
-            'com.meituan.android.novel.library.page.reader.ReaderActivity',
-          ],
+          activityIds: ['com.meituan.android.novel.library.page.reader.ReaderActivity'],
         },
         {
           preKeys: [1, 2],
@@ -481,9 +495,7 @@ export default defineGkdApp({
           matches: [
             '[text="搜索"] <n View < View - @Image <<n [vid="container"] < [vid="msc_root"]',
           ],
-          activityIds: [
-            'com.meituan.android.novel.library.page.video.stream.NovelVideoActivity',
-          ],
+          activityIds: ['com.meituan.android.novel.library.page.video.stream.NovelVideoActivity'],
         },
         {
           key: 3,
@@ -522,9 +534,7 @@ export default defineGkdApp({
           matches: [
             '@[text="下次再说"][vid="later"][clickable=true] -n [text="美团 App 想给你发送通知"] <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.meituan.android.pt.homepage.activity.MainActivity',
-          ],
+          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
         },
       ],
     },
@@ -541,9 +551,7 @@ export default defineGkdApp({
           matches: [
             '[text="新版本抢先体验"] +n @[text="暂不升级"][vid="btn_cancel"][clickable=true] + [text="立即升级"]',
           ],
-          activityIds: [
-            'com.meituan.android.pt.homepage.activity.MainActivity',
-          ],
+          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
         },
       ],
     },
