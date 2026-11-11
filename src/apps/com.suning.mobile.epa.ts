@@ -176,21 +176,21 @@ export default defineGkdApp({
           key: 0,
           name: '立即领取',
           anyMatches: [
-            '[text="立即领取"] < @View[clickable=true] <n View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '[text="立即领取"] < @View[clickable=true] <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+            '[text="立即领取"] < @View[clickable=true] <n View <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            '[text="立即领取"] < @View[clickable=true] <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
         {
           key: 1,
           name: '领金币',
-          actionDelay: 2000,
+          actionDelay: 3000,
           anyMatches: [
-            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
           ],
           excludeMatches: [
             '@ImageButton[clickable=true] <n View < View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
-            '@ImageButton[clickable=true] <n View < View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '@ImageButton[clickable=true] <n View < View < View <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
         {
@@ -198,7 +198,7 @@ export default defineGkdApp({
           key: 2,
           name: '去完成',
           anyMatches: [
-            '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
@@ -208,14 +208,14 @@ export default defineGkdApp({
           key: 3,
           name: '查看我的金币/去领取',
           anyMatches: [
-            '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '[text~="查看我的金币|去领取"] < @View[clickable=true] <n View < View < View <n View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
           ],
           excludeMatches: [
-            '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
-            '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
+            '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
         {
@@ -230,11 +230,11 @@ export default defineGkdApp({
             '@ImageButton[clickable=true] < View < View < View < [id="home-page"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //逛星选商城页面
           ],
           excludeMatches: [
-            'Image[width=height] < View < @View[clickable=true] <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '[text="立即领取"] < @View[clickable=true] <n View <n View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            '[text="立即领取"] < @View[clickable=true] <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
-            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+            'Image[width=height] < View < @View[clickable=true] <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            '[text="立即领取"] < @View[clickable=true] <n View <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            '[text="立即领取"] < @View[clickable=true] <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
       ],
@@ -307,6 +307,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 1,
+          actionDelay: 2000,
           matches: [
             '[text$="集全"] < View <n @View[clickable=true] < View <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
@@ -325,9 +326,8 @@ export default defineGkdApp({
             },
             duration: 200,
           },
-          anyMatches: [
-            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView < FrameLayout <n [vid="h5_base_layout"]',
-            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]',
+          matches: [
+            'ImageButton[width=height] - ImageButton[clickable=true] < View < View <n @[id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
         {
