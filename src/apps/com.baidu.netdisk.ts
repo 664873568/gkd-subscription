@@ -584,6 +584,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          matches: [
+            '@[text="我知道了"] <n View < View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -597,16 +603,19 @@ export default defineGkdApp({
           },
           actionCd: 3000,
           matches: [
-            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="我知道了"] <n View < View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 1,
+          key: 2,
           matches: [
-            'View - @[text="svg%3e"] < View <n View < [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            'View - @[text="svg%3e"] < View <n View < [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -847,21 +856,6 @@ export default defineGkdApp({
         },
       ],
     },
-    {
-      key: 199,
-      name: '会员频道-会员等级体系新升级-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: ['@TextView[clickable=true] -2 [text="会员等级体系新升级"]'],
-          activityIds: ['.ui.cloudp2p.RichMediaActivity'],
-        },
-      ],
-    },
     //任务中心-.ui.cloudp2p.RichMediaActivity
     //25.09.28-25.12.26 任务中心 90天/轮
     //每日签到
@@ -908,6 +902,9 @@ export default defineGkdApp({
           key: 0,
           matches: [
             '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+          ],
+          excludeMatches: [
+            '@ImageButton[text="c"][clickable=true] < View < View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -983,12 +980,44 @@ export default defineGkdApp({
     //成长值任务
     {
       key: 204,
+      name: '成长值任务-会员频道',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 5000,
+          matches: [
+            '@TextView[text=""][clickable=true] <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+          ],
+          excludeMatches: [
+            '@[text="去完成"][clickable=true] -4 [text="+"] - TextView[text!~="去领取AI修图券"] -n TextView < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '会员等级体系新升级-×',
+          matches: ['@TextView[clickable=true] -2 [text="会员等级体系新升级"]'],
+        },
+      ],
+    },
+    {
+      key: 205,
       name: '成长值任务-去完成',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -1011,7 +1040,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [1],
           key: 2,
           matches: [
             'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
@@ -1072,13 +1101,16 @@ export default defineGkdApp({
     },
     //会员福利日
     {
-      key: 205,
+      key: 206,
       name: '会员福利日-去完成',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.ui.cloudp2p.RichMediaActivity'],
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -1119,7 +1151,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 209,
+      key: 208,
       name: '已安装完成，是否立即打开-取消',
       forcedTime: 60000,
       matchRoot: true,
@@ -1131,6 +1163,24 @@ export default defineGkdApp({
             '@[text="取消"][clickable=true] < LinearLayout < ScrollView -n * [id="android:id/message"]',
           ],
           activityIds: ['null'],
+        },
+      ],
+    },
+    {
+      key: 209,
+      name: '任务中心-刷新',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="刷新"][vid="btn_refresh"][clickable=true] <n [vid="empty_layout"] < [vid="empty_view"] - [vid="content_webview"]',
+          ],
+          activityIds: [
+            '.ui.cloudp2p.RichMediaActivity',
+            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+          ],
         },
       ],
     },
@@ -1172,8 +1222,9 @@ export default defineGkdApp({
             'View > View[clickable=true] > TextView + @ImageButton[clickable=true]',
             'View > View > @ImageButton[clickable=true] + TextView + ImageButton',
             'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton',
-            '[desc="close"] - @[getChild(0).text="wenzihou"][clickable=true] < View < View - [id="app"] < WebView < WebView < [vid="content_webview"]',
             'View > [getChild(0).text="task-close"] + @[getChild(0).text="lingqujiangli"][clickable=true]',
+            'TextView - @ImageButton[clickable=true] < View <n [id="app"] < WebView < * < [vid="content_webview"]',//去玩游戏赢SVIP
+            '[desc="close"] - @[getChild(0).text="wenzihou"][clickable=true] < View < View - [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1220,7 +1271,7 @@ export default defineGkdApp({
           },
           actionDelay: 30000,
           matches: [
-            '@[id="GameCanvas"] < [id="Cocos2dGameContainer"] < View < View < [id="game"] < [id="app"] < WebView < WebView < [vid="content_webview"]',
+            '@[id="GameCanvas"] < [id="Cocos2dGameContainer"] < View < View < [id="game"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
       ],
@@ -1346,23 +1397,24 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [220, 500],
           key: 2,
           action: 'clickCenter',
           matches: [
-            '[text="选择整理任意文件"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * [text="Z 侏罗纪：重生"] +n [vid="item_right"] >n @[id="android:id/button1"][clickable=true]',
+            '@ImageButton[clickable=true] < LinearLayout < [vid="item_right"] -n [text="Z 侏罗纪：重生"] <n RelativeLayout < RelativeLayout <n RecyclerView < FrameLayout <n [vid="root"] < FrameLayout < FrameLayout <n ViewGroup < ViewGroup < [vid="content"] <n [vid="root"] < FrameLayout < LinearLayout < FrameLayout <n [vid="content_view"]',
           ],
         },
         {
           preKeys: [2],
           key: 3,
           action: 'clickCenter',
+          actionDelay: 3000,
           matches: [
-            '[text="选择整理任意文件"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @RelativeLayout[clickable=true] > [text="智能整理"][vid="ui_id_menu_text"]',
+            '[text="智能整理"] <n @RelativeLayout[clickable=true] <n GridView <n FrameLayout < LinearLayout < LinearLayout < FrameLayout <n [vid="root"] < FrameLayout < FrameLayout <n ViewGroup < ViewGroup < [vid="content"] <n [vid="root"] < FrameLayout < LinearLayout < FrameLayout <n [vid="content_view"]',
           ],
         },
         {
-          preKeys: [3],
+          preKeys: [1,3],
           key: 4,
           matches: [
             '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
@@ -1560,7 +1612,7 @@ export default defineGkdApp({
             },
             end: {
               x: 'screenWidth*0.5',
-              y: 'screenHeight*0.25',
+              y: 'screenHeight*0.35',
             },
             duration: 1000,
           },
@@ -1570,7 +1622,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2],
+          preKeys: [0, 1],
           key: 2,
           anyMatches: [
             '[text~="4月25日|2025年12月27日"][vid="text_view_date"] < LinearLayout + @ViewGroup[clickable=true] <n [vid="image_recycler_view"] <n * [text="确定（0/99）"][vid="btn_confirm"]',
@@ -1806,43 +1858,61 @@ export default defineGkdApp({
         {
           preKeys: [230],
           key: 0,
-          excludeMatches: ['@[text="上传中..."] - View < View < View'],
           matches: [
-            '[text="上传任意文件"] - TextView < View -n * @View[clickable=true] > View > [text="上传照片"]',
+            '[text="上传照片"] < View < @View[clickable=true] <n [id="top-banner"] < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="上传任意文件"] - TextView < View -n * @View[clickable=true] > [text="网盘相册"]',
+            '[text="网盘相册"] < @View[clickable=true] < ListView <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [1,2,3],
           key: 2,
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.35',
+            },
+            duration: 1000,
+          },
+          actionDelay: 3000,
           matches: [
-            '[text="上传任意文件"] - TextView < View -n * [text="normal.e47ec071"] < View < @View[clickable=true] - * [text="2026年06月28日 星期六"]',
+            '[text="立即上传"] < View - @View - View < View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
-          preKeys: [2],
+          preKeys: [1,2],
           key: 3,
           matches: [
-            '[text="上传任意文件"] - TextView < View -n * @[text="立即上传(1/99)"][clickable=true]',
+            '@View[clickable=true] - * [text="2026年06月28日 星期六"] < View < View <n View < View <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
           preKeys: [3],
           key: 4,
-          actionDelay: 2000,
           matches: [
-            '[text="上传任意文件"] - TextView < View -n * @[text="确定"][clickable=true]',
+            '@[text="立即上传(1/99)"][clickable=true] < View <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
           preKeys: [4],
           key: 5,
+          actionDelay: 2000,
+          matches: [
+            '@[text="确定"][clickable=true] < View <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
+          ],
+        },
+        {
+          preKeys: [5],
+          key: 6,
           matches: [
             '[text="任务完成领奖"] - TextView < @View[clickable=true] <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
