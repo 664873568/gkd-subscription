@@ -176,7 +176,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3,4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 4,
           action: 'back',
           actionDelay: 2000,
@@ -185,7 +185,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3,4, 5],
+          preKeys: [2, 3, 4, 5],
           key: 5,
           action: 'back',
           actionDelay: 1000,
