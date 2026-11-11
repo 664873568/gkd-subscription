@@ -100,7 +100,15 @@ export default defineGkdApp({
           matches: ['@Image <n View < View - [text$="套餐"]'],
           excludeMatches: [
             '[getChild(0).getChild(0).text="广告"] + @Image',
+            '@[text="签到"] - [getChild(0).text="每日签到"] < View - [text="做任务 赚星币"]',
             '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(1).text^="消耗星币"] + [getChild(0).text="兑换"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '签到',
+          matches: [
+            '@[text="签到"] - [getChild(0).text="每日签到"] < View - [text="做任务 赚星币"]',
           ],
         },
       ],
@@ -160,8 +168,16 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
           key: 3,
+          name: '现金抽抽乐',
+          actionDelay: 2000,
+          matches: [
+            '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup + * [text="现金抽抽乐"]',
+          ],
+        },
+        {
+          preKeys: [0, 1, 2, 3,4],
+          key: 4,
           action: 'back',
           actionDelay: 2000,
           matches: [
@@ -169,8 +185,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 4],
-          key: 4,
+          preKeys: [2,3,4, 5],
+          key: 5,
           action: 'back',
           actionDelay: 1000,
           matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
