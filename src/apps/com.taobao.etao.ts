@@ -108,6 +108,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 5000,
           matches: [
             '@[vid="tt_detail_inside_top_view"][clickable=true] < [vid="tt_detail_inside_root"] <n FrameLayout < [id="android:id/content"]',
           ],
