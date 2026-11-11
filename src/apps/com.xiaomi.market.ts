@@ -7,14 +7,25 @@ export default defineGkdApp({
     {
       key: 0,
       name: '小米应用商店-关闭',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 16000,
       resetMatch: 'activity',
       rules: [
         {
-          action: 'back',
-          matches: ['@[desc="关闭"] <<n * [text="小米应用商店"]'],
+          key: 0,
+          matches: [
+            '@[desc="关闭"][vid="btnClose"][clickable=true] <n [vid="rootView"] < [vid="parentLayout"] < [vid="fl_content"]',
+          ],
+          activityIds: ['.ui.detail.AppDetailCardActivity'],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[text="取消"][vid="btn_cancel"][clickable=true] -n [text="已安装完成"][vid="tv_title"]',
+          ],
+          activityIds: ['null'],
         },
       ],
     },
@@ -22,6 +33,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '隐私政策更新-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -39,6 +51,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-关闭',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
