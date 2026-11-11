@@ -1223,7 +1223,7 @@ export default defineGkdApp({
             'View > View > @ImageButton[clickable=true] + TextView + ImageButton',
             'View > View > @[text="lingqujiangli"][clickable=true] + TextView + ImageButton',
             'View > [getChild(0).text="task-close"] + @[getChild(0).text="lingqujiangli"][clickable=true]',
-            'TextView - @ImageButton[clickable=true] < View <n [id="app"] < WebView < * < [vid="content_webview"]',//去玩游戏赢SVIP
+            'TextView - @ImageButton[clickable=true] < View <n [id="app"] < WebView < * < [vid="content_webview"]', //去玩游戏赢SVIP
             '[desc="close"] - @[getChild(0).text="wenzihou"][clickable=true] < View < View - [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
@@ -1414,7 +1414,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,3],
+          preKeys: [1, 3],
           key: 4,
           matches: [
             '[text="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
@@ -1870,7 +1870,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2,3],
+          preKeys: [1, 2, 3],
           key: 2,
           swipeArg: {
             start: {
@@ -1889,7 +1889,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           matches: [
             '@View[clickable=true] - * [text="2026年06月28日 星期六"] < View < View <n View < View <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
