@@ -308,7 +308,9 @@ export default defineGkdApp({
           matches: [
             '@ImageView - ImageView < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
         },
       ],
     },
@@ -324,7 +326,9 @@ export default defineGkdApp({
           matches: [
             '[vid="hot_zone"] > @[vid="button_n"][clickable=true] + FrameLayout > [vid="button_y"]',
           ],
-          activityIds: ['com.meituan.android.novel.library.page.ad.CommonTaskActivity'],
+          activityIds: [
+            'com.meituan.android.novel.library.page.ad.CommonTaskActivity',
+          ],
         },
       ],
     },
@@ -413,7 +417,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: ['@[text="去看看"] <<n * [text="广告"]'],
-          activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+          activityIds: [
+            'com.meituan.android.mrn.container.MRNStandardActivity',
+          ],
         },
       ],
     },
@@ -486,7 +492,9 @@ export default defineGkdApp({
           matches: [
             '@[vid="iv_reader_back"][clickable=true] < [vid="scroll_back_view"]',
           ],
-          activityIds: ['com.meituan.android.novel.library.page.reader.ReaderActivity'],
+          activityIds: [
+            'com.meituan.android.novel.library.page.reader.ReaderActivity',
+          ],
         },
         {
           preKeys: [1, 2],
@@ -495,7 +503,9 @@ export default defineGkdApp({
           matches: [
             '[text="搜索"] <n View < View - @Image <<n [vid="container"] < [vid="msc_root"]',
           ],
-          activityIds: ['com.meituan.android.novel.library.page.video.stream.NovelVideoActivity'],
+          activityIds: [
+            'com.meituan.android.novel.library.page.video.stream.NovelVideoActivity',
+          ],
         },
         {
           key: 3,
@@ -534,7 +544,9 @@ export default defineGkdApp({
           matches: [
             '@[text="下次再说"][vid="later"][clickable=true] -n [text="美团 App 想给你发送通知"] <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
+          activityIds: [
+            'com.meituan.android.pt.homepage.activity.MainActivity',
+          ],
         },
       ],
     },
@@ -551,7 +563,9 @@ export default defineGkdApp({
           matches: [
             '[text="新版本抢先体验"] +n @[text="暂不升级"][vid="btn_cancel"][clickable=true] + [text="立即升级"]',
           ],
-          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
+          activityIds: [
+            'com.meituan.android.pt.homepage.activity.MainActivity',
+          ],
         },
       ],
     },
