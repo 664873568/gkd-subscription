@@ -156,8 +156,27 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 2000,
-          anyMatches: [
+          matches: [
             '@[text~="去签到|去完成"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '打卡成功-×',
+          matches: [
+            '@[desc="关闭"][clickable=true] < View < View < View <n WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '返回-<',
+          actionDelay: 5000,
+          matches: [
+            '@[desc="返回"][clickable=true] < View < View < View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+          excludeMatches: [
+            '@[text~="去签到|去完成"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '@[desc="关闭"][clickable=true] < View < View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
       ],
@@ -357,7 +376,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            'TextView < @View[clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '[text="正在开"] < @View[clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
           excludeMatches: [
             '@ImageButton[clickable=true] <n View < View < View <n View <n AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
