@@ -1024,6 +1024,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          matches: [
             '@[text~="砸一下.*"][clickable=true] <n View <n View <n View - [desc="关闭弹窗"] < View < View <n View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
           excludeMatches: [
@@ -1072,8 +1073,9 @@ export default defineGkdApp({
         {
           preKeys: [11],
           key: 12,
-          anyMatches: [
+          matches: [
             '@[text="开心收下"][clickable=true] <n View <n View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
         },
         {
           preKeys: [11],
