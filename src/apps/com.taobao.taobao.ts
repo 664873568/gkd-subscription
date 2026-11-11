@@ -223,7 +223,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[desc="关闭按钮"][clickable=true] - [vid="poplayer_native_state_id"] < [vid="poplayer_native_state_center_layout_frame_id"]',
+            '@[desc="关闭按钮"][clickable=true] - [vid="poplayer_native_state_id"] < FrameLayout < [vid="poplayer_inner_view"]',
           ],
           activityIds: [
             'com.taobao.tao.welcome.Welcome',
