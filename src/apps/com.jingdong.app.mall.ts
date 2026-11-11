@@ -188,7 +188,7 @@ export default defineGkdApp({
             '@[desc="返回"][clickable=true] < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout <n FrameLayout < FrameLayout <n ViewGroup < [id="android:id/content"]',
             '@[desc="返回"][clickable=true] < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout <n FrameLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
             '@[desc="返回"][clickable=true] < RelativeLayout <n RelativeLayout < RelativeLayout < RelativeLayout < LinearLayout <n RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
-            '@[desc="返回"][clickable=true] < LinearLayout < FrameLayout < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',//看视频
+            '@[desc="返回"][clickable=true] < LinearLayout < FrameLayout < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]', //看视频
           ],
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
@@ -208,10 +208,10 @@ export default defineGkdApp({
       activityIds: [
         'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
         'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
-        ],
+      ],
       rules: [
         {
-          preKeys: [0,40, 100, 110, 120],
+          preKeys: [0, 40, 100, 110, 120],
           key: 0,
           name: '建议开启边看边听-暂不开启',
           action: 'back',
@@ -244,7 +244,7 @@ export default defineGkdApp({
       activityIds: [
         'com.jingdong.manto.ui.MantoActivityUp1',
         'com.jingdong.manto.ui.MantoActivitySingleProcessUp',
-        ],
+      ],
       rules: [
         {
           preKeys: [0, 1, 100],
@@ -284,7 +284,7 @@ export default defineGkdApp({
       activityIds: ['.WebActivity'],
       rules: [
         {
-          preKeys: [0,110],
+          preKeys: [0, 110],
           key: 0,
           matches: [
             '@ImageButton[clickable=true] - ImageButton < View < View <n View < View < [id="app"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
@@ -306,7 +306,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,110],
+          preKeys: [2, 110],
           key: 3,
           action: 'back',
           actionDelay: 6000,
@@ -321,14 +321,16 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [50,51,100,120],
+      scopeKeys: [50, 51, 100, 120],
       key: 5,
       name: '通用-返回-逛看病买药频道',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity'],
+      activityIds: [
+        'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
+      ],
       rules: [
         {
           preKeys: [0, 50, 51, 100, 120],
