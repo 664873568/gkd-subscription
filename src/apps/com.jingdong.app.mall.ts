@@ -68,7 +68,6 @@ export default defineGkdApp({
         '.WebActivity',
         '.personel.FloatViewActivity',
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
-        'com.jd.lib.Discovery.view.DiscoveryActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
         'com.jd.lib.jshop.jshop.JshopMainShopActivity',
         'com.jd.lib.productdetail.ProductDetailActivity',
@@ -188,11 +187,31 @@ export default defineGkdApp({
             '@[desc="返回"][clickable=true] < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout <n FrameLayout < FrameLayout <n ViewGroup < [id="android:id/content"]',
             '@[desc="返回"][clickable=true] < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout <n FrameLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
             '@[desc="返回"][clickable=true] < RelativeLayout <n RelativeLayout < RelativeLayout < RelativeLayout < LinearLayout <n RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
-            '@[desc="返回"][clickable=true] < LinearLayout < FrameLayout < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]', //看视频
           ],
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
             '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [10, 110],
+          key: 10,
+          name: '看视频',
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            '@[desc="返回"][clickable=true] < LinearLayout < FrameLayout < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
+          ],
+          activityIds: ['com.jd.lib.Discovery.view.DiscoveryActivity'],
+        },
+        {
+          preKeys: [11, 110],
+          key: 11,
+          name: '圈子',
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            '@[desc="退出圈子"][clickable=true] < View < View < [id="app"] <n WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -440,14 +459,14 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[id="follow-signin-business-floor"] > View > @[text="签到得卡"][clickable=true]',
+            '@[text="签到得卡"][clickable=true] <n [id="follow-signin-business-floor"] < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] <n [id^="bab_aid"] < WebView < *',
           ],
         },
         {
           preKeys: [0],
           key: 12,
           matches: [
-            '[text="每日签到"] >n [text="已连签"] +n @Image[width=height][clickable=true][clickable=true]',
+            '@ImageButton[clickable=true] <n View < View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
       ],
@@ -1844,6 +1863,37 @@ export default defineGkdApp({
           name: '今日打卡成功-我知道了-×',
           matches: [
             '@TextView[clickable=true] - View < View < View < View <n View <n [id^="bab_aid"] < WebView < *',
+          ],
+        },
+      ],
+    },
+    //26.10.28-26.11.13 厨房好物双十一
+    //https://pro.m.jd.com/mall/active/3PkLpweopAGCSdZbh9QViPUhNk1j/index.html
+    {
+      key: 170,
+      name: '集卡来了-签到/加购',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '运动来了',
+          matches: [
+            '@TextView[index<4][clickable=true] <n View < View <n View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < [vid="babel_contents"]',
+          ],
+          excludeMatches: [
+            '@TextView[clickable=true] < View < View <n View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < [vid="babel_contents"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '×',
+          matches: [
+            '@TextView[clickable=true] < View < View <n View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < [vid="babel_contents"]',
           ],
         },
       ],
