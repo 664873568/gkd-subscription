@@ -72,12 +72,7 @@ export default defineGkdApp({
         'com.jd.lib.babel.view.activity.BabelActivity',
         'com.jd.lib.jshop.jshop.JshopMainShopActivity',
         'com.jd.lib.productdetail.ProductDetailActivity',
-        'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
-        'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
-        'com.jingdong.manto.ui.MantoActivityUp1',
-        'com.jingdong.manto.ui.MantoActivitySingleProcessUp',
         'com.jingdong.hybrid.halfsheet.WebHalfSheetActivity',
-        'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
       ],
       rules: [
         {
@@ -192,18 +187,32 @@ export default defineGkdApp({
           anyMatches: [
             '@[desc="返回"][clickable=true] < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout <n FrameLayout < FrameLayout <n ViewGroup < [id="android:id/content"]',
             '@[desc="返回"][clickable=true] < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout <n FrameLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
-            '@[desc="返回"][clickable=true] < RelativeLayout <n RelativeLayout < RelativeLayout < RelativeLayout < LinearLayout <n RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
             '@[desc="返回"][clickable=true] < RelativeLayout <n RelativeLayout < RelativeLayout < RelativeLayout < LinearLayout <n RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
-            '@[desc="返回"][clickable=true] < LinearLayout < FrameLayout < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
+            '@[desc="返回"][clickable=true] < LinearLayout < FrameLayout < LinearLayout < ViewGroup < LinearLayout <n RelativeLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',//看视频
           ],
           excludeMatches: [
             '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
             '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
           ],
         },
+      ],
+    },
+    {
+      scopeKeys: [40, 100, 110, 120],
+      key: 2,
+      name: '通用-返回-看直播',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
+        'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
+        ],
+      rules: [
         {
-          preKeys: [12, 40, 100, 110, 120],
-          key: 12,
+          preKeys: [0,40, 100, 110, 120],
+          key: 0,
           name: '建议开启边看边听-暂不开启',
           action: 'back',
           actionDelay: 6000,
@@ -213,8 +222,8 @@ export default defineGkdApp({
           activityIds: ['null'],
         },
         {
-          preKeys: [12, 13, 40, 100, 110, 120],
-          key: 13,
+          preKeys: [0, 1, 40, 100, 110, 120],
+          key: 1,
           name: '关闭直播间',
           action: 'back',
           actionDelay: 6000,
@@ -222,9 +231,24 @@ export default defineGkdApp({
             'ImageView < @[desc="关闭直播间"][clickable=true] < ViewGroup < FrameLayout <n FrameLayout < FrameLayout <n [id="android:id/content"]',
           ],
         },
+      ],
+    },
+    {
+      scopeKeys: [100],
+      key: 3,
+      name: '通用-返回-游戏',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.jingdong.manto.ui.MantoActivityUp1',
+        'com.jingdong.manto.ui.MantoActivitySingleProcessUp',
+        ],
+      rules: [
         {
-          preKeys: [14, 15, 100],
-          key: 14,
+          preKeys: [0, 1, 100],
+          key: 0,
           name: '游戏-关闭',
           actionDelay: 6000,
           matches: [
@@ -232,43 +256,100 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [14, 15],
-          key: 15,
+          preKeys: [0, 1],
+          key: 1,
           name: '知道啦',
           matches: [
             '@[text="知道啦"][clickable=true] - LinearLayout - ImageView - ViewGroup < ViewGroup < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [14, 16],
-          key: 16,
+          preKeys: [0, 2],
+          key: 2,
           name: '游戏-退出游戏',
           matches: [
             '@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]',
           ],
         },
+      ],
+    },
+    {
+      scopeKeys: [110],
+      key: 4,
+      name: '通用-返回-看小说赚钱',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.WebActivity'],
+      rules: [
         {
-          preKeys: [17, 50, 51, 100, 120],
-          key: 17,
-          name: '逛看病买药频道-×',
+          preKeys: [0,110],
+          key: 0,
+          matches: [
+            '@ImageButton[clickable=true] - ImageButton < View < View <n View < View < [id="app"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          matches: [
+            'View[index=parent.childCount.minus(1)] - @TextView[clickable=true] < View < View < View <n View < View < [id="app"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '@[desc="关闭"][clickable=true] <n View < View <n View < View < [id="app"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [2,110],
+          key: 3,
+          action: 'back',
           actionDelay: 6000,
+          matches: [
+            '@[desc="返回"][clickable=true] < RelativeLayout <n RelativeLayout < RelativeLayout < RelativeLayout < LinearLayout <n RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
+            '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys: [50,51,100,120],
+      key: 5,
+      name: '通用-返回-逛看病买药频道',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity'],
+      rules: [
+        {
+          preKeys: [0, 50, 51, 100, 120],
+          key: 0,
+          name: '逛看病买药频道-×',
           anyMatches: [
             '@ImageView < ViewGroup - ImageView < ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < [id="android:id/content"]',
             '@ImageView < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [18, 50, 51, 100, 120],
-          key: 18,
+          preKeys: [1, 50, 51, 100, 120],
+          key: 1,
           name: '逛看病买药频道-××',
-          actionDelay: 6000,
           matches: [
             'ImageView[width=height] < @ViewGroup < ViewGroup - FrameLayout > FrameLayout > ImageView[width=height]',
           ],
         },
         {
-          preKeys: [17, 18, 19, 50, 51, 100, 120],
-          key: 19,
+          preKeys: [0, 1, 2, 50, 51, 100, 120],
+          key: 2,
           name: '逛看病买药频道-<',
           actionDelay: 6000,
           matches: [
@@ -276,8 +357,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [19],
-          key: 20,
+          preKeys: [2],
+          key: 3,
           name: '逛看病买药频道-暂时离开',
           matches: [
             '@[text="暂时离开"] < ViewGroup < ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < [id="android:id/content"]',
@@ -1401,6 +1482,7 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
+        '.WebActivity',
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
       ],
@@ -1409,7 +1491,7 @@ export default defineGkdApp({
           key: 110,
           actionDelay: 2000,
           matches: [
-            '@[text$="去浏览"][clickable=true] <n View < View <n View <n Dialog < Dialog <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+            '@[desc$="去浏览" || text$="去浏览"][clickable=true] <n View <n View <n [name$="Dialog"] < [name$="Dialog"] <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
       ],
