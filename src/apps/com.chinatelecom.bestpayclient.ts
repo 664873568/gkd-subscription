@@ -498,7 +498,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="温馨提示"] +n * [text="取消"][clickable=true] + [text="去开启"]',
+            '@[text="取消"][clickable=true] < LinearLayout -n [text="温馨提示"]',
           ],
           activityIds: ['.ui.MainActivity'],
         },
@@ -551,10 +551,11 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[vid="iv_sky_close"][clickable=true]',
-            '@[vid="iv_dialog_close_one"][clickable=true]',
+            '@[vid="iv_dialog_close_one"][clickable=true] <n LinearLayout < [id="android:id/content"]',
             'AlertDialog >n @TextView[clickable=true] - View > TextView + Image',
           ],
           activityIds: [
+            'null',
             '.ui.MainActivity',
             'com.mpaas.mriver.integration.MriverActivityBase$Main',
           ],
