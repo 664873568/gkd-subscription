@@ -295,7 +295,7 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            '@[text="立即领"][clickable=true] < View <n View <n View < View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@[text="立即领"][clickable=true] <n View <n View <n View < View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
             '@[text~=".*能量|领取奖励"][clickable=true] -2 [text!~="逛中国移动|去猜价格并返回猜价页"] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
