@@ -106,7 +106,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          name: '签到',
+          name: '每日签到',
           matches: [
             '@[text="签到"] - [getChild(0).text="每日签到"] < View - [text="做任务 赚星币"]',
           ],
