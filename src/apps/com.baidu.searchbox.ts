@@ -139,7 +139,7 @@ export default defineGkdApp({
           key: 3,
           position: {
             left: 'width * 0.868',
-            top: 'height * 0.114',
+            top: 'height * 0.131',
           },
           actionDelay: 5000,
           matches: [
