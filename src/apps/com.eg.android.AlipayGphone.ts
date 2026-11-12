@@ -645,7 +645,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           position: {
             left: 'width * 0.5',
@@ -1461,7 +1461,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 200,
           matches: [
             '@[text="关闭"][clickable=true] - [text="任务已完成，恭喜获得奖励！"] <n View < @View < [id="app"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
@@ -1501,7 +1501,9 @@ export default defineGkdApp({
           matches: [
             '[id$="halfscreen_main_title"] >n @[id$="tiny_half_close"]',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+          ],
         },
         {
           preKeys: [0],
@@ -1511,7 +1513,9 @@ export default defineGkdApp({
           matches: [
             '@[desc^="返回"][clickable=true] > [id~=".*homeButton|.*backButton"] > [text="" || text=""]',
           ],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -1519,7 +1523,9 @@ export default defineGkdApp({
           name: '游戏',
           actionDelay: 5000,
           matches: ['@[desc="关闭"][clickable=true] > [text=""]'],
-          activityIds: ['com.alipay.mobile.nebulax.xriver.activity.XRiverActivity'],
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          ],
         },
         {
           preKeys: [3, 4],
