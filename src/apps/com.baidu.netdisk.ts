@@ -844,7 +844,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           name: '二级广告页-×',
           anyMatches: [
@@ -1404,7 +1404,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [220, 403,500],
+      scopeKeys: [220, 403, 500],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       forcedTime: 60000,
@@ -1414,7 +1414,7 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity', '.aigc.ui.activity.AigcChatActivity'],
       rules: [
         {
-          preKeys: [220, 403,500],
+          preKeys: [220, 403, 500],
           key: 0,
           action: 'clickCenter',
           actionDelay: 3000,
@@ -1431,7 +1431,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [220,403, 500],
+          preKeys: [220, 403, 500],
           key: 2,
           action: 'clickCenter',
           matches: [
@@ -1573,7 +1573,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,4],
+          preKeys: [3, 4],
           key: 5,
           matches: ['@ImageView[clickable=true] +2 [desc="保存"]'],
         },
