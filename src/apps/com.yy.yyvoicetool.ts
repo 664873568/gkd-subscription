@@ -161,7 +161,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [0,10],
+      scopeKeys: [0, 10],
       key: 12,
       name: '每日任务-去完成-访问指定频道',
       forcedTime: 60000,
@@ -171,7 +171,7 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [0,10],
+          preKeys: [0, 10],
           key: 12,
           name: '点击聊天框',
           actionDelay: 2000,
