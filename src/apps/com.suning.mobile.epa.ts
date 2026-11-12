@@ -46,7 +46,7 @@ export default defineGkdApp({
           anyMatches: [
             '[getChild(2).text^="快影APP下载"] + [vid="layout_system_webview_frameLayout"] >n @View[clickable=true] > [text="立即下载App"]', //去快影APP赚奖励
             '[getChild(2).text="跳转虎牙"] + [vid="layout_system_webview_frameLayout"] >n [id="root"] > @View[clickable=true]', //去虎牙看游戏直播
-            '[getChild(2).text="签到领半价洗车"] + [vid="layout_system_webview_frameLayout"] >n @TextView[clickable=true]', //去汽车之家领车币
+            '@TextView[clickable=true] <n View <n View < WebView < WebView < FrameLayout - [vid="layout_header"][getChild(2).text="签到领半价洗车"] < [vid="h5_base_layout"]', //去汽车之家领车币
             '[getChild(2).text="体验丰巢APP比价返现"] + [vid="layout_system_webview_frameLayout"] >n @[id="loadbtn"][clickable=true]', //去丰巢领现金奖励
           ],
         },
@@ -195,7 +195,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [1],
-          key: 2,
+          key: 6,
           name: '去完成',
           anyMatches: [
             '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
@@ -216,25 +216,6 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] <n View <n View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
             '@[text="去完成"][clickable=true] <n View <n View < View <n View < View <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
-          ],
-        },
-        {
-          preKeys: [2, 4, 10],
-          key: 4,
-          actionDelay: 6000,
-          anyMatches: [
-            '@ImageButton[clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //参与签到赢红包
-            '@ImageButton[clickable=true] < View < View < [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]', //访问瞳瞳AI
-            '@ImageButton[clickable=true] < View < [id="wrapper"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //去播客听新闻
-            '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"] < [vid="h5_base_layout"]', //[text~="猜涨跌|星灿会员|财富|基金"]
-            '@ImageButton[clickable=true] < View < View < View < [id="home-page"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //逛星选商城页面
-          ],
-          excludeMatches: [
-            'Image[width=height] < View < @View[clickable=true] <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
-            '[text="立即领取"] < @View[clickable=true] <n View <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
-            '[text="立即领取"] < @View[clickable=true] <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
-            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
-            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
       ],
@@ -286,6 +267,7 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [6],
       key: 9,
       name: '看热点领金币-看短剧-赚金币',
       forcedTime: 60000,
@@ -305,7 +287,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
+          preKeys: [0, 1,6],
           key: 1,
           actionDelay: 2000,
           matches: [
@@ -331,7 +313,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,6],
           key: 3,
           action: 'back',
           matches: [
@@ -361,6 +343,25 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text="去看剧"][clickable=true] <n View <n View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
             '[text="去完成"] < @View[clickable=true] <n View < View <n View < View <n View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+          ],
+        },
+        {
+          preKeys: [6, 10],
+          key: 1,
+          actionDelay: 6000,
+          anyMatches: [
+            '@ImageButton[clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //参与签到赢红包
+            '@ImageButton[clickable=true] < View < View < [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]', //访问瞳瞳AI
+            '@ImageButton[clickable=true] < View < [id="wrapper"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //去播客听新闻
+            '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"] < [vid="h5_base_layout"]', //[text~="猜涨跌|星灿会员|财富|基金"]
+            '@ImageButton[clickable=true] < View < View < View < [id="home-page"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //逛星选商城页面
+          ],
+          excludeMatches: [
+            'Image[width=height] < View < @View[clickable=true] <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            '[text="立即领取"] < @View[clickable=true] <n View <n View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            '[text="立即领取"] < @View[clickable=true] <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
+            'ImageButton[width=height] - @ImageButton[clickable=true] < View < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout <n [vid="h5_base_layout"]',
           ],
         },
       ],
