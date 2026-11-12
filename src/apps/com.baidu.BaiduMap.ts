@@ -49,13 +49,14 @@ export default defineGkdApp({
             '[text="待领取"] - [getChild(0).text~="[0-9]{3,}"] < View - [getChild(1).text~="第.*个"] < View - @[text="赚金币"][clickable=true] <n [id="J-watchVideo"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
           excludeMatches: [
-            '@TextView[clickable=true] < View < View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@TextView[clickable=true] < View < View - TextView < View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
           key: 1,
+          name: '恭喜获得-继续看视频领金币-×',
           matches: [
-            '@TextView[clickable=true] < View < View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@TextView[clickable=true] < View < View - TextView < View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
       ],
@@ -82,7 +83,7 @@ export default defineGkdApp({
             '[text="待领取"] - [getChild(0).text~="[0-9]{3,}"] < View < View - @[text="赚金币"][clickable=true] <n [id="J-watchVideo"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
             '[text="待领取"] - [getChild(0).text~="[0-9]{3,}"] < View - [getChild(1).text~="第.*个"] - @[text="赚金币"][clickable=true] <n [id="J-watchVideo"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
             '[text="待领取"] - [getChild(0).text~="[0-9]{3,}"] < View - [getChild(1).text~="第.*个"] < View - @[text="赚金币"][clickable=true] <n [id="J-watchVideo"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
-            '@TextView[clickable=true] < View < View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@TextView[clickable=true] < View < View - TextView < View < View <n WebView < WebView < [vid="frameLayout1"]',
             '@TextView[clickable=true] <n View < View < AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
