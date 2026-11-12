@@ -173,7 +173,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] <n [vid="parentPanel"] <n [vid="dialog_root_view"] < [id="android:id/content"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
