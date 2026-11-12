@@ -403,10 +403,11 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="txt_dialog_reject"][clickable=true] +n [vid="txt_dialog_commit"]',
+            '[vid="txt_dialog_commit"] -n @[vid="txt_dialog_reject"][clickable=true] < LinearLayout <n FrameLayout < [id="android:id/content"]',
           ],
           activityIds: [
             '.launcher.LauncherActivity',
+            '.ui.init.VersionUpCheckPreActivity',
             'com.suning.webview.H5SystemBaseActivity',
           ],
         },
