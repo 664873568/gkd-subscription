@@ -18,7 +18,10 @@ export default defineGkdApp({
           matches: [
             '@[vid="close_btn"][clickable=true] - [text="开启消息通知"][vid="title"] <n [vid="upper_layout"] < ViewGroup < [id="android:id/content"]',
           ],
-          activityIds: ['com.cmb.zh.ui.mbank.im.activitys.messagecenter.NewMsgCenterActivity','null'],
+          activityIds: [
+            'com.cmb.zh.ui.mbank.im.activitys.messagecenter.NewMsgCenterActivity',
+            'null',
+          ],
         },
       ],
     },
