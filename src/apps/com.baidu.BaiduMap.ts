@@ -151,6 +151,7 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="去完成"] -2 [text~="[0-9]{3,}"] -2 [text!~="去中国移动领话费流量"] < @View[clickable=true] < [id^="J-task-item"] <n [id="task-loader"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
             '[text="去完成"] < View -2 [text~="[0-9]{3,}"] -2 [text!~="去中国移动领话费流量"] < @View[clickable=true] < [id^="J-task-item"] <n [id="task-loader"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '@[text="去完成"][clickable=true] <n [id="J-redPacket"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
@@ -376,6 +377,17 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
+            '@[text="去完成"][clickable=true] <n [id="J-redPacket"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+          excludeMatches: [
+            '[text~="免费抽奖|抽奖中"] < View < @View[clickable=true] <n View <n [id="J-lucky-draw"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '@View[getChild(0).text~="立即领取|赚抽奖次数"][clickable=true] -n [text~=".*[0-9]{3,} 金币.*"]',
+            '@View[getChild(0).text~="再试一次|继续抽奖"][clickable=true] -n [text="cjjinbi"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
             '[text="正在开"] < @View[clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
           excludeMatches: [
@@ -383,8 +395,8 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
-          anyMatches: [
+          key: 2,
+          matches: [
             '[text~="去完成|继续开红包|开启下一轮|明日再来"] <n @View[clickable=true] <n View <n View <n AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
