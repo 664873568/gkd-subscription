@@ -15,7 +15,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          proKeys: [13],
+          preKeys: [13],
           key: 1000,
           action: 'back',
           matches: [
