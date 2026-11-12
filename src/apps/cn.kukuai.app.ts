@@ -60,7 +60,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [1,41],
+      scopeKeys: [1, 41],
       key: 2,
       name: '库库签到活动-去完成-与库库聊聊热门话题',
       forcedTime: 60000,
@@ -70,7 +70,7 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [1,41],
+          preKeys: [1, 41],
           key: 11,
           actionDelay: 2000,
           anyMatches: [
