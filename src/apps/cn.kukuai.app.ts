@@ -60,7 +60,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [1],
+      scopeKeys: [1,41],
       key: 2,
       name: '库库签到活动-去完成-与库库聊聊热门话题',
       forcedTime: 60000,
@@ -70,9 +70,9 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [1],
+          preKeys: [1,41],
           key: 11,
-          actionDelay: 1000,
+          actionDelay: 2000,
           anyMatches: [
             '[desc="发送"] < @View[clickable=true] <n View < View <n View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
             '@View[clickable=true] - [getChild(0).text="今日推荐"] < View <n ScrollView < View < View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
@@ -154,6 +154,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 2],
           key: 1,
+          actionDelay: 1000,
           matches: [
             '@[text~="立即抽奖剩余[1-9]次"][clickable=true] <n View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
@@ -161,6 +162,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1],
           key: 2,
+          actionDelay: 1000,
           matches: [
             '@TextView[clickable=true] -n [text^="恭喜您获得"] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
@@ -168,6 +170,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          actionDelay: 1000,
           matches: [
             '[text~="立即抽奖剩余0次"] -n @TextView[clickable=true] < View < View <n View < View < View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
@@ -226,6 +229,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
+          key: 41,
           matches: [
             '@[desc="关闭"][clickable=true] -n [getChild(2).getChild(0).getChild(0).text="立即升级"] < View < View < View < ViewGroup < [id="android:id/content"]',
           ],
