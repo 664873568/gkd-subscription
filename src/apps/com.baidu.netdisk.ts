@@ -1225,7 +1225,7 @@ export default defineGkdApp({
           key: 210,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*|.*图文.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
             '[text="领签到奖"] <n @View[clickable=true] <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
@@ -1261,13 +1261,6 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          name: '支付宝点图文/广告',
-          matches: [
-            '[text^="支付宝点"][vid="middle_title_text"] -n @[vid="left_button"][clickable=true] < [vid="title_bar_root_view"]',
-          ],
-        },
-        {
-          key: 4,
           name: '去登陆网盘pc端',
           matches: [
             '@TextView[clickable=true] - TextView < View -n [getChild(0).text="close"] < View < View <n WebView < WebView < [vid="content_webview"]',
@@ -1276,8 +1269,47 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [210],
+      scopeKeys: [300],
       key: 211,
+      name: '日常任务-去完成-图文广告',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
+      rules: [
+        {
+          key: 211,
+          actionDelay: 2000,
+          matches: [
+            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text~=".*图文.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+          ],
+          excludeMatches: [
+            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*|.*图文.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]',
+            '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
+            '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '[text="close"] < @View[clickable=true] < View < View <n WebView < WebView < [vid="content_webview"]',
+          ],
+        },
+        {
+          preKeys: [300],
+          key: 0,
+          name: '支付宝点图文/广告',
+          matches: [
+            '[text^="支付宝点"][vid="middle_title_text"] -n @[vid="left_button"][clickable=true] < [vid="title_bar_root_view"]',
+          ],
+        },
+      ],
+    },
+    {
+      scopeKeys: [210],
+      key: 212,
       name: '日常任务-去玩游戏合成3次',
       forcedTime: 60000,
       matchRoot: true,
@@ -1309,7 +1341,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 212,
+      key: 213,
       name: '日常任务-观看广告视频',
       forcedTime: 60000,
       matchRoot: true,
@@ -1328,7 +1360,7 @@ export default defineGkdApp({
             '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
             '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
-            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*|.*图文.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '@[text="去完成"][clickable=true] -4 [text="+"] - TextView[text!~="去领取AI修图券"] -n [text="最新AI功能"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '@[text="去完成"][clickable=true] -4 [text="+"] - TextView -n [text="功能任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
@@ -1364,7 +1396,7 @@ export default defineGkdApp({
             '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '[text="reward-pop-title"] + @TextView[clickable=true] +n TextView[index=parent.childCount.minus(1)]', //恭喜获得
             '[getChild(1).text="金币兑换 "] +n * @[text="领取"][clickable=true]',
-            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*|.*图文.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
