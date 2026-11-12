@@ -168,7 +168,7 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '用户隐私授权提示-同意',
+      name: '实名信息变更-确定-同意',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
