@@ -17,7 +17,10 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] < [vid="buttonPanel"] <n [vid="parentPanel"] < [vid="dialog_root_view"] < [id="android:id/content"]',
           ],
-          activityIds: ['com.android.packageinstaller.permission.ui.GrantPermissionsActivity','null'],
+          activityIds: [
+            'com.android.packageinstaller.permission.ui.GrantPermissionsActivity',
+            'null',
+          ],
         },
       ],
     },
