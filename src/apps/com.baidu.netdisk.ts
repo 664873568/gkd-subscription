@@ -628,12 +628,19 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
       rules: [
         {
+          key: 0,
           matches: [
-            '@[text="跳过"] <<n [desc="skip_button"] <n * - * [desc="gift_box"]',
+            '@[text~="点击下载.*|点击跳转拿奖励|我要免看本次广告|知道了.*"][clickable=true] <<n * [desc="skip_button"] > ViewGroup > [text="跳过"]',
           ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+        {
+          key: 1,
+          matches: [
+            '[getChild(0).desc="gift_box"] + ViewGroup > [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
+          ],
         },
       ],
     },
@@ -836,6 +843,15 @@ export default defineGkdApp({
             '@ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
           ],
         },
+        {
+          preKeys: [0,1],
+          key: 2,
+          name: '二级广告页-×',
+          anyMatches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            'View - ProgressBar - @ImageView[clickable=true] - TextView < FrameLayout < LinearLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
       ],
     },
     //看视频-.platform.business.incentive.advertise.ui.AdvertiseActivity
@@ -872,13 +888,20 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '领签到奖',
+          matches: [
+            '[text="领签到奖"] <n @View[clickable=true] <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+          ],
+        },
+        {
+          key: 1,
           name: '看视频积分翻倍',
           matches: [
             '@ImageButton[text="new-sign-pop-btn-double"][clickable=true] <n View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
           ],
         },
         {
-          key: 1,
+          key: 2,
           name: '今日积分已翻倍',
           matches: [
             '@ImageButton[text="c"][clickable=true] < View +n [text="new-sign-pop-btn-double-suc"] <n View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
@@ -904,6 +927,7 @@ export default defineGkdApp({
             '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
+            '[text="领签到奖"] <n @View[clickable=true] <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '@ImageButton[text="c"][clickable=true] < View < View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
           ],
         },
@@ -1204,6 +1228,7 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] -(4,5) [text="+"] - TextView[text!~="观看.*|邀请.*"] -n [text="日常任务"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
+            '[text="领签到奖"] <n @View[clickable=true] <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '@ImageButton[text="c"][clickable=true] < View < View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
             '[text="+5积分"] - [text="开宝箱"] < View <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
             '[text~=".*后开启点我减.*分钟"] <n @View[clickable=true] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
@@ -1236,6 +1261,13 @@ export default defineGkdApp({
         },
         {
           key: 3,
+          name: '支付宝点图文/广告',
+          matches: [
+            '[text^="支付宝点"][vid="middle_title_text"] -n @[vid="left_button"][clickable=true] < [vid="title_bar_root_view"]',
+          ],
+        },
+        {
+          key: 4,
           name: '去登陆网盘pc端',
           matches: [
             '@TextView[clickable=true] - TextView < View -n [getChild(0).text="close"] < View < View <n WebView < WebView < [vid="content_webview"]',
@@ -1348,7 +1380,7 @@ export default defineGkdApp({
     {
       scopeKeys: [220],
       key: 221,
-      name: '最新AI功能-体验AI学习服务',
+      name: '最新AI功能-体验AI学习服务/体验拍证件照',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1358,19 +1390,21 @@ export default defineGkdApp({
           preKeys: [220],
           key: 0,
           name: '领取奖励',
-          actionDelay: 5000,
           matches: [
-            '[vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
+            '[vid="tv_title"] - [vid="gif_lottie_view"] - [vid="iv_close"] < [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           excludeMatches: [
             '[text^="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
-          activityIds: ['.scan.paper.learn.LearnWebViewActivity'],
+          activityIds: [
+            '.scan.paper.learn.LearnWebViewActivity',
+            '.scan.ui.webview.ScanIdPhotoWebViewActivity',
+          ],
         },
       ],
     },
     {
-      scopeKeys: [220, 500],
+      scopeKeys: [220, 403,500],
       key: 222,
       name: '最新AI功能-云一朵文件智能整理',
       forcedTime: 60000,
@@ -1380,7 +1414,7 @@ export default defineGkdApp({
       activityIds: ['.ui.MainActivity', '.aigc.ui.activity.AigcChatActivity'],
       rules: [
         {
-          preKeys: [220, 500],
+          preKeys: [220, 403,500],
           key: 0,
           action: 'clickCenter',
           actionDelay: 3000,
@@ -1397,7 +1431,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [220, 500],
+          preKeys: [220,403, 500],
           key: 2,
           action: 'clickCenter',
           matches: [
@@ -1539,7 +1573,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4],
+          preKeys: [3,4],
           key: 5,
           matches: ['@ImageView[clickable=true] +2 [desc="保存"]'],
         },
@@ -1548,7 +1582,7 @@ export default defineGkdApp({
           key: 6,
           action: 'back',
           matches: [
-            '@[vid="ocr_bottom_image"] < [vid="bottom_image_container"]',
+            '@ImageView[clickable=true] < LinearLayout < [vid="ocr_title_bar"]',
           ],
         },
       ],
@@ -1859,7 +1893,7 @@ export default defineGkdApp({
           preKeys: [230],
           key: 0,
           matches: [
-            '[text="上传照片"] < View < @View[clickable=true] <n [id="top-banner"] < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
+            '[text="上传照片"] < View < @View[clickable=true] <n [id="top-banner"] < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1892,7 +1926,7 @@ export default defineGkdApp({
           preKeys: [1, 2],
           key: 3,
           matches: [
-            '@View[clickable=true] - * [text="2026年06月28日 星期六"] < View < View <n View < View <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
+            '@View[clickable=true] - * [text="2026年06月28日 星期六"] < View < View <n View <n View <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1907,7 +1941,7 @@ export default defineGkdApp({
           key: 5,
           actionDelay: 2000,
           matches: [
-            '@[text="确定"][clickable=true] < View <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
+            '@[text="确定"][clickable=true] <n View <n View < View < View < View <n [id="main-app"] < [id="app"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -1985,6 +2019,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
+          key: 403,
           matches: [
             '@[text="下次再说"][vid="left_btn"][clickable=true] < [vid="bottom_layout"] -n [text="百度网盘更新啦"][vid="title_tv"]',
           ],
