@@ -1472,7 +1472,7 @@ export default defineGkdApp({
     //百度地图-去支付宝浏览图文领奖
     //百度网盘-小程序点图文领奖-去小程序点图文-小程序浏览图文-点2次图文领奖
     {
-      scopeKeys: [210],
+      scopeKeys: [211],
       key: 300,
       name: '图文广告',
       forcedTime: 60000,
@@ -1481,7 +1481,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          preKeys: [210],
+          preKeys: [211],
           key: 0,
           action: 'clickCenter',
           anyMatches: [
@@ -1529,7 +1529,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [3, 4],
-          key: 4,
+          key: 300,
           action: 'back',
           matches: [
             'ImageView < [desc="首页"] < FrameLayout < [id="android:id/tabs"] <n FrameLayout <n [id="android:id/tabhost"] < FrameLayout < FrameLayout < @[vid="launcher_holder"]',
