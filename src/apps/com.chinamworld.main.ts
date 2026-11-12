@@ -83,6 +83,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] < View < View -(4-n) TextView[text~="参与.*|查看.*|了解.*"] -n [desc="精选任务楼层"] < [id="Normaltask"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
@@ -119,11 +120,12 @@ export default defineGkdApp({
           matches: ['Image < @View[clickable=true] + [text="速盈"]'],
         },
         {
-          preKeys: [1, 2, 3, 4],
+          preKeys: [0,1, 2, 3, 4],
           key: 5,
           actionDelay: 5000,
-          matches: [
+          anyMatches: [
             '@[desc~="关闭|返回"][vid="web_back"][clickable=true] < [vid="web_title_container"]',
+            '@[desc~="关闭|返回"][clickable=true] <n LinearLayout < LinearLayout < [vid="page_running_vg_rootFrame"]',
           ],
         },
       ],
