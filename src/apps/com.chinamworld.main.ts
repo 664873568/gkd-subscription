@@ -120,7 +120,7 @@ export default defineGkdApp({
           matches: ['Image < @View[clickable=true] + [text="速盈"]'],
         },
         {
-          preKeys: [0,1, 2, 3, 4],
+          preKeys: [0, 1, 2, 3, 4],
           key: 5,
           actionDelay: 5000,
           anyMatches: [
