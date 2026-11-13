@@ -97,6 +97,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '签到',
+          actionDelay: 2000,
           matches: ['@Image <n View < View - [text$="套餐"]'],
           excludeMatches: [
             '[getChild(0).getChild(0).text="广告"] + @Image',
@@ -176,7 +177,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4],
+          preKeys: [0, 1, 2, 3],
           key: 4,
           action: 'back',
           actionDelay: 2000,
@@ -188,7 +189,6 @@ export default defineGkdApp({
           preKeys: [2, 3, 4, 5],
           key: 5,
           action: 'back',
-          actionDelay: 1000,
           matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
           activityIds: ['.ui.LauncherUI'],
         },
