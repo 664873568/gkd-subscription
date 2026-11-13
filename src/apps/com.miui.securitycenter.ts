@@ -18,6 +18,7 @@ export default defineGkdApp({
           preKeys: [13],
           key: 1000,
           action: 'back',
+          actionDelay: 5000,
           matches: [
             '@[text="请用指纹解锁"][vid="face_lock_tip"] - [vid="app_icon"]',
           ],
@@ -164,14 +165,16 @@ export default defineGkdApp({
       name: '启动应用-拒绝null',
       forcedTime: 60000,
       matchRoot: true,
+      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           preKeys: [13],
           key: 1100,
+          actionDelay: 5000,
           matches: [
-            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] <n [vid="parentPanel"] <n [vid="dialog_root_view"] < [id="android:id/content"]',
+            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
@@ -187,12 +190,12 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          excludeMatches: [
-            '@[text="拒绝"][clickable=true] <n * - * [text~=".*微信.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
-          ],
           actionDelay: 16000,
           matches: [
             '@[text="拒绝"][clickable=true] <n * - * [text="启动应用"][vid="permission_group_title"]',
+          ],
+          excludeMatches: [
+            '@[text="拒绝"][clickable=true] <n * - * [text~=".*微信.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity'],
         },
