@@ -417,7 +417,6 @@ export default defineGkdApp({
         {
           preKeys: [0, 40, 100, 120],
           key: 1,
-          name: '关闭直播间',
           action: 'back',
           actionDelay: 6000,
           matches: [
@@ -427,7 +426,6 @@ export default defineGkdApp({
         {
           preKeys: [0,110],
           key: 2,
-          name: '关闭直播间',
           action: 'back',
           actionDelay: 8000,
           matches: [
@@ -452,7 +450,7 @@ export default defineGkdApp({
         {
           preKeys: [100],
           key: 0,
-          name: '游戏-关闭',
+          name: '关闭',
           actionDelay: 6000,
           matches: [
             '@[desc="关闭"][clickable=true] - [desc="更多"] < LinearLayout <n LinearLayout < LinearLayout <n RelativeLayout < LinearLayout <n FrameLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
@@ -469,7 +467,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 2,
-          name: '游戏-退出游戏',
+          name: '退出游戏',
           matches: [
             '@[text="退出游戏"][clickable=true] + [text="添加到桌面"][clickable=true]',
           ],
@@ -501,6 +499,7 @@ export default defineGkdApp({
         {
           preKeys: [110],
           key: 0,
+          name: '弹窗广告-×',
           matches: [
             '@ImageButton[clickable=true] - ImageButton < View < View <n View < View < [id="app"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
