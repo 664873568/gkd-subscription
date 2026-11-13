@@ -56,7 +56,7 @@ export default defineGkdApp({
     {
       scopeKeys: [
         10, 12, 20, 30, 40, 50, 51, 60, 70, 74, 80, 90, 100, 110, 120, 130, 140,
-        150,180,190,
+        150, 180, 190,
       ],
       key: 1,
       name: '通用-返回-scopeKeys',
@@ -84,7 +84,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [
-            0, 1,10, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 120, 130,
+            0, 1, 10, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 120, 130,
             140, 150,
           ],
           key: 1,
@@ -95,7 +95,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2, 60, 61, 70, 100],
+          preKeys: [0, 2, 60, 61, 70, 100],
           key: 2,
           name: '已完成 点击立即返回×',
           action: 'back',
@@ -117,7 +117,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [30, 40,70],
+          preKeys: [30, 40, 70],
           key: 4,
           name: '抽彩票券和手机',
           action: 'back',
@@ -131,7 +131,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [60,100],
+          preKeys: [60, 100],
           key: 5,
           name: 'JoyAI',
           action: 'back',
@@ -141,7 +141,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [60,110],
+          preKeys: [60, 110],
           key: 6,
           name: '圈子',
           action: 'back',
@@ -212,8 +212,8 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        10, 20, 30, 40, 50, 51, 60, 61, 70, 80, 90, 100, 120, 130, 140,
-        150,180,190,
+        10, 20, 30, 40, 50, 51, 60, 61, 70, 80, 90, 100, 120, 130, 140, 150,
+        180, 190,
       ],
       key: 3,
       name: '通用-返回-商品页',
@@ -225,8 +225,7 @@ export default defineGkdApp({
       rules: [
         {
           preKeys: [
-            3, 10, 20, 30, 40, 70, 80, 90, 100, 120, 130, 140,
-            150,190,
+            3, 10, 20, 30, 40, 70, 80, 90, 100, 120, 130, 140, 150, 190,
           ],
           key: 0,
           action: 'back',
@@ -281,7 +280,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [40, 50, 51, 60, 61, 70, 80, 90, 100, 110,180,190],
+      scopeKeys: [40, 50, 51, 60, 61, 70, 80, 90, 100, 110, 180, 190],
       key: 4,
       name: '通用-返回-活动会场页',
       forcedTime: 60000,
@@ -295,7 +294,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [40, 50, 51, 70, 80, 100,190],
+          preKeys: [40, 50, 51, 70, 80, 100, 190],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -349,7 +348,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10,60, 61, 70,110,190],
+      scopeKeys: [10, 60, 61, 70, 110, 190],
       key: 5,
       name: '通用-返回-活动会场页J_babelOptPage',
       forcedTime: 60000,
@@ -363,7 +362,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0,10, 60, 61, 70, 110,190],
+          preKeys: [0, 10, 60, 61, 70, 110, 190],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -424,7 +423,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,110],
+          preKeys: [0, 110],
           key: 2,
           action: 'back',
           actionDelay: 8000,
@@ -491,10 +490,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        '.WebActivity',
-        '.personel.FloatViewActivity',
-      ],
+      activityIds: ['.WebActivity', '.personel.FloatViewActivity'],
       rules: [
         {
           preKeys: [110],
@@ -1652,7 +1648,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 4,
           name: '明天继续',
           matches: [
@@ -2112,7 +2108,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [170,11],
+          preKeys: [170, 11],
           key: 12,
           name: '知道了-×',
           matches: [
@@ -2200,13 +2196,13 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jd.lib.jdlivelistlib.view.activity.FaxianLiveListActivity'],
+      activityIds: [
+        'com.jd.lib.jdlivelistlib.view.activity.FaxianLiveListActivity',
+      ],
       rules: [
         {
           key: 0,
-          matches: [
-            '[text="签到领取"] < @ViewGroup -n [text="天天领好礼"]',
-          ],
+          matches: ['[text="签到领取"] < @ViewGroup -n [text="天天领好礼"]'],
           excludeMatches: [
             '[text="签到领取"] < @View[clickable=true] -n [text="签到赢好礼"] <n View < View <n View < View < [id="app"] < WebView < *',
           ],
