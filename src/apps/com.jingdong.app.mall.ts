@@ -23,7 +23,7 @@ export default defineGkdApp({
           action: 'back',
           anyMatches: [
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [text~="JoyAI|此功能需访问京东金融APP|健康好礼限时领|图片|省钱中心|加载页面|73d4ea791bcfd553.png!q70"]',
-            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [desc="返回"] +n RelativeLayout > [text*="金融" || text="加载页面"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [desc="返回"] +n RelativeLayout > [text*="金融" || text="京东特价版补贴购" || text="加载页面"]',
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] - * [desc="返回"] +n RelativeLayout[width=0][childCount=0]',
           ],
         },
@@ -71,16 +71,18 @@ export default defineGkdApp({
         'com.jd.lib.babel.view.activity.BabelActivity',
         'com.jd.lib.jshop.jshop.JshopMainShopActivity',
         'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
+        'com.jingdong.hybrid.halfsheet.WebHalfSheetActivity',
       ],
       rules: [
         {
+          preKeys: [100],
           key: 0,
           action: 'back',
           anyMatches: [
             '@[desc="关闭按钮"][clickable=true] - [text=" "]',
+            '@ImageView[width=height] - FrameLayout < RelativeLayout < FrameLayout < FrameLayout <n FrameLayout + [vid="un_status_bar_view"]',
             '@TextView[index=parent.childCount.minus(1)][clickable=true] - TextView - [text="能源工坊"] < View < View < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
-          activityIds: ['com.jingdong.hybrid.halfsheet.WebHalfSheetActivity'],
         },
         {
           preKeys: [
@@ -1685,7 +1687,7 @@ export default defineGkdApp({
           name: '领取',
           actionDelay: 2000,
           matches: [
-            '@Button[clickable=true] <n View < View < View <n View < View < View - [text="全部奖励已解锁"] <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+            '@Button[clickable=true] <n View < View < View <n View < View < View < View - [text="全部奖励已解锁"] <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
           excludeMatches: [
             '[text="做任务 攒经验"] < View - @TextView[clickable=true] < View < View < View <n [id^="bab_aid"] < WebView < *',
@@ -2186,7 +2188,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //京东笔笔返
+    //直播-天天签到福利
     //https://lives.jd.com
     //https://zhibo.jd.com
     {
@@ -2196,21 +2198,19 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.jd.lib.jdlivelistlib.view.activity.FaxianLiveListActivity',
-      ],
+      activityIds: ['com.jd.lib.jdlivelistlib.view.activity.FaxianLiveListActivity'],
       rules: [
         {
           key: 0,
           matches: ['[text="签到领取"] < @ViewGroup -n [text="天天领好礼"]'],
           excludeMatches: [
-            '[text="签到领取"] < @View[clickable=true] -n [text="签到赢好礼"] <n View < View <n View < View < [id="app"] < WebView < *',
+            '[text="签到领取"] < @View[clickable=true] <n View < View <n View < View < [id="app"] < WebView < *',
           ],
         },
         {
           key: 1,
           matches: [
-            '[text="签到领取"] < @View[clickable=true] -n [text="签到赢好礼"] <n View < View <n View < View < [id="app"] < WebView < *',
+            '[text="签到领取"] < @View[clickable=true] <n View < View <n View < View < [id="app"] < WebView < *',
           ],
         },
       ],
