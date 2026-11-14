@@ -2198,7 +2198,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jd.lib.jdlivelistlib.view.activity.FaxianLiveListActivity'],
+      activityIds: [
+        'com.jd.lib.jdlivelistlib.view.activity.FaxianLiveListActivity',
+      ],
       rules: [
         {
           key: 0,
