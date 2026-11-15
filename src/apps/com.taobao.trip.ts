@@ -518,6 +518,13 @@ export default defineGkdApp({
             '[text~="去体验.*秒立即领奖"] < @RelativeLayout[clickable=true] <n RelativeLayout - [text="跳过"]',
           ],
         },
+        {
+          key: 8,
+          name: '×',
+          matches: [
+            '@ImageView[width=height][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout - RelativeLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
       ],
     },
     //看视频-com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity
