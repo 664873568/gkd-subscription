@@ -60,8 +60,8 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        10, 12, 20, 30, 40, 50, 51, 60,61, 70, 74, 80, 90, 100, 110, 120, 130, 140,
-        150, 180, 190,
+        10, 12, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 110, 120, 130,
+        140, 150, 180, 190,
       ],
       key: 1,
       name: '通用-返回-scopeKeys',
@@ -80,7 +80,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [60,70,100],
+          preKeys: [60, 70, 100],
           key: 0,
           anyMatches: [
             '@TextView[index=parent.childCount.minus(1)][clickable=true] - TextView - [text="能源工坊"] < View < View < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
@@ -123,7 +123,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,30, 40, 70],
+          preKeys: [0, 30, 40, 70],
           key: 4,
           name: '抽彩票券和手机',
           action: 'back',
@@ -157,7 +157,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [50,60,110],
+          preKeys: [50, 60, 110],
           key: 7,
           name: '看视频',
           action: 'back',
@@ -286,7 +286,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [1,40, 50, 51, 60, 61, 70, 80, 90, 100, 110, 180, 190],
+      scopeKeys: [1, 40, 50, 51, 60, 61, 70, 80, 90, 100, 110, 180, 190],
       key: 4,
       name: '通用-返回-活动会场页',
       forcedTime: 60000,
@@ -300,7 +300,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0,40, 50, 51, 70, 80, 100, 190],
+          preKeys: [0, 40, 50, 51, 70, 80, 100, 190],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -540,7 +540,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [50, 51,60, 100, 120],
+      scopeKeys: [50, 51, 60, 100, 120],
       key: 9,
       name: '通用-返回-逛看病买药频道',
       forcedTime: 60000,
@@ -575,7 +575,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 50, 51,60, 100, 120],
+          preKeys: [0, 1, 50, 51, 60, 100, 120],
           key: 2,
           name: '逛看病买药频道-<',
           actionDelay: 6000,
@@ -2257,7 +2257,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           name: '继续开',
           matches: [
