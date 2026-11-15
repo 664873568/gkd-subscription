@@ -79,11 +79,12 @@ export default defineGkdApp({
             '@[text="领奖励"][clickable=true] <n View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
             '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
             '@[desc="Image Asset 13"] <n View < View <n View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           preKeys: [10],
-          key: 1,
+          key: 11,
           name: '浏览App',
           matches: [
             '@[text$="打开"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
@@ -91,7 +92,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [10],
-          key: 2,
+          key: 12,
           name: '访问YY游仓',
           action: 'back',
           actionDelay: 5000,
@@ -101,7 +102,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [10],
-          key: 3,
+          key: 13,
           name: '去搜索热门频道',
           action: 'back',
           actionDelay: 5000,
@@ -110,7 +111,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 4,
+          key: 14,
           name: '领奖励',
           matches: [
             '@[text="领奖励"][clickable=true] <n View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
@@ -123,8 +124,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [4],
-          key: 5,
+          key: 15,
           name: '恭喜获得',
           matches: [
             '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
@@ -403,27 +403,49 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
-      ],
+      activityIds: ['com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity'],
       rules: [
         {
           key: 0,
           matches: [
-            '[text~="点击或下载后体验[0-9]+秒立即领奖"][vid="noah_multi_task_ad2_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad2_cta"][clickable=true]',
+            '[text~="点击或下载后体验.*秒立即领奖"][vid="noah_multi_task_ad2_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad2_cta"][clickable=true]',
           ],
         },
         {
           key: 1,
           matches: [
-            '[text~="点击或下载后体验[0-9]+秒立即领奖"][vid="noah_multi_task_ad1_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad1_cta"][clickable=true]',
+            '[text~="点击或下载后体验.*秒立即领奖"][vid="noah_multi_task_ad1_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad1_cta"][clickable=true]',
           ],
           excludeMatches: [
-            '[text~="点击或下载后体验[0-9]+秒立即领奖"][vid="noah_multi_task_ad2_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad2_cta"][clickable=true]',
+            '[text~="点击或下载后体验.*秒立即领奖"][vid="noah_multi_task_ad2_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad2_cta"][clickable=true]',
           ],
         },
         {
           key: 2,
+          name: '恭喜获得奖励',
+          matches: [
+            '@[vid="noah_hc_close_button"][clickable=true] <n [vid="noah_hc_countdown_container"] < * < * < * - * [vid="noah_component_30_task_finish"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 32,
+      name: '看视频-点击跳转后停留.*秒立即获奖noah',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '[text~="点击跳转后停留.*秒立即获奖"][vid="noah_reward_tips_v3_subtitle"] +n @[vid="noah_reward_tips_v3_cta_container"][clickable=true] > [text="立即点击领取"][vid="noah_reward_tips_v3_cta_button"]',
+          ],
+        },
+        {
+          key: 1,
           name: '恭喜获得奖励',
           matches: [
             '@[vid="noah_hc_close_button"][clickable=true] <n [vid="noah_hc_countdown_container"] < * < * < * - * [vid="noah_component_30_task_finish"]',
