@@ -16,7 +16,7 @@ export default defineGkdApp({
           matches: [
             '@[text="允许访问全部"][clickable=true] <n [vid="buttonPanel"] -n [vid="topPanel"] > [text="允许“一刻相册”访问照片和视频？"][vid="alertTitle"]',
           ],
-          activityIds: ['.permission.ui.GrantPermissionsActivity','null'],
+          activityIds: ['.permission.ui.GrantPermissionsActivity', 'null'],
         },
       ],
     },
@@ -33,7 +33,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] -n [vid="topPanel"] > [text*="发送通知"][vid="alertTitle"]',
           ],
-          activityIds: ['.permission.ui.GrantPermissionsActivity','null'],
+          activityIds: ['.permission.ui.GrantPermissionsActivity', 'null'],
         },
       ],
     },
@@ -49,7 +49,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] -n [vid="topPanel"] > [text*="获取位置信息"][vid="alertTitle"]',
           ],
-          activityIds: ['.permission.ui.GrantPermissionsActivity','null'],
+          activityIds: ['.permission.ui.GrantPermissionsActivity', 'null'],
         },
       ],
     },
