@@ -180,7 +180,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: [
-            '[desc="百亿补贴"] < LinearLayout <n @[desc="百亿补贴"][clickable=true] < [desc="百亿补贴"]',
+            'FrameLayout - @FrameLayout - FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RecyclerView < FrameLayout <n ViewPager <n ViewGroup < LinearLayout < FrameLayout < ViewPager < FrameLayout <n [vid="home_swipe_refresh"]',
           ],
           activityIds: ['com.taobao.tao.TBMainActivity'],
         },
@@ -188,7 +188,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           matches: [
-            'FrameLayout - @FrameLayout - FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RecyclerView < FrameLayout <n ViewPager <n ViewGroup < LinearLayout < FrameLayout < ViewPager < FrameLayout <n [vid="home_swipe_refresh"]',
+            '[desc="百亿补贴"] < LinearLayout <n @[desc="百亿补贴"][clickable=true] < [desc="百亿补贴"]',
           ],
           activityIds: ['com.taobao.tao.TBMainActivity'],
         },
