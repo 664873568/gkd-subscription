@@ -141,11 +141,12 @@ export default defineGkdApp({
         {
           key: 0,
           name: '频道栏',
-          actionDelay: 3000,
+          actionDelay: 2000,
           matches: [
             '@ImageView[desc="￼"][index=2] <n View < View < View < ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
           ],
           excludeMatches: [
+            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
             'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
             'ImageView[desc="￼"] - [desc="首页"] - @[desc="特价"] - ImageView[desc="￼"] < View',
           ],
@@ -163,13 +164,21 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '包邮',
+          actionDelay: 1000,
+          matches: [
+            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
+          ],
+        },
+        {
+          key: 3,
           actionDelay: 2000,
           matches: [
             '[desc="去首页逛逛"] - [desc="活动陆续开放中"] <n View < ScrollView < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
           ],
         },
         {
-          key: 3,
+          key: 4,
           name: '现金抽抽乐',
           actionDelay: 2000,
           matches: [
@@ -177,8 +186,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
-          key: 4,
+          preKeys: [0, 1, 2, 3,4,5],
+          key: 5,
           action: 'back',
           actionDelay: 2000,
           matches: [
@@ -186,8 +195,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 3, 4, 5],
-          key: 5,
+          preKeys: [3, 4, 5,6],
+          key: 6,
           action: 'back',
           matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
           activityIds: ['.ui.LauncherUI'],
