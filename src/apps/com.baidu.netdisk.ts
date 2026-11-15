@@ -579,6 +579,7 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
+        'com.byazt.dg.Stub_Standard_Portrait_Activity',
         'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity',
       ],
       rules: [
@@ -603,7 +604,7 @@ export default defineGkdApp({
           },
           actionCd: 3000,
           matches: [
-            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] + [text="需要下滑浏览更多才能领取奖励哦"] <n WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text="我知道了"] <n View < View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
@@ -989,14 +990,24 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
       rules: [
         {
+          key: 0,
+          name: '我要开启打卡',
+          desc: '恭喜解锁-彩蛋打卡玩法',
           matches: [
-            '[text="每日打卡领好礼"] +n View >n TextView + @[text="去完成"][clickable=true]',
+            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n WebView < * < [vid="content_webview"]',
           ],
-          activityIds: [
-            '.ui.cloudp2p.RichMediaActivity',
-            '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+        },
+        {
+          key: 203,
+          name: '去完成',
+          matches: [
+            '@[text="去完成"][clickable=true] <n View <n View <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
       ],
@@ -1044,51 +1055,37 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 0,
+          key: 205,
           actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
-            'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
-            'View > TextView[clickable=true] +n @[text~="我知道了|开心收下"][clickable=true]',
-            '[getChild(0).getChild(0).text="任务中心"] +n TextView +8 @[text="领取"][clickable=true]',
+            '@[text="是"][clickable=true] -n TextView < View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
+            '@[text~="我知道了|开心收下"][clickable=true] -n TextView < View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
+            '@[text="领取"][clickable=true] -8 TextView -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
+          preKeys: [205],
+          key: 11,
           anyMatches: [
             'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠
             'View > View > @ImageButton[clickable=true] + TextView + ImageButton', //任务已完成 点击去领奖-去看看会员福利日
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            'View > TextView[clickable=true] +n [text="否"] + @[text="是"][clickable=true]', //每日答题
-          ],
-        },
-        {
-          preKeys: [2, 4],
-          key: 3,
-          matches: [
-            'View > @TextView[clickable=true] +n [text~="我知道了|开心收下"][clickable=true]',
-          ],
-        },
-        {
-          key: 4,
+          key: 12,
           actionDelay: 2000,
           matches: [
             '@[text="领取"][clickable=true] -8 TextView -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
-            'View > @TextView[clickable=true] +n [text~="我知道了|开心收下"][clickable=true]',
+            '@[text~="我知道了|开心收下"][clickable=true] -n TextView < View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
         },
         {
-          key: 5,
+          key: 13,
           matches: [
             '@[text="点击领取"][clickable=true] < View <n View <n View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
@@ -1097,35 +1094,57 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5],
-          key: 6,
+          preKeys: [13],
+          key: 14,
           matches: [
             '@TextView[clickable=true] - [text="reward-pop-title"] < View < View < View <n WebView < * < [vid="content_webview"]',
           ],
         },
         {
-          key: 7,
+          key: 15,
           actionDelay: 5000,
           matches: [
-            '[text="title"] - @TextView[clickable=true] < View <n View < [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
+            '[text="任务中心"] < @View[clickable=true] < View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
           excludeMatches: [
             '@[text~="领取|去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
             '@[text="点击领取"][clickable=true] < View <n View <n View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
         },
+      ],
+    },
+    {
+      scopeKeys: [205],
+      key: 206,
+      name: '成长值任务-去完成-每日答题',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        '.ui.cloudp2p.RichMediaActivity',
+        '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
+      ],
+      rules: [
         {
-          preKeys: [7],
-          key: 8,
+          preKeys: [205],
+          key: 0,
           matches: [
-            '[text="会员频道"] -n @[vid="left_button"][clickable=true] < [vid="title_bar_root_view"]',
+            '@[text="是"][clickable=true] -n TextView < View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="开心收下"][clickable=true] -n TextView < View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
         },
       ],
     },
     //会员福利日
     {
-      key: 206,
+      key: 207,
       name: '会员福利日-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -1400,13 +1419,6 @@ export default defineGkdApp({
             '@[text="领取"][clickable=true] -4 [text="+"] - TextView <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
-        {
-          key: 1,
-          actionDelay: 10000,
-          matches: [
-            '[vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"] - * @ImageView[clickable=true] < LinearLayout < [vid="ocr_title_bar"]',
-          ],
-        },
       ],
     },
     {
@@ -1426,6 +1438,7 @@ export default defineGkdApp({
             '[vid="tv_title"] - [vid="gif_lottie_view"] - [vid="iv_close"] < [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           excludeMatches: [
+            '[text="点击查看试卷"][vid="tv_title"] <n [vid="layout_content"] <n [vid="layout_drag"]',
             '[text^="任务完成"][vid="tv_title"] <n [vid="layout_content"] <n @[vid="layout_drag"][clickable=true]',
           ],
           activityIds: [
@@ -1786,7 +1799,8 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          key: 1,
+          preKeys: [220],
+          key: 0,
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -1794,8 +1808,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 220],
-          key: 2,
+          preKeys: [0, 220],
+          key: 1,
           action: 'back',
           actionDelay: 5000,
           matches: [
