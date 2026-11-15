@@ -16,26 +16,26 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="条件达成"] - [text="连续签到20天"] - [text="50元"] < @View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '[text="条件达成"] - [text="连续签到20天"] - [text="50元"] < @View[clickable=true] <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
           excludeMatches: [
-            '[text="今日份数已用完"] - [text="50元"] < @View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
-            '@[text="确认提现"] <n View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
-            '[text="提交成功"] - @TextView < View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '[text="今日份数已用完"] - [text="50元"] < @View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '[text="提交成功"] - @TextView < View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '@[text="确认提现"] <n View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
           preKeys: [1],
           key: 2,
           matches: [
-            '[text="提交成功"] - @TextView < View < View <n [id="app"] < [text="提现"] < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '[text="提交成功"] - @TextView < View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
       ],
@@ -248,7 +248,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * <n * <n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * ImageView + FrameLayout > [text*="微信"][index=parent.childCount.minus(1)]',
           ],
           excludeMatches: [
             '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
@@ -481,7 +481,7 @@ export default defineGkdApp({
             '@[text="知道了"][vid="ok_btn"][clickable=true] - * [text="未成年模式"][vid="title"] +n [text="开启未成年模式"][vid="tips_text"]',
           ],
           activityIds: [
-            'com.yy.mobile.ui.splash.SplashActivity',
+            'com.yy.mobile.ui.common.JsSupportWebAcitivity',
             'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
           ],
         },
@@ -501,7 +501,6 @@ export default defineGkdApp({
             '@[text="不允许"][vid="btn_cancel"][clickable=true] < * -n * > [text="“YY”想访问您的剪切板"][vid="message"]',
           ],
           activityIds: [
-            'com.yy.mobile.ui.splash.SplashActivity',
             'com.yy.mobile.ui.common.JsSupportWebAcitivity',
             'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
           ],
@@ -510,11 +509,34 @@ export default defineGkdApp({
     },
     {
       key: 404,
+      name: '好评-以后再说',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="以后再说"][clickable=true] <n LinearLayout < FrameLayout < ViewGroup <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: [
+            'com.yy.mobile.ui.common.JsSupportWebAcitivity',
+            'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
+          ],
+        },
+      ],
+    },
+    {
+      key: 409,
       name: '开启悬浮小窗功能-暂不开启',
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
-      activityIds: ['null'],
+      activityIds: [
+        'com.yy.mobile.ui.common.JsSupportWebAcitivity',
+        'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -539,7 +561,7 @@ export default defineGkdApp({
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
-      resetMatch: 'activity',
+      resetMatch: 'app',
       rules: [
         {
           matches: [
