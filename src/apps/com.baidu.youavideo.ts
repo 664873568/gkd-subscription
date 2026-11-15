@@ -64,14 +64,16 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="立即签到"][clickable=true] -n [text="每日签到"] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
+          anyMatches: [
+            '@[text="立即签到"][clickable=true] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
+            '@[text="立即签到"][clickable=true] <n View < View <n WebView < WebView < FrameLayout < [vid="fl_web_view"]',
           ],
         },
         {
           key: 1,
-          matches: [
-            '@[text="我知道了"][clickable=true] -n [text^="签到成功"] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
+          anyMatches: [
+            '@[text="我知道了"][clickable=true] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
+            '@[text="我知道了"][clickable=true] <n View < View <n WebView < WebView < FrameLayout < [vid="fl_web_view"]',
           ],
         },
       ],
@@ -92,7 +94,8 @@ export default defineGkdApp({
             '[text="去完成"] -n [text!~="邀请.*|购买.*|.*相册|天天.*"] < @View[clickable=true] < View <n WebView < WebView < FrameLayout < [vid="fl_web_view"]',
           ],
           excludeMatches: [
-            '@[text="我知道了"][clickable=true] -n [text^="签到成功"] <n View < View <n WebView < WebView < [vid="fl_web_view"]',
+            '@TextView[clickable=true] < View < View <n WebView < WebView < [vid="fl_web_view"]',
+            '@TextView[clickable=true] < View < View <n WebView < WebView < FrameLayout < [vid="fl_web_view"]',
           ],
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
@@ -133,7 +136,7 @@ export default defineGkdApp({
           preKeys: [0, 300, 301, 500],
           key: 1,
           matches: [
-            '@ViewGroup[clickable=true] > [text="未命名"][vid="tv_album_name"]',
+            '[text="未命名"][vid="tv_album_name"] <n @ViewGroup[clickable=true] <n [vid="rv_album_list"] < FrameLayout <n ViewGroup < ViewGroup < FrameLayout <n LinearLayout < [vid="fl_content"]',
           ],
           activityIds: ['.home.view.HomeActivity'],
         },
@@ -156,6 +159,22 @@ export default defineGkdApp({
             '@[vid="iv_close"] <n FrameLayout < [vid="ll_share"] <n [vid="root_view"] < [id="android:id/content"]',
           ],
           activityIds: ['.share.ui.view.activity.ShareMediaActivity'],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          matches: [
+            '@[vid="title_bar_left_img"][clickable=true] < ViewGroup <  LinearLayout < LinearLayout < FrameLayout < ViewGroup <n ViewGroup < ViewGroup < [id="android:id/content"]',
+          ],
+          activityIds: ['.cloudalbum.ui.activity.AlbumDetailActivity'],
+        },
+        {
+          preKeys: [5],
+          key: 6,
+          matches: [
+            '@[vid="title_bar_pm_task_center"][clickable=true] <n ViewGroup <n LinearLayout < [vid="fl_content"]',
+          ],
+          activityIds: ['.home.view.HomeActivity'],
         },
       ],
     },
@@ -185,7 +204,7 @@ export default defineGkdApp({
           preKeys: [0, 300, 301, 500],
           key: 1,
           matches: [
-            '[text="云空间相册"][vid="tv_cloud_album"] + @[text="新建"][vid="tv_create_album"][clickable=true]',
+            '@[text="新建"][vid="tv_create_album"][clickable=true] <n LinearLayout <n LinearLayout < ViewGroup < ViewGroup < FrameLayout <n LinearLayout < [vid="fl_content"]',
           ],
           activityIds: ['.home.view.HomeActivity'],
         },
@@ -303,9 +322,17 @@ export default defineGkdApp({
           key: 7,
           actionDelay: 2000,
           matches: [
-            '@[vid="title_bar_right_img"][clickable=true] -n [vid="title_bar_left_img"] < [vid="title_bar_normal_root"]',
+            '@[vid="title_bar_right_img"][clickable=true] <n ViewGroup <  LinearLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
           ],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
+        },
+        {
+          preKeys: [7],
+          key: 8,
+          matches: [
+            '@[vid="detail_back"][clickable=true] < ViewGroup < [id="android:id/content"]',
+          ],
+          activityIds: ['.aiphoto.ui.home.view.CreativeDetailActivity'],
         },
       ],
     },
@@ -367,7 +394,7 @@ export default defineGkdApp({
           key: 5,
           actionDelay: 2000,
           matches: [
-            '@[vid="title_bar_right_img"][clickable=true] -n [vid="title_bar_left_img"] < [vid="title_bar_normal_root"]',
+            '@[vid="title_bar_right_img"][clickable=true] <n ViewGroup <  LinearLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
           ],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
         },
