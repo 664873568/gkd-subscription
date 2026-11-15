@@ -80,10 +80,9 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [60, 70, 100],
+          preKeys: [60, 70],
           key: 0,
           anyMatches: [
-            '@TextView[index=parent.childCount.minus(1)][clickable=true] - TextView - [text="能源工坊"] < View < View < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
             '@ImageButton[desc="关闭"][clickable=true] - [text="天天抽奖"] < View < [id="app"] < WebView < *',
             '@ImageView[width=height] - FrameLayout < RelativeLayout < FrameLayout < FrameLayout <n FrameLayout + [vid="un_status_bar_view"]',
           ],
