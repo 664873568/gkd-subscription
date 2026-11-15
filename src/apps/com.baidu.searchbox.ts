@@ -90,8 +90,16 @@ export default defineGkdApp({
         },
         {
           key: 5,
+          name: '直接领取-看视频再得-×',
           matches: [
-            'View > TextView + View > @TextView[clickable=true] - View > TextView[clickable=true]',
+            '@TextView[clickable=true] <n View - TextView < View < View <n View < [id="app"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '天降金币-领金币-×',
+          matches: [
+            '[text="领金币"] < View -n @TextView[clickable=true] < View < View < View < View < View <n View < [id="app"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
