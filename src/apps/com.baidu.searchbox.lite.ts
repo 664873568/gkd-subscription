@@ -54,7 +54,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 5,
+          key: 6,
           name: '看广告立即领特权-×',
           matches: [
             '@TextView[clickable=true] <n View <n View < View <n View <n [id="app"] < WebView < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
