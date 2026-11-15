@@ -53,6 +53,13 @@ export default defineGkdApp({
             '@TextView[clickable=true] - [text="直接领取"] - [text="看广告 领双倍"]',
           ],
         },
+        {
+          key: 5,
+          name: '看广告立即领特权-×',
+          matches: [
+            '@TextView[clickable=true] <n View <n View < View <n View <n [id="app"] < WebView < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
       ],
     },
     //26.05.25开始 每日福利-每日开红包得奖励
