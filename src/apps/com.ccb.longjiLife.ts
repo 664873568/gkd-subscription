@@ -26,7 +26,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           matches: [
             '@ImageButton[clickable=true] - [text="6"] <n View < View <n AlertDialog <n [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
