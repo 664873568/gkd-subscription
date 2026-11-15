@@ -997,8 +997,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '我要开启打卡',
-          desc: '恭喜解锁-彩蛋打卡玩法',
+          name: '恭喜解锁-彩蛋打卡玩法-我要开启打卡',
           matches: [
             '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n WebView < * < [vid="content_webview"]',
           ],
