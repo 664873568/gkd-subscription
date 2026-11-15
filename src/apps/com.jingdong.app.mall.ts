@@ -542,9 +542,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
-      ],
+      activityIds: ['com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity'],
       rules: [
         {
           preKeys: [50, 51, 100, 120],
@@ -583,7 +581,7 @@ export default defineGkdApp({
           key: 3,
           name: '逛看病买药频道-暂时离开',
           matches: [
-            '@[text="暂时离开"] < ViewGroup < ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < [id="android:id/content"]',
+            '[text="暂时离开"] < @ViewGroup < ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
