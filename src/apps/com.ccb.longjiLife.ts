@@ -16,23 +16,46 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
             '@ImageButton[text="get.9543d188"][clickable=true] <n View < [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
           ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@ImageButton[clickable=true] -2 [text="浏览时长大于10秒。"] <n View < View <n AlertDialog <n [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
+          excludeMatches: [
+            '@ImageButton[clickable=true] - View < View - TextView < View <n View < WebView < WebView < [vid="ll_web_layout"]',
+            '@ImageButton[text="close.5ac1f7d1"][clickable=true] < AlertDialog <n [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
           ],
         },
         {
-          preKeys: [1, 2],
+          preKeys: [0,1],
+          key: 1,
+          matches: [
+            '@ImageButton[clickable=true] - [text="6"] <n View < View <n AlertDialog <n [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
+          ],
+        },
+        {
+          preKeys: [1],
           key: 2,
           actionDelay: 11000,
-          matches: [
+          anyMatches: [
+            '@[vid="web_ib_back"][clickable=true] < [vid="web_title"] + [vid="ll_web_layout"]',
             'Image < @View[clickable=true] < View < View < [id="app"] < WebView < WebView < [vid="ll_web_layout"]',
+            'TextView[text=""] < @View[clickable=true] < View < [id="app"] < WebView < WebView < [vid="ll_web_layout"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '点亮城市-×',
+      forcedTime: 600000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.ccb.cloudmerchant.view.WebViewActivity'],
+      rules: [
+        {
+          matches: [
+            '@ImageButton[clickable=true] - View < View - TextView < View <n View < WebView < WebView < [vid="ll_web_layout"]',
           ],
         },
       ],
