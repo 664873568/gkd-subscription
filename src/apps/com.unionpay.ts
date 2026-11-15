@@ -57,6 +57,9 @@ export default defineGkdApp({
           matches: [
             '@[text="去抽奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
+          excludeMatches: [
+            '@[text="领奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+          ],
         },
         {
           preKeys: [0],
@@ -193,7 +196,7 @@ export default defineGkdApp({
     //首页广告类
     {
       key: 51,
-      name: 'U惠湖北-×',
+      name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
@@ -202,7 +205,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[name*="Image"] < View < View - View < View < View < View <n [id="app"] < WebView < WebView < [vid="view_content_container"]',
+            '@[name*="Image"][width<150] < View < View <n View < View < View <n [id="app"] < WebView < WebView < [vid="view_content_container"]',
           ],
         },
       ],
