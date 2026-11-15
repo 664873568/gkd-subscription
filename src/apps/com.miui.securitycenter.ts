@@ -41,7 +41,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text~=".*微信.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -59,7 +59,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text~=".*微信.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -77,7 +77,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text~="京东.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -95,7 +95,7 @@ export default defineGkdApp({
           matches: [
             '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text~="京东金融.*(JoyAI|QQ阅读|京东健康|微信).*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -113,7 +113,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text~="抖音.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -131,7 +131,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text~="支付宝.*淘宝.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -147,7 +147,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text~=".*中国移动.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -163,7 +163,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text~=".*一刻相册.*微信.*"][vid="event_title"] - [text="启动应用"][vid="permission_group_title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -181,7 +181,7 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] < [vid="buttonPanel"] -n * [text~="是否允许“.*”获取已安装的应用信息"][vid="alertTitle"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -198,7 +198,7 @@ export default defineGkdApp({
           matches: [
             '@[text="取消"][clickable=true] < [vid="buttonPanel"] -n * [text="存储空间严重不足"][vid="alertTitle"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
@@ -215,7 +215,7 @@ export default defineGkdApp({
           matches: [
             '@[text="知道了"][clickable=true] < [vid="buttonPanel"] -n * [text^="电量已低于"][vid="title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity','null'],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
