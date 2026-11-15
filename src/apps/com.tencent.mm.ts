@@ -186,7 +186,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3,4,5],
+          preKeys: [0, 1, 2, 3, 4, 5],
           key: 5,
           action: 'back',
           actionDelay: 2000,
@@ -195,7 +195,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 4, 5,6],
+          preKeys: [3, 4, 5, 6],
           key: 6,
           action: 'back',
           matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
