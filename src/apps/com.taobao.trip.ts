@@ -155,7 +155,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
             '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*玩乐游记|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
@@ -172,6 +172,7 @@ export default defineGkdApp({
             '[text="立即下载App"] < @View[clickable=true] <n View < View < [text="快影APP下载-快手官方视频剪辑神器"] < * <n WebView <n [vid="trip_pull_container"]',
             '@[text="打开盒马APP"][clickable=true] < View < [id="app"] < [text="盒马，鲜美生活"] < * <n WebView <n [vid="trip_pull_container"]',
             '@TextView[clickable=true] <n View < [id="app"] < View < [text="全民K歌"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@TextView[clickable=true] - TextView < View < [text="UC极速版X飞猪"] < * <n WebView <n [vid="trip_pull_container"]',
             '@[text="快速进入"][clickable=true] < View <n [id="login"] < View < [text="登录"] < View <n View <n View < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
@@ -300,24 +301,6 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text~=".*能量|领取奖励"][clickable=true] -2 [text!~="逛中国移动|去猜价格并返回猜价页"] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
-        },
-      ],
-    },
-    {
-      key: 19,
-      name: '天天集能量-看视频',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          action: 'back',
-          actionDelay: 10000,
-          matches: [
-            '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-          activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
         },
       ],
     },
@@ -526,6 +509,13 @@ export default defineGkdApp({
           key: 6,
           matches: [
             'TextView - @ImageView[clickable=true] <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 7,
+          name: '去体验.*秒可直接拿奖励',
+          matches: [
+            '[text~="去体验.*秒立即领奖"] < @RelativeLayout[clickable=true] <n RelativeLayout - [text="跳过"]',
           ],
         },
       ],
