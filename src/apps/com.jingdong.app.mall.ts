@@ -542,7 +542,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity'],
+      activityIds: [
+        'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
+      ],
       rules: [
         {
           preKeys: [50, 51, 100, 120],
