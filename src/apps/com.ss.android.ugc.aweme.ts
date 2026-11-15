@@ -220,9 +220,7 @@ export default defineGkdApp({
           matches: [
             'ViewGroup <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
       ],
     },
@@ -282,11 +280,9 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ImageView < @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
+            'ImageView[height>0] < @ViewGroup < ViewGroup - ViewGroup < ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
       ],
     },
@@ -308,13 +304,13 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          name: '恭喜抽中奖品/任务完成 恭喜获得-开心收下',
+          name: '恭喜抽中奖品',
           position: {
             left: 'width * 0.5',
             top: 'height * 0.8',
           },
           matches: [
-            'ImageView[height>0] <n @ViewGroup < ViewGroup <n ViewGroup - ScrollView',
+            'ImageView[height>0] < @ViewGroup < ViewGroup - ViewGroup < ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -339,10 +335,10 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
+          name: '弹窗广告-×',
           matches: [
-            '@Image < View - View > [text="f080e982ef1f044bb33ea0eb0eab9b5c.png~tplv-49obo7mizy-75compress"]',
+            '@Button[desc="关闭弹窗"][clickable=true] <n View < View <n View <n View < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < LinearLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -848,7 +844,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           anyMatches: [
-            '[text="去懂车帝"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View <n [id="root"]',
+            '[text~="去懂车帝|浏览懂车帝"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View < View <n [id="root"]',
             '[text="浏览懂车帝"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View <n View < View <n [id="root"]',
           ],
         },
