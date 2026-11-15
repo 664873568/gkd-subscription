@@ -495,7 +495,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.WebActivity', '.personel.FloatViewActivity'],
+      activityIds: ['.WebActivity'],
       rules: [
         {
           preKeys: [110],
@@ -524,16 +524,12 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2, 110],
+          preKeys: [2],
           key: 3,
           action: 'back',
           actionDelay: 8000,
           matches: [
             '@[desc="返回"][clickable=true] < RelativeLayout <n RelativeLayout < RelativeLayout < RelativeLayout < LinearLayout <n RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
-          ],
-          excludeMatches: [
-            '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
-            '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -1733,6 +1729,13 @@ export default defineGkdApp({
         'com.jd.lib.babel.view.activity.BabelActivity',
       ],
       rules: [
+        {
+          key: 11,
+          actionDelay: 2000,
+          matches: [
+            '@Button[desc="点击领取"][clickable=true] <n View <n [name$="Dialog"] < [name$="Dialog"] <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+          ],
+        },
         {
           key: 110,
           actionDelay: 2000,
