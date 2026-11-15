@@ -403,7 +403,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity'],
+      activityIds: [
+        'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
+      ],
       rules: [
         {
           key: 0,
@@ -436,7 +438,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity'],
+      activityIds: [
+        'com.noah.adn.huichuan.view.rewardvideo.HCRewardVideoActivity',
+      ],
       rules: [
         {
           key: 0,
