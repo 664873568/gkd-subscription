@@ -1551,7 +1551,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           matches: [
-            '@TextView[clickable=true] - [text="反馈"] <n [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"],',
+            '@TextView[clickable=true] - [text="反馈"] <n [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
