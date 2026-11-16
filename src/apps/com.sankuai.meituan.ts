@@ -27,6 +27,13 @@ export default defineGkdApp({
             'ImageView < @ViewGroup[clickable=true] - ViewGroup - ViewGroup - [text="等待开奖 拿188元现金"]',
           ],
         },
+        {
+          key: 2,
+          name: '幸运号领取成功-开奖提醒我-×',
+          matches: [
+            'ImageView < @ViewGroup[clickable=true] - ViewGroup - [text="等待开奖 拿188元现金"]',
+          ],
+        },
       ],
     },
     {
