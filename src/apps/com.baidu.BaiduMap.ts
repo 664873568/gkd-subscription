@@ -998,7 +998,7 @@ export default defineGkdApp({
     //看视频-com.meishu.sdk.activity.SdkInterstitialActivity
     {
       key: 60,
-      name: '看视频-.*-恭喜已获得奖励',
+      name: '看视频-恭喜已获得奖励',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1029,7 +1029,7 @@ export default defineGkdApp({
     },
     {
       key: 61,
-      name: '看视频-.*-恭喜已获得奖励',
+      name: '看视频-去浏览*秒免看此广告',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1516,6 +1516,44 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           matches: ['[id="app"] > [text="反馈"] -n @TextView[clickable=true]'],
+        },
+      ],
+    },
+    {
+      key: 96,
+      name: '看视频-跳过-反馈-×sigmob',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="跳过"][id="close_btn"][clickable=true] <n View < [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          anyMatches: [
+            '@[id="close_btn"][clickable=true] - [text="反馈"] < [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '@[id="close_btn"][clickable=true] - [text="反馈"] < View <n [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[text="跳过"][clickable=true] - [text="已获得奖励"] - [text="反馈"] < View < View < View < [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },,
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@TextView[clickable=true] - [text="反馈"] <n [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
