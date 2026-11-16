@@ -75,6 +75,7 @@ export default defineGkdApp({
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
         'com.jd.lib.jshop.jshop.JshopMainShopActivity',
+        'com.jd.lib.productdetail.ProductDetailActivity',
         'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
         'com.jingdong.hybrid.halfsheet.WebHalfSheetActivity',
       ],
@@ -1596,7 +1597,10 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+      activityIds: [
+        'com.jd.lib.babel.view.activity.BabelActivity',
+        'com.jd.lib.productdetail.ProductDetailActivity',
+      ],
       rules: [
         {
           key: 100,
