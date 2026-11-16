@@ -21,9 +21,11 @@ export default defineGkdApp({
           matches: ['[text="可提现金额"] + @[text="立即提现"][clickable=true]'],
         },
         {
-          preKeys: [1],
+          preKeys: [0],
           key: 1,
-          matches: ['[text="已提交申请"] +n @[text="完成"][clickable=true]'],
+          matches: [
+            '@[text="完成"][clickable=true] -n [text="已提交申请"] < View < WebView < * < [vid="content_webview"]',
+          ],
         },
       ],
     },
