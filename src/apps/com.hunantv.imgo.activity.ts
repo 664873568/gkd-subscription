@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '个人信息保护政策-同意并继续',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -24,7 +25,8 @@ export default defineGkdApp({
     //首页广告类
     {
       key: 50,
-      name: '首页-跳过',
+      name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -32,8 +34,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text~="跳过 [0-9]"][clickable=true]',
             '@[text="跳过"][vid="mgmi_ad_skip_text"] <n [vid="layout_boot_skip"]',
+            '@[text*="跳过"][clickable=true] < View < View <n View < View < View < View < WebView < WebView < RelativeLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.mgtv.ui.ad.AdSchemaSplashActivity'],
         },
