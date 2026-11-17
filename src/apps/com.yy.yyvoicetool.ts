@@ -169,7 +169,7 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [10,12],
-      key: 12,
+      key: 14,
       name: '每日任务-去完成-访问指定频道',
       forcedTime: 60000,
       matchRoot: true,
@@ -226,7 +226,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 15,
       name: '每日任务-去完成-完成应用下载|完成应用浏览|完成页面浏览',
       forcedTime: 60000,
       matchRoot: true,
@@ -284,7 +284,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 16,
       name: '每日任务-看视频',
       forcedTime: 60000,
       matchRoot: true,
