@@ -271,7 +271,7 @@ export default defineGkdApp({
             },
             end: {
               x: 'screenWidth*0.5',
-              y: 'screenHeight*0.25',
+              y: 'screenHeight*0.35',
             },
             duration: 1000,
           },
