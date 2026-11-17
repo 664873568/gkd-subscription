@@ -21,6 +21,7 @@ export default defineGkdApp({
             '@ImageButton[text="get.9543d188"][clickable=true] <n View < [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
           ],
           excludeMatches: [
+            '@ImageButton[clickable=true] <n View < View <n [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
             '@ImageButton[clickable=true] - View < View - TextView < View <n View < WebView < WebView < [vid="ll_web_layout"]',
             '@ImageButton[text="close.5ac1f7d1"][clickable=true] < AlertDialog <n [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
           ],
@@ -49,14 +50,31 @@ export default defineGkdApp({
       name: '点亮城市-×',
       forcedTime: 600000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.ccb.cloudmerchant.view.WebViewActivity'],
       rules: [
         {
-          matches: [
+          anyMatches: [
+            '@ImageButton[clickable=true] <n View < View <n [id="app"] < View < WebView < WebView < [vid="ll_web_layout"]',
             '@ImageButton[clickable=true] - View < View - TextView < View <n View < WebView < WebView < [vid="ll_web_layout"]',
           ],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 51,
+      name: '弹窗广告-×',
+      forcedTime: 600000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@ImageButton[clickable=true] - ImageButton < View <n View < [id="app"] < WebView < WebView < [vid="ll_web_layout"]',
+          ],
+          activityIds: ['.MainActivity'],
         },
       ],
     },
