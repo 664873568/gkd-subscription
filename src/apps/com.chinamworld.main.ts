@@ -150,7 +150,9 @@ export default defineGkdApp({
           matches: [
             '@TextView[clickable=true] -n [text^="您还有1次开奖机会"] <n View < View <n View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
@@ -282,7 +284,9 @@ export default defineGkdApp({
           excludeMatches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
@@ -298,7 +302,9 @@ export default defineGkdApp({
           matches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
+          activityIds: [
+            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+          ],
         },
       ],
     },
