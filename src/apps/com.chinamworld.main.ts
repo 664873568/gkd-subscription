@@ -79,7 +79,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '日常任务-去完成',
+      name: '任务中心-日常任务-去完成',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -145,12 +145,12 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
       rules: [
         {
           matches: [
             '@TextView[clickable=true] -n [text^="您还有1次开奖机会"] <n View < View <n View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
         },
       ],
     },
@@ -173,7 +173,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@TextView[clickable=true] - [getChild(0).text~="已连续签到[0-9]天"] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@TextView[clickable=true] - [getChild(0).text~="已连续签到.*天"] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
@@ -216,19 +216,23 @@ export default defineGkdApp({
     },
     {
       key: 11,
-      name: '热门活动-公告-×',
+      name: '热门活动-×',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
       rules: [
         {
-          anyMatches: [
-            '[id="app"] >n View[getChild(0).name$="ImageButton"] + @TextView[clickable=true]',
-            '[id="app"] >n [text="公告"] + @TextView[clickable=true] +n TextView[clickable=true]',
-            '[id="app"] + View > TextView + View > View[getChild(0).name$="TextView"] + @ImageButton[clickable=true]',
+          key: 0,
+          matches: [
+            '@ImageButton[clickable=true] <n View <n View <n View < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
+        },
+        {
+          key: 1,
+          matches: [
+            '@TextView[clickable=true] <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
       ],
@@ -246,12 +250,10 @@ export default defineGkdApp({
           preKeys: [1],
           key: 0,
           matches: [
-            '[id="app"] > View > View > @View[clickable=true] > [desc="骰子按钮"]',
+            '[text~="还有[1-9][0-9]*次机会"] - [desc="骰子按钮"] < @View[clickable=true] <n View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
           excludeMatches: [
-            'ImageButton +n @[text="立即签到"][clickable=true] + TextView',
-            'ImageButton +n [getChild(0).text~="已连续签到[0-9]天"] + @TextView[clickable=true]',
-            '[id="app"] >n [getChild(0).text="查看奖励"] + @TextView[clickable=true]',
+            '@TextView[index=parent.childCount.minus(1)][clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
@@ -280,9 +282,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
         },
       ],
     },
@@ -298,16 +298,14 @@ export default defineGkdApp({
           matches: [
             '@TextView[clickable=true] - View < View - TextView < View <n View <n [id="app"] < WebView < WebView < [vid="web_container"]',
           ],
-          activityIds: [
-            'com.ccb.framework.ui.widget.webview.CcbWebViewActivity',
-          ],
+          activityIds: ['com.ccb.framework.ui.widget.webview.CcbWebViewActivity'],
         },
       ],
     },
     //首页广告类
     {
       key: 50,
-      name: '首页广告-×',
+      name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
