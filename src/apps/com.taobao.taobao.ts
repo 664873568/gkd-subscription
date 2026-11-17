@@ -177,7 +177,7 @@ export default defineGkdApp({
           activityIds: ['com.taobao.themis.container.app.TMSActivity'],
         },
         {
-          preKeys: [0],
+          preKeys: [0,1],
           key: 1,
           matches: [
             'FrameLayout - @FrameLayout - FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RecyclerView < FrameLayout <n ViewPager <n ViewGroup < LinearLayout < FrameLayout < ViewPager < FrameLayout <n [vid="home_swipe_refresh"]',
@@ -214,12 +214,11 @@ export default defineGkdApp({
     },
     {
       key: 51,
-      name: '首页广告-×',
+      name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: [
