@@ -31,7 +31,7 @@ export default defineGkdApp({
           matches: [
             '@View[index=parent.childCount.minus(1)] <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
-          matches: [
+          excludeMatches: [
             '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
