@@ -18,7 +18,7 @@ export default defineGkdApp({
           matches: [
             '[text="欢迎使用"][vid="dialog_title"] +n LinearLayout > [text="不同意"][vid="btn_left"] +n @[text="同意并继续"][vid="btn_right"][clickable=true]',
           ],
-          activityIds: ['com.shuqi.home.MainActivity','null'],
+          activityIds: ['com.shuqi.home.MainActivity', 'null'],
         },
       ],
     },
