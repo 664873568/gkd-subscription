@@ -27,6 +27,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          name: '确认提现',
           matches: [
             '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
@@ -34,8 +35,25 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          name: '提交成功',
           matches: [
             '[text="提交成功"] - @TextView < View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 3,
+          name: '确认提现-提现到',
+          matches: [
+            '@[text="打开"][vid="btn_ok"][clickable=true] <n LinearLayout -n LinearLayout > [text="提示"][vid="message"] + [vid="message_content"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          name: '提示-打开',
+          matches: [
+            '@[text="打开"][vid="btn_ok"][clickable=true] <n LinearLayout -n LinearLayout > [text="提示"][vid="message"] + [vid="message_content"]',
           ],
         },
       ],
@@ -568,6 +586,21 @@ export default defineGkdApp({
             '[text~="[0-9]"][vid="tvCounter"] - [text="跳过"] < @[vid="llCounter"][clickable=true]',
           ],
           activityIds: ['com.yy.mobile.ui.splash.SplashActivity'],
+        },
+      ],
+    },
+    {
+      key: 501,
+      name: '弹窗广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      rules: [
+        {
+          matches: [
+            '@[text="close.e2d3031e"][clickable=true] <n [id="emp-root"] < WebView < WebView < ViewGroup < RecyclerView < ViewGroup < [id="android:id/content"]',
+          ],
+          activityIds: ['.basemedia.watchlive.activity.LiveTemplateActivity'],
         },
       ],
     },
