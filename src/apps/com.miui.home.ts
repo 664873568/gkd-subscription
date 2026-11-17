@@ -36,12 +36,12 @@ export default defineGkdApp({
           key: 0,
           swipeArg: {
             start: {
-            left: 'width * 0.5',
-            top: 'height * 0.75',
+              left: 'width * 0.5',
+              top: 'height * 0.75',
             },
             end: {
-            left: 'width * 0.5',
-            top: 'height * 0.25',
+              left: 'width * 0.5',
+              top: 'height * 0.25',
             },
             duration: 500,
           },
