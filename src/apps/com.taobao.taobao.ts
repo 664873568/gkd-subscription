@@ -177,7 +177,7 @@ export default defineGkdApp({
           activityIds: ['com.taobao.themis.container.app.TMSActivity'],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 1,
           matches: [
             'FrameLayout - @FrameLayout - FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RecyclerView < FrameLayout <n ViewPager <n ViewGroup < LinearLayout < FrameLayout < ViewPager < FrameLayout <n [vid="home_swipe_refresh"]',
