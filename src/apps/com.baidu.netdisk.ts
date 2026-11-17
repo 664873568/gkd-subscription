@@ -575,7 +575,7 @@ export default defineGkdApp({
     //看视频-com.bytedance.sdk.openadsdk.core.component.reward.activity.TTRewardVideoActivity
     {
       key: 40,
-      name: '看视频-上滑-<',
+      name: '看视频-下滑-<',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -588,7 +588,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="我知道了"] <n View < View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '@[text="我知道了"] <n View < View <n [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -606,19 +606,19 @@ export default defineGkdApp({
           },
           actionCd: 3000,
           matches: [
-            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] + [text="需要下滑浏览更多才能领取奖励哦"] <n WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '[text~=".*:.*"] <n View - @View <n [id="app"] < [id="root"] + [text="需要下滑浏览更多才能领取奖励哦"] <n WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@[text="我知道了"] <n View < View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '@[text="我知道了"] <n View < View <n [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 2,
           matches: [
-            'View - @[text="svg%3e"] < View <n View < [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            'View - @[text="svg%3e"] < View <n View < [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '[text~="[0-9]+:[0-9]+"] <n View - @View <n [id="app"] < [id="root"] < WebView < * < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '[text~=".*:.*"] <n View - @View <n [id="app"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
