@@ -140,7 +140,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10,12],
+      scopeKeys: [10, 12],
       key: 13,
       name: '每日任务-去完成-收藏任意频道',
       forcedTime: 60000,
@@ -150,7 +150,7 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [10,11,12],
+          preKeys: [10, 11, 12],
           key: 0,
           matches: [
             '[text="收藏"] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
@@ -168,7 +168,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10,12],
+      scopeKeys: [10, 12],
       key: 14,
       name: '每日任务-去完成-访问指定频道',
       forcedTime: 60000,
@@ -178,7 +178,7 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [10,11, 12],
+          preKeys: [10, 11, 12],
           key: 0,
           name: '点击聊天框',
           actionDelay: 2000,
