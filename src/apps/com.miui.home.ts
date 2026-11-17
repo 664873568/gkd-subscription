@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '系统桌面-清理任务',
+      name: 'clearAnimView-进入任务',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -15,23 +15,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          anyMatches: [
-            '@[desc^="YY"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="YY"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="YY语音"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="百度地图"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="百度网盘"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="大众点评"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="飞猪旅行"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="哈啰"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="京东金融"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="酷我音乐"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="美团"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="喜马拉雅"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="星图金融"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="一刻相册"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="一淘"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
-            '@[desc^="翼支付"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
+          matches: [
+            '@[desc~="YY.*|YY语音.*|百度地图.*|百度网盘.*|大众点评.*|飞猪旅行.*|哈啰.*|京东金融.*|酷我音乐.*|美团.*|喜马拉雅.*|星图金融.*|一刻相册.*|一淘.*|翼支付.*|支付宝.*"][clickable=true] <n ScrollView < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
+            '@[desc~="YY.*|YY语音.*|百度地图.*|百度网盘.*|大众点评.*|飞猪旅行.*|哈啰.*|京东金融.*|酷我音乐.*|美团.*|喜马拉雅.*|星图金融.*|一刻相册.*|一淘.*|翼支付.*|支付宝.*"][clickable=true] <n HorizontalScrollView < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
           ],
           activityIds: ['.launcher.Launcher'],
         },
@@ -39,7 +25,7 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '系统桌面-清理全部任务',
+      name: 'clearAnimView-清理应用',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -47,24 +33,21 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          actionDelay: 16000,
+          key: 0,
+          swipeArg: {
+            start: {
+            left: 'width * 0.5',
+            top: 'height * 0.75',
+            },
+            end: {
+            left: 'width * 0.5',
+            top: 'height * 0.25',
+            },
+            duration: 500,
+          },
           anyMatches: [
-            '@[desc^="YY"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="YY"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="YY语音"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="百度地图"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="百度网盘"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="大众点评"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="飞猪旅行"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="哈啰"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="京东金融"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="酷我音乐"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="美团"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="喜马拉雅"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="星图金融"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="一刻相册"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="一淘"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc^="翼支付"][clickable=true] <n [name$="View"] < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
+            '@[desc*="应用"][clickable=true] <n ScrollView < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
+            '@[desc*="应用"][clickable=true] <n HorizontalScrollView < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
           ],
           activityIds: ['.launcher.Launcher'],
         },
