@@ -1169,7 +1169,7 @@ export default defineGkdApp({
           key: 5,
           name: '立即预约领金币',
           matches: [
-            '@ViewGroup - ViewGroup - ImageView <n ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            'ViewGroup - @ViewGroup - ViewGroup - ImageView - ViewGroup < ViewGroup - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView - ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -1177,10 +1177,10 @@ export default defineGkdApp({
           key: 6,
           name: '立即预约领取',
           matches: [
-            '@[desc="立即预约领取"] < ViewGroup <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            '@[desc="立即预约领取"] < ViewGroup <n ViewGroup < LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           excludeMatches: [
-            '@ViewGroup - ViewGroup - ImageView <n ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            'ViewGroup - @ViewGroup - ViewGroup - ImageView - ViewGroup < ViewGroup - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView - ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -1202,7 +1202,7 @@ export default defineGkdApp({
             top: 'height * 0.13',
           },
           matches: [
-            'ViewGroup < ViewGroup < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            'ViewGroup < ViewGroup < @ViewGroup - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView - ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
@@ -1278,7 +1278,7 @@ export default defineGkdApp({
           key: 3,
           name: '金币预约成功-我知道了-×',
           matches: [
-            '@ImageView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
+            '@ImageView[width=height] <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
         },
         {
