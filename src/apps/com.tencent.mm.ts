@@ -85,7 +85,7 @@ export default defineGkdApp({
       name: '中国电信湖北客服',
       forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
       rules: [
@@ -111,6 +111,7 @@ export default defineGkdApp({
           matches: [
             '@[text="签到"] - [getChild(0).text="每日签到"] < View - [text="做任务 赚星币"]',
           ],
+          excludeMatches: ['[getChild(0).getChild(0).text="广告"] + @Image'],
         },
       ],
     },
@@ -135,50 +136,40 @@ export default defineGkdApp({
       name: '京东金融',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
       rules: [
         {
           key: 0,
           name: '频道栏',
-          actionDelay: 2000,
+          actionDelay: 3000,
           matches: [
-            '@ImageView[desc="￼"][index=2] <n View < View < View < ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
+            '[desc="￼"] - [desc="￼"] - @[desc="￼"] - [desc="￼"] - [desc="￼"] < View < View < View < ScrollView < View <n View < View < View + [desc="￼"] + [desc="￼"] + [desc="￼"]',
           ],
           excludeMatches: [
-            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
             'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
-            'ImageView[desc="￼"] - [desc="首页"] - @[desc="特价"] - ImageView[desc="￼"] < View',
+            '[desc="￼"] - [desc="￼"] - View - [desc="搜索"] - View - [desc="￼"] - [desc="首页"] - @[desc="特价"] - [desc="￼"] < View',
           ],
         },
         {
           key: 1,
           name: '特价',
+          actionDelay: 2000,
           anyMatches: [
             'ImageView[desc="￼"] - @[desc="特价"] - [desc="首页"]',
-            'ImageView[desc="￼"] - [desc="首页"] - @[desc="特价"] - ImageView[desc="￼"] < View',
-          ],
-          excludeMatches: [
-            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
+            '[desc="￼"] - [desc="￼"] - View - [desc="搜索"] - View - [desc="￼"] - [desc="首页"] - @[desc="特价"] - [desc="￼"] < View',
           ],
         },
         {
           key: 2,
-          name: '包邮',
-          actionDelay: 1000,
-          matches: [
-            '[desc="¥"] - @ImageView[desc="￼"] <n ScrollView < View <n View < View < View + ImageView[desc="￼"] + ImageView[desc="￼"] + ImageView[desc="￼"]',
-          ],
-        },
-        {
-          key: 3,
           actionDelay: 2000,
           matches: [
             '[desc="去首页逛逛"] - [desc="活动陆续开放中"] <n View < ScrollView < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
           ],
         },
         {
-          key: 4,
+          key: 3,
           name: '现金抽抽乐',
           actionDelay: 2000,
           matches: [
@@ -186,19 +177,20 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4, 5],
-          key: 5,
-          action: 'back',
+          preKeys: [0, 1, 2, 3, 4],
+          key: 4,
           actionDelay: 2000,
           matches: [
             '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [3, 4, 5, 6],
-          key: 6,
+          preKeys: [0, 1, 2, 3, 4,5],
+          key: 5,
           action: 'back',
-          matches: ['@[id="android:id/content"] + * [id="android:id/text1"]'],
+          matches: [
+            '[text="微信"][vid="icon_tv"] <n LinearLayout < RelativeLayout < LinearLayout < RelativeLayout <n FrameLayout < FrameLayout < @[id="android:id/content"]',
+          ],
           activityIds: ['.ui.LauncherUI'],
         },
       ],
@@ -208,7 +200,6 @@ export default defineGkdApp({
       name: '迅雷-看广告-领取',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
@@ -226,7 +217,6 @@ export default defineGkdApp({
       name: '迅雷-关闭-已获得奖励',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
       matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
