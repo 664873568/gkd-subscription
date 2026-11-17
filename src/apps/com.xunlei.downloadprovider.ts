@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '首页广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -30,6 +31,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -46,6 +48,7 @@ export default defineGkdApp({
     {
       key: 20,
       name: '广告-反馈-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -72,13 +75,17 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
-          matches: ['LinearLayout > @[text="跳过"] + [text~="[0-9]"]'],
+          anyMatches: [
+            '@[text^="跳过"][clickable=true] <n FrameLayout < [vid="native_container"]',
+            '@[text="跳过"] <n FrameLayout <n FrameLayout < FrameLayout < [vid="native_container"]',
+          ],
           activityIds: ['.launch.LaunchActivity'],
         },
       ],
