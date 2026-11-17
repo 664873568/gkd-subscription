@@ -94,7 +94,7 @@ export default defineGkdApp({
           key: 0,
           name: '商品详情-点击打开小程序',
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 2000,
           matches: [
             '[id="app"] < WebView < * < [vid="webview"] < [vid="web_all"] <n * @Button[clickable=true] < [vid="common_webview_navbar_left"] + [text="商品详情"]',
           ],
@@ -121,7 +121,7 @@ export default defineGkdApp({
           key: 3,
           name: 'JoyAI对话',
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 2000,
           matches: [
             '[text="JoyAI"] < * < [vid="webview"] < [vid="web_all"] <n * @Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
@@ -130,7 +130,7 @@ export default defineGkdApp({
           key: 4,
           name: '京东健康-限时福利',
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 2000,
           matches: [
             '[id*="JDHDownloadLark"] < [id="app"] < WebView < * < [vid="webview"]',
           ],
@@ -169,10 +169,8 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 5000,
-          anyMatches: [
-            '[vid="ll_top_nav_bar"] - [vid="web_all"]',
-            '@FrameLayout[clickable=true] < [vid="common_webview_navbar_right"] -n [vid="common_webview_navbar_left"]',
+          matches: [
+            '@FrameLayout[clickable=true] < LinearLayout <n RelativeLayout < RelativeLayout < [vid="ll_top_nav_bar"] - [vid="web_all"]',
           ],
           activityIds: ['.bm.common.web.ui.WebFreeSizeActivity'],
         },
@@ -226,14 +224,15 @@ export default defineGkdApp({
           actionDelay: 5000,
           anyMatches: [
             '@TextView[clickable=true] < View -n [id="app"] < WebView < * < [vid="webview"]', //黄金频道页
-            'TextView - @TextView[clickable=true] < View < View < [id="app"] < WebView < * < [vid="webview"]', //对口令赢苹果18Pro
             'View - @TextView[clickable=true] < View <n View < View < [id="app"] < WebView < * < [vid="webview"]', //彩票频道
+            '[text="03e6058058b35dde"] < @View[clickable=true] < View <n View < [id="app"] < View < WebView < * < [vid="webview"]', //天天来提额
+            'TextView - @TextView[clickable=true] < View < View < [id="app"] < WebView < * < [vid="webview"]', //对口令赢苹果18Pro
             'TextView - @TextView[clickable=true] < View < View < View < [id="app"] <n View < WebView < * < [vid="webview"]', //浏览基金圈 结交同路人
             'TextView - @TextView[clickable=true] < View <n View < View < View < [id="app"] <n View < WebView < * < [vid="webview"]', //浏览基金圈 结交同路人
-            '[text="03e6058058b35dde"] < @View[clickable=true] < View <n View < [id="app"] < View < WebView < * < [vid="webview"]', //天天来提额
             'TextView - @Button[clickable=true] < View < View < [id="root"] < WebView < * < [vid="webview"]', //现金抽抽乐
             'TextView - @TextView[clickable=true] < View < View < [id="joyai-root"] < View < WebView < * < [vid="webview"]', //逛测财运智能体
             '@View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < * < [vid="webview"]', //京东秒杀
+            '[desc="dancing"] < @View[clickable=true] < View <n View < View < View < View <n View < [id="pageGameCenter"] < View < WebView < WebView < [vid="webview"]',//互动游戏
           ],
           excludeMatches: [
             'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|浏览.*秒|.*返回.*|京东验证"]',
@@ -241,25 +240,18 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6, 30],
+          preKeys: [6, 40],
           key: 6,
+          name: '市民服务领京豆',
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '@[vid="manto_actionbar_home"][clickable=true] <<n * - * [text="京民通"]',
+            '@[vid="manto_actionbar_home"][clickable=true] <n LinearLayout < LinearLayout < LinearLayout <n RelativeLayout <n [vid="manto_action_bar_root"]',
           ],
         },
         {
-          preKeys: [7, 20],
+          preKeys: [2,7],
           key: 7,
-          actionDelay: 5000,
-          matches: [
-            '[vid="manto_actionbar_option"][clickable=true] + @[vid="manto_actionbar_home"][clickable=true]',
-          ],
-        },
-        {
-          preKeys: [2, 7, 8],
-          key: 8,
           name: '提示-是否退出游戏',
           matches: [
             'Button - @Button[clickable=true] - Button - [text="主人 是否退出游戏"] - [text="提示"] < View <n [id="popupFrame"] <n View < WebView < * < [vid="webview"]',
@@ -283,10 +275,10 @@ export default defineGkdApp({
           name: '去完成',
           actionDelay: 2000,
           anyMatches: [
-            '@[text="去完成"][clickable=true] -3 TextView[text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] <n View <n View < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            '@[text="去完成"][clickable=true] -3 TextView[text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] <n View <n View < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            '@[text="去完成"][clickable=true] -3 [getChild(0).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] <n View <n View < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            '@[text="去完成"][clickable=true] -3 [getChild(0).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] <n View <n View < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [text!~="领.*元.*|.*话费.*|玩玩.*|玩一玩.*|完成.*订单|购券.*|首绑.*|去看.*"] - View < View <n View < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [getChild(0).text!~="领.*元.*|.*话费.*|玩玩.*|玩一玩.*|完成.*订单|购券.*|首绑.*|去看.*"] - View < View <n View < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [text!~="领.*元.*|.*话费.*|玩玩.*|玩一玩.*|完成.*订单|购券.*|首绑.*|去看.*"] - View < View <n View < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [getChild(0).text!~="领.*元.*|.*话费.*|玩玩.*|玩一玩.*|完成.*订单|购券.*|首绑.*|去看.*"] - View < View <n View < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
@@ -332,16 +324,16 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
+          actionDelay: 10000,
           anyMatches: [
-            'TextView < @View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            'TextView < @View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
-            '@[text="去完成|领奖"][clickable=true] -3 TextView[text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] <n View <n View < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            '@[text="去完成|领奖"][clickable=true] -3 TextView[text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] <n View <n View < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            '@[text="去完成|领奖"][clickable=true] -3 [getChild(0).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] <n View <n View < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            '@[text="去完成|领奖"][clickable=true] -3 [getChild(0).text!~="领.*|.*话费.*|玩玩.*|玩一玩.*|.*订单|购券.*|.*卡|去看.*"] <n View <n View < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [text!~="领.*元.*|.*话费.*|玩玩.*|玩一玩.*|完成.*订单|购券.*|首绑.*|去看.*"] - View < View <n View < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [getChild(0).text!~="领.*元.*|.*话费.*|玩玩.*|玩一玩.*|完成.*订单|购券.*|首绑.*|去看.*"] - View < View <n View < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [text!~="领.*元.*|.*话费.*|玩玩.*|玩一玩.*|完成.*订单|购券.*|首绑.*|去看.*"] - View < View <n View < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="去完成"][clickable=true] -n [getChild(0).text!~="领.*元.*|.*话费.*|玩玩.*|玩一玩.*|完成.*订单|购券.*|首绑.*|去看.*"] - View < View <n View < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
         },
         {
@@ -367,31 +359,69 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '阶段奖励-可领取',
+          name: '猪猪长到*年期啦-立即领取',
           matches: [
+            '@[text="立即领取"][clickable=true] <n View <n View <n [id="J_milepost"] <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '阶段奖励-可领取',
+          anyMatches: [
+            '[text="可领取"] <n @View[clickable=true] < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text="可领取"] <n @View[clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            'TextView < @View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            'TextView < @View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            '@[text="领取并喂食"][clickable=true] - [text="恭喜获得阶段奖励"] < View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="领取并喂食"][clickable=true] <n View <n View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="领取并喂食"][clickable=true] <n View <n View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="领取并喂食"][clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="领取并喂食"][clickable=true] <n View <n View < View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
         },
         {
-          key: 1,
-          name: '猪猪长到*年期啦-立即领取',
-          matches: [
-            '@[text="立即领取"][clickable=true] < [getChild(0).getChild(0).text~=".*年期.*年期"] < [getChild(0).text~="猪猪长到.*年期啦"] < [id="J_milepost"] < View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [0],
+          preKeys: [1],
           key: 2,
           name: '恭喜获得阶段奖励-领取并喂食',
+          anyMatches: [
+            '@[text="领取并喂食"][clickable=true] <n View <n View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="领取并喂食"][clickable=true] <n View <n View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="领取并喂食"][clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@[text="领取并喂食"][clickable=true] <n View <n View < View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '养成奖励-可领取',
           matches: [
-            '@[text="领取并喂食"][clickable=true] - [text="恭喜获得阶段奖励"] < View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '[text="可领取"] -n @View < View[clickable=true] <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+          ],
+          excludeMatches: [
+            '@[text="确认兑换"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
+          key: 4,
+          name: '养成奖励-确认兑换',
+          matches: [
+            '@[text="确认兑换"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
+          key: 5,
+          name: '养成奖励-兑换成功',
+          matches: [
+            '@TextView[clickable=true] < View - [text="兑换成功"] <n View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '选奖励-鸡蛋10枚-就选这个',
+          matches: [
+            '@[text="就选这个"][clickable=true] - [text="鸡蛋10枚"] <n View <n View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
         },
       ],
@@ -413,6 +443,13 @@ export default defineGkdApp({
           ],
         },
         {
+          key: 1,
+          name: '签到七天得-去喂食-×',
+          matches: [
+            '@TextView[clickable=true] - [getChild(0).text="去喂食"] <n View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
           key: 11,
           name: '可抽奖',
           anyMatches: [
@@ -420,7 +457,7 @@ export default defineGkdApp({
             '@[text="可抽奖"][clickable=true] < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
-            '@[text^="签到并喂食"][clickable=true] < View <n View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView[clickable=true] - [getChild(0).text~=".*喂食"] <n View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] -n [id="draw"] < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -429,7 +466,7 @@ export default defineGkdApp({
         },
         {
           key: 12,
-          name: '免费抽奖',
+          name: '幸运大转盘-免费抽奖',
           anyMatches: [
             '@[text="免费抽奖x1"][clickable=true] < View <n View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@[text="免费抽奖x1"][clickable=true] < View <n View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -438,7 +475,7 @@ export default defineGkdApp({
         {
           preKeys: [12],
           key: 23,
-          name: '浏览任务得抽奖次数',
+          name: '幸运大转盘-浏览任务得抽奖次数',
           anyMatches: [
             '[text="浏览任务得抽奖次数"] < @View[clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text="浏览任务得抽奖次数"] < @View[clickable=true] < View <n View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -446,7 +483,7 @@ export default defineGkdApp({
         },
         {
           key: 13,
-          name: '去喂食-×',
+          name: '幸运大转盘-去喂食-×',
           actionDelay: 5000,
           anyMatches: [
             '@TextView[clickable=true] -n [getChild(1).text="去喂食"] - [id="draw"] < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -479,6 +516,7 @@ export default defineGkdApp({
             '@[text="可抽奖"][clickable=true] < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] -n [id="draw"] < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] -n [id="draw"] < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '[text="可领取"] <n @View[clickable=true] < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text="可领取"] <n @View[clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@TextView[index=parent.childCount.minus(1)][clickable=true] - View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@TextView[index=parent.childCount.minus(1)][clickable=true] - View < View < View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -530,9 +568,11 @@ export default defineGkdApp({
           excludeMatches: [
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            'TextView < @View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@[text="可抽奖"][clickable=true] < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@[text="可抽奖"][clickable=true] < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '[text="可领取"] <n @View[clickable=true] < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text="可领取"] <n @View[clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="京豆"] < @[desc$="京豆"][clickable=true] <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="京豆"] < @[desc$="京豆"][clickable=true] <n View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -581,10 +621,11 @@ export default defineGkdApp({
           excludeMatches: [
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            'TextView < @View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            'TextView < @View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@[text="可抽奖"][clickable=true] < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@[text="可抽奖"][clickable=true] < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '[text="可领取"] <n @View[clickable=true] < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text="可领取"] <n @View[clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="京豆"] < @[desc$="京豆"][clickable=true] <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="京豆"] < @[desc$="京豆"][clickable=true] <n View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -673,10 +714,11 @@ export default defineGkdApp({
           excludeMatches: [
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            'TextView < @View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
-            'TextView < @View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '@TextView < View[clickable=true] <n View - TextView <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@[text="可抽奖"][clickable=true] < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@[text="可抽奖"][clickable=true] < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
+            '[text="可领取"] <n @View[clickable=true] < View <n View <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text="可领取"] <n @View[clickable=true] <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="京豆"] < @[desc$="京豆"][clickable=true] <n View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '[text$="京豆"] < @[desc$="京豆"][clickable=true] <n View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -2480,6 +2522,47 @@ export default defineGkdApp({
           matches: [
             'Dialog > [getChild(0).text="今日限时福利"] + @Button[text=""][clickable=true]',
           ],
+        },
+      ],
+    },
+    //购物返红包
+    {
+      key: 220,
+      name: '购物返红包-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.bm.common.web.ui.WebActivity'],
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[text="查看全部任务"][clickable=true] <n View <n View <n View < View < View < [id="app"] < WebView < WebView < [vid="webview"]',
+          ],
+          excludeMatches: [
+            '@[text="立即领取"][clickable=true] -4 [text!~=".*攒.*|体验.*|.*金库.*|完成.*"] <n View <n View < View < AlertDialog <n View < [id="app"] < WebView < WebView < [vid="webview"]',
+            '[text="立即领取"] < @View[clickable=true] -4 [text!~=".*攒.*|体验.*|.*金库.*|完成.*"] <n View <n View < View < AlertDialog <n View < [id="app"] < WebView < WebView < [vid="webview"]',
+          ],
+        },
+        {
+          key: 220,
+          actionDelay: 2000,
+          anyMatches: [
+            '@[text="立即领取"][clickable=true] -4 [text!~=".*攒.*|体验.*|.*金库.*|完成.*"] <n View <n View < View < AlertDialog <n View < [id="app"] < WebView < WebView < [vid="webview"]',
+            '[text="立即领取"] < @View[clickable=true] -4 [text!~=".*攒.*|体验.*|.*金库.*|完成.*"] <n View <n View < View < AlertDialog <n View < [id="app"] < WebView < WebView < [vid="webview"]',
+          ],
+        },
+        {
+          preKeys: [220],
+          key: 11,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '[text="我的盯盘"] < ViewGroup - * [text="我的盯盘"]',
+          ],
+          activityIds: ['.bm.mainbox.main.MainActivity'],
         },
       ],
     },
