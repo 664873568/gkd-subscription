@@ -232,7 +232,7 @@ export default defineGkdApp({
             'TextView - @Button[clickable=true] < View < View < [id="root"] < WebView < * < [vid="webview"]', //现金抽抽乐
             'TextView - @TextView[clickable=true] < View < View < [id="joyai-root"] < View < WebView < * < [vid="webview"]', //逛测财运智能体
             '@View[index=parent.childCount.minus(1)] < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < * < [vid="webview"]', //京东秒杀
-            '[desc="dancing"] < @View[clickable=true] < View <n View < View < View < View <n View < [id="pageGameCenter"] < View < WebView < WebView < [vid="webview"]',//互动游戏
+            '[desc="dancing"] < @View[clickable=true] < View <n View < View < View < View <n View < [id="pageGameCenter"] < View < WebView < WebView < [vid="webview"]', //互动游戏
           ],
           excludeMatches: [
             'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|浏览.*秒|.*返回.*|京东验证"]',
@@ -250,7 +250,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,7],
+          preKeys: [2, 7],
           key: 7,
           name: '提示-是否退出游戏',
           matches: [
@@ -2559,9 +2559,7 @@ export default defineGkdApp({
           key: 11,
           action: 'back',
           actionDelay: 5000,
-          matches: [
-            '[text="我的盯盘"] < ViewGroup - * [text="我的盯盘"]',
-          ],
+          matches: ['[text="我的盯盘"] < ViewGroup - * [text="我的盯盘"]'],
           activityIds: ['.bm.mainbox.main.MainActivity'],
         },
       ],
