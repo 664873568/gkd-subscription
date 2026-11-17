@@ -82,6 +82,7 @@ export default defineGkdApp({
         {
           preKeys: [11],
           key: 12,
+          action: 'back',
           matches: [
             '@[name~=".*ImageButton|.*TextView"][clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
@@ -266,7 +267,6 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [6],
       key: 9,
       name: '看热点领金币-看短剧-赚金币',
       forcedTime: 60000,
@@ -286,7 +286,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 6],
+          preKeys: [0],
           key: 1,
           actionDelay: 2000,
           matches: [
@@ -312,9 +312,10 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 6],
+          preKeys: [0],
           key: 3,
           action: 'back',
+          actionDelay: 5000,
           matches: [
             'WebView[vid="system_webview_sdk"][index=0][childCount=0][clickable=true] < FrameLayout < [vid="h5_base_layout"]',
           ],
@@ -350,7 +351,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 6000,
           anyMatches: [
-            '@ImageButton[clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //参与签到赢红包
+            '@[name~=".*ImageButton|.*TextView"][clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //参与签到赢红包
             '@ImageButton[clickable=true] < View < View < [id="wrapper"] < [id="app"] < View < WebView < WebView <n FrameLayout < [vid="h5_base_layout"]', //访问瞳瞳AI
             '@ImageButton[clickable=true] < View < [id="wrapper"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //去播客听新闻
             '[vid="title"] -n @[vid="imageView_backToPreviousPage"][clickable=true] < [vid="layout_header"] < [vid="h5_base_layout"]', //[text~="猜涨跌|星灿会员|财富|基金"]
