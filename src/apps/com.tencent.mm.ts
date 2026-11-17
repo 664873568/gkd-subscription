@@ -185,7 +185,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3, 4,5],
+          preKeys: [0, 1, 2, 3, 4, 5],
           key: 5,
           action: 'back',
           matches: [
