@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 5000,
+          actionDelay: 3000,
           matches: [
             '[text=""] < FrameLayout < @LinearLayout[clickable=true] < LinearLayout < FrameLayout < [vid="fliggyx_navigation_bar_left"] < [vid="fliggyx_navigation_bar_left_out"]',
           ],
@@ -34,7 +34,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -52,10 +52,10 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
@@ -81,7 +81,7 @@ export default defineGkdApp({
         {
           key: 4,
           matches: [
-            '@Button[text="领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text="领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -99,20 +99,21 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
+          actionDelay: 3000,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text="立即下载" || text="下载应用" || text="下载游戏"]',
           ],
         },
         {
+          preKeys: [0],
           key: 2,
           actionDelay: 11000,
           matches: [
@@ -130,16 +131,9 @@ export default defineGkdApp({
           activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
-          preKeys: [1],
           key: 4,
           matches: [
-            '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-        },
-        {
-          key: 5,
-          matches: [
-            '@Button[text="领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text="领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -157,11 +151,11 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 3000,
           matches: [
-            '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*玩乐游记|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*猜对价格领奖励"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-            '@Button[text~=".*元|领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[clickable=true] <n View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text~=".*元|领取奖励"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
@@ -180,15 +174,16 @@ export default defineGkdApp({
           preKeys: [0, 2],
           key: 2,
           name: '任意点击一个酒店',
+          action: 'back',
           matches: [
-            '@[text=""][clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < [text="飞猪订酒店 真划算"] < * <n WebView <n [vid="trip_pull_container"]',
+            '[text="飞猪订酒店 真划算"] < View -n @TextView[clickable=true] - TextView < View < View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
     },
     {
       key: 14,
-      name: '天天集能量-看视频领现金-找10次抽奖券',
+      name: '天天集能量-看视频领现金-许愿星/抽奖券',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -198,17 +193,17 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '@Button[text~=".*抽奖券|.*玩乐游记"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text~=".*许愿星|.*抽奖券"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*玩乐游记|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*许愿星|.*抽奖券|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
     },
     {
       key: 15,
-      name: '天天集能量-看视频领现金-寻找10枚许愿星',
+      name: '天天集能量-赚能量抵钱-赚更多能量',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -216,52 +211,20 @@ export default defineGkdApp({
       activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
       rules: [
         {
-          actionDelay: 2000,
+          name: '赚更多能量',
+          actionDelay: 10000,
           matches: [
-            '@Button[text~=".*许愿星"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            'View[index=parent.childCount.minus(1)] - @Button[clickable=true] <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*许愿星|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+            '[getChild(1).text="做任务赚能量"] - @Button[clickable=true] <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
     },
     {
       key: 16,
-      name: '天天集能量-赚能量抵钱',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['fliggyx.android.unicorn.ActWebviewActivity'],
-      rules: [
-        {
-          key: 0,
-          name: '今日签到',
-          actionDelay: 2000,
-          matches: [
-            '@Button[text$="今日签到"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-          excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-        },
-        {
-          key: 1,
-          name: '赚更多能量',
-          actionDelay: 5000,
-          matches: [
-            'View[index=parent.childCount.minus(1)] - @Button[clickable=true] <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-          excludeMatches: [
-            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][width=height][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-            '[getChild(1).text="做任务赚能量"] - @Button[clickable=true] <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 17,
       name: '天天集能量-赚能量抵钱-做任务赚能量',
       forcedTime: 60000,
       matchRoot: true,
@@ -273,33 +236,41 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '@[text~=".*能量"][clickable=true] -2 [text!~="逛中国移动|去猜价格并返回猜价页"] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@[text~=".*能量"][clickable=true] -2 [text!~="逛中国移动|去猜价格并返回猜价页"] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@[text="领取奖励"][clickable=true] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|.*猜对价格领奖励"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+            '@[text="领取奖励"][clickable=true] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
+          matches: [
+            '@TextView[clickable=true] - TextView < View < [text="UC极速版X飞猪"] < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 2,
           actionDelay: 5000,
           matches: [
             '@[text=""][clickable=true] <n View < View < [id="pcraft-container"] < [id="root"] < [text="猪猪宝库"] < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
-          key: 2,
+          key: 3,
           matches: [
-            '@[text="领取奖励"][clickable=true] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@[text="领取奖励"][clickable=true] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
         {
-          key: 3,
+          key: 4,
           matches: [
-            '@[text="立即领"][clickable=true] <n View <n View <n View < View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@[text="立即领"][clickable=true] <n View <n View <n View < View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@[text~=".*能量|领取奖励"][clickable=true] -2 [text!~="逛中国移动|去猜价格并返回猜价页"] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < [text="天天集能量"] < * <n WebView <n [vid="trip_pull_container"]',
+            '@[text~=".*能量|领取奖励"][clickable=true] -2 [text!~="逛中国移动|去猜价格并返回猜价页"] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -315,12 +286,11 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '@[text~="跳过 [0-9]"][clickable=true]',
             '[id$="ms_skipView"] < @[id$="ms_skipView_container"]',
-            '@[text="跳过"][clickable=true] - * [text="点击跳转至第三方页面"]',
-            '[text~="[0-9]s \\\\| 跳过"][vid="sdm_myoffer_splash_skip"] < @[vid="sdm_myoffer_splash_skip_area"][clickable=true]',
-            '[text~="[0-9]s \\\\| Skip"][vid="sdm_myoffer_splash_skip"] < @[vid="sdm_myoffer_splash_skip_area"][clickable=true]',
-            '[text~="[0-9]s \\\\| 跳过"][vid="anythink_myoffer_splash_skip"] < @[vid="anythink_myoffer_splash_skip_area"][clickable=true]',
+            '@[text="跳过"][clickable=true] <n RelativeLayout < FrameLayout < [id="android:id/content"]',
+            '[text~=".*s \\\\| 跳过"][vid="sdm_myoffer_splash_skip"] < @[vid="sdm_myoffer_splash_skip_area"][clickable=true]',
+            '[text~=".*s \\\\| Skip"][vid="sdm_myoffer_splash_skip"] < @[vid="sdm_myoffer_splash_skip_area"][clickable=true]',
+            '[text~=".*s \\\\| 跳过"][vid="anythink_myoffer_splash_skip"] < @[vid="anythink_myoffer_splash_skip_area"][clickable=true]',
           ],
           activityIds: [
             'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
@@ -340,13 +310,13 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[getChild(2).getChild(1).text~="剩余 [0-9]+s"] -n * @[text="免看本次广告"][vid="sdm_myoffer_inctask_cta"]',
+            '[getChild(2).getChild(1).text~="剩余 .*s"] -n * @[text="免看本次广告"][vid="sdm_myoffer_inctask_cta"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '[getChild(2).getChild(1).text~="剩余 [0-9]+s"] -n * @[text="点此领取奖励"][vid="sdm_myoffer_inctask_cta"][clickable=true]',
+            '[getChild(2).getChild(1).text~="剩余 .*s"] -n * @[text="点此领取奖励"][vid="sdm_myoffer_inctask_cta"][clickable=true]',
           ],
         },
         {
@@ -394,14 +364,25 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@[vid="anythink_myoffer_btn_close_id"][clickable=true]'],
+          action: 'none',
+          matches: [
+            '[vid="anythink_myoffer_count_down_view_id"] < LinearLayout <n [vid="anythink_myoffer_rl_root"]',
+          ],
         },
         {
           key: 1,
+          matches: [
+            '@[vid="anythink_myoffer_btn_close_id"][clickable=true] < FrameLayout < LinearLayout <n [vid="anythink_myoffer_rl_root"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
           name: '二级广告页',
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
+          activityIds: ['com.qq.e.ads.ADActivity'],
         },
       ],
     },
@@ -524,6 +505,9 @@ export default defineGkdApp({
           matches: [
             '@ImageView[width=height][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout - RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
+          excludeMatches: [
+            '@[text="跳过"][clickable=true] <n * [text$="s后可领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
@@ -550,10 +534,10 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.byazt.mw.Stub_Standard_Portrait_Activity
+    //看视频-com.byazt.*.Stub_Standard_Portrait_Activity
     {
       key: 60,
-      name: '看视频-跳过-byazt.mw',
+      name: '看视频-跳过-byazt.*',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -563,17 +547,18 @@ export default defineGkdApp({
         'com.byazt.mw.Stub_Standard_Activity',
         'com.byazt.sr.Stub_Standard_Portrait_Activity',
         'com.byazt.sr.Stub_Standard_Activity',
+        'com.byazt.tj.Stub_Standard_Portrait_Activity',
       ],
       rules: [
         {
           key: 0,
           actionDelay: 1000,
           anyMatches: [
-            '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验[0-9]+秒可立即领奖"] +n [text$="跳过"]',
-            '@[text~="点击查看|立即领奖|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~="[0-9]+s"] + [text$="跳过"]',
-            '@[text~="去体验[0-9]+秒立即领奖"] <<n * [text~="[0-9]s"] + [text="｜跳过"]',
-            '@[text~="我要立即领奖|我要减广告时长"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '@View[clickable=true] - [text="reward_pop_get"] <<n * [text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
+            '@[text~="去体验|立即前往|立即前往加速|我要加速|我要立即领奖|我要直接拿奖励"] <<n * [text~="去体验.*秒可立即领奖"] +n [text$="跳过"]',
+            '@[text~="点击查看|立即领奖|我要加速领奖|我要直接拿奖励|恭喜获得神秘惊喜"] <<n * [text~=".*s"] + [text$="跳过"]',
+            '@[text~="去体验.*秒立即领奖"] <<n * [text~=".*s"] + [text="｜跳过"]',
+            '@[text~="我要立即领奖|我要减广告时长|返回继续体验"] <<n * [text="svg%3e"] + [text~="再逛.*秒后可领奖"]',
+            '@View[clickable=true] - [text="reward_pop_get"] <<n * [text="svg%3e"] + [text~="再逛.*秒后可领奖"]',
           ],
         },
         {
@@ -599,7 +584,7 @@ export default defineGkdApp({
           anyMatches: [
             '@Image < * +n [text="限时奖励点击领取"]',
             '@[getChild(0).text="3ca6ab446dec1c57"] + [getChild(0).text="恭喜获得优惠券"]',
-            '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励-恭喜获得*元红包
+            '@[getChild(0).text="7b144c81c2cb181f"] -n [getChild(0).text="限时领取"]', //恭喜获得奖励
             '@[getChild(0).text="恭喜获得奖励"] + [getChild(1).getChild(1).text="以实际活动为准"]', //惊喜福利-限时优惠权益
             '@TextView - [text="恭喜获得限时奖励"] < * + [getChild(1).getChild(1).text="以实际活动为准"]', //限时优惠权益
             '[getChild(1).text="上滑或点击领取"] + [getChild(0).text="恭喜获得限时奖励"] > TextView[index=parent.childCount.minus(1)]',
@@ -619,13 +604,13 @@ export default defineGkdApp({
             duration: 1000,
           },
           matches: [
-            '[getChild(0).text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > [id="app"] > @[id="_scrollView"][childCount>1]',
+            '@[id="_scrollView"][childCount>1] <n [id="app"] < [id="root"] + [getChild(0).text="需要下滑浏览更多才能领取奖励哦"] <n WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 5,
           matches: [
-            '[getChild(0).text="需要下滑浏览更多才能领取奖励哦"] - [id="root"] > [id="app"] > [id="_scrollView"][childCount=1] >n @TextView',
+            '@TextView < View <n View <n View <n View < [id="_scrollView"][childCount=1] <n [id="app"] < [id="root"] + [getChild(0).text="需要下滑浏览更多才能领取奖励哦"] <n WebView < WebView < FrameLayout < FrameLayout < LinearLayout < FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -637,13 +622,13 @@ export default defineGkdApp({
         },
         {
           key: 7,
-          excludeMatches: [
-            '[text="svg%3e"] + [text~="再逛[0-9]+秒后可领奖"]',
-            '[text~="[1-9][0-9]*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
-          ],
           actionDelay: 1000,
           matches: [
-            'FrameLayout - FrameLayout - FrameLayout >n @RelativeLayout[clickable=true]',
+            '@RelativeLayout[clickable=true] < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text="svg%3e"] + [text~="再逛.*秒后可领奖"]',
+            '[text~=".*秒"] - [text="Rkt+ZKm7ZwiYnxjnD71pWy80P5LJAAAAAElFTkSuQmCC"]',
           ],
         },
       ],
@@ -721,7 +706,7 @@ export default defineGkdApp({
         {
           key: 0,
           anyMatches: [
-            '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验[0-9]+秒可立即领奖"]',
+            '@[text="我要加速"] <<n * -n * [text$="跳过"] -n [text~="去体验.*秒可立即领奖"]',
           ],
         },
         {
@@ -905,7 +890,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
+            '[text~=".*秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
         {
@@ -919,6 +904,9 @@ export default defineGkdApp({
           name: '恭喜获得奖励-×',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
+          ],
+          excludeMatches: [
+            '[text~=".*秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
           ],
         },
       ],
@@ -1022,7 +1010,7 @@ export default defineGkdApp({
           key: 0,
           action: 'none',
           matches: [
-            '[text="浏览页面"] + [text~="[0-9]+"] + [text="秒后即可获得奖励"]',
+            '[text="浏览页面"] + [text~=".*"] + [text="秒后即可获得奖励"]',
           ],
         },
         {
