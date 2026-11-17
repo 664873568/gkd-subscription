@@ -1120,6 +1120,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text*="跳过"][clickable=true] <n FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n FrameLayout < FrameLayout < [vid="flash_fragment"]',
+            '@[text*="跳过"][clickable=true] <n RelativeLayout < FrameLayout < [vid="flash_fragment"]',
             '@[text="跳过"] < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < [vid="flash_fragment"]',
           ],
@@ -1132,7 +1133,7 @@ export default defineGkdApp({
     },
     {
       key: 501,
-      name: '首页广告-×',
+      name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'app',
