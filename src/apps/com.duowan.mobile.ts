@@ -19,9 +19,9 @@ export default defineGkdApp({
             '[text="条件达成"] - [text="连续签到20天"] - [text="50元"] < @View[clickable=true] <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
           excludeMatches: [
-            '[text="今日份数已用完"] - [text="50元"] < @View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
             '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
             '[text="提交成功"] - @TextView < View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '@[text="打开"][vid="btn_ok"][clickable=true] <n LinearLayout -n LinearLayout > [text="提示"][vid="message"] + [vid="message_content"]',
           ],
         },
         {
