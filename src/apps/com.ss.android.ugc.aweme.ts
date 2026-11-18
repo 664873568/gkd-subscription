@@ -554,6 +554,46 @@ export default defineGkdApp({
             '[text="逛充值中心"] <n @View[clickable=true] - [text~="浏览赚.*省钱豆"] <n View <n View <n View < View < [id="root"]',
           ],
         },
+        {
+          preKeys: [0],
+          key: 1,
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '@[desc="订阅每日提醒"] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['.live.LiveDummyActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          matches: [
+            '[text="我"][desc="我，按钮"] < RelativeLayout < RelativeLayout < RelativeLayout <n FrameLayout < @FrameLayout[clickable=true] <n [vid="root_view"]',
+          ],
+          activityIds: ['.main.MainActivity'],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          matches: [
+            '@[desc="我的钱包"][clickable=true] <n View < View < ComposeView < HorizontalScrollView < ViewGroup <n LinearLayout <n ViewGroup < [vid="scroll_layout"]',
+          ],
+          activityIds: ['.main.MainActivity'],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '@[desc="保险  按钮"] <n ViewGroup < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [4],
+          key: 5,
+          matches: [
+            '@[text^="省钱豆"][clickable=true] <n View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < LinearLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
       ],
     },
     {
