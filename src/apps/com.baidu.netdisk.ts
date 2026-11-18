@@ -1008,7 +1008,7 @@ export default defineGkdApp({
           key: 203,
           name: '去完成',
           matches: [
-            '@[text="去完成"][clickable=true] <n View <n View <n View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="去完成"][clickable=true] <n View <n View -n [text="每日打卡领好礼"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
       ],
