@@ -1121,10 +1121,12 @@ export default defineGkdApp({
             '@[text*="跳过"][clickable=true] <n FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n FrameLayout < FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n RelativeLayout < FrameLayout < [vid="flash_fragment"]',
+            '@[vid="ms_skipView"] <n RelativeLayout < FrameLayout < FrameLayout < [vid="flash_fragment"]',
             '@[text="跳过"] < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < [vid="flash_fragment"]',
             '@[text*="跳过"][clickable=true] <n RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < RelativeLayout < [vid="flash_fragment"]',
           ],
           activityIds: [
+            'null',
             '.app.ui.SplashActivity',
             '.splash.ui.CoveredSplashAdvertiseActivity',
           ],
