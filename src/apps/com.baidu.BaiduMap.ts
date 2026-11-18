@@ -1072,7 +1072,7 @@ export default defineGkdApp({
     },
     {
       key: 62,
-      name: '看视频-浏览*s-×',
+      name: '看视频-浏览*s-×meishu',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1355,7 +1355,7 @@ export default defineGkdApp({
     },
     {
       key: 81,
-      name: '看视频-浏览*s-×',
+      name: '看视频-浏览*s-×qumeng',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
