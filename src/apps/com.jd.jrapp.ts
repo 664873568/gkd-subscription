@@ -240,7 +240,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6, 40],
+          preKeys: [6, 30,40],
           key: 6,
           name: '市民服务领京豆',
           action: 'back',
@@ -255,6 +255,13 @@ export default defineGkdApp({
           name: '提示-是否退出游戏',
           matches: [
             'Button - @Button[clickable=true] - Button - [text="主人 是否退出游戏"] - [text="提示"] < View <n [id="popupFrame"] <n View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
+          preKeys: [8],
+          key: 8,
+          matches: [
+            '@[vid="back_button"][clickable=true] <n [vid="rl_root"] < SlideFrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -2525,7 +2532,7 @@ export default defineGkdApp({
         },
       ],
     },
-    //购物返红包
+    //小金库-购物返红包
     {
       key: 220,
       name: '购物返红包-去完成',
@@ -2561,6 +2568,24 @@ export default defineGkdApp({
           actionDelay: 5000,
           matches: ['[text="我的盯盘"] < ViewGroup - * [text="我的盯盘"]'],
           activityIds: ['.bm.mainbox.main.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 221,
+      name: '小金库-弹窗广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@ImageButton[clickable=true] < View < View <n View < View <n WebView < WebView < [vid="webview"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
