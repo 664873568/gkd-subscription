@@ -10,11 +10,12 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchDelay: 16000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
           key: 0,
+          actionDelay: 5000,
           matches: [
             '@[desc="关闭"][vid="btnClose"][clickable=true] <n [vid="rootView"] < [vid="parentLayout"] < [vid="fl_content"]',
           ],
@@ -22,10 +23,42 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionDelay: 5000,
           matches: [
             '@[text="取消"][vid="btn_cancel"][clickable=true] -n [text="已安装完成"][vid="tv_title"]',
           ],
           activityIds: ['null'],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '空间不足',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="知道了"][clickable=true] < [vid="buttonPanel"] - * [text="您的手机存储空间不足，暂时无法安装应用，请清理系统后再尝试安装。"][vid="message"]',
+          ],
+          activityIds: ['.ui.TranslucentActivityInner'],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[text="取消"][vid="cancel_btn"][clickable=true] < LinearLayout <n RelativeLayout -n [text="空间不足"]',
+          ],
+          activityIds: ['.ui.TranslucentActivityInner'],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[text="知道了"][clickable=true] < [vid="buttonPanel"] - * [text="您的手机系统存储空间不足，暂时无法安装应用，请卸载不常用应用后再尝试安装。"][vid="message"]',
+          ],
+          activityIds: ['.ui.UpdateListActivity'],
         },
       ],
     },
