@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text~="立即签到 \\+[0-9]{4}金币"] -n ImageButton < View <n WebView < WebView < [vid="flContent"]',
+            '@[text~="立即签到 \\\\+[0-9]{4}金币"] -n ImageButton < View <n WebView < WebView < [vid="flContent"]',
           ],
           excludeMatches: [
             '@[vid="iv_stay_close"][clickable=true] <n ViewGroup < ViewGroup < FrameLayout +n [id="android:id/navigationBarBackground"]',
