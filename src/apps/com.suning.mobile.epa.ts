@@ -86,6 +86,9 @@ export default defineGkdApp({
           matches: [
             '@[name~=".*ImageButton|.*TextView"][clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
+          excludeMatches: [
+            '[text~="签到领[0-9]+(积分|元红包)"] < @View[clickable=true] <n View <n View < [id="mainViewWrapper"] <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+          ],
         },
       ],
     },
