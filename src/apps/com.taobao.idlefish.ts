@@ -77,7 +77,7 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          name: '残忍离开',
+          name: '礼包-残忍离开',
           matches: [
             '@[text="残忍离开"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
           ],
