@@ -57,9 +57,10 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          name: '逛大促会场',
           actionDelay: 5000,
           matches: [
-            '[vid="ly_title_bar_left"] > @[text=""][vid="header_view_left_text_view"][clickable=true]', //超级金币
+            '[id="recyclerview"] < [id="root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
           ],
         },
         {
