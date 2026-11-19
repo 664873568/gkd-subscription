@@ -174,25 +174,31 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '@[text="返回打卡页查看"][clickable=true] <n View <n View - [text="close_20261104110848"] <n View < AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
+            '@Button[text="开启挑战"][clickable=true] -n [desc="关闭"] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
           key: 2,
+          matches: [
+            '@[text="返回打卡页查看"][clickable=true] <n View <n View - [text="close_20261104110848"] <n View < AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
+        {
+          key: 3,
           actionDelay: 2000,
           matches: [
             '@[text~="去签到|去完成"][clickable=true] -n [text="今日打卡任务"] < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
-          key: 3,
+          key: 4,
           name: '打卡成功-×',
           matches: [
             '@[desc="关闭"][clickable=true] < View < View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
-          key: 4,
+          key: 5,
           name: '返回-<',
           actionDelay: 5000,
           matches: [
@@ -205,7 +211,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 5,
+          key: 6,
           name: '仍要离开',
           matches: [
             '@[text="仍要离开"][clickable=true] < View <n View <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
@@ -451,6 +457,9 @@ export default defineGkdApp({
           matches: [
             '@[text~="浏览页面得次数.*[0-2]/3.*去完成"][clickable=true] <n ListView <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
+          excludeMatches: [
+            '[text~="再抽一次 .*抽后必得.*金币"] -n @Button[desc="关闭"][clickable=true] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
         },
         {
           key: 1,
@@ -460,6 +469,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text~="浏览页面得次数.*[0-2]/3.*去完成"][clickable=true] <n ListView <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '[text~="再抽一次 .*抽后必得.*金币"] -n @Button[desc="关闭"][clickable=true] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
@@ -471,13 +481,13 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text~="浏览页面得次数.*[0-2]/3.*去完成"][clickable=true] <n ListView <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
             '@[text~="看视频得次数.*去完成"][clickable=true] <n ListView <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
-            '@Button[desc="关闭"][clickable=true] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '[text~="再抽一次 .*抽后必得.*金币"] -n @Button[desc="关闭"][clickable=true] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
           key: 3,
           matches: [
-            '@Button[desc="关闭"][clickable=true] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '[text~="再抽一次 .*抽后必得.*金币"] -n @Button[desc="关闭"][clickable=true] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
@@ -489,8 +499,8 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text~="浏览页面得次数.*去完成"][clickable=true] <n ListView <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
             '@[text~="看视频得次数.*去完成"][clickable=true] <n ListView <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
-            '@Button[desc="关闭"][clickable=true] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
             '@[text~="抽奖剩余[1-9][0-9]*次"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '[text~="再抽一次 .*抽后必得.*金币"] -n @Button[desc="关闭"][clickable=true] < View <n View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
         },
       ],
@@ -1426,7 +1436,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~="立即试玩|继续试玩"] < @View[clickable=true] <n View < View < View <n [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '[text~="立即前往|立即试玩|继续试玩"] < @View[clickable=true] <n View < View < View <n [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '[text="跳过"] -n [text~="[0-9]+"] < @[id="close_btn"][clickable=true] - [text="已获得奖励"] <n View <n [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
