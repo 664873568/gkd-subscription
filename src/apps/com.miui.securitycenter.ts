@@ -206,7 +206,11 @@ export default defineGkdApp({
           matches: [
             '@[text="取消"][clickable=true] < [vid="buttonPanel"] -n * [text="存储空间严重不足"][vid="alertTitle"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+          activityIds: [
+            'null',
+            'com.miui.wakepath.ui.ConfirmStartActivity',
+            'com.miui.cleanmaster.LowMemoryIntentDispatchActivity',
+          ],
         },
       ],
     },
