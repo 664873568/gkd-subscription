@@ -42,12 +42,12 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
+      actionMaximum: 4,
       resetMatch: 'activity',
       rules: [
         {
           key: 1,
           actionDelay: 2000,
-          actionMaximum: 1,
           matches: [
             '@ImageButton[clickable=true] -n [text!~="邀请.*"] < View <n ListView <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
