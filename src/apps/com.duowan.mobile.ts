@@ -519,6 +519,7 @@ export default defineGkdApp({
             '@[text="不允许"][vid="btn_cancel"][clickable=true] < * -n * > [text="“YY”想访问您的剪切板"][vid="message"]',
           ],
           activityIds: [
+            'com.qq.e.ads.PortraitADActivity',
             'com.yy.mobile.ui.common.JsSupportWebAcitivity',
             'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
           ],
