@@ -121,7 +121,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '[text="去看视频"] < View < View[clickable=true] <n View <n View - @TextView[clickable=true]',
@@ -133,13 +132,12 @@ export default defineGkdApp({
             left: 'width * 0.5',
             top: 'height * 0.735',
           },
-          actionDelay: 10000,
+          actionDelay: 2000,
           matches: [
-            'View - [id="page"] - [id="page-hd"] < View < [text="搜有红包 - 百度"]',
+            'View[childCount=1] - [id="page"] - [id="page-hd"] < View < [text="搜有红包 - 百度"]',
           ],
           excludeMatches: [
-            '[text="立即领取"] < @View[clickable=true] <n View < View < View - TextView[clickable=true]',
-            '[text="去看视频"] < View < View[clickable=true] <n View <n View - @TextView[clickable=true]',
+            '[text~="立即领取|去看视频"] < View <n View <n View <n View - @TextView[clickable=true]',
           ],
         },
         {
@@ -151,11 +149,10 @@ export default defineGkdApp({
           },
           actionDelay: 5000,
           matches: [
-            'View - [id="page"] - [id="page-hd"] < View < [text="搜有红包 - 百度"]',
+            'View[childCount=1] - [id="page"] - [id="page-hd"] < View < [text="搜有红包 - 百度"]',
           ],
           excludeMatches: [
-            '[text="立即领取"] < @View[clickable=true] <n View < View < View - TextView[clickable=true]',
-            '[text="去看视频"] < View < View[clickable=true] <n View <n View - @TextView[clickable=true]',
+            '[text~="立即领取|去看视频"] < View <n View <n View <n View - @TextView[clickable=true]',
           ],
         },
       ],
