@@ -40,7 +40,10 @@ export default defineGkdApp({
           },
           actionCd: 2000,
           matches: [
-            '[text="浏览微博\\n完成任务"] <n [vid="root_rl"] <  RelativeLayout < [vid="floating_window"] -n * @[vid="view_recycler"]',
+            '[id="android:id/tabcontent"] < @[vid="tabhost_right"] - [vid="tabhost_left"] < [vid="main_tab_view_pager"] < [id="android:id/content"] < LinearLayout < [parent=null]',
+          ],
+          excludeMatches: [
+            '@[text="任务完成\\n获取更多奖励"][vid="bt_text"] <n RelativeLayout < RelativeLayout < FrameLayout <n TabHost <n ViewPager < [id="android:id/content"]',
           ],
           activityIds: ['.MainTabActivity'],
         },
