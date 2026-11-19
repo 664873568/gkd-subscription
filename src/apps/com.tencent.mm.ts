@@ -196,6 +196,32 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 11,
+      name: '京东购物-弹窗广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[desc="不再接收弹窗"] <n View < View < View < View < FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout <n RelativeLayout < FrameLayout < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[desc="确认关闭"] <n View < View < View < View < FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout <n RelativeLayout < FrameLayout < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[desc="确认关闭"] <n View < View < View < View < FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout <n RelativeLayout < FrameLayout < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    {
       key: 20,
       name: '迅雷-看广告-领取',
       forcedTime: 60000,
