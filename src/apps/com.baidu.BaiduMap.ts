@@ -569,7 +569,7 @@ export default defineGkdApp({
     },
     {
       key: 17,
-      name: '正在载入',
+      name: '立即重试',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
