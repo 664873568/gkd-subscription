@@ -6,42 +6,7 @@ export default defineGkdApp({
   groups: [
     //天天领金币
     {
-      scopeKeys: [12],
-      key: 10,
-      name: '通用',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      resetMatch: 'activity',
-      activityIds: ['.MainActivity'],
-      rules: [
-        {
-          preKeys: [12],
-          key: 10,
-          name: '提示-确定跳转至新频道-确定',
-          matches: [
-            '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-          ],
-        },
-        {
-          preKeys: [12],
-          key: 11,
-          name: '提示-确定跳转至新频道-',
-          position: {
-            left: 'width * 0.75',
-            top: 'height * 0.88',
-          },
-          matches: [
-            '@View[childCount>0][index=parent.childCount.minus(1)] <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-          ],
-          excludeMatches: [
-            '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 11,
+      key: 9,
       name: '立即签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -56,7 +21,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           name: '恭喜获得-×',
           matches: [
@@ -74,7 +38,7 @@ export default defineGkdApp({
     },
     //每日任务
     {
-      key: 12,
+      key: 10,
       name: '每日任务-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -83,34 +47,31 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          key: 12,
+          key: 10,
           actionDelay: 2000,
           matches: [
-            '@[text="去完成"][clickable=true] -n [text!~="赠送红贝壳礼物"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
+            '@[text="去完成"][clickable=true] -n [text!~="收藏任意频道|频道内发言|访问指定频道|赠送红贝壳礼物"] < View <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
           ],
           excludeMatches: [
-            '@[text="立即签到"][clickable=true] <n View < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@TextView[clickable=true] - View < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '[text="签到"] <n @View[clickable=true] <n View < [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="去完成"][clickable=true] -n [text~="收藏任意频道"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
             '@[text$="打开"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@[text="确定"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@[text="领奖励"][clickable=true] <n View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="领奖励"][clickable=true] <n View <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
             '@[desc="Image Asset 13"] <n View < View <n View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [12],
-          key: 0,
+          preKeys: [10],
+          key: 11,
           name: '浏览App',
           matches: [
             '@[text$="打开"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [12],
-          key: 1,
+          preKeys: [10],
+          key: 12,
           name: '访问YY游仓',
           action: 'back',
           actionDelay: 5000,
@@ -119,8 +80,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [12],
-          key: 2,
+          preKeys: [10],
+          key: 13,
           name: '去搜索热门频道',
           action: 'back',
           actionDelay: 5000,
@@ -129,31 +90,29 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
+          key: 14,
           name: '领奖励',
           matches: [
-            '@[text="领奖励"][clickable=true] <n View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="领奖励"][clickable=true] <n View <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text="立即签到"][clickable=true] <n View < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
             '@[text$="打开"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@[text="确定"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          key: 15,
           name: '恭喜获得',
           matches: [
-            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
     },
     {
-      scopeKeys: [12],
-      key: 13,
+      key: 11,
       name: '每日任务-去完成-收藏任意频道',
       forcedTime: 60000,
       matchRoot: true,
@@ -162,15 +121,29 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [12],
           key: 0,
           matches: [
-            '[text="收藏"] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="去完成"][clickable=true] -n [text~="收藏任意频道"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
+          ],
+          excludeMatches: [
+            '@[text="立即签到"][clickable=true] <n View < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[clickable=true] - View < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '[text="签到"] <n @View[clickable=true] <n View < [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="领奖励"][clickable=true] <n View <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[desc="Image Asset 13"] <n View < View <n View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
+          matches: [
+            '[text="收藏"] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
           action: 'back',
           actionDelay: 5000,
           matches: [
@@ -180,9 +153,8 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10, 12],
-      key: 14,
-      name: '每日任务-去完成-访问指定频道',
+      key: 12,
+      name: '每日任务-去完成-频道内发言/访问指定频道',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -190,8 +162,48 @@ export default defineGkdApp({
       activityIds: ['.MainActivity'],
       rules: [
         {
-          preKeys: [10, 11, 12],
           key: 0,
+          actionDelay: 2000,
+          matches: [
+            '@[text="去完成"][clickable=true] -n [text~="频道内发言|访问指定频道"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
+          ],
+          excludeMatches: [
+            '@[text="去完成"][clickable=true] -n [text~="收藏任意频道"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
+            '@[text="去完成"][clickable=true] -n [text!~="收藏任意频道|频道内发言|访问指定频道|赠送红贝壳礼物"] < View <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
+            '@[text$="打开"][clickable=true] <n View <n View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[text="领奖励"][clickable=true] <n View <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@[desc="Image Asset 13"] <n View < View <n View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [10],
+          key: 1,
+          name: '提示-确定跳转至新频道-确定',
+          matches: [
+            '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [10],
+          key: 2,
+          name: '提示-确定跳转至新频道-确定⊙',
+          position: {
+            left: 'width * 0.75',
+            top: 'height * 0.88',
+          },
+          actionDelay: 2000,
+          matches: [
+            '@View[childCount=1][index=parent.childCount.minus(1)] - TextView - View - View - TextView < View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0, 1, 2],
+          key: 3,
           name: '点击聊天框',
           actionDelay: 2000,
           matches: [
@@ -199,8 +211,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
-          key: 1,
+          preKeys: [3],
+          key: 4,
           name: '点击表情',
           actionDelay: 2000,
           matches: [
@@ -208,8 +220,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
-          key: 2,
+          preKeys: [4],
+          key: 5,
           name: '选择表情',
           actionDelay: 2000,
           matches: [
@@ -217,8 +229,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
+          preKeys: [5],
+          key: 6,
           name: '发送表情',
           actionDelay: 2000,
           matches: [
@@ -226,8 +238,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [6],
+          key: 7,
           name: '返回',
           action: 'back',
           actionDelay: 1000,
@@ -238,7 +250,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 15,
+      key: 13,
       name: '每日任务-去完成-完成应用下载|完成应用浏览|完成页面浏览',
       forcedTime: 60000,
       matchRoot: true,
@@ -258,7 +270,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text~="去完成|领奖励"][clickable=true] -n [text!~="赠送红贝壳礼物"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -284,21 +296,20 @@ export default defineGkdApp({
             '@[text="领奖励"] <n LinearLayout < FrameLayout <n FrameLayout < FrameLayout < ViewFactoryHolder <n View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [3],
           key: 4,
           name: '恭喜获得-×',
           matches: [
-            '@TextView - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
     },
     {
-      key: 16,
+      key: 14,
       name: '每日任务-看视频',
       forcedTime: 60000,
       matchRoot: true,
@@ -314,8 +325,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text~="去完成|领奖励"] <n LinearLayout < FrameLayout <n FrameLayout < FrameLayout < ViewFactoryHolder <n View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@TextView[clickable=true] - View < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-            '@TextView[width=height][clickable=true] < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -333,7 +343,7 @@ export default defineGkdApp({
           key: 2,
           name: '恭喜获得-×',
           matches: [
-            '@TextView[width=height][clickable=true] < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -347,7 +357,7 @@ export default defineGkdApp({
             '@View[childCount>0][index=parent.childCount.minus(1)] - TextView - [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@TextView[width=height][clickable=true] < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -380,17 +390,11 @@ export default defineGkdApp({
       activityIds: ['com.mcto.sspsdk.ssp.activity.QyTrueViewActivity'],
       rules: [
         {
-          key: 0,
-          action: 'none',
           matches: [
-            '@[text="关闭"][vid="qy_count_down_close"][clickable=true] -n [text~="[0-9]+秒后可领取奖励"][vid="qy_count_down_desc"] < [vid="qy_count_down_btn"]',
+            '@[text="关闭"][vid="qy_count_down_close"][clickable=true] <n LinearLayout <n ViewGroup <n [id="android:id/content"]',
           ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@[text="关闭"][vid="qy_count_down_close"][clickable=true] < [vid="qy_count_down_btn"]',
+          excludeMatches: [
+            '@[text~=".*秒后可领取奖励"][vid="qy_count_down_desc"][clickable=true] < LinearLayout <n ViewGroup <n [id="android:id/content"]',
           ],
         },
       ],
