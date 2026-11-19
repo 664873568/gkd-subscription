@@ -4,27 +4,7 @@ export default defineGkdApp({
   id: 'com.taobao.idlefish',
   name: '闲鱼',
   groups: [
-    {
-      key: 0,
-      name: '看广告过关',
-      forcedTime: 60000,
-      matchDelay: 1000,
-      matchRoot: true,
-      resetMatch: 'activity',
-      rules: [
-        {
-          position: {
-            left: 'width * 0.75',
-            top: 'height * 0.15',
-          },
-          matches: [
-            'View < FrameLayout < FrameLayout <n [vid="h5_web_content"] < RelativeLayout < [vid="xriver_fragment_container"]',
-          ],
-          activityIds: ['com.mpaas.mriver.xriver.activity.XRiverActivity'],
-        },
-      ],
-    },
-    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
+    //看视频-.ads.ylh.YlhPortraitADActivity
     {
       key: 20,
       name: '看视频-×',
@@ -40,9 +20,11 @@ export default defineGkdApp({
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
           ],
+          excludeMatches: [
+            '@[text="立即退出"] <n LinearLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
+          ],
         },
         {
-          preKeys: [0],
           key: 1,
           name: '立即退出',
           matches: [
@@ -69,7 +51,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           name: '残忍离开',
           matches: [
@@ -78,20 +59,27 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          name: '跳过-看*秒可直接拿奖励',
+          name: '跳过-看*秒可直接拿奖励/*秒后可领取奖励',
           matches: [
             '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text="坚持退出"][clickable=true] < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+            '@[text="残忍离开"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [2],
           key: 3,
           name: '坚持退出',
           matches: [
             '@[text="坚持退出"][clickable=true] < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 4,
+          name: '残忍离开',
+          matches: [
+            '@[text="残忍离开"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
           ],
         },
       ],
