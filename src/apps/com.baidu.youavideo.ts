@@ -111,7 +111,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [300, 301, 500],
+      scopeKeys: [300, 301, 500,501],
       key: 3,
       name: '福利中心-去完成-分享一个相册',
       forcedTime: 60000,
@@ -133,8 +133,9 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [0, 300, 301, 500],
+          preKeys: [0, 300, 301, 500,501],
           key: 1,
+          actionDelay: 5000,
           matches: [
             '[text="未命名"][vid="tv_album_name"] <n @ViewGroup[clickable=true] <n [vid="rv_album_list"] < FrameLayout <n ViewGroup < ViewGroup < FrameLayout <n LinearLayout < [vid="fl_content"]',
           ],
@@ -179,7 +180,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [300, 301, 500],
+      scopeKeys: [300, 301, 500,501],
       key: 4,
       name: '福利中心-去完成-创建一个新相册',
       forcedTime: 60000,
@@ -201,8 +202,9 @@ export default defineGkdApp({
           activityIds: ['.operate.ui.view.activity.TaskCenterActivity'],
         },
         {
-          preKeys: [0, 300, 301, 500],
+          preKeys: [0, 300, 301, 500,501],
           key: 1,
+          actionDelay: 5000,
           matches: [
             '@[text="新建"][vid="tv_create_album"][clickable=true] <n LinearLayout <n LinearLayout < ViewGroup < ViewGroup < FrameLayout <n LinearLayout < [vid="fl_content"]',
           ],
@@ -1138,9 +1140,10 @@ export default defineGkdApp({
       name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
+          key: 501,
           anyMatches: [
             '@[vid="iv_close"] <n FrameLayout < [vid="rl_root"] < [id="android:id/content"]',
             '@[vid="close"][clickable=true] <n LinearLayoutCompat < [vid="rl_root"] < [id="android:id/content"]',
