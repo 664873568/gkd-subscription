@@ -1001,7 +1001,7 @@ export default defineGkdApp({
           key: 0,
           name: '恭喜解锁-彩蛋打卡玩法-我要开启打卡',
           matches: [
-            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View <n View <n WebView < * < [vid="content_webview"]',
+            '@TextView[index=parent.childCount.minus(1)][clickable=true] < View < View < WebView < * < [vid="content_webview"]',
           ],
         },
         {
@@ -2151,8 +2151,6 @@ export default defineGkdApp({
       name: '首页广告-跳过',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -2178,11 +2176,9 @@ export default defineGkdApp({
     },
     {
       key: 501,
-      name: '首页广告-×',
+      name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
