@@ -240,7 +240,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [6, 30,40],
+          preKeys: [6, 30, 40],
           key: 6,
           name: '市民服务领京豆',
           action: 'back',
