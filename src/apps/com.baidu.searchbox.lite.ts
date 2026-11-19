@@ -5,63 +5,6 @@ export default defineGkdApp({
   name: '百度极速版',
   groups: [
     //天天赚
-    {
-      key: 0,
-      name: '天天赚-免费红包',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        'com.baidu.searchbox.MainActivity',
-        'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '[getChild(0).text="订阅金币通知"] + @TextView[clickable=true]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '[getChild(1).text="恭喜获得"] + @TextView[clickable=true]',
-          ],
-        },
-        {
-          key: 2,
-          matches: [
-            '[getChild(0).text="打卡白拿20元"] + @TextView[clickable=true]',
-          ],
-        },
-        {
-          key: 3,
-          matches: [
-            '[text="添加赚钱助手 提醒您每日赚金币"] - @TextView[clickable=true]',
-          ],
-        },
-        {
-          key: 4,
-          matches: [
-            'View > TextView + View > @TextView[clickable=true] - View > TextView[clickable=true]',
-          ],
-        },
-        {
-          key: 5,
-          matches: [
-            '@TextView[clickable=true] - [text="直接领取"] - [text="看广告 领双倍"]',
-          ],
-        },
-        {
-          key: 6,
-          name: '看广告立即领特权-×',
-          matches: [
-            '@TextView[clickable=true] - [text="看广告立即领特权"] -n [text="送你一个翻倍特权"]',
-          ],
-        },
-      ],
-    },
     //26.05.25开始 每日福利-每日开红包得奖励
     {
       key: 10,
@@ -470,6 +413,26 @@ export default defineGkdApp({
             '@RelativeLayout[clickable=true] > LinearLayout > [text~="[0-9]+"] - [text="跳过"]',
           ],
           activityIds: ['com.baidu.searchbox.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '弹窗广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.baidu.searchbox.MainActivity',
+        'com.baidu.searchbox.hybrid.container.TaskImmerseBrowserActivity',
+      ],
+      rules: [
+        {
+          key: 3,
+          name: '×',
+          matches: [
+            '@TextView[clickable=true] <n View < View <n View <n View < [id="app"] < WebView < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
