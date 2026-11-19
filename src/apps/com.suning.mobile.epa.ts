@@ -267,6 +267,7 @@ export default defineGkdApp({
       ],
     },
     {
+      scopeKeys: [6],
       key: 9,
       name: '看热点领金币-看短剧-赚金币',
       forcedTime: 60000,
@@ -286,7 +287,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,6],
           key: 1,
           actionDelay: 2000,
           matches: [
@@ -312,7 +313,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
+          preKeys: [0,6],
           key: 3,
           action: 'back',
           actionDelay: 5000,
@@ -349,6 +350,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 6],
           key: 1,
+          action: 'back',
           actionDelay: 6000,
           anyMatches: [
             '@[name~=".*ImageButton|.*TextView"][clickable=true] < View < View < View <n View < View < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]', //参与签到赢红包
