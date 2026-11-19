@@ -1144,6 +1144,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.bullet.ui.BulletContainerActivity'],
       rules: [
         {
           key: 0,
@@ -1151,7 +1152,6 @@ export default defineGkdApp({
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > @[desc="看视频"] + [desc~="[0-9]+"] + [desc="秒"] + [desc="领"] + [desc="直接领"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [0, 1],
@@ -1194,7 +1194,6 @@ export default defineGkdApp({
           matches: [
             'HorizontalScrollView > LinearLayout > ViewGroup > ViewGroup > @[desc="领取金币"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [3],
@@ -1203,7 +1202,6 @@ export default defineGkdApp({
           matches: [
             '[getChild(0).desc="金币领取成功"] +n ViewGroup > @[desc="开心收下"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           key: 5,
@@ -1211,7 +1209,6 @@ export default defineGkdApp({
           matches: [
             'ViewGroup - @ViewGroup - ViewGroup - ImageView - ViewGroup < ViewGroup - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView - ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           key: 6,
@@ -1222,7 +1219,6 @@ export default defineGkdApp({
           excludeMatches: [
             'ViewGroup - @ViewGroup - ViewGroup - ImageView - ViewGroup < ViewGroup - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView - ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [5, 6],
@@ -1231,7 +1227,6 @@ export default defineGkdApp({
           matches: [
             'ImageView - @ImageView[width=height] < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [5, 6],
@@ -1241,10 +1236,10 @@ export default defineGkdApp({
             left: 'width * 0.91',
             top: 'height * 0.13',
           },
+          actionDelay: 2000,
           matches: [
             'ViewGroup < ViewGroup < @ViewGroup - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView - ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [7, 8],
@@ -1253,7 +1248,6 @@ export default defineGkdApp({
           matches: [
             'ViewGroup - @ImageView[width=height] < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
           preKeys: [9],
@@ -1263,7 +1257,6 @@ export default defineGkdApp({
           matches: [
             '[desc="直接领"] -n [getChild(0).desc="看视频"] - @ViewGroup < ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [vid="root_layout"]',
           ],
-          activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
       ],
     },
@@ -1369,7 +1362,7 @@ export default defineGkdApp({
     //26.09.01-26.12.31 我的钱包-支付积分
     {
       key: 80,
-      name: '我的钱包-广告-×',
+      name: '我的钱包-弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
@@ -1378,7 +1371,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[desc="关闭"][clickable=true] + * > RelativeLayout[clickable=true] >n ImageView +n [desc="开心收下"]',
+            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: [
             '.wallet.ui.WalletActivity',
