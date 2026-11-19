@@ -42,12 +42,12 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      actionMaximum: 4,
       resetMatch: 'activity',
       rules: [
         {
           key: 1,
           actionDelay: 2000,
+          actionMaximum: 1,
           matches: [
             '@ImageButton[clickable=true] -n [text!~="邀请.*"] < View <n ListView <n View < WebView < WebView < ViewFactoryHolder < View < View < View < ComposeView < [id="android:id/content"]',
           ],
@@ -232,6 +232,23 @@ export default defineGkdApp({
           key: 41,
           matches: [
             '@[desc="关闭"][clickable=true] -n [getChild(2).getChild(0).getChild(0).text="立即升级"] < View < View < View < ViewGroup < [id="android:id/content"]',
+          ],
+          activityIds: ['.MainActivity'],
+        },
+      ],
+    },
+    {
+      key: 42,
+      name: '领积分-签',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 10000,
+          matches: [
+            '[desc="领积分"] < @View[clickable=true] < View <n View < View <n View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
           ],
           activityIds: ['.MainActivity'],
         },
