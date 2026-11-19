@@ -15,9 +15,9 @@ export default defineGkdApp({
       rules: [
         {
           actionDelay: 16000,
-          matches: [
+          anyMatches: [
             '@[desc~="YY.*|YY语音.*|百度地图.*|百度网盘.*|大众点评.*|飞猪旅行.*|哈啰.*|京东金融.*|酷我音乐.*|美团.*|喜马拉雅.*|星图金融.*|一刻相册.*|一淘.*|翼支付.*|支付宝.*"][clickable=true] <n ScrollView < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc~="YY.*|YY语音.*|百度地图.*|百度网盘.*|大众点评.*|飞猪旅行.*|哈啰.*|京东金融.*|酷我音乐.*|美团.*|喜马拉雅.*|星图金融.*|一刻相册.*|一淘.*|翼支付.*|支付宝.*"][clickable=true] <n HorizontalScrollView < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
+            '@[desc~="YY.*|YY语音.*|百度地图.*|百度网盘.*|大众点评.*|飞猪旅行.*|哈啰.*|京东金融.*|酷我音乐.*|美团.*|喜马拉雅.*|星图金融.*|一刻相册.*|一淘.*|翼支付.*|支付宝.*"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
           ],
           activityIds: ['.launcher.Launcher'],
         },
@@ -47,7 +47,7 @@ export default defineGkdApp({
           },
           anyMatches: [
             '@[desc*="应用"][clickable=true] <n ScrollView < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc*="应用"][clickable=true] <n HorizontalScrollView < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
+            '@[desc*="应用"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
           ],
           activityIds: ['.launcher.Launcher'],
         },
