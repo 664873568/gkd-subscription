@@ -173,7 +173,7 @@ export default defineGkdApp({
           name: '现金抽抽乐',
           actionDelay: 2000,
           matches: [
-            '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup + * [text="现金抽抽乐"]',
+            '@[desc="关闭"][clickable=true] <n ViewGroup < FrameLayout < FrameLayout < ViewGroup <n * [text="现金抽抽乐"]',
           ],
         },
         {
