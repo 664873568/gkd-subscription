@@ -15,7 +15,10 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="连续签到得金币"] +n @[text~="立即签到 \\\\+[0-9]{4}金币"]',
+            '@[text~="立即签到 \\+[0-9]{4}金币"] -n ImageButton < View <n WebView < WebView < [vid="flContent"]',
+          ],
+          excludeMatches: [
+            '@[vid="iv_stay_close"][clickable=true] <n ViewGroup < ViewGroup < FrameLayout +n [id="android:id/navigationBarBackground"]',
           ],
           activityIds: ['com.dz.business.main.ui.MainActivity'],
         },
@@ -88,6 +91,22 @@ export default defineGkdApp({
             'com.dz.business.main.ui.MainActivity',
             'com.dz.business.splash.ui.HotSplashActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 51,
+      name: '弹窗广告-×',
+      forcedTime: 600000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="iv_stay_close"][clickable=true] <n ViewGroup < ViewGroup < FrameLayout +n [id="android:id/navigationBarBackground"]',
+          ],
+          activityIds: ['com.dz.business.splash.ui.HotSplashActivity'],
         },
       ],
     },
