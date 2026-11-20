@@ -177,6 +177,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 22,
+      name: '启动应用-本次允许-支付宝',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="支付宝.*淘宝.*"][vid="event_title"]',
+          ],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+        },
+      ],
+    },
     //功能应用类
     {
       key: 40,
