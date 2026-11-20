@@ -154,6 +154,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 200,
           matches: [
             '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="10元现金红包"] +n [text=" 兑换"]',
           ],
@@ -192,6 +193,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 200,
           matches: [
             '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="1元现金红包"] +n [text=" 兑换"]',
           ],
@@ -230,6 +232,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 200,
           matches: [
             '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1721908159"][clickable=true] > [text="8点开抢"] + [text="5元京东卡"]',
           ],
@@ -268,6 +271,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 200,
           anyMatches: [
             '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="5元京东卡"] +n [text=" 兑换"]',
             '[getChild(0).text="08点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1785406918"][clickable=true] > [text="会员可兑"] + [text="5元京东卡"]',
@@ -307,6 +311,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 200,
           anyMatches: [
             '[getChild(0).text="18点即将开抢"&&getChild(1).text="00:00:00"] +n * @View[clickable=true] > [text="5元京东卡"] +n [text=" 兑换"]',
             '[getChild(0).text="18点即将开抢"&&getChild(1).text="00:00:00"] +n * @[id="recoItem1721907899"][clickable=true] > [text="18点秒杀"] + [text="5元京东卡"]',
