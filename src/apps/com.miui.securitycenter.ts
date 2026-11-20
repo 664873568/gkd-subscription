@@ -171,7 +171,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="飞猪旅行.*(淘宝|闲鱼).*"][vid="event_title"]',
+            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="飞猪旅行.*(京东|淘宝|闲鱼).*"][vid="event_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
