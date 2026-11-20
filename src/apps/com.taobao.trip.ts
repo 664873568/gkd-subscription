@@ -225,7 +225,7 @@ export default defineGkdApp({
       rules: [
         {
           name: '赚更多能量',
-          actionDelay: 10000,
+          actionDelay: 5000,
           matches: [
             'View[index=parent.childCount.minus(1)] - @Button[clickable=true] <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
@@ -455,7 +455,7 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '看视频-跳过-礼包-*s后可领取奖励',
+      name: '看视频-跳过/×',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -467,50 +467,44 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '去体验.*秒可直接拿奖励',
           matches: [
-            '[text~="我要加速领奖|返回继续体验"] <n @RelativeLayout[clickable=true] <n RelativeLayout <n RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '[text~="去体验.*秒立即领奖|我要加速领奖|返回继续体验"] < @RelativeLayout[clickable=true] <n RelativeLayout <n RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="已领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
-          matches: [
+          name: '跳过/×',
+          anyMatches: [
+            '@[text="跳过"][clickable=true] <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
             '@[text="跳过"][clickable=true] < RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '@ImageView[clickable=true] < RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text~="去体验.*秒可直接拿奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 4,
-          matches: [
-            '@ImageView[clickable=true] - RelativeLayout > RelativeLayout > ImageView + [text="已领取奖励"]',
-          ],
-        },
-        {
-          key: 5,
-          matches: ['@ImageView[clickable=true] - * [text="0s后可领取奖励"]'],
-        },
-        {
-          key: 6,
-          matches: [
-            'TextView - @ImageView[clickable=true] <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
-          ],
-        },
-        {
-          key: 7,
-          name: '去体验.*秒可直接拿奖励',
-          matches: [
-            '[text~="去体验.*秒立即领奖"] < @RelativeLayout[clickable=true] <n RelativeLayout - [text="跳过"]',
-          ],
-        },
-        {
-          key: 8,
+          key: 2,
           name: '×',
           matches: [
             '@ImageView[width=height][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout - RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text="跳过"][clickable=true] <n * [text$="s后可领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 3,
+          matches: ['@ImageView[clickable=true] - * [text="0s后可领取奖励"]'],
+        },
+        {
+          key: 4,
+          matches: [
+            'TextView - @ImageView[clickable=true] <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -527,14 +521,28 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '*秒后可领取奖励/观看*秒广告领取奖励',
+          name: '观看*秒广告领取奖励/*秒后可领取奖励',
           matches: [
-            '@[text="残忍离开"][clickable=true] <n LinearLayout <n RelativeLayout < [id="android:id/content"]',
+            '[text~="提前领奖|继续领奖"] <n @LinearLayout <n LinearLayout < LinearLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
-          matches: ['@[text="已经获得奖励 ｜ 关闭"][clickable=true]'],
+          name: '关闭广告',
+          matches: [
+            '@[text="关闭广告"][clickable=true] <n LinearLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '关闭',
+          matches: [
+            '@TextView[text~="(立即领取 ｜ 关闭广告)|(已经获得奖励 ｜ 关闭)"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text~="观看.*秒广告领取奖励"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '@[text="关闭广告"][clickable=true] <n LinearLayout < RelativeLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
