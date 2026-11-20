@@ -175,7 +175,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="立即签到"][clickable=true] <n View < View < View <n [text="游戏中心"] < WebView <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@[text="立即签到"][clickable=true] <n View < View < View <n WebView < WebView <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
       ],
@@ -375,22 +375,22 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~="[1-9][0-9]*"] <n @View[clickable=true] <n View < View <n View < View < [id="app"] < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text~="[1-9][0-9]*"] <n @View[clickable=true] <n View < View <n View < View < [id="app"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           excludeMatches: [
-            '[text="做任务领取"] < View < @View[clickable=true] <n View < View < View <n View < Dialog < View <n [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="做任务领取"] < View < @View[clickable=true] <n View < View < View <n View < Dialog < View <n WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
             '[text="芝麻粒炼金"] > [id="app"] +n View > Dialog >n [text="欢迎回来"] +n @View[clickable=true] > TextView',
             '[text="芝麻粒炼金"] > View > [id="app"] +n View > Dialog >n [text="欢迎回来"] +n @View[clickable=true] > TextView',
             '[text="芝麻粒炼金"] >n [text="次日礼包"] + [getChild(2).text="明日可领取"] > @View[clickable=true] > TextView',
-            'TextView < @View[clickable=true] <n View <n View < View <n View < Dialog < View <n [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
-            '@Image[index=parent.childCount.minus(1)][clickable=true] < View <n [id="app"] < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            'TextView < @View[clickable=true] <n View <n View < View <n View < Dialog < View <n WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@Image[index=parent.childCount.minus(1)][clickable=true] < View <n [id="app"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
           key: 50,
           actionDelay: 1000,
           matches: [
-            '[text="做任务领取"] < View < @View[clickable=true] <n View < View < View <n View < Dialog < View <n [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="做任务领取"] < View < @View[clickable=true] <n View < View < View <n View < Dialog < View <n WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
@@ -418,7 +418,7 @@ export default defineGkdApp({
           actionDelay: 1000,
           name: '次日礼包-去完成用',
           matches: [
-            'TextView < @View[clickable=true] <n View <n View < View <n View < Dialog < View <n [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            'TextView < @View[clickable=true] <n View <n View < View <n View < Dialog < View <n WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
@@ -431,7 +431,7 @@ export default defineGkdApp({
           },
           actionDelay: 1000,
           matches: [
-            '@Image[index=parent.childCount.minus(1)][clickable=true] < View <n [id="app"] < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@Image[index=parent.childCount.minus(1)][clickable=true] < View <n [id="app"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
@@ -445,10 +445,10 @@ export default defineGkdApp({
         {
           key: 16,
           matches: [
-            '[text="100"] <n View < @View[clickable=true] <n [id="app"] < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="100"] <n View < @View[clickable=true] <n [id="app"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           excludeMatches: [
-            '[text~="[1-9][0-9]*"] <n @View[clickable=true] <n View < View <n View < View < [id="app"] < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text~="[1-9][0-9]*"] <n @View[clickable=true] <n View < View <n View < View < [id="app"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
@@ -475,7 +475,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 2000,
           matches: [
-            '[text="粒"] <n View < @View[clickable=true] <n View <n View < View <n View < View < [id="app"] < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="粒"] <n View < @View[clickable=true] <n View <n View < View <n View < View < [id="app"] < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           excludeMatches: [
             '[text="芝麻粒炼金"] > [id="app"] >n @View[clickable=true] > View + [text="每次消耗5粒"] + [text~="[1-9][0-9]*"]',
@@ -505,23 +505,23 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text="今天"] - @View < View <n View < View <n View < View <n View < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="今天"] - @View < View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
           key: 52,
           actionDelay: 2000,
           matches: [
-            '[text="去完成"] -n [text~="\\\\+[2-9][0-9]"] -n [getChild(0).text!~="玩.*|去玩.*"] < @View[clickable=true] <n View <n View <n View <n View < View <n View < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="去完成"] -n [text~="\\\\+[2-9][0-9]"] -n [getChild(0).text!~="玩.*|去玩.*"] < @View[clickable=true] <n View <n View <n View <n View < View <n View < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
           key: 11,
           matches: [
-            '@[text="一键收取"][clickable=true] <n View < View <n View < View <n View < View <n View < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@[text="一键收取"][clickable=true] <n View < View <n View < View <n View < View <n View < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           excludeMatches: [
-            '[text="去完成"] -n [text~="\\\\+[2-9][0-9]"] -n [getChild(0).text!~="玩.*|去玩.*"] < @View[clickable=true] <n View <n View <n View <n View < View <n View < [text="芝麻粒炼金"] < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="去完成"] -n [text~="\\\\+[2-9][0-9]"] -n [getChild(0).text!~="玩.*|去玩.*"] < @View[clickable=true] <n View <n View <n View <n View < View <n View < WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
       ],
@@ -1399,20 +1399,20 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text~="立翻.*倍 领.*g"][clickable=true] < View <n View < View <n View < View <n [text="薅羊毛 赚话费"] < WebView <n FrameLayout < FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@[text~="立翻.*倍 领.*g"][clickable=true] < View <n View < View <n View < View <n WebView < WebView <n FrameLayout < FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
           matches: [
-            '[text="签到奖励"] <n View < @[id="feedBubble"][clickable=true] < View <n View < [id="recyclerview"] < [text="薅羊毛 赚话费"] < WebView <n FrameLayout < FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="签到奖励"] <n View < @[id="feedBubble"][clickable=true] < View <n View < [id="recyclerview"] < WebView < WebView <n FrameLayout < FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
           key: 2,
           matches: [
-            '[text="装满啦"] <n @View[clickable=true] < View <n View < [id="recyclerview"] < [text="薅羊毛 赚话费"] < WebView <n FrameLayout < FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '[text="装满啦"] <n @View[clickable=true] < View <n View < [id="recyclerview"] < WebView < WebView <n FrameLayout < FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
       ],
@@ -1733,8 +1733,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
-            '@[text="一键收下"] <n [id="index_wrapper"] < [id="app"] < [text="出行券包天天领"] < WebView <n FrameLayout <n FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+          anyMatches: [
+            '@[text="一键收下"] <n [id="index_wrapper"] < [id="app"] < WebView < WebView <n FrameLayout <n FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@[text="一键收下"] <n [id="index_wrapper"] < [id="app"] < WebView < WebView <n FrameLayout < FrameLayout < FrameLayout <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
