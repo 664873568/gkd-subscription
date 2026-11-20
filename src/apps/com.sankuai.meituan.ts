@@ -376,7 +376,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 14,
+      key: 15,
       name: '打卡领金币',
       forcedTime: 60000,
       matchRoot: true,
