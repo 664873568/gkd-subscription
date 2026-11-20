@@ -53,7 +53,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 20000,
+          actionDelay: 5000,
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~=".*微信.*"][vid="event_title"]',
           ],
@@ -117,7 +117,7 @@ export default defineGkdApp({
       name: '启动应用-拒绝-中国移动',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -133,7 +133,7 @@ export default defineGkdApp({
       name: '启动应用-拒绝-一刻相册',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -150,7 +150,7 @@ export default defineGkdApp({
       name: '启动应用-本次允许-京东金融',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -166,7 +166,7 @@ export default defineGkdApp({
       name: '启动应用-本次允许-飞猪旅行',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -182,7 +182,7 @@ export default defineGkdApp({
       name: '启动应用-本次允许-支付宝',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
