@@ -1379,25 +1379,22 @@ export default defineGkdApp({
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'activity',
+      activityIds: [
+        '.wallet.ui.WalletActivity',
+        '.live.LiveDummyHybridTransparentActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
       rules: [
         {
           key: 0,
           matches: [
             '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            '.wallet.ui.WalletActivity',
-            '.cjpay.hostimpl.container.CJLiveDummyActivity',
-          ],
         },
         {
-          key: 0,
+          key: 1,
           matches: [
             '[desc="开心收下"] -n @ImageView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < ViewGroup < FrameLayout < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
-          ],
-          activityIds: [
-            '.live.LiveDummyHybridTransparentActivity',
-            '.cjpay.hostimpl.container.CJLiveDummyActivity',
           ],
         },
       ],
