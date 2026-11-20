@@ -1377,6 +1377,48 @@ export default defineGkdApp({
     //26.09.01-26.12.31 我的钱包-支付积分
     {
       key: 80,
+      name: '我的钱包-今日签到',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '立即签到',
+          matches: [
+            '[desc="返回 按钮"] - ViewGroup[childCount=1] -n @ViewGroup[childCount=1] < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 71,
+          name: '×',
+          position: {
+            left: 'width*0.5',
+            top: 'height*1.1',
+          },
+          actionDelay: 3000,
+          matches: [
+            '[desc="返回 按钮"] - ViewGroup[childCount=0] -n @ViewGroup[childCount=1] < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '恭喜获得任务奖励-开心收下',
+          position: {
+            left: 'width*0.5',
+            top: 'height*0.8',
+          },
+          matches: [
+            'ViewGroup - ScrollView - ViewGroup < @ViewGroup < ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 81,
       name: '我的钱包-弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -1399,106 +1441,6 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '[desc="开心收下"] -n @ImageView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < ViewGroup < FrameLayout < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 81,
-      name: '我的钱包-放心借-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      resetMatch: 'activity',
-      rules: [
-        {
-          position: {
-            left: 'width*0.5',
-            top: 'height*0.795',
-          },
-          matches: [
-            'LinearLayout > FrameLayout > FrameLayout > FrameLayout > @ViewGroup[index<10] > ImageView',
-          ],
-          activityIds: [
-            '.wallet.ui.WalletActivity',
-            '.cjpay.hostimpl.container.CJLiveDummyActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 82,
-      name: '我的钱包-今日签到',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.cjpay.hostimpl.container.CJLiveDummyActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup > ViewGroup > ViewGroup', //立即签到
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 71,
-          position: {
-            left: 'width*0.5',
-            top: 'height*2.8',
-          },
-          actionDelay: 3000,
-          matches: [
-            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
-          ],
-        },
-      ],
-    },
-    {
-      key: 83,
-      name: '我的钱包-前往抖音月付看看',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.bullet.ui.BulletContainerActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          excludeMatches: [
-            'FrameLayout > ViewGroup > [desc="返回 按钮"] - @ViewGroup', //×
-          ],
-          matches: [
-            '[desc~="前往抖音月付看看 滑动浏览30秒 抖币\\\\+[0-9]+ 去看看 按钮"] > ViewGroup',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '@ImageButton[clickable=true] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
-          ],
-        },
-        {
-          preKeys: [0, 1],
-          key: 2,
-          matches: [
-            '@[desc="返回"][clickable=true] < [id="headerLeftBar"] < [id="full-header"] + [id="JS_PageScroller"] > [id="with-scroll-content"] > View > [text="积分已到账"]',
-          ],
-        },
-        {
-          preKeys: [2],
-          key: 3,
-          name: '恭喜获得任务奖励-开心收下-×',
-          position: {
-            left: 'width*0.5',
-            top: 'height*0.825',
-          },
-          matches: [
-            'FrameLayout > ViewGroup > ViewGroup > @ViewGroup > ViewGroup[width=height] + ScrollView + ViewGroup',
           ],
         },
       ],
@@ -1544,7 +1486,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="同意"][clickable=true] <n LinearLayout - [getChild(0).text="个人信息保护指引"][vid="content_layout"] < LinearLayout < [id="android:id/content"]',
+            '@[text="同意"][clickable=true] <n LinearLayout - * [text="个人信息保护指引"] < LinearLayout < LinearLayout < [id="android:id/content"]',
           ],
           activityIds: ['null'],
         },
