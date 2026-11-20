@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '每日幸运号',
+      name: '赚钱中心-每日幸运号-去领号',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -89,10 +89,9 @@ export default defineGkdApp({
         },
       ],
     },
-    //赚钱中心
     {
-      key: 10,
-      name: '浏览App-去完成',
+      key: 9,
+      name: '赚钱中心-开宝箱',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -101,13 +100,77 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
           matches: [
-            '[text="去完成"] < ViewGroup <n ViewGroup  < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="点击合作任务赚金币"]',
+            '[text~="点我领.*金币"] < ViewGroup <n ViewGroup <n @ViewGroup[clickable=true] - ScrollView >n [text="我的金币"]',
           ],
         },
         {
           key: 1,
+          matches: [
+            'ImageView < @ViewGroup[clickable=true] -n [text~="今日宝箱奖励.*万金币"] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup - ViewGroup >n [text="我的金币"]',
+          ],
+        },
+      ],
+    },
+    //赚钱中心
+    {
+      key: 10,
+      name: '赚钱中心-赚金币-去完成',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.meituan.android.mrn.container.MRNStandardActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '去完成',
+          actionDelay: 2000,
+          matches: [
+            '[text="去完成"] < ViewGroup <n ViewGroup  < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="点击合作任务赚金币"]',
+          ],
+          excludeMatches: [
+            '[text~="点我领.*金币"] < ViewGroup <n ViewGroup < @ViewGroup[clickable=true] - ScrollView >n [text="我的金币"]',
+            'ImageView < @ViewGroup[clickable=true] -n [text~="今日宝箱奖励.*万金币"] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup - ViewGroup >n [text="我的金币"]',
+            'ScrollView - @ImageView - [text="更多金币"] < ViewGroup < ViewGroup < ViewGroup <n ViewGroup - ViewGroup >n [text="我的金币"][text="我的金币"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '更多金币-×',
+          matches: [
+            'ScrollView - @ImageView - [text="更多金币"] < ViewGroup < ViewGroup < ViewGroup <n ViewGroup - ViewGroup >n [text="我的金币"][text="我的金币"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '弹窗广告-×',
+          matches: [
+            'ImageView < @ViewGroup[clickable=true] < ViewGroup - FrameLayout >n [text="广告"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '返回-⊙',
+          actionDelay: 5000,
+          matches: [
+            'ImageView < @[desc="返回"][clickable=true] <n ViewGroup < LinearLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.meituan.android.mgc.container.MGCGameActivity'],
+        },
+        {
+          key: 4,
+          name: '美团币-<',
+          actionDelay: 5000,
+          matches: [
+            'ImageView - ImageView < @ViewGroup[clickable=true] < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.meituan.android.mrn.container.MRNBaseActivity'],
+        },
+        {
+          key: 11,
+          name: '立即领取',
+          actionDelay: 2000,
           matches: [
             '[text="立即领取"] < ViewGroup <n ViewGroup  < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="点击合作任务赚金币"]',
           ],
@@ -118,8 +181,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
-      name: '看视频赚更多金币',
+      key: 12,
+      name: '赚钱中心-看视频赚更多金币-去看视频',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -199,8 +262,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 12,
-      name: '看短剧，额外得金币',
+      key: 13,
+      name: '赚钱中心-看短剧得金币-去完成',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -269,7 +332,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
+      key: 14,
       name: '看短剧-短剧签到',
       forcedTime: 60000,
       matchRoot: true,
@@ -283,21 +346,31 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > ViewGroup > ViewGroup > [text="短剧签到"]',
+            '[text="短剧签到"] < ViewGroup <n ViewGroup < @ViewGroup[clickable=true] - ViewGroup >n [text="金币"]',
+          ],
+          excludeMatches: [
+            'ImageView < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="金币可兑换现金"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
-            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > ViewGroup > ViewGroup > [text="领取今天看剧补贴"]',
+            '[text="领取今天看剧补贴"] < ViewGroup < @ViewGroup[clickable=true] -n [text="金币可兑换现金"]',
           ],
         },
         {
-          preKeys: [1],
           key: 2,
           matches: [
-            '[vid="tv_container_snapshot"] + * @ViewGroup[clickable=true] > ViewGroup > [getChild(0).text="明天继续领补贴"]',
+            '[text="明天继续领补贴"] < ViewGroup < @ViewGroup[clickable=true] -n [text="金币可兑换现金"]',
+          ],
+        },
+        {
+          key: 3,
+          matches: [
+            'ImageView < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="金币可兑换现金"]',
+          ],
+          excludeMatches: [
+            '[text~=".*补贴"] < ViewGroup < @ViewGroup[clickable=true] -n [text="金币可兑换现金"]',
           ],
         },
       ],
@@ -400,21 +473,57 @@ export default defineGkdApp({
     //看视频
     {
       key: 20,
-      name: '看视频-恭喜获得奖励*×',
+      name: '看视频-*秒后点击广告得丰富奖励',
       forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: ['.msv.page.activity.MSVPageActivity'],
       rules: [
         {
-          matches: ['@ImageView <<n * [text="恭喜获得奖励"]'],
-          activityIds: ['com.qq.e.ads.PortraitADActivity'],
+          key: 0,
+          name: '点击立得丰富奖励',
+          matches: [
+            '[vid="msv_mount_button_card_frame"] < LinearLayout <n ViewGroup < @FrameLayout[clickable=true] < FrameLayout -n [vid="ll_task"] > [vid="ic_task"] + [text="点击立得丰富奖励"][vid="tv_task"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '二级广告页',
+          action: 'back',
+          matches: [
+            '[text="随机获得惊喜红包"] - @[text="立即领取"] <n View < View < View < View <n [id="app"] < WebView < WebView < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.meituan.android.knb.core.StandardKnbActivity'],
+        },
+        {
+          key: 2,
+          name: '已完成，返回领奖励-×',
+          matches: [
+            'ImageView < @FrameLayout[clickable=true] - [vid="ll_task"] > [vid="ic_task"] + [text="已完成，返回领奖励"][vid="tv_task"]',
+          ],
         },
       ],
     },
     {
       key: 21,
+      name: '看视频-完成跳转可领取-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchTime: 15000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@ViewGroup[clickable=true] - ViewGroup[clickable=true] -n [text="完成跳转可领取"]',
+          ],
+          activityIds: ['.msv.page.activity.MSVPageActivity'],
+        },
+      ],
+    },
+    {
+      key: 30,
       name: '看视频-去看看',
       forcedTime: 60000,
       matchRoot: true,
@@ -431,8 +540,8 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
-      name: '看视频-点击广告得',
+      key: 40,
+      name: '看视频-恭喜获得奖励*×',
       forcedTime: 60000,
       matchRoot: true,
       matchTime: 10000,
@@ -440,13 +549,13 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[text="立即打开"] <<n * [text^="点击广告得"]'],
-          activityIds: ['.msv.page.activity.MSVPageActivity'],
+          matches: ['@ImageView <<n * [text="恭喜获得奖励"]'],
+          activityIds: ['com.qq.e.ads.PortraitADActivity'],
         },
       ],
     },
     {
-      key: 23,
+      key: 50,
       name: '看视频-<+×',
       forcedTime: 60000,
       matchRoot: true,
@@ -458,23 +567,6 @@ export default defineGkdApp({
           actionDelay: 10000,
           matches: ['@ImageView + ImageView + TextView'],
           activityIds: ['com.ubix.ssp.open.comm.UBiXWebViewActivity'],
-        },
-      ],
-    },
-    {
-      key: 24,
-      name: '看视频-完成跳转可领取-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchTime: 15000,
-      actionMaximum: 1,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: [
-            '@ViewGroup[clickable=true] - ViewGroup[clickable=true] -n [text="完成跳转可领取"]',
-          ],
-          activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
       ],
     },
