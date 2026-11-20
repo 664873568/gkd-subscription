@@ -469,7 +469,7 @@ export default defineGkdApp({
           key: 0,
           name: '去体验.*秒可直接拿奖励',
           matches: [
-            '[text~="去体验.*秒立即领奖|我要加速领奖|返回继续体验"] < @RelativeLayout[clickable=true] <n RelativeLayout <n RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '[text~="去体验.*秒立即领奖|我要加速领奖|返回继续体验"] <n @RelativeLayout[clickable=true] <n RelativeLayout <n RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text="已领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
@@ -484,7 +484,7 @@ export default defineGkdApp({
             '@ImageView[clickable=true] < RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@[text~="去体验.*秒可直接拿奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '@[text~="去体验.*秒可直接拿奖励|.*s后可领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -494,7 +494,7 @@ export default defineGkdApp({
             '@ImageView[width=height][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout - RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@[text="跳过"][clickable=true] <n * [text$="s后可领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '@[text~="去体验.*秒可直接拿奖励|.*s后可领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
