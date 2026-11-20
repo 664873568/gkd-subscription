@@ -1319,17 +1319,6 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 6,
-          name: '恭喜获得奖励-×',
-          actionDelay: 1000,
-          anyMatches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text="恭喜获得奖励" || text="去微信看看"]',
-          ],
-          excludeMatches: [
-            '@[text~="我要更快拿奖|放弃福利"] < FrameLayout <n * <n * <n * [text^="奖励将于"]',
-          ],
-        },
-        {
           key: 7,
           name: '打开/完成App，即可获得奖励',
           matches: [
