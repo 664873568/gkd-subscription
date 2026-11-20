@@ -257,15 +257,6 @@ export default defineGkdApp({
             '[text~="立即领取|再试一次"] < @View[clickable=true] - [text~=".*[0-9]{3,} 金币.*"] <n View < View <n View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
-        {
-          key: 3,
-          matches: [
-            '@TextView[clickable=true] <n View < View - TextView < View < View <n WebView < WebView < [vid="frameLayout1"]',
-          ],
-          excludeMatches: [
-            '[text~="立即领取|再试一次"] < @View[clickable=true] - [text~=".*[0-9]{3,} 金币.*"] <n View < View <n View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
-          ],
-        },
       ],
     },
     {
@@ -1146,7 +1137,7 @@ export default defineGkdApp({
     //看视频-com.qq.e.ads.PortraitADActivity
     {
       key: 70,
-      name: '看视频-微信-提前拿奖励',
+      name: '看视频-微信-×',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1158,18 +1149,22 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '玩儿小游戏-拿奖励',
           matches: [
-            '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
+            '@[text~="进入微信小游戏.*玩"][index=parent.childCount.minus(1)] <n FrameLayout <n LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            'FrameLayout - @ImageView < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
           name: '恭喜获得奖励-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '[text~=".*[0-9]+ 秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
+            'FrameLayout - @[text~=".*拿奖励"] - [text~=".*玩.*小游戏"] < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
