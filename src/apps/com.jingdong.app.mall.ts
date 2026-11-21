@@ -748,7 +748,7 @@ export default defineGkdApp({
     //来赚钱-限时秒杀
     //https://pro.m.jd.com/mall/active/kyQuYENcpSTbAcsdQXKHaa9oCdG/index.html
     {
-      key: 12,
+      key: 14,
       name: '限时秒杀-立即抢',
       forcedTime: 60000,
       matchRoot: true,
