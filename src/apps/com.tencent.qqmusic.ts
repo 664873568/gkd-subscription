@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '用户协议和隐私政策概要-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,15 +16,16 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[getChild(0).text="用户协议和隐私政策概要"] + @[text="同意"][clickable=true]',
+            '@[text="同意"][clickable=true] - [getChild(0).text="用户协议和隐私政策概要"] <n LinearLayout < ScrollView < [id="android:id/content"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['.activity.baseactivity.StartUpPrivacyPolicyActivity','null'],
         },
       ],
     },
     {
       key: 41,
       name: '流量提醒-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
