@@ -60,7 +60,7 @@ export default defineGkdApp({
     {
       scopeKeys: [
         10, 12, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 110, 120, 130,
-        140, 150, 180, 190,290,
+        140, 150, 180, 190, 290,
       ],
       key: 1,
       name: '通用-返回-scopeKeys',
@@ -91,7 +91,7 @@ export default defineGkdApp({
         {
           preKeys: [
             0, 1, 10, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 120, 130,
-            140, 150,290,
+            140, 150, 290,
           ],
           key: 1,
           name: '已完成 点击立即返回',
@@ -123,7 +123,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,4, 30, 40, 70],
+          preKeys: [0, 4, 30, 40, 70],
           key: 4,
           name: '抽彩票券和手机',
           action: 'back',
@@ -354,7 +354,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10, 60, 61, 70, 110, 190,290],
+      scopeKeys: [10, 60, 61, 70, 110, 190, 290],
       key: 5,
       name: '通用-返回-活动会场页J_babelOptPage',
       forcedTime: 60000,
@@ -368,7 +368,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0, 10, 60, 61, 70, 110, 190,290],
+          preKeys: [0, 10, 60, 61, 70, 110, 190, 290],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -417,10 +417,13 @@ export default defineGkdApp({
           matches: [
             '@[text="暂不开启"][vid="jd_dialog_pos_button"][clickable=true] < [vid="ll_btns"] -n [text="建议开启边看边听"][vid="jd_dialog_title"]',
           ],
-          activityIds: ['com.jd.lib.mylive.view.activity.VideoLiveRoomActivity','null'],
+          activityIds: [
+            'com.jd.lib.mylive.view.activity.VideoLiveRoomActivity',
+            'null',
+          ],
         },
         {
-          preKeys: [0,1, 40, 100, 120],
+          preKeys: [0, 1, 40, 100, 120],
           key: 1,
           action: 'back',
           actionDelay: 6000,
@@ -429,7 +432,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2, 110],
+          preKeys: [0, 2, 110],
           key: 2,
           action: 'back',
           actionDelay: 8000,
@@ -440,7 +443,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [100,290],
+      scopeKeys: [100, 290],
       key: 7,
       name: '通用-返回-游戏',
       forcedTime: 60000,
@@ -453,7 +456,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [100,290],
+          preKeys: [100, 290],
           key: 0,
           actionDelay: 6000,
           matches: [
@@ -461,7 +464,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [100,290],
+          preKeys: [100, 290],
           key: 1,
           actionDelay: 30000,
           matches: [
@@ -469,7 +472,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           name: '知道啦',
           matches: [
@@ -477,7 +480,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 3,
           name: '退出游戏',
           matches: [
@@ -485,7 +488,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1,3],
+          preKeys: [0, 1, 3],
           key: 4,
           action: 'back',
           matches: [
@@ -494,7 +497,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
         },
         {
-          preKeys: [0,1,3],
+          preKeys: [0, 1, 3],
           key: 5,
           action: 'back',
           matches: [
@@ -503,7 +506,7 @@ export default defineGkdApp({
           activityIds: ['.WebActivity'],
         },
         {
-          preKeys: [0,1,3],
+          preKeys: [0, 1, 3],
           key: 6,
           action: 'back',
           matches: [
@@ -552,7 +555,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           action: 'back',
           actionDelay: 8000,
@@ -563,7 +566,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [50, 51, 60,70, 100, 120],
+      scopeKeys: [50, 51, 60, 70, 100, 120],
       key: 9,
       name: '通用-返回-逛看病买药频道',
       forcedTime: 60000,
@@ -575,7 +578,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [50, 51,70, 100, 120],
+          preKeys: [50, 51, 70, 100, 120],
           key: 0,
           name: '弹窗广告-×',
           actionDelay: 1000,
@@ -608,7 +611,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2,3],
+          preKeys: [2, 3],
           key: 3,
           name: '逛看病买药频道-暂时离开',
           matches: [
@@ -753,10 +756,7 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
-      activityIds: [
-        '.WebActivity',
-        'com.jd.lib.ttt.page.TTTMultiPageActivity',
-      ],
+      activityIds: ['.WebActivity', 'com.jd.lib.ttt.page.TTTMultiPageActivity'],
       rules: [
         {
           key: 0,
@@ -1494,7 +1494,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0,70],
+          preKeys: [0, 70],
           key: 0,
           matches: [
             '[text="预约商品"] - [text~="[0-2]/3"] < View < View < View < View - [id="dark-moon-feeds-container"] >n TextView +n View > TextView + @TextView[clickable=true]',
@@ -2618,10 +2618,7 @@ export default defineGkdApp({
             'ViewGroup[clickable=true] + ViewGroup > @[desc="关闭"][clickable=true] > ImageView',
             '[desc="关闭"] < @FrameLayout[clickable=true] <n ViewGroup < FrameLayout < FrameLayout < FrameLayout < FrameLayout + LinearLayout > [id="android:id/content"]',
           ],
-          activityIds: [
-            '.MainFrameActivity',
-            '.WebActivity',
-          ],
+          activityIds: ['.MainFrameActivity', '.WebActivity'],
         },
       ],
     },
