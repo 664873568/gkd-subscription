@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '个人信息保护指引-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 10000,
@@ -24,6 +25,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '开启推送通知-以后再说',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchDelay: 10000,
