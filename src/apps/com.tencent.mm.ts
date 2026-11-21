@@ -165,7 +165,7 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 2000,
           matches: [
-            '[desc="去首页逛逛"] - [desc="活动陆续开放中"] <n View < ScrollView < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
+            '[desc="去首页逛逛"] <n View < [name$="View"] < View - ImageView[desc="￼"] - ImageView[desc="￼"]',
           ],
         },
         {
@@ -217,6 +217,91 @@ export default defineGkdApp({
           key: 1,
           matches: [
             '@[desc="确认关闭"] <n View < View < View < View < FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout <n RelativeLayout < FrameLayout < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    //26.10.20-26.12.31 幸运大转盘
+    {
+      key: 12,
+      name: '京东小哥-幸运大转盘',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      rules: [
+        {
+          key: 0,
+          name: '弹窗广告-×',
+          matches: [
+            '@Image < View - [getChild(0).name$="Image"] < View < View <n View <n WebView',
+          ],
+        },
+        {
+          key: 1,
+          name: '天天抽大奖',
+          matches: [
+            '[text="百元现金来领"] < View - [text="天天抽大奖"] < View < @View > View > Image',
+          ],
+        },
+        {
+          key: 2,
+          name: '签到',
+          matches: [
+            '@[text="签到"] < View <n View <n View - [text="获得更多抽奖次数"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '去领取',
+          actionDelay: 2000,
+          matches: [
+            '@[text="去领取"] < View <n View <n View - [text="获得更多抽奖次数"]',
+          ],
+          excludeMatches: [
+            '@[text="签到"] < View <n View <n View - [text="获得更多抽奖次数"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          name: '返回-<',
+          action: 'back',
+          actionDelay: 5000,
+          matches: [
+            '@Image < View < View <n View < View < View < View - TextView < WebView',
+            '@Image[width=height] < View < View < View < View < View - TextView < WebView',
+          ],
+        },
+        {
+          key: 5,
+          name: '领取',
+          actionDelay: 2000,
+          matches: [
+            '@[text="领取+1"] < View <n View <n View - [text="获得更多抽奖次数"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '立即抽奖',
+          actionDelay: 2000,
+          matches: [
+            '@[text~="抽奖按钮 剩余[1-9]次"][clickable=true] < View <n View < View < View < View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
+          ],
+          excludeMatches: [
+            '@[text~="签到|去领取|领取+1"] < View <n View <n View - [text="获得更多抽奖次数"]',
+            '@TextView[width=height] - [getChild(3).text="领取成功"] < View <n View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
+          ],
+        },
+        {
+          key: 7,
+          name: '领取成功-×',
+          matches: [
+            '@TextView[width=height] - [getChild(3).text="领取成功"] < View <n View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
+          ],
+          excludeMatches: [
+            '@[text~="签到|去领取|领取+1"] < View <n View <n View - [text="获得更多抽奖次数"]',
           ],
         },
       ],
@@ -274,6 +359,24 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 30000,
           matches: ['@[text="关闭"] <<n * [text="已获得奖励"]'],
+        },
+      ],
+    },
+    //功能应用类
+    {
+      key: 40,
+      name: '权限申请-取消',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 30000,
+          matches: [
+            '@[text="取消"][vid="mm_alert_cancel_btn"][clickable=true] < LinearLayout < LinearLayout <n LinearLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['.ui.LauncherUI'],
         },
       ],
     },
