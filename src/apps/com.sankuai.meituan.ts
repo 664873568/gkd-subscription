@@ -150,6 +150,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 3,
           name: '返回-⊙',
           actionDelay: 5000,
@@ -159,6 +160,7 @@ export default defineGkdApp({
           activityIds: ['com.meituan.android.mgc.container.MGCGameActivity'],
         },
         {
+          preKeys: [0],
           key: 4,
           name: '美团币-<',
           actionDelay: 5000,
