@@ -2287,7 +2287,7 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      actionMaximum: 1,
+      actionMaximum: 2,
       resetMatch: 'activity',
       activityIds: ['.WebActivity'],
       rules: [
