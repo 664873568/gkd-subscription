@@ -32,7 +32,7 @@ export default defineGkdApp({
           matches: [
             '@[text="同意"][vid="tv_positive"][clickable=true] -n [text="欢迎使用趣头条"][vid="tv_title"]',
           ],
-          activityIds: ['.SplashActivity','null'],
+          activityIds: ['.SplashActivity', 'null'],
         },
       ],
     },
