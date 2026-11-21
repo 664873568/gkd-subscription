@@ -4,6 +4,36 @@ export default defineGkdApp({
   id: 'com.yy.yyvoicetool',
   name: 'YY语音',
   groups: [
+    //兑换商城
+    {
+      key: 0,
+      name: '兑换商城-提现-20元',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['.MainActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@[text="提现"][clickable=true] -n [text="20元"] < View -n [text="20元"] <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '@[text="提现到支付宝"][clickable=true] <n View < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '签到',
+          matches: [
+            '[text="签到"] <n @View[clickable=true] <n View < [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
     //天天领金币
     {
       key: 9,
@@ -21,6 +51,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           name: '恭喜获得-×',
           matches: [
@@ -104,7 +135,7 @@ export default defineGkdApp({
         },
         {
           key: 15,
-          name: '恭喜获得',
+          name: '恭喜获得-×',
           matches: [
             '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -285,6 +316,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 2,
           name: '二级广告页-< ×',
+          action: 'back',
           matches: [
             '@[vid="noah_close_icon"][clickable=true] - [vid="noah_titleView"] - [vid="noah_back_icon"] < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
@@ -343,7 +375,7 @@ export default defineGkdApp({
           key: 2,
           name: '恭喜获得-×',
           matches: [
-            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][clickable=true] < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -357,7 +389,7 @@ export default defineGkdApp({
             '@View[childCount>0][index=parent.childCount.minus(1)] - TextView - [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
+            '@TextView[width=height][clickable=true] < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -452,20 +484,11 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[text~="点击或下载后体验.*秒立即领奖"][vid="noah_multi_task_ad2_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad2_cta"][clickable=true]',
+            '[text~="点击或下载后体验.*秒立即领奖"] + * @[text="立即打开"][clickable=true]',
           ],
         },
         {
           key: 1,
-          matches: [
-            '[text~="点击或下载后体验.*秒立即领奖"][vid="noah_multi_task_ad1_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad1_cta"][clickable=true]',
-          ],
-          excludeMatches: [
-            '[text~="点击或下载后体验.*秒立即领奖"][vid="noah_multi_task_ad2_task_hint"] + * @[text="立即打开"][vid="noah_multi_task_ad2_cta"][clickable=true]',
-          ],
-        },
-        {
-          key: 2,
           name: '恭喜获得奖励',
           matches: [
             '@[vid="noah_hc_close_button"][clickable=true] <n [vid="noah_hc_countdown_container"] < * < * < * - * [vid="noah_component_30_task_finish"]',
