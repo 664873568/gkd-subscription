@@ -17,7 +17,7 @@ export default defineGkdApp({
           matches: [
             '@[text="同意并继续"][clickable=true] <n LinearLayout -n [text="个人信息保护指引"] < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['com.ucpro.BrowserActivity','null'],
         },
       ],
     },
