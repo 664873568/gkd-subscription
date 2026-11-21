@@ -18,7 +18,7 @@ export default defineGkdApp({
           matches: [
             '@[text="同意并继续"][vid="rightBtn"][clickable=true] < LinearLayout < LinearLayout - LinearLayout > [text="个人信息保护指引"][vid="title"]',
           ],
-          activityIds: ['.LogoActivity','.MainActivity',],
+          activityIds: ['.LogoActivity', '.MainActivity'],
         },
       ],
     },
