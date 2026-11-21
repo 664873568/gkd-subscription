@@ -30,9 +30,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="欢迎使用趣头条"][vid="tv_title"] +n @[text="同意"][vid="tv_positive"][clickable=true] + [text="不同意"][vid="tv_negative"]',
+            '@[text="同意"][vid="tv_positive"][clickable=true] -n [text="欢迎使用趣头条"][vid="tv_title"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['.SplashActivity','null'],
         },
       ],
     },
