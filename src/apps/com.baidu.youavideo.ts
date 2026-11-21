@@ -913,15 +913,15 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           position: {
-            left: 'width*0.925',
-            top: 'height*0.105',
+            left: 'width*0.945',
+            top: 'height*0.085',
           },
           matches: [
-            'ViewGroup < ViewGroup < ComposeView < FrameLayout < [vid="fl_login"]',
+            'ViewGroup < ViewGroup < ComposeView < FrameLayout < [vid="fl_login"] < [id="android:id/content"]',
           ],
           activityIds: ['.login.view.LoginActivity'],
         },
