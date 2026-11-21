@@ -2178,7 +2178,7 @@ export default defineGkdApp({
     },
     {
       key: 409,
-      name: '开启推送提醒-暂不开启',
+      name: 'SVIP图标-立即使用',
       forcedTime: 60000,
       matchRoot: true,
       resetMatch: 'activity',
