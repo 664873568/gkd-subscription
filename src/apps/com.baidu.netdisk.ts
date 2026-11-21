@@ -773,9 +773,9 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          name: '点击广告，即可获得奖励',
+          name: '点击广告*，即可获得奖励',
           matches: [
-            '[text="点击广告，即可获得奖励"] < FrameLayout < FrameLayout < * <n * @[text="点击广告拿奖励" || text="立即秒杀" || text="点击跳转微信"]',
+            '@[text="点击广告，下载安装或成功跳转拿奖励"] < FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -798,9 +798,11 @@ export default defineGkdApp({
         {
           key: 6,
           name: '恭喜获得奖励-×',
-          actionDelay: 1000,
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout <n * <n * [text="恭喜获得奖励"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="点击广告成功跳转，即可获得奖励"] < FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -904,15 +906,34 @@ export default defineGkdApp({
         {
           key: 1,
           name: '看视频积分翻倍',
-          matches: [
+          anyMatches: [
+            '@Image[text="new-sign-pop-btn-double"][clickable=false] <n View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
             '@ImageButton[text="new-sign-pop-btn-double"][clickable=true] <n View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
+          ],
+          excludeMatches: [
+            '@[text="点击领取"][clickable=false] < View <n View <n View <n View < View < View <n View < View <n WebView < * < [vid="content_webview"]',
           ],
         },
         {
           key: 2,
           name: '今日积分已翻倍',
-          matches: [
+          anyMatches: [
+            '@Image[text="c"][clickable=false] < View +n [text="new-sign-pop-btn-double-suc"] <n View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
             '@ImageButton[text="c"][clickable=true] < View +n [text="new-sign-pop-btn-double-suc"] <n View < View < View <n View <n View <n WebView < * < [vid="content_webview"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '点击领取',
+          matches: [
+            '@[text="点击领取"][clickable=false] < View <n View <n View <n View < View < View <n View < View <n WebView < * < [vid="content_webview"]',
+          ],
+        },
+        {
+          key: 4,
+          name: '恭喜获得-我知道了-×',
+          matches: [
+            '@TextView[clickable=false] - [text="reward-pop-title"] < View < View < View <n WebView < * < [vid="content_webview"]',
           ],
         },
       ],
@@ -1013,7 +1034,7 @@ export default defineGkdApp({
           key: 203,
           name: '去完成',
           matches: [
-            '@[text="去完成"][clickable=true] <n View <n View -n [text="每日打卡领好礼"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
+            '@[text="去完成"] <n View <n View -n [text="每日打卡领好礼"] < View <n View < [id="task-system-main"] < WebView < * < [vid="content_webview"]',
           ],
         },
       ],
@@ -1062,6 +1083,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 205,
+          name: '去完成',
           actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -8 [text~="去看看.*|每日答题|做广告任务"] -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
@@ -1075,6 +1097,7 @@ export default defineGkdApp({
         {
           preKeys: [205],
           key: 11,
+          name: '领取奖励/任务已完成 点击去领奖',
           anyMatches: [
             'View > View[clickable=true] > TextView + @ImageButton[clickable=true]', //领取奖励-去看看会员福利日-去看看开学季特惠
             'View > View > @ImageButton[clickable=true] + TextView + ImageButton', //任务已完成 点击去领奖-去看看会员福利日
@@ -1082,6 +1105,7 @@ export default defineGkdApp({
         },
         {
           key: 12,
+          name: '领取',
           actionDelay: 2000,
           matches: [
             '@[text="领取"][clickable=true] -8 TextView -n [getChild(0).getChild(0).text="任务中心"] <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
@@ -1092,6 +1116,7 @@ export default defineGkdApp({
         },
         {
           key: 13,
+          name: '点击领取',
           matches: [
             '@[text="点击领取"][clickable=true] < View <n View <n View <n View <n [id="task-system-growth"] < WebView < * < [vid="content_webview"]',
           ],
@@ -1102,6 +1127,7 @@ export default defineGkdApp({
         {
           preKeys: [13],
           key: 14,
+          name: '恭喜获得-我知道了-×',
           matches: [
             '@TextView[clickable=true] - [text="reward-pop-title"] < View < View < View <n WebView < * < [vid="content_webview"]',
           ],
@@ -2016,9 +2042,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="温馨提示"][vid="txt_confirmdialog_title"] < * +n [vid="dialog_footer"] > [text="不同意并退出"][vid="dialog_button_cancel"] + @[text="同意"][vid="dialog_button_confirm"][clickable=true]',
+            '@[text="同意"][vid="dialog_button_confirm"][clickable=true] <n LinearLayout -n LinearLayout > [text="温馨提示"][vid="txt_confirmdialog_title"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['.ui.Navigate','null'],
         },
       ],
     },
@@ -2147,6 +2173,21 @@ export default defineGkdApp({
             '.aigc.ui.activity.AigcChatActivity',
             '.operation.ui.offlinepkg.coincenter.CoinCenterActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 409,
+      name: '开启推送提醒-暂不开启',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="立即使用"][vid="use_currently"][clickable=true] -n [text="SVIP图标"] - [text="您已获得专属"][vid="svip_skin_get"]',
+          ],
+          activityIds: ['.ui.MainActivity'],
         },
       ],
     },
