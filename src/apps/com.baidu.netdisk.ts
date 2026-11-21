@@ -2044,7 +2044,7 @@ export default defineGkdApp({
           matches: [
             '@[text="同意"][vid="dialog_button_confirm"][clickable=true] <n LinearLayout -n LinearLayout > [text="温馨提示"][vid="txt_confirmdialog_title"]',
           ],
-          activityIds: ['.ui.Navigate','null'],
+          activityIds: ['.ui.Navigate', 'null'],
         },
       ],
     },
