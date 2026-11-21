@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '个人信息保护指引-同意并继续',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,15 +16,16 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="个人信息保护指引"][vid="title"] < [vid="dialog_title_content"] + [vid="btn_layout"] >n @[text="同意并继续"][vid="rightBtn"][clickable=true]',
+            '@[text="同意并继续"][vid="rightBtn"][clickable=true] < LinearLayout < LinearLayout - LinearLayout > [text="个人信息保护指引"][vid="title"]',
           ],
-          activityIds: ['.LogoActivity'],
+          activityIds: ['.LogoActivity','.MainActivity',],
         },
       ],
     },
     {
       key: 41,
       name: '开启通知-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -41,6 +43,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
