@@ -18,10 +18,7 @@ export default defineGkdApp({
           matches: [
             '@[text="同意"][clickable=true] - [getChild(0).text="用户协议和隐私政策概要"] <n LinearLayout < ScrollView < [id="android:id/content"]',
           ],
-          activityIds: [
-            '.activity.baseactivity.StartUpPrivacyPolicyActivity',
-            'null',
-          ],
+          activityIds: ['.activity.baseactivity.StartUpPrivacyPolicyActivity','null'],
         },
       ],
     },
@@ -39,6 +36,24 @@ export default defineGkdApp({
             '@[desc="关闭"][vid="close_btn"][clickable=true] - * > [text="流量提醒"]',
           ],
           activityIds: ['null'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 50,
+      name: '首页广告-跳过',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[desc="跳过"][clickable=true] <n RelativeLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['.activity.welcome.WelcomeActivity'],
         },
       ],
     },
