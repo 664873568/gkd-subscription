@@ -17,7 +17,9 @@ export default defineGkdApp({
           matches: [
             '@[text="暂不登录先逛逛 ＞"][vid="tv_login_guest_mode"][clickable=true]',
           ],
-          activityIds: ['kt.com.fcbox.hiveconsumer.app.business.login.LoginActivity'],
+          activityIds: [
+            'kt.com.fcbox.hiveconsumer.app.business.login.LoginActivity',
+          ],
         },
       ],
     },
