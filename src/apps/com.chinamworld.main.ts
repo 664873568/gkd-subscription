@@ -26,7 +26,7 @@ export default defineGkdApp({
           key: 1,
           name: '签到成功-立即使用-×',
           matches: [
-            '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@[name*="Image"][desc="关闭 按钮"] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
         },
         {
@@ -36,8 +36,8 @@ export default defineGkdApp({
             '@View[clickable=true] -n [desc="签到有礼楼层"] < View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
           excludeMatches: [
-            '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
-            '@[desc="关闭 按钮"][clickable=true] < View < View < View <n View <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@Image[desc="关闭 按钮"][clickable=false] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@[name*="Image"][desc="关闭 按钮"] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
         },
         {
@@ -98,7 +98,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[desc="立即签到 按钮"][clickable=true] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
             'TextView[index=parent.childCount.minus(1)] -n [desc="签到有礼楼层"] <n [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
-            '@[desc="关闭 按钮"][clickable=true] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
+            '@[name*="Image"][desc="关闭 按钮"] <n View < View < View < [id="scroll"] <n [id="app"] < WebView < WebView < [vid="page_running_vg_webViewFrame"]',
           ],
         },
         {
@@ -169,20 +169,20 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[text="立即签到"][clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@[text="立即签到"] -n [name*="Image"] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '@TextView[clickable=true] - [getChild(0).text~="已连续签到.*天"] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@TextView - [getChild(0).text~="已连续签到.*天"] -n [name*="Image"] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           preKeys: [0],
           key: 2,
           matches: [
-            '[text^="浏览"] < View < @View[clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '[text^="浏览"] < View < @View -n [name*="Image"] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
@@ -197,28 +197,28 @@ export default defineGkdApp({
           preKeys: [0, 3],
           key: 4,
           matches: [
-            '@[text^="已完成 浏览"][clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@[text^="已完成 浏览"] -n [name*="Image"] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           preKeys: [4],
           key: 5,
           matches: [
-            '@[text="立即领取"][clickable=true] <n View <n AlertDialog -n [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@[text="立即领取"] <n View <n AlertDialog -n [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           preKeys: [5],
           key: 6,
           matches: [
-            '@TextView[clickable=true] - [text="已领奖"] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@TextView - [text="已领奖"] -n [name*="Image"] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
       ],
     },
     {
       key: 11,
-      name: '热门活动-×',
+      name: '热门活动-弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -228,13 +228,13 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@ImageButton[clickable=true] <n View <n View <n View < WebView < WebView < [vid="web_container"]',
+            '@[name*="Image"] <n View <n View <n View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '@TextView[clickable=true] <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@TextView <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
       ],
@@ -252,10 +252,10 @@ export default defineGkdApp({
           preKeys: [1],
           key: 0,
           matches: [
-            '[text~="还有[1-9][0-9]*次机会"] - [desc="骰子按钮"] < @View[clickable=true] <n View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '[text~="还有[1-9][0-9]*次机会"] - [desc="骰子按钮"] < @View <n View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
           excludeMatches: [
-            '@TextView[index=parent.childCount.minus(1)][clickable=true] -n ImageButton < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@TextView[index=parent.childCount.minus(1)] -n [name*="Image"] < View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
