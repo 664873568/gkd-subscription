@@ -643,7 +643,9 @@ export default defineGkdApp({
           matches: [
             '@[text="下次再说"][vid="later"][clickable=true] -n [text="美团 App 想给你发送通知"] <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
+          activityIds: [
+            'com.meituan.android.pt.homepage.activity.MainActivity',
+          ],
         },
       ],
     },
@@ -660,7 +662,9 @@ export default defineGkdApp({
           matches: [
             '[text="新版本抢先体验"] +n @[text="暂不升级"][vid="btn_cancel"][clickable=true] + [text="立即升级"]',
           ],
-          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
+          activityIds: [
+            'com.meituan.android.pt.homepage.activity.MainActivity',
+          ],
         },
       ],
     },
