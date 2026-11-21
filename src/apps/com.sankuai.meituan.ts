@@ -572,7 +572,7 @@ export default defineGkdApp({
     },
     //飞猪旅行-去美团赚20元|星图金融-去美团APP看视频
     {
-      key: 39,
+      key: 399,
       name: '看视频-任务已完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -631,7 +631,7 @@ export default defineGkdApp({
     },
     //功能应用类
     {
-      key: 40,
+      key: 400,
       name: '发送通知-下次再说',
       forcedTime: 60000,
       matchRoot: true,
@@ -643,14 +643,12 @@ export default defineGkdApp({
           matches: [
             '@[text="下次再说"][vid="later"][clickable=true] -n [text="美团 App 想给你发送通知"] <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.meituan.android.pt.homepage.activity.MainActivity',
-          ],
+          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
         },
       ],
     },
     {
-      key: 41,
+      key: 401,
       name: '新版本抢先体验-暂不升级',
       forcedTime: 60000,
       matchRoot: true,
@@ -662,15 +660,13 @@ export default defineGkdApp({
           matches: [
             '[text="新版本抢先体验"] +n @[text="暂不升级"][vid="btn_cancel"][clickable=true] + [text="立即升级"]',
           ],
-          activityIds: [
-            'com.meituan.android.pt.homepage.activity.MainActivity',
-          ],
+          activityIds: ['com.meituan.android.pt.homepage.activity.MainActivity'],
         },
       ],
     },
     //首页广告类
     {
-      key: 50,
+      key: 500,
       name: '首页广告-跳过',
       forcedTime: 60000,
       matchRoot: true,
