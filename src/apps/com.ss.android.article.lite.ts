@@ -52,9 +52,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="个人信息保护指引"] +n @[text="同意"][clickable=true]',
+            '@[text="同意"][clickable=true] -n [text="个人信息保护指引"] <n LinearLayout < RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['.activity.SplashActivity','null'],
         },
       ],
     },
