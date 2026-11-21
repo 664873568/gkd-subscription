@@ -15,9 +15,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[getChild(0).getChild(0).text="用户协议及隐私保护"] + * @[text="同意"][clickable=true]',
+            '@[text="同意"][clickable=true] < LinearLayout < LinearLayout - [getChild(0).getChild(0).text="用户协议及隐私保护"] < LinearLayout < ViewGroup < [id="android:id/content"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['.module.splash.ui.SplashBaseActivity','null'],
         },
       ],
     },
