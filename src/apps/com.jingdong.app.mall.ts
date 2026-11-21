@@ -2282,7 +2282,7 @@ export default defineGkdApp({
     //汪汪庄园
     //https://joypark.jd.com?activityId=99DZNpaCTAv8f4TuKXr0Ew
     {
-      key: 290,
+      key: 200,
       name: '汪汪庄园-去完成',
       forcedTime: 60000,
       matchRoot: true,
@@ -2301,7 +2301,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 291,
+      key: 201,
       name: '汪汪庄园-离线汪币奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -2331,7 +2331,7 @@ export default defineGkdApp({
     //京东笔笔返
     //https://ipay.jd.com/pages/bbf/index
     {
-      key: 291,
+      key: 210,
       name: '笔笔返-×',
       forcedTime: 60000,
       matchRoot: true,
@@ -2350,7 +2350,7 @@ export default defineGkdApp({
     //https://lives.jd.com
     //https://zhibo.jd.com
     {
-      key: 292,
+      key: 220,
       name: '天天签到福利',
       forcedTime: 60000,
       matchRoot: true,
