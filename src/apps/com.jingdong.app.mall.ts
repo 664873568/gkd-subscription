@@ -60,7 +60,7 @@ export default defineGkdApp({
     {
       scopeKeys: [
         10, 12, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 110, 120, 130,
-        140, 150, 180, 190, 290,
+        140, 150, 180, 190, 200,
       ],
       key: 1,
       name: '通用-返回-scopeKeys',
@@ -91,7 +91,7 @@ export default defineGkdApp({
         {
           preKeys: [
             0, 1, 10, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 120, 130,
-            140, 150, 290,
+            140, 150, 200,
           ],
           key: 1,
           name: '已完成 点击立即返回',
@@ -354,7 +354,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10, 60, 61, 70, 110, 190, 290],
+      scopeKeys: [10, 60, 61, 70, 110, 190, 200],
       key: 5,
       name: '通用-返回-活动会场页J_babelOptPage',
       forcedTime: 60000,
@@ -368,7 +368,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0, 10, 60, 61, 70, 110, 190, 290],
+          preKeys: [0, 10, 60, 61, 70, 110, 190, 200],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -443,7 +443,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [100, 290],
+      scopeKeys: [100, 200],
       key: 7,
       name: '通用-返回-游戏',
       forcedTime: 60000,
@@ -456,7 +456,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [100, 290],
+          preKeys: [100, 200],
           key: 0,
           actionDelay: 6000,
           matches: [
@@ -464,7 +464,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [100, 290],
+          preKeys: [100, 200],
           key: 1,
           actionDelay: 30000,
           matches: [
@@ -2292,7 +2292,7 @@ export default defineGkdApp({
       activityIds: ['.WebActivity'],
       rules: [
         {
-          key: 290,
+          key: 200,
           name: '去完成',
           matches: [
             '@TextView[clickable=true] - [text~="完成可得汪币.*"] - [text!~="精选好物热卖中.*"] <n View < View <n View - [text="close"] < View < View <n View <n [id="root"] < View < WebView < *',
