@@ -27,14 +27,12 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[text~="剩余 [1-9]次 抽奖机会"][clickable=true] <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
-          preKeys: [2],
           key: 3,
           matches: [
             'Image < @View -n [text="开心收下"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
@@ -58,18 +56,17 @@ export default defineGkdApp({
             '@[text="去抽奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
           excludeMatches: [
+            '@[text="去抽奖"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
             '@[text="领奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             '@[text~="剩余 [1-9]次 抽奖机会"][clickable=true] <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
-          preKeys: [1],
           key: 2,
           matches: [
             'Image < @View -n [text="去查看"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
@@ -92,9 +89,11 @@ export default defineGkdApp({
           matches: [
             '@[text="领奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
+          excludeMatches: [
+            '@[text="去抽奖"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+          ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             'Image < @View -n [text="去查看"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
@@ -119,7 +118,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             'Image < @View -n [text="开心收下"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
@@ -144,7 +142,6 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
             'Image < @View -n [text="开心收下"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
