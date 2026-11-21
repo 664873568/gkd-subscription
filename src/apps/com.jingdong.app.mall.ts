@@ -2317,6 +2317,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           name: '赚汪币',
           matches: [
