@@ -18,7 +18,10 @@ export default defineGkdApp({
           matches: [
             '@[text="同意"][clickable=true] - [getChild(0).text="用户协议和隐私政策概要"] <n LinearLayout < ScrollView < [id="android:id/content"]',
           ],
-          activityIds: ['.activity.baseactivity.StartUpPrivacyPolicyActivity','null'],
+          activityIds: [
+            '.activity.baseactivity.StartUpPrivacyPolicyActivity',
+            'null',
+          ],
         },
       ],
     },
