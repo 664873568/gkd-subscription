@@ -17,7 +17,7 @@ export default defineGkdApp({
           matches: [
             '@[text="同意"][vid="agree"][clickable=true] -n [text="个人信息保护指引"][vid="title"]',
           ],
-          activityIds: ['com.uc.browser.InnerUCMobile','null'],
+          activityIds: ['com.uc.browser.InnerUCMobile', 'null'],
         },
       ],
     },
