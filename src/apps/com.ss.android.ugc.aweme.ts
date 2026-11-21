@@ -270,7 +270,6 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [2],
           key: 3,
           name: '"一键添加自选-×',
           matches: [
@@ -279,7 +278,6 @@ export default defineGkdApp({
           activityIds: ['.bullet.ui.BulletContainerActivity'],
         },
         {
-          preKeys: [1, 2, 3],
           key: 4,
           name: '任务完成 恭喜获得-开心收下',
           position: {
