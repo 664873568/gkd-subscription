@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="个人信息保护指引"] +n * [text="同意"][clickable=true]',
+            '@[text="同意"][clickable=true] < FrameLayout <n LinearLayout -n [text="个人信息保护指引"]',
           ],
           activityIds: ['com.dragon.read.pages.splash.SplashActivity', 'null'],
         },
