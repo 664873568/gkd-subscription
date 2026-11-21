@@ -60,7 +60,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '[text="同意"][desc="同意，按钮"] < @FrameLayout[clickable=true] -n [text="个人信息保护指引"] <n LinearLayout < RelativeLayout < [id="android:id/content"]',
+            '@[text="同意"][clickable=true] < FrameLayout -n [text="个人信息保护指引"] <n LinearLayout < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['.activity.MainActivity'],
         },
