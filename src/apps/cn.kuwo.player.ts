@@ -8,32 +8,73 @@ export default defineGkdApp({
     //每天0:00,09:00,13:00,17:00,20:00刷新提现额度；金币有效期为金币获得后的60个自然日，记得尽快兑换喔～
     {
       key: 0,
-      name: '金币提现-跳过',
+      name: '金币提现-2元',
       matchRoot: true,
       matchTime: 10000,
       resetMatch: 'activity',
       activityIds: ['.activities.MainActivity'],
       rules: [
         {
-          excludeMatches: [
-            '[text="金币提现"] +n @[text="确认提现"][clickable=true]',
-            '[text="金币提现"] +n @View[index=8][clickable=true] > [text="需要20000金币"]',
-          ],
           key: 0,
-          matches: ['[text="金币提现"] +4 @TextView[clickable=true]'],
+          matches: [
+            '@TextView[clickable=true] -4 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
+          excludeMatches: [
+            '[text="需要20000金币"] <n @View[clickable=true] -5 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
         },
         {
           key: 1,
-          excludeMatches: [
-            '[text="金币提现"] +n @[text="确认提现"][clickable=true]',
-          ],
           matches: [
-            '[text="金币提现"] +n @View[index=8][clickable=true] > [text="需要20000金币"]',
+            '[text="需要20000金币"] <n @View[clickable=true] -5 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
+          excludeMatches: [
+            '@[text="拆红包 可立即提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
         },
         {
           key: 2,
-          matches: ['[text="金币提现"] +n @[text="确认提现"][clickable=true]'],
+          matches: [
+            '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '金币提现-1元',
+      matchRoot: true,
+      matchTime: 10000,
+      resetMatch: 'activity',
+      activityIds: ['.activities.MainActivity'],
+      rules: [
+        {
+          key: 0,
+          matches: [
+            '@TextView[clickable=true] -4 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
+          excludeMatches: [
+            '[text="需要10000金币"] <n @View[clickable=true] -6 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
+        },
+        {
+          key: 1,
+          matches: [
+            '[text="需要10000金币"] <n @View[clickable=true] -6 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
+          excludeMatches: [
+            '@[text="拆红包 可立即提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
+        },
+        {
+          key: 2,
+          matches: [
+            '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
         },
       ],
     },
