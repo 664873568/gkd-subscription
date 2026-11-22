@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '欢迎使用QQ阅读-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,7 +16,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="不同意"][vid="dont_agree"] - @[text="同意"][vid="agree"][clickable=true] -n * [text="欢迎使用QQ阅读"]',
+            '@[text="同意"][vid="agree"][clickable=true] -n * [text="欢迎使用QQ阅读"][vid="rich_text_title"]',
           ],
           activityIds: ['null'],
         },
