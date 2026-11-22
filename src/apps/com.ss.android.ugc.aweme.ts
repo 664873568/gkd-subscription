@@ -437,7 +437,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3,501],
+          preKeys: [0, 1, 2, 3, 501],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -994,7 +994,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           anyMatches: [
             '@[desc="关闭页面"][clickable=true] <n View <n [id="nav-bar"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
