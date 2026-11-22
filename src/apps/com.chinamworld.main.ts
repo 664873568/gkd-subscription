@@ -228,13 +228,13 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '@[name*="Image"] <n View <n View <n View < WebView < WebView < [vid="web_container"]',
+            '@[name*="Image"][index=parent.childCount.minus(1)] - View < View <n View <n View < WebView < WebView < [vid="web_container"] <n View <n View <n View < WebView < WebView < [vid="web_container"] <n View <n View <n View < WebView < WebView < [vid="web_container"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '@TextView <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
+            '@TextView[index=parent.childCount.minus(1)] - View < View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="web_container"]',
           ],
         },
       ],
