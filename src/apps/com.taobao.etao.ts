@@ -23,6 +23,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           name: '恭喜获得-去使用-×',
           matches: [
@@ -50,6 +51,8 @@ export default defineGkdApp({
             '[text!~="去中国移动逛逛"] - @[getChild(2).text="最高1元"] < View < View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
           excludeMatches: [
+            '[text="签到"] - @View[getChild(2).text="?元"] < View < View < View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
+            '@Image <n View < View <n View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
             '[text!~="去中国移动逛逛"] - @[text="领取"] <n View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
             '[text!~="去中国移动逛逛"] - @[text="领取"] <n View < View <n View <n View < [id="J_u_root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
