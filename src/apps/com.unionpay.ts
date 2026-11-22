@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '玩转中心-天天签到-去抽奖',
+      name: '玩转中心',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -15,6 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '天天签到-签到成功',
           actionDelay: 2000,
           matches: [
             '@[text="签到成功"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
@@ -22,37 +23,9 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: [
+          name: '天天签到/达标有礼-去抽奖',
+          anyMatches: [
             '@[text="去抽奖"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
-          ],
-        },
-        {
-          key: 2,
-          matches: [
-            '@[text~="剩余 [1-9]次 抽奖机会"][clickable=true] <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
-          ],
-        },
-        {
-          key: 3,
-          matches: [
-            'Image < @View -n [text="开心收下"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '玩转中心-达标有礼-去抽奖',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.liteapp.app.UPLiteAppActivity'],
-      rules: [
-        {
-          key: 0,
-          actionDelay: 2000,
-          matches: [
             '@[text="去抽奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
           excludeMatches: [
@@ -61,30 +34,16 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
+          key: 2,
+          actionDelay: 2000,
+          name: '天天签到/达标有礼-点击抽奖',
           matches: [
             '@[text~="剩余 [1-9]次 抽奖机会"][clickable=true] <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
-          key: 2,
-          matches: [
-            'Image < @View -n [text="去查看"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 3,
-      name: '玩转中心-达标有礼-领奖',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.liteapp.app.UPLiteAppActivity'],
-      rules: [
-        {
-          key: 0,
+          key: 3,
+          name: '达标有礼-领奖',
           actionDelay: 2000,
           matches: [
             '@[text="领奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
@@ -94,57 +53,27 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
-          matches: [
-            'Image < @View -n [text="去查看"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '玩转中心-本地有礼-领取',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.liteapp.app.UPLiteAppActivity'],
-      rules: [
-        {
-          key: 0,
+          key: 4,
+          name: '本地有礼-领取',
           actionDelay: 2000,
           matches: [
             'Image[text="6062245d-3f87-4381-abbb-d3a9773c2d24"] < @View < View <n View <n View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
-          key: 1,
-          matches: [
-            'Image < @View -n [text="开心收下"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 5,
-      name: '玩转中心-本地有礼-可领取',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.liteapp.app.UPLiteAppActivity'],
-      rules: [
-        {
-          key: 0,
+          key: 5,
+          name: '本地有礼-可领取',
           actionDelay: 2000,
           matches: [
             '@[text="可领取"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
-          key: 1,
+          key: 6,
+          name: '弹窗-×',
+          actionDelay: 1000,
           matches: [
-            'Image < @View -n [text="开心收下"] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
+            'Image[width=height][index=parent.childCount.minus(1)] < @View[clickable=true] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
       ],
