@@ -7,7 +7,7 @@ export default defineGkdApp({
     //看视频-.ads.ylh.YlhPortraitADActivity
     {
       key: 20,
-      name: '看视频-×',
+      name: '看视频-×ylh',
       forcedTime: 60000,
       matchDelay: 1000,
       matchRoot: true,
@@ -16,6 +16,20 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '×-奖励将于*秒后发放',
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '放弃奖励离开',
+          matches: [
+            '@[text="放弃奖励离开"][clickable=true] < LinearLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
           name: '×-提前拿奖励-玩*秒小游戏',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
@@ -25,7 +39,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
+          key: 3,
           name: '立即退出',
           matches: [
             '@[text="立即退出"] <n LinearLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
@@ -33,10 +47,36 @@ export default defineGkdApp({
         },
       ],
     },
-    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
+    //看视频-com.baidu.mobads.sdk.api.MobRewardVideoActivity
     {
       key: 30,
-      name: '看视频-跳过',
+      name: '看视频-跳过baidu',
+      forcedTime: 60000,
+      matchDelay: 1000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['com.baidu.mobads.sdk.api.MobRewardVideoActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '跳过-去体验*秒可直接拿奖励',
+          matches: [
+            '@[text="跳过"][clickable=true] < RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '残忍离开',
+          matches: [
+            '@[text="残忍离开"][clickable=true] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
+    {
+      key: 40,
+      name: '看视频-跳过kwad',
       forcedTime: 60000,
       matchDelay: 1000,
       matchRoot: true,
