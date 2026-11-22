@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '个人信息保护指引-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,15 +16,16 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="个人信息保护指引"][vid="title"] +n [text="不同意"][vid="not_agree"] + @[text="同意"][vid="agree"][clickable=true]',
+            '@[text="同意"][vid="agree"][clickable=true] -n [text="个人信息保护指引"][vid="title"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['com.uc.browser.InnerUCMobile','null'],
         },
       ],
     },
     {
       key: 41,
       name: '温馨提示-同意并进入',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -31,7 +33,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[getChild(0).text="温馨提示"] + View > @[text="同意并进入"][clickable=true] + [text="退出"]',
+            '@[text="同意并进入"][clickable=true] < View - * [text="温馨提示"]',
           ],
           activityIds: ['com.uc.browser.InnerUCMobile'],
         },
