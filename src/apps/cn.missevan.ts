@@ -18,7 +18,7 @@ export default defineGkdApp({
           matches: [
             '@[text="同意"][vid="agree"][clickable=true] -n [text="用户协议与隐私政策提示"][vid="title"]',
           ],
-          activityIds: ['.activity.AppEntryActivity','null'],
+          activityIds: ['.activity.AppEntryActivity', 'null'],
         },
       ],
     },
