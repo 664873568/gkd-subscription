@@ -15,7 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 3000,
+          actionDelay: 2000,
           matches: [
             '[text=""] < FrameLayout < @LinearLayout[clickable=true] < LinearLayout < FrameLayout < [vid="fliggyx_navigation_bar_left"]',
           ],
@@ -65,6 +65,7 @@ export default defineGkdApp({
             '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
             '@Button[clickable=true] - Image < View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
@@ -73,6 +74,7 @@ export default defineGkdApp({
           key: 1,
           name: '立即下载',
           matches: [
+            '@[text="立即下载"] <n FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
             '[text="取消下载"] - @View[clickable=true] -n ImageView[width=height] - ImageView < RelativeLayout < RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.baidu.mobads.sdk.api.BdShellActivity'],
@@ -114,6 +116,7 @@ export default defineGkdApp({
             '@Button[text$="元"][clickable=true] <n View <n View < View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
             '@Button[clickable=true] - Image < View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
@@ -122,6 +125,7 @@ export default defineGkdApp({
           name: '取消下载',
           actionDelay: 3000,
           matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
             '@[text="取消下载"][clickable=true] -n ImageView[width=height] - ImageView < RelativeLayout < RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.baidu.mobads.sdk.api.BdShellActivity'],
@@ -284,6 +288,27 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text~=".*能量|领取奖励"][clickable=true] -2 [text!~="逛中国移动|去猜价格并返回猜价页"] <n View <n View < View < View <n View <n View <n View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 19,
+      name: '天天集能量-加载中',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          action: 'back',
+          actionDelay: 3000,
+          matches: [
+            '@ImageView[vid="progress"] < [vid="body"] - ImageView < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: [
+            'fliggyx.android.unicorn.ActWebviewActivity',
+            'com.baidu.mobads.sdk.api.MobRewardVideoActivity',
           ],
         },
       ],
@@ -477,6 +502,13 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '残忍离开',
+          matches: [
+            '@[text="残忍离开"][clickable=true] <n RelativeLayout < RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
           name: '跳过/×',
           anyMatches: [
             '@[text="跳过"][clickable=true] <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
@@ -488,23 +520,22 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
+          key: 3,
           name: '×',
           matches: [
-            '@ImageView[width=height][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout - RelativeLayout < RelativeLayout < [id="android:id/content"]',
+            '@ImageView[width=height][index=parent.childCount.minus(1)][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout - RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text~="去体验.*秒可直接拿奖励|.*s后可领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 3,
-          matches: ['@ImageView[clickable=true] - * [text="0s后可领取奖励"]'],
-        },
-        {
           key: 4,
           matches: [
             'TextView - @ImageView[clickable=true] <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text~="去体验.*秒可直接拿奖励|.*s后可领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -971,41 +1002,30 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '点击广告，即可获得奖励',
+          matches: [
+            '[text="点击打开或下载第三方应用"] < @FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text="恭喜获得奖励"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '二级广告页',
           actionDelay: 15000,
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 2,
-          name: '已完成浏览',
-          matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < * <n * <n * <n * [text*="已完成浏览"]',
-          ],
-        },
-        {
           key: 3,
-          name: '点击广告，即可获得奖励',
-          matches: [
-            '@[text="点击广告拿奖励"] <<n * [text="点击广告，即可获得奖励"]',
-          ],
-        },
-        {
-          key: 4,
           name: '恭喜获得奖励-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text="恭喜获得奖励"]',
-          ],
-        },
-        {
-          key: 5,
-          name: '查看详情',
-          matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * <n * [text="查看详情"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@[text="我要更快拿奖"] < FrameLayout <n * <n * [text^="奖励将于"]',
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * <n * [text="恭喜获得奖励"]',
+            '[text="点击广告成功跳转，即可获得奖励"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -1037,7 +1057,7 @@ export default defineGkdApp({
     //看视频-com.qumeng.advlib.ui.front.InciteADActivity
     {
       key: 130,
-      name: '看视频-完成APP下载-即可领取奖励',
+      name: '看视频-体验APP，提前拿奖励-×',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1046,24 +1066,81 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 2000,
           matches: [
-            '@View[clickable=false] <<n FrameLayout -2 RelativeLayout > View',
+            'View < LinearLayout < @RelativeLayout[clickable=true] < FrameLayout <n LinearLayout + [text="  广告"]',
           ],
         },
         {
           key: 1,
-          name: '奖励已到账',
-          action: 'back',
-          actionDelay: 30000,
+          name: '奖励已到账-×',
+          matches: [
+            '@ImageView[clickable=true] - RelativeLayout - ImageView - FrameLayout - FrameLayout < RelativeLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '奖励已到账-⊙',
+          position: {
+            left: 'width * 0.415',
+            top: 'height * 0.5',
+          },
+          actionDelay: 1000,
+          matches: [
+            'ImageView - ImageView < FrameLayout - @View[clickable=true] < RelativeLayout <n RelativeLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 131,
+      name: '看视频-*秒后可领奖励-×qumeng',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.qumeng.advlib.ui.front.InciteADActivity'],
+      rules: [
+        {
+          key: 0,
+          position: {
+            left: 'width * 0.39',
+            top: 'height * 0.045',
+          },
           matches: [
             '[text="广\\n告"] <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          matches: [
+            '@[text="放弃奖励"][clickable=true] <n RelativeLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    //看视频-com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity
+    {
+      key: 140,
+      name: '看视频-完成APP下载-即可领取奖励',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity'],
+      rules: [
+        {
+          name: '二级广告页',
+          matches: [
+            'TextView - @ImageView[width=height][clickable=true] - ImageView < LinearLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
     },
     //看视频-com.ubix.ssp.open.comm.UBiXVideoActivity
     {
-      key: 140,
+      key: 150,
       name: '看视频-点击广告并跳转获取奖励',
       forcedTime: 60000,
       matchRoot: true,
