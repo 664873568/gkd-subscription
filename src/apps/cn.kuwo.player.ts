@@ -9,8 +9,8 @@ export default defineGkdApp({
     {
       key: 0,
       name: '金币提现-2元',
+      forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
       resetMatch: 'activity',
       activityIds: ['.activities.MainActivity'],
       rules: [
@@ -45,8 +45,8 @@ export default defineGkdApp({
     {
       key: 1,
       name: '金币提现-1元',
+      forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
       resetMatch: 'activity',
       activityIds: ['.activities.MainActivity'],
       rules: [
@@ -82,6 +82,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '首页-广告-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -99,6 +100,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -117,6 +119,7 @@ export default defineGkdApp({
     {
       key: 51,
       name: '召回弹窗',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
