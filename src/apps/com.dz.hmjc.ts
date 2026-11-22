@@ -106,7 +106,10 @@ export default defineGkdApp({
           matches: [
             '@[vid="iv_stay_close"][clickable=true] <n ViewGroup < ViewGroup < FrameLayout +n [id="android:id/navigationBarBackground"]',
           ],
-          activityIds: ['com.dz.business.splash.ui.HotSplashActivity'],
+          activityIds: [
+            'com.dz.business.main.ui.MainActivity',
+            'com.dz.business.splash.ui.HotSplashActivity',
+          ],
         },
       ],
     },
