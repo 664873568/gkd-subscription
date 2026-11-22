@@ -117,7 +117,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup <n FrameLayout < FrameLayout < ViewFactoryHolder',
+            '@ImageView[width=height] - ImageView < ViewGroup - ScrollView < ViewGroup <n FrameLayout < FrameLayout',
           ],
           activityIds: [
             '.bullet.ui.BulletContainerActivity',
@@ -149,13 +149,14 @@ export default defineGkdApp({
             left: 'width * 0.85',
             top: 'height * 0.25',
           },
+          actionMaximum: 1,
           matches: [
-            'ImageView[width=height] < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < ViewGroup < FrameLayout < FrameLayout < ViewFactoryHolder < View < View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
+            'ImageView[width=height] < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < ViewGroup < FrameLayout < FrameLayout',
           ],
           excludeMatches: [
             'ViewGroup < @ViewGroup < ViewGroup <n ViewGroup < ViewGroup - ScrollView',
             'ImageView[width=height] -n ImageView < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView',
-            'ImageView[height<0] <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < ViewFactoryHolder < View < View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
+            'ImageView[height<0] <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout',
             '[id*="cj_plugin"] <n FrameLayout < FrameLayout - * [id="android:id/content"]', //*秒后获得*发财金
           ],
         },
@@ -193,7 +194,7 @@ export default defineGkdApp({
             top: 'height * 0.8',
           },
           matches: [
-            'ImageView[height<0] <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < ViewFactoryHolder < View < View < View < View < View < View < View < View < ComposeView < [id="android:id/content"]',
+            'ImageView[height<0] <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout',
           ],
         },
         {
@@ -203,6 +204,7 @@ export default defineGkdApp({
             left: 'width * 0',
             top: 'height * 0',
           },
+          actionMaximum: 1,
           matches: [
             '@ImageView[width=height] -n ImageView - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
@@ -223,7 +225,7 @@ export default defineGkdApp({
           },
           actionDelay: 2000,
           matches: [
-            'ViewGroup <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
+            'ViewGroup <n @ViewGroup < ViewGroup <n ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: [
             'com.bytedance.android.anniex.container.AnnieXHostActivity',
@@ -242,7 +244,6 @@ export default defineGkdApp({
         {
           key: 0,
           name: '逛商城福利-×',
-          action: 'back',
           matches: [
             '@ImageView < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
@@ -250,10 +251,13 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          name: '*发财金已到账',
+          name: '逛商城福利/浏览行情信息',
           action: 'back',
           matches: [
-            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - LinearLayout >n [id="android:id/content"]', //逛商城福利-浏览行情信息
+            'ImageView < FrameLayout - [id*="cj_plugin"] < FrameLayout < FrameLayout - LinearLayout >n [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@ImageView < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: [
             '.live.LiveDummyActivity',
@@ -271,7 +275,7 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          name: '"一键添加自选-×',
+          name: '浏览投资日历-一键添加自选-×',
           matches: [
             '[text="一键添加自选"] <n View -n @[desc="关闭"][clickable=true] < View <n View -n [id="app"]',
           ],
@@ -404,6 +408,7 @@ export default defineGkdApp({
     },
     //浏览赚*省钱豆
     {
+      scopeKeys: [501],
       key: 32,
       name: '省钱豆-查看账单',
       forcedTime: 60000,
@@ -432,7 +437,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 2, 3],
+          preKeys: [0, 1, 2, 3,501],
           key: 2,
           actionDelay: 5000,
           matches: [
@@ -594,7 +599,8 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
-          matches: [
+          anyMatches: [
+            '@[text^="省钱豆"][clickable=true] <n View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
             '@[text^="省钱豆"][clickable=true] <n View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < LinearLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
@@ -984,18 +990,27 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           matches: [
-            '@[desc="关闭页面"][clickable=true] <n View <n [id="nav-bar"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            '@Image - Image < View < View <n View <n View < View <n [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < LinearLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [2, 3],
+          preKeys: [1,2],
           key: 3,
+          anyMatches: [
+            '@[desc="关闭页面"][clickable=true] <n View <n [id="nav-bar"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            '@[desc="关闭页面"][clickable=true] <n View <n [id="nav-bar"] < View < [id="root"] < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
+            '@[desc="关闭页面"][clickable=true] <n View <n [id="nav-bar"] < [id="root"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < LinearLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [3, 4],
+          key: 4,
           matches: [
             '@[desc="返回"][clickable=true] < FrameLayout <n RelativeLayout <n RelativeLayout < LinearLayout <n FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 4,
+          key: 5,
           matches: [
             '@[text="领取奖励"][clickable=true] -n [text="完成"] < View <n View <n View <n View < View < [id="root"]',
           ],
@@ -1402,45 +1417,6 @@ export default defineGkdApp({
             '[desc="返回 按钮"] - ViewGroup[childCount=0] -n @ViewGroup[childCount=1] < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
-        {
-          key: 1,
-          name: '恭喜获得任务奖励-开心收下',
-          position: {
-            left: 'width*0.5',
-            top: 'height*0.8',
-          },
-          matches: [
-            'ViewGroup - ScrollView - ViewGroup < @ViewGroup < ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 81,
-      name: '我的钱包-弹窗广告-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      activityIds: [
-        '.wallet.ui.WalletActivity',
-        '.live.LiveDummyHybridTransparentActivity',
-        '.cjpay.hostimpl.container.CJLiveDummyActivity',
-      ],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
-          ],
-        },
-        {
-          key: 1,
-          matches: [
-            '[desc="开心收下"] -n @ImageView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < ViewGroup < FrameLayout < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
-          ],
-        },
       ],
     },
     {
@@ -1504,6 +1480,34 @@ export default defineGkdApp({
             '[desc="关闭"] - LinearLayout > [text="未成年人模式"] +n LinearLayout > @[text="不再提醒"][clickable=true]',
           ],
           activityIds: ['.main.MainActivity'],
+        },
+      ],
+    },
+    //首页广告类
+    {
+      key: 501,
+      name: '弹窗广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      activityIds: [
+        '.wallet.ui.WalletActivity',
+        '.live.LiveDummyHybridTransparentActivity',
+        '.cjpay.hostimpl.container.CJLiveDummyActivity',
+      ],
+      rules: [
+        {
+          key: 501,
+          matches: [
+            '@[desc="关闭"][clickable=true] <n View <n View < WebView < WebView < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 11,
+          matches: [
+            '[desc="开心收下"] -n @ImageView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < ViewGroup < FrameLayout < FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < RelativeLayout < FrameLayout <n ViewGroup < FrameLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
