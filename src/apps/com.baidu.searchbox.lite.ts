@@ -430,7 +430,7 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@TextView[clickable=true] < View < View <n View <n View < [id="app"] < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
-            '@TextView[clickable=true] <n View < View <n View <n View < [id="app"] < WebView < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '@TextView[clickable=true] <n View <n View <n View <n View < [id="app"] < WebView < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
