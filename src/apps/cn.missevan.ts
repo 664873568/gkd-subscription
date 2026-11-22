@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '用户协议与隐私政策提示-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -15,9 +16,9 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="用户协议与隐私政策提示"][vid="title"] +n [text="不同意"][vid="disagree"] + @[text="同意"][vid="agree"][clickable=true]',
+            '@[text="同意"][vid="agree"][clickable=true] -n [text="用户协议与隐私政策提示"][vid="title"]',
           ],
-          activityIds: ['null'],
+          activityIds: ['.activity.AppEntryActivity','null'],
         },
       ],
     },
@@ -25,6 +26,7 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
