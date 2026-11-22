@@ -203,7 +203,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [
-            0,4, 20, 23, 27, 30, 33, 35, 40, 50, 70, 80, 110, 140, 200, 210,
+            0, 4, 20, 23, 27, 30, 33, 35, 40, 50, 70, 80, 110, 140, 200, 210,
           ],
           key: 4,
           actionDelay: 5000,
@@ -239,7 +239,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [20,30, 40],
+      scopeKeys: [20, 30, 40],
       key: 18,
       name: '通用-返回-市民服务',
       forcedTime: 60000,
@@ -252,7 +252,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [20,30, 40],
+          preKeys: [20, 30, 40],
           key: 0,
           name: '获取你的位置信息，是否允许？-拒绝',
           matches: [
@@ -260,7 +260,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1, 20,30, 40],
+          preKeys: [0, 1, 20, 30, 40],
           key: 1,
           name: '⊙',
           action: 'back',
@@ -285,7 +285,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 0,
           name: '提示-是否退出游戏',
           matches: [
