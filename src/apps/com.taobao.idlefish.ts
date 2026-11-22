@@ -61,7 +61,7 @@ export default defineGkdApp({
           key: 0,
           name: '跳过-去体验*秒可直接拿奖励',
           matches: [
-            '@[text="跳过"][clickable=true] < RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '@[text="跳过"][clickable=true] < RelativeLayout < RelativeLayout <n RelativeLayout <n [id="android:id/content"]',
           ],
         },
         {
