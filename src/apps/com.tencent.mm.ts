@@ -244,6 +244,11 @@ export default defineGkdApp({
           matches: [
             '[text="百元现金来领"] < View - [text="天天抽大奖"] < View < @View > View > Image',
           ],
+          excludeMatches: [
+            '@Image < View < View <n View < View < View < View - TextView < WebView',
+            '@Image[width=height] < View < View < View < View < View - TextView < WebView',
+            '@[text~="抽奖按钮 剩余.*次"][clickable=true] < View <n View < View < View < View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
+          ],
         },
         {
           key: 2,
@@ -261,6 +266,8 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text="签到"] < View <n View <n View - [text="获得更多抽奖次数"]',
+            '@Image < View < View <n View < View < View < View - TextView < WebView',
+            '@Image[width=height] < View < View < View < View < View - TextView < WebView',
           ],
         },
         {
@@ -269,7 +276,7 @@ export default defineGkdApp({
           name: '返回-<',
           action: 'back',
           actionDelay: 5000,
-          matches: [
+          anyMatches: [
             '@Image < View < View <n View < View < View < View - TextView < WebView',
             '@Image[width=height] < View < View < View < View < View - TextView < WebView',
           ],
@@ -291,14 +298,14 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text~="签到|去领取|领取+1"] < View <n View <n View - [text="获得更多抽奖次数"]',
-            '@TextView[width=height] - [getChild(3).text="领取成功"] < View <n View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
+            '@TextView[width=height] - [getChild(3).text~="我知道了|领取成功"] < View <n View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
           ],
         },
         {
           key: 7,
-          name: '领取成功-×',
+          name: '我知道了|领取成功-×',
           matches: [
-            '@TextView[width=height] - [getChild(3).text="领取成功"] < View <n View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
+            '@TextView[width=height] - [getChild(3).text~="我知道了|领取成功"] < View <n View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
           ],
           excludeMatches: [
             '@[text~="签到|去领取|领取+1"] < View <n View <n View - [text="获得更多抽奖次数"]',
