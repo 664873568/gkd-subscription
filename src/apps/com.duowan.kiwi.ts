@@ -8,6 +8,7 @@ export default defineGkdApp({
     {
       key: 40,
       name: '用户协议及隐私政策概要-同意',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -24,6 +25,7 @@ export default defineGkdApp({
     {
       key: 41,
       name: '开启通知-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -42,6 +44,7 @@ export default defineGkdApp({
     {
       key: 42,
       name: '未成年人模式-我知道了',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -58,6 +61,7 @@ export default defineGkdApp({
     {
       key: 43,
       name: '升级有礼-×',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
@@ -77,14 +81,16 @@ export default defineGkdApp({
     {
       key: 50,
       name: '首页广告-跳过',
+      forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
       matchTime: 10000,
       resetMatch: 'app',
       rules: [
         {
-          matches: [
+          anyMatches: [
             '@[text="跳过"][clickable=true] <n FrameLayout < [vid="sdk_splash_ad_container"]',
+            '@[text="跳过"][vid="skip_time"][clickable=true] < [vid="ad_widget_container"] <n [vid="ad_container_layout"] < [vid="ad_aplash"]',
           ],
           activityIds: ['.homepage.Homepage'],
         },
