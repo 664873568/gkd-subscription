@@ -303,7 +303,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          name: '开宝箱',
+          name: '选*奖励金',
           actionDelay: 2000,
           matches: [
             '[text~="选.*奖励金"] < @View[clickable=true] - [text="看视频领"] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
