@@ -950,7 +950,7 @@ export default defineGkdApp({
             '@[text~=".*微信.*(看|玩).*"][index=parent.childCount.minus(1)] <n FrameLayout <n LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            'FrameLayout - @ImageView < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',//恭喜获得奖励
+            'FrameLayout - @ImageView < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]', //恭喜获得奖励
           ],
         },
         {
