@@ -453,7 +453,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [100, 200],
+          preKeys: [100],
           key: 0,
           actionDelay: 6000,
           matches: [
@@ -461,7 +461,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [100, 200],
+          preKeys: [200],
           key: 1,
           actionDelay: 30000,
           matches: [
