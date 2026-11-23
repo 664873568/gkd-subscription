@@ -27,7 +27,7 @@ export default defineGkdApp({
           key: 1,
           name: '恭喜获得-去使用-×',
           matches: [
-            '@Image <n View < View <n View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
+            '@Image[width=height] <n View < View <n View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup <n [id="android:id/content"]',
           ],
         },
       ],
@@ -61,9 +61,10 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           name: '逛大促会场',
+          action: 'back',
           actionDelay: 5000,
           matches: [
-            '[id="recyclerview"] < [id="root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
+            '@[id="recyclerview"] < [id="root"] < View < WebView < * < [desc="WVUCWebView"] < RelativeLayout < RelativeLayout < ViewGroup < [id="android:id/content"]',
           ],
         },
         {
