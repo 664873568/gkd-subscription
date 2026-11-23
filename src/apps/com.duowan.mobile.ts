@@ -21,6 +21,7 @@ export default defineGkdApp({
           excludeMatches: [
             '@[text="确认提现"][clickable=true] <n View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
             '[text="提交成功"] - @TextView < View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
+            '[text="提现到微信"] < @View[clickable=true] -n [text="提现确认"] <n View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
             '@[text="打开"][vid="btn_ok"][clickable=true] <n LinearLayout -n LinearLayout > [text="提示"][vid="message"] + [vid="message_content"]',
           ],
         },
@@ -43,9 +44,9 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 3,
-          name: '确认提现-提现到',
+          name: '提现确认',
           matches: [
-            '@[text="打开"][vid="btn_ok"][clickable=true] <n LinearLayout -n LinearLayout > [text="提示"][vid="message"] + [vid="message_content"]',
+            '[text="提现到微信"] < @View[clickable=true] -n [text="提现确认"] <n View < View <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
         },
         {
@@ -327,6 +328,13 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '放弃福利',
+          matches: [
+            '@[text="放弃福利"] < FrameLayout <n LinearLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
           name: '二级广告页-×',
           actionDelay: 16000,
           anyMatches: [
@@ -335,7 +343,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
+          key: 3,
           name: '恭喜获得奖励-×',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
@@ -348,8 +356,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [2],
-          key: 3,
+          preKeys: [3],
+          key: 4,
           name: '恭喜获得奖励-××',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
