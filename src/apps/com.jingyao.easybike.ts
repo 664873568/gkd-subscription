@@ -399,7 +399,7 @@ export default defineGkdApp({
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           action: 'back',
           actionDelay: 60000,
