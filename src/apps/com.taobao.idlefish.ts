@@ -16,20 +16,29 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '×-浏览页面*秒后即可获得奖励',
+          actionDelay: 5000,
+          matches: [
+            '@ImageView[width=height][index=parent.childCount.minus(1)] <n LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
           name: '×-奖励将于*秒后发放',
+          actionDelay: 5000,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
           ],
         },
         {
-          key: 1,
+          key: 2,
           name: '放弃奖励离开',
           matches: [
             '@[text="放弃奖励离开"][clickable=true] < LinearLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 2,
+          key: 3,
           name: '×-提前拿奖励-玩*秒小游戏',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
@@ -39,7 +48,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
+          key: 4,
           name: '立即退出',
           matches: [
             '@[text="立即退出"] <n LinearLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
@@ -60,6 +69,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '跳过-去体验*秒可直接拿奖励',
+          actionDelay: 5000,
           matches: [
             '@[text="跳过"][clickable=true] < RelativeLayout < RelativeLayout <n RelativeLayout <n [id="android:id/content"]',
           ],
@@ -86,6 +96,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '跳过-免费获取-*s',
+          actionDelay: 5000,
           matches: [
             '@[text="跳过"][clickable=true] <n LinearLayout <n RelativeLayout <n FrameLayout <n [id="android:id/content"]',
           ],
@@ -100,6 +111,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '跳过-看*秒可直接拿奖励/*秒后可领取奖励',
+          actionDelay: 5000,
           matches: [
             '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
           ],
