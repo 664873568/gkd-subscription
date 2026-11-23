@@ -356,9 +356,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3],
           key: 4,
-          name: '恭喜获得奖励-××',
+          name: '立即安装-×',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
