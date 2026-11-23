@@ -161,6 +161,14 @@ export default defineGkdApp({
           ],
           activityIds: ['.launcher.LauncherActivity'],
         },
+        {
+          key: 2,
+          actionDelay: 5000,
+          matches: [
+            '[text="领现金"][vid="item_text"] <n LinearLayout < @ViewGroup[clickable=true] <n LinearLayout <n FrameLayout < LinearLayout < [vid="pull_content_layout"]',
+          ],
+          activityIds: ['.launcher.LauncherActivity'],
+        },
       ],
     },
     {
@@ -325,6 +333,14 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '[text$="集全"] < View <n @View[clickable=true] < View <n View <n View <n [id="wrapper"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
+          ],
+        },
+        {
+          key: 4,
+          action: 'back',
+          actionDelay: 10000,
+          matches: [
+            '@ImageButton[clickable=true] < View <n [id="wrapper"] < [id="app"] < View < WebView < WebView < FrameLayout < [vid="h5_base_layout"]',
           ],
         },
       ],
