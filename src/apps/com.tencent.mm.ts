@@ -11,7 +11,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
-      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
       rules: [
         {
           key: 0,
@@ -49,7 +49,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchTime: 60000,
       resetMatch: 'activity',
-      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
       rules: [
         {
           key: 0,
@@ -87,7 +87,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
       rules: [
         {
           key: 0,
@@ -127,7 +127,7 @@ export default defineGkdApp({
           matches: [
             '[id="launchAppView"] +n View > [text="广告"] +n @Image[index=3] +n [text="7天内不再提示"]',
           ],
-          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
         },
       ],
     },
@@ -138,7 +138,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
       rules: [
         {
           key: 0,
@@ -202,7 +202,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
       rules: [
         {
           key: 0,
@@ -229,7 +229,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
       rules: [
         {
           key: 0,
@@ -326,7 +326,7 @@ export default defineGkdApp({
             '@[text="领取"] <<n * [text="看广告免费领取迅雷云添加次数"]',
           ],
           excludeMatches: ['@[text="关闭"] <<n * [text="已获得奖励"]'],
-          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
         },
       ],
     },
@@ -341,7 +341,7 @@ export default defineGkdApp({
         {
           actionDelay: 30000,
           matches: ['@[text="关闭"] <<n * [text="已获得奖励"]'],
-          activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+          activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
         },
       ],
     },
@@ -352,7 +352,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['.plugin.appbrand.ui.AppBrandUI00'],
+      activityIds: ['.plugin.appbrand.ui.AppBrandUI'],
       rules: [
         {
           key: 0,
