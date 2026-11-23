@@ -87,6 +87,10 @@ export default defineGkdApp({
             '@ImageButton[desc="marketing"][clickable=true] - [desc="status"] < View < [id="J_babelOptPage"] <n [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
             '@ImageView[width=height] - FrameLayout < RelativeLayout < FrameLayout < FrameLayout <n FrameLayout + [vid="un_status_bar_view"]',
           ],
+          excludeMatches: [
+            '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
+            '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
+          ],
         },
         {
           preKeys: [
@@ -255,21 +259,8 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1111],
-          key: 2,
-          action: 'back',
-          actionDelay: 15000,
-          matches: [
-            '@[desc="返回"][clickable=true] <n RelativeLayout < RelativeLayout <n RelativeLayout < DrawerLayout < RelativeLayout < [id="android:id/content"]',
-          ],
-          excludeMatches: [
-            '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
-            '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
-          ],
-        },
-        {
           preKeys: [50, 51],
-          key: 3,
+          key: 2,
           action: 'back',
           actionDelay: 20000,
           matches: [
@@ -283,7 +274,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [1, 40, 50, 51, 60, 61, 70, 80, 90, 100, 110, 130],
+      scopeKeys: [40, 50, 51, 60, 61, 70, 80, 90, 100, 110, 130],
       key: 4,
       name: '通用-返回-活动会场页',
       forcedTime: 60000,
@@ -335,23 +326,10 @@ export default defineGkdApp({
             '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
           ],
         },
-        {
-          preKeys: [1111],
-          key: 3,
-          action: 'back',
-          actionDelay: 15000,
-          matches: [
-            '@ImageView[desc="返回"][clickable=true] < RelativeLayout <n [vid="root_layout"]',
-          ],
-          excludeMatches: [
-            '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
-            '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
-          ],
-        },
       ],
     },
     {
-      scopeKeys: [10, 60, 61, 70, 110, 130, 200],
+      scopeKeys: [10, 60, 61, 70, 110, 120,130, 200],
       key: 5,
       name: '通用-返回-活动会场页J_babelOptPage',
       forcedTime: 60000,
@@ -390,6 +368,15 @@ export default defineGkdApp({
             '@RelativeLayout[clickable=true] >n [text*="继续浏览" || text="已完成"]',
             '@RelativeLayout[clickable=true] - RelativeLayout < [id="android:id/content"]',
             '@ImageView[desc="返回"][clickable=true] < RelativeLayout <n [vid="root_layout"]',
+          ],
+        },
+        {
+          preKeys: [120],
+          key: 2,
+          action: 'back',
+          actionDelay: 6000,
+          matches: [
+            '@[vid="layout_id_topNavi"][childCount=2][index=parent.childCount.minus(1)] <n ViewGroup < LinearLayout < ViewGroup < [id="android:id/content"]',
           ],
         },
       ],
@@ -2333,9 +2320,25 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="京东需要申请通知权限"] +n [getChild(1).text="去打开"] > @[text="取消"][clickable=true]',
+            '@[text="取消"][clickable=true] < [getChild(1).text="去打开"] -n [text="京东需要申请通知权限"]',
           ],
           activityIds: ['.MainFrameActivity'],
+        },
+      ],
+    },
+    {
+      key: 402,
+      name: '手机存储空间不足-稍后处理',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="稍后处理"][vid="jd_dialog_pos_button"][clickable=true] < [vid="ll_btns"] -n [text="手机存储空间不足"][vid="jd_dialog_title"]',
+          ],
+          activityIds: ['com.jd.lib.ttt.page.TTTMultiPageActivity'],
         },
       ],
     },
