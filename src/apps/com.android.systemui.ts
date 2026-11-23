@@ -14,7 +14,9 @@ export default defineGkdApp({
       rules: [
         {
           action: 'back',
-          matches: ['@[vid="keyguard message_area_container"] <n [vid="legacy_window_root"]'],
+          matches: [
+            '@[vid="keyguard message_area_container"] <n [vid="legacy_window_root"]',
+          ],
         },
       ],
     },
