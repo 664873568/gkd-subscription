@@ -1401,7 +1401,7 @@ export default defineGkdApp({
           key: 0,
           name: '立即签到',
           matches: [
-            '[desc="返回 按钮"] - ViewGroup[childCount=1] -n @ViewGroup[childCount=1] < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '[desc="返回 按钮"] - @ViewGroup[childCount=1] -n ViewGroup[childCount=1] < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
