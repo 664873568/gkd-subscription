@@ -59,7 +59,8 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        10, 12, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 110, 120, 130, 200,
+        10, 12, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 110, 120, 130,
+        200,
       ],
       key: 1,
       name: '通用-返回-scopeKeys',
@@ -79,7 +80,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [60, 70,100],
+          preKeys: [60, 70, 100],
           key: 0,
           anyMatches: [
             '@ImageButton[desc="关闭"][clickable=true] - [text="天天抽奖"] < View < [id="app"] < WebView < *',
@@ -89,7 +90,8 @@ export default defineGkdApp({
         },
         {
           preKeys: [
-            0, 1, 10, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 120, 190, 200,
+            0, 1, 10, 20, 30, 40, 50, 51, 60, 61, 70, 74, 80, 90, 100, 120, 190,
+            200,
           ],
           key: 1,
           name: '已完成 点击立即返回',
@@ -121,7 +123,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4, 30, 40, 70,100],
+          preKeys: [0, 4, 30, 40, 70, 100],
           key: 4,
           name: '抽彩票券和手机',
           action: 'back',
@@ -155,7 +157,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [50, 60, 100,110],
+          preKeys: [50, 60, 100, 110],
           key: 7,
           name: '看视频',
           action: 'back',
@@ -215,7 +217,9 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10, 20, 30, 40, 50, 51, 60, 61, 70, 80, 90, 100, 120,130, 190],
+      scopeKeys: [
+        10, 20, 30, 40, 50, 51, 60, 61, 70, 80, 90, 100, 120, 130, 190,
+      ],
       key: 3,
       name: '通用-返回-商品页',
       forcedTime: 60000,
@@ -612,7 +616,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [70,120],
+          preKeys: [70, 120],
           key: 4,
           name: '恭喜您获得-去首页领取',
           matches: [
@@ -1518,7 +1522,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [1,2, 14],
+          preKeys: [1, 2, 14],
           key: 0,
           actionDelay: 2000,
           matches: [
