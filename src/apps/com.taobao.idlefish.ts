@@ -40,6 +40,7 @@ export default defineGkdApp({
         {
           key: 3,
           name: '×-提前拿奖励-玩*秒小游戏',
+          actionDelay: 5000,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
           ],
