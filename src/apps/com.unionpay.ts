@@ -73,7 +73,7 @@ export default defineGkdApp({
           name: '弹窗-×',
           actionDelay: 1000,
           matches: [
-            'Image[width=height][index=parent.childCount.minus(1)] < @View[clickable=true] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View[clickable=true] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
       ],
