@@ -132,6 +132,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '二级广告页×',
           actionDelay: 11000,
           matches: [
             'View - TextView - @View[clickable=true] - View < RelativeLayout < LinearLayout < RelativeLayout < [id="android:id/content"]',
@@ -495,7 +496,7 @@ export default defineGkdApp({
           name: '去体验.*秒可直接拿奖励',
           actionDelay: 1000,
           matches: [
-            '[text~="去体验.*秒立即领奖|我要加速领奖|返回继续体验"] <n @RelativeLayout[clickable=true] <n RelativeLayout <n RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '[text~=".*体验.*秒立即领奖|我要加速领奖|返回继续体验"] <n @RelativeLayout[clickable=true] <n RelativeLayout <n RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text="已领取奖励"] <n RelativeLayout < RelativeLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
@@ -566,14 +567,14 @@ export default defineGkdApp({
           name: '观看*秒广告领取奖励/*秒后可领取奖励',
           actionDelay: 1000,
           matches: [
-            '[text~="提前领奖|继续领奖"] <n @LinearLayout <n LinearLayout < LinearLayout < RelativeLayout < [id="android:id/content"]',
+            '[text~="提前领奖|继续领奖"] <n @LinearLayout <n LinearLayout < LinearLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
           name: '关闭广告',
           matches: [
-            '@[text="关闭广告"][clickable=true] <n LinearLayout < RelativeLayout < [id="android:id/content"]',
+            '@[text="关闭广告"][clickable=true] <n LinearLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -584,7 +585,7 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text~="观看.*秒广告领取奖励"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
-            '@[text="关闭广告"][clickable=true] <n LinearLayout < RelativeLayout < [id="android:id/content"]',
+            '@[text="关闭广告"][clickable=true] <n LinearLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -944,24 +945,22 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '拿奖励',
           matches: [
-            '[text~=".*秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
+            '@[text~=".*微信.*(看|玩).*"][index=parent.childCount.minus(1)] <n FrameLayout <n LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            'FrameLayout - @ImageView < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',//恭喜获得奖励
           ],
         },
         {
           key: 1,
-          name: '二级广告页-<',
-          actionDelay: 15000,
-          matches: ['@ImageView < FrameLayout + FrameLayout >2 ImageView'],
-        },
-        {
-          key: 2,
           name: '恭喜获得奖励-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n * [text*="微信"][index=parent.childCount.minus(1)]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '[text~=".*秒.*"] <n * @[text*="微信"][index=parent.childCount.minus(1)]',
+            'FrameLayout - @[text~=".*拿奖励"] - TextView < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -1008,60 +1007,79 @@ export default defineGkdApp({
         {
           key: 0,
           name: '奖励将于*秒后发放',
-          matches: [
-            '@[text~=".*更快拿奖"] < FrameLayout <n * <n * [text^="奖励将于"]',
+          anyMatches: [
+            '[text~=".*更快拿奖"] < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text~=".*提前拿奖"] <n LinearLayout < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
-          name: '点击广告，即可获得奖励',
-          matches: [
-            '[text="点击打开或下载第三方应用"] < @FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
-          ],
-          excludeMatches: [
-            '[text="恭喜获得奖励"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          name: '残忍离开|放弃福利',
+          anyMatches: [
+            '@[text="残忍离开"] <n FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="放弃福利"] < @FrameLayout <n LinearLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 2,
-          name: '二级广告页',
-          actionDelay: 15000,
+          name: '*秒后点击广告，即可获得奖励',
           matches: [
-            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            '@[text="点击广告拿奖励"] < FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text~=".*秒后点击广告，即可获得奖励"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 3,
+          name: '二级广告页-×',
+          actionDelay: 16000,
+          anyMatches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            'View - ProgressBar - @ImageView[clickable=true] - TextView < FrameLayout < LinearLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 4,
           name: '恭喜获得奖励-×',
-          matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          anyMatches: [
+            'ImageView[width=height][width>40][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '[text="点击广告成功跳转，即可获得奖励"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 123,
-      name: '看视频-浏览页面*秒后即可获得奖励',
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
-      rules: [
-        {
-          key: 0,
-          action: 'none',
-          matches: [
-            '[text="浏览页面"] + [text~=".*"] + [text="秒后即可获得奖励"]',
+            '@[text^="奖励将于"] < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text~=".*点击广告.*，即可获得奖励"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '@[text="残忍离开"] <n FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="放弃福利"] < @FrameLayout <n LinearLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="去微信看看"] <n @FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 1,
-          actionDelay: 1000,
+          key: 5,
+          name: '滑动/点击了解更多|扭动/点击去玩小游戏体验精彩-×',
+          anyMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="恭喜获得奖励"] < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '@[text="残忍离开"] <n FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="去微信看看"] <n @FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="下载或打开微信进入游戏"] - [text="扭动/点击"] <n LinearLayout <n @FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '去微信看看|扭动/点击下载或打开微信进入游戏-×',
           matches: [
-            '@ImageView[width=height][clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 9,
+          name: '浏览页面*秒后即可获得奖励',
+          matches: [
+            '@ImageView[clickable=true] - [getChild(0).text="恭喜获得奖励！"] - ImageView < LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
