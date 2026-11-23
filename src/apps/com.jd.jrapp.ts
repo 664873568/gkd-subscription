@@ -325,6 +325,7 @@ export default defineGkdApp({
             '[text$="g"] < @View[clickable=true] <n ListView < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
+            '[text="每日赚京豆玩游戏得电量"] < View <n View - @TextView[clickable=true] < View < View < View < View <n View < WebView < * < [vid="webview"]',
             '[text="createAwardSignfull"] -n @TextView[clickable=true] < View <n View <n View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - [text="继续浏览"] -n [text="恭喜获得浏览奖励"] < View <n View < View <n View < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
             '@TextView[clickable=true] - [text="继续浏览"] -n [text="恭喜获得浏览奖励"] < View <n View < View <n View < [id="app"] < [id="J_ui-div"] < View < WebView < * < [vid="webview"]',
@@ -1150,6 +1151,7 @@ export default defineGkdApp({
             '[text="去完成"] < @[desc="去完成"][clickable=true] <n [getChild(1).text!~="打.*|.*体验.*|完成.*|去.*|通过.*|添加.*"] <n View < View < View < View < View < View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
+            '[text="每日赚京豆玩游戏得电量"] < View <n View - @TextView[clickable=true] < View < View < View < View <n View < WebView < * < [vid="webview"]',
             '[text="领奖"] < @[desc="领奖"][clickable=true] <n View <n View < View < View < View < View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
             '[text="领奖"] < @[desc="领奖"][clickable=true] <n View <n View < View < View < View < View < View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
             'TextView - @TextView[clickable=true] -n [text="从京东信誉分频道 进游戏"] < View < View < View < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
@@ -1194,6 +1196,21 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '@[text="领"][clickable=true] - [text="京东信誉分专属福利"] < View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
+          preKeys: [2],
+          key: 3,
+          actionDelay: 10000,
+          matches: [
+            '[text="03e6058058b35dde"] < @View[clickable=true] < View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          matches: [
+            '@Button[clickable=true] < [vid="common_webview_navbar_left"]',
           ],
         },
       ],
@@ -1914,27 +1931,26 @@ export default defineGkdApp({
         {
           key: 0,
           matches: [
-            '[id="blindBoxSDK_suspendIcon2"] > @View[clickable=true] > [text="44df241fb2dec3cc"] +n TextView[text="+3"]',
+            '[text="+3"] -n [text="44df241fb2dec3cc"] < @View[clickable=true] < View <n View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
-            '@TextView[clickable=true] + View > View > [text="88da36c2b49924a1"]',
+            '[text="每日赚京豆玩游戏得电量"] < View <n View - @TextView[clickable=true] < View < View < View < View <n View < WebView < * < [vid="webview"]',
           ],
         },
         {
-          preKeys: [0],
           key: 1,
           matches: [
-            '[getChild(0).text="88da36c2b49924a1"] - View >n @View[clickable=true] > [text="待领"]',
+            '[text="待领"] <n @View[clickable=true] <n View < View <n View < View < View <n View <n View < View < View < View <n View < WebView < * < [vid="webview"]',
           ],
         },
         {
           preKeys: [1, 2],
           key: 2,
           matches: [
-            '@TextView[clickable=true] + View > View > [text="88da36c2b49924a1"]',
+            '[text="每日赚京豆玩游戏得电量"] < View <n View - @TextView[clickable=true] < View < View < View < View <n View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
-            '[getChild(0).text="88da36c2b49924a1"] - View >n @View[clickable=true] > [text="待领"]',
+            '[text="待领"] <n @View[clickable=true] <n View < View <n View < View < View <n View <n View < View < View < View <n View < WebView < * < [vid="webview"]',
           ],
         },
       ],
