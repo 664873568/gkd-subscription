@@ -507,7 +507,9 @@ export default defineGkdApp({
           matches: [
             'ImageView - ViewGroup - @ImageView[width=height][clickable=true] < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity'],
+          activityIds: [
+            'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
+          ],
         },
       ],
     },
