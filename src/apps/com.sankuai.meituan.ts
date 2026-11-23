@@ -103,6 +103,10 @@ export default defineGkdApp({
           matches: [
             '[text~="点我领.*金币"] < ViewGroup <n ViewGroup <n @ViewGroup[clickable=true] - ScrollView >n [text="我的金币"]',
           ],
+          excludeMatches: [
+            'ImageView < @ViewGroup[clickable=true] < ViewGroup -n [text="金币"] -n [text="连签"]',
+            '[text~=".*后 得.*"] < ViewGroup <n ViewGroup <n @ViewGroup[clickable=true] - ScrollView >n [text="我的金币"]',
+          ],
         },
         {
           key: 1,
@@ -130,7 +134,7 @@ export default defineGkdApp({
             '[text="去完成"] < ViewGroup <n ViewGroup  < @ViewGroup[clickable=true] < ViewGroup - ViewGroup > [text="点击合作任务赚金币"]',
           ],
           excludeMatches: [
-            '[text~="点我领.*金币"] < ViewGroup <n ViewGroup < @ViewGroup[clickable=true] - ScrollView >n [text="我的金币"]',
+            'ImageView < @ViewGroup[clickable=true] < ViewGroup -n [text="金币"] -n [text="连签"]',
             'ImageView < @ViewGroup[clickable=true] -n [text~="今日宝箱奖励.*万金币"] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup - ViewGroup >n [text="我的金币"]',
             'ScrollView - @ImageView - [text="更多金币"] < ViewGroup < ViewGroup < ViewGroup <n ViewGroup - ViewGroup >n [text="我的金币"][text="我的金币"]',
           ],
@@ -626,6 +630,13 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3, 4, 5],
           key: 5,
           action: 'back',
+          matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
+          activityIds: ['.msv.page.activity.MSVPageActivity'],
+        },
+        {
+          key: 6,
+          action: 'back',
+          actionDelay: 10000,
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
