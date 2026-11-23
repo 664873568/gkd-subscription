@@ -329,7 +329,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [10, 60, 61, 70, 110, 120,130, 200],
+      scopeKeys: [10, 60, 61, 70, 110, 120, 130, 200],
       key: 5,
       name: '通用-返回-活动会场页J_babelOptPage',
       forcedTime: 60000,
