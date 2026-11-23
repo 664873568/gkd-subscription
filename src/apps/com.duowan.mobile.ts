@@ -335,6 +335,16 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '*秒后点击广告*，即可获得奖励',
+          matches: [
+            '@[text~="点击广告.*拿奖励"] < FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text~=".*秒后点击广告.*，即可获得奖励"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 3,
           name: '二级广告页-×',
           actionDelay: 16000,
           anyMatches: [
@@ -343,9 +353,10 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
+          key: 4,
           name: '恭喜获得奖励-×',
-          matches: [
+          anyMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
@@ -356,35 +367,10 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 4,
+          key: 5,
           name: '立即安装-×',
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 33,
-      name: '看视频-浏览页面*秒后即可获得奖励',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.qq.e.ads.PortraitADActivity'],
-      rules: [
-        {
-          key: 0,
-          action: 'none',
-          matches: [
-            '[text="浏览页面"] + [text~="[0-9]+"] + [text="秒后即可获得奖励"]',
-          ],
-        },
-        {
-          key: 1,
-          actionDelay: 1000,
-          matches: [
-            '@ImageView[clickable=true] - LinearLayout > [text="恭喜获得奖励！"]',
           ],
         },
       ],
