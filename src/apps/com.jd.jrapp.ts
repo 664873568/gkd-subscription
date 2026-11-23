@@ -146,8 +146,8 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        20, 23, 27, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130,
-        200, 210,
+        20, 23, 27, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 200,
+        210,
       ],
       key: 11,
       name: '通用-返回-scopeKeys',
@@ -194,7 +194,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 20, 30, 35, 40,70, 110, 200],
+          preKeys: [3, 20, 30, 35, 40, 70, 110, 200],
           key: 3,
           action: 'back',
           matches: [
@@ -239,7 +239,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [20, 30, 40,200],
+      scopeKeys: [20, 30, 40, 200],
       key: 18,
       name: '通用-返回-市民服务',
       forcedTime: 60000,
@@ -252,7 +252,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [20, 30, 40,200],
+          preKeys: [20, 30, 40, 200],
           key: 0,
           name: '获取你的位置信息，是否允许？-拒绝',
           matches: [
@@ -260,7 +260,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 20, 30, 40,200],
+          preKeys: [0, 1, 20, 30, 40, 200],
           key: 1,
           name: '⊙',
           action: 'back',
