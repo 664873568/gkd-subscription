@@ -331,13 +331,6 @@ export default defineGkdApp({
             '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
         },
-        {
-          key: 4,
-          name: '恭喜获得-×',
-          matches: [
-            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
-          ],
-        },
       ],
     },
     {
