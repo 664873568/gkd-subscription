@@ -1838,7 +1838,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="关闭"][vid="tobid_interstitial_skip_text"] < @[vid="tobid_interstitial_skip_ll"][clickable=true] <n FrameLayout < [vid="tobid_interstitial_sound_and_skip_layout"]',
+            '[text="关闭"][vid="tobid_interstitial_skip_text"] < @[vid="tobid_interstitial_skip_ll"][clickable=true] <n FrameLayout <n [vid="tobid_interstitial_sound_and_skip_layout"]',
           ],
           excludeMatches: [
             '[text~="跳过｜.*"][vid="tobid_interstitial_skip_text"] < @[vid="tobid_interstitial_skip_ll"][clickable=true] < FrameLayout < [vid="tobid_interstitial_sound_and_skip_layout"]',
