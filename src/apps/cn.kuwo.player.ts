@@ -27,10 +27,11 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            '[text="需要20000金币"] <n @View[clickable=true] -5 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '[text="需要20000金币"] <n @View[clickable=true] -(5,6) [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
           excludeMatches: [
             '@[text="拆红包 可立即提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '@[text="提现次数用光"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
             '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
         },
@@ -57,13 +58,14 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '[text="需要10000金币"] <n @View[clickable=true] -6 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '@[text="提现次数用光"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
             '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
         },
         {
           key: 1,
           matches: [
-            '[text="需要10000金币"] <n @View[clickable=true] -6 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '[text="需要10000金币"] <n @View[clickable=true] -(5,6) [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
           excludeMatches: [
             '@[text="拆红包 可立即提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
