@@ -2017,6 +2017,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 150,
+          actionDelay: 2000,
           matches: [
             '[text="去完成"] < @View[clickable=true] <n View <n View <n View <n View < View < [id="union-coupon-sdk"] < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
@@ -2037,13 +2038,14 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      actionMaximum: 2,
       resetMatch: 'activity',
       activityIds: ['.WebActivity'],
       rules: [
         {
           key: 200,
           name: '去完成',
+          actionDelay: 2000,
+          actionMaximum: 3,
           matches: [
             '@TextView[clickable=true] - [text~="完成可得汪币.*"] - [text!~="精选好物热卖中.*"] <n View < View <n View - [text="close"] < View < View <n View <n [id="root"] < View < WebView < *',
           ],
