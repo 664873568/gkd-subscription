@@ -146,7 +146,7 @@ export default defineGkdApp({
     },
     {
       scopeKeys: [
-        20, 23, 27, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140,
+        20, 23, 27, 30, 33, 35, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130,
         200, 210,
       ],
       key: 11,
@@ -172,7 +172,7 @@ export default defineGkdApp({
           activityIds: ['.bm.common.web.ui.WebFreeSizeActivity'],
         },
         {
-          preKeys: [0, 1, 20, 30, 40, 50, 70, 80, 110, 130, 140, 200, 210],
+          preKeys: [0, 1, 20, 30, 40, 50, 70, 80, 110, 130, 200, 210],
           key: 1,
           action: 'back',
           matches: [
@@ -194,7 +194,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3, 20, 30, 35, 40, 110, 140, 200],
+          preKeys: [3, 20, 30, 35, 40,70, 110, 200],
           key: 3,
           action: 'back',
           matches: [
@@ -203,7 +203,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [
-            0, 4, 20, 23, 27, 30, 33, 35, 40, 50, 70, 80, 110, 140, 200, 210,
+            0, 4, 20, 23, 27, 30, 33, 35, 40, 50, 70, 80, 110, 200, 210,
           ],
           key: 4,
           actionDelay: 5000,
@@ -215,7 +215,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5, 20, 30, 35, 40, 50, 70, 80, 110, 140, 200, 210],
+          preKeys: [5, 20, 30, 35, 40, 50, 70, 80, 110, 200, 210],
           key: 5,
           action: 'back',
           actionDelay: 5000,
@@ -239,7 +239,7 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [20, 30, 40],
+      scopeKeys: [20, 30, 40,200],
       key: 18,
       name: '通用-返回-市民服务',
       forcedTime: 60000,
@@ -252,7 +252,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [20, 30, 40],
+          preKeys: [20, 30, 40,200],
           key: 0,
           name: '获取你的位置信息，是否允许？-拒绝',
           matches: [
@@ -260,7 +260,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 1, 20, 30, 40],
+          preKeys: [0, 1, 20, 30, 40,200],
           key: 1,
           name: '⊙',
           action: 'back',
@@ -2140,7 +2140,7 @@ export default defineGkdApp({
       ],
     },
     //26.10.08-26.10.16 京9黄金节
-    //https://lca.jd.com/yx/index-channel/home/
+    //https://member.jr.jd.com/activity/gold-tree/
     {
       key: 130,
       name: '京9黄金节-摘金叶',
@@ -2265,177 +2265,6 @@ export default defineGkdApp({
         },
       ],
     },
-    //26.10.13-26.11.11 打白条 拆1亿个红包
-    //https://show.jd.com/m/pgKmxE6RZ9EV28Qe/?pageKey=pgKmxE6RZ9EV28Qe&channel=btfloor
-    {
-      key: 140,
-      name: '打白条-赚金币',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          key: 140,
-          actionDelay: 2000,
-          anyMatches: [
-            '@[text="去完成"][clickable=true] -4 [text!~=".*体验.*|完成.*|.*券|.*金条.*|添加.*|.*开通.*"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-            'TextView[index=parent.childCount.minus(1)] - Image < View < @View[clickable=true] < View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [140],
-          key: 11,
-          matches: [
-            'TextView - Image < @View[clickable=true] < View <n View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [11],
-          key: 12,
-          actionDelay: 5000,
-          matches: [
-            '[text="鹅宝AI"] - @View[clickable=true] < View < View <n View <n View < [id="app"] < View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          key: 13,
-          actionDelay: 5000,
-          matches: [
-            '[desc="访问页面得金币"] < View -n @ImageButton[clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            '@[text="去完成"][clickable=true] -4 [text!~=".*体验.*|完成.*|.*券|.*金条.*|添加.*|.*开通.*"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-            'TextView[index=parent.childCount.minus(1)] - Image < View < @View[clickable=true] < View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 141,
-      name: '打白条-拆红包',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          key: 0,
-          name: '拆红包',
-          matches: [
-            '[text~="可拆[1-9]次"] <n View < @View[clickable=true] <n View <n View <n View < [id="lgFloorWrap"] < [id="lego-app"] < View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            '@[text="03e60180185ad347"][clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
-            '@Button[clickable=true] -n [name*="Image"][clickable=true] < View <n View < View <n View < WebView < * < [vid="webview"]',
-            '@TextView[clickable=true] - TextView[clickable=true] <n [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
-            '@TextView[clickable=true][index=parent.childCount.minus(1)] -n View - Image < [name$="Dialog"] <n View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          key: 1,
-          name: '没有次数啦-去得红包-×',
-          matches: [
-            '@TextView[clickable=true] - TextView[clickable=true] <n [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          key: 2,
-          name: '立即抽奖',
-          matches: [
-            '@Button[clickable=true] -n [name*="Image"][clickable=true] < View <n View < View <n View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            '@[text="03e60180185ad347"][clickable=true] < View < View < View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          key: 141,
-          name: '恭喜获得|完成任务得奖励-开心收下-×',
-          matches: [
-            '@TextView[clickable=true][index=parent.childCount.minus(1)] -n View - Image < [name$="Dialog"] <n View <n View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|浏览.*秒|.*返回.*|京东验证"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 142,
-      name: '打白条-兑换好礼',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="去兑换"][clickable=true] - [text="1"] <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            '@TextView[clickable=true] <n View < [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
-            '@TextView[clickable=true] <n View < View <n [name$="Dialog"] <n View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          name: '确认兑换',
-          matches: [
-            '@TextView[clickable=true] <n View < [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          name: '兑换成功-开心收下',
-          matches: [
-            '@TextView[clickable=true] <n View < View <n [name$="Dialog"] <n View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 143,
-      name: '打白条-兑换好礼-限时抢',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['.bm.common.web.ui.WebActivity'],
-      rules: [
-        {
-          key: 0,
-          anyMatches: [
-            '@[text="去兑换"][clickable=true] - [text~="[3-9][0-9]{3,}"] <n View <n View <n View < View < View <n View < WebView < * < [vid="webview"]',
-            '@[text="去兑换"][clickable=true] - [text~="[3-9][0-9]{3,}"] <n View <n View < View <n View < View < View <n View < WebView < * < [vid="webview"]',
-          ],
-          excludeMatches: [
-            '@TextView[clickable=true] <n View < [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
-            '@TextView[clickable=true] <n View < View <n [name$="Dialog"] <n View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          matches: [
-            '@TextView[clickable=true] <n View < [name$="Dialog"] < View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-        {
-          preKeys: [1],
-          key: 2,
-          matches: [
-            '@TextView[clickable=true] <n View < View <n [name$="Dialog"] <n View <n View < WebView < * < [vid="webview"]',
-          ],
-        },
-      ],
-    },
     //https://member.jr.jd.com/activity/gold-tree/
     //26.12.31 看视频 赚现金
     //https://u.jr.jd.com/downloadApp/index.html?jumpUrl=https://content.jr.jd.com/shareProject/shortVideo/vertical/index.html?contentId=824242245632133120
@@ -2539,6 +2368,47 @@ export default defineGkdApp({
           excludeMatches: [
             'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|.*返回.*|金币获取加倍中"]',
           ],
+        },
+      ],
+    },
+    {
+      scopeKeys: [20],
+      key: 202,
+      name: '养猪猪-看视频 赚现金',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          preKeys: [20],
+          key: 0,
+          name: '返回<',
+          matches: [
+            '@[vid="back_button"][clickable=true] <n [vid="rl_root"] < SlideFrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['.bm.sh.jm.video.ui.VibratoActivity'],
+          excludeMatches: [
+            'TextView[text~="浏览完成|正在浏览|浏览页面.*完成任务|浏览.*秒|.*返回.*|京东验证"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '首页',
+          matches: [
+            '[text="养猪猪"] <n ViewGroup < @FrameLayout[clickable=true] <n GridView < FrameLayout <   ViewPager < ViewGroup <n [vid="page_list"]',
+          ],
+          activityIds: ['.bm.mainbox.main.MainActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          name: '赚粮食',
+          matches: [
+            '@[text="可领取"][clickable=true] - [id="J_sign_icon"] - TextView < View <n View < [id="J_ui-div"] < View < WebView < WebView < [vid="webview"]',
+          ],
+          activityIds: ['.bm.common.web.ui.WebActivity'],
         },
       ],
     },
