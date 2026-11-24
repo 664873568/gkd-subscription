@@ -220,7 +220,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [70],
-          key: 0,
+          key: 1,
           action: 'back',
           actionDelay: 6000,
           matches: [
