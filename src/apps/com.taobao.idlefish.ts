@@ -39,7 +39,7 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          name: '×-提前拿奖励-玩*秒小游戏',
+          name: '×-提前拿奖励',
           actionDelay: 5000,
           matches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
@@ -53,6 +53,24 @@ export default defineGkdApp({
           name: '立即退出',
           matches: [
             '@[text="立即退出"] <n LinearLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 5,
+          name: '×-点击广告，即可获得奖励',
+          actionDelay: 5000,
+          matches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="关闭广告"][clickable=true] <n FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '关闭广告',
+          matches: [
+            '@[text="关闭广告"][clickable=true] <n FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout <n [id="android:id/content"]',
           ],
         },
       ],
