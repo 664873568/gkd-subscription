@@ -195,5 +195,23 @@ export default defineGkdApp({
         },
       ],
     },
+    //首页广告类
+    {
+      key: 50,
+      name: '弹窗广告-×',
+      matchRoot: true,
+      forcedTime: 60000,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@ImageView[width=height][index=parent.childCount.minus(1)][clickable=true] - FrameLayout - LinearLayout < FrameLayout < [vid="dialog_container"] < [id="android:id/content"]',
+          ],
+          activityIds: ['com.taobao.sns.tms.CommonTMSActivity'],
+        },
+      ],
+    },
   ],
 });
