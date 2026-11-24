@@ -245,7 +245,7 @@ export default defineGkdApp({
           key: 0,
           name: '逛商城福利-×',
           matches: [
-            '@ImageView < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '@ImageView[width=height] < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
