@@ -460,7 +460,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -477,7 +476,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
@@ -493,18 +491,18 @@ export default defineGkdApp({
     },
     {
       key: 402,
-      name: '未成年模式-知道了',
+      name: '剪切板-不允许',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '@[text="知道了"][vid="ok_btn"][clickable=true] - * [text="未成年模式"][vid="title"] +n [text="开启未成年模式"][vid="tips_text"]',
+            '@[text="不允许"][vid="btn_cancel"][clickable=true] < LinearLayout -n LinearLayout > [text="“YY”想访问您的剪切板"][vid="message"]',
           ],
           activityIds: [
+            'com.qq.e.ads.PortraitADActivity',
             'com.yy.mobile.ui.common.JsSupportWebAcitivity',
             'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
           ],
@@ -513,19 +511,17 @@ export default defineGkdApp({
     },
     {
       key: 403,
-      name: '剪切板-不允许',
+      name: '未成年模式-知道了',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
           matches: [
-            '@[text="不允许"][vid="btn_cancel"][clickable=true] < * -n * > [text="“YY”想访问您的剪切板"][vid="message"]',
+            '@[text="知道了"][vid="ok_btn"][clickable=true] - LinearLayout > [text="未成年模式"][vid="title"]',
           ],
           activityIds: [
-            'com.qq.e.ads.PortraitADActivity',
             'com.yy.mobile.ui.common.JsSupportWebAcitivity',
             'com.yy.mobile.plugin.homepage.ui.home.HomeActivity',
           ],
@@ -538,7 +534,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
-      matchTime: 10000,
       resetMatch: 'activity',
       rules: [
         {
