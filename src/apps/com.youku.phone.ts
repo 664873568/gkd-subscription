@@ -50,9 +50,12 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[vid="splash_ad_count_and_skip_container"] > [text~="[0-9]"][vid="splash_ad_txt_count_down"] + [text="跳过广告"][vid="splash_ad_txt_skip"]',
+            '[text="跳过广告"][vid="splash_ad_txt_skip"] <n @LinearLayout < FrameLayout <n RelativeLayout < FrameLayout < FrameLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
-          activityIds: ['.ActivityWelcome'],
+          activityIds: [
+            '.ActivityWelcome',
+            'com.youku.unic.container.UnicContainerActivity',
+          ],
         },
       ],
     },
