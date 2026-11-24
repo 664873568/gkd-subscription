@@ -22,6 +22,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0,1,2],
           key: 1,
           action: 'back',
           matches: [
@@ -29,7 +30,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1],
+          preKeys: [0,1],
           key: 2,
           action: 'back',
           matches: [
