@@ -20,7 +20,7 @@ export default defineGkdApp({
             '@TextView[clickable=true] -4 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
           excludeMatches: [
-            '[text="需要20000金币"] <n @View[clickable=true] -5 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '[text="需要20000金币"] <n @View[clickable=true] -(5,6) [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
             '@[text="提现次数用光"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
             '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
@@ -58,7 +58,7 @@ export default defineGkdApp({
             '@TextView[clickable=true] -4 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
           excludeMatches: [
-            '[text="需要10000金币"] <n @View[clickable=true] -6 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '[text="需要10000金币"] <n @View[clickable=true] -(5,6) [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
             '@[text="提现次数用光"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
             '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
@@ -82,28 +82,10 @@ export default defineGkdApp({
         },
       ],
     },
-    //功能应用类
-    {
-      key: 40,
-      name: '首页-广告-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'app',
-      rules: [
-        {
-          matches: [
-            '@TextView[clickable=true] +n [text="开通会员畅听VIP海量曲库"]',
-          ],
-          activityIds: ['.activities.MainActivity'],
-        },
-      ],
-    },
     //首页广告类
     {
       key: 50,
-      name: '首页-跳过',
+      name: '首页广告-跳过',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
@@ -113,8 +95,8 @@ export default defineGkdApp({
         {
           anyMatches: [
             '@[desc="跳过"][vid="btnSkip"]',
-            '@LinearLayout[clickable=true] > FrameLayout > [text="跳过"][vid="qq_skip_button"]',
-            '@[vid="smallLogo_rlSkip"][clickable=true] > [text="跳过"][vid="smallLogo_tvSkip"]',
+            '[text="跳过"][vid="qq_skip_button"] < FrameLayout < @LinearLayout[clickable=true]',
+            '[text="跳过"][vid="smallLogo_tvSkip"] < @[vid="smallLogo_rlSkip"][clickable=true]',
           ],
           activityIds: ['.activities.EntryActivity'],
         },
@@ -122,7 +104,7 @@ export default defineGkdApp({
     },
     {
       key: 51,
-      name: '召回弹窗',
+      name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
@@ -130,7 +112,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['@TextView <<5 [text="召回弹窗"]'],
+          matches: [
+            '@TextView[clickable=true] < View < View <n View < WebView < WebView < [vid="webView"]',
+          ],
           activityIds: ['.activities.MainActivity'],
         },
       ],
