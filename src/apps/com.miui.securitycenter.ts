@@ -53,99 +53,12 @@ export default defineGkdApp({
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"]',
           ],
-          excludeMatches: [
-            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~=".*微信.*"][vid="event_title"]',
-          ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
       ],
     },
     {
       key: 11,
-      name: '启动应用-拒绝-微信',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~=".*微信.*"][vid="event_title"]',
-          ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 12,
-      name: '启动应用-拒绝-京东/金融',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="京东.*"][vid="event_title"]',
-          ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 13,
-      name: '启动应用-拒绝-抖音',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="抖音.*"][vid="event_title"]',
-          ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 14,
-      name: '启动应用-拒绝-支付宝',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="支付宝.*淘宝.*"][vid="event_title"]',
-          ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 15,
-      name: '启动应用-拒绝-中国移动',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~=".*中国移动.*"][vid="event_title"]',
-          ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 16,
       name: '启动应用-拒绝-一刻相册',
       forcedTime: 60000,
       matchRoot: true,
@@ -160,10 +73,9 @@ export default defineGkdApp({
         },
       ],
     },
-    //启动应用-本次允许
     {
-      key: 20,
-      name: '启动应用-本次允许-京东金融',
+      key: 12,
+      name: '启动应用-拒绝-中国移动',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -171,7 +83,25 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="京东金融.*(JoyAI|QQ阅读|京东健康|微信).*"][vid="event_title"]',
+            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~=".*中国移动.*"][vid="event_title"]',
+          ],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+        },
+      ],
+    },
+    //启动应用-本次允许
+    {
+      key: 20,
+      name: '启动应用-本次允许-百度地图',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="百度地图.*(京东|淘宝).*"][vid="event_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
@@ -186,6 +116,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
             '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="飞猪旅行.*(京东|淘宝|闲鱼).*"][vid="event_title"]',
           ],
@@ -195,6 +126,23 @@ export default defineGkdApp({
     },
     {
       key: 22,
+      name: '启动应用-本次允许-京东金融',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="京东金融.*(JoyAI|QQ阅读|京东健康|微信).*"][vid="event_title"]',
+          ],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+        },
+      ],
+    },
+    {
+      key: 23,
       name: '启动应用-本次允许-支付宝',
       forcedTime: 60000,
       matchRoot: true,
@@ -202,6 +150,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          actionDelay: 5000,
           matches: [
             '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="支付宝.*淘宝.*"][vid="event_title"]',
           ],
@@ -258,7 +207,11 @@ export default defineGkdApp({
           matches: [
             '@[text="知道了"][clickable=true] < [vid="buttonPanel"] -n * [text^="电量已低于"][vid="title"]',
           ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+          activityIds: [
+            'null',
+            'com.miui.applicationlock.AppLockActivity',
+            'com.miui.wakepath.ui.ConfirmStartActivity',
+          ],
         },
       ],
     },
