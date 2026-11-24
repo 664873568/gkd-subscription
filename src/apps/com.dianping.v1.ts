@@ -104,7 +104,7 @@ export default defineGkdApp({
             '[text="去完成"] < @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           excludeMatches: [
-            '[text="立即领"] < @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
+            '[text="立即领"] <n @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: [
             '.NovaMainActivity',
@@ -129,7 +129,7 @@ export default defineGkdApp({
           key: 2,
           action: 'clickCenter',
           matches: [
-            '[text="立即领"] < @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
+            '[text="立即领"] <n @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: [
             '.NovaMainActivity',
@@ -138,11 +138,12 @@ export default defineGkdApp({
         },
         {
           key: 3,
+          actionDelay: 5000,
           matches: [
             '@ImageView[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           excludeMatches: [
-            '[text~="去完成|立即领"] < @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
+            '[text~="去完成|立即领"] <n @FrameLayout[clickable=true] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < ViewGroup <n RecyclerView <n FrameLayout <n FrameLayout < FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
           activityIds: [
             '.NovaMainActivity',
@@ -172,6 +173,7 @@ export default defineGkdApp({
           excludeMatches: [
             'FrameLayout[clickable=true] > FrameLayout[clickable=true] + @FrameLayout[clickable=true] >n [text="立即签到"]',
             '@FrameLayout[clickable=true] > [text!~="今日.*餐奖励"] - FrameLayout > [text="必得" || text="可领"]',
+            '@ImageView[clickable=true] <n FrameLayout <n FrameLayout <n FrameLayout < [vid="picasso_view"]',
           ],
         },
       ],
