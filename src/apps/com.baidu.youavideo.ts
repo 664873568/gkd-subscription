@@ -259,9 +259,7 @@ export default defineGkdApp({
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
-          activityIds: [
-            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
-          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
         },
         {
           preKeys: [2, 3, 4],
@@ -281,9 +279,7 @@ export default defineGkdApp({
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="srv_list"] >n @[vid="list"]',
           ],
-          activityIds: [
-            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
-          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
         },
         {
           preKeys: [2, 3, 4],
@@ -291,9 +287,7 @@ export default defineGkdApp({
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][clickable=true] > [text="2026年6月28日"][vid="tv_date"]',
           ],
-          activityIds: [
-            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
-          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
         },
         {
           preKeys: [4],
@@ -301,9 +295,7 @@ export default defineGkdApp({
           matches: [
             '[text="已选8个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
           ],
-          activityIds: [
-            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
-          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
         },
         {
           preKeys: [5],
@@ -315,9 +307,7 @@ export default defineGkdApp({
           matches: [
             '[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]',
           ],
-          activityIds: [
-            'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
-          ],
+          activityIds: ['com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity'],
         },
         {
           preKeys: [6],
@@ -331,6 +321,14 @@ export default defineGkdApp({
         {
           preKeys: [7],
           key: 8,
+          matches: [
+            '@[vid="title_bar_left_img"][clickable=true] < ViewGroup < LinearLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
+          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
+        },
+        {
+          preKeys: [7,8],
+          key: 9,
           matches: [
             '@[vid="detail_back"][clickable=true] < ViewGroup < [id="android:id/content"]',
           ],
@@ -353,9 +351,7 @@ export default defineGkdApp({
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * @LinearLayout[clickable=true] > [text="全部"][vid="tv_tab_name"]',
           ],
-          activityIds: [
-            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
-          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
         },
         {
           preKeys: [1],
@@ -363,9 +359,7 @@ export default defineGkdApp({
           matches: [
             '[text="已选0个"][vid="tv_selected_count"] <n [vid="cl_complete_view"] < * - * [vid="linear_section"][index=0] + [vid="itemView"] > @ImageView[clickable=true]',
           ],
-          activityIds: [
-            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
-          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
         },
         {
           preKeys: [2],
@@ -373,9 +367,7 @@ export default defineGkdApp({
           matches: [
             '[text="已选1个"][vid="tv_selected_count"] +n @[text="确认"][vid="tv_select_finish"][clickable=true]',
           ],
-          activityIds: [
-            '.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity',
-          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
         },
         {
           preKeys: [3],
@@ -387,9 +379,7 @@ export default defineGkdApp({
           matches: [
             '[id="android:id/content"] > @ComposeView >n [vid="nvs_live_window"]',
           ],
-          activityIds: [
-            'com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity',
-          ],
+          activityIds: ['com.mars.united.yike.multiplatform.shared.ui.view.VideoComposeActivity'],
         },
         {
           preKeys: [4],
@@ -399,6 +389,14 @@ export default defineGkdApp({
             '@[vid="title_bar_right_img"][clickable=true] <n ViewGroup <  LinearLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
           ],
           activityIds: ['.imageedit.ui.view.activity.ImageEditShareActivity'],
+        },
+        {
+          preKeys: [5],
+          key: 6,
+          matches: [
+            '@[vid="title_bar_left_img"][clickable=true] < ViewGroup < LinearLayout < LinearLayout < FrameLayout < FrameLayout < ViewGroup < [id="android:id/content"]',
+          ],
+          activityIds: ['.selectmedia.ui.view.BeatMatchingVideoSelectMediaActivity'],
         },
       ],
     },
