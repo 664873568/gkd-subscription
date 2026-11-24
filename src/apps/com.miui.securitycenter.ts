@@ -10,6 +10,7 @@ export default defineGkdApp({
       name: '请用指纹解锁',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.miui.applicationlock.AppLockActivity'],
       rules: [
@@ -33,7 +34,6 @@ export default defineGkdApp({
           preKeys: [0, 1, 2],
           key: 2,
           action: 'back',
-          actionMaximum: 1,
           matches: [
             '@[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
           ],
