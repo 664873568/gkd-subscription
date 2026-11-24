@@ -245,9 +245,9 @@ export default defineGkdApp({
             '[text="百元现金来领"] < View - [text="天天抽大奖"] < View < @View > View > Image',
           ],
           excludeMatches: [
+            '@[text~="抽奖按钮 剩余.*次"][clickable=true] < View <n View < View < View < View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
             '@Image < View < View <n View < View < View < View - TextView < WebView',
             '@Image[width=height] < View < View < View < View < View - TextView < WebView',
-            '@[text~="抽奖按钮 剩余.*次"][clickable=true] < View <n View < View < View < View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
           ],
         },
         {
@@ -287,6 +287,10 @@ export default defineGkdApp({
           actionDelay: 2000,
           matches: [
             '@[text="领取+1"] < View <n View <n View - [text="获得更多抽奖次数"]',
+          ],
+          excludeMatches: [
+            '@Image < View < View <n View < View < View < View - TextView < WebView',
+            '@Image[width=height] < View < View < View < View < View - TextView < WebView',
           ],
         },
         {
