@@ -353,7 +353,7 @@ export default defineGkdApp({
         {
           key: 3,
           name: '二级广告页-×',
-          actionDelay: 16000,
+          actionDelay: 5000,
           anyMatches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
             'View - ProgressBar - @ImageView[clickable=true] - TextView < FrameLayout < LinearLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
@@ -370,9 +370,11 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text^="奖励将于"] < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '@[text^="奖励将于"] < LinearLayout < LinearLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
             '@[text^="奖励将于"] < LinearLayout < LinearLayout < LinearLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
             '[text~=".*点击广告，即可获得奖励"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
             '[text~="立即安装|立即体验|去微信看看"] <n @FrameLayout <n * <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="扭动/点击"] <n LinearLayout <n @FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -386,7 +388,7 @@ export default defineGkdApp({
             '[text~=".*更快拿奖"] < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
             '[text~=".*提前拿奖"] <n LinearLayout < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
             '[text~="立即安装|立即体验|去微信看看"] <n @FrameLayout <n * <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
-            '[text="下载或打开微信进入游戏"] - [text="扭动/点击"] <n LinearLayout <n @FrameLayout <n FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="扭动/点击"] <n LinearLayout <n @FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -395,6 +397,13 @@ export default defineGkdApp({
           anyMatches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 8,
+          name: '二级广告页-×打开小程序',
+          matches: [
+            'View - @ImageView[clickable=true] - TextView[text="打开小程序"] < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
         {
