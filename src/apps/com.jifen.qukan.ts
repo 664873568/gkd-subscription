@@ -13,7 +13,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            '[text="直接签到"][vid="tv_sign_derect"] < [vid="ll_bootom"] - @[vid="tv_countdown"][clickable=true] <n RelativeLayout < RelativeLayout < [id="android:id/content"]',
+            '[vid="ll_bootom"] - @[vid="tv_countdown"][clickable=true] -n [vid="iv_close"] - [vid="xad_dialog_image"] < RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.jifen.qkbase.main.MainActivity'],
         },
