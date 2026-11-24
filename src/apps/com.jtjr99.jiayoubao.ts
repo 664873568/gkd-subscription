@@ -268,11 +268,10 @@ export default defineGkdApp({
     },
     {
       key: 51,
-      name: '首页广告-×',
+      name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           matches: ['@[vid="iv_close"][clickable=true]'],
