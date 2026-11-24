@@ -73,11 +73,14 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           name: '立即下载',
-          matches: [
+          anyMatches: [
             '@[text="立即下载"] <n FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
             '[text="取消下载"] - @View[clickable=true] -n ImageView[width=height] - ImageView < RelativeLayout < RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.baidu.mobads.sdk.api.BdShellActivity'],
+          activityIds: [
+            'com.baidu.mobads.sdk.api.BdShellActivity',
+            'fliggyx.android.unicorn.ActWebviewActivity',
+          ],
         },
         {
           key: 2,
@@ -124,20 +127,27 @@ export default defineGkdApp({
           key: 1,
           name: '取消下载',
           actionDelay: 3000,
-          matches: [
+          anyMatches: [
             'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
             '@[text="取消下载"][clickable=true] -n ImageView[width=height] - ImageView < RelativeLayout < RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.baidu.mobads.sdk.api.BdShellActivity'],
+          activityIds: [
+            'com.baidu.mobads.sdk.api.BdShellActivity',
+            'fliggyx.android.unicorn.ActWebviewActivity',
+          ],
         },
         {
           key: 2,
-          name: '二级广告页×',
+          name: '二级广告页×<',
           actionDelay: 11000,
-          matches: [
+          anyMatches: [
             'View - TextView - @View[clickable=true] - View < RelativeLayout < LinearLayout < RelativeLayout < [id="android:id/content"]',
+            '[text="点击允许打开微信"] < WebView < WebView < FrameLayout - @ImageView[clickable=true] < LinearLayout < RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.baidu.mobads.sdk.api.AppActivity'],
+          activityIds: [
+            'com.baidu.mobads.sdk.api.AppActivity',
+            'com.beizi.ad.v2.activity.BZDpActivity',
+          ],
         },
         {
           preKeys: [0],
