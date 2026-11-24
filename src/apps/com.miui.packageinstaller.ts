@@ -18,6 +18,7 @@ export default defineGkdApp({
             '@[text="取消"][clickable=true] - [text="验证"] < [vid="buttonPanel"] - * [text$="频繁安装应用"][vid="title"]',
           ],
           activityIds: [
+            'com.miui.packageInstaller.InstallStart',
             'com.miui.packageInstaller.NewInstallerPrepareActivity',
             'com.miui.packageInstaller.ui.InstallPrepareAlertActivity',
           ],
