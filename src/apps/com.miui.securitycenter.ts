@@ -34,7 +34,32 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           matches: [
-            '@[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
+            '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 1,
+      name: '请用指纹解锁-快应用',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: ['com.miui.applicationlock.AppLockActivity'],
+      rules: [
+        {
+          key: 0,
+          action: 'back',
+          matches: [
+            '[text="用于打开快应用服务框架"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0, 1],
+          key: 1,
+          action: 'back',
+          matches: [
+            '@[text="页面失去焦点无法进行生物识别"][vid="lost_focus_subtitle"] - [text="点击页面以继续识别"][vid="lost_focus_title"] < LinearLayout < ScrollView < FrameLayout <n [id="android:id/content"]',
           ],
         },
       ],
