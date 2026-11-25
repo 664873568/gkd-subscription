@@ -354,6 +354,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '翻',
           actionDelay: 2000,
           matches: [
             '[text^="0"] - TextView < View < @View[clickable=true] <n ListView <n [id="J-flip-card-v2"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
@@ -366,6 +367,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '放弃这张 翻更大',
           matches: [
             '[text~="放弃这张.*"] < @View[clickable=true] <n View <n View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
@@ -378,6 +380,12 @@ export default defineGkdApp({
         },
         {
           key: 3,
+          matches: [
+            '[text="领走结束翻卡"] < @View[clickable=true] < View + [text="本局卡片已翻完"] <n View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
+        {
+          key: 4,
           matches: [
             'Image - @TextView[clickable=true] -n [text="已获得翻卡奖励"] <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
