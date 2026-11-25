@@ -815,84 +815,91 @@ export default defineGkdApp({
       ],
     },
     //看视频-com.kwad.sdk.api.proxy.app.FeedDownloadActivity
+    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
+    //看视频-com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity
     {
       key: 100,
-      name: '看视频-立即领取-跳过',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          matches: [
-            '@[text="跳过"] <<n * [text="立即获取"] < [desc="button_1030047"]',
-          ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.FeedDownloadActivity'],
-        },
-      ],
-    },
-    //看视频-com.kwad.sdk.api.proxy.app.KsRewardVideoActivity
-    {
-      key: 101,
-      name: '看视频-跳过-立即领取/立即获取',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      matchDelay: 1000,
-      matchTime: 40000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          anyMatches: [
-            'ImageView - @[desc="sky_lantern_main"][clickable=true] <<n * +n * [text="跳过"]',
-            '[text="点击下载免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
-            '[text="点击跳转免看广告"] <n @[desc="sky-lantern-easy-playable_scene2_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
-            '[text="点击或滑动点击下载免看广告"] < @[desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
-            '[text="点击或滑动点击跳转免看广告"] < @[desc="sky-lantern-easy-playable_scene3_actionBtn"][clickable=true] <<n * +n * [text="跳过"]',
-          ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
-        },
-      ],
-    },
-    {
-      key: 102,
-      name: '看视频-跳过-礼包-看*秒可直接拿奖励',
+      name: '看视频-跳过-礼包-kwad',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+      activityIds: [
+        'com.kwad.sdk.api.proxy.app.FeedDownloadActivity',
+        'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
+        'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
+      ],
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@[text~="点击跳转拿奖励.*"][clickable=true] <<n * + * [text="立即获取"] <<n * + * [desc="skip_button"] [text="跳过"]',
-            '@[text~="点击跳转拿奖励|点击下载拿奖励"][clickable=true] <<n * + * [getChild(1).text~="看.*秒可直接拿奖励"] + [desc="skip_button"] [text="跳过"]',
+          name: '看*秒可直接拿奖励',
+          matches: [
+            '@[text~=".*免看.*广告|点击下载.*|点击跳转.*|.*拿奖励.*|.*再试一次.*"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            'ImageView < @[desc="gift_box"][clickable=true] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+            '@[desc~=".*easy-playable_scene.*_actionBtn"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
+          name: '点击灯笼领券',
           matches: [
-            '[getChild(0).desc="gift_box"] + ViewGroup > [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
+            '@[desc="sky_lantern_main"][clickable=true] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
-      ],
-    },
-    {
-      key: 103,
-      name: '看视频-礼包-免费获取-×',
-      forcedTime: 60000,
-      matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
-      resetMatch: 'activity',
-      rules: [
         {
+          key: 2,
+          name: '点击领取“天选福袋',
           matches: [
-            'ImageView < ViewGroup[clickable=true] < @ViewGroup[clickable=true] < [desc="close_button"] - * [desc="call_button"] > [text="免费获取"] <<n * - * [desc="gift_box"] > ImageView',
+            '@[desc~=".*easy-playable_scene.*_iconView"][clickable=true] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.kwad.sdk.api.proxy.app.KsRewardVideoActivity'],
+        },
+        {
+          key: 3,
+          name: '恭喜获得天选福利',
+          matches: [
+            '@[desc~=".*easy-playable_scene.*_actionBtn"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 4,
+          name: '跳过',
+          matches: [
+            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="看10秒可直接拿奖励"] <n ViewGroup[clickable=true] < ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+            '@[text~="[0-9]+"] < ViewGroup + [desc="sound_button"] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 5,
+          name: '跳过-下载app可直接拿奖励',
+          matches: [
+            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n * [text="下载app可直接拿奖励"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '坚持退出-下载app就能获得奖励',
+          matches: [
+            '@[text="坚持退出"][clickable=true] < ViewGroup <n * [text="下载app就能获得奖励"] + [text="确定退出吗？"]',
+          ],
+        },
+        {
+          key: 7,
+          name: '不用了',
+          matches: [
+            '[desc="auto_call_view"] > [desc="auto_call_close_button"] > @[text="不用了"][clickable=true]',
+          ],
+        },
+        {
+          key: 8,
+          name: '×-立即获取|免费获取',
+          matches: [
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
         },
       ],
     },
