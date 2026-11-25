@@ -374,8 +374,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          matches: [
+          anyMatches: [
             '[text~="领取.*金币"] < @View[clickable=true] - [text="翻到炸弹啦"] < View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '[text~="领取.*金币"] < @View[clickable=true] < View - [text="翻到炸弹咯"] < View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
