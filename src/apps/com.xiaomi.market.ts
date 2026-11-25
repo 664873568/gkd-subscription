@@ -38,10 +38,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        '.ui.UpdateListActivity',
-        '.ui.TranslucentActivityInner',
-      ],
+      activityIds: ['.ui.UpdateListActivity', '.ui.TranslucentActivityInner'],
       rules: [
         {
           key: 0,
