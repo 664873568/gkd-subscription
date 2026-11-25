@@ -1806,7 +1806,7 @@ export default defineGkdApp({
     //看视频-com.ubix.ssp.open.comm.UBiXVideoActivity
     {
       key: 100,
-      name: '看视频-点击广告并停留*秒*获取奖励-×',
+      name: '看视频-×-点击广告并停留*秒*获取奖励',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1826,20 +1826,28 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '二级广告页< ×',
+          actionDelay: 5000,
+          matches: [
+            'TextView - @ImageView[width=height][clickable=true] - ImageView < FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
           name: '立即下载-×',
           matches: [
             '[text="立即下载"] <n RelativeLayout < RelativeLayout -n @ImageView[clickable=true] - [text~="点击广告并停留.*秒.*获取奖励"] <n RelativeLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 2,
-          name: '恭喜获得奖励-关闭广告/继续看广告',
+          key: 3,
+          name: '恭喜获得奖励-关闭广告|继续看广告',
           matches: [
             '@[text~="关闭广告|继续看广告"] -n [text="恭喜获得奖励"] < RelativeLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 3,
+          key: 4,
           name: '恭喜获得奖励-×',
           actionDelay: 1000,
           matches: [
