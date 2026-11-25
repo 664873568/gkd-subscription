@@ -38,27 +38,22 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
+      activityIds: [
+        '.ui.UpdateListActivity',
+        '.ui.TranslucentActivityInner',
+      ],
       rules: [
         {
           key: 0,
           matches: [
-            '@[text="知道了"][clickable=true] < [vid="buttonPanel"] - * [text="您的手机存储空间不足，暂时无法安装应用，请清理系统后再尝试安装。"][vid="message"]',
+            '@[text="知道了"][clickable=true] < [vid="buttonPanel"] - * [text*="空间不足"][vid="message"]',
           ],
-          activityIds: ['.ui.TranslucentActivityInner'],
         },
         {
           key: 1,
           matches: [
             '@[text="取消"][vid="cancel_btn"][clickable=true] < LinearLayout <n RelativeLayout -n [text="空间不足"]',
           ],
-          activityIds: ['.ui.TranslucentActivityInner'],
-        },
-        {
-          key: 2,
-          matches: [
-            '@[text="知道了"][clickable=true] < [vid="buttonPanel"] - * [text="您的手机系统存储空间不足，暂时无法安装应用，请卸载不常用应用后再尝试安装。"][vid="message"]',
-          ],
-          activityIds: ['.ui.UpdateListActivity'],
         },
       ],
     },
