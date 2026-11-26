@@ -16,7 +16,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 5000,
+          actionDelay: 6000,
           matches: [
             '@[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
           ],
@@ -117,40 +117,6 @@ export default defineGkdApp({
     //启动应用-本次允许
     {
       key: 20,
-      name: '启动应用-本次允许-百度地图',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="百度地图.*(京东|淘宝).*"][vid="event_title"]',
-          ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 21,
-      name: '启动应用-本次允许-飞猪旅行',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="飞猪旅行.*(京东|淘宝|闲鱼).*"][vid="event_title"]',
-          ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 22,
       name: '启动应用-本次允许-京东金融',
       forcedTime: 60000,
       matchRoot: true,
@@ -161,23 +127,6 @@ export default defineGkdApp({
           actionDelay: 5000,
           matches: [
             '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="京东金融.*(JoyAI|QQ阅读|京东健康|微信).*"][vid="event_title"]',
-          ],
-          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
-        },
-      ],
-    },
-    {
-      key: 23,
-      name: '启动应用-本次允许-支付宝',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          actionDelay: 5000,
-          matches: [
-            '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="支付宝.*淘宝.*"][vid="event_title"]',
           ],
           activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
         },
