@@ -92,17 +92,20 @@ export default defineGkdApp({
         {
           key: 0,
           name: '广告-×',
-          matches: ['[getChild(0).getChild(0).text="广告"] + @Image'],
+          matches: [
+            '@Image[width=height][index=parent.childCount.minus(1)] - View > View > [text="广告"]',
+          ],
         },
         {
           key: 1,
           name: '签到',
           actionDelay: 2000,
-          matches: ['@Image <n View < View - [text$="套餐"]'],
+          matches: [
+            '@Image[index=parent.childCount.minus(1)] - View < View < View - [text~=".*套餐"]',
+          ],
           excludeMatches: [
-            '[getChild(0).getChild(0).text="广告"] + @Image',
-            '@[text="签到"] - [getChild(0).text="每日签到"] < View - [text="做任务 赚星币"]',
-            '[getChild(2).text="做任务 赚星币"] +n View > View > View > [getChild(1).text^="消耗星币"] + [getChild(0).text="兑换"]',
+            '@Image[width=height][index=parent.childCount.minus(1)] - View > View > [text="广告"]',
+            '@[text$="签到"] - [getChild(0).text="每日签到"] < View - [text="做任务 赚星币"]',
           ],
         },
         {
@@ -111,7 +114,6 @@ export default defineGkdApp({
           matches: [
             '@[text="签到"] - [getChild(0).text="每日签到"] < View - [text="做任务 赚星币"]',
           ],
-          excludeMatches: ['[getChild(0).getChild(0).text="广告"] + @Image'],
         },
       ],
     },
