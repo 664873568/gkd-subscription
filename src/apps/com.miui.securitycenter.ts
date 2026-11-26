@@ -16,7 +16,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 6000,
+          actionDelay: 7000,
           matches: [
             '@[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
           ],
@@ -74,7 +74,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 6000,
+          actionDelay: 7000,
           matches: [
             '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"]',
           ],
