@@ -212,7 +212,9 @@ export default defineGkdApp({
             'ViewGroup <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
             'ImageView[width<=0] < @ViewGroup -n ImageView - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
         },
         {
           key: 5,
@@ -225,7 +227,9 @@ export default defineGkdApp({
           matches: [
             'ViewGroup <n @ViewGroup < ViewGroup <n ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
         },
       ],
     },
@@ -287,7 +291,9 @@ export default defineGkdApp({
           matches: [
             'ImageView[height>0] < @ViewGroup < ViewGroup - ViewGroup < ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
+          activityIds: [
+            'com.bytedance.android.anniex.container.AnnieXHostActivity',
+          ],
         },
       ],
     },
