@@ -29,6 +29,27 @@ export default defineGkdApp({
             '@TextView[clickable=true] < View < AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
+        {
+          key: 2,
+          name: '立即打卡-×',
+          matches: [
+            '@[desc="关闭"][clickable=true] < View < AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '立即打卡-××',
+          position: {
+            left: 'width * 0.885',
+            top: 'height * 0.23',
+          },
+          matches: [
+            '@View - [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+          excludeMatches: [
+            '@[desc="关闭"][clickable=true] < View < AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
       ],
     },
     //看视频最高赚99999金币*50[id="J-watchVideo"]
@@ -51,6 +72,7 @@ export default defineGkdApp({
             '[text="待领取"] - [getChild(0).text~="[0-9]{3,}"] < View - [getChild(1).text~="第.*个"] < View - @[text="赚金币"][clickable=true] <n [id="J-watchVideo"] <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
           excludeMatches: [
+            '@[desc="关闭"][clickable=true] < View < AlertDialog <n View <n WebView < WebView < [vid="frameLayout1"]',
             '@TextView[clickable=true] < View < View - TextView < View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
@@ -584,26 +606,26 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionDelay: 2000,
           name: '经典模式-每日挑战',
+          actionDelay: 2000,
           matches: [
             '@[text~=".*每日挑战"][clickable=true] - [text~="经典模式 今日第10/10局.*"] < View < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
           key: 2,
-          actionDelay: 2000,
           name: '每日挑战-开始挑战',
+          actionDelay: 2000,
           matches: [
             '@[text="开始挑战"][clickable=true] <n View <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
           key: 3,
-          actionDelay: 1000,
           name: '免费拆',
+          actionDelay: 1000,
           matches: [
-            '@[text~="免费拆|视频.*"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '@[text="免费拆"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
           excludeMatches: [
             '@ImageButton[clickable=true] < View <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
@@ -611,8 +633,48 @@ export default defineGkdApp({
           ],
         },
         {
-          actionDelay: 5000,
           key: 4,
+          name: '视频*1',
+          actionDelay: 1000,
+          matches: [
+            '@[text="视频0/1"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+          excludeMatches: [
+            '@ImageButton[clickable=true] < View <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@ImageButton[clickable=true] <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@[text="免费拆"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
+        {
+          key: 5,
+          name: '视频*2',
+          actionDelay: 1000,
+          matches: [
+            '@[text~="视频[0-1]/2"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+          excludeMatches: [
+            '@ImageButton[clickable=true] < View <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@ImageButton[clickable=true] <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@[text="视频0/1"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '视频*3',
+          actionDelay: 1000,
+          matches: [
+            '@[text~="视频[0-2]/3"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+          excludeMatches: [
+            '@ImageButton[clickable=true] < View <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@ImageButton[clickable=true] <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@[text="视频0/1"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+            '@[text~="视频[0-1]/2"][clickable=true] <n View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
+          ],
+        },
+        {
+          actionDelay: 5000,
+          key: 7,
           matches: [
             '[desc="现金连连乐"] - @[desc="返回"][clickable=true] < View <n View < [id="root"] < [id="app"] < WebView < WebView < [vid="frameLayout1"]',
           ],
@@ -1050,65 +1112,73 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '看*秒可直接拿奖励',
           matches: [
-            '@[text~=".*免看.*广告|点击下载.*|点击跳转.*|.*拿奖励.*|.*再试一次.*"][clickable=true] <<n * [text="看10秒可直接拿奖励"]',
+            '@[text~=".*免看.*广告|点击下载.*|点击跳转.*|.*拿奖励.*|.*再试一次.*"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            'ImageView < @[desc="gift_box"][clickable=true] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+            '@[desc~=".*easy-playable_scene.*_actionBtn"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
+          name: '点击灯笼领券',
           matches: [
-            '[text~=".*免看.*广告|点击下载.*|点击跳转.*|.*拿奖励.*|知道了.*"] <n @[desc~=".*easy-playable_scene.*_actionBtn"][clickable=true] -n [text="打开并体验5s即可获得奖励"]',
+            '@[desc="sky_lantern_main"][clickable=true] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 2,
+          name: '点击领取“天选福袋',
           matches: [
-            '[getChild(0).desc="gift_box"] + ViewGroup > [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
-          ],
-          excludeMatches: [
-            '[getChild(1).desc="sound_button"] + ViewGroup > [desc="skip_button"] > ViewGroup > @[text="跳过"][clickable=true]',
+            '@[desc~=".*easy-playable_scene.*_iconView"][clickable=true] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 3,
+          name: '恭喜获得天选福利',
+          matches: [
+            '@[desc~=".*easy-playable_scene.*_actionBtn"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 4,
+          name: '跳过',
+          matches: [
+            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="看10秒可直接拿奖励"] <n ViewGroup[clickable=true] < ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+            '@[text~="[0-9]+"] < ViewGroup + [desc="sound_button"] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 5,
+          name: '跳过-下载app可直接拿奖励',
           matches: [
             '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n * [text="下载app可直接拿奖励"]',
           ],
         },
         {
-          key: 4,
+          key: 6,
+          name: '坚持退出-下载app就能获得奖励',
           matches: [
             '@[text="坚持退出"][clickable=true] < ViewGroup <n * [text="下载app就能获得奖励"] + [text="确定退出吗？"]',
           ],
         },
         {
-          key: 5,
+          key: 7,
+          name: '不用了',
           matches: [
             '[desc="auto_call_view"] > [desc="auto_call_close_button"] > @[text="不用了"][clickable=true]',
           ],
         },
         {
-          key: 6,
-          matches: [
-            'ImageView[width=height] < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] - ViewGroup > [desc="call_button"] > [text="立即获取" || text="免费获取"]',
-          ],
-        },
-        {
-          key: 7,
-          matches: [
-            '@[id$="ksad_end_close_btn"][clickable=true] - [text~="立即获取|免费获取"] < * - * > [id$="ksad_end_reward_icon"]',
-          ],
-        },
-        {
           key: 8,
+          name: '×-立即获取|免费获取',
           matches: [
-            '[desc="compliance-easy-playable_scene1_maskView"] +n @[desc="compliance-easy-playable_scene1_iconView"][clickable=true]',
-          ],
-        },
-        {
-          key: 9,
-          matches: [
-            '@[desc="sky_lantern_main"][clickable=true] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n * [text="跳过"]',
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -1313,6 +1383,9 @@ export default defineGkdApp({
             '[text~=".*更快拿奖"] < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
             '[text~=".*提前拿奖"] <n LinearLayout < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
+          excludeMatches: [
+            '[text="扭动/点击"] <n LinearLayout <n @FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
         },
         {
           key: 1,
@@ -1393,6 +1466,9 @@ export default defineGkdApp({
           name: '浏览页面*秒后即可获得奖励',
           matches: [
             '@ImageView[clickable=true] - [getChild(0).text="恭喜获得奖励！"] - ImageView < LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="秒后即可获得奖励"] - [text~="[0-9]+"] - [text="浏览页面"] < LinearLayout <n LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -1578,7 +1654,9 @@ export default defineGkdApp({
         {
           key: 5,
           name: '立即下载-×',
-          matches: [
+          anyMatches: [
+            '@[id="close_btn"][clickable=true] <n [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '@[id="close_btn"][clickable=true] <n View <n [id="ad_area"] < [id="app"] <n View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
             '@[id="close_btn"][clickable=true] <n View <n View <n [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
@@ -1598,6 +1676,7 @@ export default defineGkdApp({
           name: '已获得奖励-跳过',
           matches: [
             '@[text="跳过"][clickable=true] - [text="已获得奖励"] <n View < View < View < View < [id="app"] < View < WebView < WebView <n FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '@[text="跳过"][clickable=true] - [text="已获得奖励"] <n View < [id="video-native"] < [id="app"] < View < WebView < WebView <n FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -1608,9 +1687,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          name: '立即下载-×',
+          name: '立即下载|立即查看-×',
           matches: [
-            '@TextView[clickable=true] - [text="反馈"][id="feed"] <n [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '@TextView[clickable=true] - [text="反馈"] <n [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -1682,39 +1761,6 @@ export default defineGkdApp({
             '@[text$="跳过"][clickable=true] - [text="已获得奖励"] <n [id="close_btn"] <n View < [id="ad_area"] < [id="app"] <n View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
-        {
-          preKeys: [2],
-          key: 3,
-          name: '立即下载-×',
-          matches: [
-            '@[id="close_btn"][clickable=true] - [text="反馈"] < View <n [id="ad_area"] < [id="app"] <n View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
-          ],
-        },
-      ],
-    },
-    {
-      key: 95,
-      name: '看视频-跳过-video-native-sigmob',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      activityIds: ['com.sigmob.sdk.base.common.PortraitAdActivity'],
-      rules: [
-        {
-          key: 0,
-          name: '已获得奖励-跳过',
-          matches: [
-            '@[text="跳过"][clickable=true] - [text="已获得奖励"] <n View < [id="video-native"] < [id="app"] < View < WebView < WebView <n FrameLayout < RelativeLayout < [id="android:id/content"]',
-          ],
-        },
-        {
-          key: 1,
-          name: '立即查看-×',
-          matches: [
-            '@TextView[clickable=true] - [text="反馈"] < View < [id="app"] < View < WebView < WebView <n FrameLayout < RelativeLayout < [id="android:id/content"]',
-          ],
-        },
       ],
     },
     {
@@ -1742,8 +1788,9 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '已获得奖励-跳过',
           matches: [
-            '@[text="跳过"][clickable=true] - [text="已获得奖励"] - [text="反馈"] < View < View < View < [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '@[text="跳过"][clickable=true] - [text="已获得奖励"] <n View < View < View < [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
