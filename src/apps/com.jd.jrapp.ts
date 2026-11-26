@@ -1898,13 +1898,6 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          actionDelay: 2000,
-          matches: [
-            '[text="去完成"] < ViewGroup - [getChild(0).text!~="领话费"] <n ViewGroup < @ViewGroup[clickable=true] <n ViewGroup <n ViewGroup < ViewGroup < FrameLayout <n [vid="page_list"]',
-          ],
-        },
-        {
-          key: 1,
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -1916,9 +1909,17 @@ export default defineGkdApp({
             },
             duration: 200,
           },
+          actionDelay: 2000,
           actionMaximum: 1,
           anyMatches: [
             '[getChild(0).getChild(1).getChild(0).text="领话费" || getChild(0).getChild(2).getChild(0).text="查奖励"] - [getChild(0).getChild(1).getChild(0).text="领话费" || getChild(0).getChild(2).getChild(0).text="查奖励"] < ViewGroup <n ViewGroup < ViewGroup < FrameLayout <n @[vid="page_list"]',
+          ],
+        },
+        {
+          key: 1,
+          actionDelay: 2000,
+          matches: [
+            '[text="去完成"] < ViewGroup - [getChild(0).text!~="领话费"] <n ViewGroup < @ViewGroup[clickable=true] <n ViewGroup <n ViewGroup < ViewGroup < FrameLayout <n [vid="page_list"]',
           ],
         },
       ],
