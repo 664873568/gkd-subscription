@@ -123,7 +123,7 @@ export default defineGkdApp({
             '.bullet.ui.BulletContainerActivity',
             'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
             'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity',
-            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppChildProcessMultiInsActivity0',
+            'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppChildProcessMultiInsActivity',
           ],
         },
       ],
@@ -139,7 +139,7 @@ export default defineGkdApp({
         '.bullet.ui.BulletContainerActivity',
         'com.tt.miniapphost.placeholder.MiniAppHostStackActivity',
         'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppHostStackActivity',
-        'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppChildProcessMultiInsActivity0',
+        'com.bytedance.kmp.open_platform.kmp_miniapp_business_impl.process.container.MiniAppChildProcessMultiInsActivity',
       ],
       rules: [
         {
@@ -151,7 +151,7 @@ export default defineGkdApp({
           },
           actionMaximum: 1,
           matches: [
-            'ImageView[width=height] < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView < ViewGroup < FrameLayout < FrameLayout',
+            'ImageView[width=height] < @ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView <n ViewGroup <n LinearLayout < HorizontalScrollView < ScrollView',
           ],
           excludeMatches: [
             'ViewGroup < @ViewGroup < ViewGroup <n ViewGroup < ViewGroup - ScrollView',
@@ -212,9 +212,7 @@ export default defineGkdApp({
             'ViewGroup <n @ViewGroup < ViewGroup <n ViewGroup <n FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
             'ImageView[width<=0] < @ViewGroup -n ImageView - ViewGroup < LinearLayout < HorizontalScrollView < ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
         {
           key: 5,
@@ -227,9 +225,7 @@ export default defineGkdApp({
           matches: [
             'ViewGroup <n @ViewGroup < ViewGroup <n ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
       ],
     },
@@ -291,9 +287,7 @@ export default defineGkdApp({
           matches: [
             'ImageView[height>0] < @ViewGroup < ViewGroup - ViewGroup < ViewGroup - ScrollView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.bytedance.android.anniex.container.AnnieXHostActivity',
-          ],
+          activityIds: ['com.bytedance.android.anniex.container.AnnieXHostActivity'],
         },
       ],
     },
@@ -569,7 +563,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '@[desc="订阅每日提醒"] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '@ImageView[index=parent.childCount.minus(1)] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
