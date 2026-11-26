@@ -29,7 +29,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1, 20],
+          preKeys: [0, 1, 20],
           key: 1,
           name: '任务完成 返回领奖>',
           action: 'clickCenter',
@@ -640,7 +640,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1, 2,3],
+          preKeys: [1, 2, 3],
           key: 4,
           name: '营销活动-去完成-×',
           matches: [
@@ -721,7 +721,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [11,62],
+          preKeys: [11, 62],
           key: 11,
           name: '支付有礼-<',
           action: 'back',
@@ -729,7 +729,9 @@ export default defineGkdApp({
           matches: [
             '@View[index=parent.childCount.minus(1)] < ViewGroup - FrameLayout < ViewGroup < LinearLayout[clickable=true] < LinearLayout < FrameLayout < RelativeLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.alipay.android.phone.xriver.bundlex.CSGAPushActivity'],
+          activityIds: [
+            'com.alipay.android.phone.xriver.bundlex.CSGAPushActivity',
+          ],
         },
         {
           preKeys: [62],
