@@ -129,7 +129,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4, 30, 40, 60,70, 100],
+          preKeys: [0, 4, 30, 40, 60, 70, 100],
           key: 4,
           name: '频道返回-<',
           action: 'back',
@@ -174,7 +174,7 @@ export default defineGkdApp({
           activityIds: ['com.jd.lib.Discovery.view.DiscoveryActivity'],
         },
         {
-          preKeys: [60,120],
+          preKeys: [60, 120],
           key: 8,
           name: '笔笔返现',
           action: 'back',
@@ -480,7 +480,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0,100],
+          preKeys: [0, 100],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -489,7 +489,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,200],
+          preKeys: [1, 200],
           key: 1,
           action: 'back',
           actionDelay: 30000,
@@ -547,7 +547,9 @@ export default defineGkdApp({
           matches: [
             'ImageView - ViewGroup - @ImageView[width=height][clickable=true] < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity'],
+          activityIds: [
+            'com.jd.lib.videoimmersionstyleb.view.activity.VideoImmersionStyleBActivity',
+          ],
         },
       ],
     },
@@ -1405,9 +1407,7 @@ export default defineGkdApp({
           preKeys: [2],
           key: 3,
           name: '9.9包邮, 1元特价',
-          matches: [
-            '[desc="9.9包邮, 1元特价"] > ViewGroup > [text="1元特价"]',
-          ],
+          matches: ['[desc="9.9包邮, 1元特价"] > ViewGroup > [text="1元特价"]'],
           activityIds: ['.MainFrameActivity'],
         },
         {
@@ -1735,9 +1735,7 @@ export default defineGkdApp({
           preKeys: [5],
           key: 6,
           name: '9.9包邮, 1元特价',
-          matches: [
-            '[desc="9.9包邮, 1元特价"] > ViewGroup > [text="1元特价"]',
-          ],
+          matches: ['[desc="9.9包邮, 1元特价"] > ViewGroup > [text="1元特价"]'],
           activityIds: ['.MainFrameActivity'],
         },
         {
@@ -2057,14 +2055,16 @@ export default defineGkdApp({
       ],
     },
     {
-      scopeKeys: [70,120],
+      scopeKeys: [70, 120],
       key: 124,
       name: '天天赚京豆-去首页领取',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity'],
+      activityIds: [
+        'com.jingdong.common.jdreactFramework.activities.JDReactNativeCommonActivity',
+      ],
       rules: [
         {
           preKeys: [70, 120],
@@ -2115,7 +2115,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,4],
+          preKeys: [3, 4],
           key: 5,
           name: '首页频道-外卖',
           matches: [
