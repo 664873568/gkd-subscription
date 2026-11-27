@@ -355,7 +355,9 @@ export default defineGkdApp({
           matches: [
             '@[vid="h5_tv_nav_back_to_home"][clickable=true] < RelativeLayout <n LinearLayout < FrameLayout <n RelativeLayout < RelativeLayout <n RelativeLayout <n FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$SingletonActivity'],
+          activityIds: [
+            'com.mpaas.mriver.integration.MriverActivityBase$SingletonActivity',
+          ],
         },
         {
           key: 3,
