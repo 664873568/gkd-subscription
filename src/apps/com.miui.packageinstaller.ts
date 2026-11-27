@@ -38,7 +38,9 @@ export default defineGkdApp({
           matches: [
             '@[text="禁止安装"][clickable=true] - [text="允许"] < [vid="buttonPanel"] - * [vid="app_title"]',
           ],
-          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity'],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
         },
       ],
     },
@@ -56,7 +58,9 @@ export default defineGkdApp({
           matches: [
             '[text="禁止安装"] - @[text="允许"][clickable=true] < [vid="buttonPanel"] - * [text="飞猪旅行" || text="酷我音乐" || text="喜马拉雅"][vid="app_title"]',
           ],
-          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity'],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
         },
         {
           preKeys: [0],
@@ -64,13 +68,17 @@ export default defineGkdApp({
           matches: [
             '@[vid="second_button"][clickable=true] > [vid="left_button_info_view"] > [text="继续安装"][vid="left_button_msg"]',
           ],
-          activityIds: ['com.miui.packageInstaller.NewInstallerPrepareActivity'],
+          activityIds: [
+            'com.miui.packageInstaller.NewInstallerPrepareActivity',
+          ],
         },
         {
           preKeys: [1],
           key: 2,
           matches: ['@[text="完成"][vid="start_button"][clickable=true]'],
-          activityIds: ['com.miui.packageInstaller.ui.normalmode.InstallProgressActivity'],
+          activityIds: [
+            'com.miui.packageInstaller.ui.normalmode.InstallProgressActivity',
+          ],
         },
       ],
     },
