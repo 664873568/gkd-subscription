@@ -181,7 +181,7 @@ export default defineGkdApp({
             '@[text~="打开"][clickable=true] < View < View < View <n [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.qq.e.tg.PortraitADActivity'],
-        }
+        },
         {
           key: 3,
           name: '去试玩',
