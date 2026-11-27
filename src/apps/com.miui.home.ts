@@ -29,7 +29,6 @@ export default defineGkdApp({
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
-      actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
@@ -45,9 +44,10 @@ export default defineGkdApp({
             },
             duration: 500,
           },
+          actionDelay: 1000,
           anyMatches: [
-            '@[desc*="应用"][clickable=true] <n ScrollView < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
-            '@[desc*="应用"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
+            '@[desc~=".*应用.*|浏览器.*"][clickable=true] <n ScrollView < FrameLayout + * [desc="清理全部任务"][vid="clearAnimView"]',
+            '@[desc~=".*应用.*|浏览器.*"][clickable=true] <n [name$="View"] < View < View < View + [desc="清理任务"][vid="clearAnimView"]',
           ],
           activityIds: ['.launcher.Launcher'],
         },
