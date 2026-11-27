@@ -29,8 +29,10 @@ export default defineGkdApp({
             '@[text="去抽奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
           excludeMatches: [
-            '@[text="去抽奖"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
             '@[text="领奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View < View <n View <n View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            '@[text="可领取"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
@@ -42,38 +44,69 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [2],
           key: 3,
+          name: '弹窗-×',
+          actionDelay: 1000,
+          matches: [
+            'Image[index=parent.childCount.minus(1)] < @View <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
+          ],
+        },
+        {
+          preKeys: [3],
+          key: 4,
+          name: '返回-<',
+          matches: [
+            '@[desc="返回"][clickable=true] < [vid="view_title_left"] <n [vid="rootView"] < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text~="剩余 [1-9]次 抽奖机会"][clickable=true] <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
+          ],
+        },
+        {
+          key: 5,
           name: '达标有礼-领奖',
           actionDelay: 2000,
           matches: [
             '@[text="领奖"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
           excludeMatches: [
-            '@[text="去抽奖"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            '@[text="签到成功"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
-          key: 4,
+          key: 6,
           name: '本地有礼-领取',
           actionDelay: 2000,
           matches: [
-            'Image[text="6062245d-3f87-4381-abbb-d3a9773c2d24"] < @View < View <n View <n View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View < View <n View <n View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+          ],
+          excludeMatches: [
+            '@[text="签到成功"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
         {
-          key: 5,
+          key: 7,
           name: '本地有礼-可领取',
           actionDelay: 2000,
           matches: [
             '@[text="可领取"][clickable=true] < View <n View < View <n View <n View < View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
+          excludeMatches: [
+            '@[text="签到成功"][clickable=true] <n View <n View < View < View <n View < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
+          ],
         },
         {
-          key: 6,
+          preKeys: [5,6,7],
+          key: 8,
           name: '弹窗-×',
           actionDelay: 1000,
           matches: [
-            'Image[index=parent.childCount.minus(1)] < @View[clickable=true] <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
+            'Image[index=parent.childCount.minus(1)] < @View <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
           ],
         },
       ],
