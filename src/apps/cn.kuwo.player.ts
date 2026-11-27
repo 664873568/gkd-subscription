@@ -26,6 +26,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           matches: [
             '[text="需要88000金币"] <n @View[clickable=true] -5 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
@@ -36,6 +37,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [1],
           key: 2,
           matches: [
             '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
@@ -63,6 +65,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           matches: [
             '[text="需要20000金币"] <n @View[clickable=true] -5 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
@@ -73,6 +76,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [1],
           key: 2,
           matches: [
             '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
@@ -100,6 +104,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [0],
           key: 1,
           matches: [
             '[text="需要10000金币"] <n @View[clickable=true] -5 [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
@@ -110,6 +115,7 @@ export default defineGkdApp({
           ],
         },
         {
+          preKeys: [1],
           key: 2,
           matches: [
             '@[text="确认提现"][clickable=true] -n [text="金币提现"] <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
