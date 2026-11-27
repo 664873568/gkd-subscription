@@ -308,6 +308,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           name: '应用详情-取消×',
+          actionDelay: 1000,
           matches: [
             '@[text="取消"][vid="noah_adn_dialog_download_cancel"][clickable=true] -n [text="应用详情"][vid="adn_dialog_download_title"] < RelativeLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
@@ -317,6 +318,7 @@ export default defineGkdApp({
           key: 2,
           name: '二级广告页-< ×',
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '@[vid="noah_close_icon"][clickable=true] - [vid="noah_titleView"] - [vid="noah_back_icon"] < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
