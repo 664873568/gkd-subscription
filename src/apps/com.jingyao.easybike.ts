@@ -46,6 +46,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           matches: [
             '@[text="立即签到"][vid="tvSignInClick"][clickable=true] < LinearLayout < FrameLayout <n ViewGroup < [id="android:id/content"]',
           ],
@@ -78,20 +79,33 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: [
+          name: '点击广告翻倍领',
+          actionDelay: 1000,
+          anyMatches: [
+            '@[text="看广告赚奖励金"][vid="tvShowAd"] <n RelativeLayout < FrameLayout <n LinearLayout < RelativeLayout < RelativeLayout < RelativeLayout < [id="android:id/content"]',
             '@[text~="点击广告翻倍领|下一个视频"] < LinearLayout <n FrameLayout <n FrameLayout <n LinearLayout <n FrameLayout <n RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
           preKeys: [0],
           key: 1,
+          name: '二级广告页-×',
           matches: [
             'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.qq.e.ads.ADActivity'],
         },
         {
+          preKeys: [0],
           key: 2,
+          name: '立即下载-×',
+          actionDelay: 11000,
+          matches: [
+            '[text="立即下载"] <n @FrameLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 3,
           name: '领奖成功，已到账-×',
           matches: [
             '@[vid="rewardV2Close"][clickable=true] <n RelativeLayout < RelativeLayout < [id="android:id/content"]',
@@ -104,41 +118,6 @@ export default defineGkdApp({
     },
     {
       key: 12,
-      name: '浏览广告，领超多奖励金-去浏览',
-      forcedTime: 60000,
-      matchRoot: true,
-      matchDelay: 1000,
-      resetMatch: 'activity',
-      rules: [
-        {
-          key: 0,
-          matches: [
-            '@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          actionDelay: 10000,
-          matches: [
-            '@ImageView < FrameLayout + RecyclerView + FrameLayout >n [text="立即下载"]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-        {
-          preKeys: [0],
-          key: 2,
-          actionDelay: 10000,
-          matches: [
-            '@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]',
-          ],
-          activityIds: ['com.qq.e.ads.ADActivity'],
-        },
-      ],
-    },
-    {
-      key: 13,
       name: '二级广告页-<',
       forcedTime: 60000,
       matchRoot: true,
@@ -158,7 +137,7 @@ export default defineGkdApp({
     },
     //[id="welfare_surprise_tasks"]
     {
-      key: 14,
+      key: 13,
       name: '奖励金-限时薅羊毛',
       forcedTime: 60000,
       matchRoot: true,
@@ -168,33 +147,119 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '领任务',
+          name: '去浏览',
           actionDelay: 2000,
           matches: [
-            '[text="领任务"] <n @View[clickable=true] -n [text="限时薅羊毛"] < View < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text="去浏览"] - [getChild(2).text~=".*[1-9][0-9]*"] <n @View[clickable=true] -n [text="限时薅羊毛"] < View < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
           excludeMatches: [
+            'TextView - @View < View - [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '@[text="ca36acbe_close_popup"][clickable=true] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
             '[text="领奖励"] <n @View[clickable=true] -n [text="限时薅羊毛"] < View < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
         },
         {
           key: 1,
-          name: '领奖励',
+          name: '领任务',
+          actionDelay: 2000,
           matches: [
-            '[text="领奖励"] <n @View[clickable=true] -n [text="限时薅羊毛"] < View < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text="领任务"] - [getChild(2).text~=".*[1-9][0-9]+"] <n @View[clickable=true] -n [text="限时薅羊毛"] < View < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          ],
+          excludeMatches: [
+            'TextView - @View < View - [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '@[text="ca36acbe_close_popup"][clickable=true] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text~="去浏览|领奖励"] - [getChild(2).text~=".*[1-9][0-9]+"] <n @View[clickable=true] -n [text="限时薅羊毛"] < View < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '领奖励',
+          actionDelay: 2000,
+          matches: [
+            '[text="领奖励"] - [getChild(2).text~=".*[1-9][0-9]+"] <n @View[clickable=true] -n [text="限时薅羊毛"] < View < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          ],
+          excludeMatches: [
+            'TextView - @View < View - [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '@[text="ca36acbe_close_popup"][clickable=true] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 14,
+      name: '奖励金-限时薅羊毛-观看10秒广告领奖励金',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.alipay.mobile.nebulacore.ui.H5Activity',
+        'com.qq.e.ads.PortraitADActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          name: '去浏览',
+          matches: [
+            '@[text="去浏览"][vid="btnTaskAction"] <n [vid="flAdContainer"] - [vid="ivTaskText"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '立即下载-×',
+          actionDelay: 10000,
+          matches: [
+            '@ImageView < FrameLayout + RecyclerView + FrameLayout >n [text="立即下载"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '奖励金-限时薅羊毛-红包雨',
+      forcedTime: 60000,
+      matchRoot: true,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.alipay.mobile.nebulacore.ui.H5Activity',
+        'com.qq.e.ads.PortraitADActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          name: '接红包',
+          matches: [
+            'Image < @View[clickable=true] < View - [text~="剩余时间.*秒"] < View < View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '继续领',
+          actionDelay: 2000,
+          matches: [
+            '@[text~="继续领x[1-9]"][clickable=true] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '返回-<',
+          actionDelay: 5000,
+          matches: [
+            '[text="预约下场提醒"] <n View - @[text="7f1888d8_back-white"][clickable=true] < View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
         },
       ],
     },
     //[id="welfare_advertisement_video"]
     {
-      key: 15,
+      key: 16,
       name: '奖励金-看视频赚奖励金',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
+      activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
       rules: [
         {
           key: 0,
@@ -203,11 +268,15 @@ export default defineGkdApp({
           matches: [
             '@[text="看视频"][clickable=true] -n [text="看视频赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
+          excludeMatches: [
+            'TextView - @View < View - [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '@[text="ca36acbe_close_popup"][clickable=true] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          ],
         },
       ],
     },
     {
-      key: 16,
+      key: 17,
       name: '奖励金-看视频',
       forcedTime: 60000,
       matchRoot: true,
@@ -239,71 +308,95 @@ export default defineGkdApp({
     },
     //[id="welfare_task"]
     {
-      key: 17,
+      key: 18,
       name: '奖励金-做任务赚奖励金',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
+      activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
       rules: [
         {
           key: 0,
           name: '去浏览',
           actionDelay: 2000,
           matches: [
-            '[text="去浏览"] <n @View[clickable=true] < View < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text="去浏览"] - [getChild(2).text~=".*[1-9][0-9]*"&&getChild(2).text~=".*[1-9][0-9]+"] <n @View[clickable=true] < View < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          ],
+          excludeMatches: [
+            'TextView - @View < View - [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '@[text="ca36acbe_close_popup"][clickable=true] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text="去领取"] <n @View[clickable=true] < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text="去领取"] <n View <n @View[clickable=true] < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
         },
         {
           key: 1,
           name: '领任务',
           actionDelay: 2000,
-          matches: [
-            '[text="领任务"] - [getChild(0).text!~="点一点.*|邀.*|完成.*|电商.*"] <n @View[clickable=true] < View < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+          anyMatches: [
+            '[text="领任务"] - [getChild(0).text!~="邀.*|完成.*|电商.*"&&getChild(2).text~=".*[1-9][0-9]+"] <n @View[clickable=true] < View < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text="领任务"] - [getChild(0).text!~="邀.*|完成.*|电商.*"&&getChild(2).text~=".*[1-9][0-9]+"] <n @View[clickable=true] < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
           excludeMatches: [
-            '[text="去浏览"] <n @View[clickable=true] < View < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            'TextView - @View < View - [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '@[text="ca36acbe_close_popup"][clickable=true] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text="去领取"] <n @View[clickable=true] < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
             '[text="去领取"] <n View <n @View[clickable=true] < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '[text="去浏览"] - [getChild(2).text~=".*[1-9][0-9]+"] <n @View[clickable=true] < View < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
         },
         {
+          preKeys: [0],
           key: 2,
+          name: '二级广告页-×',
+          action: 'back',
+          actionDelay: 11000,
+          matches: [
+            '@[vid="h5_tv_nav_back_to_home"][clickable=true] < RelativeLayout <n LinearLayout < FrameLayout <n RelativeLayout < RelativeLayout <n RelativeLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$SingletonActivity'],
+        },
+        {
+          key: 3,
           name: '去领取',
           actionDelay: 2000,
-          matches: [
+          anyMatches: [
+            '[text="去领取"] <n @View[clickable=true] < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
             '[text="去领取"] <n View <n @View[clickable=true] < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
           excludeMatches: [
-            '[text="去浏览"] <n @View[clickable=true] < View < View -n [text="做任务赚奖励金"] < View <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            'TextView - @View < View - [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '@[text="ca36acbe_close_popup"][clickable=true] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
         },
       ],
     },
     //[id="treasure_box_float"]
     {
-      key: 18,
+      key: 19,
       name: '奖励金-开宝箱',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity'],
+      activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
       rules: [
         {
           key: 0,
-          name: '开宝箱',
+          name: '点击领',
           actionDelay: 2000,
           matches: [
             'Image < View - Image < @View[clickable=true] < [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
           excludeMatches: [
+            'TextView - @View < View - [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
             '@[text="ca36acbe_close_popup"][clickable=true] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
         },
         {
           key: 1,
-          name: '选*奖励金',
+          name: '看视频领',
           actionDelay: 2000,
           matches: [
             '[text~="选.*奖励金"] < @View[clickable=true] - [text="看视频领"] <n View <n [id="treasure_box_float"] <n View <n View < [id="app"] <n WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
@@ -322,6 +415,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '开玩',
           actionDelay: 2000,
           anyMatches: [
             '[text="开玩"] <n View <n @View[index=1][clickable=true] - [getChild(1).getChild(0).text="再玩2个热门推荐各60秒"] < View <n View < View <n View <n View < [id="app"] < WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
@@ -336,10 +430,11 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '退出-⊙',
           action: 'back',
           actionDelay: 60000,
           matches: [
-            '@[vid="float_change_view"][clickable=true] >n ViewGroup > [vid="float_close"]',
+            '@[vid="float_close"] < ViewGroup <n LinearLayout < RelativeLayout < [vid="float_change_view"][clickable=true] <n RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
@@ -347,8 +442,8 @@ export default defineGkdApp({
           key: 2,
           actionDelay: 1000,
           anyMatches: [
-            '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
-            '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n [text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + @[text="暂不评论"][vid="rate_cancel"]',
+            '@[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] -n [text="尝试下这些游戏吧～"][vid="stay_title"] < LinearLayout < [id="android:id/content"]',
+            '@[text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] -n [text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] < LinearLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
@@ -364,6 +459,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '上滑',
           swipeArg: {
             start: {
               x: 'screenWidth*0.5',
@@ -376,6 +472,7 @@ export default defineGkdApp({
             duration: 100,
           },
           actionCd: 200,
+          actionMaximum: 3,
           matches: [
             'TextView < @View < View - [id="game-navbar"] < View <n View < [id="app"] < WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
@@ -386,34 +483,30 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          matches: [
+          name: '开玩',
+          anyMatches: [
             '[text="开玩"] <n View <n @View[index=1][clickable=true] - [getChild(1).getChild(0).text="再玩2个大家都在玩各60秒"] < View <n View < View <n View <n View < [id="app"] < WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
-          ],
-          activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
-        },
-        {
-          key: 2,
-          matches: [
             '[text="开玩"] <n View <n @View[index=2][clickable=true] - [getChild(1).getChild(0).text="再玩1个大家都在玩60秒"] < View <n View < View <n View <n View < [id="app"] < WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
           activityIds: ['com.alipay.mobile.nebulacore.ui.H5Activity'],
         },
         {
-          preKeys: [1, 2],
-          key: 3,
+          preKeys: [1],
+          key: 2,
+          name: '退出-⊙',
           action: 'back',
           actionDelay: 60000,
           matches: [
-            '@[vid="float_change_view"][clickable=true] >n ViewGroup > [vid="float_close"]',
+            '@[vid="float_close"] < ViewGroup <n LinearLayout < RelativeLayout < [vid="float_change_view"][clickable=true] <n RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [2],
+          key: 3,
           anyMatches: [
-            '[text="尝试下这些游戏吧～"][vid="stay_title"] +n @[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] + [text="取消"][vid="stay_cancel"]',
-            '[text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] +n [text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] + @[text="暂不评论"][vid="rate_cancel"]',
+            '@[text="不用了，退出游戏"][vid="stay_exit"][clickable=true] -n [text="尝试下这些游戏吧～"][vid="stay_title"] < LinearLayout < [id="android:id/content"]',
+            '@[text="评完啦 ，退出游戏"][vid="rate_sure"][clickable=true] -n [text="快给这款游戏评个分吧～告诉其他骑行侠"][vid="rate_title"] < LinearLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.chengle.lib.game.web.WebGameActivity'],
         },
@@ -455,7 +548,7 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1000,
           matches: [
-            '@[text="一键领取"][clickable=true] <n View <n View < View <n View < View <n View <n View < [id="app"] < WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
+            '@[text="一键领取"][clickable=true] < View <n View <n View <n View < View <n View <n View < [id="app"] < WebView < WebView <n FrameLayout < [vid="h5_pc_container"]',
           ],
         },
         {
@@ -515,6 +608,115 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             'FrameLayout - @[text~=".*拿奖励"] - TextView < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 31,
+      name: '看视频-恭喜获得奖励-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.qq.e.ads.PortraitADActivity',
+        'com.qq.e.ads.ADActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          name: '奖励将于*秒后发放',
+          anyMatches: [
+            '[text~=".*更快拿奖"] < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text~=".*提前拿奖"] <n LinearLayout < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text="扭动/点击"] <n LinearLayout <n @FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 1,
+          name: '残忍离开|放弃福利',
+          anyMatches: [
+            '@[text="残忍离开"] <n FrameLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="放弃福利"] < @FrameLayout <n LinearLayout < FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 2,
+          name: '*秒后点击广告*，即可*得奖*',
+          matches: [
+            '@[text~="点击广告.*拿奖励"] < FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text~=".*秒后点击广告.*，即可.*得奖.*"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '二级广告页-×',
+          actionDelay: 5000,
+          anyMatches: [
+            'View - @ImageView[clickable=true] - TextView < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            'View - ProgressBar - @ImageView[clickable=true] - TextView < FrameLayout < LinearLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 4,
+          name: '恭喜获得奖励-×',
+          actionDelay: 1000,
+          anyMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n LinearLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text^="奖励将于"] < LinearLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '@[text^="奖励将于"] < LinearLayout < LinearLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '@[text^="奖励将于"] < LinearLayout < LinearLayout < LinearLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text~=".*点击广告.*，即可.*得奖.*"] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text~="立即安装|立即体验|去微信看看"] <n @FrameLayout <n * <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="扭动/点击"] <n LinearLayout <n @FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 5,
+          name: '滑动/点击了解更多|扭动/点击*|点击下载或打开第三方应用-×',
+          anyMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text~=".*更快拿奖"] < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text~=".*提前拿奖"] <n LinearLayout < @FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text~="立即安装|立即体验|去微信看看"] <n @FrameLayout <n * <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="扭动/点击"] <n LinearLayout <n @FrameLayout <n FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 6,
+          name: '立即安装|立即体验|去微信看看|扭动/点击*-×',
+          anyMatches: [
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout < FrameLayout <n FrameLayout < FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 8,
+          name: '二级广告页-×打开小程序',
+          matches: [
+            'View - @ImageView[clickable=true] - TextView[text="打开小程序"] < FrameLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 9,
+          name: '浏览页面*秒后即可获得奖励',
+          matches: [
+            '@ImageView[clickable=true] - [getChild(0).text="恭喜获得奖励！"] - ImageView < LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="秒后即可获得奖励"] - [text~="[0-9]+"] - [text="浏览页面"] < LinearLayout <n LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
