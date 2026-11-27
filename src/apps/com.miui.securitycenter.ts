@@ -33,6 +33,7 @@ export default defineGkdApp({
           preKeys: [0, 1],
           key: 2,
           action: 'back',
+          actionDelay: 1000,
           matches: [
             '[text="用于打开微信"][vid="face_lock_error_tv"] - @[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
           ],
