@@ -2391,7 +2391,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 232,
+      key: 233,
       name: '东东农场-弹窗-×',
       forcedTime: 60000,
       matchRoot: true,
