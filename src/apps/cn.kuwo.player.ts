@@ -391,7 +391,7 @@ export default defineGkdApp({
         {
           preKeys: [4],
           key: 5,
-          name: '返回-< ×',
+          name: '返回-< ××',
           actionDelay: 15000,
           matches: [
             'ImageView - View - TextView - @ImageView[clickable=true] - View < FrameLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
