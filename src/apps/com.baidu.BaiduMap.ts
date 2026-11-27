@@ -200,13 +200,20 @@ export default defineGkdApp({
         },
         {
           key: 4,
+          actionDelay: 3000,
+          matches: [
+            '[text="请返回到列表领取奖励"] - [text="任务已完成"] < View <n View <n [id="root"] < WebView < WebView < [vid="frameLayout1"] - * @[desc="返回"][vid="title_btn_left"][clickable=true]',
+          ],
+        },
+        {
+          key: 5,
           name: '打卡成功-×',
           matches: [
             '@[desc="关闭"][clickable=true] < View < View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
-          key: 5,
+          key: 6,
           name: '返回-<',
           actionDelay: 5000,
           matches: [
@@ -219,7 +226,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 6,
+          key: 7,
           name: '仍要离开',
           matches: [
             '@[text="仍要离开"][clickable=true] < View <n View <n View < View < View <n WebView < WebView < [vid="frameLayout1"]',
