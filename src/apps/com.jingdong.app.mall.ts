@@ -369,7 +369,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [10, 60, 61, 70, 110,120, 130, 200],
+          preKeys: [10, 60, 61, 70, 110, 120, 130, 200],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -1543,7 +1543,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 2,
           matches: [
             '@[desc="月黑风高"][clickable=true] > ViewGroup > [text="月黑风高"]',
