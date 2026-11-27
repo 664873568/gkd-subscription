@@ -16,7 +16,7 @@ export default defineGkdApp({
         {
           key: 0,
           action: 'back',
-          actionDelay: 10000,
+          actionDelay: 11000,
           matches: [
             '@[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
           ],
