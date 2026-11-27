@@ -1763,7 +1763,7 @@ export default defineGkdApp({
         {
           key: 70,
           actionDelay: 2000,
-          anyMmatches: [
+          anyMatches: [
             '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|体验.*|消灭.*|完成.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View < View <n View < View < [id="page-container"] < WebView < * < [vid="webview"]',
             '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|体验.*|消灭.*|完成.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View <n View <n View < View < View < [id="page-container"] < View < WebView < * < [vid="webview"]',
           ],
