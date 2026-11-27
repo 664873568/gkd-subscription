@@ -101,7 +101,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [5,6,7],
+          preKeys: [5, 6, 7],
           key: 8,
           name: '弹窗-××',
           actionDelay: 1000,
