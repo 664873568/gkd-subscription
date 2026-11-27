@@ -271,10 +271,13 @@ export default defineGkdApp({
       name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
-          matches: ['@[vid="iv_close"][clickable=true]'],
+          matches: [
+            '@[vid="iv_close"][clickable=true] < RelativeLayout <n LinearLayout < RelativeLayout < [id="android:id/content"]',
+          ],
           activityIds: [
             '.module.home.MainTabActivity',
             '.module.ucenter.enter.SplashScreenActivity',
