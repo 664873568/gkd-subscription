@@ -18,7 +18,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 1,
+          key: 0,
           action: 'back',
           matches: [
             '[desc="返回"] +n RelativeLayout > [text*="金融" || text*="京东特价版" || text="加载页面"]',
@@ -26,10 +26,19 @@ export default defineGkdApp({
           ],
         },
         {
+          key: 1,
+          action: 'back',
+          matches: [
+            '@[text="此功能需访问京东金融APP"] <n View < View <n View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="back"] < @View[clickable=true] < View < [id="J_ui-div"] < View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+        },
+        {
           key: 2,
           action: 'back',
           matches: [
-            '[text~="此功能需访问京东金融APP|JoyAI|健康好礼限时领|图片|省钱中心|加载页面|73d4ea791bcfd553.png!q70|做任务赚京豆"]',
+            '@[text="此功能需访问京东金融APP"] <n View < View <n View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="back"] < @View[clickable=true] < View < [id="J_ui-div"] < View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] <n [id="android:id/content"]',
           ],
         },
@@ -37,24 +46,16 @@ export default defineGkdApp({
           key: 3,
           action: 'back',
           matches: [
-            '@[desc="返回"][clickable=true] +n RelativeLayout > [text="京东健康" || text="看视频赚现金" || text="去京东金融领京豆" || text$="签到领现金"]',
+            '@[desc="返回"][clickable=true] +n RelativeLayout > [text="看视频赚现金" || text="去京东金融领京豆" || text$="签到领现金"]',
           ],
         },
         {
           key: 4,
-          action: 'back',
-          matches: [
-            '[text="back"] < @View[clickable=true] < View < [id="J_ui-div"] < View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
-            '@[text="此功能需访问京东金融APP"] <n View < View <n View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
-            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] <n [id="android:id/content"]',
-          ],
-        },
-        {
-          key: 5,
+          name: '京东健康-限时福利',
           action: 'back',
           actionDelay: 6000,
           matches: [
-            '[text="京东健康APP下载"] >n @[text="back"][clickable=true] + [text="健康好礼限时领"]',
+            '@[text="back"][clickable=true] < View < View < View < View < View < View < View < View < View < View < View <n View < [id*="JDHDownloadLark"] < [id="app"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -111,7 +112,6 @@ export default defineGkdApp({
           key: 2,
           name: '已完成 点击立即返回×',
           action: 'back',
-          actionDelay: 6000,
           matches: [
             '@RelativeLayout[childCount=1][clickable=true] - * < [id="android:id/content"]',
           ],
@@ -129,7 +129,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 4, 30, 40, 60, 70, 100],
+          preKeys: [0, 30, 40, 60, 70, 100],
           key: 4,
           name: '频道返回-<',
           action: 'back',
@@ -249,7 +249,7 @@ export default defineGkdApp({
       activityIds: ['com.jd.lib.productdetail.ProductDetailActivity'],
       rules: [
         {
-          preKeys: [3, 10, 20, 30, 40, 70, 80, 90, 100, 120, 130, 190],
+          preKeys: [10, 20, 30, 40, 70, 80, 90, 100, 120, 130, 190],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -314,7 +314,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0, 40, 50, 51, 70, 80, 100, 130],
+          preKeys: [40, 50, 51, 70, 80, 100, 130],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -369,7 +369,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [0, 10, 60, 61, 70, 110, 130, 200],
+          preKeys: [10, 60, 61, 70, 110,120, 130, 200],
           key: 0,
           action: 'back',
           actionDelay: 6000,
@@ -802,6 +802,7 @@ export default defineGkdApp({
       name: '京东超市-黑色星期五-领券抢',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 100,
       resetMatch: 'activity',
       rules: [
         {
@@ -1198,14 +1199,6 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 0,
-          name: '弹窗广告-×',
-          anyMatches: [
-            '@TextView[clickable=true][index=parent.childCount.minus(1)] - View < View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
-            '@TextView[clickable=true][index=parent.childCount.minus(1)] - View < View < View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
-          ],
-        },
-        {
           key: 50,
           actionDelay: 2000,
           anyMatches: [
@@ -1213,7 +1206,6 @@ export default defineGkdApp({
             '[text~="去看看|去完成"] - [getChild(1).text*="京豆"] - [text!~="分享.*|邀请.*"] <n @View[clickable=true] <n View < View <n View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
           excludeMatches: [
-            'TextView[clickable=true] - @View[clickable=true] <n View <n View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
             '[text="领取奖励"] - [text*="京豆"] -2 [text!~="分享.*|邀请.*"] <n @View[clickable=true] <n View < View <n View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
             '[text="领取奖励"] - [getChild(1).text*="京豆"] - [text!~="分享.*|邀请.*"] <n @View[clickable=true] <n View < View <n View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
             '@TextView[clickable=true] -n [text="开心收下"] <n View <n View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
@@ -1226,7 +1218,6 @@ export default defineGkdApp({
             '[text="领取奖励"] - [getChild(1).text*="京豆"] - [text!~="分享.*|邀请.*"] <n @View[clickable=true] <n View < View <n View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
           excludeMatches: [
-            'TextView[clickable=true] - @View[clickable=true] <n View <n View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
             '@TextView[clickable=true] -n [text="开心收下"] <n View <n View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
@@ -1274,6 +1265,26 @@ export default defineGkdApp({
           key: 12,
           matches: [
             '@TextView[clickable=true] -n [text="开心收下"] <n View <n View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+          ],
+        },
+      ],
+    },
+    {
+      key: 52,
+      name: '天天领补贴-弹窗广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: [
+        'com.jd.lib.ttt.page.TTTMultiPageActivity',
+        'com.jd.lib.babel.view.activity.BabelActivity',
+      ],
+      rules: [
+        {
+          anyMatches: [
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] - View < View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+            '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] - View < View < View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
       ],
@@ -1399,6 +1410,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           name: '返回-<',
+          action: 'back',
           matches: [
             '@[text=""][clickable=true] < LinearLayout < ViewGroup <n ViewGroup < FrameLayout < LinearLayout <n ViewGroup < LinearLayout < ViewGroup < [id="android:id/content"]',
           ],
@@ -1457,6 +1469,7 @@ export default defineGkdApp({
             left: 'width * 0.5',
             top: 'height * 0.606',
           },
+          actionDelay: 1000,
           matches: [
             '[text="开心收下"][clickable=true] <n View <n @View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
@@ -1502,11 +1515,12 @@ export default defineGkdApp({
       rules: [
         {
           preKeys: [70],
-          key: 1,
+          key: 0,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.606',
           },
+          actionDelay: 1000,
           anyMatches: [
             '[text="去完成"] < @View[clickable=true] <n View <n View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
             '[text="去完成"] < @View[clickable=true] <n View < View < View <n View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
@@ -1514,7 +1528,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [70],
-          key: 2,
+          key: 1,
           position: {
             left: 'width * 0.5',
             top: 'height * 0.606',
@@ -1524,27 +1538,28 @@ export default defineGkdApp({
             '@View[childCount=2] - [id="chunk3"] - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
+            '[text="去完成"] < @View[clickable=true] <n View <n View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
             '[text="去完成"] < @View[clickable=true] <n View < View < View <n View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
-          preKeys: [1, 2],
-          key: 3,
+          preKeys: [0,1],
+          key: 2,
           matches: [
             '@[desc="月黑风高"][clickable=true] > ViewGroup > [text="月黑风高"]',
           ],
           activityIds: ['.MainFrameActivity'],
         },
         {
-          preKeys: [3],
-          key: 4,
+          preKeys: [2],
+          key: 3,
           matches: [
             '@[text="075e15f06e18eb7f.png!q50"] < View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout <n ViewPager < RelativeLayout < ViewGroup < [vid="layout_main"]',
           ],
         },
         {
-          preKeys: [4],
-          key: 5,
+          preKeys: [3],
+          key: 4,
           name: '赚次数',
           matches: [
             '@TextView[clickable=true] - TextView - TextView <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
@@ -1605,8 +1620,9 @@ export default defineGkdApp({
             '[text~="[1-9][0-9]*"] <n View < @View[clickable=true] <n View < View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
           excludeMatches: [
-            'Image < View < @View[clickable=true] <n View < View <n [id^="bab_aid"] < WebView < *',
-            'View[childCount=1] - [name$="View"] - TextView - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+            'Image < View < View[clickable=true] <n View < @View <n [id^="bab_aid"] < WebView < *',
+            'Image < View < View[clickable=true] <n View < View < @View <n [id^="bab_aid"] < WebView < *',
+            '@View[childCount=1] - [name$="View"] - TextView - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
         },
         {
@@ -1617,8 +1633,9 @@ export default defineGkdApp({
             top: 'height * 0.585',
           },
           actionDelay: 1000,
-          matches: [
-            'Image < View < @View[clickable=true] <n View < View <n [id^="bab_aid"] < WebView < *',
+          anyMatches: [
+            'Image < View < View[clickable=true] <n View < @View <n [id^="bab_aid"] < WebView < *',
+            'Image < View < View[clickable=true] <n View < View < @View <n [id^="bab_aid"] < WebView < *',
           ],
         },
         {
@@ -1630,10 +1647,11 @@ export default defineGkdApp({
           },
           actionDelay: 1000,
           matches: [
-            'View[childCount=1] - [name$="View"] - TextView - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+            '@View[childCount=1] - [name$="View"] - TextView - [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
           excludeMatches: [
-            'Image < View < @View[clickable=true] <n View < View <n [id^="bab_aid"] < WebView < *',
+            'Image < View < View[clickable=true] <n View < @View <n [id^="bab_aid"] < WebView < *',
+            'Image < View < View[clickable=true] <n View < View < @View <n [id^="bab_aid"] < WebView < *',
           ],
         },
       ],
@@ -1727,6 +1745,7 @@ export default defineGkdApp({
           preKeys: [4],
           key: 5,
           name: '返回-<',
+          action: 'back',
           matches: [
             '@[text=""][clickable=true] < LinearLayout < ViewGroup <n ViewGroup < FrameLayout < LinearLayout <n ViewGroup < LinearLayout < ViewGroup < [id="android:id/content"]',
           ],
@@ -1830,6 +1849,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '立即签到',
+          actionDelay: 1000,
           matches: [
             '[text="立即签到"] < @View[clickable=true] <n View <n View <n View < View < View < View <n [id^="bab_aid"] < WebView < *',
           ],
@@ -1837,6 +1857,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '开心收下',
+          actionDelay: 1000,
           anyMatches: [
             '@[text="开心收下"][clickable=true] <n View <n View < View < View < View < View < View < View < View <n [id^="bab_aid"] < WebView < *',
             '@[text="开心收下"][clickable=true] <n View < View <n View < View < View < View < View < View < View < View < View <n [id^="bab_aid"] < WebView < *',
@@ -1845,6 +1866,7 @@ export default defineGkdApp({
         {
           key: 3,
           name: '我知道了',
+          actionDelay: 1000,
           matches: [
             '[text="我知道了"] < @View[clickable=true] <n View <n View <n View < View < View < View <n [id^="bab_aid"] < WebView < *',
           ],
@@ -1856,6 +1878,7 @@ export default defineGkdApp({
         {
           key: 4,
           name: '明天继续',
+          actionDelay: 1000,
           matches: [
             '[text="明天继续"] < @View[clickable=true] <n View <n View <n View < View < View < View <n [id^="bab_aid"] < WebView < *',
           ],
@@ -1907,6 +1930,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       activityIds: [
         '.WebActivity',
+        '.personel.FloatViewActivity',
         'com.jd.lib.ttt.page.TTTMultiPageActivity',
         'com.jd.lib.babel.view.activity.BabelActivity',
       ],
@@ -1920,7 +1944,7 @@ export default defineGkdApp({
         },
         {
           key: 110,
-          actionDelay: 2000,
+          actionDelay: 1000,
           anyMatches: [
             '@[desc$="去浏览" || text$="去浏览"][clickable=true] <n View <n [name$="Dialog"] < [name$="Dialog"] <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
             '@[desc$="去浏览" || text$="去浏览"][clickable=true] <n View <n View <n [name$="Dialog"] < [name$="Dialog"] <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
@@ -2327,6 +2351,63 @@ export default defineGkdApp({
         },
       ],
     },
+    //东东农场
+    //https://pro.m.jd.com/mall/active/42HV4J3Q87B2xFQMJk81PCc1mEs3/index.html
+    //https://h5.m.jd.com/pb/015686010/Bc9WX7MpCW7nW9QjZ5N3fFeJXMH/index.html
+    {
+      key: 232,
+      name: '东东农场-参与固定渠道任务',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '去首页领取',
+          actionDelay: 2000,
+          matches: [
+            '[text="关闭弹窗"] - @[text="参与固定渠道任务"][clickable=true] < View < View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '首页频道-东东农场',
+          matches: [
+            '@[desc="东东农场"][clickable=true] > ViewGroup > [text="东东农场"]',
+          ],
+          activityIds: ['.MainFrameActivity'],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          name: '开心收下-×',
+          matches: [
+            '@TextView[clickable=true] - Image < View < View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
+    {
+      key: 232,
+      name: '东东农场-弹窗-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['com.jd.lib.babel.view.activity.BabelActivity'],
+      rules: [
+        {
+          key: 0,
+          name: '恭喜获得水滴-我知道了-×',
+          matches: [
+            '@[text="关闭"][clickable=true] <n View < View < View < View <n [id^="bab_aid"] < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+      ],
+    },
     //京豆摇一摇
     //https://pro.m.jd.com/mall/active/3v9ux57AgAdJ6PuFPijC6HZzFYkC/index.html
     {
@@ -2385,6 +2466,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          name: '我的-关注',
           matches: [
             '@Button[desc^="关注"][clickable=true] > [getChild(0).getChild(0).text~="[0-9]{2,}"] - ViewGroup > [text="关注"]',
           ],
@@ -2405,6 +2487,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '管理',
           matches: [
             '@[text="管理"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
@@ -2412,6 +2495,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          name: '已选0个店铺',
           matches: [
             '@[text="取消关注"][clickable=true] - [getChild(0).desc="已选0个店铺"] < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
@@ -2419,6 +2503,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          name: '已选*个店铺',
           matches: [
             '@[text="取消关注"][clickable=true] - [getChild(0).desc~="已选[1-9]+个店铺"] < View <n View < View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
@@ -2426,6 +2511,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          name: '确定',
           matches: [
             '@[desc="确定"][clickable=true] -n [text="取消关注"] < AlertDialog < View <n View <n [id^="bab_aid"] < WebView < *',
           ],
@@ -2445,6 +2531,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '管理',
           matches: [
             '@[text="管理"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
@@ -2452,6 +2539,7 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          name: '全选未选择',
           matches: [
             '@[desc="全选未选择"][clickable=true] < View < View <n View <n View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
@@ -2459,6 +2547,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
+          name: '全选已选择-取消收藏',
           matches: [
             '@[text="取消收藏(10)"][clickable=true] - [getChild(0).desc="全选已选择"] < View <n View <n View < View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
@@ -2466,6 +2555,7 @@ export default defineGkdApp({
         {
           preKeys: [2],
           key: 3,
+          name: '取消收藏-确定',
           matches: [
             '@[text="确定"][clickable=true] -n [text="取消收藏"] < AlertDialog <n View <n [id^="bab_aid"] < WebView < *',
           ],
@@ -2485,6 +2575,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '管理',
           matches: [
             '@[text="管理"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
@@ -2492,15 +2583,17 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          name: '清空',
           matches: [
-            'View - @ImageView < ViewGroup < ViewGroup <n ViewGroup < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < RecyclerView < ViewPager < FrameLayout <n RelativeLayout < [id="android:id/content"]',
+            '@[text="清空"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
           preKeys: [1],
           key: 2,
+          name: '确认删除',
           matches: [
-            'View < @ViewGroup - View - ViewGroup < ViewGroup <n ViewGroup < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < RecyclerView < ViewPager < FrameLayout <n RelativeLayout < [id="android:id/content"]',
+            'View < @ViewGroup[index=parent.childCount.minus(1)] <n ViewGroup <n ViewGroup < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < RecyclerView < ViewPager < FrameLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
