@@ -569,7 +569,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '@ImageView[index=parent.childCount.minus(1)] < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
+            '@ImageView <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: ['.live.LiveDummyActivity'],
         },
@@ -1421,7 +1421,7 @@ export default defineGkdApp({
     },
     {
       key: 90,
-      name: '支付成功',
+      name: '哈啰-支付成功',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1430,20 +1430,17 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '弹窗广告-×',
           matches: [
-            '@ImageButton[clickable=true] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
+            '@[name*="Image"] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"] < View < [id="root"] < View < WebView < WebView < FrameLayout < FrameLayout < FrameLayout < LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
+          name: '返回商户',
           actionDelay: 5000,
-          action: 'back',
-          matches: ['@[desc="返回"] +n ScrollView [desc="返回商户"]'],
-        },
-        {
-          key: 2,
           matches: [
-            '@[text^="nP+4b4Fvph+"] + View >n [text="您有1个奖励待领取"]',
+            'ViewGroup < @[desc="返回商户"] <n LinearLayout < HorizontalScrollView < ScrollView <n FrameLayout < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
