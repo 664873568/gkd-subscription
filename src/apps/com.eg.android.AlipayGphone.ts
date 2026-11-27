@@ -32,7 +32,7 @@ export default defineGkdApp({
           preKeys: [0, 1, 20],
           key: 1,
           name: '任务完成 返回领奖>',
-          action: 'clickCenter',
+          action: 'back',
           matches: [
             'TextView - View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
           ],
@@ -41,7 +41,7 @@ export default defineGkdApp({
           preKeys: [2, 40, 50, 51, 52, 400, 401],
           key: 2,
           name: '已浏览完成 返回>',
-          action: 'clickCenter',
+          action: 'back',
           matches: [
             '[text="返回>"] - [text="已浏览完成"] < View <n @View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
           ],
@@ -49,7 +49,7 @@ export default defineGkdApp({
         {
           preKeys: [3, 70],
           key: 3,
-          action: 'clickCenter',
+          action: 'back',
           matches: [
             '@TextView[clickable=true] < [id="app"] <n [text="悬浮球模版"] < WebView <n [desc*="180020570000041693"] < FrameLayout <n [id="android:id/content"]',
           ],
@@ -994,7 +994,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: ['@View[clickable=true] > [text="今日签到"]'],
+          matches: [
+            '[text="今日签到"] < @View[clickable=true] <n View <n View < [id="app"] < WebView < WebView <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+          ],
+          excludeMatches: [
+            '@View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
+          ],
         },
         {
           key: 70,
@@ -1003,7 +1008,7 @@ export default defineGkdApp({
             '@[text="去完成"][clickable=true] -2 [getChild(0).text~=".*一.*|开启.*"] <n View < [id="app"] < WebView < WebView <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
           excludeMatches: [
-            '@View[clickable=true] > [text="今日签到"]',
+            '[text="今日签到"] < @View[clickable=true] <n View <n View < [id="app"] < WebView < WebView <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
             '@[text="领奖励"][clickable=true] <n View < [id="app"] < WebView < WebView <n FrameLayout < [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
             '@View[clickable=true] < View < [id="app"] < [text="Smallfish App"] < WebView <n [desc*="180020570000060569"] < FrameLayout <n [id="android:id/content"]',
           ],
@@ -1560,8 +1565,8 @@ export default defineGkdApp({
           key: 1,
           name: '×',
           anyMatches: [
-            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View < View <n View - TextView < View < View <n WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
-            '@TextView[index=parent.childCount.minus(1)][clickable=true] <n View < View < View <n View - TextView < View < View <n WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@TextView[index=parent.childCount.minus(1)][clickable=true] -n @TextView[clickable=true] <n View < View <n View - TextView < View < View <n WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@TextView[index=parent.childCount.minus(1)][clickable=true] -n @TextView[clickable=true] <n View < View < View <n View - TextView < View < View <n WebView < WebView <n FrameLayout <n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           ],
         },
         {
