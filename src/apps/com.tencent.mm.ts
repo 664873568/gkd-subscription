@@ -135,7 +135,7 @@ export default defineGkdApp({
     },
     {
       key: 10,
-      name: '京东金融',
+      name: '京东购物-京东金融',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -225,7 +225,7 @@ export default defineGkdApp({
     },
     //26.10.20-26.12.31 幸运大转盘
     {
-      key: 12,
+      key: 20,
       name: '京东小哥-幸运大转盘',
       forcedTime: 60000,
       matchRoot: true,
@@ -303,6 +303,8 @@ export default defineGkdApp({
             '@[text~="抽奖按钮 剩余[1-9]次"][clickable=true] < View <n View < View < View < View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
           ],
           excludeMatches: [
+            '@Image < View < View <n View < View < View < View - TextView < WebView',
+            '@Image[width=height] < View < View < View < View < View - TextView < WebView',
             '@[text~="签到|去领取|领取+1"] < View <n View <n View - [text="获得更多抽奖次数"]',
             '@TextView[width=height] - [getChild(3).text~="我知道了|领取成功"] < View <n View < [id*="/pages/luckyGift/index"] < [id="app"] < WebView',
           ],
@@ -320,7 +322,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 20,
+      key: 30,
       name: '迅雷-看广告-领取',
       forcedTime: 60000,
       matchRoot: true,
@@ -337,7 +339,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 21,
+      key: 31,
       name: '迅雷-关闭-已获得奖励',
       forcedTime: 60000,
       matchRoot: true,
@@ -352,7 +354,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 22,
+      key: 32,
       name: '迅雷-看广告',
       forcedTime: 60000,
       matchRoot: true,
