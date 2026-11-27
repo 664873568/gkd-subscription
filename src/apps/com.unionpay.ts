@@ -103,7 +103,7 @@ export default defineGkdApp({
         {
           preKeys: [5,6,7],
           key: 8,
-          name: '弹窗-×',
+          name: '弹窗-××',
           actionDelay: 1000,
           matches: [
             'Image[index=parent.childCount.minus(1)] < @View <n View < View <n View < WebView < WebView < [vid="view_content_container"]',
