@@ -15,6 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 100,
           matches: [
             '[text="条件达成"] - [text="连续签到20天"] - [text="50元"] < @View[clickable=true] <n [id="app"] < WebView < WebView < FrameLayout <n ViewGroup - [vid="status_layout"]',
           ],
@@ -421,8 +422,7 @@ export default defineGkdApp({
       name: '导流结果弹窗-×',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -441,8 +441,7 @@ export default defineGkdApp({
       name: '导流结果弹窗-收下并送出',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -459,7 +458,7 @@ export default defineGkdApp({
       name: '打开通知权限-×',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -475,7 +474,7 @@ export default defineGkdApp({
       name: '发现新版本-立即下载-×',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -494,7 +493,7 @@ export default defineGkdApp({
       name: '剪切板-不允许',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -514,7 +513,7 @@ export default defineGkdApp({
       name: '未成年模式-知道了',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -533,7 +532,7 @@ export default defineGkdApp({
       name: '好评-以后再说',
       forcedTime: 60000,
       matchRoot: true,
-      actionMaximum: 1,
+      matchDelay: 1000,
       resetMatch: 'activity',
       rules: [
         {
@@ -552,6 +551,7 @@ export default defineGkdApp({
       name: '开启悬浮小窗功能-暂不开启',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         'com.yy.mobile.ui.common.JsSupportWebAcitivity',
