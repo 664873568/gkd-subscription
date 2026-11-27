@@ -808,8 +808,9 @@ export default defineGkdApp({
         {
           actionCd: 100,
           anyMatches: [
-            '@[text="领券抢"][clickable=true] -n [text="趣尝鲜五谷鲜鸡蛋15枚"] < View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
-            '@[text="领券抢"][clickable=true] - [getChild(1).text="15枚鲜蛋"] < View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+            '[text="趣尝鲜五谷鲜鸡蛋15枚"] +n @[text="领券抢"][clickable=true] <n View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+            '[text="15枚鲜蛋"] <n View + @[text="领券抢"][clickable=true] <n View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
+            '[text="4.90"] <n View <n View + @[text="领券抢购"][clickable=true] <n View < View < View < View <n View <n View < [id="J_babelOptPage"] < [id="J_babelOpt"] < [id^="bab_aid"] < WebView < *',
           ],
           activityIds: [
             'com.jd.lib.ttt.page.TTTMultiPageActivity',
