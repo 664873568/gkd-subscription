@@ -285,10 +285,7 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: [
-        '.activities.MainActivity',
-        'com.qq.e.tg.ADActivity',
-      ],
+      activityIds: ['.activities.MainActivity', 'com.qq.e.tg.ADActivity'],
       rules: [
         {
           key: 0,
@@ -398,7 +395,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [3,5],
+          preKeys: [3, 5],
           key: 6,
           name: '恭喜已获得奖励-×',
           matches: [
