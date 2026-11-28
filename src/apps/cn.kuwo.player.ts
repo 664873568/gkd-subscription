@@ -301,13 +301,6 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
-          name: '看广告详情5秒共领*金币',
-          matches: [
-            '[text="看广告详情"] <n @View[clickable=true] <n View < View <n View < WebView < WebView < [vid="pull_to_fresh"]',
-          ],
-        },
-        {
           preKeys: [1],
           key: 2,
           name: '返回-< ×',
@@ -321,9 +314,27 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 16,
+      name: '赚金币-看广告详情5秒共领*金币',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      activityIds: ['.activities.MainActivity', 'com.qq.e.tg.ADActivity'],
+      rules: [
+        {
+          key: 16,
+          name: '看广告详情',
+          matches: [
+            '[text="看广告详情"] <n @View[clickable=true] <n View < View <n View < WebView < WebView < [vid="pull_to_fresh"]',
+          ],
+        },
+      ],
+    },
     //看广告
     {
-      scopeKeys: [14],
+      scopeKeys: [14,16],
       key: 20,
       name: '看视频-点击广告浏览|后，看15秒可获得奖励',
       forcedTime: 60000,
@@ -337,7 +348,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [14],
+          preKeys: [14,16],
           key: 0,
           name: '点击浏览15秒',
           actionDelay: 2000,
@@ -380,7 +391,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [14],
+          preKeys: [14,16],
           key: 4,
           name: '下载游戏|下载应用|立即下载|立即抢购|去微信看看|查看详情',
           actionDelay: 2000,
