@@ -254,7 +254,7 @@ export default defineGkdApp({
     //功能应用类
     {
       key: 40,
-      name: '首页广告-跳过',
+      name: '喜欢加油宝吗?-高冷拒绝',
       forcedTime: 60000,
       matchRoot: true,
       actionMaximum: 1,
