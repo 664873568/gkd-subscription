@@ -570,7 +570,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,2],
+          preKeys: [0, 2],
           key: 1,
           action: 'back',
           actionDelay: 1000,
@@ -2393,7 +2393,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [1,2],
+          preKeys: [1, 2],
           key: 3,
           name: '开心收下-×',
           matches: [
