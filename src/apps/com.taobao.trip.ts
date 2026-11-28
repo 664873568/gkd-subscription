@@ -179,7 +179,7 @@ export default defineGkdApp({
           key: 0,
           actionDelay: 3000,
           matches: [
-            '@Button[text!~=".*逛中国移动|去淘宝点商品领红包|去支付宝领福利|.*许愿星|.*抽奖券|.*猜对价格领奖励"][clickable=true] < View <n View -n Image < View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|去淘宝点商品领红包|去支付宝领(福利|现金)|.*许愿星|.*抽奖券|.*猜对价格领奖励"][clickable=true] < View <n View -n Image < View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
             '@Button[clickable=true] - Image < View < View <n View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
@@ -222,10 +222,10 @@ export default defineGkdApp({
         {
           actionDelay: 2000,
           matches: [
-            '@Button[text~="去淘宝点商品领红包|去支付宝领福利|.*许愿星|.*抽奖券"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text~="去淘宝点商品领红包|去支付宝领(福利|现金)|.*许愿星|.*抽奖券"][clickable=true] < View <n View <n View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
           excludeMatches: [
-            '@Button[text!~=".*逛中国移动|去淘宝点商品领红包|去支付宝领福利|.*许愿星|.*抽奖券|.*猜对价格领奖励"][clickable=true] < View <n View -n Image < View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
+            '@Button[text!~=".*逛中国移动|去淘宝点商品领红包|去支付宝领(福利|现金)|.*许愿星|.*抽奖券|.*猜对价格领奖励"][clickable=true] < View <n View -n Image < View < View < View <n View < [id="pcraft-container"] < [id="root"] < WebView < * <n WebView <n [vid="trip_pull_container"]',
           ],
         },
       ],
@@ -316,7 +316,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 3000,
           matches: [
-            '@ImageView[vid="progress"] < [vid="body"] - ImageView < FrameLayout < [id="android:id/content"]',
+            '@ImageView[vid="progress"] < [vid="body"] - ImageView < FrameLayout < [id="android:id/content"]','
           ],
           activityIds: [
             'fliggyx.android.unicorn.ActWebviewActivity',
@@ -512,6 +512,7 @@ export default defineGkdApp({
           name: '×',
           anyMatches: [
             '@ImageView[clickable=true] < RelativeLayout < RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '@ImageView[width=height][clickable=true] - [text="反馈"] <n RelativeLayout < RelativeLayout < RelativeLayout < [id="android:id/content"]',
             '@ImageView[width=height][clickable=true] - RelativeLayout - RelativeLayout < RelativeLayout - RelativeLayout < RelativeLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
