@@ -117,13 +117,14 @@ export default defineGkdApp({
       name: '用户隐私授权提示-同意',
       forcedTime: 60000,
       matchRoot: true,
-      matchTime: 10000,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['.liteapp.app.UPLiteAppActivity'],
       rules: [
         {
+          actionDelay: 1000,
           matches: [
-            '[text="用户隐私授权提示"][vid="tv_dialog_title"] < [vid="view_dialog_title_container"] +n [vid="view_dialog_btn_container"] > [text="拒绝"][vid="btn_cancel"] + @[text="同意"][vid="btn_ok"][clickable=true]',
+            '@[text="同意"][vid="btn_ok"][clickable=true] <n LinearLayout -n LinearLayout > [text="用户隐私授权提示"][vid="tv_dialog_title"]',
           ],
         },
       ],
@@ -139,6 +140,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          actionDelay: 1000,
           matches: [
             '@[text="确定"][clickable=true] <n AlertDialog <n [id="root-router-view"] < [id="app"] < View < WebView < WebView < [vid="view_content_container"]',
           ],
