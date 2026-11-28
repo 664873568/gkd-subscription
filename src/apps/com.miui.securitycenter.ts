@@ -116,6 +116,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 13,
+      name: '启动应用-拒绝-快手',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[text="拒绝"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~=".*想要打开 快手.*"][vid="event_title"]',
+          ],
+          activityIds: ['com.miui.wakepath.ui.ConfirmStartActivity', 'null'],
+        },
+      ],
+    },
     //启动应用-本次允许
     {
       key: 20,
