@@ -826,6 +826,7 @@ export default defineGkdApp({
       matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
+        'com.kwad.sdk.api.proxy.app.AdWebViewActivity',
         'com.kwad.sdk.api.proxy.app.FeedDownloadActivity',
         'com.kwad.sdk.api.proxy.app.KsRewardVideoActivity',
         'com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity',
@@ -833,8 +834,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '看*秒可直接拿奖励',
-          matches: [
+          name: '*|*秒后可领取奖励|看*秒可直接拿奖励',
+          anyMatches: [
+            '@[text~=".*免看.*广告|点击下载.*|点击跳转.*|.*拿奖励.*|.*再试一次.*"][clickable=true] < ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
             '@[text~=".*免看.*广告|点击下载.*|点击跳转.*|.*拿奖励.*|.*再试一次.*"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
           ],
           excludeMatches: [
@@ -866,40 +868,37 @@ export default defineGkdApp({
         {
           key: 4,
           name: '跳过',
-          matches: [
+          anyMatches: [
+            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
             '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@[text="看10秒可直接拿奖励"] <n ViewGroup[clickable=true] < ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+            '@[text~=".*秒后可领取奖励|看.*秒可直接拿奖励"] <n ViewGroup[clickable=true] < ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+            '@[text~="[0-9]+"] < ViewGroup + [desc="sound_button"] <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
             '@[text~="[0-9]+"] < ViewGroup + [desc="sound_button"] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 5,
-          name: '跳过-下载app可直接拿奖励',
-          matches: [
-            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n * [text="下载app可直接拿奖励"]',
+          name: '×-立即获取|免费获取',
+          anyMatches: [
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 6,
-          name: '坚持退出-下载app就能获得奖励',
+          name: '二级广告页-< ×',
           matches: [
-            '@[text="坚持退出"][clickable=true] < ViewGroup <n * [text="下载app就能获得奖励"] + [text="确定退出吗？"]',
+            'TextView - @ImageView[width=height][id$="close"][clickable=true] - ImageView[id$="back"] < RelativeLayout < LinearLayout < RelativeLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 7,
-          name: '不用了',
+          name: '残忍离开',
           matches: [
-            '[desc="auto_call_view"] > [desc="auto_call_close_button"] > @[text="不用了"][clickable=true]',
-          ],
-        },
-        {
-          key: 8,
-          name: '×-立即获取|免费获取',
-          matches: [
-            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+            '@[text="残忍离开"][clickable=true] < LinearLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
       ],
