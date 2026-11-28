@@ -4,6 +4,23 @@ export default defineGkdApp({
   id: 'com.taobao.idlefish',
   name: '闲鱼',
   groups: [
+    {
+      key: 10,
+      name: '搜索有福利-<',
+      forcedTime: 60000,
+      matchRoot: true,
+      matchDelay: 1000,
+      resetMatch: 'activity',
+      rules: [
+        {
+          actionDelay: 5000,
+          matches: [
+            'Image[width=height] < @[id="btnback"][clickable=true] - [text="搜索有福利"] <n View < [text="淘宝精选"] < * <n [desc="WVUCWebView"] < [vid="webview_layout"]',
+          ],
+          activityIds: ['.webview.WebHybridActivity'],
+        },
+      ],
+    }
     //看视频-.ads.ylh.YlhPortraitADActivity
     {
       key: 20,
@@ -157,7 +174,7 @@ export default defineGkdApp({
     },
     //首页广告类
     {
-      key: 51,
+      key: 501,
       name: '弹窗广告-×',
       forcedTime: 60000,
       matchRoot: true,
