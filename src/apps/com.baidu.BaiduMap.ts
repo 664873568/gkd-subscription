@@ -1150,13 +1150,6 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 3,
-          name: '恭喜获得天选福利',
-          matches: [
-            '@[desc~=".*easy-playable_scene.*_actionBtn"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
-          ],
-        },
-        {
           key: 4,
           name: '再看*秒，即可获得奖励',
           matches: [
