@@ -96,5 +96,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 51,
+      name: '弹窗广告-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      matchTime: 10000,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            'ImageView < @[vid="v_close"][clickable=true] <n LinearLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['.homepage.Homepage'],
+        },
+      ],
+    },
   ],
 });
