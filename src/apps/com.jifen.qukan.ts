@@ -36,6 +36,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 41,
+      name: '立即更新-×',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'activity',
+      rules: [
+        {
+          matches: [
+            '@[vid="qkui_dialog_btn_negative_ver"][clickable=true] < FrameLayout + * [text="立即更新"][vid="qkui_dialog_btn_positive_ver"]',
+          ],
+          activityIds: ['com.jifen.qkbase.main.MainActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
