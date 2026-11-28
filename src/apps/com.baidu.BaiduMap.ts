@@ -393,6 +393,7 @@ export default defineGkdApp({
           anyMatches: [
             '@[text~="领取.*金币.*"] < View[clickable=true] - [text="翻到炸弹啦"] < View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
             '@[text~="领取.*金币.*"] < View[clickable=true] < View - [text="翻到炸弹咯"] < View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
+            '@[text~="拆除炸弹 继续翻.*"] < View[clickable=true] <n View < View - [text="翻到炸弹咯"] < View <n View <n View < View <n WebView < WebView < [vid="frameLayout1"]',
           ],
         },
         {
@@ -1644,13 +1645,24 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          name: '已获得奖励-跳过',
+          name: '继续播放视频内容',
           matches: [
-            '@[id="close_btn"][clickable=true] -n [getChild(1).text="已获得奖励"] < [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '@[text="继续播放视频内容"][clickable=true] - [id="lottie-container"] < View < View <n [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text="跳过"] -n [text~="[0-9]+"] < @[id="close_btn"][clickable=true] <n View < [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 3,
+          name: '已获得奖励-跳过',
+          anyMatches: [
+            '@[id="close_btn"][clickable=true] - [text="已获得奖励"] <n View < [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '@[id="close_btn"][clickable=true] -n [getChild(1).text="已获得奖励"] < [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 4,
           name: '下载并安装领取奖励-跳过',
           matches: [
             '@[text="跳过"][clickable=true] <n [id="close_btn"] <n View +n * [text="下载并安装领取奖励" || text="立即下载"]',
@@ -1661,7 +1673,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 4,
+          key: 5,
           name: '*放弃领*奖',
           anyMatches: [
             '@[text="是"][clickable=true] < View - [text="是否放弃领奖？"] < AlertDialog <n View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
@@ -1669,7 +1681,7 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 5,
+          key: 6,
           name: '立即下载-×',
           anyMatches: [
             '@[id="close_btn"][clickable=true] <n [id="ad_area"] < [id="app"] < View < WebView < WebView < FrameLayout <n FrameLayout < RelativeLayout < [id="android:id/content"]',
