@@ -620,7 +620,7 @@ export default defineGkdApp({
     //看视频-com.beizi.ad.v2.activity.BeiZiNewRewardVideoActivity
     {
       key: 30,
-      name: '看视频',
+      name: '看视频-关闭',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -629,20 +629,36 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '观看*秒广告领取奖励/*秒后可领取奖励',
+          actionDelay: 1000,
           matches: [
-            '@[vid="beizi_reward_video_privilege_dialog_container_ll"] >n [text="提前领奖"][vid="beizi_reward_video_privilege_dialog_interaction_title_tv"]',
+            '@[text~="提前领奖|继续领奖"] <n LinearLayout <n LinearLayout < LinearLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
+          name: '残忍离开',
+          actionDelay: 5000,
           matches: [
-            '@[text="关闭广告"][vid="beizi_reward_video_cancel_privilege_dialog_tv"][clickable=true] <n * + * [text="立即领取 ｜ 关闭广告"][vid="beizi_reward_video_ad_get_rewards_close_tv"]',
+            '@[text="残忍离开"][clickable=true] <n LinearLayout < RelativeLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 2,
+          name: '关闭广告',
           matches: [
-            '@[text="已经获得奖励 ｜ 关闭"][vid="beizi_reward_video_ad_end_car_close_tv"][clickable=true]',
+            '@[text="关闭广告"][clickable=true] <n LinearLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 3,
+          name: '关闭',
+          matches: [
+            '@TextView[text~="(立即领取 ｜ 关闭广告)|(已经获得奖励 ｜ 关闭)"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text~="观看.*秒广告领取奖励"][clickable=true] < LinearLayout <n RelativeLayout <n RelativeLayout < [id="android:id/content"]',
+            '@[text="关闭广告"][clickable=true] <n LinearLayout <n RelativeLayout < [id="android:id/content"]',
           ],
         },
       ],
@@ -650,7 +666,7 @@ export default defineGkdApp({
     //看视频-com.hellobike.homepage.dialog.welfare.flow.RewardProxyActivity
     {
       key: 40,
-      name: '看视频',
+      name: '看视频-×hellobike',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
