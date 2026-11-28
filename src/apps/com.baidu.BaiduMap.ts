@@ -1117,8 +1117,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '*秒后可领取奖励|看*秒可直接拿奖励',
-          matches: [
+          name: '*|*秒后可领取奖励|看*秒可直接拿奖励',
+          anyMatches: [
+            '@[text~=".*免看.*广告|点击下载.*|点击跳转.*|.*拿奖励.*|.*再试一次.*"][clickable=true] < ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
             '@[text~=".*免看.*广告|点击下载.*|点击跳转.*|.*拿奖励.*|.*再试一次.*"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
           ],
           excludeMatches: [
@@ -1150,11 +1151,13 @@ export default defineGkdApp({
         {
           key: 4,
           name: '跳过',
-          matches: [
+          anyMatches: [
+            '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
             '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
             '@[text~=".*秒后可领取奖励|看.*秒可直接拿奖励"] <n ViewGroup[clickable=true] < ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+            '@[text~="[0-9]+"] < ViewGroup + [desc="sound_button"] <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
             '@[text~="[0-9]+"] < ViewGroup + [desc="sound_button"] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
