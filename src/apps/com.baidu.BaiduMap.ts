@@ -1853,6 +1853,7 @@ export default defineGkdApp({
           name: '反馈-×',
           anyMatches: [
             '@ImageView[width=height][index=parent.childCount.minus(1)] < RelativeLayout - View[clickable=true] - FrameLayout < RelativeLayout < [id="android:id/content"]',
+            '@TextView[clickable=true] - [text="反馈"] < View < [id="app"] < View < WebView < WebView < FrameLayout < RelativeLayout < [id="android:id/content"]',
             '@TextView[clickable=true] - [text="反馈"] < [id="ad_area"] < View < [id="app"] < WebView < WebView < FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
             '@[id="close_btn"][clickable=true] < View < View < View < View < [id="app"] < WebView < WebView < FrameLayout < FrameLayout < RelativeLayout < [id="android:id/content"]',
           ],
