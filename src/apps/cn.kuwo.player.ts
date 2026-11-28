@@ -169,7 +169,7 @@ export default defineGkdApp({
             '@[text~="立即下载|安装"][clickable=true] < View <n [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]',
             '@[text~="立即下载|安装"][clickable=true] < View < View < View <n [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]',
             '@[text~="立即下载|安装"] <n View < View < View < View <n View <n View < View < [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]',
-            '@[text~="立即下载|安装"] < View < View < View < View < View < View <n View <n View < View < [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]'
+            '@[text~="立即下载|安装"] < View < View < View < View < View < View <n View <n View < View < [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]',
           ],
           activityIds: ['com.qq.e.tg.PortraitADActivity'],
         },
@@ -334,7 +334,7 @@ export default defineGkdApp({
     },
     //看广告
     {
-      scopeKeys: [14,16],
+      scopeKeys: [14, 16],
       key: 20,
       name: '看视频-点击广告浏览|后，看15秒可获得奖励',
       forcedTime: 60000,
@@ -348,7 +348,7 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          preKeys: [14,16],
+          preKeys: [14, 16],
           key: 0,
           name: '点击浏览15秒',
           actionDelay: 2000,
@@ -391,7 +391,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [14,16],
+          preKeys: [14, 16],
           key: 4,
           name: '下载游戏|下载应用|立即下载|立即抢购|去微信看看|查看详情',
           actionDelay: 2000,
