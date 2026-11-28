@@ -20,7 +20,7 @@ export default defineGkdApp({
           activityIds: ['.webview.WebHybridActivity'],
         },
       ],
-    }
+    },
     //看视频-.ads.ylh.YlhPortraitADActivity
     {
       key: 20,
