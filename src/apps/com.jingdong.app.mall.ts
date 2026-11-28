@@ -19,7 +19,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          action: 'back',
+          action: 'clickCenter',
           matches: [
             '[desc="返回"] +n RelativeLayout > [text*="金融" || text*="京东特价版" || text="加载页面"]',
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] <n [id="android:id/content"]',
@@ -27,10 +27,11 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          action: 'back',
+          action: 'clickCenter',
           matches: [
             '@[text="此功能需访问京东金融APP"] <n View < View <n View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
             '[text="back"] < @View[clickable=true] < View < [id="J_ui-div"] < View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
+            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] <n [id="android:id/content"]',
           ],
         },
         {
@@ -39,12 +40,12 @@ export default defineGkdApp({
           matches: [
             '@[text="此功能需访问京东金融APP"] <n View < View <n View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
             '[text="back"] < @View[clickable=true] < View < [id="J_ui-div"] < View < WebView < * < FrameLayout < RelativeLayout < FrameLayout < LinearLayout <n RelativeLayout < RelativeLayout <n FrameLayout < LinearLayout < [id="android:id/content"]',
-            '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] <n [id="android:id/content"]',
           ],
         },
         {
           key: 3,
           action: 'back',
+          actionDelay: 6000,
           matches: [
             '@[desc="返回"][clickable=true] +n RelativeLayout > [text="看视频赚现金" || text="去京东金融领京豆" || text$="签到领现金"]',
           ],
@@ -102,6 +103,7 @@ export default defineGkdApp({
           ],
           key: 1,
           name: '已完成 点击立即返回',
+          action: 'clickCenter',
           matches: [
             '[text="点击立即返回"] - [getChild(0).getChild(0).text="已完成"] < LinearLayout <n RelativeLayout < @RelativeLayout[clickable=true] <n [id="android:id/content"]',
           ],
@@ -110,6 +112,7 @@ export default defineGkdApp({
           preKeys: [0, 2, 60, 61, 70, 100],
           key: 2,
           name: '已完成 点击立即返回×',
+          action: 'clickCenter',
           matches: [
             '@RelativeLayout[childCount=1][clickable=true] - * < [id="android:id/content"]',
           ],
