@@ -260,7 +260,7 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0,1],
+          preKeys: [0, 1],
           key: 3,
           name: '二级广告页-×',
           action: 'back',
@@ -268,7 +268,9 @@ export default defineGkdApp({
           matches: [
             '@[vid="h5_tv_nav_back_to_home"][clickable=true] < RelativeLayout <n LinearLayout < FrameLayout <n RelativeLayout < RelativeLayout <n RelativeLayout <n FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.mpaas.mriver.integration.MriverActivityBase$SingletonActivity'],
+          activityIds: [
+            'com.mpaas.mriver.integration.MriverActivityBase$SingletonActivity',
+          ],
         },
         {
           key: 4,
@@ -671,7 +673,9 @@ export default defineGkdApp({
       matchRoot: true,
       matchDelay: 1000,
       resetMatch: 'activity',
-      activityIds: ['com.hellobike.homepage.dialog.welfare.flow.RewardProxyActivity'],
+      activityIds: [
+        'com.hellobike.homepage.dialog.welfare.flow.RewardProxyActivity',
+      ],
       rules: [
         {
           key: 0,
