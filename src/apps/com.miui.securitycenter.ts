@@ -10,13 +10,14 @@ export default defineGkdApp({
       name: '请用指纹解锁',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.miui.applicationlock.AppLockActivity'],
       rules: [
         {
           key: 0,
           action: 'back',
-          actionDelay: 11000,
+          actionDelay: 10000,
           matches: [
             '@[text="请用指纹解锁"][vid="face_lock_tip"] <n LinearLayout < ScrollView < ViewGroup <n [id="android:id/content"]',
           ],
@@ -45,6 +46,7 @@ export default defineGkdApp({
       name: '请用指纹解锁-快应用',
       forcedTime: 60000,
       matchRoot: true,
+      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: ['com.miui.applicationlock.AppLockActivity'],
       rules: [
@@ -125,7 +127,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
-          actionDelay: 5000,
+          actionDelay: 3000,
           matches: [
             '@[text="本次允许"][clickable=true] <n [vid="buttonPanel"] - * [text="启动应用"][vid="permission_group_title"] + [text~="京东金融.*(JoyAI|QQ阅读|京东健康|微信).*"][vid="event_title"]',
           ],
