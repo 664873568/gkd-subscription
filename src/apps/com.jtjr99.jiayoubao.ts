@@ -278,9 +278,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: [
-            '[text^="跳过"][vid="btn_skip"][clickable=true]',
-          ],
+          matches: ['[text^="跳过"][vid="btn_skip"][clickable=true]'],
           activityIds: ['.module.ucenter.enter.SplashScreenActivity'],
         },
       ],
