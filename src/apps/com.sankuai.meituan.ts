@@ -582,7 +582,7 @@ export default defineGkdApp({
       name: '看视频-任务已完成',
       forcedTime: 60000,
       matchRoot: true,
-      resetMatch: 'app',
+      resetMatch: 'activity',
       rules: [
         {
           key: 0,
@@ -592,49 +592,69 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          position: {
+            left: 'width * 0.932',
+            top: 'height * 0.132',
+          },
+          actionDelay: 1000,
+          matches: [
+            '@[desc^="签到得现金 点击即到账"] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RelativeLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.meituan.android.novel.library.page.reader.ReaderActivity'],
+        },
+        {
+          key: 2,
           action: 'back',
           actionDelay: 5000,
           matches: [
-            '@[vid="iv_reader_back"][clickable=true] < [vid="scroll_back_view"]',
+            '@[vid="iv_reader_back"][clickable=true] < LinearLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: [
-            'com.meituan.android.novel.library.page.reader.ReaderActivity',
+          excludeMatches: [
+            '@[desc^="签到得现金 点击即到账"] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RelativeLayout < [id="android:id/content"]',
           ],
+          activityIds: ['com.meituan.android.novel.library.page.reader.ReaderActivity'],
         },
         {
-          preKeys: [1, 2],
-          key: 2,
+          preKeys: [2],
+          key: 3,
+          action: 'back',
+          matches: [
+            'ImageView < @FrameLayout[clickable=true] < LinearLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['com.meituan.android.knb.core.StandardKnbActivity'],
+        },
+        {
+          preKeys: [2, 3],
+          key: 4,
           action: 'back',
           matches: [
             '[text="搜索"] <n View < View - @Image <<n [vid="container"] < [vid="msc_root"]',
           ],
-          activityIds: [
-            'com.meituan.android.novel.library.page.video.stream.NovelVideoActivity',
-          ],
+          activityIds: ['com.meituan.android.novel.library.page.video.stream.NovelVideoActivity'],
         },
         {
-          key: 3,
+          key: 5,
           matches: [
             '@[vid="msv_back"][clickable=true] < RelativeLayout < RelativeLayout - * ImageView < @ViewGroup[clickable=true]  + [text="连续签到"]',
           ],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
         {
-          key: 4,
+          key: 6,
           matches: [
             'ImageView < @ViewGroup[clickable=true] + ImageView + [text="无套路 一次性到账"] + ViewGroup + ViewGroup > [text="选一个免费拿"]',
           ],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
         {
-          preKeys: [0, 1, 2, 3, 4, 5],
-          key: 5,
+          preKeys: [0,4,5,6, 7],
+          key: 7,
           action: 'back',
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
         {
-          key: 6,
+          key: 8,
           action: 'back',
           actionDelay: 10000,
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
