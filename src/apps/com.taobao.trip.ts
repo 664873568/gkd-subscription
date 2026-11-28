@@ -342,7 +342,9 @@ export default defineGkdApp({
             '[text~=".*跳过"][vid="anythink_myoffer_splash_skip"] < @[vid="anythink_myoffer_splash_skip_area"][clickable=true]',
             '[text*="跳过"] < @FrameLayout[clickable=true] < FrameLayout < FrameLayout < LinearLayout <n FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity'],
+          activityIds: [
+            'com.fliggy.android.fliggy_3ad_sdk.Fliggy3adSplashActivity',
+          ],
         },
       ],
     },
@@ -447,7 +449,9 @@ export default defineGkdApp({
           matches: [
             '@[text="跳过"][clickable=true] - * [text="点击跳转至第三方页面"]',
           ],
-          activityIds: ['com.anythink.core.common.inner.ui.activity.ATMixSplashActivity'],
+          activityIds: [
+            'com.anythink.core.common.inner.ui.activity.ATMixSplashActivity',
+          ],
         },
       ],
     },
