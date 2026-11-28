@@ -1766,8 +1766,8 @@ export default defineGkdApp({
           key: 70,
           actionDelay: 2000,
           anyMatches: [
-            '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|消灭.*|.*笔.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View < View <n View < View < [id="page-container"] < WebView < * < [vid="webview"]',
-            '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|消灭.*|.*笔.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View <n View <n View < View < View < [id="page-container"] < View < WebView < * < [vid="webview"]',
+            '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|完成|消灭.*|.*笔.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View < View <n View < View < [id="page-container"] < WebView < * < [vid="webview"]',
+            '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|完成|消灭.*|.*笔.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View <n View <n View < View < View < [id="page-container"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
             '@[text="收下并开启今日挑战"][clickable=true] <n View < View < View < View <n [id="page-container"] < View < WebView < * < [vid="webview"]',
@@ -1780,8 +1780,8 @@ export default defineGkdApp({
             'Image < @View[clickable=true] < View <n View < View < View <n View < View < View < [id="page-container"] < View < WebView < * < [vid="webview"]',
           ],
           excludeMatches: [
-            '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|消灭.*|.*笔.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View < View <n View < View < [id="page-container"] < WebView < * < [vid="webview"]',
-            '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|消灭.*|.*笔.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View <n View <n View < View < View < [id="page-container"] < View < WebView < * < [vid="webview"]',
+            '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|完成|消灭.*|.*笔.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View < View <n View < View < [id="page-container"] < WebView < * < [vid="webview"]',
+            '[text="去完成"] - [getChild(0).getChild(0).text!~=".*话费|完成|消灭.*|.*笔.*|.*权益|加赠.*|开通.*|分享.*"] <n @View[clickable=true] <n View <n View < View <n View <n View <n View < View < View < [id="page-container"] < View < WebView < * < [vid="webview"]',
           ],
         },
       ],
