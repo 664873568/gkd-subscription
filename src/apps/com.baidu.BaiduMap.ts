@@ -1165,6 +1165,7 @@ export default defineGkdApp({
           key: 5,
           name: '×-立即获取|免费获取',
           anyMatches: [
+            'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
             'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
             'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
@@ -1339,29 +1340,49 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '或向下滑动继续试读',
+          swipeArg: {
+            start: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.75',
+            },
+            end: {
+              x: 'screenWidth*0.5',
+              y: 'screenHeight*0.25',
+            },
+            duration: 1000,
+          },
+          actionCd: 1000,
           matches: [
-            '[text="可获得奖励"] - [text="阅读小说"] < * <n * + RecyclerView >n @[text*="继续"]',
+            '[text="或向下滑动继续试读"] <n LinearLayout <n FrameLayout < @RecyclerView <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '@[text="继续体验15秒得奖励"] < LinearLayout < FrameLayout <n FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 1,
           name: '继续体验15秒得奖励',
           matches: [
-            '[text="可获得奖励"] - [text="阅读小说"] <n * <n * <n * @[text="继续体验15秒得奖励"]',
+            '@[text="继续体验15秒得奖励"] < LinearLayout < FrameLayout <n FrameLayout < FrameLayout < FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
         {
           key: 2,
-          name: '恭喜已经获得奖励！',
+          name: '恭喜已经获得奖励！-×',
           matches: [
-            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n * [text="恭喜已经获得奖励！"]',
+            '@[text="恭喜已经获得奖励！"] < LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+            'ImageView[width=height][index=parent.childCount.minus(1)] < @FrameLayout < FrameLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
+          ],
+          excludeMatches: [
+            '[text="可获得奖励"] - [text="阅读小说"] < @LinearLayout <n FrameLayout <n FrameLayout < RelativeLayout < FrameLayout < FrameLayout < LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
     },
     {
       key: 72,
-      name: '看视频-恭喜获得奖励-×',
+      name: '看视频-×qq',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -1460,10 +1481,11 @@ export default defineGkdApp({
           key: 9,
           name: '浏览页面*秒后即可获得奖励',
           matches: [
-            '@ImageView[clickable=true] - [getChild(0).text="恭喜获得奖励！"] - ImageView < LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            '@[text="恭喜获得奖励！"] < LinearLayout <n LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            '@ImageView[width=height][index=parent.childCount.minus(1)][clickable=true] <n LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
           excludeMatches: [
-            '@[text="秒后即可获得奖励"] - [text~="[0-9]+"] - [text="浏览页面"] < LinearLayout <n LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
+            '[text="秒后即可获得奖励"] - [text~="[0-9]+"] - [text="浏览页面"] < @LinearLayout <n LinearLayout < RelativeLayout < FrameLayout < FrameLayout <n LinearLayout < [id="android:id/content"]',
           ],
         },
       ],
