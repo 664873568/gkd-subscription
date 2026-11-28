@@ -316,7 +316,7 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 3000,
           matches: [
-            '@ImageView[vid="progress"] < [vid="body"] - ImageView < FrameLayout < [id="android:id/content"]','
+            '@ImageView[vid="progress"] < [vid="body"] - ImageView < FrameLayout < [id="android:id/content"]',
           ],
           activityIds: [
             'fliggyx.android.unicorn.ActWebviewActivity',
