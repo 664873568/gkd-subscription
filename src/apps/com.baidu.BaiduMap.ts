@@ -1150,7 +1150,21 @@ export default defineGkdApp({
           ],
         },
         {
+          key: 3,
+          name: '恭喜获得天选福利',
+          matches: [
+            '@[desc~=".*easy-playable_scene.*_actionBtn"][clickable=true] <n ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
           key: 4,
+          name: '再看*秒，即可获得奖励',
+          matches: [
+            '@[text="留下看看"][clickable=true] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
+          ],
+        },
+        {
+          key: 5,
           name: '跳过',
           anyMatches: [
             '@[text="跳过"][clickable=true] < ViewGroup < [desc="skip_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
@@ -1158,12 +1172,13 @@ export default defineGkdApp({
           ],
           excludeMatches: [
             '@[text~=".*秒后可领取奖励|看.*秒可直接拿奖励"] <n ViewGroup[clickable=true] < ViewGroup <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout <n [id="android:id/content"]',
+            '@[text="留下看看"][clickable=true] <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
             '@[text~="[0-9]+"] < ViewGroup + [desc="sound_button"] <n ViewGroup < ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
             '@[text~="[0-9]+"] < ViewGroup + [desc="sound_button"] <n ViewGroup < ViewGroup < ViewGroup < ViewGroup <n ViewGroup <n ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 5,
+          key: 6,
           name: '×-立即获取|免费获取',
           anyMatches: [
             'ImageView < ViewGroup < @ViewGroup[clickable=true] < [desc="close_button"] <n ViewGroup <n ViewGroup < ViewGroup <n ViewGroup < ViewGroup < FrameLayout < FrameLayout <n FrameLayout < [id="android:id/content"]',
@@ -1172,14 +1187,14 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 6,
+          key: 7,
           name: '二级广告页-< ×',
           matches: [
             'TextView - @ImageView[width=height][id$="close"][clickable=true] - ImageView[id$="back"] < RelativeLayout < LinearLayout < RelativeLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
-          key: 7,
+          key: 8,
           name: '残忍离开',
           matches: [
             '@[text="残忍离开"][clickable=true] < LinearLayout <n LinearLayout < FrameLayout < [id="android:id/content"]',
