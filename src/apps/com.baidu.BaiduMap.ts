@@ -1885,7 +1885,6 @@ export default defineGkdApp({
       name: '看视频-×-点击广告并停留*秒*获取奖励',
       forcedTime: 60000,
       matchRoot: true,
-      matchDelay: 1000,
       resetMatch: 'activity',
       activityIds: [
         'com.ubix.ssp.open.comm.UBiXVideoActivity',
@@ -1895,7 +1894,6 @@ export default defineGkdApp({
         {
           key: 0,
           name: '拿奖励',
-          actionDelay: 1000,
           matches: [
             '[text~=".*广告"] - @TextView[clickable=true] -n [text~="点击广告并停留.*秒.*获取奖励"] - [text~=".*奖励"] < RelativeLayout < LinearLayout < [id="android:id/content"]',
           ],
@@ -1903,9 +1901,8 @@ export default defineGkdApp({
         {
           key: 1,
           name: '二级广告页< ×',
-          actionDelay: 5000,
           matches: [
-            'TextView - @ImageView[width=height][clickable=true] - ImageView < FrameLayout < FrameLayout < [id="android:id/content"]',
+            'TextView[text="推荐阅读"] - @ImageView[width=height][clickable=true] - ImageView < FrameLayout < FrameLayout < [id="android:id/content"]',
           ],
         },
         {
@@ -1925,7 +1922,6 @@ export default defineGkdApp({
         {
           key: 4,
           name: '恭喜获得奖励-×',
-          actionDelay: 1000,
           matches: [
             '[getChild(0).getChild(3).name$="TextView"] -n @ImageView[clickable=true] - [text="恭喜获得奖励"] <n RelativeLayout < LinearLayout < [id="android:id/content"]',
           ],
