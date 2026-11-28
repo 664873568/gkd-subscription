@@ -123,6 +123,7 @@ export default defineGkdApp({
         {
           key: 14,
           name: '领奖励',
+          actionDelay: 1000,
           matches: [
             '@[text="领奖励"][clickable=true] <n View <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -136,6 +137,7 @@ export default defineGkdApp({
         {
           key: 15,
           name: '恭喜获得-×',
+          actionDelay: 1000,
           matches: [
             '@TextView[width=height][index=parent.childCount.minus(1)][clickable=true] <n View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -153,6 +155,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '去完成',
+          actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -n [text~="收藏任意频道"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
           ],
@@ -168,6 +172,8 @@ export default defineGkdApp({
         {
           preKeys: [0],
           key: 1,
+          name: '收藏',
+          actionDelay: 1000,
           matches: [
             '[text="收藏"] < @View[clickable=true] <n View < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -194,6 +200,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '去完成',
           actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] -n [text~="频道内发言|访问指定频道"] < View < View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"]',
@@ -212,6 +219,7 @@ export default defineGkdApp({
           preKeys: [10],
           key: 1,
           name: '提示-确定跳转至新频道-确定',
+          actionDelay: 1000,
           matches: [
             '@[text="确定"][clickable=true] <n View -n [text="提示"] < View < View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -295,6 +303,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '去完成',
           actionDelay: 2000,
           matches: [
             '@[text="去完成"][clickable=true] <n LinearLayout < FrameLayout <n FrameLayout < FrameLayout < ViewFactoryHolder <n View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
@@ -326,6 +335,7 @@ export default defineGkdApp({
         {
           key: 3,
           name: '领奖励',
+          actionDelay: 1000,
           matches: [
             '@[text="领奖励"] <n LinearLayout < FrameLayout <n FrameLayout < FrameLayout < ViewFactoryHolder <n View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -346,6 +356,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '看视频',
           actionDelay: 2000,
           matches: [
             '@[text="看视频"][clickable=true] <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
@@ -357,6 +368,8 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '领金币',
+          actionDelay: 1000,
           matches: [
             '@[text="领金币"][clickable=true] <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -369,6 +382,7 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           name: '恭喜获得-×',
+          actionDelay: 1000,
           matches: [
             '@TextView[width=height][clickable=true] < View < View <n View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -376,10 +390,12 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 3,
+          name: '恭喜获得-××',
           position: {
             left: 'width * 0.5',
             top: 'height * 1.075',
           },
+          actionDelay: 1000,
           matches: [
             '@View[childCount>0][index=parent.childCount.minus(1)] - TextView - [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
           ],
@@ -398,6 +414,7 @@ export default defineGkdApp({
       resetMatch: 'activity',
       rules: [
         {
+          name: '立即领取',
           anyMatches: [
             '[text="full.1aa72883"] <n @View[clickable=true] <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < View < View < ViewGroup < [id="android:id/content"]',
             '[text="full.1aa72883"] <n @View[clickable=true] <n View <n View <n [id="mainPanelWrapper"] <n View <n View < [id="root"] < View < WebView < WebView < ViewGroup < ViewFactoryHolder < View < View < ComposeView < ViewGroup <n FrameLayout < [id="android:id/content"]',
