@@ -251,6 +251,23 @@ export default defineGkdApp({
         },
       ],
     },
+    //功能应用类
+    {
+      key: 40,
+      name: '首页广告-跳过',
+      forcedTime: 60000,
+      matchRoot: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: [
+            '@[text="高冷拒绝"][vid="btn_cancel"][clickable=true] -n [text="喜欢加油宝吗?"] < LinearLayout < RelativeLayout < FrameLayout < [id="android:id/content"]',
+          ],
+          activityIds: ['.module.asset.balance.BalancesActivity'],
+        },
+      ],
+    },
     //首页广告类
     {
       key: 50,
@@ -261,7 +278,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          matches: ['[text~="跳过[0-9]s"][vid="btn_skip"][clickable=true]'],
+          matches: [
+            '[text^="跳过"][vid="btn_skip"][clickable=true]',
+          ],
           activityIds: ['.module.ucenter.enter.SplashScreenActivity'],
         },
       ],
