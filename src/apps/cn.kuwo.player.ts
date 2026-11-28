@@ -168,6 +168,8 @@ export default defineGkdApp({
           anyMatches: [
             '@[text~="立即下载|安装"][clickable=true] < View <n [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]',
             '@[text~="立即下载|安装"][clickable=true] < View < View < View <n [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]',
+            '@[text~="立即下载|安装"] <n View < View < View < View <n View <n View < View < [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]',
+            '@[text~="立即下载|安装"] < View < View < View < View < View < View <n View <n View < View < [id="root"] <n WebView < WebView < RelativeLayout <n RelativeLayout < ScrollView < RelativeLayout < [id="android:id/content"]'
           ],
           activityIds: ['com.qq.e.tg.PortraitADActivity'],
         },
@@ -199,7 +201,7 @@ export default defineGkdApp({
           name: '试玩*秒，领取金币',
           actionDelay: 2000,
           matches: [
-            '@Image -n @[text~="试玩.*秒，领取金币"] <n View <n View < WebView < WebView < [vid="pull_to_fresh"]',
+            '@[name*="Image"] -n @[text~="试玩.*秒，领取金币"] <n View <n View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
         },
         {
@@ -215,7 +217,7 @@ export default defineGkdApp({
           name: '去打开',
           actionDelay: 2000,
           matches: [
-            '@[text="去打开"] -n [text!~="后打开再领金币"] <n View <n View < View < View <n View <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
+            '@[text="去打开"] -n [text!~="后打开再领金币"] - TextView < View <n View < View < View <n View <n View < [id="root"] < View < WebView < WebView < [vid="pull_to_fresh"]',
           ],
           excludeMatches: [
             '@[name*="Image"][index=parent.childCount.minus(1)] <n View <n View < WebView < WebView < [vid="pull_to_fresh"]',
@@ -323,7 +325,7 @@ export default defineGkdApp({
     {
       scopeKeys: [14],
       key: 20,
-      name: '看视频-点击后，看15秒可获得奖励',
+      name: '看视频-点击广告浏览|后，看15秒可获得奖励',
       forcedTime: 60000,
       matchRoot: true,
       matchDelay: 1000,
@@ -337,7 +339,7 @@ export default defineGkdApp({
         {
           preKeys: [14],
           key: 0,
-          name: '点击后，看15秒可得奖励',
+          name: '点击浏览15秒',
           actionDelay: 2000,
           matches: [
             'View < @ViewGroup < ViewGroup - ViewGroup < ViewGroup - ViewGroup < ViewGroup <n ViewGroup < ViewGroup < ViewGroup < ViewGroup < ViewGroup < FrameLayout < FrameLayout <n [vid="tme_ad_container"]',
@@ -347,8 +349,10 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           name: '点击商品打开京东再得100金币',
-          matches: [
+          actionDelay: 1000,
+          anyMatches: [
             'TextView - Image < View < View < View < View < View < View <n [id="feature-wrapper"] < View <n View < [id="app"] < WebView < WebView - LinearLayout > [text="点击商品打开京东再得100金币"]',
+            'TextView - Image < View < View < View < View < View < View < [id="feature-wrapper"] < View <n View < [id="app"] < View < WebView < WebView - LinearLayout > [text="点击商品打开京东再得100金币"]',
           ],
         },
         {
@@ -366,6 +370,7 @@ export default defineGkdApp({
         {
           key: 3,
           name: '返回-< ×',
+          actionDelay: 5000,
           matches: [
             '@[text="恭喜已获得100金币"] <n LinearLayout < LinearLayout < FrameLayout <n FrameLayout < FrameLayout < [id="android:id/content"]',
             'ImageView - View - TextView - @ImageView[clickable=true] - View < FrameLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
