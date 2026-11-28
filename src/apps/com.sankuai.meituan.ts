@@ -600,7 +600,9 @@ export default defineGkdApp({
           matches: [
             '@[desc^="签到得现金 点击即到账"] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.meituan.android.novel.library.page.reader.ReaderActivity'],
+          activityIds: [
+            'com.meituan.android.novel.library.page.reader.ReaderActivity',
+          ],
         },
         {
           key: 2,
@@ -612,7 +614,9 @@ export default defineGkdApp({
           excludeMatches: [
             '@[desc^="签到得现金 点击即到账"] <n FrameLayout < FrameLayout < FrameLayout < FrameLayout <n RelativeLayout < [id="android:id/content"]',
           ],
-          activityIds: ['com.meituan.android.novel.library.page.reader.ReaderActivity'],
+          activityIds: [
+            'com.meituan.android.novel.library.page.reader.ReaderActivity',
+          ],
         },
         {
           preKeys: [2],
@@ -630,7 +634,9 @@ export default defineGkdApp({
           matches: [
             '[text="搜索"] <n View < View - @Image <<n [vid="container"] < [vid="msc_root"]',
           ],
-          activityIds: ['com.meituan.android.novel.library.page.video.stream.NovelVideoActivity'],
+          activityIds: [
+            'com.meituan.android.novel.library.page.video.stream.NovelVideoActivity',
+          ],
         },
         {
           key: 5,
@@ -647,7 +653,7 @@ export default defineGkdApp({
           activityIds: ['.msv.page.activity.MSVPageActivity'],
         },
         {
-          preKeys: [0,4,5,6, 7],
+          preKeys: [0, 4, 5, 6, 7],
           key: 7,
           action: 'back',
           matches: ['@[vid="msv_back"][clickable=true] +n [vid="msv_search"]'],
